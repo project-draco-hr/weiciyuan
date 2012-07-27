@@ -1,0 +1,7 @@
+{
+  if (TextUtils.isEmpty(urlContent))   return null;
+  if (!urlContent.startsWith("/")) {
+    urlContent="/" + urlContent;
+  }
+  return String.format(URL_FORMAT,URL_SINA_WEIBO,urlContent);
+}

@@ -6,7 +6,7 @@
       properties.load(inputStream);
     }
   }
- catch (  IOException e) {
+ catch (  IOException ignored) {
   }
   return properties.get(name).toString();
 }
