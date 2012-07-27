@@ -1,3 +1,0 @@
-{
-  mRequestHeader.addAll(params);
-}

@@ -1,3 +1,5 @@
 {
-  authorize(activity,new String[]{},DEFAULT_AUTH_ACTIVITY_CODE,listener);
+  Utility.setAuthorization(new Oauth2AccessTokenHeader());
+  mAuthDialogListener=listener;
+  startDialogAuth(activity,new String[]{});
 }

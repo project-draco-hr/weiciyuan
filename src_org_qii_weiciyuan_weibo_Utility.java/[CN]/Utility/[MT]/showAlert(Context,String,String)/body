@@ -1,6 +1,0 @@
-{
-  Builder alertBuilder=new Builder(context);
-  alertBuilder.setTitle(title);
-  alertBuilder.setMessage(text);
-  alertBuilder.create().show();
-}
