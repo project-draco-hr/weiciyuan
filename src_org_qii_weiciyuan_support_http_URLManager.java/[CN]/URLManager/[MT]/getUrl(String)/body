@@ -1,0 +1,12 @@
+{
+  try {
+    if (properties.isEmpty()) {
+      Context context=GlobalContext.getInstance();
+      InputStream inputStream=context.getResources().openRawResource(R.raw.url);
+      properties.load(inputStream);
+    }
+  }
+ catch (  IOException e) {
+  }
+  return properties.get(name).toString();
+}
