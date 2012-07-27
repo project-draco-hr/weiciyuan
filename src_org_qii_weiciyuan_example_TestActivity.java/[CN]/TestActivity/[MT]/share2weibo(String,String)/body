@@ -1,4 +1,0 @@
-{
-  Weibo weibo=Weibo.getInstance();
-  weibo.share2weibo(this,weibo.getAccessToken().getToken(),weibo.getAccessToken().getSecret(),content,picPath);
-}

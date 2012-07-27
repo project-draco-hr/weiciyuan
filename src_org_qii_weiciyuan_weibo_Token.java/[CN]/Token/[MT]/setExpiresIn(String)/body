@@ -1,0 +1,5 @@
+{
+  if (expiresIn != null && !expiresIn.equals("0")) {
+    setExpiresIn(System.currentTimeMillis() + Integer.parseInt(expiresIn) * 1000);
+  }
+}

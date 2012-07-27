@@ -1,0 +1,4 @@
+Weibo weibo
+Context context
+String url
+WeiboDialogListener listener

@@ -1,0 +1,6 @@
+{
+  if (this.mKeys.contains(key)) {
+    return this.mKeys.indexOf(key);
+  }
+  return -1;
+}

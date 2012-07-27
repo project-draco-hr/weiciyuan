@@ -1,0 +1,14 @@
+{
+  Bundle values=Utility.parseUrl(url);
+  String error=values.getString("error");
+  String error_code=values.getString("error_code");
+  if (error == null && error_code == null) {
+    mListener.onComplete(values);
+  }
+ else   if (error.equals("access_denied")) {
+    mListener.onCancel();
+  }
+ else {
+    mListener.onWeiboException(new WeiboException(error,Integer.parseInt(error_code)));
+  }
+}

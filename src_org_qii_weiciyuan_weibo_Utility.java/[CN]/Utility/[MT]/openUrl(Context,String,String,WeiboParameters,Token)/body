@@ -1,0 +1,18 @@
+{
+  String rlt="";
+  String file="";
+  for (int loc=0; loc < params.size(); loc++) {
+    String key=params.getKey(loc);
+    if (key.equals("pic")) {
+      file=params.getValue(key);
+      params.remove(key);
+    }
+  }
+  if (TextUtils.isEmpty(file)) {
+    rlt=openUrl(context,url,method,params,null,token);
+  }
+ else {
+    rlt=openUrl(context,url,method,params,file,token);
+  }
+  return rlt;
+}

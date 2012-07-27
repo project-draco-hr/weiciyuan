@@ -1,0 +1,12 @@
+{
+  url=url.replace("weiboconnect","http");
+  try {
+    URL u=new URL(url);
+    Bundle b=decodeUrl(u.getQuery());
+    b.putAll(decodeUrl(u.getRef()));
+    return b;
+  }
+ catch (  MalformedURLException e) {
+    return new Bundle();
+  }
+}

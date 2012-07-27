@@ -1,0 +1,4 @@
+{
+  mKeys.remove(key);
+  this.mParameters.remove(key);
+}

@@ -1,0 +1,22 @@
+{
+  StringBuffer buf=new StringBuffer();
+  for (int i=0; i < postParams.size(); i++) {
+    if (buf.length() != 0) {
+      if (quot) {
+        buf.append("\"");
+      }
+      buf.append(splitter);
+    }
+    buf.append(encode(postParams.getKey(i))).append("=");
+    if (quot) {
+      buf.append("\"");
+    }
+    buf.append(encode(postParams.getValue(i)));
+  }
+  if (buf.length() != 0) {
+    if (quot) {
+      buf.append("\"");
+    }
+  }
+  return buf.toString();
+}

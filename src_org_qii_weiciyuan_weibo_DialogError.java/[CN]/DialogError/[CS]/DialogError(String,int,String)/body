@@ -1,0 +1,5 @@
+{
+  super(message);
+  mErrorCode=errorCode;
+  mFailingUrl=failingUrl;
+}

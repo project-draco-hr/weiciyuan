@@ -1,0 +1,6 @@
+{
+  if (mWeiboInstance == null) {
+    mWeiboInstance=new Weibo();
+  }
+  return mWeiboInstance;
+}

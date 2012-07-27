@@ -1,0 +1,28 @@
+{
+  StringBuilder temp=new StringBuilder();
+  temp.append(MP_BOUNDARY).append("\r\n");
+  temp.append("Content-Disposition: form-data; name=\"pic\"; filename=\"").append("news_image").append("\"\r\n");
+  String filetype="image/png";
+  temp.append("Content-Type: ").append(filetype).append("\r\n\r\n");
+  byte[] res=temp.toString().getBytes();
+  BufferedInputStream bis=null;
+  try {
+    out.write(res);
+    imgpath.compress(CompressFormat.PNG,75,out);
+    out.write("\r\n".getBytes());
+    out.write(("\r\n" + END_MP_BOUNDARY).getBytes());
+  }
+ catch (  IOException e) {
+    throw new WeiboException(e);
+  }
+ finally {
+    if (null != bis) {
+      try {
+        bis.close();
+      }
+ catch (      IOException e) {
+        throw new WeiboException(e);
+      }
+    }
+  }
+}

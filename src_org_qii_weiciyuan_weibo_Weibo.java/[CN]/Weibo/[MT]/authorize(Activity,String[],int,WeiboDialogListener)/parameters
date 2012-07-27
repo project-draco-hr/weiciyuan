@@ -1,0 +1,4 @@
+Activity activity
+String[] permissions
+int activityCode
+WeiboDialogListener listener

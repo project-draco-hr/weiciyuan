@@ -1,0 +1,5 @@
+Context context
+String url
+String method
+WeiboParameters params
+Token token

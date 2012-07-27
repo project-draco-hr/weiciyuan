@@ -1,0 +1,15 @@
+{
+  WeiboParameters authParams=new WeiboParameters();
+  authParams.add("oauth_consumer_key",Weibo.getAppKey());
+  authParams.add("oauth_nonce",String.valueOf(nonce));
+  authParams.add("oauth_signature_method",HttpHeaderFactory.CONST_SIGNATURE_METHOD);
+  authParams.add("oauth_timestamp",String.valueOf(timestamp));
+  authParams.add("oauth_version",HttpHeaderFactory.CONST_OAUTH_VERSION);
+  if (token != null) {
+    authParams.add("oauth_token",token.getToken());
+  }
+ else {
+    authParams.add("source",Weibo.getAppKey());
+  }
+  return authParams;
+}

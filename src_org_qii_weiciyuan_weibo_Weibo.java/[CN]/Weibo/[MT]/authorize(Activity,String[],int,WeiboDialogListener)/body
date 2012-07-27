@@ -1,0 +1,5 @@
+{
+  Utility.setAuthorization(new Oauth2AccessTokenHeader());
+  mAuthDialogListener=listener;
+  startDialogAuth(activity,permissions);
+}

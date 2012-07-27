@@ -1,0 +1,11 @@
+{
+  Log.d(TAG,"onPageStarted URL: " + url);
+  if (url.startsWith(mWeibo.getRedirectUrl())) {
+    handleRedirectUrl(view,url);
+    view.stopLoading();
+    WeiboDialog.this.dismiss();
+    return;
+  }
+  super.onPageStarted(view,url,favicon);
+  mSpinner.show();
+}

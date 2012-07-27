@@ -1,0 +1,3 @@
+{
+  authorize(activity,new String[]{},DEFAULT_AUTH_ACTIVITY_CODE,listener);
+}

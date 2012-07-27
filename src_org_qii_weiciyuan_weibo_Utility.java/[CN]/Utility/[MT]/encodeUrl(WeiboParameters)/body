@@ -1,0 +1,13 @@
+{
+  if (parameters == null) {
+    return "";
+  }
+  StringBuilder sb=new StringBuilder();
+  boolean first=true;
+  for (int loc=0; loc < parameters.size(); loc++) {
+    if (first)     first=false;
+ else     sb.append("&");
+    sb.append(URLEncoder.encode(parameters.getKey(loc)) + "=" + URLEncoder.encode(parameters.getValue(loc)));
+  }
+  return sb.toString();
+}

@@ -1,0 +1,6 @@
+{
+  if (mAccessToken != null) {
+    return (!TextUtils.isEmpty(mAccessToken.getToken()) && (mAccessToken.getExpiresIn() == 0 || (System.currentTimeMillis() < mAccessToken.getExpiresIn())));
+  }
+  return false;
+}

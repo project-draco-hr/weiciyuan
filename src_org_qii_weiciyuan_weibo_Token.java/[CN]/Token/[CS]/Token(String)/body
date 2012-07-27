@@ -1,0 +1,5 @@
+{
+  responseStr=rltString.split("&");
+  mOauth_Token_Secret=getParameter("oauth_token_secret");
+  mToken=getParameter("oauth_token");
+}

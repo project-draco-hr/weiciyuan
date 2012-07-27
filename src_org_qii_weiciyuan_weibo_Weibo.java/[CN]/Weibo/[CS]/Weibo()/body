@@ -1,0 +1,4 @@
+{
+  Utility.setRequestHeader("Accept-Encoding","gzip");
+  Utility.setTokenObject(this.mRequestToken);
+}

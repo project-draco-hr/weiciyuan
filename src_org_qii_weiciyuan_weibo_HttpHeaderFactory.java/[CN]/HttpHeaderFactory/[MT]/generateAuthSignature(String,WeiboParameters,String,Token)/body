@@ -1,0 +1,6 @@
+{
+  StringBuffer base=new StringBuffer(method).append("&").append(encode(constructRequestURL(url))).append("&");
+  base.append(encode(encodeParameters(signatureParams,"&",false)));
+  String oauthBaseString=base.toString();
+  return oauthBaseString;
+}

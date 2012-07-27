@@ -1,0 +1,5 @@
+{
+  super.onReceivedError(view,errorCode,description,failingUrl);
+  mListener.onError(new DialogError(description,errorCode,failingUrl));
+  WeiboDialog.this.dismiss();
+}

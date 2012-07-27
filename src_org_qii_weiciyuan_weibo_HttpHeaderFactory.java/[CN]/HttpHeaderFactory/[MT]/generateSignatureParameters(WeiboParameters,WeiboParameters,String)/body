@@ -1,0 +1,9 @@
+{
+  WeiboParameters signatureParams=new WeiboParameters();
+  signatureParams.addAll(authParams);
+  signatureParams.add("source",Weibo.getAppKey());
+  signatureParams.addAll(params);
+  this.parseUrlParameters(url,signatureParams);
+  WeiboParameters lsp=generateSignatureList(signatureParams);
+  return lsp;
+}

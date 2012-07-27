@@ -1,0 +1,6 @@
+{
+  if (token == null) {
+    return null;
+  }
+  return "OAuth2 " + token.getToken();
+}

@@ -1,0 +1,26 @@
+{
+  String result="";
+  HttpEntity entity=response.getEntity();
+  InputStream inputStream;
+  try {
+    inputStream=entity.getContent();
+    ByteArrayOutputStream content=new ByteArrayOutputStream();
+    Header header=response.getFirstHeader("Content-Encoding");
+    if (header != null && header.getValue().toLowerCase().indexOf("gzip") > -1) {
+      inputStream=new GZIPInputStream(inputStream);
+    }
+    int readBytes=0;
+    byte[] sBuffer=new byte[512];
+    while ((readBytes=inputStream.read(sBuffer)) != -1) {
+      content.write(sBuffer,0,readBytes);
+    }
+    result=new String(content.toByteArray());
+    return result;
+  }
+ catch (  IllegalStateException e) {
+    throw new WeiboException(e);
+  }
+catch (  IOException e) {
+    throw new WeiboException(e);
+  }
+}
