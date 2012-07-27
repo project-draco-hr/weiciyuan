@@ -1,0 +1,11 @@
+{
+  String token=values.getString("access_token");
+  String expires_in=values.getString("expires_in");
+  mToken.setText("access_token : " + token + "  expires_in: "+ expires_in);
+  AccessToken accessToken=new AccessToken(token,CONSUMER_SECRET);
+  accessToken.setExpiresIn(expires_in);
+  Weibo.getInstance().setAccessToken(accessToken);
+  Intent intent=new Intent();
+  intent.setClass(AuthorizeActivity.this,TestActivity.class);
+  startActivity(intent);
+}

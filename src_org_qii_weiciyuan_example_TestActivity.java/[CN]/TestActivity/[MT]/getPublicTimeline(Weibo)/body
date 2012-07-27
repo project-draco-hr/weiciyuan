@@ -1,0 +1,7 @@
+{
+  String url=Weibo.SERVER + "statuses/public_timeline.json";
+  WeiboParameters bundle=new WeiboParameters();
+  bundle.add("source",Weibo.getAppKey());
+  String rlt=weibo.request(this,url,bundle,"GET",mWeibo.getAccessToken());
+  return rlt;
+}

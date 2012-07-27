@@ -1,0 +1,3 @@
+{
+  Toast.makeText(getApplicationContext(),"Auth error : " + e.getMessage(),Toast.LENGTH_LONG).show();
+}

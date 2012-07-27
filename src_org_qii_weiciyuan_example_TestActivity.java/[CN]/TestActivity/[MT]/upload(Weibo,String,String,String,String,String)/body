@@ -1,0 +1,21 @@
+{
+  WeiboParameters bundle=new WeiboParameters();
+  bundle.add("source",source);
+  bundle.add("pic",file);
+  bundle.add("status",status);
+  if (!TextUtils.isEmpty(lon)) {
+    bundle.add("lon",lon);
+  }
+  if (!TextUtils.isEmpty(lat)) {
+    bundle.add("lat",lat);
+  }
+  String rlt="";
+  String url=Weibo.SERVER + "statuses/upload.json";
+  try {
+    rlt=weibo.request(this,url,bundle,Utility.HTTPMETHOD_POST,mWeibo.getAccessToken());
+  }
+ catch (  WeiboException e) {
+    throw new WeiboException(e);
+  }
+  return rlt;
+}

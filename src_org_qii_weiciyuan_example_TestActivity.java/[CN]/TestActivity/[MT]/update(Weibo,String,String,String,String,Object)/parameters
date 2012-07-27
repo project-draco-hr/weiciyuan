@@ -1,0 +1,6 @@
+Weibo weibo
+String source
+String status
+String lon
+String lat
+Object o
