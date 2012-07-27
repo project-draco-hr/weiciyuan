@@ -1,4 +1,10 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.main);
+  SharedPreferences settings=getPreferences(MODE_PRIVATE);
+  String account=settings.getString("username","");
+  if (!TextUtils.isEmpty(account)) {
+    startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+    finish();
+  }
 }
