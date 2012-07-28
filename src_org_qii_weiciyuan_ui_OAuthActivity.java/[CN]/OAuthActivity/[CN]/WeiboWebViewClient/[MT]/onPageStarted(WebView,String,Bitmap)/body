@@ -1,3 +1,8 @@
 {
+  if (url.startsWith(DIRECT_URL)) {
+    handleRedirectUrl(view,url);
+    view.stopLoading();
+    return;
+  }
   super.onPageStarted(view,url,favicon);
 }

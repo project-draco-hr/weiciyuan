@@ -1,0 +1,11 @@
+{
+  Bundle values=Utility.parseUrl(url);
+  String error=values.getString("error");
+  String error_code=values.getString("error_code");
+  Intent intent=new Intent();
+  intent.putExtras(values);
+  if (error == null && error_code == null) {
+    setResult(0,intent);
+    finish();
+  }
+}

@@ -1,3 +1,4 @@
 {
+  view.loadUrl(url);
   return true;
 }
