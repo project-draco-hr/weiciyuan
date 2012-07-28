@@ -1,5 +1,4 @@
 {
   Intent intent=new Intent(this,OAuthActivity.class);
-  intent.putExtra("url","http://www.cnbeta.com");
   startActivityForResult(intent,0);
 }

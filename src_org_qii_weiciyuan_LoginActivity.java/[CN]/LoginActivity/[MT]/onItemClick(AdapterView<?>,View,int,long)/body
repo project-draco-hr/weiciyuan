@@ -1,2 +1,9 @@
 {
+  String token=accountList.get(i);
+  SharedPreferences settings=getPreferences(MODE_PRIVATE);
+  SharedPreferences.Editor editor=settings.edit();
+  editor.putString("token",token);
+  Intent intent=new Intent(this,TestActivity.class);
+  intent.putExtra("token",token);
+  startActivity(intent);
 }

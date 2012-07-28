@@ -5,6 +5,5 @@
     String expires_in=values.getString("expires_in");
     accountList.add(access_token);
     accountAdapter.notifyDataSetChanged();
-    Toast.makeText(this,access_token,Toast.LENGTH_SHORT).show();
   }
 }
