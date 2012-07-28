@@ -1,0 +1,5 @@
+{
+  LayoutInflater layoutInflater=getLayoutInflater();
+  View mView=layoutInflater.inflate(R.layout.account_item,viewGroup,false);
+  return mView;
+}

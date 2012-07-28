@@ -1,10 +1,14 @@
 {
   super.onCreate(savedInstanceState);
-  setContentView(R.layout.account);
+  setContentView(R.layout.login);
   SharedPreferences settings=getPreferences(MODE_PRIVATE);
   String account=settings.getString("username","");
   if (!TextUtils.isEmpty(account)) {
     startActivity(new Intent(LoginActivity.this,HomeActivity.class));
     finish();
   }
+  listView=(ListView)findViewById(R.id.listView);
+  listView.setOnItemClickListener(this);
+  listView.setOnItemLongClickListener(this);
+  listView.setAdapter(new AccountAdapter());
 }
