@@ -1,0 +1,7 @@
+{
+  MyProgressDialogFragment frag=new MyProgressDialogFragment();
+  frag.setRetainInstance(true);
+  Bundle args=new Bundle();
+  frag.setArguments(args);
+  return frag;
+}
