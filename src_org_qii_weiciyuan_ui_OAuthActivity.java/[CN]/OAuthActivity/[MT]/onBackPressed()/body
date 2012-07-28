@@ -1,0 +1,8 @@
+{
+  if (webView.canGoBack()) {
+    webView.goBack();
+  }
+ else {
+    finish();
+  }
+}

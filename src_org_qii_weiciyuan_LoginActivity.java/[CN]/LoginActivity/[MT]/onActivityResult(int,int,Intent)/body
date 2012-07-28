@@ -1,8 +1,10 @@
 {
-  Bundle values=data.getExtras();
-  String access_token=values.getString("access_token");
-  String expires_in=values.getString("expires_in");
-  accountList.add(access_token);
-  accountAdapter.notifyDataSetChanged();
-  Toast.makeText(this,access_token,Toast.LENGTH_SHORT).show();
+  if (data != null) {
+    Bundle values=data.getExtras();
+    String access_token=values.getString("access_token");
+    String expires_in=values.getString("expires_in");
+    accountList.add(access_token);
+    accountAdapter.notifyDataSetChanged();
+    Toast.makeText(this,access_token,Toast.LENGTH_SHORT).show();
+  }
 }
