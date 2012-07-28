@@ -4,6 +4,5 @@
   parameters.add("response_type","token");
   parameters.add("redirect_uri",DIRECT_URL);
   parameters.add("display","mobile");
-  String url=URL_OAUTH2_ACCESS_AUTHORIZE + "?" + Utility.encodeUrl(parameters);
-  return url;
+  return URL_OAUTH2_ACCESS_AUTHORIZE + "?" + Utility.encodeUrl(parameters);
 }

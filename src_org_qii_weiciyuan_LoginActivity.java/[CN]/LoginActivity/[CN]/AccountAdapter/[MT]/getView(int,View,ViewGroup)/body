@@ -1,5 +1,7 @@
 {
   LayoutInflater layoutInflater=getLayoutInflater();
   View mView=layoutInflater.inflate(R.layout.account_item,viewGroup,false);
+  TextView textView=(TextView)mView.findViewById(R.id.textView);
+  textView.setText(accountList.get(i));
   return mView;
 }

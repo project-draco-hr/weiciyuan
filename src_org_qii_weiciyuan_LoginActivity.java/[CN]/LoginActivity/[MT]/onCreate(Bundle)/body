@@ -10,5 +10,6 @@
   listView=(ListView)findViewById(R.id.listView);
   listView.setOnItemClickListener(this);
   listView.setOnItemLongClickListener(this);
-  listView.setAdapter(new AccountAdapter());
+  accountAdapter=new AccountAdapter();
+  listView.setAdapter(accountAdapter);
 }

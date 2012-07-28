@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.oauth);
-  webView=(WebView)findViewById(R.id.webView);
+  WebView webView=(WebView)findViewById(R.id.webView);
   webView.setWebViewClient(new WeiboWebViewClient());
   WebSettings settings=webView.getSettings();
   settings.setJavaScriptEnabled(true);
