@@ -1,8 +1,5 @@
 {
   WeiboParameters params=new WeiboParameters();
-  if (permissions.length > 0) {
-    params.add("scope",TextUtils.join(",",permissions));
-  }
   CookieSyncManager.createInstance(activity);
   dialog(activity,params,new WeiboDialogListener(){
     public void onComplete(    Bundle values){

@@ -7,9 +7,5 @@
     parameters.add(TOKEN,mAccessToken.getToken());
   }
   String url=URL_OAUTH2_ACCESS_AUTHORIZE + "?" + Utility.encodeUrl(parameters);
-  if (context.checkCallingOrSelfPermission(Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
-  }
- else {
-    new WeiboDialog(this,context,url,listener).show();
-  }
+  new WeiboDialog(this,context,url,listener).show();
 }
