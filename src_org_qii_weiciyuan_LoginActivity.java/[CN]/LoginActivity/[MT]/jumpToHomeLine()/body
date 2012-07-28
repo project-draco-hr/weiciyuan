@@ -1,0 +1,16 @@
+{
+  SharedPreferences settings=getPreferences(MODE_PRIVATE);
+  String username=settings.getString("username","");
+  String token=settings.getString("token","");
+  boolean haveToken=!TextUtils.isEmpty(token);
+  boolean haveUsername=!TextUtils.isEmpty(username);
+  if (haveToken) {
+    Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
+    intent.putExtra("token",token);
+    if (haveUsername) {
+      intent.putExtra("username",username);
+    }
+    startActivity(intent);
+    finish();
+  }
+}

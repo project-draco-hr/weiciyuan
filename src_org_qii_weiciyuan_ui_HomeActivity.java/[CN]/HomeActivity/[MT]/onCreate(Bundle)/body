@@ -1,0 +1,9 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.timeline);
+  Intent intent=getIntent();
+  token=intent.getStringExtra("token");
+  String username=intent.getStringExtra("username");
+  if (TextUtils.isEmpty(username))   setTitle(username);
+  ((TextView)findViewById(R.id.tvResult)).setText(token);
+}

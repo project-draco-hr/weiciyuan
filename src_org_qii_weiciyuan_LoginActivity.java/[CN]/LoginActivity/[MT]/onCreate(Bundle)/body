@@ -1,53 +1,11 @@
 {
+  jumpToHomeLine();
   super.onCreate(savedInstanceState);
   setContentView(R.layout.login);
-  SharedPreferences settings=getPreferences(MODE_PRIVATE);
-  String account=settings.getString("username","");
-  if (!TextUtils.isEmpty(account)) {
-    startActivity(new Intent(LoginActivity.this,HomeActivity.class));
-    finish();
-  }
+  listAdapter=new AccountAdapter();
   listView=(ListView)findViewById(R.id.listView);
-  listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
   listView.setOnItemClickListener(this);
-  accountAdapter=new AccountAdapter();
-  listView.setAdapter(accountAdapter);
-  listView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener(){
-    boolean checkAll=false;
-    @Override public void onItemCheckedStateChanged(    ActionMode mode,    int position,    long id,    boolean checked){
-    }
-    @Override public boolean onActionItemClicked(    ActionMode mode,    MenuItem item){
-switch (item.getItemId()) {
-case R.id.menu_select_all:
-        if (!checkAll) {
-          accountAdapter.selectAll();
-          checkAll=true;
-          item.setIcon(R.drawable.account_select_none);
-        }
- else {
-          accountAdapter.unSelectButRemainCheckBoxAll();
-          checkAll=false;
-          item.setIcon(R.drawable.account_select_all);
-        }
-      return true;
-default :
-    Toast.makeText(LoginActivity.this,"??????",Toast.LENGTH_SHORT).show();
-  mode.finish();
-return false;
-}
-}
-@Override public boolean onCreateActionMode(ActionMode mode,Menu menu){
-MenuInflater inflater=mode.getMenuInflater();
-inflater.inflate(R.menu.login_menu,menu);
-return true;
-}
-@Override public void onDestroyActionMode(ActionMode mode){
-accountAdapter.unSelectAll();
-}
-@Override public boolean onPrepareActionMode(ActionMode mode,Menu menu){
-accountAdapter.addCheckbox();
-return false;
-}
-}
-);
+  listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+  listView.setAdapter(listAdapter);
+  listView.setMultiChoiceModeListener(multiChoiceModeLinstener);
 }
