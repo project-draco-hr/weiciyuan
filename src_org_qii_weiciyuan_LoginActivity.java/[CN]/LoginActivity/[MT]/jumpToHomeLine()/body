@@ -2,11 +2,13 @@
   SharedPreferences settings=getPreferences(MODE_PRIVATE);
   String username=settings.getString("username","");
   String token=settings.getString("token","");
-  boolean haveToken=!TextUtils.isEmpty(token);
+  String expires=settings.getString("expires","");
+  boolean haveToken=!TextUtils.isEmpty(token) && !TextUtils.isEmpty(expires);
   boolean haveUsername=!TextUtils.isEmpty(username);
   if (haveToken) {
     Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
     intent.putExtra("token",token);
+    intent.putExtra("expires",expires);
     if (haveUsername) {
       intent.putExtra("username",username);
     }

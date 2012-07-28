@@ -8,6 +8,6 @@
     linearLayout.addView(cb,0);
   }
   TextView textView=(TextView)mView.findViewById(R.id.textView);
-  textView.setText(listData.get(i));
+  textView.setText(listData.get(i).get("token"));
   return mView;
 }

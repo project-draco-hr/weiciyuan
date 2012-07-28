@@ -1,7 +1,8 @@
 {
   if (TextUtils.isEmpty(urlContent))   return null;
-  if (!urlContent.startsWith("/")) {
-    urlContent="/" + urlContent;
+  String url=getUrl(urlContent);
+  if (!url.startsWith("/")) {
+    url="/" + url;
   }
-  return String.format(URL_FORMAT,URL_SINA_WEIBO,urlContent);
+  return String.format(URL_FORMAT,URL_SINA_WEIBO,url);
 }

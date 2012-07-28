@@ -2,8 +2,22 @@
   super.onCreate(savedInstanceState);
   setContentView(R.layout.timeline);
   Intent intent=getIntent();
-  token=intent.getStringExtra("token");
+  String token=intent.getStringExtra("token");
+  String expires=intent.getStringExtra("expires");
   String username=intent.getStringExtra("username");
   if (TextUtils.isEmpty(username))   setTitle(username);
+  GlobalContext.getInstance().setToken(token);
+  GlobalContext.getInstance().setExpires(expires);
   ((TextView)findViewById(R.id.tvResult)).setText(token);
+  new AsyncTask<Void,String,String>(){
+    @Override protected String doInBackground(    Void... params){
+      return HomeLineMsg.getMsgstr();
+    }
+    @Override protected void onPostExecute(    String o){
+      Log.e("dddd","1" + o);
+      ((TextView)findViewById(R.id.tvResult)).setText(o);
+      super.onPostExecute(o);
+    }
+  }
+.execute();
 }

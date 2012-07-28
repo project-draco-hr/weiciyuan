@@ -2,7 +2,6 @@
   super.onCreate(savedInstanceState);
   this.setContentView(R.layout.timeline);
   mResult=(TextView)this.findViewById(R.id.tvResult);
-  Button getShare=(Button)this.findViewById(R.id.btnShare);
   new AsyncTask<Void,String,String>(){
     @Override protected String doInBackground(    Void... params){
       try {
