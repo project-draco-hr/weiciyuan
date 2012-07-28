@@ -1,0 +1,26 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.timeline);
+  listView=(ListView)findViewById(R.id.listView);
+  timeLineAdapter=new TimeLineAdapter();
+  listView.setAdapter(timeLineAdapter);
+  Intent intent=getIntent();
+  String token=intent.getStringExtra("token");
+  String expires=intent.getStringExtra("expires");
+  String username=intent.getStringExtra("username");
+  if (TextUtils.isEmpty(username))   setTitle(username);
+  GlobalContext.getInstance().setToken(token);
+  GlobalContext.getInstance().setExpires(expires);
+  new AsyncTask<Void,List<Map<String,String>>,List<Map<String,String>>>(){
+    @Override protected List<Map<String,String>> doInBackground(    Void... params){
+      return new MentionsTimeLineMsg().getMsgList();
+    }
+    @Override protected void onPostExecute(    List<Map<String,String>> o){
+      ((TextView)findViewById(R.id.tvResult)).setText(o.get(0).get("text"));
+      list=o;
+      timeLineAdapter.notifyDataSetChanged();
+      super.onPostExecute(o);
+    }
+  }
+.execute();
+}
