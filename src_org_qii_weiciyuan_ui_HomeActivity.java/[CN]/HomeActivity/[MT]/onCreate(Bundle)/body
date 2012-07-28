@@ -11,7 +11,7 @@
   ((TextView)findViewById(R.id.tvResult)).setText(token);
   new AsyncTask<Void,String,String>(){
     @Override protected String doInBackground(    Void... params){
-      return HomeLineMsg.getMsgstr();
+      return new MentionsTimeLineMsg().getMsgs();
     }
     @Override protected void onPostExecute(    String o){
       Log.e("dddd","1" + o);

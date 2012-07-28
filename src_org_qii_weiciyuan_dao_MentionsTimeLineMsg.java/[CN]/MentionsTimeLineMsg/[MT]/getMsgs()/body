@@ -1,0 +1,16 @@
+{
+  Token token=new Token();
+  token.setToken(GlobalContext.getInstance().getToken());
+  token.setExpiresIn(GlobalContext.getInstance().getExpires());
+  String url=URLHelper.getMentionsTimeLine();
+  WeiboParameters bundle=new WeiboParameters();
+  bundle.add("access_token",GlobalContext.getInstance().getToken());
+  try {
+    String str=Utility.openUrl(GlobalContext.getInstance(),url,"GET",bundle,token);
+    return str;
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+  }
+  return "";
+}
