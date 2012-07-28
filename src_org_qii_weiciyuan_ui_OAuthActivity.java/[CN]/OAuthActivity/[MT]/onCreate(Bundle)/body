@@ -5,17 +5,6 @@
   actionBar.setDisplayHomeAsUpEnabled(true);
   webView=(WebView)findViewById(R.id.webView);
   webView.setWebViewClient(new WeiboWebViewClient());
-  webView.setWebChromeClient(new WebChromeClient(){
-    @Override public boolean onJsAlert(    WebView view,    String url,    String message,    JsResult result){
-      Toast.makeText(OAuthActivity.this,"??????",Toast.LENGTH_SHORT).show();
-      return super.onJsAlert(view,url,message,result);
-    }
-    @Override public boolean onJsConfirm(    WebView view,    String url,    String message,    JsResult result){
-      Toast.makeText(OAuthActivity.this,"??????",Toast.LENGTH_SHORT).show();
-      return super.onJsConfirm(view,url,message,result);
-    }
-  }
-);
   WebSettings settings=webView.getSettings();
   settings.setJavaScriptEnabled(true);
   webView.loadUrl(getWeiboOAuthUrl());
