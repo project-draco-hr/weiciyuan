@@ -6,7 +6,7 @@ case Get:
   try {
     return doGet(url,param);
   }
- catch (  URISyntaxException e) {
+ catch (  Exception e) {
   }
 }
 return "";

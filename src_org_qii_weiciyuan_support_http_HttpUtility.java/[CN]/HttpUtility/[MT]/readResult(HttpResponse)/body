@@ -1,0 +1,10 @@
+{
+  HttpEntity entity=response.getEntity();
+  String result="";
+  try {
+    result=EntityUtils.toString(entity);
+  }
+ catch (  IOException e) {
+  }
+  return result;
+}
