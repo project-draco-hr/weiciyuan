@@ -1,1 +1,1 @@
-AsyncTask<Void,List<Map<String,String>>,List<Map<String,String>>>
+AsyncTask<Void,TimeLineMsgList,TimeLineMsgList>

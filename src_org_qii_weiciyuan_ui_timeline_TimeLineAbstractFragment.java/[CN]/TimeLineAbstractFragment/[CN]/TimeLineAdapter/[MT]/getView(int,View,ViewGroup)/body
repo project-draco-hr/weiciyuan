@@ -11,10 +11,10 @@
  else {
     holder=(ViewHolder)convertView.getTag();
   }
-  Map<String,String> map=list.get(position);
-  holder.screenName.setText(map.get("screen_name"));
-  holder.txt.setText(map.get("text"));
-  holder.time.setText("" + position);
+  WeiboMsg msg=list.getStatuses().get(position);
+  holder.screenName.setText(msg.getUser().getScreen_name());
+  holder.txt.setText(msg.getText());
+  holder.time.setText(msg.getCreated_at());
   holder.pic.setImageDrawable(getResources().getDrawable(R.drawable.app));
   return convertView;
 }
