@@ -1,5 +1,6 @@
 {
   list.addAll(0,o);
+  Toast.makeText(getActivity(),"" + list.size(),Toast.LENGTH_SHORT).show();
   dialogFragment.dismissAllowingStateLoss();
   timeLineAdapter.notifyDataSetChanged();
   super.onPostExecute(o);
