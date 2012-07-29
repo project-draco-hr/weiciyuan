@@ -1,0 +1,6 @@
+{
+  String url=URLManager.getRealUrl("update");
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("status",str);
+  HttpUtility.getInstance().execute(HttpMethod.Post,url,map);
+}

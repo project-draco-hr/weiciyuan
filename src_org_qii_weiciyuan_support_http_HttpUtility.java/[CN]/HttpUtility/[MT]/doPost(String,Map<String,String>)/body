@@ -1,3 +1,24 @@
 {
-  return "";
+  List<NameValuePair> formparams=new ArrayList<NameValuePair>();
+  formparams.add(new BasicNameValuePair("access_token",GlobalContext.getInstance().getToken()));
+  Set<String> keys=param.keySet();
+  for (  String key : keys) {
+    formparams.add(new BasicNameValuePair(key,param.get(key)));
+  }
+  UrlEncodedFormEntity entity=null;
+  try {
+    entity=new UrlEncodedFormEntity(formparams,"UTF-8");
+  }
+ catch (  UnsupportedEncodingException e) {
+  }
+  HttpPost httppost=new HttpPost(url);
+  httppost.setEntity(entity);
+  HttpResponse response=null;
+  try {
+    response=httpclient.execute(httppost);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  return dealWithResponse(response);
 }

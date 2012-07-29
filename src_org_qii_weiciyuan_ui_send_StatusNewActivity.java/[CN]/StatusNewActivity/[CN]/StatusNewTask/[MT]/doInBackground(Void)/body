@@ -1,0 +1,4 @@
+{
+  new StatusNewMsg().sendNewMsg(content);
+  return null;
+}

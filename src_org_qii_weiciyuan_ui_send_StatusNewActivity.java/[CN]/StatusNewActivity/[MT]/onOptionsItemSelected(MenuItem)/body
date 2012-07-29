@@ -12,6 +12,10 @@ MyAlertDialogFragment myAlertDialogFragment=MyAlertDialogFragment.newInstance();
 myAlertDialogFragment.show(getFragmentManager(),"");
 break;
 case R.id.menu_send:
+final String content=((EditText)findViewById(R.id.status_new_content)).getText().toString();
+if (!TextUtils.isEmpty(content)) {
+new StatusNewTask(content).execute();
+}
 break;
 }
 return true;
