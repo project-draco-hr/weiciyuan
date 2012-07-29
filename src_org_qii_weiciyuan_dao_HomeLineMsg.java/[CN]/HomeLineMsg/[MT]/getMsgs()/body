@@ -1,5 +1,0 @@
-{
-  String token=GlobalContext.getInstance().getToken();
-  String url=URLHelper.getHomeLine();
-  return Collections.emptyList();
-}

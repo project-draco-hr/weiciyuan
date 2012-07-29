@@ -1,8 +1,5 @@
 {
   String msg="";
-  Token token=new Token();
-  token.setToken(GlobalContext.getInstance().getToken());
-  token.setExpiresIn(GlobalContext.getInstance().getExpires());
   String url=URLHelper.getMentionsTimeLine();
   Map<String,String> map=new HashMap<String,String>();
   msg=HttpUtility.getInstance().execute(HttpMethod.Get,url,map);
