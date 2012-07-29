@@ -1,7 +1,12 @@
 {
   Gson gson=new Gson();
-  Log.e("gson","------------------------------");
-  Log.e("gson",getMsgs());
-  TimeLineMsgList value=gson.fromJson(getMsgs(),TimeLineMsgList.class);
+  TimeLineMsgList value=null;
+  try {
+    value=gson.fromJson(getMsgs(),TimeLineMsgList.class);
+  }
+ catch (  JsonSyntaxException e) {
+    Log.e("gson","------------------------------");
+    Log.e("gson",getMsgs());
+  }
   return value;
 }
