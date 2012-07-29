@@ -6,5 +6,8 @@
   }
  catch (  IOException ignored) {
   }
+  if (Debug.debug) {
+    Log.e("HttpUtility",result);
+  }
   return result;
 }

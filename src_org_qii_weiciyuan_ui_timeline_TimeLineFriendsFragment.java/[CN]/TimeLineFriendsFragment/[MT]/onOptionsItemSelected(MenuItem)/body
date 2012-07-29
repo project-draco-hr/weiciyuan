@@ -1,0 +1,11 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_new_weibo:
+    startActivity(new Intent(getActivity(),StatusNewActivity.class));
+  break;
+case R.id.menu_refresh_timeline:
+new TimeLineTask().execute();
+break;
+}
+return true;
+}

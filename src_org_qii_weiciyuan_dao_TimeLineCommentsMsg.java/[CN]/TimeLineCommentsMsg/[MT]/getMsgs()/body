@@ -1,0 +1,7 @@
+{
+  String msg="";
+  String url=URLHelper.getMyCommentsTimeLine();
+  Map<String,String> map=new HashMap<String,String>();
+  msg=HttpUtility.getInstance().execute(HttpMethod.Get,url,map);
+  return msg;
+}

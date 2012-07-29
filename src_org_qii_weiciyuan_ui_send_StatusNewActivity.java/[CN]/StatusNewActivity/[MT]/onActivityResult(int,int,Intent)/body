@@ -1,0 +1,7 @@
+{
+  super.onActivityResult(requestCode,resultCode,intent);
+  if (resultCode == RESULT_OK) {
+    Bundle extras=intent.getExtras();
+    Bitmap bmp=(Bitmap)extras.get("data");
+  }
+}

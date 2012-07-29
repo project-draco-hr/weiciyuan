@@ -1,0 +1,18 @@
+{
+switch (item.getItemId()) {
+case android.R.id.home:
+    InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+  if (imm.isActive())   imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,InputMethodManager.HIDE_NOT_ALWAYS);
+onBackPressed();
+break;
+case R.id.menu_add_gps:
+break;
+case R.id.menu_add_pic:
+MyAlertDialogFragment myAlertDialogFragment=MyAlertDialogFragment.newInstance();
+myAlertDialogFragment.show(getFragmentManager(),"");
+break;
+case R.id.menu_send:
+break;
+}
+return true;
+}

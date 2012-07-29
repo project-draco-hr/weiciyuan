@@ -1,0 +1,6 @@
+{
+  list.addAll(0,o);
+  dialogFragment.dismissAllowingStateLoss();
+  timeLineAdapter.notifyDataSetChanged();
+  super.onPostExecute(o);
+}

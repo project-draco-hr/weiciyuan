@@ -1,0 +1,6 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.statusnewactivity_layout);
+  ActionBar actionBar=getActionBar();
+  actionBar.setDisplayHomeAsUpEnabled(true);
+}
