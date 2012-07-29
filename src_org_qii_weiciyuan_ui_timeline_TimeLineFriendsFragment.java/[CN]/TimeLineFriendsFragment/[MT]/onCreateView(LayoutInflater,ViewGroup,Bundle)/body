@@ -4,6 +4,7 @@
   listView=(ListView)view.findViewById(R.id.listView);
   timeLineAdapter=new TimeLineAdapter();
   listView.setAdapter(timeLineAdapter);
+  listView.setOnItemLongClickListener(onItemLongClickListener);
   new TimeLineTask().execute();
   return view;
 }
