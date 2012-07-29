@@ -3,4 +3,5 @@
   list.add(new MentionsFragment());
   list.add(new MentionsFragment());
   list.add(new MentionsFragment());
+  list.add(new MentionsFragment());
 }

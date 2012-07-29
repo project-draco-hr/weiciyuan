@@ -6,7 +6,7 @@
   boolean haveToken=!TextUtils.isEmpty(token) && !TextUtils.isEmpty(expires);
   boolean haveUsername=!TextUtils.isEmpty(username);
   if (haveToken) {
-    Intent intent=new Intent(LoginActivity.this,MentionsTimeLineActivity.class);
+    Intent intent=new Intent(LoginActivity.this,MainTimeLineActivity.class);
     intent.putExtra("token",token);
     intent.putExtra("expires",expires);
     if (haveUsername) {

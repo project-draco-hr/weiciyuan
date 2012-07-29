@@ -6,7 +6,7 @@
   editor.putString("token",token);
   editor.putString("expires",expires);
   editor.commit();
-  Intent intent=new Intent(this,MentionsTimeLineActivity.class);
+  Intent intent=new Intent(this,MainTimeLineActivity.class);
   intent.putExtra("token",token);
   intent.putExtra("expires",expires);
   startActivity(intent);

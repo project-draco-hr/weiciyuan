@@ -1,0 +1,3 @@
+HttpMethod httpMethod
+String url
+Map<String,String> param
