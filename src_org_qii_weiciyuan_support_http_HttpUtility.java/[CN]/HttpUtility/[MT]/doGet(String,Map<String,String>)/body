@@ -1,6 +1,6 @@
 {
-  List<NameValuePair> qparams=new ArrayList<NameValuePair>();
   URIBuilder uriBuilder=new URIBuilder(url);
+  uriBuilder.addParameter("access_token",GlobalContext.getInstance().getToken());
   Set<String> keys=param.keySet();
   for (  String key : keys) {
     uriBuilder.addParameter(key,param.get(key));

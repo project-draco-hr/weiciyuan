@@ -4,10 +4,7 @@
   token.setToken(GlobalContext.getInstance().getToken());
   token.setExpiresIn(GlobalContext.getInstance().getExpires());
   String url=URLHelper.getMentionsTimeLine();
-  WeiboParameters bundle=new WeiboParameters();
-  bundle.add("access_token",GlobalContext.getInstance().getToken());
   Map<String,String> map=new HashMap<String,String>();
-  map.put("access_token",GlobalContext.getInstance().getToken());
   msg=HttpUtility.getInstance().execute(HttpMethod.Get,url,map);
   return msg;
 }

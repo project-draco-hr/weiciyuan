@@ -1,10 +1,8 @@
 {
   StatusLine status=httpResponse.getStatusLine();
   int statusCode=status.getStatusCode();
-  String result="";
   if (statusCode != 200) {
-    dealWithError(httpResponse);
+    return dealWithError(httpResponse);
   }
-  result=readResult(httpResponse);
-  return result;
+  return readResult(httpResponse);
 }
