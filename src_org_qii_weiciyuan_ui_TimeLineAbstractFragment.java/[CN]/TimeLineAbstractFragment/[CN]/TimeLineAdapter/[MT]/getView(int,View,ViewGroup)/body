@@ -1,0 +1,17 @@
+{
+  ViewHolder holder;
+  if (convertView == null) {
+    LayoutInflater inflater=getActivity().getLayoutInflater();
+    convertView=inflater.inflate(R.layout.mentionstimeline_item,parent,false);
+    holder=new ViewHolder();
+    holder.screenName=(TextView)convertView.findViewById(R.id.username);
+    holder.txt=(TextView)convertView.findViewById(R.id.content);
+    convertView.setTag(holder);
+  }
+ else {
+    holder=(ViewHolder)convertView.getTag();
+  }
+  holder.screenName.setText(list.get(position).get("screen_name"));
+  holder.txt.setText(list.get(position).get("text"));
+  return convertView;
+}
