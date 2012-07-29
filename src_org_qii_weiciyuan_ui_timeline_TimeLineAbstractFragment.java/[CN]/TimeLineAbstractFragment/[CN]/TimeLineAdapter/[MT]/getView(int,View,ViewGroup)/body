@@ -3,6 +3,7 @@
     convertView=inflater.inflate(R.layout.mentionstimeline_item,parent,false);
     holder.screenName=(TextView)convertView.findViewById(R.id.username);
     holder.txt=(TextView)convertView.findViewById(R.id.content);
+    holder.pic=(ImageView)convertView.findViewById(R.id.pic);
     convertView.setTag(holder);
   }
  else {
@@ -11,5 +12,6 @@
   map=list.get(position);
   holder.screenName.setText(map.get("screen_name"));
   holder.txt.setText(map.get("text"));
+  holder.pic.setImageDrawable(getResources().getDrawable(R.drawable.app));
   return convertView;
 }
