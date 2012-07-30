@@ -1,4 +1,0 @@
-{
-  needCheckbox=false;
-  notifyDataSetChanged();
-}
