@@ -5,8 +5,6 @@
   TimeLineAbstractFragment comments=new TimeLineCommentsFragment();
   TimeLineAbstractFragment mails=new TimeLineMailsFragment();
   TimeLineAbstractFragment info=new MyInfoFragment();
-  home.setToken(token);
-  mentions.setToken(token);
   list.add(home);
   list.add(mentions);
   list.add(comments);
