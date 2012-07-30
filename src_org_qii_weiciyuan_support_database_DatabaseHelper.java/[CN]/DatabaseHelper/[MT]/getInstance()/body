@@ -1,0 +1,6 @@
+{
+  if (singleton == null) {
+    singleton=new DatabaseHelper(GlobalContext.getInstance());
+  }
+  return singleton;
+}
