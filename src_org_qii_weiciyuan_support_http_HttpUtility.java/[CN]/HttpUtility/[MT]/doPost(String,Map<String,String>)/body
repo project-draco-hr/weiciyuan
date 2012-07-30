@@ -1,8 +1,5 @@
 {
   List<NameValuePair> formparams=new ArrayList<NameValuePair>();
-  if (!param.containsKey("access_token")) {
-    formparams.add(new BasicNameValuePair("access_token",GlobalContext.getInstance().getToken()));
-  }
   Set<String> keys=param.keySet();
   for (  String key : keys) {
     formparams.add(new BasicNameValuePair(key,param.get(key)));

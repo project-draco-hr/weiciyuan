@@ -2,14 +2,12 @@
   URIBuilder uriBuilder=null;
   try {
     uriBuilder=new URIBuilder(url);
-    if (!param.containsKey("access_token")) {
-      uriBuilder.addParameter("access_token",GlobalContext.getInstance().getToken());
-    }
     Set<String> keys=param.keySet();
     for (    String key : keys) {
       uriBuilder.addParameter(key,param.get(key));
     }
     httpGet.setURI(uriBuilder.build());
+    if (Debug.debug)     Log.e("HttpUtility",uriBuilder.build().toString());
   }
  catch (  URISyntaxException e) {
     e.printStackTrace();
@@ -24,5 +22,10 @@
  catch (  IOException e) {
     e.printStackTrace();
   }
-  return dealWithResponse(response);
+  if (response != null) {
+    return dealWithResponse(response);
+  }
+ else {
+    return "";
+  }
 }

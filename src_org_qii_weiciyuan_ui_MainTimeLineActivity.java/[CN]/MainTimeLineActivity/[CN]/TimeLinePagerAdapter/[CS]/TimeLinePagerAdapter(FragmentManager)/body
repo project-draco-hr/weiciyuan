@@ -1,0 +1,9 @@
+{
+  super(fm);
+  TimeLineAbstractFragment home=new TimeLineFriendsFragment();
+  TimeLineAbstractFragment mentions=new TimeLineMentionsFragment();
+  home.setToken(token);
+  mentions.setToken(token);
+  list.add(home);
+  list.add(mentions);
+}

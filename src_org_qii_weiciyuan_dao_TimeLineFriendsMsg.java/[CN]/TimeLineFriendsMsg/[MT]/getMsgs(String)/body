@@ -2,6 +2,7 @@
   String msg="";
   String url=URLHelper.getFriendsTimeLine();
   Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",token);
   msg=HttpUtility.getInstance().execute(HttpMethod.Get,url,map);
   return msg;
 }

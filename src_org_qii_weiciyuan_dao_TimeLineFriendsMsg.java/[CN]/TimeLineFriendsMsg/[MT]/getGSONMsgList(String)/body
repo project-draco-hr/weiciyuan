@@ -1,12 +1,13 @@
 {
+  String json=getMsgs(token);
   Gson gson=new Gson();
   TimeLineMsgList value=null;
   try {
-    value=gson.fromJson(getMsgs(),TimeLineMsgList.class);
+    value=gson.fromJson(json,TimeLineMsgList.class);
   }
  catch (  JsonSyntaxException e) {
     Log.e("gson","------------------------------");
-    Log.e("gson",getMsgs());
+    Log.e("gson",json);
   }
   return value;
 }
