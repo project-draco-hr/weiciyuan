@@ -1,7 +1,7 @@
 {
   StatusLine status=httpResponse.getStatusLine();
   int statusCode=status.getStatusCode();
-  if (statusCode != 200) {
+  if (statusCode != HttpStatus.SC_OK) {
     return dealWithError(httpResponse);
   }
   return readResult(httpResponse);
