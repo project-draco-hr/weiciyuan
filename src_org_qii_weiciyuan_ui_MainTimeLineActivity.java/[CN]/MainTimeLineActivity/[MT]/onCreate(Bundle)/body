@@ -8,11 +8,13 @@
   screen_name=intent.getStringExtra("screen_name");
   if (!TextUtils.isEmpty(screen_name))   actionBar.setTitle(screen_name);
   mViewPager=(ViewPager)findViewById(R.id.viewpager);
-  mViewPager.setAdapter(new TimeLinePagerAdapter(getSupportFragmentManager()));
+  TimeLinePagerAdapter timeLinePagerAdapter=new TimeLinePagerAdapter(getSupportFragmentManager());
+  mViewPager.setAdapter(timeLinePagerAdapter);
   mViewPager.setOnPageChangeListener(simpleOnPageChangeListener);
   actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
+  ((TimeLineAbstractFragment)timeLinePagerAdapter.getItem(0)).refresh();
 }
