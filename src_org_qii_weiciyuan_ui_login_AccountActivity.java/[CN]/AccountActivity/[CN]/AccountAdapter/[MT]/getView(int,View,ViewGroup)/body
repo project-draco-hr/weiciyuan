@@ -1,6 +1,6 @@
 {
   LayoutInflater layoutInflater=getLayoutInflater();
-  View mView=layoutInflater.inflate(R.layout.account_item,viewGroup,false);
+  View mView=layoutInflater.inflate(R.layout.accountactivity_listview_item_layout,viewGroup,false);
   if (needCheckbox) {
     LinearLayout linearLayout=(LinearLayout)mView;
     CheckBox cb=new CheckBox(AccountActivity.this);

@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
-  setContentView(R.layout.login);
+  setContentView(R.layout.accountactivity_layout);
   listAdapter=new AccountAdapter();
   listView=(ListView)findViewById(R.id.listView);
   listView.setOnItemClickListener(this);
