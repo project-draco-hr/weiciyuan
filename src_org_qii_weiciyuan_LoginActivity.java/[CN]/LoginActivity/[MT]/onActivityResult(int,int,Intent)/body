@@ -8,5 +8,8 @@
     map.put("expires",expires_in);
     listData.add(map);
     listAdapter.notifyDataSetChanged();
+    WeiboAccount weiboAccount=new WeiboAccount();
+    weiboAccount.setAccess_token(access_token);
+    long result=DatabaseManager.getInstance().addAccount(weiboAccount);
   }
 }

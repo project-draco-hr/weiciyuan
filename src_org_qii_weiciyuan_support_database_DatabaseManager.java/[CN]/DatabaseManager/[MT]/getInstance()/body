@@ -1,11 +1,11 @@
 {
-  if (databaseManager == null) {
+  if (singleton == null) {
     DatabaseHelper databaseHelper=DatabaseHelper.getInstance();
     SQLiteDatabase wsd=databaseHelper.getWritableDatabase();
     SQLiteDatabase rsd=databaseHelper.getReadableDatabase();
-    databaseManager=new DatabaseManager();
-    databaseManager.wsd=wsd;
-    databaseManager.rsd=rsd;
+    singleton=new DatabaseManager();
+    singleton.wsd=wsd;
+    singleton.rsd=rsd;
   }
-  return databaseManager;
+  return singleton;
 }
