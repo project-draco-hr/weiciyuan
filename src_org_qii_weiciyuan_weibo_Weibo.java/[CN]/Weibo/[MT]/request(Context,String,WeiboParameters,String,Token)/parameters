@@ -1,5 +1,0 @@
-Context context
-String url
-WeiboParameters params
-String httpMethod
-Token token

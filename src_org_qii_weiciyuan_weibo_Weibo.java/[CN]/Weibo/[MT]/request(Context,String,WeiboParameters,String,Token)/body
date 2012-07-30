@@ -1,4 +1,0 @@
-{
-  String rlt=Utility.openUrl(context,url,httpMethod,params,this.mAccessToken);
-  return rlt;
-}

@@ -1,6 +1,0 @@
-{
-  super(context,R.style.ContentOverlay);
-  mWeibo=weibo;
-  mUrl=url;
-  mListener=listener;
-}

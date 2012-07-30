@@ -1,5 +1,0 @@
-String httpMethod
-HttpUriRequest request
-WeiboParameters authParam
-String url
-Token token

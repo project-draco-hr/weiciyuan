@@ -1,7 +1,0 @@
-{
-  Log.d(TAG,"onPageFinished URL: " + url);
-  super.onPageFinished(view,url);
-  mSpinner.dismiss();
-  mContent.setBackgroundColor(Color.TRANSPARENT);
-  mWebView.setVisibility(View.VISIBLE);
-}
