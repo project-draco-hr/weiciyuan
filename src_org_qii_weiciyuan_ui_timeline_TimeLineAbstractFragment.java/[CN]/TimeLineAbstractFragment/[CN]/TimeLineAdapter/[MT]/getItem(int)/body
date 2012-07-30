@@ -1,3 +1,3 @@
 {
-  return activity.getHomeList().getStatuses().get(position);
+  return getList().getStatuses().get(position);
 }

@@ -11,7 +11,7 @@
  else {
     holder=(ViewHolder)convertView.getTag();
   }
-  WeiboMsg msg=activity.getHomeList().getStatuses().get(position);
+  WeiboMsg msg=getList().getStatuses().get(position);
   holder.screenName.setText(msg.getUser().getScreen_name());
   holder.txt.setText(msg.getText());
   holder.time.setText(msg.getCreated_at());

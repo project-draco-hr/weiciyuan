@@ -3,6 +3,7 @@
     activity.setHomeList(o);
     Toast.makeText(getActivity(),"" + activity.getHomeList().getStatuses().size(),Toast.LENGTH_SHORT).show();
     timeLineAdapter.notifyDataSetChanged();
+    listView.smoothScrollToPosition(activity.getHomelist_position());
   }
   dialogFragment.dismissAllowingStateLoss();
   super.onPostExecute(o);
