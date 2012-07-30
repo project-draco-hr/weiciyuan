@@ -1,4 +1,6 @@
 {
   super.onCreate(savedInstanceState);
   setHasOptionsMenu(true);
+  setRetainInstance(true);
+  new TimeLineTask().execute();
 }
