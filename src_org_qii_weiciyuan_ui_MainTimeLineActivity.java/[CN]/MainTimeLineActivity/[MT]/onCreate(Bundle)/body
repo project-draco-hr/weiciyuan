@@ -3,7 +3,11 @@
   setContentView(R.layout.timeline_viewpage);
   final ActionBar actionBar=getActionBar();
   actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-  actionBar.setTitle("?????????????????????");
+  Intent intent=getIntent();
+  String token=intent.getStringExtra("token");
+  String username=intent.getStringExtra("screen_name");
+  if (!TextUtils.isEmpty(username))   actionBar.setTitle(username);
+  GlobalContext.getInstance().setToken(token);
   mViewPager=(ViewPager)findViewById(R.id.viewpager);
   mViewPager.setAdapter(new TimeLinePagerAdapter(getSupportFragmentManager()));
   mViewPager.setOnPageChangeListener(simpleOnPageChangeListener);
@@ -11,11 +15,4 @@
   actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
-  Intent intent=getIntent();
-  String token=intent.getStringExtra("token");
-  String expires=intent.getStringExtra("expires");
-  String username=intent.getStringExtra("username");
-  if (TextUtils.isEmpty(username))   setTitle(username);
-  GlobalContext.getInstance().setToken(token);
-  GlobalContext.getInstance().setExpires(expires);
 }
