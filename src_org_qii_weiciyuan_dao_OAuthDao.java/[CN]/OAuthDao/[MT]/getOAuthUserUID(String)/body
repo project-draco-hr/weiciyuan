@@ -1,0 +1,6 @@
+{
+  String url=URLManager.getRealUrl("uid");
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",token);
+  return HttpUtility.getInstance().execute(HttpMethod.Get,url,map);
+}

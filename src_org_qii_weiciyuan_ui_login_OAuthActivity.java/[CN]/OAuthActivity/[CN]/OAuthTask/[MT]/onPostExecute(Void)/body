@@ -1,0 +1,4 @@
+{
+  progressFragment.dismissAllowingStateLoss();
+  finish();
+}

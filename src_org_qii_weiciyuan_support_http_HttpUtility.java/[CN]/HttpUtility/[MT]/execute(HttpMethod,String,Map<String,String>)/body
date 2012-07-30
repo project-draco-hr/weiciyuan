@@ -3,11 +3,7 @@ switch (httpMethod) {
 case Post:
     return doPost(url,param);
 case Get:
-  try {
-    return doGet(url,param);
-  }
- catch (  Exception e) {
-  }
+  return doGet(url,param);
 }
 return "";
 }

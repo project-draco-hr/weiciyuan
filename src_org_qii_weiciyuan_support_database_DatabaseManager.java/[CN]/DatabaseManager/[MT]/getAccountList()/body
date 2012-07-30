@@ -6,6 +6,8 @@
     WeiboAccount account=new WeiboAccount();
     int colid=c.getColumnIndex(AccountTable.OAUTH_TOKEN);
     account.setAccess_token(c.getString(colid));
+    colid=c.getColumnIndex(AccountTable.USERNICK);
+    account.setUsernick(c.getString(colid));
     weiboAccountList.add(account);
   }
   return weiboAccountList;

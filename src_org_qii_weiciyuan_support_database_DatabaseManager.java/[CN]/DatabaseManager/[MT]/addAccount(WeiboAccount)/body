@@ -2,6 +2,8 @@
   ContentValues cv=new ContentValues();
   cv.put(AccountTable.ID,account.getUid());
   cv.put(AccountTable.OAUTH_TOKEN,account.getAccess_token());
+  cv.put(AccountTable.USERNAME,account.getUsername());
+  cv.put(AccountTable.USERNICK,account.getUsernick());
   long result=wsd.insert(AccountTable.TABLE_NAME,AccountTable.ID,cv);
   return result;
 }

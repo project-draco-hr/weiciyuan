@@ -1,0 +1,11 @@
+{
+  String token=params[0];
+  WeiboUser weiboUser=OAuthDao.getOAuthUserInfo(token);
+  WeiboAccount weiboAccount=new WeiboAccount();
+  weiboAccount.setAccess_token(token);
+  weiboAccount.setUsername(weiboUser.getName());
+  weiboAccount.setUid(weiboUser.getId());
+  weiboAccount.setUsernick(weiboUser.getScreen_name());
+  long result=DatabaseManager.getInstance().addAccount(weiboAccount);
+  return null;
+}

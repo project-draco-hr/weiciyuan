@@ -1,14 +1,28 @@
 {
-  URIBuilder uriBuilder=new URIBuilder(url);
-  uriBuilder.addParameter("access_token",GlobalContext.getInstance().getToken());
-  Set<String> keys=param.keySet();
-  for (  String key : keys) {
-    uriBuilder.addParameter(key,param.get(key));
+  URIBuilder uriBuilder=null;
+  try {
+    uriBuilder=new URIBuilder(url);
+    if (!param.containsKey("access_token")) {
+      uriBuilder.addParameter("access_token",GlobalContext.getInstance().getToken());
+    }
+    Set<String> keys=param.keySet();
+    for (    String key : keys) {
+      uriBuilder.addParameter(key,param.get(key));
+    }
+    httpGet.setURI(uriBuilder.build());
   }
-  httpGet.setURI(uriBuilder.build());
+ catch (  URISyntaxException e) {
+    e.printStackTrace();
+  }
   CookieStore cookieStore=new BasicCookieStore();
   HttpContext localContext=new BasicHttpContext();
   localContext.setAttribute(ClientContext.COOKIE_STORE,cookieStore);
-  HttpResponse response=httpclient.execute(httpGet,localContext);
+  HttpResponse response=null;
+  try {
+    response=httpclient.execute(httpGet,localContext);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
   return dealWithResponse(response);
 }

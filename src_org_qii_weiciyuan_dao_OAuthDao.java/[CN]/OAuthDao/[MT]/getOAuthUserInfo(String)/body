@@ -1,0 +1,26 @@
+{
+  String uidJson=getOAuthUserUID(token);
+  String uid="";
+  try {
+    JSONObject jsonObject=new JSONObject(uidJson);
+    uid=jsonObject.optString("uid");
+  }
+ catch (  JSONException e) {
+    e.printStackTrace();
+  }
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("uid",uid);
+  map.put("access_token",token);
+  String url=URLManager.getRealUrl("usershow");
+  String result=HttpUtility.getInstance().execute(HttpMethod.Get,url,map);
+  Gson gson=new Gson();
+  WeiboUser user=new WeiboUser();
+  try {
+    user=gson.fromJson(result,WeiboUser.class);
+  }
+ catch (  JsonSyntaxException e) {
+    Log.e("gson","------------------------------");
+    Log.e("gson",result);
+  }
+  return user;
+}

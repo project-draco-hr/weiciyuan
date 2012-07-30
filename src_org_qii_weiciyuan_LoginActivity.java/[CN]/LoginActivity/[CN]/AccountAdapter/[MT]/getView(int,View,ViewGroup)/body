@@ -8,6 +8,6 @@
     linearLayout.addView(cb,0);
   }
   TextView textView=(TextView)mView.findViewById(R.id.textView);
-  textView.setText(weiboAccountList.get(i).getAccess_token());
+  textView.setText(weiboAccountList.get(i).getUsernick());
   return mView;
 }
