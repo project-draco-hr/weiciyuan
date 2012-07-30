@@ -1,6 +1,6 @@
 {
-  if (list.getStatuses() != null) {
-    return list.getStatuses().size();
+  if (activity.getHomeList().getStatuses() != null) {
+    return activity.getHomeList().getStatuses().size();
   }
  else {
     return 0;

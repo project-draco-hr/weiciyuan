@@ -1,0 +1,4 @@
+{
+  super.onCreate(savedInstanceState);
+  activity=(MainTimeLineActivity)getActivity();
+}
