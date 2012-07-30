@@ -1,0 +1,4 @@
+{
+  weiboAccountList=weiboAccounts;
+  listAdapter.notifyDataSetChanged();
+}

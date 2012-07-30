@@ -1,0 +1,10 @@
+{
+  String token=weiboAccountList.get(i).getAccess_token();
+  SharedPreferences settings=getPreferences(MODE_PRIVATE);
+  SharedPreferences.Editor editor=settings.edit();
+  editor.putString("token",token);
+  editor.commit();
+  Intent intent=new Intent(this,MainTimeLineActivity.class);
+  intent.putExtra("token",token);
+  startActivity(intent);
+}

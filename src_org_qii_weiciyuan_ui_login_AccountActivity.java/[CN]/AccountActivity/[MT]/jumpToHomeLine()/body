@@ -1,0 +1,18 @@
+{
+  SharedPreferences settings=getPreferences(MODE_PRIVATE);
+  String username=settings.getString("username","");
+  String token=settings.getString("token","");
+  String expires=settings.getString("expires","");
+  boolean haveToken=!TextUtils.isEmpty(token) && !TextUtils.isEmpty(expires);
+  boolean haveUsername=!TextUtils.isEmpty(username);
+  if (haveToken) {
+    Intent intent=new Intent(AccountActivity.this,MainTimeLineActivity.class);
+    intent.putExtra("token",token);
+    intent.putExtra("expires",expires);
+    if (haveUsername) {
+      intent.putExtra("username",username);
+    }
+    startActivity(intent);
+    finish();
+  }
+}

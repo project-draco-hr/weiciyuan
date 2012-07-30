@@ -1,0 +1,4 @@
+{
+  Intent intent=new Intent(this,OAuthActivity.class);
+  startActivityForResult(intent,0);
+}
