@@ -1,7 +1,8 @@
 {
   if (newValue != null) {
+    Toast.makeText(MainTimeLineActivity.this,"" + newValue.getStatuses().size(),Toast.LENGTH_SHORT).show();
+    newValue.getStatuses().addAll(getHomeList().getStatuses());
     setHomeList(newValue);
-    Toast.makeText(MainTimeLineActivity.this,"" + getHomeList().getStatuses().size(),Toast.LENGTH_SHORT).show();
     home.refreshAndScrollTo(homelist_position);
   }
   dialogFragment.dismissAllowingStateLoss();
