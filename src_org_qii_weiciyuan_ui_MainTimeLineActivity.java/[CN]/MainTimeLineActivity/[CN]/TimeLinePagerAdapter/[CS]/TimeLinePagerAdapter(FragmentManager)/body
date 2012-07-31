@@ -1,6 +1,6 @@
 {
   super(fm);
-  home=new FriendsTimeLineFragment().setCommand(frinedsTimeLineMsgCommand);
+  home=new FriendsTimeLineFragment().setCommander(frinedsTimeLineMsgCommand);
   mentions=new MentionsTimeLineFragment();
   comments=new CommentsTimeLineFragment();
   mails=new MailsTimeLineFragment();
