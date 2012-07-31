@@ -16,5 +16,5 @@
   actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
-  ((TimeLineAbstractFragment)timeLinePagerAdapter.getItem(0)).refresh();
+  ((AbstractTimeLineFragment)timeLinePagerAdapter.getItem(0)).refresh();
 }

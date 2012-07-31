@@ -1,10 +1,10 @@
 {
   super(fm);
-  TimeLineAbstractFragment home=new TimeLineFriendsFragment();
-  TimeLineAbstractFragment mentions=new TimeLineMentionsFragment();
-  TimeLineAbstractFragment comments=new TimeLineCommentsFragment();
-  TimeLineAbstractFragment mails=new TimeLineMailsFragment();
-  TimeLineAbstractFragment info=new MyInfoFragment();
+  AbstractTimeLineFragment home=new FriendsTimeLineFragment();
+  AbstractTimeLineFragment mentions=new MentionsTimeLineFragment();
+  AbstractTimeLineFragment comments=new CommentsTimeLineFragment();
+  AbstractTimeLineFragment mails=new MailsTimeLineFragment();
+  AbstractTimeLineFragment info=new MyInfoTimeLineFragment();
   list.add(home);
   list.add(mentions);
   list.add(comments);
