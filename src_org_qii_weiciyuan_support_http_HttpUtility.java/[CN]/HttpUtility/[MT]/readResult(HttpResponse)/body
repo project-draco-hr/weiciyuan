@@ -7,7 +7,7 @@
  catch (  IOException ignored) {
   }
   if (Debug.debug) {
-    Log.e("HttpUtility",result);
+    AppLogger.d(result);
   }
   return result;
 }

@@ -7,7 +7,7 @@
       uriBuilder.addParameter(key,param.get(key));
     }
     httpGet.setURI(uriBuilder.build());
-    if (Debug.debug)     Log.e("HttpUtility",uriBuilder.build().toString());
+    AppLogger.d(uriBuilder.build().toString());
   }
  catch (  URISyntaxException e) {
     e.printStackTrace();
@@ -20,7 +20,7 @@
     response=httpclient.execute(httpGet,localContext);
   }
  catch (  ConnectTimeoutException e) {
-    Log.e("HttpUtility","connection request timeout");
+    AppLogger.e("connection request timeout");
     ActivityUtils.showTips(R.string.timeout);
   }
 catch (  ClientProtocolException e) {

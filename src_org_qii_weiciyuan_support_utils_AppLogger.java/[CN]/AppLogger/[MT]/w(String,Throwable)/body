@@ -1,0 +1,3 @@
+{
+  android.util.Log.w(TAG,buildMessage(msg),thr);
+}

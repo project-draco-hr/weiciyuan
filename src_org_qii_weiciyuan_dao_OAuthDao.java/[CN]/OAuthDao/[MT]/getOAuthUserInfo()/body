@@ -18,8 +18,7 @@
     user=gson.fromJson(result,WeiboUser.class);
   }
  catch (  JsonSyntaxException e) {
-    Log.e("gson","------------------------------");
-    Log.e("gson",result);
+    AppLogger.e(result);
   }
   return user;
 }
