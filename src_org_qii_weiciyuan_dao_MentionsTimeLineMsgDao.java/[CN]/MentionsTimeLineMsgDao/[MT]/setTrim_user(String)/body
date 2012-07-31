@@ -1,0 +1,4 @@
+{
+  this.trim_user=trim_user;
+  return this;
+}

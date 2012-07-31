@@ -1,16 +1,15 @@
 {
-  String uidJson=getOAuthUserUID(token);
+  String uidJson=getOAuthUserUIDJsonData();
   String uid="";
   try {
     JSONObject jsonObject=new JSONObject(uidJson);
     uid=jsonObject.optString("uid");
   }
  catch (  JSONException e) {
-    e.printStackTrace();
   }
   Map<String,String> map=new HashMap<String,String>();
   map.put("uid",uid);
-  map.put("access_token",token);
+  map.put("access_token",access_token);
   String url=URLManager.getRealUrl("usershow");
   String result=HttpUtility.getInstance().execute(HttpMethod.Get,url,map);
   Gson gson=new Gson();
