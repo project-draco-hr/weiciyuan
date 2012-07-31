@@ -1,4 +1,4 @@
 {
-  new StatusNewMsg().sendNewMsg(content);
+  new StatusNewMsgDao(token).sendNewMsg(content);
   return null;
 }

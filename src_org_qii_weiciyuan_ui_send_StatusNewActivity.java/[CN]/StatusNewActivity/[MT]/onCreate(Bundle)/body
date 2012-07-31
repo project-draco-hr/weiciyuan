@@ -3,4 +3,6 @@
   setContentView(R.layout.statusnewactivity_layout);
   ActionBar actionBar=getActionBar();
   actionBar.setDisplayHomeAsUpEnabled(true);
+  Intent intent=getIntent();
+  token=intent.getStringExtra("token");
 }

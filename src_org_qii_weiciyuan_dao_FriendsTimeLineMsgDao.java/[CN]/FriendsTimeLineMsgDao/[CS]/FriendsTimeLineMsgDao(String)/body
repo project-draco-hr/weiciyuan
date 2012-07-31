@@ -1,0 +1,4 @@
+{
+  if (TextUtils.isEmpty(access_token))   throw new IllegalArgumentException();
+  this.access_token=access_token;
+}

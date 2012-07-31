@@ -1,0 +1,14 @@
+{
+  String json=getMsgListJson();
+  Gson gson=new Gson();
+  TimeLineMsgList value=null;
+  try {
+    value=gson.fromJson(json,TimeLineMsgList.class);
+  }
+ catch (  JsonSyntaxException e) {
+    ActivityUtils.showTips("????????????????????????");
+    Log.e("gson","------------------------------");
+    Log.e("gson",e.getMessage().toString());
+  }
+  return value;
+}

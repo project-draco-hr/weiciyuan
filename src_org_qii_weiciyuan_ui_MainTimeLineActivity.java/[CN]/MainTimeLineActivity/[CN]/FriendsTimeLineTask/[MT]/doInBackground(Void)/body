@@ -1,9 +1,8 @@
 {
   WeiboMsg msg=homeList.getStatuses().get(0);
-  FriendsTimeLineMsgDao.Parameter parameter=new FriendsTimeLineMsgDao.Parameter();
-  parameter.access_token=getToken();
+  String since_id="";
   if (msg != null) {
-    parameter.since_id=msg.getId();
+    since_id=msg.getId();
   }
-  return new FriendsTimeLineMsgDao().getGSONMsgList(parameter);
+  return new FriendsTimeLineMsgDao(token).setSince_id(since_id).getGSONMsgList();
 }
