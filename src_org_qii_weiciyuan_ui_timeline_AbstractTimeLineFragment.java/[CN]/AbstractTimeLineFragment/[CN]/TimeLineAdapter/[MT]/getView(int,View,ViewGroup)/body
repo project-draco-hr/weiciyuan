@@ -4,6 +4,7 @@
     convertView=inflater.inflate(R.layout.fragment_listview_item_layout,parent,false);
     holder.screenName=(TextView)convertView.findViewById(R.id.username);
     holder.txt=(TextView)convertView.findViewById(R.id.content);
+    holder.recontent=(TextView)convertView.findViewById(R.id.recontent);
     holder.time=(TextView)convertView.findViewById(R.id.time);
     holder.pic=(ImageView)convertView.findViewById(R.id.pic);
     convertView.setTag(holder);
@@ -16,5 +17,9 @@
   holder.txt.setText(msg.getText());
   holder.time.setText(msg.getCreated_at());
   holder.pic.setImageDrawable(getResources().getDrawable(R.drawable.app));
+  WeiboMsg recontent=msg.getRetweeted_status();
+  if (recontent != null) {
+    holder.recontent.setText(recontent.getUser().getScreen_name() + "???" + recontent.getText());
+  }
   return convertView;
 }
