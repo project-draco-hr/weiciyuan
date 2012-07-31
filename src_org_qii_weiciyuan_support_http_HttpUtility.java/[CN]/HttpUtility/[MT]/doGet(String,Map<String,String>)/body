@@ -21,7 +21,7 @@
   }
  catch (  ConnectTimeoutException e) {
     Log.e("HttpUtility","connection request timeout");
-    ActivityUtils.showTips("??????");
+    ActivityUtils.showTips(R.string.timeout);
   }
 catch (  ClientProtocolException e) {
   }
