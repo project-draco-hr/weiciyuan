@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case R.id.menu_refresh_timeline:
+case R.id.friendstimelinefragment_refresh:
     break;
 }
 return true;

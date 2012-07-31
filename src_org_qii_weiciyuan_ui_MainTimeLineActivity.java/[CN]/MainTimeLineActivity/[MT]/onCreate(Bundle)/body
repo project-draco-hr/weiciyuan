@@ -4,7 +4,7 @@
   Intent intent=getIntent();
   token=intent.getStringExtra("token");
   screen_name=intent.getStringExtra("screen_name");
-  buildActionBarAndViewPagerTitles();
   buildViewPager();
+  buildActionBarAndViewPagerTitles();
   ((AbstractTimeLineFragment)timeLinePagerAdapter.getItem(0)).refresh();
 }
