@@ -1,19 +1,5 @@
 {
   String[] items={getString(R.string.take_camera),getString(R.string.select_pic)};
-  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity()).setTitle(getString(R.string.select)).setItems(items,new DialogInterface.OnClickListener(){
-    @Override public void onClick(    DialogInterface dialog,    int which){
-switch (which) {
-case 0:
-        Intent i=new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-      startActivityForResult(i,CAMERA_RESULT);
-    break;
-case 1:
-  Intent choosePictureIntent=new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-startActivityForResult(choosePictureIntent,PIC_RESULT);
-break;
-}
-}
-}
-);
-return builder.create();
+  AlertDialog.Builder builder=new AlertDialog.Builder(StatusNewActivity.this).setTitle(getString(R.string.select)).setItems(items,StatusNewActivity.this);
+  return builder.create();
 }

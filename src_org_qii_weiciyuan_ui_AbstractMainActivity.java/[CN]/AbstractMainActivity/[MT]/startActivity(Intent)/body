@@ -1,0 +1,4 @@
+{
+  GlobalContext.getInstance().setAppForegroundFlag();
+  super.startActivity(intent);
+}

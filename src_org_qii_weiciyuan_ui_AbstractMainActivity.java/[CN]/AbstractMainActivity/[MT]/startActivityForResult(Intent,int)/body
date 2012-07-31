@@ -1,0 +1,5 @@
+{
+  GlobalContext.getInstance().setAppForegroundFlag();
+  setStartThirdAppActivityFlag();
+  super.startActivityForResult(intent,requestCode);
+}

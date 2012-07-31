@@ -1,0 +1,11 @@
+{
+  if (!isStartThirdAppActivity()) {
+    if (GlobalContext.getInstance().isAppForeground()) {
+      GlobalContext.getInstance().removeAppForegroundFlag();
+    }
+ else {
+      Toast.makeText(this,"home",Toast.LENGTH_SHORT).show();
+    }
+  }
+  super.onStop();
+}
