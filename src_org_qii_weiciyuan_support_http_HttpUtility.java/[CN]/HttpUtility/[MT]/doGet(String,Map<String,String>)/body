@@ -19,8 +19,13 @@
   try {
     response=httpclient.execute(httpGet,localContext);
   }
- catch (  IOException e) {
-    e.printStackTrace();
+ catch (  ConnectTimeoutException e) {
+    Log.e("HttpUtility","connection request timeout");
+    ActivityUtils.showTips("??????");
+  }
+catch (  ClientProtocolException e) {
+  }
+catch (  IOException e) {
   }
   if (response != null) {
     return dealWithResponse(response);

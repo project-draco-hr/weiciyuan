@@ -2,4 +2,6 @@
   HttpParams params=new BasicHttpParams();
   params.setParameter(CoreProtocolPNames.PROTOCOL_VERSION,HttpVersion.HTTP_1_1);
   httpclient=new DefaultHttpClient(params);
+  HttpConnectionParams.setConnectionTimeout(httpclient.getParams(),2000);
+  HttpConnectionParams.setSoTimeout(httpclient.getParams(),2000);
 }

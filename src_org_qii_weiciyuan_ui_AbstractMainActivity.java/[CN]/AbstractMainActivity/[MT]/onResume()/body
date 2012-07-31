@@ -1,0 +1,4 @@
+{
+  super.onResume();
+  GlobalContext.getInstance().setActivity(this);
+}

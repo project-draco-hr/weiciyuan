@@ -1,5 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  setHasOptionsMenu(true);
-  setRetainInstance(true);
-}
