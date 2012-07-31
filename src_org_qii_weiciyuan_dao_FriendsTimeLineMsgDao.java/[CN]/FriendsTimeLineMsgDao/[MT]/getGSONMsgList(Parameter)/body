@@ -6,6 +6,7 @@
     value=gson.fromJson(json,TimeLineMsgList.class);
   }
  catch (  JsonSyntaxException e) {
+    ActivityUtils.showTips("????????????????????????");
     Log.e("gson","------------------------------");
     Log.e("gson",e.getMessage().toString());
   }
