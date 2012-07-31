@@ -1,20 +1,10 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.maintimelineactivity_viewpager_layout);
-  final ActionBar actionBar=getActionBar();
-  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
   Intent intent=getIntent();
   token=intent.getStringExtra("token");
   screen_name=intent.getStringExtra("screen_name");
-  if (!TextUtils.isEmpty(screen_name))   actionBar.setTitle(screen_name);
-  mViewPager=(ViewPager)findViewById(R.id.viewpager);
-  TimeLinePagerAdapter timeLinePagerAdapter=new TimeLinePagerAdapter(getSupportFragmentManager());
-  mViewPager.setAdapter(timeLinePagerAdapter);
-  mViewPager.setOnPageChangeListener(simpleOnPageChangeListener);
-  actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
-  actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
-  actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
-  actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
-  actionBar.addTab(actionBar.newTab().setText("??????").setTabListener(tabListener));
+  buildActionBarAndViewPagerTitles();
+  buildViewPager();
   ((AbstractTimeLineFragment)timeLinePagerAdapter.getItem(0)).refresh();
 }
