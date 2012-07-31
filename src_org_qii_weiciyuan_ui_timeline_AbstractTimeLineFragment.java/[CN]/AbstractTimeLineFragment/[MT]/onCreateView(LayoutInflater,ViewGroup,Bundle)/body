@@ -10,11 +10,12 @@ case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
         if (view.getLastVisiblePosition() == (view.getCount() - 1)) {
           scrollToBottom();
         }
-      break;
-case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
+      rememberListViewPosition(view.getFirstVisiblePosition());
     break;
-case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
+case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
   break;
+case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
+break;
 }
 }
 @Override public void onScroll(AbsListView view,int firstVisibleItem,int visibleItemCount,int totalItemCount){

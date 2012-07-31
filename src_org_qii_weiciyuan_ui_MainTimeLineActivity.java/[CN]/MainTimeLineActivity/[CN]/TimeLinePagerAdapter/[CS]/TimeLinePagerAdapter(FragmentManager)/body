@@ -1,13 +1,7 @@
 {
   super(fm);
   home=new FriendsTimeLineFragment().setCommander(frinedsTimeLineMsgCommand);
-  mentions=new MentionsTimeLineFragment();
-  comments=new CommentsTimeLineFragment();
-  mails=new MailsTimeLineFragment();
   info=new MyInfoTimeLineFragment();
   list.add(home);
-  list.add(mentions);
-  list.add(comments);
-  list.add(mails);
   list.add(info);
 }

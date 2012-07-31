@@ -1,4 +1,0 @@
-{
-  inflater.inflate(R.menu.mentionstimelinefragment_menu,menu);
-  super.onCreateOptionsMenu(menu,inflater);
-}

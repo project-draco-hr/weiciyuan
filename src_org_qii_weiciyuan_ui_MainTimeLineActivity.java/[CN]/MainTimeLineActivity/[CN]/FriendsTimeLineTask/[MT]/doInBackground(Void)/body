@@ -1,0 +1,9 @@
+{
+  WeiboMsg msg=homeList.getStatuses().get(0);
+  TimeLineFriendsMsg.Parameter parameter=new TimeLineFriendsMsg.Parameter();
+  parameter.access_token=getToken();
+  if (msg != null) {
+    parameter.since_id=msg.getId();
+  }
+  return new TimeLineFriendsMsg().getGSONMsgList(parameter);
+}
