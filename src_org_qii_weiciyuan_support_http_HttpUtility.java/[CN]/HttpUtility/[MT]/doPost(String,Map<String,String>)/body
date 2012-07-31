@@ -2,7 +2,8 @@
   List<NameValuePair> formparams=new ArrayList<NameValuePair>();
   Set<String> keys=param.keySet();
   for (  String key : keys) {
-    formparams.add(new BasicNameValuePair(key,param.get(key)));
+    String value=param.get(key);
+    if (!TextUtils.isEmpty(value))     formparams.add(new BasicNameValuePair(key,value));
   }
   UrlEncodedFormEntity entity=null;
   try {
