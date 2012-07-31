@@ -1,0 +1,4 @@
+{
+  this.command=command;
+  return this;
+}

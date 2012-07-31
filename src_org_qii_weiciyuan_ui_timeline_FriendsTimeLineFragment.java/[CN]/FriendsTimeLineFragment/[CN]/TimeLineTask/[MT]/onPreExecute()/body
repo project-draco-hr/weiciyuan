@@ -1,3 +1,0 @@
-{
-  dialogFragment.show(getFragmentManager(),"");
-}

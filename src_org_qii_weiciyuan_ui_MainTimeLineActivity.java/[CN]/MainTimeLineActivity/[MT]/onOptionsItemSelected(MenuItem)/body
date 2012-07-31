@@ -4,6 +4,7 @@ case R.id.friendstimelinefragment_new_weibo:
     startActivity(new Intent(this,StatusNewActivity.class));
   break;
 case R.id.friendstimelinefragment_refresh:
+new TimeLineTask().execute();
 break;
 case R.id.mentionstimelinefragment_refresh:
 break;

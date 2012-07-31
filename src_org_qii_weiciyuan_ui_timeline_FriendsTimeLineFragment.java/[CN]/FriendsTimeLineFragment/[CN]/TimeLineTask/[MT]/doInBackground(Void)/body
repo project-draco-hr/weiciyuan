@@ -1,4 +1,0 @@
-{
-  MainTimeLineActivity activity=(MainTimeLineActivity)getActivity();
-  return new TimeLineFriendsMsg().getGSONMsgList(activity.getToken());
-}

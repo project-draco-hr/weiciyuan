@@ -6,5 +6,4 @@
   screen_name=intent.getStringExtra("screen_name");
   buildViewPager();
   buildActionBarAndViewPagerTitles();
-  ((AbstractTimeLineFragment)timeLinePagerAdapter.getItem(0)).refresh();
 }

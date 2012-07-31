@@ -1,15 +1,5 @@
 {
-  String[] items={getString(R.string.take_camera),getString(R.string.select_pic)};
-  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity()).setTitle(getString(R.string.select)).setItems(items,new DialogInterface.OnClickListener(){
-    @Override public void onClick(    DialogInterface dialog,    int which){
-switch (which) {
-case 0:
-        break;
-case 1:
-      break;
-  }
-}
-}
-);
-return builder.create();
+  String[] items={"??????","??????"};
+  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity()).setTitle(getString(R.string.select)).setItems(items,onClickListener);
+  return builder.create();
 }
