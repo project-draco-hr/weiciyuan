@@ -1,0 +1,3 @@
+{
+  commander.onItemClick(position);
+}

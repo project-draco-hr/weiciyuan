@@ -3,5 +3,7 @@
   if (homeList.getStatuses().size() > 0) {
     dao.setSince_id(homeList.getStatuses().get(0).getId());
   }
-  return dao.getGSONMsgList();
+  TimeLineMsgList result=dao.getGSONMsgList();
+  if (result != null)   DatabaseManager.getInstance().addHomeLineMsg(result);
+  return result;
 }
