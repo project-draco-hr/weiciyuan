@@ -13,13 +13,10 @@ case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
           scrollToBottom();
         }
       rememberListViewPosition(view.getFirstVisiblePosition());
-    isFlying=false;
-  break;
+    break;
 case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
-isFlying=true;
-break;
+  break;
 case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
-isFlying=false;
 break;
 }
 }
