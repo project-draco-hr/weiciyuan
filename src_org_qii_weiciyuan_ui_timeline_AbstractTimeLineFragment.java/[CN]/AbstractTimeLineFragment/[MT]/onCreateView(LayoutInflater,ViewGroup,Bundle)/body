@@ -1,6 +1,8 @@
 {
   View view=inflater.inflate(R.layout.fragment_listview_layout,container,false);
   listView=(ListView)view.findViewById(R.id.listView);
+  View footerView=inflater.inflate(R.layout.fragment_listview_footer_layout,null);
+  listView.addFooterView(footerView);
   timeLineAdapter=new TimeLineAdapter();
   listView.setAdapter(timeLineAdapter);
   listView.setOnScrollListener(new AbsListView.OnScrollListener(){
@@ -31,7 +33,12 @@ return true;
 );
 listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 @Override public void onItemClick(AdapterView<?> parent,View view,int position,long id){
+if (position < getList().getStatuses().size()) {
 listViewItemClick(parent,view,position,id);
+}
+ else {
+listViewFooterViewClick(view);
+}
 }
 }
 );
