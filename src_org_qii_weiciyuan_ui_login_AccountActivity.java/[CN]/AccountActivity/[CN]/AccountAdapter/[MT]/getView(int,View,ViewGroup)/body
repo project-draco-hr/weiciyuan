@@ -4,6 +4,20 @@
   if (needCheckbox) {
     LinearLayout linearLayout=(LinearLayout)mView;
     CheckBox cb=new CheckBox(AccountActivity.this);
+    cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+      @Override public void onCheckedChanged(      CompoundButton buttonView,      boolean isChecked){
+        WeiboAccount account=weiboAccountList.get(i);
+        String uid=account.getUid();
+        if (isChecked) {
+          checkedItemPostion.add(uid);
+        }
+ else         if (checkedItemPostion.contains(uid)) {
+          checkedItemPostion.remove(uid);
+        }
+        Toast.makeText(AccountActivity.this,"" + uid,Toast.LENGTH_SHORT).show();
+      }
+    }
+);
     if (allChecked)     cb.setChecked(true);
     linearLayout.addView(cb,0);
   }

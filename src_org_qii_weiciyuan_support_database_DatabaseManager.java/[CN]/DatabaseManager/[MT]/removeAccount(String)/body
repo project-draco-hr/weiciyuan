@@ -1,5 +1,0 @@
-{
-  String[] args={uid};
-  String column=AccountTable.ID;
-  wsd.delete(AccountTable.TABLE_NAME,column + "=?",args);
-}
