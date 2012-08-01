@@ -1,3 +1,8 @@
 {
   super.onCreate(savedInstanceState);
+  setContentView(R.layout.browserweibomsgactivity_layout);
+  tv=(TextView)findViewById(R.id.textView);
+  Intent intent=getIntent();
+  msg=(WeiboMsg)intent.getSerializableExtra("msg");
+  tv.setText(msg.getText());
 }
