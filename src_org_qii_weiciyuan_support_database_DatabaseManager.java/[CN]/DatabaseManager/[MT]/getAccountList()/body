@@ -8,7 +8,7 @@
     account.setAccess_token(c.getString(colid));
     colid=c.getColumnIndex(AccountTable.USERNICK);
     account.setUsernick(c.getString(colid));
-    colid=c.getColumnIndex(AccountTable.ID);
+    colid=c.getColumnIndex(AccountTable.UID);
     account.setUid(c.getString(colid));
     weiboAccountList.add(account);
   }

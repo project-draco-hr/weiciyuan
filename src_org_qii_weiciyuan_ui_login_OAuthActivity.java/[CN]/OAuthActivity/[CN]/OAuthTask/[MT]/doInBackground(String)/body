@@ -6,6 +6,5 @@
   weiboAccount.setUsername(weiboUser.getName());
   weiboAccount.setUid(weiboUser.getId());
   weiboAccount.setUsernick(weiboUser.getScreen_name());
-  long result=DatabaseManager.getInstance().addAccount(weiboAccount);
-  return null;
+  return DatabaseManager.getInstance().addAccount(weiboAccount);
 }

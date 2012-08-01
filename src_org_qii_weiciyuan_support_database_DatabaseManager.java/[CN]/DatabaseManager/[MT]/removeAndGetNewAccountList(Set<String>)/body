@@ -1,6 +1,6 @@
 {
   String[] args=checkedItemPosition.toArray(new String[0]);
-  String column=AccountTable.ID;
+  String column=AccountTable.UID;
   long result=wsd.delete(AccountTable.TABLE_NAME,column + "=?",args);
   return getAccountList();
 }
