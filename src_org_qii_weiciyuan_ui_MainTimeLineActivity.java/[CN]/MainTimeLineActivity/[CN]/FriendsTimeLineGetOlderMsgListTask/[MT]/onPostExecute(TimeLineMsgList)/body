@@ -1,0 +1,9 @@
+{
+  if (newValue != null) {
+    Toast.makeText(MainTimeLineActivity.this,"" + newValue.getStatuses().size(),Toast.LENGTH_SHORT).show();
+    homeList.getStatuses().addAll(newValue.getStatuses());
+    home.refreshAndScrollTo(homelist_position);
+  }
+  frinedsTimeLineMsgCommand.isBusying=false;
+  super.onPostExecute(newValue);
+}
