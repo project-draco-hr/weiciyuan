@@ -4,6 +4,5 @@
     dao.setMax_id(homeList.getStatuses().get(homeList.getStatuses().size() - 1).getId());
   }
   TimeLineMsgList result=dao.getGSONMsgList();
-  if (result != null)   DatabaseManager.getInstance().addHomeLineMsg(result);
   return result;
 }

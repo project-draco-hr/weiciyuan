@@ -1,6 +1,4 @@
 {
   frinedsTimeLineMsgCommand.isBusying=true;
-  footerView=MainTimeLineActivity.this.getLayoutInflater().inflate(R.layout.fragment_listview_footer_layout,null);
-  home.getListView().addFooterView(footerView);
-  home.refresh();
+  ((TextView)footerView.findViewById(R.id.textView)).setText("loading");
 }
