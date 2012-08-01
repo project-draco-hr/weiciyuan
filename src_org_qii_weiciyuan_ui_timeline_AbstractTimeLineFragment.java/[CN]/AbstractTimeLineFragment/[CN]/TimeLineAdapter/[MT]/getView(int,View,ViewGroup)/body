@@ -14,7 +14,9 @@
   }
   WeiboMsg msg=getList().getStatuses().get(position);
   holder.screenName.setText(msg.getUser().getScreen_name());
-  holder.txt.setText(msg.getText());
+  if (!isFlying) {
+    holder.txt.setText(msg.getText());
+  }
   if (!TextUtils.isEmpty(msg.getListviewItemShowTime())) {
     holder.time.setText(msg.getListviewItemShowTime());
   }
