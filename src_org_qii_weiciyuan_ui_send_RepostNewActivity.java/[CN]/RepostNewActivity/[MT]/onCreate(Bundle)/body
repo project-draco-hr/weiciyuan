@@ -1,0 +1,7 @@
+{
+  super.onCreate(savedInstanceState);
+  Intent intent=getIntent();
+  rePostContent=intent.getStringExtra("repost_content");
+  content=((EditText)findViewById(R.id.status_new_content));
+  content.setText(rePostContent);
+}
