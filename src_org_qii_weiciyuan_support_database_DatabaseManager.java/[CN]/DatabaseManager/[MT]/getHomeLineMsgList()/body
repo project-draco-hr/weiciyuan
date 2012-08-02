@@ -1,16 +1,16 @@
 {
-  TimeLineMsgList result=new TimeLineMsgList();
-  List<WeiboMsg> msgList=new ArrayList<WeiboMsg>();
+  TimeLineMsgListBean result=new TimeLineMsgListBean();
+  List<WeiboMsgBean> msgList=new ArrayList<WeiboMsgBean>();
   String sql="select * from " + HomeTable.TABLE_NAME;
   Cursor c=rsd.rawQuery(sql,null);
   while (c.moveToNext()) {
-    WeiboMsg msg=new WeiboMsg();
+    WeiboMsgBean msg=new WeiboMsgBean();
     int colid=c.getColumnIndex(HomeTable.MBLOGID);
     msg.setId(c.getString(colid));
     colid=c.getColumnIndex(HomeTable.CONTENT);
     msg.setText(c.getString(colid));
     msg.setListviewItemShowTime(c.getString(c.getColumnIndex(HomeTable.TIME)));
-    WeiboUser user=new WeiboUser();
+    WeiboUserBean user=new WeiboUserBean();
     user.setScreen_name(c.getString(c.getColumnIndex(HomeTable.NICK)));
     msg.setUser(user);
     msgList.add(msg);

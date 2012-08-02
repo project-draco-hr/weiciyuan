@@ -1,1 +1,1 @@
-AsyncTask<Void,TimeLineMsgList,TimeLineMsgList>
+AsyncTask<Void,TimeLineMsgListBean,TimeLineMsgListBean>

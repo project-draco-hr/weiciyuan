@@ -1,0 +1,15 @@
+{
+  List<WeiboMsgBean> msgList=list.getStatuses();
+  int size=msgList.size();
+  for (int i=0; i < size; i++) {
+    WeiboMsgBean msg=msgList.get(i);
+    WeiboUserBean user=msg.getUser();
+    ContentValues cv=new ContentValues();
+    cv.put(HomeTable.MBLOGID,msg.getId());
+    cv.put(HomeTable.NICK,user.getScreen_name());
+    cv.put(HomeTable.UID,user.getId());
+    cv.put(HomeTable.CONTENT,msg.getText());
+    cv.put(HomeTable.TIME,msg.getCreated_at());
+    long result=wsd.insert(HomeTable.TABLE_NAME,HomeTable.MBLOGID,cv);
+  }
+}

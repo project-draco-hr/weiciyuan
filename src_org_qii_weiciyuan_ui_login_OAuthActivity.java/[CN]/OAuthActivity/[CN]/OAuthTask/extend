@@ -1,1 +1,1 @@
-AsyncTask<String,WeiboUser,DBResult>
+AsyncTask<String,WeiboUserBean,DBResult>

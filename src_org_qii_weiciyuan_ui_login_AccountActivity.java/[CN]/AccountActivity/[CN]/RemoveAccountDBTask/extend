@@ -1,1 +1,1 @@
-AsyncTask<Void,List<WeiboAccount>,List<WeiboAccount>>
+AsyncTask<Void,List<WeiboAccountBean>,List<WeiboAccountBean>>

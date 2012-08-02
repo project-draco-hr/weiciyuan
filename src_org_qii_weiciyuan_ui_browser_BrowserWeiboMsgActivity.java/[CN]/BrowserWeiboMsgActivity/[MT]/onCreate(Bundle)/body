@@ -5,7 +5,7 @@
   actionBar.setDisplayHomeAsUpEnabled(true);
   actionBar.setTitle("detail");
   Intent intent=getIntent();
-  msg=(WeiboMsg)intent.getSerializableExtra("msg");
+  msg=(WeiboMsgBean)intent.getSerializableExtra("msg");
   retweetMsg=msg.getRetweeted_status();
   buildView();
   buildViewData();
