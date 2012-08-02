@@ -12,23 +12,6 @@
  else {
     holder=(ViewHolder)convertView.getTag();
   }
-  WeiboMsg msg=getList().getStatuses().get(position);
-  holder.screenName.setText(msg.getUser().getScreen_name());
-  holder.txt.setText(msg.getText());
-  if (!TextUtils.isEmpty(msg.getListviewItemShowTime())) {
-    holder.time.setText(msg.getListviewItemShowTime());
-  }
- else {
-    holder.time.setText(msg.getCreated_at());
-  }
-  holder.pic.setImageDrawable(getResources().getDrawable(R.drawable.app));
-  WeiboMsg recontent=msg.getRetweeted_status();
-  if (recontent != null) {
-    holder.recontent.setVisibility(View.VISIBLE);
-    holder.recontent.setText(recontent.getUser().getScreen_name() + "???" + recontent.getText());
-  }
- else {
-    holder.recontent.setVisibility(View.GONE);
-  }
+  bindViewData(holder,position);
   return convertView;
 }
