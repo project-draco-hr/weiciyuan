@@ -1,8 +1,12 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.browserweibomsgactivity_layout);
-  tv=(TextView)findViewById(R.id.textView);
+  ActionBar actionBar=getActionBar();
+  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setTitle("detail");
   Intent intent=getIntent();
   msg=(WeiboMsg)intent.getSerializableExtra("msg");
-  tv.setText(msg.getText());
+  retweetMsg=msg.getRetweeted_status();
+  buildView();
+  buildViewData();
 }

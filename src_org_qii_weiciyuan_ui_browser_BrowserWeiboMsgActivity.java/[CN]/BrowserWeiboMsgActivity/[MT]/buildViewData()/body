@@ -1,0 +1,11 @@
+{
+  username.setText(msg.getUser().getScreen_name());
+  content.setText(msg.getText());
+  time.setText(msg.getCreated_at());
+  comment_number.setText("comments:" + msg.getComments_count());
+  retweet_number.setText("retweets:" + msg.getReposts_count());
+  if (retweetMsg != null) {
+    recontent.setVisibility(View.VISIBLE);
+    recontent.setText(retweetMsg.getUser().getScreen_name() + "--" + retweetMsg.getText());
+  }
+}

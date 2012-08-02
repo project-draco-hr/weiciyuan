@@ -1,0 +1,8 @@
+{
+  username=(TextView)findViewById(R.id.username);
+  content=(TextView)findViewById(R.id.content);
+  recontent=(TextView)findViewById(R.id.recontent);
+  time=(TextView)findViewById(R.id.time);
+  comment_number=(Button)findViewById(R.id.comment_number);
+  retweet_number=(Button)findViewById(R.id.retweet_number);
+}
