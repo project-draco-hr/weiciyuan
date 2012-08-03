@@ -4,6 +4,8 @@ case Post:
     return doPost(url,param);
 case Get:
   return doGet(url,param);
+case Get_File:
+return doGetFile(url,param);
 }
 return "";
 }

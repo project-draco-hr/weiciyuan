@@ -1,0 +1,6 @@
+{
+  if (!Environment.getExternalStorageDirectory().canRead() || Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED_READ_ONLY) || Environment.getExternalStorageState().equals(Environment.MEDIA_UNMOUNTED)) {
+    return false;
+  }
+  return true;
+}

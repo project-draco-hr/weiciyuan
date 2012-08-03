@@ -1,7 +1,7 @@
 {
   HttpResponse response=getDoGetHttpResponse(url,param);
   if (response != null) {
-    return dealWithResponse(response);
+    return FileDownloaderHttpHelper.saveFile(url,response);
   }
  else {
     return "";

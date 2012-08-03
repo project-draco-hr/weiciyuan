@@ -1,0 +1,6 @@
+{
+  String relativePath=getFileRelativePathFromUrl(url);
+  String result=getFileAbsolutePathFromRelativePath(relativePath);
+  AppLogger.d(result);
+  return result;
+}

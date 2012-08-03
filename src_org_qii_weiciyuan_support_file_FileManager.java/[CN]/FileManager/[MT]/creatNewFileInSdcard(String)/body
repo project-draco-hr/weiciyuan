@@ -1,0 +1,20 @@
+{
+  if (!isExternalStorageMounted()) {
+    AppLogger.e("sdcard unavailiable");
+    return null;
+  }
+  String absolutePath=getFileAbsolutePathFromRelativePath(relativePath);
+  File file=new File(absolutePath);
+  if (file.exists()) {
+    return file;
+  }
+ else {
+    try {
+      file.createNewFile();
+      return file;
+    }
+ catch (    IOException e) {
+      return null;
+    }
+  }
+}

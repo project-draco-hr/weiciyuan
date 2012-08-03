@@ -1,0 +1,5 @@
+{
+  Map<String,String> parms=new HashMap<String,String>();
+  String relativeFilePaht=HttpUtility.getInstance().execute(HttpMethod.Get_File,url,parms);
+  return decodeBitmapFromSDCard(url,reqWidth,reqHeight);
+}

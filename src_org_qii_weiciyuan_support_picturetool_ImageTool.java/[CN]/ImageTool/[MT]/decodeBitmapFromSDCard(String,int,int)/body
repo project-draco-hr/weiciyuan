@@ -1,0 +1,14 @@
+{
+  final BitmapFactory.Options options=new BitmapFactory.Options();
+  options.inJustDecodeBounds=true;
+  String absoluteFilePath=FileManager.getFileAbsolutePathFromRelativePath(url);
+  Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath,options);
+  if (bitmap != null) {
+    options.inSampleSize=calculateInSampleSize(options,reqWidth,reqHeight);
+    options.inJustDecodeBounds=false;
+    return BitmapFactory.decodeFile(absoluteFilePath,options);
+  }
+ else {
+    return null;
+  }
+}
