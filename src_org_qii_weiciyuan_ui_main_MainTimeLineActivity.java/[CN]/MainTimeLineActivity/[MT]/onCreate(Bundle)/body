@@ -4,7 +4,6 @@
   Intent intent=getIntent();
   token=intent.getStringExtra("token");
   screen_name=intent.getStringExtra("screen_name");
-  homeList=DatabaseManager.getInstance().getHomeLineMsgList();
   buildCache();
   buildViewPager();
   buildActionBarAndViewPagerTitles();

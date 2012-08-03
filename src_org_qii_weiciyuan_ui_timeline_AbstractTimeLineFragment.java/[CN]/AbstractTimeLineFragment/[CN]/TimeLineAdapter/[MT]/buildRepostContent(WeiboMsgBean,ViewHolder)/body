@@ -3,5 +3,6 @@
   holder.repost_content.setText(repost_msg.getUser().getScreen_name() + "???" + repost_msg.getText());
   if (!TextUtils.isEmpty(repost_msg.getThumbnail_pic())) {
     holder.repost_content_pic.setVisibility(View.VISIBLE);
+    downContentPic(holder.repost_content_pic,repost_msg.getThumbnail_pic());
   }
 }
