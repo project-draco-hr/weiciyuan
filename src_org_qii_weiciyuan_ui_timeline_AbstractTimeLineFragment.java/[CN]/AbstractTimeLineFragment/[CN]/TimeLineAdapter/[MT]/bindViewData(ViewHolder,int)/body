@@ -1,7 +1,8 @@
 {
   WeiboMsgBean msg=getList().getStatuses().get(position);
-  holder.screenName.setText(msg.getUser().getScreen_name());
-  holder.txt.setText(msg.getText());
+  WeiboMsgBean repost_msg=msg.getRetweeted_status();
+  holder.username.setText(msg.getUser().getScreen_name());
+  holder.content.setText(msg.getText());
   if (!TextUtils.isEmpty(msg.getListviewItemShowTime())) {
     holder.time.setText(msg.getListviewItemShowTime());
   }
@@ -10,14 +11,15 @@
   }
   String image_url=msg.getUser().getProfile_image_url();
   if (!TextUtils.isEmpty(image_url)) {
-    downloadAvatar(holder.pic,msg.getUser().getProfile_image_url());
+    downloadAvatar(holder.avatar,msg.getUser().getProfile_image_url());
   }
-  WeiboMsgBean recontent=msg.getRetweeted_status();
-  if (recontent != null) {
-    holder.recontent.setVisibility(View.VISIBLE);
-    holder.recontent.setText(recontent.getUser().getScreen_name() + "???" + recontent.getText());
+  holder.repost_content.setVisibility(View.GONE);
+  holder.repost_content_pic.setVisibility(View.GONE);
+  holder.content_pic.setVisibility(View.GONE);
+  if (repost_msg != null) {
+    buildRepostContent(repost_msg,holder);
   }
- else {
-    holder.recontent.setVisibility(View.GONE);
+ else   if (!TextUtils.isEmpty(msg.getThumbnail_pic())) {
+    buildContentPic(msg,holder);
   }
 }

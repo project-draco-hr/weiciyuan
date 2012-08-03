@@ -3,11 +3,13 @@
   if (convertView == null) {
     holder=new ViewHolder();
     convertView=inflater.inflate(R.layout.fragment_listview_item_layout,parent,false);
-    holder.screenName=(TextView)convertView.findViewById(R.id.username);
-    holder.txt=(TextView)convertView.findViewById(R.id.content);
-    holder.recontent=(TextView)convertView.findViewById(R.id.recontent);
+    holder.username=(TextView)convertView.findViewById(R.id.username);
+    holder.content=(TextView)convertView.findViewById(R.id.content);
+    holder.repost_content=(TextView)convertView.findViewById(R.id.repost_content);
     holder.time=(TextView)convertView.findViewById(R.id.time);
-    holder.pic=(ImageView)convertView.findViewById(R.id.pic);
+    holder.avatar=(ImageView)convertView.findViewById(R.id.avatar);
+    holder.content_pic=(ImageView)convertView.findViewById(R.id.content_pic);
+    holder.repost_content_pic=(ImageView)convertView.findViewById(R.id.repost_content_pic);
     convertView.setTag(holder);
   }
  else {

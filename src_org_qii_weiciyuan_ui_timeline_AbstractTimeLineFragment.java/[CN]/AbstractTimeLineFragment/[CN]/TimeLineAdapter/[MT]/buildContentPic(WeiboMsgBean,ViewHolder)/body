@@ -1,0 +1,4 @@
+{
+  String main_thumbnail_pic_url=msg.getThumbnail_pic();
+  holder.content_pic.setVisibility(View.VISIBLE);
+}
