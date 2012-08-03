@@ -5,8 +5,8 @@ switch (method) {
 case avatar:
     newRelativePath=File.separator + AVATAR_CACHE + oldRelativePath;
   break;
-case picture:
-newRelativePath=File.separator + PICTURE_CACHE + oldRelativePath;
+case picture_thumbnail:
+newRelativePath=File.separator + PICTURE_THUMBNAIL_CACHE + oldRelativePath;
 break;
 }
 String absolutePath=getFileAbsolutePathFromRelativePath(newRelativePath);

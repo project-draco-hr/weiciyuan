@@ -1,0 +1,7 @@
+{
+  this.lruCache=lruCache;
+  this.taskMap=taskMap;
+  this.view=view;
+  this.position=position;
+  this.listView=listView;
+}

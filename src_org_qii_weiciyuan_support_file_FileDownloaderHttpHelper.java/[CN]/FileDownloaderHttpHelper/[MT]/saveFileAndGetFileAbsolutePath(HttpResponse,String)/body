@@ -1,7 +1,6 @@
 {
   HttpEntity httpEntity=response.getEntity();
-  String imageAbsolutePath=FileManager.getFileAbsolutePathFromUrl(url,method);
-  File file=FileManager.createNewFileInSDCard(imageAbsolutePath);
+  File file=FileManager.createNewFileInSDCard(path);
   FileOutputStream out=null;
   InputStream in=null;
   String result="";
@@ -16,7 +15,7 @@
         bytesum+=byteread;
         out.write(buffer,0,byteread);
       }
-      result=imageAbsolutePath;
+      result=path;
     }
  catch (    FileNotFoundException ignored) {
     }

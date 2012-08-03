@@ -1,4 +1,4 @@
 {
   data=url[0];
-  return ImageTool.getAvatarBitmapFromSDCardOrNetWork(data);
+  return ImageTool.getAvatarBitmap(data);
 }

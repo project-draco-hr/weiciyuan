@@ -1,9 +1,0 @@
-{
-  HttpResponse response=getDoGetHttpResponse(url,param);
-  if (response != null) {
-    return FileDownloaderHttpHelper.saveFile(url,response,FileLocationMethod.avatar);
-  }
- else {
-    return "";
-  }
-}

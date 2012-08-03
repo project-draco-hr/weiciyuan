@@ -1,2 +1,11 @@
 {
+  if (bitmap != null) {
+    lruCache.put(data,bitmap);
+    if (position >= listView.getFirstVisiblePosition() && position <= listView.getLastVisiblePosition()) {
+      view.setImageBitmap(bitmap);
+    }
+  }
+  if (taskMap.get(data) != null) {
+    taskMap.remove(data);
+  }
 }

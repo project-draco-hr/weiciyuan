@@ -4,8 +4,6 @@ case Post:
     return doPost(url,param);
 case Get:
   return doGet(url,param);
-case Get_AVATAR_File:
-return doGetAvatarFile(url,param);
 }
 return "";
 }

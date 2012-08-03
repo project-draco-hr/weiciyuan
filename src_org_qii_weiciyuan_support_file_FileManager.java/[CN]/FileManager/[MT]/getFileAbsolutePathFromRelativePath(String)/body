@@ -1,5 +1,5 @@
 {
   String result=SDCARD_PATH + File.separator + APP_NAME+ relativePath;
-  AppLogger.d(result);
+  ;
   return result;
 }

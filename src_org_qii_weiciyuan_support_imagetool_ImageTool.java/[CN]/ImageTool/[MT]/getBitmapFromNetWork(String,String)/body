@@ -1,0 +1,10 @@
+{
+  HttpUtility.getInstance().executeDownloadTask(url,path);
+  Bitmap bitmap=BitmapFactory.decodeFile(path);
+  if (bitmap != null) {
+    return bitmap;
+  }
+ else {
+    return null;
+  }
+}

@@ -1,0 +1,10 @@
+{
+  String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.picture_thumbnail);
+  Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath);
+  if (bitmap != null) {
+    return bitmap;
+  }
+ else {
+    return getBitmapFromNetWork(url,absoluteFilePath);
+  }
+}

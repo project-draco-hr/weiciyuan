@@ -1,0 +1,9 @@
+{
+  HttpResponse response=getDoGetHttpResponse(url,new HashMap<String,String>());
+  if (response != null) {
+    return FileDownloaderHttpHelper.saveFile(response,path);
+  }
+ else {
+    return "";
+  }
+}
