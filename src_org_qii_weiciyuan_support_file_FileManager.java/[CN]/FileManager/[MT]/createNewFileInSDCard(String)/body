@@ -3,9 +3,8 @@
     AppLogger.e("sdcard unavailiable");
     return null;
   }
-  String absoluteFilePath=absoluatePath;
-  String absoluteFileDirPath=absoluteFilePath.substring(0,absoluteFilePath.length() - 1);
-  File file=new File(absoluteFilePath + ".jpg");
+  String absoluteFileDirPath=absolutePath.substring(0,absolutePath.length() - 1);
+  File file=new File(absolutePath + ".jpg");
   if (file.exists()) {
     return file;
   }
@@ -13,8 +12,9 @@
     File dirFile=new File(absoluteFileDirPath);
     if (dirFile.mkdirs()) {
       try {
-        file.createNewFile();
-        return file;
+        if (file.createNewFile()) {
+          return file;
+        }
       }
  catch (      IOException e) {
         return null;

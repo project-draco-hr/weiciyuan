@@ -1,7 +1,7 @@
 {
   HttpEntity httpEntity=response.getEntity();
   String imageAbsolutePath=FileManager.getFileAbsolutePathFromUrl(url,method);
-  File file=FileManager.creatNewFileInSdcard(imageAbsolutePath);
+  File file=FileManager.createNewFileInSDCard(imageAbsolutePath);
   FileOutputStream out=null;
   InputStream in=null;
   String result="";

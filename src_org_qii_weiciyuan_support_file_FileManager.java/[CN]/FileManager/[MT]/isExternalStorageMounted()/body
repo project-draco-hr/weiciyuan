@@ -2,8 +2,5 @@
   boolean canRead=Environment.getExternalStorageDirectory().canRead();
   boolean onlyRead=Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED_READ_ONLY);
   boolean unMounted=Environment.getExternalStorageState().equals(Environment.MEDIA_UNMOUNTED);
-  if (!canRead || onlyRead || unMounted) {
-    return false;
-  }
-  return true;
+  return !(!canRead || onlyRead || unMounted);
 }
