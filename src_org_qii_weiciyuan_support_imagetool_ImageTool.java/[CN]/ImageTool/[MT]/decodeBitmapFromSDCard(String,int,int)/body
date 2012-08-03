@@ -3,9 +3,7 @@
   options.inJustDecodeBounds=true;
   String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.picture);
   absoluteFilePath=absoluteFilePath + ".jpg";
-  File file=new File(absoluteFilePath);
-  boolean is=file.exists();
-  Bitmap bitmap=BitmapFactory.decodeFile(file.getAbsolutePath());
+  Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath);
   if (bitmap != null) {
     options.inSampleSize=calculateInSampleSize(options,reqWidth,reqHeight);
     options.inJustDecodeBounds=false;
