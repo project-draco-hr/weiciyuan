@@ -1,4 +1,5 @@
 {
   if (TextUtils.isEmpty(access_token))   throw new IllegalArgumentException();
   this.access_token=access_token;
+  this.count=String.valueOf(AppConfig.DEFAULT_MSG_NUMBERS);
 }

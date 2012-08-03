@@ -11,15 +11,15 @@
   }
   String image_url=msg.getUser().getProfile_image_url();
   if (!TextUtils.isEmpty(image_url)) {
-    downloadAvatar(holder.avatar,msg.getUser().getProfile_image_url());
+    downloadAvatar(holder.avatar,msg.getUser().getProfile_image_url(),position,listView);
   }
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
   holder.content_pic.setVisibility(View.GONE);
   if (repost_msg != null) {
-    buildRepostContent(repost_msg,holder);
+    buildRepostContent(repost_msg,holder,position);
   }
  else   if (!TextUtils.isEmpty(msg.getThumbnail_pic())) {
-    buildContentPic(msg,holder);
+    buildContentPic(msg,holder,position);
   }
 }

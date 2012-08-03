@@ -1,2 +1,3 @@
 WeiboMsgBean repost_msg
 ViewHolder holder
+int position

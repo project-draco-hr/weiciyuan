@@ -1,0 +1,5 @@
+LruCache<String,Bitmap> lruCache
+Map<String,AvatarBitmapWorkerTask> taskMap
+ImageView view
+ListView listView
+int position
