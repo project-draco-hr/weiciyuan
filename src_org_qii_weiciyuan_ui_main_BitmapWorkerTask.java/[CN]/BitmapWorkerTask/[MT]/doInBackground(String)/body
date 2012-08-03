@@ -1,0 +1,4 @@
+{
+  data=url[0];
+  return ImageTool.getBitmapFromSDCardOrNetWork(data,reqWidth,reqHeight);
+}

@@ -1,0 +1,3 @@
+{
+  commander.downloadPic(view,url);
+}

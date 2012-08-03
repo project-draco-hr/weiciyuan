@@ -4,6 +4,5 @@
     dao.setSince_id(homeList.getStatuses().get(0).getId());
   }
   TimeLineMsgListBean result=dao.getGSONMsgList();
-  if (result != null)   DatabaseManager.getInstance().addHomeLineMsg(result);
   return result;
 }

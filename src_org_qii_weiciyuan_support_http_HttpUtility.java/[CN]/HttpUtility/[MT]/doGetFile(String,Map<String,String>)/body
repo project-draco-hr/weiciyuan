@@ -1,7 +1,16 @@
 {
   HttpResponse response=getDoGetHttpResponse(url,param);
   if (response != null) {
-    return FileDownloaderHttpHelper.saveFile(url,response);
+    String result=FileDownloaderHttpHelper.saveFile(url,response);
+    if (response.getEntity() != null) {
+      try {
+        response.getEntity().consumeContent();
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+    }
+    return result;
   }
  else {
     return "";
