@@ -1,2 +1,3 @@
 String url
 HttpResponse response
+FileLocationMethod method

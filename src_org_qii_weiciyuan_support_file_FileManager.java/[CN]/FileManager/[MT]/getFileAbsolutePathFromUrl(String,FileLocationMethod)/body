@@ -1,0 +1,15 @@
+{
+  String oldRelativePath=getFileRelativePathFromUrl(url);
+  String newRelativePath="";
+switch (method) {
+case avatar:
+    newRelativePath=File.separator + AVATAR_CACHE + oldRelativePath;
+  break;
+case picture:
+newRelativePath=File.separator + PICTURE_CACHE + oldRelativePath;
+break;
+}
+String absolutePath=getFileAbsolutePathFromRelativePath(newRelativePath);
+AppLogger.d(absolutePath);
+return absolutePath;
+}

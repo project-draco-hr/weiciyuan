@@ -1,0 +1,13 @@
+{
+  final BitmapFactory.Options options=new BitmapFactory.Options();
+  String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.avatar);
+  absoluteFilePath=absoluteFilePath + ".jpg";
+  File file=new File(absoluteFilePath);
+  Bitmap bitmap=BitmapFactory.decodeFile(file.getAbsolutePath());
+  if (bitmap != null) {
+    return bitmap;
+  }
+ else {
+    return null;
+  }
+}

@@ -1,5 +1,5 @@
 {
-  URIBuilder uriBuilder=null;
+  URIBuilder uriBuilder;
   try {
     uriBuilder=new URIBuilder(url);
     Set<String> keys=param.keySet();
@@ -11,22 +11,24 @@
     AppLogger.d(uriBuilder.build().toString());
   }
  catch (  URISyntaxException e) {
-    e.printStackTrace();
+    AppLogger.d(e.getMessage());
   }
   CookieStore cookieStore=new BasicCookieStore();
   HttpContext localContext=new BasicHttpContext();
   localContext.setAttribute(ClientContext.COOKIE_STORE,cookieStore);
   HttpResponse response=null;
   try {
-    response=httpclient.execute(httpGet,localContext);
+    response=httpClient.execute(httpGet,localContext);
   }
  catch (  ConnectTimeoutException e) {
-    AppLogger.e("connection request timeout");
+    AppLogger.e(e.getMessage());
     ActivityUtils.showTips(R.string.timeout);
   }
 catch (  ClientProtocolException e) {
+    AppLogger.e(e.getMessage());
   }
 catch (  IOException e) {
+    AppLogger.e(e.getMessage());
   }
   return response;
 }

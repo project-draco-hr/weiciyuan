@@ -4,7 +4,8 @@
   try {
     result=EntityUtils.toString(entity);
   }
- catch (  IOException ignored) {
+ catch (  IOException e) {
+    AppLogger.e(e.getMessage());
   }
   AppLogger.d(result);
   return result;

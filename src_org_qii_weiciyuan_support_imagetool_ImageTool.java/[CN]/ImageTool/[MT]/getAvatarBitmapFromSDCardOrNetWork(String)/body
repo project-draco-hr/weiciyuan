@@ -1,0 +1,9 @@
+{
+  Bitmap bitmap=decodeBitmapFromSDCard(url);
+  if (bitmap != null) {
+    return bitmap;
+  }
+ else {
+    return getBitmapFromNetWork(url);
+  }
+}

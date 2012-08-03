@@ -3,7 +3,7 @@
     AppLogger.e("sdcard unavailiable");
     return null;
   }
-  String absoluteFilePath=getFileAbsolutePathFromRelativePath(relativePath);
+  String absoluteFilePath=absoluatePath;
   String absoluteFileDirPath=absoluteFilePath.substring(0,absoluteFilePath.length() - 1);
   File file=new File(absoluteFilePath + ".jpg");
   if (file.exists()) {

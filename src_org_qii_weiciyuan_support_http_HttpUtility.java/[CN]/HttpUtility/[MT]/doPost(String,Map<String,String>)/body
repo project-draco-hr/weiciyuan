@@ -1,24 +1,23 @@
 {
-  List<NameValuePair> formparams=new ArrayList<NameValuePair>();
+  List<NameValuePair> nameValuePairs=new ArrayList<NameValuePair>();
   Set<String> keys=param.keySet();
   for (  String key : keys) {
     String value=param.get(key);
-    if (!TextUtils.isEmpty(value))     formparams.add(new BasicNameValuePair(key,value));
+    if (!TextUtils.isEmpty(value))     nameValuePairs.add(new BasicNameValuePair(key,value));
   }
   UrlEncodedFormEntity entity=null;
   try {
-    entity=new UrlEncodedFormEntity(formparams,"UTF-8");
+    entity=new UrlEncodedFormEntity(nameValuePairs,"UTF-8");
   }
- catch (  UnsupportedEncodingException e) {
+ catch (  UnsupportedEncodingException ignored) {
   }
   HttpPost httppost=new HttpPost(url);
   httppost.setEntity(entity);
   HttpResponse response=null;
   try {
-    response=httpclient.execute(httppost);
+    response=httpClient.execute(httppost);
   }
- catch (  IOException e) {
-    e.printStackTrace();
+ catch (  IOException ignored) {
   }
   return dealWithResponse(response);
 }

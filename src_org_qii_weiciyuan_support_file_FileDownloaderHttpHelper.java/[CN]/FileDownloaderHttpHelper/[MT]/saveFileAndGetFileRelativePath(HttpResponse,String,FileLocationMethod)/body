@@ -1,7 +1,7 @@
 {
   HttpEntity httpEntity=response.getEntity();
-  String imageRelativePath=FileManager.getFileRelativePathFromUrl(url);
-  File file=FileManager.creatNewFileInSdcard(imageRelativePath);
+  String imageAbsolutePath=FileManager.getFileAbsolutePathFromUrl(url,method);
+  File file=FileManager.creatNewFileInSdcard(imageAbsolutePath);
   FileOutputStream out=null;
   InputStream in=null;
   String result="";
@@ -16,7 +16,7 @@
         bytesum+=byteread;
         out.write(buffer,0,byteread);
       }
-      result=imageRelativePath;
+      result=imageAbsolutePath;
     }
  catch (    FileNotFoundException ignored) {
     }
@@ -38,6 +38,12 @@ catch (    IOException e) {
         }
       }
     }
+  }
+  try {
+    EntityUtils.consume(response.getEntity());
+  }
+ catch (  IOException e) {
+    AppLogger.e(e.getMessage());
   }
   return result;
 }
