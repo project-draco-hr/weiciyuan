@@ -1,0 +1,5 @@
+{
+  final int memClass=((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass();
+  final int cacheSize=1024 * 1024 * memClass / 8;
+  avatarCache=new LruCache<String,Bitmap>(cacheSize);
+}

@@ -1,5 +1,0 @@
-{
-  imageViewReference=new WeakReference(imageView);
-  reqHeight=imageView.getHeight();
-  reqWidth=imageView.getWidth();
-}

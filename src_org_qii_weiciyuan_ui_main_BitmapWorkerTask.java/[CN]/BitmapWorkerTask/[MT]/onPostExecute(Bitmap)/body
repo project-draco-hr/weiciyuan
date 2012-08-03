@@ -1,8 +1,5 @@
 {
-  if (imageViewReference != null && bitmap != null) {
-    final ImageView imageView=imageViewReference.get();
-    if (imageView != null) {
-      imageView.setImageBitmap(bitmap);
-    }
+  if (bitmap != null) {
+    lruCache.put(data,bitmap);
   }
 }

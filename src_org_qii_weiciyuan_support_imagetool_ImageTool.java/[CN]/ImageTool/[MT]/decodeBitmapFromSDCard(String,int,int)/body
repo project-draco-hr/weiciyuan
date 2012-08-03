@@ -1,7 +1,7 @@
 {
   final BitmapFactory.Options options=new BitmapFactory.Options();
   options.inJustDecodeBounds=true;
-  String absoluteFilePath=FileManager.getFileAbsolutePathFromRelativePath(FileManager.getFileRelativePathFromUrl(url));
+  String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url);
   absoluteFilePath=absoluteFilePath + ".jpg";
   File file=new File(absoluteFilePath);
   boolean is=file.exists();
