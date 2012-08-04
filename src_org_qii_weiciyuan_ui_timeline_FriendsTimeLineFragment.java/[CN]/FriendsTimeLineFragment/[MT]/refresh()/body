@@ -1,3 +1,4 @@
 {
   timeLineAdapter.notifyDataSetChanged();
+  listView.setSelectionAfterHeaderView();
 }
