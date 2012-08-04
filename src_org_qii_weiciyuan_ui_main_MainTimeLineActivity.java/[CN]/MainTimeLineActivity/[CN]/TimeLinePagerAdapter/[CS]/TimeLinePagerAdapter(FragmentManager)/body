@@ -1,6 +1,7 @@
 {
   super(fm);
   home=new FriendsTimeLineFragment().setCommander(frinedsTimeLineMsgCommand);
+  home.setBean(homeList);
   info=new MyInfoTimeLineFragment();
   list.add(home);
   list.add(info);

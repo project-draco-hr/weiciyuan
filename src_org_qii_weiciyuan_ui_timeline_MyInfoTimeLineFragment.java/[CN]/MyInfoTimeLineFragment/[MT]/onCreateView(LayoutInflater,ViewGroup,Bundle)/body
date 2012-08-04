@@ -1,0 +1,4 @@
+{
+  View view=inflater.inflate(R.layout.fragment_info_layout,container,false);
+  return view;
+}
