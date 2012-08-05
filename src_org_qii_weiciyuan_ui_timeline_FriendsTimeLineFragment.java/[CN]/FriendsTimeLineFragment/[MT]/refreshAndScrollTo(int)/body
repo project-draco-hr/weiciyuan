@@ -1,4 +1,0 @@
-{
-  refresh();
-  listView.smoothScrollToPosition(position);
-}

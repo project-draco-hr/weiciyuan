@@ -1,10 +1,12 @@
 {
 switch (item.getItemId()) {
 case R.id.friendstimelinefragment_new_weibo:
-    commander.newWeibo();
-  break;
+    Intent intent=new Intent(getActivity(),StatusNewActivity.class);
+  intent.putExtra("token",((MainTimeLineActivity)getActivity()).getToken());
+startActivity(intent);
+break;
 case R.id.friendstimelinefragment_refresh:
-commander.getNewFriendsTimeLineMsgList();
+refresh();
 break;
 }
 return super.onOptionsItemSelected(item);

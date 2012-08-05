@@ -1,3 +1,5 @@
 {
-  commander.listViewFooterViewClick(view);
+  if (!isBusying) {
+    new FriendsTimeLineGetOlderMsgListTask(view).execute();
+  }
 }

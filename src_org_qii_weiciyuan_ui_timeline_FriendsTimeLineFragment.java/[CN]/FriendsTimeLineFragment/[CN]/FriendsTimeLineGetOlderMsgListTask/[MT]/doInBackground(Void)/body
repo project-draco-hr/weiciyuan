@@ -1,0 +1,8 @@
+{
+  FriendsTimeLineMsgDao dao=new FriendsTimeLineMsgDao(((MainTimeLineActivity)getActivity()).getToken());
+  if (getList().getStatuses().size() > 0) {
+    dao.setMax_id(getList().getStatuses().get(getList().getStatuses().size() - 1).getId());
+  }
+  TimeLineMsgListBean result=dao.getGSONMsgList();
+  return result;
+}

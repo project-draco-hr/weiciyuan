@@ -1,3 +1,5 @@
 {
-  commander.onItemClick(position);
+  Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
+  intent.putExtra("msg",bean.getStatuses().get(position));
+  startActivity(intent);
 }
