@@ -5,6 +5,6 @@
   }
   frinedsTimeLineMsgCommand.isBusying=false;
   home.refresh();
-  ((TextView)footerView.findViewById(R.id.account_name)).setText("click to load older message");
+  ((TextView)footerView.findViewById(R.id.listview_footer)).setText("click to load older message");
   super.onPostExecute(newValue);
 }

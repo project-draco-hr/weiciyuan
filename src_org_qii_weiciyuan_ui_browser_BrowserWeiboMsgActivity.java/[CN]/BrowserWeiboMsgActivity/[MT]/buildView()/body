@@ -3,18 +3,7 @@
   content=(TextView)findViewById(R.id.content);
   recontent=(TextView)findViewById(R.id.repost_content);
   time=(TextView)findViewById(R.id.time);
-  comment_number=(Button)findViewById(R.id.comment_number);
-  retweet_number=(Button)findViewById(R.id.retweet_number);
-  comment_number.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      startActivity(new Intent(BrowserWeiboMsgActivity.this,BrowserCommentListActivity.class));
-    }
-  }
-);
-  retweet_number.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      startActivity(new Intent(BrowserWeiboMsgActivity.this,BrowserRepostListActivity.class));
-    }
-  }
-);
+  avatar=(ImageView)findViewById(R.id.avatar);
+  content_pic=(ImageView)findViewById(R.id.content_pic);
+  repost_pic=(ImageView)findViewById(R.id.repost_content_pic);
 }

@@ -1,0 +1,6 @@
+{
+  if (bitmap != null) {
+    lruCache.put(data,bitmap);
+  }
+  super.onCancelled(bitmap);
+}

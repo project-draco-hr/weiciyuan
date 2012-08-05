@@ -1,4 +1,6 @@
 {
   getMenuInflater().inflate(R.menu.browserweibomsgactivity_menu,menu);
+  menu.getItem(0).setTitle(menu.getItem(0).getTitle() + "(" + retweet_sum+ ")");
+  menu.getItem(1).setTitle(menu.getItem(1).getTitle() + "(" + comment_sum+ ")");
   return super.onCreateOptionsMenu(menu);
 }
