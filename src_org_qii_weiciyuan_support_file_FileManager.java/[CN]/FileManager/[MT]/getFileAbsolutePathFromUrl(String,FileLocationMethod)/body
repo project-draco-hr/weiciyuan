@@ -10,6 +10,5 @@ newRelativePath=File.separator + PICTURE_THUMBNAIL_CACHE + oldRelativePath;
 break;
 }
 String absolutePath=getFileAbsolutePathFromRelativePath(newRelativePath);
-AppLogger.d(absolutePath);
 return absolutePath;
 }
