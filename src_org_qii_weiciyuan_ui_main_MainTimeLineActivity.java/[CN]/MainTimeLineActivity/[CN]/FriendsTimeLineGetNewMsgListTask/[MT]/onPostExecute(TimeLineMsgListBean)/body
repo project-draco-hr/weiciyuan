@@ -12,7 +12,8 @@
  else {
         homelist_position=0;
       }
-      setHomeList(newValue);
+      homeList=newValue;
+      home.setBean(homeList);
       home.refresh();
     }
   }
