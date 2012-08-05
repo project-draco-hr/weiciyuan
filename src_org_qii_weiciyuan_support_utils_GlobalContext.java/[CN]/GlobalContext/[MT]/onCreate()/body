@@ -1,4 +1,5 @@
 {
   super.onCreate();
   globalContext=this;
+  buildCache();
 }

@@ -4,6 +4,7 @@
   cv.put(AccountTable.OAUTH_TOKEN,account.getAccess_token());
   cv.put(AccountTable.USERNAME,account.getUsername());
   cv.put(AccountTable.USERNICK,account.getUsernick());
+  cv.put(AccountTable.AVATAR_URL,account.getAvatar_url());
   Cursor c=rsd.query(AccountTable.TABLE_NAME,null,AccountTable.UID + "=?",new String[]{account.getUid()},null,null,null);
   if (c != null && c.getCount() > 0) {
     String[] args={account.getUid()};

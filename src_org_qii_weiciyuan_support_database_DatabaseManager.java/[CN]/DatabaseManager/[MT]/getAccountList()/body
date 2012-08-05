@@ -10,6 +10,8 @@
     account.setUsernick(c.getString(colid));
     colid=c.getColumnIndex(AccountTable.UID);
     account.setUid(c.getString(colid));
+    colid=c.getColumnIndex(AccountTable.AVATAR_URL);
+    account.setAvatar_url(c.getString(colid));
     weiboAccountList.add(account);
   }
   return weiboAccountList;

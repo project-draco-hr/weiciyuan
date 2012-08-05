@@ -20,7 +20,12 @@
     if (allChecked)     cb.setChecked(true);
     linearLayout.addView(cb,0);
   }
-  TextView textView=(TextView)mView.findViewById(R.id.textView);
+  TextView textView=(TextView)mView.findViewById(R.id.account_name);
   textView.setText(weiboAccountList.get(i).getUsernick());
+  ImageView imageView=(ImageView)mView.findViewById(R.id.imageView_avatar);
+  if (!TextUtils.isEmpty(weiboAccountList.get(i).getAvatar_url())) {
+    AvatarBitmapWorkerTask avatarTask=new AvatarBitmapWorkerTask(GlobalContext.getInstance().getAvatarCache(),null,imageView,listView,i);
+    avatarTask.execute(weiboAccountList.get(i).getAvatar_url());
+  }
   return mView;
 }

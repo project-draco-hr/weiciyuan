@@ -1,4 +1,4 @@
 {
   frinedsTimeLineMsgCommand.isBusying=true;
-  ((TextView)footerView.findViewById(R.id.textView)).setText("loading");
+  ((TextView)footerView.findViewById(R.id.account_name)).setText("loading");
 }
