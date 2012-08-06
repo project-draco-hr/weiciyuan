@@ -1,0 +1,5 @@
+{
+  super.onCreate(savedInstanceState);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getFragmentManager().beginTransaction().replace(android.R.id.content,new SettingsFragment()).commit();
+}

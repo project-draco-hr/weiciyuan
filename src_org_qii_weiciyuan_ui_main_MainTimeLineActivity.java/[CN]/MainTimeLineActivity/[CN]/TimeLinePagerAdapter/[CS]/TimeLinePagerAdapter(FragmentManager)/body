@@ -3,6 +3,7 @@
   AbstractTimeLineFragment home=new FriendsTimeLineFragment().setCommander(frinedsTimeLineMsgCommand);
   AbstractTimeLineFragment mentions=new MentionsTimeLineFragment();
   MyInfoTimeLineFragment info=new MyInfoTimeLineFragment();
+  info.setAccountBean(weiboAccountBean);
   list.add(home);
   list.add(mentions);
   list.add(new MentionsTimeLineFragment());
