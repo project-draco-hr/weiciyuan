@@ -8,6 +8,5 @@
   list.add(home);
   list.add(mentions);
   list.add(comments);
-  list.add(new MentionsTimeLineFragment());
   list.add(info);
 }
