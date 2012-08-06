@@ -1,0 +1,22 @@
+{
+  HttpResponse response=null;
+  try {
+    if (localContext != null) {
+      response=httpClient.execute(httpRequest,localContext);
+    }
+ else {
+      response=httpClient.execute(httpRequest);
+    }
+  }
+ catch (  ConnectTimeoutException e) {
+    AppLogger.e(e.getMessage());
+    ActivityUtils.showTips(R.string.timeout);
+  }
+catch (  ClientProtocolException e) {
+    AppLogger.e(e.getMessage());
+  }
+catch (  IOException e) {
+    AppLogger.e(e.getMessage());
+  }
+  return response;
+}

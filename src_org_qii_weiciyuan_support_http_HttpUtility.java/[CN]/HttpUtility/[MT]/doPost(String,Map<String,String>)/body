@@ -11,13 +11,18 @@
   }
  catch (  UnsupportedEncodingException ignored) {
   }
-  HttpPost httppost=new HttpPost(url);
-  httppost.setEntity(entity);
-  HttpResponse response=null;
   try {
-    response=httpClient.execute(httppost);
+    httpPost.setURI(new URI(url));
   }
- catch (  IOException ignored) {
+ catch (  URISyntaxException e) {
+    AppLogger.e(e.getMessage());
   }
-  return dealWithResponse(response);
+  httpPost.setEntity(entity);
+  HttpResponse response=getHttpResponse(httpGet,null);
+  if (response != null) {
+    return dealWithResponse(response);
+  }
+ else {
+    return "";
+  }
 }

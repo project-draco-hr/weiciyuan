@@ -16,19 +16,6 @@
   CookieStore cookieStore=new BasicCookieStore();
   HttpContext localContext=new BasicHttpContext();
   localContext.setAttribute(ClientContext.COOKIE_STORE,cookieStore);
-  HttpResponse response=null;
-  try {
-    response=httpClient.execute(httpGet,localContext);
-  }
- catch (  ConnectTimeoutException e) {
-    AppLogger.e(e.getMessage());
-    ActivityUtils.showTips(R.string.timeout);
-  }
-catch (  ClientProtocolException e) {
-    AppLogger.e(e.getMessage());
-  }
-catch (  IOException e) {
-    AppLogger.e(e.getMessage());
-  }
+  HttpResponse response=getHttpResponse(httpGet,localContext);
   return response;
 }
