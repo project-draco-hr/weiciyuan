@@ -1,0 +1,22 @@
+{
+  if (newValue != null) {
+    if (newValue.getComments().size() == 0) {
+      Toast.makeText(getActivity(),"no new message",Toast.LENGTH_SHORT).show();
+    }
+ else {
+      Toast.makeText(getActivity(),"total " + newValue.getComments().size() + " new messages",Toast.LENGTH_SHORT).show();
+      if (newValue.getComments().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+        if (position > 0)         position+=newValue.getComments().size();
+        newValue.getComments().addAll(getList().getComments());
+      }
+ else {
+        position=0;
+      }
+      bean=newValue;
+      timeLineAdapter.notifyDataSetChanged();
+      listView.setSelectionAfterHeaderView();
+    }
+  }
+  dialogFragment.dismissAllowingStateLoss();
+  super.onPostExecute(newValue);
+}

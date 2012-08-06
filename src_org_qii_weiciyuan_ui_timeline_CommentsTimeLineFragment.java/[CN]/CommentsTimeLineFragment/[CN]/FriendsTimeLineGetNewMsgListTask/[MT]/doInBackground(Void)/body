@@ -1,0 +1,14 @@
+{
+  CommentsTimeLineMsgDao dao=new CommentsTimeLineMsgDao(((MainTimeLineActivity)getActivity()).getToken());
+  if (getList().getComments().size() > 0) {
+    dao.setSince_id(getList().getComments().get(0).getId());
+  }
+  CommentListBean result=dao.getGSONMsgList();
+  if (result != null) {
+    if (result.getComments().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+    }
+ else {
+    }
+  }
+  return result;
+}

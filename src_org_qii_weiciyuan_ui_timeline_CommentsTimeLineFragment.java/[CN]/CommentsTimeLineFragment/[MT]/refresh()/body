@@ -1,0 +1,15 @@
+{
+  Map<String,AvatarBitmapWorkerTask> avatarBitmapWorkerTaskHashMap=((MainTimeLineActivity)getActivity()).getAvatarBitmapWorkerTaskHashMap();
+  Map<String,PictureBitmapWorkerTask> pictureBitmapWorkerTaskMap=((MainTimeLineActivity)getActivity()).getPictureBitmapWorkerTaskMap();
+  new FriendsTimeLineGetNewMsgListTask().execute();
+  Set<String> keys=avatarBitmapWorkerTaskHashMap.keySet();
+  for (  String key : keys) {
+    avatarBitmapWorkerTaskHashMap.get(key).cancel(true);
+    avatarBitmapWorkerTaskHashMap.remove(key);
+  }
+  Set<String> pKeys=pictureBitmapWorkerTaskMap.keySet();
+  for (  String pkey : pKeys) {
+    pictureBitmapWorkerTaskMap.get(pkey).cancel(true);
+    pictureBitmapWorkerTaskMap.remove(pkey);
+  }
+}

@@ -2,11 +2,12 @@
   super(fm);
   AbstractTimeLineFragment home=new FriendsTimeLineFragment().setCommander(frinedsTimeLineMsgCommand);
   AbstractTimeLineFragment mentions=new MentionsTimeLineFragment().setCommander(frinedsTimeLineMsgCommand);
+  Fragment comments=new CommentsTimeLineFragment().setCommander(frinedsTimeLineMsgCommand);
   MyInfoTimeLineFragment info=new MyInfoTimeLineFragment();
   info.setAccountBean(weiboAccountBean);
   list.add(home);
   list.add(mentions);
-  list.add(new MentionsTimeLineFragment());
+  list.add(comments);
   list.add(new MentionsTimeLineFragment());
   list.add(info);
 }

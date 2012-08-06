@@ -1,0 +1,6 @@
+{
+  super.onCreate(savedInstanceState);
+  activity=(MainTimeLineActivity)getActivity();
+  setHasOptionsMenu(true);
+  setRetainInstance(true);
+}
