@@ -1,5 +1,0 @@
-{
-  super.onActivityCreated(savedInstanceState);
-  bean=DatabaseManager.getInstance().getHomeLineMsgList();
-  timeLineAdapter.notifyDataSetChanged();
-}
