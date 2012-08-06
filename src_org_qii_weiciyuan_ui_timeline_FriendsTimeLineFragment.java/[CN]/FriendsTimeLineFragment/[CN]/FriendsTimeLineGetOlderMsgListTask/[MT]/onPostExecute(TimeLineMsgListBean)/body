@@ -5,6 +5,8 @@
   }
   isBusying=false;
   ((TextView)footerView.findViewById(R.id.listview_footer)).setText("click to load older message");
+  footerView.findViewById(R.id.refresh).clearAnimation();
+  footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
   timeLineAdapter.notifyDataSetChanged();
   super.onPostExecute(newValue);
 }
