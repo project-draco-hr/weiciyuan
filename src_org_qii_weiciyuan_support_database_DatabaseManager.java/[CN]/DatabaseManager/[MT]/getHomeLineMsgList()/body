@@ -10,8 +10,10 @@
     colid=c.getColumnIndex(HomeTable.CONTENT);
     msg.setText(c.getString(colid));
     msg.setListviewItemShowTime(c.getString(c.getColumnIndex(HomeTable.TIME)));
+    msg.setThumbnail_pic(c.getString(c.getColumnIndex(HomeTable.PIC)));
     WeiboUserBean user=new WeiboUserBean();
     user.setScreen_name(c.getString(c.getColumnIndex(HomeTable.NICK)));
+    user.setProfile_image_url(c.getString(c.getColumnIndex(HomeTable.AVATAR)));
     msg.setUser(user);
     msgList.add(msg);
   }
