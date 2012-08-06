@@ -15,8 +15,11 @@
       bean=newValue;
       timeLineAdapter.notifyDataSetChanged();
       listView.setSelectionAfterHeaderView();
+      headerView.findViewById(R.id.header_progress).clearAnimation();
     }
   }
-  dialogFragment.dismissAllowingStateLoss();
+  headerView.findViewById(R.id.header_progress).setVisibility(View.GONE);
+  headerView.findViewById(R.id.header_text).setVisibility(View.GONE);
+  isBusying=false;
   super.onPostExecute(newValue);
 }
