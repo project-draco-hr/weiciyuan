@@ -1,0 +1,4 @@
+{
+  isBusying=true;
+  ((TextView)footerView.findViewById(R.id.listview_footer)).setText("loading");
+}

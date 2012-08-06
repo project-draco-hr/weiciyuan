@@ -1,7 +1,8 @@
 {
 switch (item.getItemId()) {
-case R.id.friendstimelinefragment_refresh:
-    break;
+case R.id.mentionstimelinefragment_refresh:
+    refresh();
+  break;
 }
-return true;
+return super.onOptionsItemSelected(item);
 }

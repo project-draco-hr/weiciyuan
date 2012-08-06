@@ -1,7 +1,0 @@
-{
-  String msg="";
-  String url=URLHelper.getMentionsTimeLine();
-  Map<String,String> map=new HashMap<String,String>();
-  msg=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
-  return msg;
-}

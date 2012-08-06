@@ -1,0 +1,5 @@
+{
+  String[] items={"??????","??????"};
+  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity()).setTitle(getString(R.string.select)).setItems(items,onClickListener);
+  return builder.create();
+}

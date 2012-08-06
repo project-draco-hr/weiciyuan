@@ -1,0 +1,14 @@
+{
+  MentionsTimeLineMsgDao dao=new MentionsTimeLineMsgDao(((MainTimeLineActivity)getActivity()).getToken());
+  if (getList().getStatuses().size() > 0) {
+    dao.setSince_id(getList().getStatuses().get(0).getId());
+  }
+  TimeLineMsgListBean result=dao.getGSONMsgList();
+  if (result != null) {
+    if (result.getStatuses().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+    }
+ else {
+    }
+  }
+  return result;
+}

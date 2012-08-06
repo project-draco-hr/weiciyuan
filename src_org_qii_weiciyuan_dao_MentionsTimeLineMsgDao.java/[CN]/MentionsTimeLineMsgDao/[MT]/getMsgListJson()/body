@@ -1,0 +1,14 @@
+{
+  String url=URLHelper.getMentionsTimeLine();
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("since_id",since_id);
+  map.put("max_id",max_id);
+  map.put("count",count);
+  map.put("page",page);
+  map.put("filter_by_author",filter_by_author);
+  map.put("filter_by_source",filter_by_source);
+  map.put("trim_user",trim_user);
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  return jsonData;
+}
