@@ -12,6 +12,18 @@
     cv.put(HomeTable.TIME,msg.getCreated_at());
     cv.put(HomeTable.PIC,msg.getThumbnail_pic());
     cv.put(HomeTable.AVATAR,msg.getUser().getProfile_image_url());
+    WeiboMsgBean rt=msg.getRetweeted_status();
+    if (rt != null) {
+      WeiboUserBean rtUser=rt.getUser();
+      cv.put(HomeTable.RTAVATAR,rtUser.getProfile_image_url());
+      cv.put(HomeTable.RTCONTENT,rt.getText());
+      cv.put(HomeTable.RTID,rt.getId());
+      cv.put(HomeTable.RTROTNICK,rtUser.getScreen_name());
+      cv.put(HomeTable.RTROOTUID,rtUser.getId());
+      if (!TextUtils.isEmpty(rt.getThumbnail_pic())) {
+        cv.put(HomeTable.RTPIC,rt.getThumbnail_pic());
+      }
+    }
     long result=wsd.insert(HomeTable.TABLE_NAME,HomeTable.MBLOGID,cv);
   }
 }

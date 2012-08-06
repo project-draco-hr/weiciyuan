@@ -15,6 +15,19 @@
     user.setScreen_name(c.getString(c.getColumnIndex(HomeTable.NICK)));
     user.setProfile_image_url(c.getString(c.getColumnIndex(HomeTable.AVATAR)));
     msg.setUser(user);
+    colid=c.getColumnIndex(HomeTable.RTCONTENT);
+    String rtContent=c.getString(colid);
+    if (!TextUtils.isEmpty((rtContent))) {
+      WeiboMsgBean bean=new WeiboMsgBean();
+      WeiboUserBean userBean=new WeiboUserBean();
+      bean.setId(c.getString(c.getColumnIndex(HomeTable.RTID)));
+      bean.setText(c.getString(c.getColumnIndex(HomeTable.RTCONTENT)));
+      bean.setThumbnail_pic(c.getString(c.getColumnIndex(HomeTable.RTPIC)));
+      userBean.setScreen_name(c.getString(c.getColumnIndex(HomeTable.RTROTNICK)));
+      userBean.setId(c.getString(c.getColumnIndex(HomeTable.RTROOTUID)));
+      bean.setUser(userBean);
+      msg.setRetweeted_status(bean);
+    }
     msgList.add(msg);
   }
   result.setStatuses(msgList);
