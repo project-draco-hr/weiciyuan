@@ -1,9 +1,9 @@
 {
   String json=getMsgListJson();
   Gson gson=new Gson();
-  TimeLineMsgListBean value=null;
+  MessageListBean value=null;
   try {
-    value=gson.fromJson(json,TimeLineMsgListBean.class);
+    value=gson.fromJson(json,MessageListBean.class);
   }
  catch (  JsonSyntaxException e) {
     ActivityUtils.showTips("????????????????????????");
