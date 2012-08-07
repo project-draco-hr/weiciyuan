@@ -6,6 +6,7 @@
   }
  catch (  IOException e) {
     AppLogger.e(e.getMessage());
+    ActivityUtils.showTips(R.string.timeout);
   }
   AppLogger.d(result);
   return result;

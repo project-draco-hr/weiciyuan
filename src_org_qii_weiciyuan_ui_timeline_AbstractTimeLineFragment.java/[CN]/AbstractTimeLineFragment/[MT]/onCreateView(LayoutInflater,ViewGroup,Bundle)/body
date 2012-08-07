@@ -5,8 +5,11 @@
   headerView=inflater.inflate(R.layout.fragment_listview_header_layout,null);
   listView.addHeaderView(headerView);
   listView.setHeaderDividersEnabled(false);
-  View footerView=inflater.inflate(R.layout.fragment_listview_footer_layout,null);
+  footerView=inflater.inflate(R.layout.fragment_listview_footer_layout,null);
   listView.addFooterView(footerView);
+  if (bean.getStatuses().size() == 0) {
+    footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
+  }
   timeLineAdapter=new TimeLineAdapter();
   listView.setAdapter(timeLineAdapter);
   listView.setOnScrollListener(new AbsListView.OnScrollListener(){
