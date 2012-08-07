@@ -1,4 +1,0 @@
-{
-  buildViewData();
-  super.onPostExecute(aVoid);
-}

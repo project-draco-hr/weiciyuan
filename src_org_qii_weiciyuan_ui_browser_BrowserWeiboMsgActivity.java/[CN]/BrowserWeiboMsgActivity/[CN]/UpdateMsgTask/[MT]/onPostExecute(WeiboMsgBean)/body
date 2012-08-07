@@ -1,0 +1,8 @@
+{
+  if (newValue != null) {
+    msg=newValue;
+    retweetMsg=msg.getRetweeted_status();
+    buildViewData();
+  }
+  super.onPostExecute(newValue);
+}

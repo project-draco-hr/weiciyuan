@@ -5,8 +5,10 @@
   actionBar.setDisplayHomeAsUpEnabled(true);
   actionBar.setTitle(getString(R.string.detail));
   Intent intent=getIntent();
+  token=intent.getStringExtra("token");
   msg=(WeiboMsgBean)intent.getSerializableExtra("msg");
   retweetMsg=msg.getRetweeted_status();
   buildView();
   buildViewData();
+  new UpdateMsgTask().execute();
 }
