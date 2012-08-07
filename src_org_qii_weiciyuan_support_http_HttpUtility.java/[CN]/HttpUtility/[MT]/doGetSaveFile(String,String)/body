@@ -1,5 +1,26 @@
 {
-  HttpResponse response=getDoGetHttpResponse(url,new HashMap<String,String>());
+  URIBuilder uriBuilder;
+  try {
+    uriBuilder=new URIBuilder(url);
+    httpGet.setURI(uriBuilder.build());
+    AppLogger.d(uriBuilder.build().toString());
+  }
+ catch (  URISyntaxException e) {
+    AppLogger.d(e.getMessage());
+  }
+  HttpResponse response=null;
+  try {
+    response=httpClient.execute(httpGet);
+  }
+ catch (  ConnectTimeoutException ignored) {
+    AppLogger.e(ignored.getMessage());
+  }
+catch (  ClientProtocolException ignored) {
+    AppLogger.e(ignored.getMessage());
+  }
+catch (  IOException ignored) {
+    AppLogger.e(ignored.getMessage());
+  }
   if (response != null) {
     return FileDownloaderHttpHelper.saveFile(response,path);
   }

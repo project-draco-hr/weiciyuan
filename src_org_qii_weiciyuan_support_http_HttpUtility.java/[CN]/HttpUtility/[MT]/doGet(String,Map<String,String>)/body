@@ -1,5 +1,22 @@
 {
-  HttpResponse response=getDoGetHttpResponse(url,param);
+  URIBuilder uriBuilder;
+  try {
+    uriBuilder=new URIBuilder(url);
+    Set<String> keys=param.keySet();
+    for (    String key : keys) {
+      String value=param.get(key);
+      if (!TextUtils.isEmpty(value))       uriBuilder.addParameter(key,param.get(key));
+    }
+    httpGet.setURI(uriBuilder.build());
+    AppLogger.d(uriBuilder.build().toString());
+  }
+ catch (  URISyntaxException e) {
+    AppLogger.d(e.getMessage());
+  }
+  CookieStore cookieStore=new BasicCookieStore();
+  HttpContext localContext=new BasicHttpContext();
+  localContext.setAttribute(ClientContext.COOKIE_STORE,cookieStore);
+  HttpResponse response=getHttpResponse(httpGet,localContext);
   if (response != null) {
     return dealWithResponse(response);
   }
