@@ -1,4 +1,7 @@
 {
   data=url[0];
-  return ImageTool.getPictureThumbnailBitmap(data);
+  if (!isCancelled()) {
+    return ImageTool.getPictureThumbnailBitmap(data);
+  }
+  return null;
 }
