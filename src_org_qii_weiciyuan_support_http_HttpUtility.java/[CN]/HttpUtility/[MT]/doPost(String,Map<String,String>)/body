@@ -1,4 +1,5 @@
 {
+  AppLogger.d(url);
   List<NameValuePair> nameValuePairs=new ArrayList<NameValuePair>();
   Set<String> keys=param.keySet();
   for (  String key : keys) {
@@ -18,7 +19,7 @@
     AppLogger.e(e.getMessage());
   }
   httpPost.setEntity(entity);
-  HttpResponse response=getHttpResponse(httpGet,null);
+  HttpResponse response=getHttpResponse(httpPost,null);
   if (response != null) {
     return dealWithResponse(response);
   }
