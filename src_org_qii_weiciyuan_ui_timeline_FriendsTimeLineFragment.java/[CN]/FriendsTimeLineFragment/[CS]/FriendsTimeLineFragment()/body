@@ -1,3 +1,2 @@
 {
-  bean=DatabaseManager.getInstance().getHomeLineMsgList();
 }
