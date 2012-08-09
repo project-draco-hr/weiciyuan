@@ -1,4 +1,0 @@
-{
-  GlobalContext.getInstance().setAppForegroundFlag();
-  super.onBackPressed();
-}
