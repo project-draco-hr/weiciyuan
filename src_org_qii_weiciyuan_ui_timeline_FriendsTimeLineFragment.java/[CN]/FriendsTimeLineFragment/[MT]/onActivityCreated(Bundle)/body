@@ -1,4 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
   commander=((MainTimeLineActivity)getActivity()).getFrinedsTimeLineMsgCommand();
+  ((MainTimeLineActivity)getActivity()).setHomeListView(listView);
 }
