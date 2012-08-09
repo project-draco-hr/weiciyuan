@@ -2,8 +2,8 @@
   super.onCreate(savedInstanceState);
   setContentView(R.layout.maintimelineactivity_viewpager_layout);
   Intent intent=getIntent();
-  weiboAccountBean=(WeiboAccountBean)intent.getSerializableExtra("account");
-  token=weiboAccountBean.getAccess_token();
+  accountBean=(AccountBean)intent.getSerializableExtra("account");
+  token=accountBean.getAccess_token();
   buildViewPager();
   buildActionBarAndViewPagerTitles();
 }

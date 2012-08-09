@@ -1,11 +1,12 @@
 {
   View view=inflater.inflate(R.layout.fragment_info_layout,container,false);
+  bean=((IUserInfo)getActivity()).getUser();
   ImageView avatar=(ImageView)view.findViewById(R.id.avatar);
   TextView username=(TextView)view.findViewById(R.id.username);
   TextView jshao=(TextView)view.findViewById(R.id.textView_info);
   Button weibo_number=(Button)view.findViewById(R.id.weibo_number);
   Button following_number=(Button)view.findViewById(R.id.following_number);
   Button fans_number=(Button)view.findViewById(R.id.fans_number);
-  username.setText(accountBean.getUsernick());
+  username.setText(bean.getScreen_name());
   return view;
 }

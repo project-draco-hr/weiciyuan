@@ -6,7 +6,7 @@
     CheckBox cb=new CheckBox(AccountActivity.this);
     cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
       @Override public void onCheckedChanged(      CompoundButton buttonView,      boolean isChecked){
-        WeiboAccountBean account=weiboAccountList.get(i);
+        AccountBean account=accountList.get(i);
         String uid=account.getUid();
         if (isChecked) {
           checkedItemPostion.add(uid);
@@ -21,11 +21,11 @@
     linearLayout.addView(cb,0);
   }
   TextView textView=(TextView)mView.findViewById(R.id.account_name);
-  textView.setText(weiboAccountList.get(i).getUsernick());
+  textView.setText(accountList.get(i).getUsernick());
   ImageView imageView=(ImageView)mView.findViewById(R.id.imageView_avatar);
-  if (!TextUtils.isEmpty(weiboAccountList.get(i).getAvatar_url())) {
+  if (!TextUtils.isEmpty(accountList.get(i).getAvatar_url())) {
     AvatarBitmapWorkerTask avatarTask=new AvatarBitmapWorkerTask(GlobalContext.getInstance().getAvatarCache(),null,imageView,listView,i);
-    avatarTask.execute(weiboAccountList.get(i).getAvatar_url());
+    avatarTask.execute(accountList.get(i).getAvatar_url());
   }
   return mView;
 }

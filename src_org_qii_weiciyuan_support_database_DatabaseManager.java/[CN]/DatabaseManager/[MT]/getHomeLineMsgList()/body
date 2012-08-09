@@ -11,7 +11,7 @@
     msg.setText(c.getString(colid));
     msg.setListviewItemShowTime(c.getString(c.getColumnIndex(HomeTable.TIME)));
     msg.setThumbnail_pic(c.getString(c.getColumnIndex(HomeTable.PIC)));
-    WeiboUserBean user=new WeiboUserBean();
+    UserBean user=new UserBean();
     user.setScreen_name(c.getString(c.getColumnIndex(HomeTable.NICK)));
     user.setProfile_image_url(c.getString(c.getColumnIndex(HomeTable.AVATAR)));
     msg.setUser(user);
@@ -19,7 +19,7 @@
     String rtContent=c.getString(colid);
     if (!TextUtils.isEmpty((rtContent))) {
       WeiboMsgBean bean=new WeiboMsgBean();
-      WeiboUserBean userBean=new WeiboUserBean();
+      UserBean userBean=new UserBean();
       bean.setId(c.getString(c.getColumnIndex(HomeTable.RTID)));
       bean.setText(c.getString(c.getColumnIndex(HomeTable.RTCONTENT)));
       bean.setThumbnail_pic(c.getString(c.getColumnIndex(HomeTable.RTPIC)));

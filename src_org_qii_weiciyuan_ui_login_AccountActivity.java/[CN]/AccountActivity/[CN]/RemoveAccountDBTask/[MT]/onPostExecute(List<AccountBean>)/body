@@ -1,0 +1,5 @@
+{
+  accountList=accounts;
+  listAdapter.notifyDataSetChanged();
+  Toast.makeText(AccountActivity.this,"remove successfully",Toast.LENGTH_SHORT).show();
+}

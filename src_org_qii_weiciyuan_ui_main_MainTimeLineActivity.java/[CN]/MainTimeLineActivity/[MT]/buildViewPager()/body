@@ -1,6 +1,5 @@
 {
   mViewPager=(ViewPager)findViewById(R.id.viewpager);
-  timeLinePagerAdapter=new TimeLinePagerAdapter(getSupportFragmentManager());
-  mViewPager.setAdapter(timeLinePagerAdapter);
+  mViewPager.setAdapter(new TimeLinePagerAdapter(getSupportFragmentManager()));
   mViewPager.setOnPageChangeListener(onPageChangeListener);
 }
