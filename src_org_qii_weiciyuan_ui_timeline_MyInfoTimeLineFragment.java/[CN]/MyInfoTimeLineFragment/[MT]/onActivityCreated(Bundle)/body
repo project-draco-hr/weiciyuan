@@ -1,3 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
+  bean=((IUserInfo)getActivity()).getUser();
+  username.setText(bean.getScreen_name());
 }
