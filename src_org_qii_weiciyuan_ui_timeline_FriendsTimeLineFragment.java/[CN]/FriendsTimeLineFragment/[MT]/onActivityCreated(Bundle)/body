@@ -5,7 +5,7 @@
     bean=(MessageListBean)savedInstanceState.getSerializable("bean");
   }
  else {
-    bean=DatabaseManager.getInstance().getHomeLineMsgList(((IAccountInfo)getActivity()).getAccount().getUid());
+    new SimpleTask().execute();
   }
   timeLineAdapter.notifyDataSetChanged();
   if (bean.getStatuses().size() != 0) {

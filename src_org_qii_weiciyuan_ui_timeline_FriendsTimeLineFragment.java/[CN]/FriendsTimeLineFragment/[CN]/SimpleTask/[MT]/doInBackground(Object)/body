@@ -1,0 +1,4 @@
+{
+  bean=DatabaseManager.getInstance().getHomeLineMsgList(((IAccountInfo)getActivity()).getAccount().getUid());
+  return null;
+}

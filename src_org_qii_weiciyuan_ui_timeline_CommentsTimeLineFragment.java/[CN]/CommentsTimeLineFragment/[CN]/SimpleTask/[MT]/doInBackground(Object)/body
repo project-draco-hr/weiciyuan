@@ -1,0 +1,4 @@
+{
+  bean=DatabaseManager.getInstance().getCommentLineMsgList(((IAccountInfo)getActivity()).getAccount().getUid());
+  return null;
+}

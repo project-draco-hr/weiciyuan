@@ -1,0 +1,4 @@
+{
+  timeLineAdapter.notifyDataSetChanged();
+  super.onPostExecute(o);
+}

@@ -1,9 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
   ((MainTimeLineActivity)getActivity()).setMentionsListView(listView);
-  bean=DatabaseManager.getInstance().getRepostLineMsgList(((IAccountInfo)getActivity()).getAccount().getUid());
-  timeLineAdapter.notifyDataSetChanged();
-  if (bean.getStatuses().size() != 0) {
-    footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
-  }
+  new SimpleTask().execute();
 }
