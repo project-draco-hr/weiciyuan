@@ -6,17 +6,22 @@
  else {
       Toast.makeText(getActivity(),"total " + newValue.getComments().size() + " new messages",Toast.LENGTH_SHORT).show();
       if (newValue.getComments().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
-        if (position > 0)         position+=newValue.getComments().size();
         newValue.getComments().addAll(getList().getComments());
-      }
- else {
-        position=0;
       }
       bean=newValue;
       timeLineAdapter.notifyDataSetChanged();
       listView.setSelectionAfterHeaderView();
+      headerView.findViewById(R.id.header_progress).clearAnimation();
     }
   }
-  dialogFragment.dismissAllowingStateLoss();
+  headerView.findViewById(R.id.header_progress).setVisibility(View.GONE);
+  headerView.findViewById(R.id.header_text).setVisibility(View.GONE);
+  isBusying=false;
+  if (bean.getComments().size() == 0) {
+    footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
+  }
+ else {
+    footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
+  }
   super.onPostExecute(newValue);
 }

@@ -1,5 +1,4 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.mentionstimelinefragment_menu,menu);
-  menu.add("weibo dont have messages group api");
 }

@@ -6,11 +6,7 @@
  else {
       Toast.makeText(getActivity(),"total " + newValue.getStatuses().size() + " new messages",Toast.LENGTH_SHORT).show();
       if (newValue.getStatuses().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
-        if (position > 0)         position+=newValue.getStatuses().size();
         newValue.getStatuses().addAll(getList().getStatuses());
-      }
- else {
-        position=0;
       }
       bean=newValue;
       timeLineAdapter.notifyDataSetChanged();
