@@ -1,7 +1,7 @@
 {
   Map<String,AvatarBitmapWorkerTask> avatarBitmapWorkerTaskHashMap=((MainTimeLineActivity)getActivity()).getAvatarBitmapWorkerTaskHashMap();
   Map<String,PictureBitmapWorkerTask> pictureBitmapWorkerTaskMap=((MainTimeLineActivity)getActivity()).getPictureBitmapWorkerTaskMap();
-  new FriendsTimeLineGetNewMsgListTask().execute();
+  new TimeLineGetNewMsgListTask().execute();
   Set<String> keys=avatarBitmapWorkerTaskHashMap.keySet();
   for (  String key : keys) {
     avatarBitmapWorkerTaskHashMap.get(key).cancel(true);
