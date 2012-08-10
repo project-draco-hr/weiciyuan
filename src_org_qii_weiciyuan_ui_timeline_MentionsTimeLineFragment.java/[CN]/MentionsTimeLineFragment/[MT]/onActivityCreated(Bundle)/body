@@ -2,4 +2,6 @@
   super.onActivityCreated(savedInstanceState);
   commander=((MainTimeLineActivity)getActivity()).getCommander();
   ((MainTimeLineActivity)getActivity()).setMentionsListView(listView);
+  bean=DatabaseManager.getInstance().getRepostLineMsgList(((IAccountInfo)getActivity()).getAccount().getUid());
+  timeLineAdapter.notifyDataSetChanged();
 }

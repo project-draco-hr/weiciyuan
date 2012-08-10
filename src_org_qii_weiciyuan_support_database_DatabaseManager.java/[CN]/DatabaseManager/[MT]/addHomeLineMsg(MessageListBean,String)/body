@@ -25,6 +25,6 @@
         cv.put(HomeTable.RTPIC,rt.getThumbnail_pic());
       }
     }
-    long result=wsd.insert(HomeTable.TABLE_NAME,HomeTable.MBLOGID,cv);
+    long result=wsd.insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
   }
 }

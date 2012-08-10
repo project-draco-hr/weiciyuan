@@ -6,8 +6,10 @@
   MessageListBean result=dao.getGSONMsgList();
   if (result != null) {
     if (result.getStatuses().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+      DatabaseManager.getInstance().addRepostLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
     }
  else {
+      DatabaseManager.getInstance().replaceRepostLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
     }
   }
   return result;
