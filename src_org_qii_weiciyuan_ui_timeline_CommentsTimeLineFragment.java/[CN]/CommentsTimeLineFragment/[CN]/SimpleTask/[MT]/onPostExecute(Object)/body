@@ -1,4 +1,7 @@
 {
   timeLineAdapter.notifyDataSetChanged();
+  if (bean.getComments().size() != 0) {
+    footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
+  }
   super.onPostExecute(o);
 }
