@@ -1,4 +1,2 @@
 {
-  view.setSelected(true);
-  new MyAlertDialogFragment().setView(view).setPosition(position).show(getFragmentManager(),"");
 }
