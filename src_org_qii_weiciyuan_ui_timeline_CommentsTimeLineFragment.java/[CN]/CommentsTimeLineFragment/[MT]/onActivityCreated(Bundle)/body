@@ -2,4 +2,14 @@
   super.onActivityCreated(savedInstanceState);
   commander=((MainTimeLineActivity)getActivity()).getCommander();
   ((MainTimeLineActivity)getActivity()).setCommentsListView(listView);
+  if (savedInstanceState != null) {
+    bean=(CommentListBean)savedInstanceState.getSerializable("bean");
+  }
+ else {
+    bean=DatabaseManager.getInstance().getCommentLineMsgList(((IAccountInfo)getActivity()).getAccount().getUid());
+  }
+  timeLineAdapter.notifyDataSetChanged();
+  if (bean.getComments().size() != 0) {
+    footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
+  }
 }

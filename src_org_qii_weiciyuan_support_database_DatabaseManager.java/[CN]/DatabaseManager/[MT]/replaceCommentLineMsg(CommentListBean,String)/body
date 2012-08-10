@@ -1,0 +1,5 @@
+{
+  wsd.execSQL("DROP TABLE IF EXISTS " + CommentsTable.TABLE_NAME);
+  wsd.execSQL(DatabaseHelper.CREATE_COMMENTS_TABLE_SQL);
+  addCommentLineMsg(list,accountId);
+}

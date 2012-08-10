@@ -6,8 +6,10 @@
   CommentListBean result=dao.getGSONMsgList();
   if (result != null) {
     if (result.getComments().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+      DatabaseManager.getInstance().addCommentLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
     }
  else {
+      DatabaseManager.getInstance().replaceCommentLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
     }
   }
   return result;
