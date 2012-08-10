@@ -6,7 +6,7 @@
     bean=(MessageListBean)savedInstanceState.getSerializable("bean");
   }
  else {
-    bean=DatabaseManager.getInstance().getHomeLineMsgList();
+    bean=DatabaseManager.getInstance().getHomeLineMsgList(((MyInfoTimeLineFragment.IUserInfo)getActivity()).getUser().getId());
   }
   timeLineAdapter.notifyDataSetChanged();
 }

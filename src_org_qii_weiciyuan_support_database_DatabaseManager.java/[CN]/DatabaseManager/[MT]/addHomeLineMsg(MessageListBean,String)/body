@@ -6,6 +6,7 @@
     UserBean user=msg.getUser();
     ContentValues cv=new ContentValues();
     cv.put(HomeTable.MBLOGID,msg.getId());
+    cv.put(HomeTable.ACCOUNTID,accountId);
     cv.put(HomeTable.NICK,user.getScreen_name());
     cv.put(HomeTable.UID,user.getId());
     cv.put(HomeTable.CONTENT,msg.getText());

@@ -6,10 +6,10 @@
   MessageListBean result=dao.getGSONMsgList();
   if (result != null) {
     if (result.getStatuses().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
-      DatabaseManager.getInstance().addHomeLineMsg(result);
+      DatabaseManager.getInstance().addHomeLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
     }
  else {
-      DatabaseManager.getInstance().replaceHomeLineMsg(result);
+      DatabaseManager.getInstance().replaceHomeLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
     }
   }
   return result;
