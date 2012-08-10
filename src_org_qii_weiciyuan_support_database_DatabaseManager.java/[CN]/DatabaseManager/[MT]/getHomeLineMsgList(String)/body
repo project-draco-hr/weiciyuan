@@ -1,34 +1,18 @@
 {
+  Gson gson=new Gson();
   MessageListBean result=new MessageListBean();
   List<WeiboMsgBean> msgList=new ArrayList<WeiboMsgBean>();
   String sql="select * from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ HomeTable.MBLOGID+ " desc";
   Cursor c=rsd.rawQuery(sql,null);
   while (c.moveToNext()) {
-    WeiboMsgBean msg=new WeiboMsgBean();
-    int colid=c.getColumnIndex(HomeTable.MBLOGID);
-    msg.setId(c.getString(colid));
-    colid=c.getColumnIndex(HomeTable.CONTENT);
-    msg.setText(c.getString(colid));
-    msg.setListviewItemShowTime(c.getString(c.getColumnIndex(HomeTable.TIME)));
-    msg.setThumbnail_pic(c.getString(c.getColumnIndex(HomeTable.PIC)));
-    UserBean user=new UserBean();
-    user.setScreen_name(c.getString(c.getColumnIndex(HomeTable.NICK)));
-    user.setProfile_image_url(c.getString(c.getColumnIndex(HomeTable.AVATAR)));
-    msg.setUser(user);
-    colid=c.getColumnIndex(HomeTable.RTCONTENT);
-    String rtContent=c.getString(colid);
-    if (!TextUtils.isEmpty((rtContent))) {
-      WeiboMsgBean bean=new WeiboMsgBean();
-      UserBean userBean=new UserBean();
-      bean.setId(c.getString(c.getColumnIndex(HomeTable.RTID)));
-      bean.setText(c.getString(c.getColumnIndex(HomeTable.RTCONTENT)));
-      bean.setThumbnail_pic(c.getString(c.getColumnIndex(HomeTable.RTPIC)));
-      userBean.setScreen_name(c.getString(c.getColumnIndex(HomeTable.RTROTNICK)));
-      userBean.setId(c.getString(c.getColumnIndex(HomeTable.RTROOTUID)));
-      bean.setUser(userBean);
-      msg.setRetweeted_status(bean);
+    String json=c.getString(c.getColumnIndex(HomeTable.JSONDATA));
+    try {
+      WeiboMsgBean value=gson.fromJson(json,WeiboMsgBean.class);
+      msgList.add(value);
     }
-    msgList.add(msg);
+ catch (    JsonSyntaxException e) {
+      AppLogger.e(e.getMessage());
+    }
   }
   result.setStatuses(msgList);
   return result;

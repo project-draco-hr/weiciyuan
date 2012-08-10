@@ -11,7 +11,7 @@
       msgList.add(value);
     }
  catch (    JsonSyntaxException e) {
-      AppLogger.e(e.getMessage().toString());
+      AppLogger.e(e.getMessage());
     }
   }
   result.setComments(msgList);

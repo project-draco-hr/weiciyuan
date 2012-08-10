@@ -1,30 +1,12 @@
 {
+  Gson gson=new Gson();
   List<WeiboMsgBean> msgList=list.getStatuses();
-  int size=msgList.size();
-  for (int i=0; i < size; i++) {
-    WeiboMsgBean msg=msgList.get(i);
-    UserBean user=msg.getUser();
+  for (  WeiboMsgBean msg : msgList) {
     ContentValues cv=new ContentValues();
     cv.put(HomeTable.MBLOGID,msg.getId());
     cv.put(HomeTable.ACCOUNTID,accountId);
-    cv.put(HomeTable.NICK,user.getScreen_name());
-    cv.put(HomeTable.UID,user.getId());
-    cv.put(HomeTable.CONTENT,msg.getText());
-    cv.put(HomeTable.TIME,msg.getCreated_at());
-    cv.put(HomeTable.PIC,msg.getThumbnail_pic());
-    cv.put(HomeTable.AVATAR,msg.getUser().getProfile_image_url());
-    WeiboMsgBean rt=msg.getRetweeted_status();
-    if (rt != null) {
-      UserBean rtUser=rt.getUser();
-      cv.put(HomeTable.RTAVATAR,rtUser.getProfile_image_url());
-      cv.put(HomeTable.RTCONTENT,rt.getText());
-      cv.put(HomeTable.RTID,rt.getId());
-      cv.put(HomeTable.RTROTNICK,rtUser.getScreen_name());
-      cv.put(HomeTable.RTROOTUID,rtUser.getId());
-      if (!TextUtils.isEmpty(rt.getThumbnail_pic())) {
-        cv.put(HomeTable.RTPIC,rt.getThumbnail_pic());
-      }
-    }
-    long result=wsd.insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
+    String json=gson.toJson(msg);
+    cv.put(HomeTable.JSONDATA,json);
+    wsd.insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
   }
 }

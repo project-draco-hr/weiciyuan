@@ -1,36 +1,18 @@
 {
+  Gson gson=new Gson();
   MessageListBean result=new MessageListBean();
   List<WeiboMsgBean> msgList=new ArrayList<WeiboMsgBean>();
   String sql="select * from " + RepostsTable.TABLE_NAME + " where "+ RepostsTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ RepostsTable.MBLOGID+ " desc";
   Cursor c=rsd.rawQuery(sql,null);
   while (c.moveToNext()) {
-    WeiboMsgBean msg=new WeiboMsgBean();
-    int colid=c.getColumnIndex(RepostsTable.MBLOGID);
-    msg.setId(c.getString(colid));
-    colid=c.getColumnIndex(RepostsTable.CONTENT);
-    msg.setText(c.getString(colid));
-    msg.setListviewItemShowTime(c.getString(c.getColumnIndex(RepostsTable.TIME)));
-    msg.setThumbnail_pic(c.getString(c.getColumnIndex(RepostsTable.PIC)));
-    UserBean user=new UserBean();
-    user.setScreen_name(c.getString(c.getColumnIndex(RepostsTable.NICK)));
-    user.setProfile_image_url(c.getString(c.getColumnIndex(RepostsTable.AVATAR)));
-    msg.setUser(user);
-    colid=c.getColumnIndex(RepostsTable.RTCONTENT);
-    String rtContent=c.getString(colid);
-    if (!TextUtils.isEmpty((rtContent))) {
-      WeiboMsgBean bean=new WeiboMsgBean();
-      UserBean userBean=new UserBean();
-      bean.setId(c.getString(c.getColumnIndex(RepostsTable.RTID)));
-      bean.setText(c.getString(c.getColumnIndex(RepostsTable.RTCONTENT)));
-      bean.setThumbnail_pic(c.getString(c.getColumnIndex(RepostsTable.RTPIC)));
-      userBean.setScreen_name(c.getString(c.getColumnIndex(RepostsTable.RTROTNICK)));
-      userBean.setId(c.getString(c.getColumnIndex(RepostsTable.RTROOTUID)));
-      if (userBean.getScreen_name() != null) {
-        bean.setUser(userBean);
-      }
-      msg.setRetweeted_status(bean);
+    String json=c.getString(c.getColumnIndex(RepostsTable.JSONDATA));
+    try {
+      WeiboMsgBean value=gson.fromJson(json,WeiboMsgBean.class);
+      msgList.add(value);
     }
-    msgList.add(msg);
+ catch (    JsonSyntaxException e) {
+      AppLogger.e(e.getMessage());
+    }
   }
   result.setStatuses(msgList);
   return result;
