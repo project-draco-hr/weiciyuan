@@ -25,7 +25,9 @@
       bean.setThumbnail_pic(c.getString(c.getColumnIndex(RepostsTable.RTPIC)));
       userBean.setScreen_name(c.getString(c.getColumnIndex(RepostsTable.RTROTNICK)));
       userBean.setId(c.getString(c.getColumnIndex(RepostsTable.RTROOTUID)));
-      bean.setUser(userBean);
+      if (userBean.getScreen_name() != null) {
+        bean.setUser(userBean);
+      }
       msg.setRetweeted_status(bean);
     }
     msgList.add(msg);

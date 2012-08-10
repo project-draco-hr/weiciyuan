@@ -9,12 +9,14 @@
     ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage().toString());
   }
-  List<WeiboMsgBean> msgList=value.getStatuses();
-  Iterator<WeiboMsgBean> iterator=msgList.iterator();
-  while (iterator.hasNext()) {
-    WeiboMsgBean msg=iterator.next();
-    if (msg.getUser() == null) {
-      iterator.remove();
+  if (value != null) {
+    List<WeiboMsgBean> msgList=value.getStatuses();
+    Iterator<WeiboMsgBean> iterator=msgList.iterator();
+    while (iterator.hasNext()) {
+      WeiboMsgBean msg=iterator.next();
+      if (msg.getUser() == null) {
+        iterator.remove();
+      }
     }
   }
   return value;
