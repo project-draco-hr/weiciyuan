@@ -17,7 +17,6 @@
 switch (scrollState) {
 case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
         if (view.getLastVisiblePosition() == (view.getCount() - 1)) {
-          scrollToBottom();
         }
       position=view.getFirstVisiblePosition();
     break;
