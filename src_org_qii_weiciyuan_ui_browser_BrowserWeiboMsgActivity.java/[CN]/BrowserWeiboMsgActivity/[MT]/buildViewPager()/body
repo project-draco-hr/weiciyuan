@@ -1,0 +1,6 @@
+{
+  mViewPager=(ViewPager)findViewById(R.id.viewpager);
+  TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getSupportFragmentManager());
+  mViewPager.setOffscreenPageLimit(5);
+  mViewPager.setAdapter(adapter);
+}
