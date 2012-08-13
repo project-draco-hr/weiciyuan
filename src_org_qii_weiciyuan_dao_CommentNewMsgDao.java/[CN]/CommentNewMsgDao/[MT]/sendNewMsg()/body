@@ -1,0 +1,19 @@
+{
+  String url=URLHelper.new_Comment();
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("id",id);
+  map.put("comment",comment);
+  map.put("comment_ori",comment_ori);
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
+  Gson gson=new Gson();
+  CommentBean value=null;
+  try {
+    value=gson.fromJson(jsonData,CommentBean.class);
+  }
+ catch (  JsonSyntaxException e) {
+    ActivityUtils.showTips("????????????????????????");
+    AppLogger.e(e.getMessage().toString());
+  }
+  return value;
+}

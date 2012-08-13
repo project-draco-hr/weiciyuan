@@ -1,0 +1,4 @@
+{
+  getMenuInflater().inflate(R.menu.statusnewactivity_menu,menu);
+  return true;
+}
