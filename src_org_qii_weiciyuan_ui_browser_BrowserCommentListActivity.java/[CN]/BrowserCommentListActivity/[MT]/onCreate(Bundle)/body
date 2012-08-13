@@ -3,4 +3,9 @@
   setContentView(R.layout.browsercommentlistactivity_layout);
   token=getIntent().getStringExtra("token");
   id=getIntent().getStringExtra("id");
+  FragmentManager fragmentManager=getSupportFragmentManager();
+  FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+  CommentsByIdTimeLineFragment fragment=new CommentsByIdTimeLineFragment(token,id);
+  fragmentTransaction.add(R.id.listViewFragment,fragment);
+  fragmentTransaction.commit();
 }

@@ -1,5 +1,7 @@
 {
   View view=inflater.inflate(R.layout.fragment_listview_layout,container,false);
+  empty=(TextView)view.findViewById(R.id.empty);
+  progressBar=(ProgressBar)view.findViewById(R.id.progressbar);
   listView=(ListView)view.findViewById(R.id.listView);
   listView.setScrollingCacheEnabled(false);
   headerView=inflater.inflate(R.layout.fragment_listview_header_layout,null);

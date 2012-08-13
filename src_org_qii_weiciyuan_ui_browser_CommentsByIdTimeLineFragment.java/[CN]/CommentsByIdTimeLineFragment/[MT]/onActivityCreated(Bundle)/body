@@ -1,14 +1,12 @@
 {
   super.onActivityCreated(savedInstanceState);
-  commander=((MainTimeLineActivity)getActivity()).getCommander();
+  commander=((AbstractAppActivity)getActivity()).getCommander();
   if (savedInstanceState != null && bean.getComments().size() == 0) {
     bean=(CommentListBean)savedInstanceState.getSerializable("bean");
     timeLineAdapter.notifyDataSetChanged();
-    if (bean.getComments().size() != 0) {
-      footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
-    }
+    refreshLayout(bean);
   }
- else   if (bean.getComments().size() == 0) {
+ else {
     new SimpleTask().execute();
   }
 }

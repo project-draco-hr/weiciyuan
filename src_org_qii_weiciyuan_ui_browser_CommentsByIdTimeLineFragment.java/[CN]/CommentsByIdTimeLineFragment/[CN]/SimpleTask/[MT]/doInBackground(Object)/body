@@ -1,3 +1,4 @@
 {
+  bean=new CommentsTimeLineMsgByIdDao(token,id).getGSONMsgList();
   return null;
 }

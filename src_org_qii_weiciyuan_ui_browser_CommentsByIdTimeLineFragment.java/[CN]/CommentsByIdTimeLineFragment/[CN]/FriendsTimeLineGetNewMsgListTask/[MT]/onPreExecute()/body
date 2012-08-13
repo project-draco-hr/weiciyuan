@@ -1,4 +1,5 @@
 {
+  showListView();
   isBusying=true;
   footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
   headerView.findViewById(R.id.header_progress).setVisibility(View.VISIBLE);
