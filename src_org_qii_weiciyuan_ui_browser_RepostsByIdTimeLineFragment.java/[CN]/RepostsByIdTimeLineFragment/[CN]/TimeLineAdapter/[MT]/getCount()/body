@@ -1,0 +1,8 @@
+{
+  if (getList() != null && getList().getReposts() != null) {
+    return getList().getReposts().size();
+  }
+ else {
+    return 0;
+  }
+}

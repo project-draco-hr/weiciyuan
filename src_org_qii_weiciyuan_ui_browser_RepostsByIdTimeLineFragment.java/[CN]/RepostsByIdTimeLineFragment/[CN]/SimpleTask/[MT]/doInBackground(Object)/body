@@ -1,0 +1,4 @@
+{
+  bean=new RepostsTimeLineMsgByIdDao(token,id).getGSONMsgList();
+  return null;
+}

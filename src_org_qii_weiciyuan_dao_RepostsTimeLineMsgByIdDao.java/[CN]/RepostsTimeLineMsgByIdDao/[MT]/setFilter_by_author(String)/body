@@ -1,0 +1,3 @@
+{
+  this.filter_by_author=filter_by_author;
+}

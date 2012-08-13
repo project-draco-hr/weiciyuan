@@ -1,0 +1,12 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  commander=((AbstractAppActivity)getActivity()).getCommander();
+  if (savedInstanceState != null && bean.getReposts().size() == 0) {
+    bean=(RepostListBean)savedInstanceState.getSerializable("bean");
+    timeLineAdapter.notifyDataSetChanged();
+    refreshLayout(bean);
+  }
+ else {
+    new SimpleTask().execute();
+  }
+}

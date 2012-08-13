@@ -1,0 +1,8 @@
+{
+  RepostsTimeLineMsgByIdDao dao=new RepostsTimeLineMsgByIdDao(token,id);
+  if (getList().getReposts().size() > 0) {
+    dao.setSince_id(getList().getReposts().get(0).getId());
+  }
+  RepostListBean result=dao.getGSONMsgList();
+  return result;
+}

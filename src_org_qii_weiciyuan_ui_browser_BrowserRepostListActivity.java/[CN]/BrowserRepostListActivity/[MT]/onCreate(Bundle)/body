@@ -1,4 +1,11 @@
 {
   super.onCreate(savedInstanceState);
-  setContentView(R.layout.browserrepostlistactivity_layout);
+  setContentView(R.layout.browsercommentlistactivity_layout);
+  token=getIntent().getStringExtra("token");
+  id=getIntent().getStringExtra("id");
+  FragmentManager fragmentManager=getSupportFragmentManager();
+  FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+  RepostsByIdTimeLineFragment fragment=new RepostsByIdTimeLineFragment(token,id);
+  fragmentTransaction.add(R.id.listViewFragment,fragment);
+  fragmentTransaction.commit();
 }
