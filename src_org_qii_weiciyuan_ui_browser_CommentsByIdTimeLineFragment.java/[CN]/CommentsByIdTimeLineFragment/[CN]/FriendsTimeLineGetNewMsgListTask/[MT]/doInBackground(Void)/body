@@ -1,16 +1,8 @@
 {
-  CommentsTimeLineMsgDao dao=new CommentsTimeLineMsgDao(((MainTimeLineActivity)getActivity()).getToken());
+  CommentsTimeLineMsgByIdDao dao=new CommentsTimeLineMsgByIdDao(token,id);
   if (getList().getComments().size() > 0) {
     dao.setSince_id(getList().getComments().get(0).getId());
   }
   CommentListBean result=dao.getGSONMsgList();
-  if (result != null) {
-    if (result.getComments().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
-      DatabaseManager.getInstance().addCommentLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
-    }
- else {
-      DatabaseManager.getInstance().replaceCommentLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
-    }
-  }
   return result;
 }

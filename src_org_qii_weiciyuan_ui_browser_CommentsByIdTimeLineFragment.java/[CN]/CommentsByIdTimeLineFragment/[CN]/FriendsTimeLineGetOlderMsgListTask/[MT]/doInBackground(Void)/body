@@ -1,5 +1,5 @@
 {
-  CommentsTimeLineMsgDao dao=new CommentsTimeLineMsgDao(((MainTimeLineActivity)getActivity()).getToken());
+  CommentsTimeLineMsgByIdDao dao=new CommentsTimeLineMsgByIdDao(token,id);
   if (getList().getComments().size() > 0) {
     dao.setMax_id(getList().getComments().get(getList().getComments().size() - 1).getId());
   }
