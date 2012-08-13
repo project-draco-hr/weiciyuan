@@ -1,4 +1,6 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.browsercommentlistactivity_layout);
+  token=getIntent().getStringExtra("token");
+  id=getIntent().getStringExtra("id");
 }
