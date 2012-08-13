@@ -1,7 +1,10 @@
 {
   super.onCreate(savedInstanceState);
+  setContentView(R.layout.statusnewactivity_layout);
   Intent intent=getIntent();
   rePostContent=intent.getStringExtra("repost_content");
   content=((EditText)findViewById(R.id.status_new_content));
   content.setText(rePostContent);
+  token=getIntent().getStringExtra("token");
+  id=getIntent().getStringExtra("id");
 }

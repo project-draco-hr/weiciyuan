@@ -1,0 +1,5 @@
+{
+  RepostNewMsgDao dao=new RepostNewMsgDao(token,id);
+  dao.setStatus(((EditText)findViewById(R.id.status_new_content)).getText().toString());
+  return dao.sendNewMsg();
+}
