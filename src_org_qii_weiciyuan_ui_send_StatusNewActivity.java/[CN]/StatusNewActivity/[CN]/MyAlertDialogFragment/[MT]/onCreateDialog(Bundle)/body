@@ -1,0 +1,5 @@
+{
+  String[] items={getString(R.string.take_camera),getString(R.string.select_pic)};
+  AlertDialog.Builder builder=new AlertDialog.Builder(StatusNewActivity.this).setTitle(getString(R.string.select)).setItems(items,StatusNewActivity.this);
+  return builder.create();
+}
