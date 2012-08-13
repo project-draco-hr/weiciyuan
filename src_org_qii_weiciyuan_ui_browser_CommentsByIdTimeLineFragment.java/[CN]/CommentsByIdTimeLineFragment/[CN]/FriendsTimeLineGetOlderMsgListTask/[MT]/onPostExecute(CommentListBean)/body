@@ -1,7 +1,8 @@
 {
-  if (newValue != null) {
+  if (newValue != null && newValue.getComments().size() > 1) {
     Toast.makeText(getActivity(),"total " + newValue.getComments().size() + " old messages",Toast.LENGTH_SHORT).show();
-    getList().getComments().addAll(newValue.getComments().subList(1,newValue.getComments().size() - 1));
+    List<CommentBean> list=newValue.getComments();
+    getList().getComments().addAll(list.subList(1,list.size() - 1));
   }
   isBusying=false;
   ((TextView)footerView.findViewById(R.id.listview_footer)).setText("click to load older message");
