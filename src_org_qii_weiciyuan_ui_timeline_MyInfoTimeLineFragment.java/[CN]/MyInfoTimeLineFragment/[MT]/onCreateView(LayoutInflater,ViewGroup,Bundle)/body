@@ -6,5 +6,6 @@
   weibo_number=(Button)view.findViewById(R.id.weibo_number);
   following_number=(Button)view.findViewById(R.id.following_number);
   fans_number=(Button)view.findViewById(R.id.fans_number);
+  fav_number=(Button)view.findViewById(R.id.fav_number);
   return view;
 }

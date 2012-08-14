@@ -3,5 +3,8 @@
   if (user != null) {
     bean=user;
   }
+ else {
+    cancel(true);
+  }
   return user;
 }
