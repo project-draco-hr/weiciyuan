@@ -6,4 +6,12 @@
   avatar=(ImageView)findViewById(R.id.avatar);
   content_pic=(ImageView)findViewById(R.id.content_pic);
   repost_pic=(ImageView)findViewById(R.id.repost_content_pic);
+  avatar.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Toast.makeText(BrowserWeiboMsgActivity.this,"ing",Toast.LENGTH_SHORT).show();
+    }
+  }
+);
+  content_pic.setOnClickListener(picOnClickListener);
+  repost_pic.setOnClickListener(picOnClickListener);
 }
