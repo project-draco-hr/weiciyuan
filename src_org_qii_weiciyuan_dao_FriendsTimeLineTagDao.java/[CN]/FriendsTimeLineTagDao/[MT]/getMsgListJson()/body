@@ -5,6 +5,12 @@
   map.put("uid",uid);
   map.put("count",count);
   map.put("page",page);
-  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  String jsonData=null;
+  try {
+    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+  }
   return jsonData;
 }

@@ -1,5 +1,5 @@
 {
-  if (newValue != null) {
+  if (newValue != null && e == null) {
     msg=newValue;
     retweetMsg=msg.getRetweeted_status();
     buildViewData();

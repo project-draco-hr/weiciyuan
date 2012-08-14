@@ -5,7 +5,13 @@
   map.put("id",id);
   map.put("comment",comment);
   map.put("comment_ori",comment_ori);
-  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
+  String jsonData=null;
+  try {
+    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+  }
   Gson gson=new Gson();
   CommentBean value=null;
   try {

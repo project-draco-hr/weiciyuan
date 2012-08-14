@@ -1,12 +1,14 @@
 {
-  username.setText(msg.getUser().getScreen_name());
+  if (msg.getUser() != null) {
+    username.setText(msg.getUser().getScreen_name());
+    SimpleBitmapWorkerTask avatarTask=new SimpleBitmapWorkerTask(avatar);
+    avatarTask.execute(msg.getUser().getProfile_image_url());
+  }
   content.setText(msg.getText());
   time.setText(msg.getCreated_at());
   comment_sum=msg.getComments_count();
   retweet_sum=msg.getReposts_count();
   invalidateOptionsMenu();
-  SimpleBitmapWorkerTask avatarTask=new SimpleBitmapWorkerTask(avatar);
-  avatarTask.execute(msg.getUser().getProfile_image_url());
   if (retweetMsg != null) {
     recontent.setVisibility(View.VISIBLE);
     if (retweetMsg.getUser() != null) {

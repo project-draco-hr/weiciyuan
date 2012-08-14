@@ -10,6 +10,9 @@
       JSONObject json=new JSONObject(result);
       err=json.getString("error");
       errCode=json.getInt("error_code");
+      WeiboException exception=new WeiboException();
+      exception.setError_code(errCode);
+      throw exception;
     }
  catch (    JSONException e) {
       e.printStackTrace();

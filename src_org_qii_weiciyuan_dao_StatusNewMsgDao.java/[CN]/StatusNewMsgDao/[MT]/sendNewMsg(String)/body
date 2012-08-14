@@ -3,5 +3,10 @@
   Map<String,String> map=new HashMap<String,String>();
   map.put("access_token",access_token);
   map.put("status",str);
-  HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
+  try {
+    HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+  }
 }

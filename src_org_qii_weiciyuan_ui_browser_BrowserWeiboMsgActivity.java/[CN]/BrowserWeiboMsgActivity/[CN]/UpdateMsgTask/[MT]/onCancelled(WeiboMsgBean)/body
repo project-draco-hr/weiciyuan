@@ -1,0 +1,4 @@
+{
+  dealWithException(e);
+  super.onCancelled(weiboMsgBean);
+}

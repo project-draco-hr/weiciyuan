@@ -9,6 +9,12 @@
   map.put("filter_by_author",filter_by_author);
   map.put("filter_by_source",filter_by_source);
   map.put("trim_user",trim_user);
-  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  String jsonData=null;
+  try {
+    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+  }
   return jsonData;
 }
