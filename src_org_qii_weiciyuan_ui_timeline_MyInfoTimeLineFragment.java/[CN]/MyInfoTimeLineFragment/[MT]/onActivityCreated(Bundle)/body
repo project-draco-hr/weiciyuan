@@ -1,5 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
   bean=((IUserInfo)getActivity()).getUser();
-  username.setText(bean.getScreen_name());
+  commander=((AbstractAppActivity)getActivity()).getCommander();
+  setValue();
+  new SimpleTask().execute();
 }

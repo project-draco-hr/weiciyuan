@@ -1,0 +1,8 @@
+{
+  username.setText(bean.getScreen_name());
+  info.setText(bean.getDescription());
+  String avatarUrl=bean.getAvatar_large();
+  if (!TextUtils.isEmpty(avatarUrl)) {
+    new SimpleBitmapWorkerTask(avatar).execute(avatarUrl);
+  }
+}

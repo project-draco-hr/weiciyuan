@@ -1,0 +1,7 @@
+{
+  UserBean user=new OAuthDao(((MainTimeLineActivity)getActivity()).getToken()).getOAuthUserInfo();
+  if (user != null) {
+    bean=user;
+  }
+  return user;
+}
