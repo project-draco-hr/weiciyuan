@@ -7,4 +7,6 @@
   }
   actionBar.addTab(actionBar.newTab().setText(getString(R.string.repost)).setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText(getString(R.string.comments)).setTabListener(tabListener));
+  Integer index=getIntent().getIntExtra("tabindex",0);
+  getActionBar().setSelectedNavigationItem(index);
 }

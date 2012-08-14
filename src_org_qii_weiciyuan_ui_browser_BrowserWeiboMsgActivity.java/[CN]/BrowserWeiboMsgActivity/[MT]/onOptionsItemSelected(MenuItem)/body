@@ -5,16 +5,17 @@ case android.R.id.home:
     finish();
   return true;
 case R.id.menu_repost:
-intent=new Intent(this,RepostNewActivity.class);
+intent=new Intent(this,BrowserRepostAndCommentListActivity.class);
 intent.putExtra("token",token);
 intent.putExtra("id",msg.getId());
-intent.putExtra("repost_content",msg.getText());
+intent.putExtra("tabindex",0);
 startActivity(intent);
 return true;
 case R.id.menu_comment:
 intent=new Intent(this,BrowserRepostAndCommentListActivity.class);
 intent.putExtra("token",token);
 intent.putExtra("id",msg.getId());
+intent.putExtra("tabindex",1);
 startActivity(intent);
 return true;
 default :
