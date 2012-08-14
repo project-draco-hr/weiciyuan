@@ -1,0 +1,5 @@
+{
+  super.onCreate(savedInstanceState);
+  token=getIntent().getStringExtra("token");
+  bean=(UserBean)(getIntent().getSerializableExtra("user"));
+}
