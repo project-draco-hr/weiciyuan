@@ -1,5 +1,5 @@
 {
-  UserBean user=new UserDao(((MainTimeLineActivity)getActivity()).getToken()).setUid(bean.getId()).getUserInfo();
+  UserBean user=new UserDao(((IToken)getActivity()).getToken()).setUid(bean.getId()).getUserInfo();
   if (user != null) {
     bean=user;
   }
