@@ -10,6 +10,6 @@
   retweetMsg=msg.getRetweeted_status();
   buildView();
   buildViewData();
-  task=new UpdateMsgTask();
+  UpdateMsgTask task=new UpdateMsgTask();
   task.execute();
 }
