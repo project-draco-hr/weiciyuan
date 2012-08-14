@@ -1,5 +1,5 @@
 {
-  MentionsTimeLineMsgDao dao=new MentionsTimeLineMsgDao(((MainTimeLineActivity)getActivity()).getToken());
+  MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(((MainTimeLineActivity)getActivity()).getToken());
   if (getList().getStatuses().size() > 0) {
     dao.setSince_id(getList().getStatuses().get(0).getId());
   }

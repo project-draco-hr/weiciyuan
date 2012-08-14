@@ -1,5 +1,5 @@
 {
-  FriendsTimeLineMsgDao dao=new FriendsTimeLineMsgDao(((MainTimeLineActivity)getActivity()).getToken());
+  MainFriendsTimeLineDao dao=new MainFriendsTimeLineDao(((MainTimeLineActivity)getActivity()).getToken());
   if (getList().getStatuses().size() > 0) {
     dao.setSince_id(getList().getStatuses().get(0).getId());
   }

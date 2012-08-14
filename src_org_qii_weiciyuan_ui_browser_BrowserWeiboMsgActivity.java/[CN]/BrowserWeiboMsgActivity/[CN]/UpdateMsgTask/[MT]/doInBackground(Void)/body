@@ -1,6 +1,6 @@
 {
   try {
-    return new StatusesShowMsgDao(token,msg.getId()).getMsg();
+    return new ShowStatusDao(token,msg.getId()).getMsg();
   }
  catch (  WeiboException e) {
     this.e=e;

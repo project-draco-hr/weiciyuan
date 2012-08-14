@@ -1,5 +1,5 @@
 {
-  RepostsTimeLineMsgByIdDao dao=new RepostsTimeLineMsgByIdDao(token,id);
+  RepostsTimeLineByIdDao dao=new RepostsTimeLineByIdDao(token,id);
   if (getList().getReposts().size() > 0) {
     dao.setSince_id(getList().getReposts().get(0).getId());
   }

@@ -1,0 +1,13 @@
+{
+  String json=getMsgListJson();
+  Gson gson=new Gson();
+  MessageListBean value=null;
+  try {
+    value=gson.fromJson(json,MessageListBean.class);
+  }
+ catch (  JsonSyntaxException e) {
+    ActivityUtils.showTips("????????????????????????");
+    AppLogger.e(e.getMessage());
+  }
+  return value;
+}

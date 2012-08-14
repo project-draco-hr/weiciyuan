@@ -1,0 +1,28 @@
+{
+  String url=URLHelper.getCommentListById();
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("id",id);
+  map.put("since_id",since_id);
+  map.put("max_id",max_id);
+  map.put("count",count);
+  map.put("page",page);
+  map.put("filter_by_author",filter_by_author);
+  String jsonData=null;
+  try {
+    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+  }
+  Gson gson=new Gson();
+  CommentListBean value=null;
+  try {
+    value=gson.fromJson(jsonData,CommentListBean.class);
+  }
+ catch (  JsonSyntaxException e) {
+    ActivityUtils.showTips("????????????????????????");
+    AppLogger.e(e.getMessage());
+  }
+  return value;
+}
