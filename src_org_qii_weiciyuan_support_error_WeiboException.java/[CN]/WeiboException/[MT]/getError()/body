@@ -2,5 +2,8 @@
   String name="code" + error_code;
   int i=GlobalContext.getInstance().getResources().getIdentifier(name,"string",GlobalContext.getInstance().getPackageName());
   String result=GlobalContext.getInstance().getString(i);
-  return result;
+  if (!TextUtils.isEmpty(result)) {
+    return result;
+  }
+  return error;
 }
