@@ -1,5 +1,9 @@
 {
+  String content=et.getText().toString();
+  if (TextUtils.isEmpty(content)) {
+    content="repost";
+  }
   RepostNewMsgDao dao=new RepostNewMsgDao(token,id);
-  dao.setStatus(((EditText)findViewById(R.id.status_new_content)).getText().toString());
+  dao.setStatus(content);
   return dao.sendNewMsg();
 }

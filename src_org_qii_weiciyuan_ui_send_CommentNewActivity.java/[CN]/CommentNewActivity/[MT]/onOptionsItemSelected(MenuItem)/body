@@ -1,9 +1,12 @@
 {
 switch (item.getItemId()) {
 case R.id.menu_send:
-    final String content=((EditText)findViewById(R.id.status_new_content)).getText().toString();
+    final String content=et.getText().toString();
   if (!TextUtils.isEmpty(content)) {
     new SimpleTask().execute();
+  }
+ else {
+    Toast.makeText(this,"comment can't be empty",Toast.LENGTH_SHORT).show();
   }
 break;
 }

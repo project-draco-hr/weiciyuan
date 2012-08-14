@@ -3,4 +3,6 @@
   setContentView(R.layout.statusnewactivity_layout);
   token=getIntent().getStringExtra("token");
   id=getIntent().getStringExtra("id");
+  getActionBar().setTitle(getString(R.string.comments));
+  et=(EditText)findViewById(R.id.status_new_content);
 }
