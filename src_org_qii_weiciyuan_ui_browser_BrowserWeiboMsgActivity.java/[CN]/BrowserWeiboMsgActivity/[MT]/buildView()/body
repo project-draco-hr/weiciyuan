@@ -8,7 +8,7 @@
   repost_pic=(ImageView)findViewById(R.id.repost_content_pic);
   avatar.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      Intent intent=new Intent(BrowserWeiboMsgActivity.this,MainUserInfoActivity.class);
+      Intent intent=new Intent(BrowserWeiboMsgActivity.this,UserInfoActivity.class);
       intent.putExtra("token",token);
       intent.putExtra("user",msg.getUser());
       startActivity(intent);
