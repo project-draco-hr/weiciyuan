@@ -3,5 +3,4 @@
   bean=((IUserInfo)getActivity()).getUser();
   commander=((AbstractAppActivity)getActivity()).getCommander();
   setValue();
-  new SimpleTask().execute();
 }
