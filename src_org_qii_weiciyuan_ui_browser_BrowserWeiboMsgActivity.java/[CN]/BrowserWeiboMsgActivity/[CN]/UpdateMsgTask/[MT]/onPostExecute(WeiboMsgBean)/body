@@ -3,6 +3,7 @@
     msg=newValue;
     retweetMsg=msg.getRetweeted_status();
     buildViewData();
+    invalidateOptionsMenu();
   }
   super.onPostExecute(newValue);
 }

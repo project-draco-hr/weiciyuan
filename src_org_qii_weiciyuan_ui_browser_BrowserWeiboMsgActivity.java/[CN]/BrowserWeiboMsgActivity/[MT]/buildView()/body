@@ -6,18 +6,4 @@
   avatar=(ImageView)findViewById(R.id.avatar);
   content_pic=(ImageView)findViewById(R.id.content_pic);
   repost_pic=(ImageView)findViewById(R.id.repost_content_pic);
-  Button switchBtn=(Button)findViewById(R.id.switchbtn);
-  switchBtn.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      if (a) {
-        mViewPager.setCurrentItem(0);
-        a=false;
-      }
- else {
-        mViewPager.setCurrentItem(1);
-        a=true;
-      }
-    }
-  }
-);
 }

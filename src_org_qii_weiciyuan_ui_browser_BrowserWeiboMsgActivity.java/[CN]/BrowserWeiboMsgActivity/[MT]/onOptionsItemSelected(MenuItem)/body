@@ -12,7 +12,7 @@ intent.putExtra("repost_content",msg.getText());
 startActivity(intent);
 return true;
 case R.id.menu_comment:
-intent=new Intent(this,CommentNewActivity.class);
+intent=new Intent(this,BrowserRepostAndCommentListActivity.class);
 intent.putExtra("token",token);
 intent.putExtra("id",msg.getId());
 startActivity(intent);

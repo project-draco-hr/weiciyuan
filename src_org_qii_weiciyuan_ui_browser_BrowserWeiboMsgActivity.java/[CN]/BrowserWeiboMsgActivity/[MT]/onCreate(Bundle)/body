@@ -10,6 +10,5 @@
   retweetMsg=msg.getRetweeted_status();
   buildView();
   buildViewData();
-  buildViewPager();
   new UpdateMsgTask().execute();
 }
