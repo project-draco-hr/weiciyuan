@@ -1,0 +1,6 @@
+{
+  ActionBar.Tab tab=this.getActivity().getActionBar().getTabAt(0);
+  String name=tab.getText().toString();
+  String num="(" + bean.getReposts().size() + ")";
+  tab.setText(name + num);
+}

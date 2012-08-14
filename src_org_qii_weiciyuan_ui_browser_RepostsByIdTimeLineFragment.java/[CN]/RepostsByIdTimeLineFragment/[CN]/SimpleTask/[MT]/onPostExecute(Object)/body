@@ -1,5 +1,6 @@
 {
   timeLineAdapter.notifyDataSetChanged();
   refreshLayout(bean);
+  invlidateTabText();
   super.onPostExecute(o);
 }

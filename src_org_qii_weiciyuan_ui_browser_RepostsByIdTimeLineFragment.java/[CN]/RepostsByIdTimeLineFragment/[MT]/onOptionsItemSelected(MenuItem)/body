@@ -1,8 +1,14 @@
 {
 switch (item.getItemId()) {
-case R.id.mentionstimelinefragment_refresh:
-    refresh();
-  break;
+case R.id.repostsbyidtimelinefragment_repost:
+    Intent intent=new Intent(getActivity(),RepostNewActivity.class);
+  intent.putExtra("token",token);
+intent.putExtra("id",id);
+startActivity(intent);
+break;
+case R.id.repostsbyidtimelinefragment_repost_refresh:
+refresh();
+break;
 }
 return super.onOptionsItemSelected(item);
 }

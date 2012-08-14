@@ -9,5 +9,6 @@
   footerView.findViewById(R.id.refresh).clearAnimation();
   footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
   timeLineAdapter.notifyDataSetChanged();
+  invlidateTabText();
   super.onPostExecute(newValue);
 }
