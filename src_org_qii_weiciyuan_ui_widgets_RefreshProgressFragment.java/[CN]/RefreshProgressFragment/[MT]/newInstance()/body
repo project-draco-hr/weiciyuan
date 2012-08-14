@@ -1,5 +1,5 @@
 {
-  ProgressDialogFragment frag=new ProgressDialogFragment();
+  RefreshProgressFragment frag=new RefreshProgressFragment();
   frag.setRetainInstance(true);
   Bundle args=new Bundle();
   frag.setArguments(args);
