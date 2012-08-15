@@ -1,10 +1,11 @@
 {
-  String main_thumbnail_pic_url=msg.getThumbnail_pic();
+  final String main_thumbnail_pic_url=msg.getThumbnail_pic();
   holder.content_pic.setVisibility(View.VISIBLE);
   downContentPic(holder.content_pic,main_thumbnail_pic_url,position,listView);
   holder.content_pic.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      Toast.makeText(getActivity(),"test",Toast.LENGTH_SHORT).show();
+      PictureDialogFragment progressFragment=new PictureDialogFragment(msg);
+      progressFragment.show(getActivity().getFragmentManager(),"");
     }
   }
 );
