@@ -1,5 +1,5 @@
 {
-  WeiboMsgBean msg=getList().getStatuses().get(position);
+  final WeiboMsgBean msg=getList().getStatuses().get(position);
   WeiboMsgBean repost_msg=msg.getRetweeted_status();
   holder.username.setText(msg.getUser().getScreen_name());
   String image_url=msg.getUser().getProfile_image_url();
@@ -22,4 +22,14 @@
  else   if (!TextUtils.isEmpty(msg.getThumbnail_pic())) {
     buildContentPic(msg,holder,position);
   }
+  holder.avatar.setClickable(true);
+  holder.avatar.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent(getActivity(),UserInfoActivity.class);
+      intent.putExtra("token",((MainTimeLineActivity)getActivity()).getToken());
+      intent.putExtra("user",msg.getUser());
+      startActivity(intent);
+    }
+  }
+);
 }
