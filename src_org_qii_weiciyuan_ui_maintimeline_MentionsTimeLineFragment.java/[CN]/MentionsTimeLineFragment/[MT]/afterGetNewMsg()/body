@@ -1,3 +1,5 @@
 {
   getActivity().getActionBar().getTabAt(1).setText(getString(R.string.mentions));
+  NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+  notificationManager.cancelAll();
 }

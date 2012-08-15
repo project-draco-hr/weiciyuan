@@ -24,5 +24,7 @@
     footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
   }
   getActivity().getActionBar().getTabAt(2).setText(getString(R.string.comments));
+  NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+  notificationManager.cancelAll();
   super.onPostExecute(newValue);
 }
