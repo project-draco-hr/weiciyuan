@@ -1,4 +1,5 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.friendstimelinefragment_menu,menu);
+  menu.findItem(R.id.friendstimelinefragment_name).setTitle(userBean.getScreen_name());
 }
