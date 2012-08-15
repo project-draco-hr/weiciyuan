@@ -1,9 +1,4 @@
 {
-  menu.add("account");
-  menu.add("search");
-  menu.add("favourite");
-  menu.add("mute");
-  menu.add("myinfo");
-  menu.add("setting");
+  getMenuInflater().inflate(R.menu.maintimelineactivity_menu,menu);
   return super.onCreateOptionsMenu(menu);
 }
