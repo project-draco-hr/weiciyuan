@@ -1,0 +1,12 @@
+{
+  username.setText(bean.getScreen_name());
+  info.setText(bean.getDescription());
+  String avatarUrl=bean.getAvatar_large();
+  if (!TextUtils.isEmpty(avatarUrl)) {
+    new SimpleBitmapWorkerTask(avatar).execute(avatarUrl);
+  }
+  setTextViewNum(weibo_number,bean.getStatuses_count());
+  setTextViewNum(fans_number,bean.getFollowers_count());
+  setTextViewNum(following_number,bean.getFriends_count());
+  setTextViewNum(fav_number,bean.getFavourites_count());
+}

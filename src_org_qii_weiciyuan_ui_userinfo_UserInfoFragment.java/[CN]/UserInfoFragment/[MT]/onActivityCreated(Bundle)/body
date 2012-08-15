@@ -1,0 +1,6 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  bean=((IUserInfo)getActivity()).getUser();
+  commander=((AbstractAppActivity)getActivity()).getCommander();
+  setValue();
+}

@@ -1,0 +1,12 @@
+{
+  String name=tv.getText().toString();
+  String value="(" + num + ")";
+  if (!name.endsWith(")")) {
+    tv.setText(name + value);
+  }
+ else {
+    int index=name.indexOf("(");
+    String newName=name.substring(0,index);
+    tv.setText(newName + value);
+  }
+}

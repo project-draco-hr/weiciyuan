@@ -1,0 +1,10 @@
+{
+  UserBean user=new ShowUserDao(((IToken)getActivity()).getToken()).setUid(bean.getId()).getUserInfo();
+  if (user != null) {
+    bean=user;
+  }
+ else {
+    cancel(true);
+  }
+  return user;
+}
