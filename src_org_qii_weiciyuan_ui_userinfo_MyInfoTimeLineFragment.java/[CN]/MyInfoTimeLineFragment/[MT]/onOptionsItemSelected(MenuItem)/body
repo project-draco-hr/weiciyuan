@@ -1,0 +1,11 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_refresh:
+    new SimpleTask().execute();
+  break;
+case R.id.menu_edit:
+Toast.makeText(getActivity(),"???????????????",Toast.LENGTH_SHORT).show();
+break;
+}
+return true;
+}
