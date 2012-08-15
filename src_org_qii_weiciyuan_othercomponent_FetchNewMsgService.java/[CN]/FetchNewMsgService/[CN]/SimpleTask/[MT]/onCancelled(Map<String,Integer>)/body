@@ -1,0 +1,4 @@
+{
+  stopSelf();
+  super.onCancelled(stringIntegerMap);
+}
