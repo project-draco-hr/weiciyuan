@@ -1,8 +1,0 @@
-{
-  Intent intent=new Intent(FetchNewMsgService.this,MainTimeLineActivity.class);
-  intent.putExtra("account",accountBean);
-  PendingIntent activity=PendingIntent.getActivity(FetchNewMsgService.this,0,intent,0);
-  NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-  Notification notification=new Notification.Builder(FetchNewMsgService.this).setContentText("new message" + aVoid).setSmallIcon(R.drawable.ic_launcher).setContentIntent(activity).getNotification();
-  notificationManager.notify(0,notification);
-}

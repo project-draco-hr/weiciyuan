@@ -1,19 +1,32 @@
 {
+  Map<String,Integer> map=new HashMap<String,Integer>();
   List<AccountBean> accountBeans=DatabaseManager.getInstance().getAccountList();
   accountBean=accountBeans.get(0);
   String accountId=accountBean.getUid();
   String token=accountBean.getAccess_token();
   CommentListBean commentLineBean=DatabaseManager.getInstance().getCommentLineMsgList(accountId);
   MessageListBean messageListBean=DatabaseManager.getInstance().getRepostLineMsgList(accountId);
-  MainCommentsTimeLineDao dao=new MainCommentsTimeLineDao(token);
+  MainCommentsTimeLineDao commentDao=new MainCommentsTimeLineDao(token);
   if (commentLineBean.getComments().size() > 0) {
-    dao.setSince_id(commentLineBean.getComments().get(0).getId());
+    commentDao.setSince_id(commentLineBean.getComments().get(0).getId());
   }
-  CommentListBean result=dao.getGSONMsgList();
-  MainMentionsTimeLineDao mainMentionsTimeLineDao=new MainMentionsTimeLineDao(token);
+  commentResult=commentDao.getGSONMsgList();
+  if (commentResult != null) {
+    map.put("comment",commentResult.getComments().size());
+  }
+ else {
+    cancel(true);
+  }
+  MainMentionsTimeLineDao mentionDao=new MainMentionsTimeLineDao(token);
   if (messageListBean.getStatuses().size() > 0) {
-    dao.setSince_id(messageListBean.getStatuses().get(0).getId());
+    mentionDao.setSince_id(messageListBean.getStatuses().get(0).getId());
   }
-  MessageListBean messageListBeanResult=mainMentionsTimeLineDao.getGSONMsgList();
-  return result.getComments().size() + messageListBeanResult.getStatuses().size();
+  repostResult=mentionDao.getGSONMsgList();
+  if (repostResult != null) {
+    map.put("repost",repostResult.getStatuses().size());
+  }
+ else {
+    cancel(true);
+  }
+  return map;
 }

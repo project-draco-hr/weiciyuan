@@ -1,8 +1,11 @@
 {
-  GlobalContext.getInstance().getActivity().runOnUiThread(new Runnable(){
-    @Override public void run(){
-      Toast.makeText(GlobalContext.getInstance(),str,Toast.LENGTH_SHORT).show();
+  Activity activity=GlobalContext.getInstance().getActivity();
+  if (activity != null) {
+    activity.runOnUiThread(new Runnable(){
+      @Override public void run(){
+        Toast.makeText(GlobalContext.getInstance(),str,Toast.LENGTH_SHORT).show();
+      }
     }
-  }
 );
+  }
 }

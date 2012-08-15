@@ -1,6 +1,0 @@
-{
-  if (sum > 0) {
-    showNotification(sum);
-  }
-  super.onPostExecute(sum);
-}

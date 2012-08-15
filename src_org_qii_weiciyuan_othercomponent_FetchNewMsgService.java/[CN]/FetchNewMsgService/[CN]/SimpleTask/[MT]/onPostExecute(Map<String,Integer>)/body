@@ -1,0 +1,4 @@
+{
+  showNotification(sum);
+  super.onPostExecute(sum);
+}
