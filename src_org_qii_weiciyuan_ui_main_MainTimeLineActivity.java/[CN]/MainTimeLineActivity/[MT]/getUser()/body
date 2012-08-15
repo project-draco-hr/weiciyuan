@@ -1,6 +1,3 @@
 {
-  UserBean bean=new UserBean();
-  bean.setScreen_name(accountBean.getUsernick());
-  bean.setId(accountBean.getUid());
-  return bean;
+  return accountBean.getInfo();
 }

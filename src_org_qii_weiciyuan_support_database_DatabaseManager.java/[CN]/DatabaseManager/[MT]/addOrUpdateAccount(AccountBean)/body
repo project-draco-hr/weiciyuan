@@ -5,6 +5,8 @@
   cv.put(AccountTable.USERNAME,account.getUsername());
   cv.put(AccountTable.USERNICK,account.getUsernick());
   cv.put(AccountTable.AVATAR_URL,account.getAvatar_url());
+  String json=new Gson().toJson(account.getInfo());
+  cv.put(AccountTable.INFOJSON,json);
   Cursor c=rsd.query(AccountTable.TABLE_NAME,null,AccountTable.UID + "=?",new String[]{account.getUid()},null,null,null);
   if (c != null && c.getCount() > 0) {
     String[] args={account.getUid()};
