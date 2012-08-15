@@ -4,10 +4,9 @@
     if (!value)     cancelAlarm();
   }
   if (key.equals("frequency")) {
-    Toast.makeText(getActivity(),"frequency",Toast.LENGTH_SHORT).show();
     String value=sharedPreferences.getString(key,"1");
-    if (value.endsWith("1"))     startAlarm(AlarmManager.INTERVAL_FIFTEEN_MINUTES);
-    if (value.endsWith("2"))     startAlarm(AlarmManager.INTERVAL_HALF_HOUR);
-    if (value.endsWith("3"))     startAlarm(AlarmManager.INTERVAL_HOUR);
+    if (value.equals("1"))     startAlarm(3 * 60 * 1000);
+    if (value.equals("2"))     startAlarm(AlarmManager.INTERVAL_FIFTEEN_MINUTES);
+    if (value.equals("3"))     startAlarm(AlarmManager.INTERVAL_HALF_HOUR);
   }
 }
