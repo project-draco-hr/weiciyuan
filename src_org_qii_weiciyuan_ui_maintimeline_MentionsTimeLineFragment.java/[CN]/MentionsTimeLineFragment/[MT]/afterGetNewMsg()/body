@@ -1,0 +1,3 @@
+{
+  getActivity().getActionBar().getTabAt(1).setText(getString(R.string.mentions));
+}

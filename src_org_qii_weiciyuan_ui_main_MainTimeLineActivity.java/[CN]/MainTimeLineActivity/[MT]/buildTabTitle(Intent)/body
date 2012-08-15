@@ -3,8 +3,10 @@
   int repostsum=intent.getIntExtra("repostsum",0);
   if (repostsum > 0) {
     invlidateTabText(1,repostsum);
+    getActionBar().setSelectedNavigationItem(1);
   }
   if (commentsum > 0) {
     invlidateTabText(2,commentsum);
+    getActionBar().setSelectedNavigationItem(2);
   }
 }

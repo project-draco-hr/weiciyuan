@@ -23,5 +23,6 @@
  else {
     footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
   }
+  afterGetNewMsg();
   super.onPostExecute(newValue);
 }
