@@ -17,6 +17,8 @@
   }
   Intent i=new Intent(context,MainTimeLineActivity.class);
   i.putExtra("account",accountBean);
+  i.putExtra("commentsum",commentsum);
+  i.putExtra("repostsum",repostsum);
   PendingIntent activity=PendingIntent.getActivity(context,0,i,0);
   NotificationManager notificationManager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
   Notification.Builder notification=new Notification.Builder(context).setContentTitle(title).setContentText(content).setSmallIcon(R.drawable.new_msg).setAutoCancel(true).setContentIntent(activity);

@@ -6,4 +6,5 @@
   token=accountBean.getAccess_token();
   buildViewPager();
   buildActionBarAndViewPagerTitles();
+  buildTabTitle(getIntent());
 }

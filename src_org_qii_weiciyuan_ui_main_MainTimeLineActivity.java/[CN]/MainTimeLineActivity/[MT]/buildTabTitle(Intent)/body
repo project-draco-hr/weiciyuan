@@ -1,0 +1,10 @@
+{
+  int commentsum=intent.getIntExtra("commentsum",0);
+  int repostsum=intent.getIntExtra("repostsum",0);
+  if (repostsum > 0) {
+    invlidateTabText(1,repostsum);
+  }
+  if (commentsum > 0) {
+    invlidateTabText(2,commentsum);
+  }
+}
