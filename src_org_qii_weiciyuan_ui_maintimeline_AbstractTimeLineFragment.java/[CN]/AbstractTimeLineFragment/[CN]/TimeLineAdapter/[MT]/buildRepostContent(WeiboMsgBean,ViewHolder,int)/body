@@ -9,5 +9,11 @@
   if (!TextUtils.isEmpty(repost_msg.getThumbnail_pic())) {
     holder.repost_content_pic.setVisibility(View.VISIBLE);
     downContentPic(holder.repost_content_pic,repost_msg.getThumbnail_pic(),position,listView);
+    holder.repost_content_pic.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        Toast.makeText(getActivity(),"test",Toast.LENGTH_SHORT).show();
+      }
+    }
+);
   }
 }

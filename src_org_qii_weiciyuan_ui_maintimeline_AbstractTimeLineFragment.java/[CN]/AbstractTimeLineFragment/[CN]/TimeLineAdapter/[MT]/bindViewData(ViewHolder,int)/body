@@ -22,7 +22,6 @@
  else   if (!TextUtils.isEmpty(msg.getThumbnail_pic())) {
     buildContentPic(msg,holder,position);
   }
-  holder.avatar.setClickable(true);
   holder.avatar.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),UserInfoActivity.class);
