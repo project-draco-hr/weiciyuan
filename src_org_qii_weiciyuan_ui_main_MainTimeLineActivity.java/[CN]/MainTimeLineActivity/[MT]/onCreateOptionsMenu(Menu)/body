@@ -1,0 +1,9 @@
+{
+  menu.add("account");
+  menu.add("search");
+  menu.add("favourite");
+  menu.add("mute");
+  menu.add("myinfo");
+  menu.add("setting");
+  return super.onCreateOptionsMenu(menu);
+}

@@ -8,5 +8,4 @@
   actionBar.addTab(actionBar.newTab().setText(getString(R.string.home)).setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText(getString(R.string.mentions)).setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText(getString(R.string.comments)).setTabListener(tabListener));
-  actionBar.addTab(actionBar.newTab().setText(getString(R.string.info)).setTabListener(tabListener));
 }
