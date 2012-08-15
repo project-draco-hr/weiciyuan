@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
   getActionBar().setDisplayHomeAsUpEnabled(true);
-  getActionBar().setTitle("Settings");
+  getActionBar().setTitle(getString(R.string.setting));
   getFragmentManager().beginTransaction().replace(android.R.id.content,new SettingsFragment()).commit();
 }
