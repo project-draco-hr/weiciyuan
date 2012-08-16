@@ -1,0 +1,5 @@
+{
+  empty.setVisibility(View.INVISIBLE);
+  listView.setVisibility(View.VISIBLE);
+  progressBar.setVisibility(View.INVISIBLE);
+}

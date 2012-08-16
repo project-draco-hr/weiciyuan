@@ -1,0 +1,8 @@
+{
+  if (getList() != null && getList().getStatuses() != null) {
+    return getList().getStatuses().size();
+  }
+ else {
+    return 0;
+  }
+}

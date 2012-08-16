@@ -1,0 +1,10 @@
+{
+  WeiboMsgBean msg=getList().getStatuses().get(position);
+  holder.username.setText(msg.getUser().getScreen_name());
+  String image_url=msg.getUser().getProfile_image_url();
+  if (!TextUtils.isEmpty(image_url)) {
+    downloadAvatar(holder.avatar,msg.getUser().getProfile_image_url(),position,listView);
+  }
+  holder.time.setText(msg.getCreated_at());
+  holder.content.setText(msg.getText());
+}
