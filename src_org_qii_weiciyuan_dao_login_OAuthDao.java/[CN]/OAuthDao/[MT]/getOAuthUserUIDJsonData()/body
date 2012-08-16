@@ -2,11 +2,5 @@
   String url=URLManager.getRealUrl("uid");
   Map<String,String> map=new HashMap<String,String>();
   map.put("access_token",access_token);
-  try {
-    return HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
-  }
- catch (  WeiboException e) {
-    e.printStackTrace();
-  }
-  return null;
+  return HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
 }
