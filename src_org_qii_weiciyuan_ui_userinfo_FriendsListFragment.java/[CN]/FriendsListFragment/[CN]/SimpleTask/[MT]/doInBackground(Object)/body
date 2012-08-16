@@ -1,0 +1,7 @@
+{
+  UserListBean newValue=new FriendListDao(token,uid).getGSONMsgList();
+  if (newValue != null) {
+    bean=newValue;
+  }
+  return null;
+}

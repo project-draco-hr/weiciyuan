@@ -1,0 +1,27 @@
+{
+  if (newValue != null) {
+    if (newValue.getUsers().size() == 0) {
+      Toast.makeText(getActivity(),"no new message",Toast.LENGTH_SHORT).show();
+    }
+ else {
+      Toast.makeText(getActivity(),"total " + newValue.getUsers().size() + " new messages",Toast.LENGTH_SHORT).show();
+      if (newValue.getUsers().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+        newValue.getUsers().addAll(getList().getUsers());
+      }
+      bean=newValue;
+      timeLineAdapter.notifyDataSetChanged();
+      listView.setSelectionAfterHeaderView();
+      headerView.findViewById(R.id.header_progress).clearAnimation();
+    }
+  }
+  headerView.findViewById(R.id.header_progress).setVisibility(View.GONE);
+  headerView.findViewById(R.id.header_text).setVisibility(View.GONE);
+  isBusying=false;
+  if (bean.getUsers().size() == 0) {
+    footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
+  }
+ else {
+    footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
+  }
+  super.onPostExecute(newValue);
+}

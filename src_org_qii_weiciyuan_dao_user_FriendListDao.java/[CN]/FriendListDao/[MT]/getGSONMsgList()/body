@@ -1,0 +1,27 @@
+{
+  String url=URLHelper.getFriendListById();
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("uid",uid);
+  map.put("cursor",cursor);
+  map.put("trim_status",trim_status);
+  map.put("count",count);
+  map.put("screen_name",screen_name);
+  String jsonData=null;
+  try {
+    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+  }
+  Gson gson=new Gson();
+  UserListBean value=null;
+  try {
+    value=gson.fromJson(jsonData,UserListBean.class);
+  }
+ catch (  JsonSyntaxException e) {
+    ActivityUtils.showTips("????????????????????????");
+    AppLogger.e(e.getMessage());
+  }
+  return value;
+}

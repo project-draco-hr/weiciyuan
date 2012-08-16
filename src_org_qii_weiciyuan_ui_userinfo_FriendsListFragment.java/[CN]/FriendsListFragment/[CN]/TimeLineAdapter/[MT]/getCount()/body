@@ -1,0 +1,8 @@
+{
+  if (getList() != null && getList().getUsers() != null) {
+    return getList().getUsers().size();
+  }
+ else {
+    return 0;
+  }
+}
