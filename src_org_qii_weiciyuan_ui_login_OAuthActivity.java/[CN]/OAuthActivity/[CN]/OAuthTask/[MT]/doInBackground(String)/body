@@ -1,7 +1,7 @@
 {
   String token=params[0];
-  UserBean user=new OAuthDao(token).getOAuthUserInfo();
-  if (user != null) {
+  try {
+    UserBean user=new OAuthDao(token).getOAuthUserInfo();
     AccountBean account=new AccountBean();
     account.setAccess_token(token);
     account.setUsername(user.getName());
@@ -11,7 +11,9 @@
     account.setInfo(user);
     return DatabaseManager.getInstance().addOrUpdateAccount(account);
   }
- else {
+ catch (  WeiboException e) {
+    AppLogger.e(e.getError());
+    this.e=e;
     cancel(true);
     return null;
   }

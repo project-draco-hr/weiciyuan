@@ -12,12 +12,7 @@
   map.put("access_token",access_token);
   String url=URLManager.getRealUrl("usershow");
   String result=null;
-  try {
-    result=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
-  }
- catch (  WeiboException e) {
-    e.printStackTrace();
-  }
+  result=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
   Gson gson=new Gson();
   UserBean user=new UserBean();
   try {
