@@ -1,0 +1,8 @@
+{
+  super.onCancelled(dbResult);
+  if (progressFragment.isVisible()) {
+    progressFragment.dismissAllowingStateLoss();
+  }
+  Toast.makeText(OAuthActivity.this,"retry it",Toast.LENGTH_SHORT).show();
+  webView.loadUrl(getWeiboOAuthUrl());
+}
