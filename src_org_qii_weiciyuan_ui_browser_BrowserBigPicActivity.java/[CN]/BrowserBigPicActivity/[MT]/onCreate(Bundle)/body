@@ -1,0 +1,7 @@
+{
+  super.onCreate(savedInstanceState);
+  ImageView view=new ImageView(this);
+  setContentView(view);
+  url=getIntent().getStringExtra("url");
+  new SimpleBitmapWorkerTask(view).execute(url);
+}
