@@ -1,6 +1,9 @@
 {
   AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-  view=new ImageView(getActivity());
+  View view=getActivity().getLayoutInflater().inflate(R.layout.fragment_listview_pic_preview_layout,null);
+  imageView=(ImageView)view.findViewById(R.id.iv);
+  pb=(ProgressBar)view.findViewById(R.id.pb);
+  fl=(FrameLayout)view.findViewById(R.id.fl);
   builder.setView(view);
   builder.setNeutralButton(getString(R.string.close),new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialog,    int which){

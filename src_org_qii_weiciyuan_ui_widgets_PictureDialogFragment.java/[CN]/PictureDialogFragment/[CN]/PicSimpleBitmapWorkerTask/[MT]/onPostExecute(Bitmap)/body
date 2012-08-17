@@ -1,0 +1,8 @@
+{
+  if (bitmap != null) {
+    lruCache.put(data,bitmap);
+    fl.setLayoutParams(new LinearLayout.LayoutParams(bitmap.getWidth(),bitmap.getHeight()));
+    pb.setVisibility(View.INVISIBLE);
+    imageView.setImageBitmap(bitmap);
+  }
+}

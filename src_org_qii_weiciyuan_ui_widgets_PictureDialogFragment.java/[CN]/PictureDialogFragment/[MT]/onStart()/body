@@ -1,5 +1,5 @@
 {
   super.onStart();
-  avatarTask=new SimpleBitmapWorkerTask(view);
+  avatarTask=new PicSimpleBitmapWorkerTask();
   avatarTask.execute(msg.getBmiddle_pic());
 }

@@ -1,0 +1,3 @@
+{
+  this.lruCache=GlobalContext.getInstance().getAvatarCache();
+}
