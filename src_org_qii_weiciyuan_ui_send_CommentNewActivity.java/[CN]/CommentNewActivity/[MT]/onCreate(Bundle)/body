@@ -1,6 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.statusnewactivity_layout);
+  getActionBar().setTitle(R.string.comments);
   token=getIntent().getStringExtra("token");
   id=getIntent().getStringExtra("id");
   getActionBar().setTitle(getString(R.string.comments));
