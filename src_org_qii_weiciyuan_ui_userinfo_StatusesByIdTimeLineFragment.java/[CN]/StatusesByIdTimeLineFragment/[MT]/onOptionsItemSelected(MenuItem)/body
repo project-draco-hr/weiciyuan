@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case R.id.repostsbyidtimelinefragment_repost_refresh:
+case R.id.statusesbyidtimelinefragment_status_refresh:
     refresh();
   break;
 }
