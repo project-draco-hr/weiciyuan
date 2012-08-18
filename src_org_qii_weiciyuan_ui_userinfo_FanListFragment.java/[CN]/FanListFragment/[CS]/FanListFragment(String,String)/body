@@ -1,4 +1,0 @@
-{
-  this.token=token;
-  this.uid=uid;
-}

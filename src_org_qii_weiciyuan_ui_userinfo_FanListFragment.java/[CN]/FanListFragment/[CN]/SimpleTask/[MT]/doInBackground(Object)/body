@@ -1,7 +1,0 @@
-{
-  UserListBean newValue=new FanListDao(token,uid).getGSONMsgList();
-  if (newValue != null) {
-    bean=newValue;
-  }
-  return null;
-}
