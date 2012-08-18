@@ -1,6 +1,7 @@
 {
   Map<String,AvatarBitmapWorkerTask> avatarBitmapWorkerTaskHashMap=((AbstractAppActivity)getActivity()).getAvatarBitmapWorkerTaskHashMap();
-  new UserListGetNewDataTask().execute();
+  newTask=new UserListGetNewDataTask();
+  newTask.execute();
   Set<String> keys=avatarBitmapWorkerTaskHashMap.keySet();
   for (  String key : keys) {
     avatarBitmapWorkerTaskHashMap.get(key).cancel(true);

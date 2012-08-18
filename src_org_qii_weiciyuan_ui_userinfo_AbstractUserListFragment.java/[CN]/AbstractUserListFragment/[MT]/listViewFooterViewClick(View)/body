@@ -1,5 +1,6 @@
 {
   if (!isBusying) {
-    new UserListGetOlderDataTask().execute();
+    oldTask=new UserListGetOlderDataTask();
+    oldTask.execute();
   }
 }
