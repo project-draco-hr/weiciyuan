@@ -1,8 +1,8 @@
 {
   super.onCreate(savedInstanceState);
   getActionBar().setDisplayHomeAsUpEnabled(true);
-  getActionBar().setTitle(getString(R.string.my_info));
+  getActionBar().setTitle(getString(R.string.my_fav_list));
   token=getIntent().getStringExtra("token");
   bean=(UserBean)getIntent().getSerializableExtra("user");
-  getFragmentManager().beginTransaction().replace(android.R.id.content,new FavListFragment()).commit();
+  getFragmentManager().beginTransaction().replace(android.R.id.content,new MyFavListFragment()).commit();
 }

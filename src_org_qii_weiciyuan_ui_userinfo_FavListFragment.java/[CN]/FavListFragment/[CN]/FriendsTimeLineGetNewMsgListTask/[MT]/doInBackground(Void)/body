@@ -1,5 +1,0 @@
-{
-  FavListDao dao=new FavListDao(((IToken)getActivity()).getToken());
-  FavListBean result=dao.getGSONMsgList();
-  return result;
-}

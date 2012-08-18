@@ -6,6 +6,6 @@
   if (!TextUtils.isEmpty(image_url)) {
     downloadAvatar(holder.avatar,user.getProfile_image_url(),position,listView);
   }
-  holder.time.setVisibility(View.GONE);
+  holder.time.setText(getList().getFavorites().get(position).getStatus().getCreated_at());
   holder.content.setText(getList().getFavorites().get(position).getStatus().getText());
 }
