@@ -3,6 +3,8 @@
   avatar=(ImageView)view.findViewById(R.id.avatar);
   username=(TextView)view.findViewById(R.id.username);
   info=(TextView)view.findViewById(R.id.textView_info);
+  blog_url=(TextView)view.findViewById(R.id.blog_url);
+  location=(TextView)view.findViewById(R.id.location);
   weibo_number=(Button)view.findViewById(R.id.weibo_number);
   following_number=(Button)view.findViewById(R.id.following_number);
   fans_number=(Button)view.findViewById(R.id.fans_number);
