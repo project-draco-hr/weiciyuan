@@ -1,0 +1,13 @@
+{
+  if (newValue != null && newValue.getFavorites().size() > 1) {
+    Toast.makeText(getActivity(),"total " + newValue.getFavorites().size() + " old messages",Toast.LENGTH_SHORT).show();
+    List<FavBean> list=newValue.getFavorites();
+    getList().getFavorites().addAll(list.subList(1,list.size() - 1));
+  }
+  isBusying=false;
+  ((TextView)footerView.findViewById(R.id.listview_footer)).setText("click to load older message");
+  footerView.findViewById(R.id.refresh).clearAnimation();
+  footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
+  timeLineAdapter.notifyDataSetChanged();
+  super.onPostExecute(newValue);
+}

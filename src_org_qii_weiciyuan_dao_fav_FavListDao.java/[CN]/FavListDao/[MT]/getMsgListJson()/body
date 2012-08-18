@@ -1,0 +1,15 @@
+{
+  String url=URLHelper.getFavList();
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("count",count);
+  map.put("page",page);
+  String jsonData=null;
+  try {
+    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+  }
+  return jsonData;
+}
