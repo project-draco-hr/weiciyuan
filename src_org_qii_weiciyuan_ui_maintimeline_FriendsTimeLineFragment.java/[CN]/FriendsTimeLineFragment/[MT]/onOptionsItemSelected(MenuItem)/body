@@ -10,6 +10,12 @@ if (!isBusying) {
 refresh();
 }
 break;
+case R.id.friendstimelinefragment_name:
+intent=new Intent(getActivity(),MyInfoActivity.class);
+intent.putExtra("token",((IToken)getActivity()).getToken());
+intent.putExtra("user",((IUserInfo)getActivity()).getUser());
+startActivity(intent);
+break;
 }
 return super.onOptionsItemSelected(item);
 }
