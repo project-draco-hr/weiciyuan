@@ -1,3 +1,0 @@
-{
-  commander.downloadAvatar(view,url,position,listView);
-}

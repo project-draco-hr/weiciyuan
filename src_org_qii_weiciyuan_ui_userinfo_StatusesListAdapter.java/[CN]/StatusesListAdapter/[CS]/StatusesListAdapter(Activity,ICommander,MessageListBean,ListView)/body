@@ -1,0 +1,7 @@
+{
+  this.activity=activity;
+  inflater=activity.getLayoutInflater();
+  this.bean=bean;
+  this.commander=commander;
+  this.listView=listView;
+}

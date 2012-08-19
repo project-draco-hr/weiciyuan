@@ -1,0 +1,3 @@
+{
+  return bean.getStatuses().get(position);
+}

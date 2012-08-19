@@ -3,7 +3,8 @@
     if (newValue.getStatuses().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
       newValue.getStatuses().addAll(getList().getStatuses());
     }
-    bean=newValue;
+    bean.getStatuses().clear();
+    bean.getStatuses().addAll(newValue.getStatuses());
     timeLineAdapter.notifyDataSetChanged();
     listView.setSelectionAfterHeaderView();
     headerView.findViewById(R.id.header_progress).clearAnimation();
