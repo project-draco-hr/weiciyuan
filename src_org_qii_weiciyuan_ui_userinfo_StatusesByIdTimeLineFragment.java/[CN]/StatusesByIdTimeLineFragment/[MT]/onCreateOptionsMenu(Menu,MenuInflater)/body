@@ -1,4 +1,6 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.statusesbyidtimelinefragment_menu,menu);
+  String number=bean.getStatuses().size() + "/" + userBean.getStatuses_count();
+  menu.findItem(R.id.statusesbyidtimelinefragment_status_number).setTitle(number);
 }

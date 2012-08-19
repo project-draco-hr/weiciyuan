@@ -1,7 +1,0 @@
-{
-  MessageListBean newValue=new StatusesTimeLineDao(token,uid).getGSONMsgList();
-  if (newValue != null) {
-    bean=newValue;
-  }
-  return null;
-}

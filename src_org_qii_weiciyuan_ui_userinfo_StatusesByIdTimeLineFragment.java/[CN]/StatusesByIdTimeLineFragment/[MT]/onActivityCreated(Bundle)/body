@@ -7,6 +7,7 @@
     refreshLayout(bean);
   }
  else {
-    new SimpleTask().execute();
+    refresh();
   }
+  userBean=((IUserInfo)getActivity()).getUser();
 }
