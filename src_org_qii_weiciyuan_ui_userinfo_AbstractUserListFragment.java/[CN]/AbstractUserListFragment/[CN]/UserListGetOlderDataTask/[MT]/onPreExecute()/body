@@ -1,7 +1,7 @@
 {
   showListView();
   isBusying=true;
-  ((TextView)footerView.findViewById(R.id.listview_footer)).setText("loading");
+  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.loading));
   View view=footerView.findViewById(R.id.refresh);
   view.setVisibility(View.VISIBLE);
   Animation rotateAnimation=new RotateAnimation(0f,360f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);

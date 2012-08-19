@@ -1,0 +1,5 @@
+{
+  super.onCreateOptionsMenu(menu,inflater);
+  String number=bean.getUsers().size() + "/" + currentUser.getFollowers_count();
+  menu.findItem(R.id.statusesbyidtimelinefragment_status_number).setTitle(number);
+}

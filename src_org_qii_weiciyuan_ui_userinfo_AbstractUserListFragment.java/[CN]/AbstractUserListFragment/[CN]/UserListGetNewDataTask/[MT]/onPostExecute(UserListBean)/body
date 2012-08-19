@@ -1,10 +1,8 @@
 {
   if (newValue != null) {
     if (newValue.getUsers().size() == 0) {
-      Toast.makeText(getActivity(),"no new message",Toast.LENGTH_SHORT).show();
     }
  else {
-      Toast.makeText(getActivity(),"total " + newValue.getUsers().size() + " new messages",Toast.LENGTH_SHORT).show();
       if (newValue.getUsers().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
         newValue.getUsers().addAll(getList().getUsers());
       }
@@ -23,5 +21,6 @@
  else {
     footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
   }
+  getActivity().invalidateOptionsMenu();
   super.onPostExecute(newValue);
 }

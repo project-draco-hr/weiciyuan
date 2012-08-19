@@ -1,6 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
+  currentUser=((IUserInfo)getActivity()).getUser();
   if (savedInstanceState != null && bean.getUsers().size() == 0) {
     bean=(UserListBean)savedInstanceState.getSerializable("bean");
     timeLineAdapter.notifyDataSetChanged();
