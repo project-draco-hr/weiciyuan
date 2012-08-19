@@ -1,5 +1,5 @@
 {
   if (!isBusying) {
-    new FriendsTimeLineGetOlderMsgListTask().execute();
+    new TimeLineGetOlderMsgListTask().execute();
   }
 }
