@@ -4,6 +4,7 @@ case R.id.repostsbyidtimelinefragment_repost:
     Intent intent=new Intent(getActivity(),RepostNewActivity.class);
   intent.putExtra("token",token);
 intent.putExtra("id",id);
+intent.putExtra("msg",((IWeiboMsgInfo)getActivity()).getMsg());
 startActivity(intent);
 break;
 case R.id.repostsbyidtimelinefragment_repost_refresh:

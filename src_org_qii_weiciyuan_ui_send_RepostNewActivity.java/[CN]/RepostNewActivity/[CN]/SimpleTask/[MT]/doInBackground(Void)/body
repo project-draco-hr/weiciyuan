@@ -4,6 +4,6 @@
     content="repost";
   }
   RepostNewMsgDao dao=new RepostNewMsgDao(token,id);
-  dao.setStatus(content);
+  dao.setStatus(content + "//@" + msg.getUser().getScreen_name()+ ":"+ msg.getText());
   return dao.sendNewMsg();
 }

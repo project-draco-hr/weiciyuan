@@ -3,6 +3,7 @@
   setContentView(R.layout.maintimelineactivity_viewpager_layout);
   token=getIntent().getStringExtra("token");
   id=getIntent().getStringExtra("id");
+  msg=(WeiboMsgBean)getIntent().getSerializableExtra("msg");
   buildViewPager();
   buildActionBarAndViewPagerTitles();
 }

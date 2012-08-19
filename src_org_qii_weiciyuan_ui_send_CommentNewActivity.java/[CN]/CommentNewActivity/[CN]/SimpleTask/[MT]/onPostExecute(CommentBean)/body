@@ -2,10 +2,10 @@
   progressFragment.dismissAllowingStateLoss();
   if (s != null) {
     finish();
-    Toast.makeText(CommentNewActivity.this,"????????????",Toast.LENGTH_SHORT).show();
+    Toast.makeText(CommentNewActivity.this,getString(R.string.send_successfully),Toast.LENGTH_SHORT).show();
   }
  else {
-    Toast.makeText(CommentNewActivity.this,"failed",Toast.LENGTH_SHORT).show();
+    Toast.makeText(CommentNewActivity.this,getString(R.string.send_failed),Toast.LENGTH_SHORT).show();
   }
   super.onPostExecute(s);
 }

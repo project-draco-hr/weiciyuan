@@ -6,7 +6,7 @@ case R.id.menu_send:
     new SimpleTask().execute();
   }
  else {
-    Toast.makeText(this,"comment can't be empty",Toast.LENGTH_SHORT).show();
+    Toast.makeText(this,getString(R.string.comment_cant_be_empty),Toast.LENGTH_SHORT).show();
   }
 break;
 }
