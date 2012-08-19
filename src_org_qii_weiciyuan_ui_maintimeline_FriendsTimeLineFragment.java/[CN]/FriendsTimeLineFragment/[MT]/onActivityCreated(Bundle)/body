@@ -2,7 +2,7 @@
   super.onActivityCreated(savedInstanceState);
   ((MainTimeLineActivity)getActivity()).setHomeListView(listView);
   if (savedInstanceState != null) {
-    bean=(MessageListBean)savedInstanceState.getSerializable("bean");
+    clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
   }

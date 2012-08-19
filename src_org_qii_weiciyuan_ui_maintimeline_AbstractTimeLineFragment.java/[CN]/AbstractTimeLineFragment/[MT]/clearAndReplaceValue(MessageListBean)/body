@@ -1,0 +1,4 @@
+{
+  bean.getStatuses().clear();
+  bean.getStatuses().addAll(value.getStatuses());
+}

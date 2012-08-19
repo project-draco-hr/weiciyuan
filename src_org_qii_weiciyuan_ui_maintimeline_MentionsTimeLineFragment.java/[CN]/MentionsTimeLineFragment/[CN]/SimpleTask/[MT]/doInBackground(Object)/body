@@ -1,4 +1,4 @@
 {
-  bean=DatabaseManager.getInstance().getRepostLineMsgList(((IAccountInfo)getActivity()).getAccount().getUid());
+  clearAndReplaceValue(DatabaseManager.getInstance().getRepostLineMsgList(((IAccountInfo)getActivity()).getAccount().getUid()));
   return null;
 }

@@ -1,3 +1,0 @@
-{
-  return getList().getStatuses().get(position);
-}
