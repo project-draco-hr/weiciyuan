@@ -1,4 +1,5 @@
 {
   super.onStart();
-  new SimpleTask().execute();
+  task=new SimpleTask();
+  task.execute();
 }

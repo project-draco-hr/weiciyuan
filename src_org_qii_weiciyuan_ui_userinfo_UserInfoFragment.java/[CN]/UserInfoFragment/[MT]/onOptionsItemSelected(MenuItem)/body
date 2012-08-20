@@ -1,8 +1,9 @@
 {
 switch (item.getItemId()) {
 case R.id.menu_refresh:
-    new SimpleTask().execute();
-  break;
+    task=new SimpleTask();
+  task.execute();
+break;
 }
 return true;
 }
