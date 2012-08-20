@@ -1,4 +1,7 @@
 {
+  if (TextUtils.isEmpty(num)) {
+    return;
+  }
   String name=tv.getText().toString();
   String value="(" + num + ")";
   if (!name.endsWith(")")) {
