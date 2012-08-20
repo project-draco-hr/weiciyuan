@@ -3,11 +3,7 @@
     Toast.makeText(getActivity(),getString(R.string.total) + newValue.getStatuses().size() + getString(R.string.old_messages),Toast.LENGTH_SHORT).show();
     getList().getStatuses().addAll(newValue.getStatuses().subList(1,newValue.getStatuses().size() - 1));
   }
-  isBusying=false;
-  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.click_to_load_older_message));
-  footerView.findViewById(R.id.refresh).clearAnimation();
-  footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
-  timeLineAdapter.notifyDataSetChanged();
+  cleanWork();
   afterGetOldMsg();
   super.onPostExecute(newValue);
 }

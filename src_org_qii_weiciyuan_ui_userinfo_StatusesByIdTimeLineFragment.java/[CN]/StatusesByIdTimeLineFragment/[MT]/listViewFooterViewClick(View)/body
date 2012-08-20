@@ -1,5 +1,6 @@
 {
   if (!isBusying) {
-    new TimeLineGetOlderMsgListTask().execute();
+    oldTask=new TimeLineGetOlderMsgListTask();
+    oldTask.execute();
   }
 }

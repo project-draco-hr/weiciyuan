@@ -1,0 +1,5 @@
+{
+  super.onDetach();
+  if (newTask != null)   newTask.cancel(true);
+  if (oldTask != null)   oldTask.cancel(true);
+}

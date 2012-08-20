@@ -1,0 +1,7 @@
+{
+  isBusying=false;
+  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.click_to_load_older_message));
+  footerView.findViewById(R.id.refresh).clearAnimation();
+  footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
+  timeLineAdapter.notifyDataSetChanged();
+}
