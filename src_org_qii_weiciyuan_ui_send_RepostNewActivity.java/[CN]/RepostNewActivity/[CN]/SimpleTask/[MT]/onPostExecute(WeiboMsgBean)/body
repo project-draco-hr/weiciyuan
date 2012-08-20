@@ -1,5 +1,5 @@
 {
-  progressFragment.dismissAllowingStateLoss();
+  if (progressFragment.isVisible())   progressFragment.dismissAllowingStateLoss();
   if (s != null) {
     finish();
     Toast.makeText(RepostNewActivity.this,getString(R.string.send_successfully),Toast.LENGTH_SHORT).show();
