@@ -9,5 +9,4 @@
  else {
     refresh();
   }
-  userBean=((IUserInfo)getActivity()).getUser();
 }

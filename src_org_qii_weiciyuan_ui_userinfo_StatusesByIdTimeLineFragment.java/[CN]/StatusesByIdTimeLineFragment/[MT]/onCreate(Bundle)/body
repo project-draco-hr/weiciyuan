@@ -1,4 +1,5 @@
 {
+  userBean=((IUserInfo)getActivity()).getUser();
   super.onCreate(savedInstanceState);
   setHasOptionsMenu(true);
   setRetainInstance(true);
