@@ -1,3 +1,4 @@
 {
+  if (TextUtils.isEmpty(token))   token=GlobalContext.getInstance().getSpecialToken();
   return token;
 }

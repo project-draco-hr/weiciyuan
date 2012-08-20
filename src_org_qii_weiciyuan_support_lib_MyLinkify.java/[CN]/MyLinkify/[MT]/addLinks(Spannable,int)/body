@@ -1,0 +1,30 @@
+{
+  if (mask == 0) {
+    return false;
+  }
+  URLSpan[] old=text.getSpans(0,text.length(),URLSpan.class);
+  for (int i=old.length - 1; i >= 0; i--) {
+    text.removeSpan(old[i]);
+  }
+  ArrayList<LinkSpec> links=new ArrayList<LinkSpec>();
+  if ((mask & WEB_URLS) != 0) {
+    gatherLinks(links,text,Patterns.WEB_URL,new String[]{"http://","https://","rtsp://"},sUrlMatchFilter,null);
+  }
+  if ((mask & EMAIL_ADDRESSES) != 0) {
+    gatherLinks(links,text,Patterns.EMAIL_ADDRESS,new String[]{"mailto:"},null,null);
+  }
+  if ((mask & PHONE_NUMBERS) != 0) {
+    gatherLinks(links,text,Patterns.PHONE,new String[]{"tel:"},sPhoneNumberMatchFilter,sPhoneNumberTransformFilter);
+  }
+  if ((mask & MAP_ADDRESSES) != 0) {
+    gatherMapLinks(links,text);
+  }
+  pruneOverlaps(links);
+  if (links.size() == 0) {
+    return false;
+  }
+  for (  LinkSpec link : links) {
+    applyLink(link.url,link.start,link.end,text);
+  }
+  return true;
+}

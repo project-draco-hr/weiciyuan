@@ -1,0 +1,7 @@
+{
+  Uri uri=Uri.parse(getURL());
+  Context context=widget.getContext();
+  Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+  intent.putExtra(Browser.EXTRA_APPLICATION_ID,context.getPackageName());
+  context.startActivity(intent);
+}

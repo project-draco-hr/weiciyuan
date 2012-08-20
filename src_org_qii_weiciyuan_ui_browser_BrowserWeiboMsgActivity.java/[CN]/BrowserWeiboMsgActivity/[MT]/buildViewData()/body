@@ -5,6 +5,7 @@
     avatarTask.execute(msg.getUser().getProfile_image_url());
   }
   content.setText(msg.getText());
+  setTextViewLink(content);
   time.setText(msg.getCreated_at());
   comment_sum=msg.getComments_count();
   retweet_sum=msg.getReposts_count();
@@ -12,7 +13,8 @@
   if (retweetMsg != null) {
     recontent.setVisibility(View.VISIBLE);
     if (retweetMsg.getUser() != null) {
-      recontent.setText(retweetMsg.getUser().getScreen_name() + "???" + retweetMsg.getText());
+      recontent.setText("@" + retweetMsg.getUser().getScreen_name() + "???"+ retweetMsg.getText());
+      setTextViewLink(recontent);
     }
  else {
       recontent.setText(retweetMsg.getText());

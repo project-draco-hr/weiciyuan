@@ -1,0 +1,3 @@
+{
+  mURL=src.readString();
+}

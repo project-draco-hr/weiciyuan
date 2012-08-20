@@ -1,0 +1,22 @@
+{
+  if (mask == 0) {
+    return false;
+  }
+  CharSequence t=text.getText();
+  if (t instanceof Spannable) {
+    if (addLinks((Spannable)t,mask)) {
+      addLinkMovementMethod(text);
+      return true;
+    }
+    return false;
+  }
+ else {
+    SpannableString s=SpannableString.valueOf(t);
+    if (addLinks(s,mask)) {
+      addLinkMovementMethod(text);
+      text.setText(s);
+      return true;
+    }
+    return false;
+  }
+}

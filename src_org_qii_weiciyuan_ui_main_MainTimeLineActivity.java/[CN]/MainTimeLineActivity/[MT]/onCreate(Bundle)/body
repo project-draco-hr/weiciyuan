@@ -4,6 +4,7 @@
   Intent intent=getIntent();
   accountBean=(AccountBean)intent.getSerializableExtra("account");
   token=accountBean.getAccess_token();
+  GlobalContext.getInstance().setSpecialToken(token);
   buildViewPager();
   buildActionBarAndViewPagerTitles();
   buildTabTitle(getIntent());
