@@ -1,5 +1,7 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
-  String number=bean.getUsers().size() + "/" + currentUser.getFriends_count();
-  menu.findItem(R.id.statusesbyidtimelinefragment_status_number).setTitle(number);
+  if (!TextUtils.isEmpty(currentUser.getFriends_count())) {
+    String number=bean.getUsers().size() + "/" + currentUser.getFriends_count();
+    menu.findItem(R.id.statusesbyidtimelinefragment_status_number).setTitle(number);
+  }
 }
