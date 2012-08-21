@@ -9,7 +9,7 @@
     String value=param.get(key);
     if (!TextUtils.isEmpty(value)) {
       try {
-        mpEntity.addPart(key,new StringBody(value));
+        mpEntity.addPart(key,new StringBody(value,Charset.forName("utf-8")));
       }
  catch (      UnsupportedEncodingException e) {
         AppLogger.e(e.getMessage());
