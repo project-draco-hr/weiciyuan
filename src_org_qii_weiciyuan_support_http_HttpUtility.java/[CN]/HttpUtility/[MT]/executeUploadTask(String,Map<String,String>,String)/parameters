@@ -1,0 +1,3 @@
+String url
+Map<String,String> param
+String path

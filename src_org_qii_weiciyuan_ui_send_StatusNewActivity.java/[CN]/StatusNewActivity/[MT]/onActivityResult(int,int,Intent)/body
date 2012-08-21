@@ -1,7 +1,28 @@
 {
   super.onActivityResult(requestCode,resultCode,intent);
-  if (resultCode == RESULT_OK) {
-    Bundle extras=intent.getExtras();
-    Bitmap bmp=(Bitmap)extras.get("data");
+  if (requestCode == CAMERA_RESULT) {
+    BitmapFactory.Options bmpFactoryOptions=new BitmapFactory.Options();
+    bmpFactoryOptions.inSampleSize=8;
+    Bitmap bmp=BitmapFactory.decodeFile(imageFilePath,bmpFactoryOptions);
+    iv.setImageBitmap(bmp);
+    picPath=imageFilePath;
+  }
+ else   if (requestCode == PIC_RESULT && resultCode == RESULT_OK) {
+    Uri imageFileUri=intent.getData();
+    BitmapFactory.Options bmpFactoryOptions=new BitmapFactory.Options();
+    bmpFactoryOptions.inSampleSize=8;
+    Bitmap bmp=null;
+    try {
+      bmp=BitmapFactory.decodeStream(getContentResolver().openInputStream(imageFileUri),null,bmpFactoryOptions);
+    }
+ catch (    FileNotFoundException e) {
+      e.printStackTrace();
+    }
+    iv.setImageBitmap(bmp);
+    String[] proj={MediaStore.Images.Media.DATA};
+    Cursor cursor=managedQuery(imageFileUri,proj,null,null,null);
+    int column_index=cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+    cursor.moveToFirst();
+    picPath=cursor.getString(column_index);
   }
 }

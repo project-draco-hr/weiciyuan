@@ -1,0 +1,5 @@
+{
+  boolean result=new StatusNewMsgDao(token).setPic(picPath).sendNewMsg(content);
+  if (!result)   cancel(true);
+  return null;
+}

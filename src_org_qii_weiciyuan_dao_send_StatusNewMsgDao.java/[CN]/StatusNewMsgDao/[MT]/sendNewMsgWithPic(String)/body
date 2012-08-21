@@ -1,0 +1,7 @@
+{
+  String url=URLManager.getRealUrl("update_with_pic");
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("status",str);
+  return HttpUtility.getInstance().executeUploadTask(url,map,pic);
+}

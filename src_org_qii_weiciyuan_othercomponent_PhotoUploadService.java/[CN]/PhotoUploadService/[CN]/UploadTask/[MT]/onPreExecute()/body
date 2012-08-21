@@ -1,0 +1,4 @@
+{
+  super.onPreExecute();
+  Toast.makeText(PhotoUploadService.this,getString(R.string.background_sending),Toast.LENGTH_SHORT).show();
+}

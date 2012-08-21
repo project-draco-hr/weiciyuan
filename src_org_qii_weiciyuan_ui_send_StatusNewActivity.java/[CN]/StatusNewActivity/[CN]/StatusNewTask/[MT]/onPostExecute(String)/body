@@ -1,6 +1,6 @@
 {
   progressFragment.dismissAllowingStateLoss();
   finish();
-  Toast.makeText(StatusNewActivity.this,"????????????",Toast.LENGTH_SHORT).show();
+  Toast.makeText(StatusNewActivity.this,getString(R.string.send_successfully),Toast.LENGTH_SHORT).show();
   super.onPostExecute(s);
 }

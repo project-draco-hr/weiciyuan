@@ -1,12 +1,17 @@
 {
+  if (!TextUtils.isEmpty(pic)) {
+    return sendNewMsgWithPic(str);
+  }
   String url=URLManager.getRealUrl("update");
   Map<String,String> map=new HashMap<String,String>();
   map.put("access_token",access_token);
   map.put("status",str);
   try {
     HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
+    return true;
   }
  catch (  WeiboException e) {
     e.printStackTrace();
   }
+  return false;
 }

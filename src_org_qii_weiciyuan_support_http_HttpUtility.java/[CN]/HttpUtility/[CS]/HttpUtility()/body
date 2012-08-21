@@ -2,6 +2,6 @@
   HttpParams params=new BasicHttpParams();
   params.setParameter(CoreProtocolPNames.PROTOCOL_VERSION,HttpVersion.HTTP_1_1);
   httpClient=new DefaultHttpClient(new PoolingClientConnectionManager());
-  HttpConnectionParams.setConnectionTimeout(httpClient.getParams(),4000);
-  HttpConnectionParams.setSoTimeout(httpClient.getParams(),4000);
+  HttpConnectionParams.setConnectionTimeout(httpClient.getParams(),8000);
+  HttpConnectionParams.setSoTimeout(httpClient.getParams(),8000);
 }

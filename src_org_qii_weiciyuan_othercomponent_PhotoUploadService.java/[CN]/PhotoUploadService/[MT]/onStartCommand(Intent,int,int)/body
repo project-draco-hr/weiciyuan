@@ -1,0 +1,7 @@
+{
+  token=intent.getStringExtra("token");
+  picPath=intent.getStringExtra("picPath");
+  content=intent.getStringExtra("content");
+  new UploadTask().execute();
+  return super.onStartCommand(intent,flags,startId);
+}

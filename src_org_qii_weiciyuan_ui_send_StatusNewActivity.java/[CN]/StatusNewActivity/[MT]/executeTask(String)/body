@@ -1,3 +1,13 @@
 {
-  new StatusNewTask(content).execute();
+  if (TextUtils.isEmpty(picPath)) {
+    new StatusNewTask(content).execute();
+  }
+ else {
+    Intent intent=new Intent(StatusNewActivity.this,PhotoUploadService.class);
+    intent.putExtra("token",token);
+    intent.putExtra("picPath",picPath);
+    intent.putExtra("content",content);
+    startService(intent);
+    finish();
+  }
 }

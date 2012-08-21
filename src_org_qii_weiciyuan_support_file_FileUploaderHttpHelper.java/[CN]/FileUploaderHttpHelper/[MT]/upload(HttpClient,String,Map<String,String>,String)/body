@@ -1,0 +1,40 @@
+{
+  AppLogger.d(url);
+  HttpPost httpPost=new HttpPost(url);
+  MultipartEntity mpEntity=new MultipartEntity();
+  FileBody filebody=new FileBody(new File(path));
+  mpEntity.addPart("pic",filebody);
+  Set<String> keys=param.keySet();
+  for (  String key : keys) {
+    String value=param.get(key);
+    if (!TextUtils.isEmpty(value)) {
+      try {
+        mpEntity.addPart(key,new StringBody(value));
+      }
+ catch (      UnsupportedEncodingException e) {
+        AppLogger.e(e.getMessage());
+        return false;
+      }
+    }
+  }
+  httpPost.setEntity(mpEntity);
+  HttpResponse response=null;
+  try {
+    response=httpClient.execute(httpPost);
+  }
+ catch (  IOException e) {
+    AppLogger.e(e.getMessage());
+  }
+  String content=null;
+  try {
+    if (response != null) {
+      content=EntityUtils.toString(response.getEntity());
+      return true;
+    }
+  }
+ catch (  IOException e) {
+    AppLogger.e(e.getMessage());
+    return false;
+  }
+  return false;
+}

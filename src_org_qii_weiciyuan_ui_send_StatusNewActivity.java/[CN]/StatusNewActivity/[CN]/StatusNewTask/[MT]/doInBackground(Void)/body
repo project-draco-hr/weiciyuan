@@ -1,4 +1,4 @@
 {
-  new StatusNewMsgDao(token).sendNewMsg(content);
+  boolean result=new StatusNewMsgDao(token).sendNewMsg(content);
   return null;
 }
