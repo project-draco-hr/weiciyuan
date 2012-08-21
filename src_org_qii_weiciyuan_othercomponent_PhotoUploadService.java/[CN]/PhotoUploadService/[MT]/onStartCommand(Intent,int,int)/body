@@ -2,6 +2,8 @@
   token=intent.getStringExtra("token");
   picPath=intent.getStringExtra("picPath");
   content=intent.getStringExtra("content");
+  Notification.Builder builder=new Notification.Builder(PhotoUploadService.this).setTicker(getString(R.string.send_photo)).setContentTitle(getString(R.string.background_sending)).setProgress(100,100,true).setSmallIcon(R.drawable.app);
+  notification=builder.getNotification();
   new UploadTask().execute();
   return super.onStartCommand(intent,flags,startId);
 }
