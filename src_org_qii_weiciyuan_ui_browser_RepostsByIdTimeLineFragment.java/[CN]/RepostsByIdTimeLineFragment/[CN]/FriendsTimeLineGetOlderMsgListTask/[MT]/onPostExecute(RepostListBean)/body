@@ -1,11 +1,11 @@
 {
   if (newValue != null && newValue.getReposts().size() > 1) {
-    Toast.makeText(getActivity(),"total " + newValue.getReposts().size() + " old messages",Toast.LENGTH_SHORT).show();
+    Toast.makeText(getActivity(),getString(R.string.total) + newValue.getReposts().size() + getString(R.string.old_messages),Toast.LENGTH_SHORT).show();
     List<MessageBean> list=newValue.getReposts();
     getList().getReposts().addAll(list.subList(1,list.size() - 1));
   }
   isBusying=false;
-  ((TextView)footerView.findViewById(R.id.listview_footer)).setText("click to load older message");
+  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
   footerView.findViewById(R.id.refresh).clearAnimation();
   footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
   timeLineAdapter.notifyDataSetChanged();
