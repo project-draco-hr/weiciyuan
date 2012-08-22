@@ -9,6 +9,10 @@
   weibo_number=(Button)view.findViewById(R.id.weibo_number);
   following_number=(Button)view.findViewById(R.id.following_number);
   fans_number=(Button)view.findViewById(R.id.fans_number);
+  follow_it=(Button)view.findViewById(R.id.follow);
+  unfollow_it=(Button)view.findViewById(R.id.unfollow);
+  follow_it.setOnClickListener(onClickListener);
+  unfollow_it.setOnClickListener(onClickListener);
   weibo_number.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),UserInfoStatusesActivity.class);

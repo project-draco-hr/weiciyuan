@@ -1,0 +1,19 @@
+{
+  if (isBusying)   return null;
+  FriendshipsDao dao=new FriendshipsDao(((IToken)getActivity()).getToken());
+  if (!TextUtils.isEmpty(bean.getId())) {
+    dao.setUid(bean.getId());
+  }
+ else {
+    dao.setScreen_name(bean.getScreen_name());
+  }
+  try {
+    return dao.followIt();
+  }
+ catch (  WeiboException e) {
+    AppLogger.e(e.getError());
+    this.e=e;
+    cancel(true);
+    return null;
+  }
+}

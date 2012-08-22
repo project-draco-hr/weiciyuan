@@ -21,4 +21,12 @@
  else {
     relationship.setText(getString(R.string.he_is_not_following_you));
   }
+  if (bean.isFollowing()) {
+    follow_it.setVisibility(View.GONE);
+    unfollow_it.setVisibility(View.VISIBLE);
+  }
+ else {
+    unfollow_it.setVisibility(View.GONE);
+    follow_it.setVisibility(View.VISIBLE);
+  }
 }

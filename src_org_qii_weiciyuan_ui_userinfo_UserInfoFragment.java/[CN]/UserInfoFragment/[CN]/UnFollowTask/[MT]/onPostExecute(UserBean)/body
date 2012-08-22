@@ -1,0 +1,6 @@
+{
+  super.onPostExecute(o);
+  bean=o;
+  isBusying=false;
+  setValue();
+}
