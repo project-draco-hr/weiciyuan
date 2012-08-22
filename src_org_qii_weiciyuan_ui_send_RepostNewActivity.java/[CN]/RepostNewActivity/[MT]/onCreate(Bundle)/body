@@ -4,7 +4,7 @@
   getActionBar().setTitle(R.string.repost);
   token=getIntent().getStringExtra("token");
   id=getIntent().getStringExtra("id");
-  msg=(WeiboMsgBean)getIntent().getSerializableExtra("msg");
+  msg=(MessageBean)getIntent().getSerializableExtra("msg");
   getActionBar().setTitle(getString(R.string.repost));
   et=((EditText)findViewById(R.id.status_new_content));
 }

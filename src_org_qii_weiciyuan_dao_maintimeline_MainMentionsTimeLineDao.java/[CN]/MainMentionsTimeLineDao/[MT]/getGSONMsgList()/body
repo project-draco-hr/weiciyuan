@@ -10,10 +10,10 @@
     AppLogger.e(e.getMessage().toString());
   }
   if (value != null) {
-    List<WeiboMsgBean> msgList=value.getStatuses();
-    Iterator<WeiboMsgBean> iterator=msgList.iterator();
+    List<MessageBean> msgList=value.getStatuses();
+    Iterator<MessageBean> iterator=msgList.iterator();
     while (iterator.hasNext()) {
-      WeiboMsgBean msg=iterator.next();
+      MessageBean msg=iterator.next();
       if (msg.getUser() == null) {
         iterator.remove();
       }

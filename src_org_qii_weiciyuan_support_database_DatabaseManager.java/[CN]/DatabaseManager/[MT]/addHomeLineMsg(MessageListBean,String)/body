@@ -1,7 +1,7 @@
 {
   Gson gson=new Gson();
-  List<WeiboMsgBean> msgList=list.getStatuses();
-  for (  WeiboMsgBean msg : msgList) {
+  List<MessageBean> msgList=list.getStatuses();
+  for (  MessageBean msg : msgList) {
     ContentValues cv=new ContentValues();
     cv.put(HomeTable.MBLOGID,msg.getId());
     cv.put(HomeTable.ACCOUNTID,accountId);

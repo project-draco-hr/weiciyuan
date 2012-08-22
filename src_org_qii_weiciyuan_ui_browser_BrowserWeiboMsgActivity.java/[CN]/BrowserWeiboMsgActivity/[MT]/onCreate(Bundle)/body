@@ -6,7 +6,7 @@
   actionBar.setTitle(getString(R.string.weibo));
   Intent intent=getIntent();
   token=intent.getStringExtra("token");
-  msg=(WeiboMsgBean)intent.getSerializableExtra("msg");
+  msg=(MessageBean)intent.getSerializableExtra("msg");
   retweetMsg=msg.getRetweeted_status();
   buildView();
   buildViewData();

@@ -1,13 +1,13 @@
 {
   Gson gson=new Gson();
   MessageListBean result=new MessageListBean();
-  List<WeiboMsgBean> msgList=new ArrayList<WeiboMsgBean>();
+  List<MessageBean> msgList=new ArrayList<MessageBean>();
   String sql="select * from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ HomeTable.MBLOGID+ " desc";
   Cursor c=rsd.rawQuery(sql,null);
   while (c.moveToNext()) {
     String json=c.getString(c.getColumnIndex(HomeTable.JSONDATA));
     try {
-      WeiboMsgBean value=gson.fromJson(json,WeiboMsgBean.class);
+      MessageBean value=gson.fromJson(json,MessageBean.class);
       msgList.add(value);
     }
  catch (    JsonSyntaxException e) {

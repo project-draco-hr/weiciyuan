@@ -13,9 +13,9 @@
     e.printStackTrace();
   }
   Gson gson=new Gson();
-  WeiboMsgBean value=null;
+  MessageBean value=null;
   try {
-    value=gson.fromJson(jsonData,WeiboMsgBean.class);
+    value=gson.fromJson(jsonData,MessageBean.class);
   }
  catch (  JsonSyntaxException e) {
     ActivityUtils.showTips("????????????????????????");
