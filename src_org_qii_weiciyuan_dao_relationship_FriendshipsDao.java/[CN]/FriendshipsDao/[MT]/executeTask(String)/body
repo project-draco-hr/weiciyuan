@@ -1,0 +1,24 @@
+{
+  if (TextUtils.isEmpty(uid) && TextUtils.isEmpty(screen_name)) {
+    AppLogger.e("uid or screen name can't be empty");
+    return null;
+  }
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  if (!TextUtils.isEmpty(uid)) {
+    map.put("uid",uid);
+  }
+ else {
+    map.put("screen_name",screen_name);
+  }
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
+  try {
+    UserBean value=new Gson().fromJson(jsonData,UserBean.class);
+    if (value != null)     return value;
+  }
+ catch (  JsonSyntaxException e) {
+    ActivityUtils.showTips("????????????????????????");
+    AppLogger.e(e.getMessage());
+  }
+  return null;
+}
