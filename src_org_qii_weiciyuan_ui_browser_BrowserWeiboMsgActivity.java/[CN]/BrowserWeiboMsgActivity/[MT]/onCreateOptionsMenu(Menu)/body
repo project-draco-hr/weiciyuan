@@ -2,5 +2,12 @@
   getMenuInflater().inflate(R.menu.browserweibomsgactivity_menu,menu);
   menu.getItem(0).setTitle(menu.getItem(0).getTitle() + "(" + retweet_sum+ ")");
   menu.getItem(1).setTitle(menu.getItem(1).getTitle() + "(" + comment_sum+ ")");
+  boolean fav=msg.isFavorited();
+  if (fav) {
+    menu.findItem(R.id.menu_fav).setIcon(R.drawable.fav_un);
+  }
+ else {
+    menu.findItem(R.id.menu_fav).setIcon(R.drawable.fav_en);
+  }
   return super.onCreateOptionsMenu(menu);
 }
