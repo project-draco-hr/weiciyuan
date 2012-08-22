@@ -13,12 +13,7 @@
     map.put("screen_name",screen_name);
   }
   String jsonData=null;
-  try {
-    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
-  }
- catch (  WeiboException e) {
-    AppLogger.e(e.getMessage());
-  }
+  jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
   Gson gson=new Gson();
   UserBean value=null;
   try {

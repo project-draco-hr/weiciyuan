@@ -7,5 +7,13 @@
  else {
     dao.setScreen_name(bean.getScreen_name());
   }
-  return dao.unFollowIt();
+  try {
+    return dao.unFollowIt();
+  }
+ catch (  WeiboException e) {
+    AppLogger.e(e.getError());
+    this.e=e;
+    cancel(true);
+    return null;
+  }
 }
