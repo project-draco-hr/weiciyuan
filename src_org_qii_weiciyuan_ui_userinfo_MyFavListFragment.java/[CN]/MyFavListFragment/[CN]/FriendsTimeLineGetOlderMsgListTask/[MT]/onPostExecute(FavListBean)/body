@@ -4,7 +4,7 @@
     getList().getFavorites().addAll(list.subList(1,list.size() - 1));
   }
   isBusying=false;
-  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.click_to_load_older_message));
+  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
   footerView.findViewById(R.id.refresh).clearAnimation();
   footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
   timeLineAdapter.notifyDataSetChanged();
