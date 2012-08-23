@@ -9,6 +9,17 @@ case R.id.menu_send:
     Toast.makeText(this,getString(R.string.comment_cant_be_empty),Toast.LENGTH_SHORT).show();
   }
 break;
+case R.id.menu_enable_repost:
+if (enableRepost) {
+enableRepost=false;
+enableRepostString="??????????????? ???";
+}
+ else if (!enableRepost) {
+enableRepostString="?????????????????????";
+enableRepost=true;
+}
+invalidateOptionsMenu();
+break;
 }
 return true;
 }
