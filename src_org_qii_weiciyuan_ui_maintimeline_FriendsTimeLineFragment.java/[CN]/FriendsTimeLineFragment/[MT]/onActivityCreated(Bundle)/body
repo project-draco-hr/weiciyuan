@@ -9,6 +9,5 @@
  else {
     new SimpleTask().execute();
   }
-  userBean=((IUserInfo)getActivity()).getUser();
   getActivity().invalidateOptionsMenu();
 }

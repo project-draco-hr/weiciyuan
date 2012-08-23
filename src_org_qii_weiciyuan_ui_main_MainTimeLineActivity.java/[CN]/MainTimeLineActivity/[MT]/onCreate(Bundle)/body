@@ -5,7 +5,12 @@
   accountBean=(AccountBean)intent.getSerializableExtra("account");
   token=accountBean.getAccess_token();
   GlobalContext.getInstance().setSpecialToken(token);
-  buildViewPager();
-  buildActionBarAndViewPagerTitles();
-  buildTabTitle(getIntent());
+  if (getResources().getBoolean(R.bool.is_phone)) {
+    buildViewPager();
+    buildActionBarAndViewPagerTitles();
+    buildTabTitle(getIntent());
+  }
+ else {
+    buildPad();
+  }
 }
