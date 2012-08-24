@@ -5,6 +5,7 @@ case android.R.id.home:
     intent=new Intent(this,MainTimeLineActivity.class);
   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
+overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
 return true;
 }
 return false;
