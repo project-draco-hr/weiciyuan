@@ -1,0 +1,12 @@
+{
+  this.longSize=0;
+  if (file.exists() && file.isFile()) {
+    this.longSize=file.length();
+  }
+ else   if (file.exists() && file.isDirectory()) {
+    getFileSize(file);
+  }
+ else {
+    throw new RuntimeException("?????????????????????");
+  }
+}

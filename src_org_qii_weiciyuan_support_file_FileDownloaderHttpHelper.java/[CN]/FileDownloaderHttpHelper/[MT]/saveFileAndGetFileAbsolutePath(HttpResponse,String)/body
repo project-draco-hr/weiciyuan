@@ -1,5 +1,6 @@
 {
   HttpEntity httpEntity=response.getEntity();
+  FileManager.createNoMediaFile();
   File file=FileManager.createNewFileInSDCard(path);
   FileOutputStream out=null;
   InputStream in=null;

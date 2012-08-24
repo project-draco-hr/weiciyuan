@@ -1,0 +1,4 @@
+{
+  String noMediaFilePath=SDCARD_PATH + File.separator + APP_NAME+ File.separator+ ".nomedia";
+  return createNewFileInSDCard(noMediaFilePath);
+}

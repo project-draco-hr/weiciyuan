@@ -1,0 +1,10 @@
+{
+  try {
+    getFileSize();
+    return longSize;
+  }
+ catch (  IOException ex) {
+    ex.printStackTrace();
+    throw new RuntimeException(ex.getMessage());
+  }
+}

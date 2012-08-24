@@ -2,10 +2,13 @@
   super.onCreate(savedInstanceState);
   addPreferencesFromResource(R.xml.pref);
   getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
-  findPreference("clear_cache").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
+  clear_cache=findPreference("clear_cache");
+  clear_cache.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
-      return false;
+      FileManager.deleteCache();
+      return true;
     }
   }
 );
+  new calcCacheSize().execute();
 }

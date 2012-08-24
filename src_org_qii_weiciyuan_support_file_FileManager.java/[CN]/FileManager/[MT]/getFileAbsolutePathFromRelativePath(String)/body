@@ -1,5 +1,4 @@
 {
   String result=SDCARD_PATH + File.separator + APP_NAME+ relativePath;
-  ;
   return result;
 }
