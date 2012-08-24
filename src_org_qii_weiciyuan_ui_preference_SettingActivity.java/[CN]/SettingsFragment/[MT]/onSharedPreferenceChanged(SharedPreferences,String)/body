@@ -1,4 +1,13 @@
 {
+  if (key.equals("show_picture")) {
+    boolean value=sharedPreferences.getBoolean("show_picture",true);
+    if (value) {
+      GlobalContext.getInstance().setEnablePic(true);
+    }
+ else {
+      GlobalContext.getInstance().setEnablePic(false);
+    }
+  }
   if (key.equals("enable_fetch_msg")) {
     boolean value=sharedPreferences.getBoolean("enable_fetch_msg",false);
     if (!value)     cancelAlarm();

@@ -1,0 +1,10 @@
+{
+  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+  boolean enablePic=sharedPref.getBoolean(SettingActivity.ENABLE_PIC,true);
+  if (enablePic) {
+    GlobalContext.getInstance().setEnablePic(true);
+  }
+ else {
+    GlobalContext.getInstance().setEnablePic(false);
+  }
+}

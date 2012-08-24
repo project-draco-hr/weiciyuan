@@ -5,6 +5,7 @@
   accountBean=(AccountBean)intent.getSerializableExtra("account");
   token=accountBean.getAccess_token();
   GlobalContext.getInstance().setSpecialToken(token);
+  buildSetting();
   if (getResources().getBoolean(R.bool.is_phone)) {
     buildPhoneInterface();
   }

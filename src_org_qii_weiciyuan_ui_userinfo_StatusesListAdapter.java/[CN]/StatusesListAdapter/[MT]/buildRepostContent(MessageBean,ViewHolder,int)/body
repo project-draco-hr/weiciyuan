@@ -6,7 +6,7 @@
  else {
     holder.repost_content.setText(repost_msg.getText());
   }
-  if (!TextUtils.isEmpty(repost_msg.getThumbnail_pic())) {
+  if (!TextUtils.isEmpty(repost_msg.getThumbnail_pic()) && GlobalContext.getInstance().isEnablePic()) {
     holder.repost_content_pic.setVisibility(View.VISIBLE);
     commander.downContentPic(holder.repost_content_pic,repost_msg.getThumbnail_pic(),position,listView);
     holder.repost_content_pic.setOnClickListener(new View.OnClickListener(){
