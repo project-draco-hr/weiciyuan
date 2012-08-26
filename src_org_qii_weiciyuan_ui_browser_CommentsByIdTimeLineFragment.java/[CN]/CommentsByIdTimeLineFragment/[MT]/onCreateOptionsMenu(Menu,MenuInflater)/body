@@ -1,4 +1,8 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.commentsbyidtimelinefragment_menu,menu);
+  SearchManager searchManager=(SearchManager)getActivity().getSystemService(Context.SEARCH_SERVICE);
+  SearchView searchView=(SearchView)menu.findItem(R.id.commentsbyidtimelinefragment_search).getActionView();
+  searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+  searchView.setIconifiedByDefault(true);
 }
