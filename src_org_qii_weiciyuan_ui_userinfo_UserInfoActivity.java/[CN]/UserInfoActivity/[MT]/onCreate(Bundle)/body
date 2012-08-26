@@ -1,7 +1,5 @@
 {
   super.onCreate(savedInstanceState);
-  getActionBar().setDisplayHomeAsUpEnabled(true);
-  getActionBar().setTitle(getString(R.string.personal_info));
   token=getIntent().getStringExtra("token");
   bean=(UserBean)getIntent().getSerializableExtra("user");
   if (bean == null) {
@@ -12,5 +10,16 @@
     bean=new UserBean();
     bean.setScreen_name(newValue);
   }
-  getFragmentManager().beginTransaction().replace(android.R.id.content,new UserInfoFragment()).commit();
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setTitle(getString(R.string.personal_info));
+  setContentView(R.layout.maintimelineactivity_viewpager_layout);
+  mViewPager=(ViewPager)findViewById(R.id.viewpager);
+  TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getSupportFragmentManager());
+  mViewPager.setOffscreenPageLimit(2);
+  mViewPager.setAdapter(adapter);
+  mViewPager.setOnPageChangeListener(onPageChangeListener);
+  ActionBar actionBar=getActionBar();
+  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+  actionBar.addTab(actionBar.newTab().setText(getString(R.string.intro)).setTabListener(tabListener));
+  actionBar.addTab(actionBar.newTab().setText(getString(R.string.weibo)).setTabListener(tabListener));
 }
