@@ -2,7 +2,7 @@
   super.onCreate(savedInstanceState);
   addPreferencesFromResource(R.xml.pref);
   getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
-  clear_cache=findPreference("clear_cache");
+  clear_cache=findPreference(SettingActivity.CLEAR_CACHE);
   clear_cache.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
       FileManager.deleteCache();

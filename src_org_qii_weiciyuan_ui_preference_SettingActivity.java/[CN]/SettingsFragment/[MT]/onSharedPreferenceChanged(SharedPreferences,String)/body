@@ -1,6 +1,6 @@
 {
-  if (key.equals("show_picture")) {
-    boolean value=sharedPreferences.getBoolean("show_picture",true);
+  if (key.equals(SettingActivity.ENABLE_PIC)) {
+    boolean value=sharedPreferences.getBoolean(key,true);
     if (value) {
       GlobalContext.getInstance().setEnablePic(true);
     }
@@ -8,17 +8,17 @@
       GlobalContext.getInstance().setEnablePic(false);
     }
   }
-  if (key.equals("enable_fetch_msg")) {
-    boolean value=sharedPreferences.getBoolean("enable_fetch_msg",false);
+  if (key.equals(SettingActivity.ENABLE_FETCH_MSG)) {
+    boolean value=sharedPreferences.getBoolean(key,false);
     if (!value)     cancelAlarm();
   }
-  if (key.equals("frequency")) {
+  if (key.equals(SettingActivity.FREQUENCY)) {
     String value=sharedPreferences.getString(key,"1");
     if (value.equals("1"))     startAlarm(3 * 60 * 1000);
     if (value.equals("2"))     startAlarm(AlarmManager.INTERVAL_FIFTEEN_MINUTES);
     if (value.equals("3"))     startAlarm(AlarmManager.INTERVAL_HALF_HOUR);
   }
-  if (key.equals("theme")) {
+  if (key.equals(SettingActivity.THEME)) {
     String value=sharedPreferences.getString(key,"1");
     if (value.equals("1"))     GlobalContext.getInstance().setAppTheme(android.R.style.Theme_Holo);
     if (value.equals("2"))     GlobalContext.getInstance().setAppTheme(android.R.style.Theme_Holo_Light);
