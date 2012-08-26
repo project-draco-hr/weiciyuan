@@ -1,4 +1,3 @@
 {
   super.onBackPressed();
-  overridePendingTransition(R.anim.stay,R.anim.slide_out_down);
 }

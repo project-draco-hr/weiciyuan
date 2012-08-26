@@ -1,4 +1,5 @@
 {
+  buildThemeSetting();
   super.onCreate(savedInstanceState);
   setContentView(R.layout.maintimelineactivity_viewpager_layout);
   Intent intent=getIntent();

@@ -18,4 +18,10 @@
     if (value.equals("2"))     startAlarm(AlarmManager.INTERVAL_FIFTEEN_MINUTES);
     if (value.equals("3"))     startAlarm(AlarmManager.INTERVAL_HALF_HOUR);
   }
+  if (key.equals("theme")) {
+    String value=sharedPreferences.getString(key,"1");
+    if (value.equals("1"))     GlobalContext.getInstance().setAppTheme(android.R.style.Theme_Holo);
+    if (value.equals("2"))     GlobalContext.getInstance().setAppTheme(android.R.style.Theme_Holo_Light);
+    reload();
+  }
 }

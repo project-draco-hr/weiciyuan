@@ -4,4 +4,9 @@
   if (getResources().getBoolean(R.bool.is_phone)) {
     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
   }
+  if (theme == GlobalContext.getInstance().getAppTheme()) {
+  }
+ else {
+    reload();
+  }
 }

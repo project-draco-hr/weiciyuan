@@ -1,4 +1,6 @@
 {
+  theme=GlobalContext.getInstance().getAppTheme();
+  setTheme(theme);
   super.onCreate(savedInstanceState);
   if (getResources().getBoolean(R.bool.is_phone)) {
     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
