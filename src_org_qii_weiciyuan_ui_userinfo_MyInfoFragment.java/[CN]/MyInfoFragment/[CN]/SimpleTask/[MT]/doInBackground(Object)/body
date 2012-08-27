@@ -2,6 +2,7 @@
   UserBean user=new ShowUserDao(((IToken)getActivity()).getToken()).setUid(bean.getId()).getUserInfo();
   if (user != null) {
     bean=user;
+    DatabaseManager.getInstance().updateAccountMyInfo(((IAccountInfo)getActivity()).getAccount(),bean);
   }
  else {
     cancel(true);
