@@ -1,0 +1,9 @@
+{
+  super.onDestroy();
+  for (  String task : avatarBitmapWorkerTaskHashMap.keySet()) {
+    avatarBitmapWorkerTaskHashMap.get(task).cancel(true);
+  }
+  for (  String task : pictureBitmapWorkerTaskMap.keySet()) {
+    pictureBitmapWorkerTaskMap.get(task).cancel(true);
+  }
+}
