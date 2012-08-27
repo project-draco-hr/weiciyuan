@@ -6,9 +6,7 @@ case R.id.friendstimelinefragment_new_weibo:
 startActivity(intent);
 break;
 case R.id.friendstimelinefragment_refresh:
-if (!isBusying) {
 refresh();
-}
 break;
 case R.id.friendstimelinefragment_name:
 intent=new Intent(getActivity(),MyInfoActivity.class);

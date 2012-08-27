@@ -1,0 +1,18 @@
+{
+  if (newTask == null || newTask.getStatus() == AsyncTask.Status.FINISHED) {
+    newTask=new TimeLineGetNewMsgListTask();
+    newTask.execute();
+    Map<String,AvatarBitmapWorkerTask> avatarBitmapWorkerTaskHashMap=((AbstractAppActivity)getActivity()).getAvatarBitmapWorkerTaskHashMap();
+    Map<String,PictureBitmapWorkerTask> pictureBitmapWorkerTaskMap=((AbstractAppActivity)getActivity()).getPictureBitmapWorkerTaskMap();
+    Set<String> keys=avatarBitmapWorkerTaskHashMap.keySet();
+    for (    String key : keys) {
+      avatarBitmapWorkerTaskHashMap.get(key).cancel(true);
+      avatarBitmapWorkerTaskHashMap.remove(key);
+    }
+    Set<String> pKeys=pictureBitmapWorkerTaskMap.keySet();
+    for (    String pkey : pKeys) {
+      pictureBitmapWorkerTaskMap.get(pkey).cancel(true);
+      pictureBitmapWorkerTaskMap.remove(pkey);
+    }
+  }
+}
