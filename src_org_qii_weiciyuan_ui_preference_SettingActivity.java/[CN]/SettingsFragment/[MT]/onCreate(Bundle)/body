@@ -10,5 +10,5 @@
     }
   }
 );
-  new calcCacheSize().execute();
+  task=new CalcCacheSize();
 }

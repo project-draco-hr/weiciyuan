@@ -1,4 +1,5 @@
 {
   super.onStop();
   getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+  task.cancel(true);
 }
