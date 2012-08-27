@@ -1,5 +1,8 @@
 {
   StatusesTimeLineDao dao=new StatusesTimeLineDao(token,uid);
+  if (TextUtils.isEmpty(uid)) {
+    dao.setScreen_name(((IUserInfo)getActivity()).getUser().getScreen_name());
+  }
   if (getList().getStatuses().size() > 0) {
     dao.setSince_id(getList().getStatuses().get(0).getId());
   }
