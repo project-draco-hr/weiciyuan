@@ -1,0 +1,19 @@
+{
+  if (newValue != null) {
+    if (newValue.getComments().size() == 0) {
+      Toast.makeText(getActivity(),getString(R.string.no_new_message),Toast.LENGTH_SHORT).show();
+    }
+ else {
+      Toast.makeText(getActivity(),getString(R.string.total) + newValue.getComments().size() + getString(R.string.new_messages),Toast.LENGTH_SHORT).show();
+      if (newValue.getComments().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+        newValue.getComments().addAll(getList().getComments());
+      }
+      bean=newValue;
+      timeLineAdapter.notifyDataSetChanged();
+      listView.setSelectionAfterHeaderView();
+    }
+  }
+  getActivity().getActionBar().getTabAt(2).setText(getString(R.string.comments));
+  NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+  notificationManager.cancelAll();
+}

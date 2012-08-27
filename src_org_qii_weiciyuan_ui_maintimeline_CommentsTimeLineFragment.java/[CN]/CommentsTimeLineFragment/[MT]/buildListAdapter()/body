@@ -1,0 +1,4 @@
+{
+  timeLineAdapter=new TimeLineAdapter();
+  listView.setAdapter(timeLineAdapter);
+}

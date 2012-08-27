@@ -1,5 +1,6 @@
 {
   super.onCreate(savedInstanceState);
+  bean=new MessageListBean();
   setHasOptionsMenu(true);
   setRetainInstance(true);
 }
