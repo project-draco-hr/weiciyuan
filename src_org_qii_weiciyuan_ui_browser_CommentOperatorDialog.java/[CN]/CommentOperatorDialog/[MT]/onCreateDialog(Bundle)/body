@@ -1,6 +1,6 @@
 {
   AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-  String[] items={getString(R.string.reply),getString(R.string.delete)};
+  String[] items={getString(R.string.reply)};
   builder.setTitle(getString(R.string.and_then));
   builder.setItems(items,new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialog,    int which){
