@@ -1,2 +1,4 @@
 {
+  CommentOperatorDialog progressFragment=new CommentOperatorDialog(bean.getComments().get(position));
+  progressFragment.show(getFragmentManager(),"");
 }
