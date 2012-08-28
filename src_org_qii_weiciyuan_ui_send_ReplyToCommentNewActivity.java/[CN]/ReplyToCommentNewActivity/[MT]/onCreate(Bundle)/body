@@ -1,0 +1,9 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.statusnewactivity_layout);
+  getActionBar().setTitle(R.string.comments);
+  token=getIntent().getStringExtra("token");
+  bean=(CommentBean)getIntent().getSerializableExtra("msg");
+  getActionBar().setTitle("@" + bean.getUser().getScreen_name());
+  et=(EditText)findViewById(R.id.status_new_content);
+}

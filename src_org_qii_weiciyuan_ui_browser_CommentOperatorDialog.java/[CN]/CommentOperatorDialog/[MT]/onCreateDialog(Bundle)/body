@@ -8,8 +8,9 @@ switch (which) {
 case 0:
         Intent intent=new Intent(getActivity(),ReplyToCommentNewActivity.class);
       intent.putExtra("msg",bean);
-    startActivity(intent);
-  break;
+    intent.putExtra("token",((IToken)getActivity()).getToken());
+  startActivity(intent);
+break;
 case 1:
 break;
 }

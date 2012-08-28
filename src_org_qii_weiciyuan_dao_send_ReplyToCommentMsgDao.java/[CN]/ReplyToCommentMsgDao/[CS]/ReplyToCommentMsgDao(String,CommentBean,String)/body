@@ -1,0 +1,6 @@
+{
+  this.access_token=token;
+  this.cid=bean.getId();
+  this.id=bean.getStatus().getId();
+  this.comment=replyContent;
+}

@@ -1,0 +1,12 @@
+{
+  progressFragment.onCancel(new DialogInterface(){
+    @Override public void cancel(){
+      SimpleTask.this.cancel(true);
+    }
+    @Override public void dismiss(){
+      SimpleTask.this.cancel(true);
+    }
+  }
+);
+  progressFragment.show(getFragmentManager(),"");
+}
