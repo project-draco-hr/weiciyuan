@@ -1,0 +1,7 @@
+{
+  geoBean=new GeoBean();
+  geoBean.setLatitude(result.getLatitude());
+  geoBean.setLongitude(result.getLongitude());
+  AppLogger.e("location ?????????" + result.getLatitude() + ",??????:"+ result.getLongitude());
+  ((LocationManager)StatusNewActivity.this.getSystemService(Context.LOCATION_SERVICE)).removeUpdates(locationListener);
+}

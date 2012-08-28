@@ -6,6 +6,10 @@
   Map<String,String> map=new HashMap<String,String>();
   map.put("access_token",access_token);
   map.put("status",str);
+  if (geoBean != null) {
+    map.put("lat",String.valueOf(geoBean.getLat()));
+    map.put("long",String.valueOf(geoBean.getLon()));
+  }
   try {
     HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
     return true;

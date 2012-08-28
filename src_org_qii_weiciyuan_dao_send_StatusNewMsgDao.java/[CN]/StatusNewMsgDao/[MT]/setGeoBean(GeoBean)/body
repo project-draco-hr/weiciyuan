@@ -1,0 +1,4 @@
+{
+  this.geoBean=geoBean;
+  return this;
+}

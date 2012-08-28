@@ -16,7 +16,7 @@
       bmp=BitmapFactory.decodeStream(getContentResolver().openInputStream(imageFileUri),null,bmpFactoryOptions);
     }
  catch (    FileNotFoundException e) {
-      e.printStackTrace();
+      AppLogger.e(e.getMessage());
     }
     iv.setImageBitmap(bmp);
     String[] proj={MediaStore.Images.Media.DATA};
