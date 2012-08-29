@@ -7,4 +7,7 @@
   msg=(MessageBean)getIntent().getSerializableExtra("msg");
   getActionBar().setTitle(getString(R.string.repost));
   et=((EditText)findViewById(R.id.status_new_content));
+  if (msg.getRetweeted_status() != null) {
+    et.setText("//@" + msg.getUser().getScreen_name() + ": "+ msg.getText());
+  }
 }
