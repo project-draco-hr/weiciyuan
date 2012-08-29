@@ -3,6 +3,11 @@ switch (item.getItemId()) {
 case R.id.mentionstimelinefragment_refresh:
     refresh();
   break;
+case R.id.mentionstimelinefragment_group:
+if (newTask == null || newTask.getStatus() == AsyncTask.Status.FINISHED) {
+  GroupDialog dialog=new GroupDialog();
+  dialog.show(getFragmentManager(),"");
+}
 }
 return super.onOptionsItemSelected(item);
 }

@@ -3,8 +3,10 @@
   if (getList().getStatuses().size() > 0) {
     dao.setSince_id(getList().getStatuses().get(0).getId());
   }
+  dao.setFilter_by_author(filter_by_author);
+  dao.setFilter_by_type(filter_by_type);
   MessageListBean result=dao.getGSONMsgList();
-  if (result != null) {
+  if (result != null && selected == 0) {
     if (result.getStatuses().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
       DatabaseManager.getInstance().addRepostLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
     }

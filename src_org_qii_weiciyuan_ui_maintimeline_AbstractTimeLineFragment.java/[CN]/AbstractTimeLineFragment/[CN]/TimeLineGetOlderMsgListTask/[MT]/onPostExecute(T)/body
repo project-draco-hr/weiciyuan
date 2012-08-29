@@ -1,5 +1,11 @@
 {
   oldMsgOnPostExecute(newValue);
+  if (newValue.getSize() > 1) {
+    ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.click_to_load_older_message));
+  }
+ else   if (newValue.getSize() == 1) {
+    footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
+  }
   cleanWork();
   super.onPostExecute(newValue);
 }

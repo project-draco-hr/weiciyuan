@@ -1,0 +1,32 @@
+{
+  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+  builder.setTitle(getString(R.string.select_group));
+  builder.setSingleChoiceItems(group,selected,new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+switch (which) {
+case 0:
+        filter_by_author="0";
+      filter_by_type="0";
+    break;
+case 1:
+  filter_by_author="1";
+filter_by_type="0";
+break;
+case 2:
+filter_by_author="0";
+filter_by_type="1";
+break;
+}
+if (selected != which) {
+selected=which;
+getList().getStatuses().clear();
+timeLineAdapter.notifyDataSetChanged();
+refresh();
+getActivity().invalidateOptionsMenu();
+}
+dismiss();
+}
+}
+);
+return builder.create();
+}

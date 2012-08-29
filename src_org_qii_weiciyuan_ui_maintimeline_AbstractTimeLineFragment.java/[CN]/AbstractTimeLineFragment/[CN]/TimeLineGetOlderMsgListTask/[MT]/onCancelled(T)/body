@@ -1,4 +1,5 @@
 {
   super.onCancelled(messageListBean);
+  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.click_to_load_older_message));
   cleanWork();
 }
