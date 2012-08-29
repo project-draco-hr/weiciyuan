@@ -17,6 +17,7 @@
     holder.username.setVisibility(View.INVISIBLE);
     holder.avatar.setVisibility(View.INVISIBLE);
   }
+  holder.content.setTextSize(GlobalContext.getInstance().getFontSize());
   holder.content.setText(msg.getText());
   setTextViewLink(holder.content);
   if (!TextUtils.isEmpty(msg.getListviewItemShowTime())) {

@@ -1,5 +1,6 @@
 {
   buildThemeSetting();
+  buildFontSetting();
   super.onCreate(savedInstanceState);
   setContentView(R.layout.accountactivity_layout);
   listAdapter=new AccountAdapter();

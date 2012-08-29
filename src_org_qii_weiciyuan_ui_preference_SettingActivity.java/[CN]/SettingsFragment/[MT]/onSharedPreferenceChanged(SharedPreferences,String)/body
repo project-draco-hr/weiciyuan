@@ -25,4 +25,8 @@
     if (value.equals("3"))     GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Black_White);
     reload();
   }
+  if (key.equals(SettingActivity.FONT_SIZE)) {
+    String value=sharedPreferences.getString(key,"15");
+    GlobalContext.getInstance().setFontSize(Integer.valueOf(value));
+  }
 }
