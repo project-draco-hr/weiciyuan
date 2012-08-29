@@ -1,10 +1,10 @@
 {
   String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.avatar);
   absoluteFilePath=absoluteFilePath + ".jpg";
-  Bitmap bitmap=decodeBitmapFromSDCard(absoluteFilePath,480,1600);
+  Bitmap bitmap=decodeBitmapFromSDCard(absoluteFilePath,MAX_WIDTH,MAX_HEIGHT);
   if (bitmap == null) {
     String path=getBitmapFromNetWork(url,absoluteFilePath);
-    bitmap=decodeBitmapFromSDCard(path,480,1600);
+    bitmap=decodeBitmapFromSDCard(path,MAX_WIDTH,MAX_HEIGHT);
   }
   if (bitmap != null) {
     bitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
