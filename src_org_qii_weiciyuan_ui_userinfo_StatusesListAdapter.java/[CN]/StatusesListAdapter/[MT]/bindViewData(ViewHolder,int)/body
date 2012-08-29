@@ -18,6 +18,7 @@
     holder.avatar.setVisibility(View.INVISIBLE);
   }
   holder.content.setText(msg.getText());
+  setTextViewLink(holder.content);
   if (!TextUtils.isEmpty(msg.getListviewItemShowTime())) {
     holder.time.setText(msg.getListviewItemShowTime());
   }
