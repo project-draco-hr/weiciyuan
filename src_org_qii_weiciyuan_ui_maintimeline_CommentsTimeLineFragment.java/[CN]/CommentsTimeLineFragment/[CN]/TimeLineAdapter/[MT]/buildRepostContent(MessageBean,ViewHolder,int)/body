@@ -3,7 +3,7 @@
   if (repost_msg.getUser() != null) {
     holder.repost_content.setTextSize(GlobalContext.getInstance().getFontSize());
     holder.repost_content.setText("@" + repost_msg.getUser().getScreen_name() + "???"+ repost_msg.getText());
-    setTextViewLink(holder.repost_content);
+    ListViewTool.addJustHighLightLinks(holder.repost_content);
   }
  else {
     holder.repost_content.setText(repost_msg.getText());
