@@ -5,7 +5,7 @@
     avatarTask.execute(msg.getUser().getProfile_image_url());
   }
   content.setText(msg.getText());
-  setTextViewLink(content);
+  ListViewTool.addLinks(content);
   time.setText(msg.getCreated_at());
   if (msg.getGeo() != null) {
     new GetGoogleLocationInfo(msg.getGeo()).execute();
@@ -17,7 +17,7 @@
     recontent.setVisibility(View.VISIBLE);
     if (retweetMsg.getUser() != null) {
       recontent.setText("@" + retweetMsg.getUser().getScreen_name() + "???"+ retweetMsg.getText());
-      setTextViewLink(recontent);
+      ListViewTool.addLinks(recontent);
     }
  else {
       recontent.setText(retweetMsg.getText());
