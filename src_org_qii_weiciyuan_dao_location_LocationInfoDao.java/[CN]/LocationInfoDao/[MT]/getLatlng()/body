@@ -1,0 +1,3 @@
+{
+  return String.valueOf(latlng[0]) + "," + String.valueOf(latlng[1]);
+}

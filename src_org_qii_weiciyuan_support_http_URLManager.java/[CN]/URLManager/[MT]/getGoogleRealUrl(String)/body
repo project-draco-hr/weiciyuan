@@ -1,0 +1,5 @@
+{
+  if (TextUtils.isEmpty(urlContent))   return null;
+  String url=getUrl(urlContent);
+  return url;
+}

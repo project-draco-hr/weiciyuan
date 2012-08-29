@@ -1,0 +1,26 @@
+{
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("language","zh-CN");
+  map.put("sensor","false");
+  map.put("latlng",getLatlng());
+  String url=URLHelper.getGoogleLocatonUrl();
+  String jsonData=null;
+  try {
+    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  }
+ catch (  WeiboException e) {
+    AppLogger.e(e.getMessage());
+  }
+  try {
+    JSONObject jsonObject=new JSONObject(jsonData);
+    JSONArray results=jsonObject.optJSONArray("results");
+    JSONObject jsonObject1=results.getJSONObject(0);
+    String formatAddress=jsonObject1.optString("formatted_address");
+    String location=formatAddress.substring(0,formatAddress.indexOf(" "));
+    return location;
+  }
+ catch (  JSONException e) {
+    AppLogger.e(e.getMessage());
+  }
+  return "";
+}

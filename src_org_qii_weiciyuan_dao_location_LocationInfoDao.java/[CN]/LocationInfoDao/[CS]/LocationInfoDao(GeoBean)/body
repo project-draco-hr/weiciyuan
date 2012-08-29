@@ -1,0 +1,4 @@
+{
+  this.latlng[0]=bean.getLat();
+  this.latlng[1]=bean.getLon();
+}

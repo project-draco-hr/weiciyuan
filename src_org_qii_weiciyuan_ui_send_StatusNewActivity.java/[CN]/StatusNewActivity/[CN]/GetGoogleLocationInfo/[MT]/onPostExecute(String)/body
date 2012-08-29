@@ -1,0 +1,4 @@
+{
+  Toast.makeText(StatusNewActivity.this,s,Toast.LENGTH_SHORT).show();
+  super.onPostExecute(s);
+}
