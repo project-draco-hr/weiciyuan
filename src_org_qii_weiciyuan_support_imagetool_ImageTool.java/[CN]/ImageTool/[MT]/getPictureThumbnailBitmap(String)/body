@@ -2,9 +2,12 @@
   String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.picture_thumbnail);
   Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath);
   if (bitmap != null) {
-    return bitmap;
+    return ImageEdit.getRoundedCornerBitmap(bitmap);
   }
  else {
-    return getBitmapFromNetWork(url,absoluteFilePath);
+    String path=getBitmapFromNetWork(url,absoluteFilePath);
+    bitmap=BitmapFactory.decodeFile(path);
+    if (bitmap != null)     return ImageEdit.getRoundedCornerBitmap(bitmap);
   }
+  return null;
 }

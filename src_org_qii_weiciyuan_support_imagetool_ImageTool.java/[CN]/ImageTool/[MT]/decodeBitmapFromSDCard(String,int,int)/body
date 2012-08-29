@@ -1,15 +1,8 @@
 {
   final BitmapFactory.Options options=new BitmapFactory.Options();
   options.inJustDecodeBounds=true;
-  String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.picture_thumbnail);
-  absoluteFilePath=absoluteFilePath + ".jpg";
-  Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath);
-  if (bitmap != null) {
-    options.inSampleSize=calculateInSampleSize(options,reqWidth,reqHeight);
-    options.inJustDecodeBounds=false;
-    return BitmapFactory.decodeFile(absoluteFilePath,options);
-  }
- else {
-    return null;
-  }
+  BitmapFactory.decodeFile(path,options);
+  options.inSampleSize=calculateInSampleSize(options,reqWidth,reqHeight);
+  options.inJustDecodeBounds=false;
+  return BitmapFactory.decodeFile(path,options);
 }
