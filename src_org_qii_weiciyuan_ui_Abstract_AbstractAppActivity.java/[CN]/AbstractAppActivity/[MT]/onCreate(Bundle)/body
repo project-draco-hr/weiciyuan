@@ -5,5 +5,5 @@
   if (getResources().getBoolean(R.bool.is_phone)) {
     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
   }
-  showActinBarOverflowMenu();
+  forceShowActinBarOverflowMenu();
 }
