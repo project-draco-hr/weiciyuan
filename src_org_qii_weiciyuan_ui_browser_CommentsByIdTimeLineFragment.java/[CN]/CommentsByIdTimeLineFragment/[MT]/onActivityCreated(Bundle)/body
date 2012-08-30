@@ -3,6 +3,8 @@
   commander=((AbstractAppActivity)getActivity()).getCommander();
   if (savedInstanceState != null && bean.getComments().size() == 0) {
     bean=(CommentListBean)savedInstanceState.getSerializable("bean");
+    token=savedInstanceState.getString("token");
+    id=savedInstanceState.getString("id");
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
   }
