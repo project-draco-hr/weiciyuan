@@ -1,4 +1,4 @@
 {
-  String path=SDCARD_PATH + File.separator + APP_NAME;
+  String path=SDCARD_PATH + File.separator;
   return deleteDirectory(new File(path));
 }

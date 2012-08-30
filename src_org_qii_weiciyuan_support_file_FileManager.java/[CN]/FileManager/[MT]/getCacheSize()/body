@@ -1,6 +1,6 @@
 {
   if (isExternalStorageMounted()) {
-    String path=SDCARD_PATH + File.separator + APP_NAME;
+    String path=SDCARD_PATH + File.separator;
     FileSize size=new FileSize(new File(path));
     return size.toString();
   }
