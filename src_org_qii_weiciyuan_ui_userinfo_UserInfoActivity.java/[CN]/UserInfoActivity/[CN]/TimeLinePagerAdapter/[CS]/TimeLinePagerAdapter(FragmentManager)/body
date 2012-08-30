@@ -1,5 +1,5 @@
 {
   super(fm);
   list.add(new UserInfoFragment());
-  list.add(new StatusesByIdTimeLineFragment(getToken(),bean.getId()));
+  list.add(new StatusesByIdTimeLineFragment());
 }

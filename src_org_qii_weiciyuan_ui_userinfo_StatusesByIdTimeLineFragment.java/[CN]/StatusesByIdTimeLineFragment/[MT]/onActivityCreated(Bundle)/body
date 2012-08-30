@@ -1,14 +1,14 @@
 {
-  super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
-  if (savedInstanceState != null && bean.getStatuses().size() == 0) {
-    bean=(MessageListBean)savedInstanceState.getSerializable("bean");
-    token=savedInstanceState.getString("token");
-    uid=savedInstanceState.getString("uid");
+  if (savedInstanceState != null) {
+    clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
+    userBean=(UserBean)savedInstanceState.getSerializable("userbean");
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
   }
  else {
+    userBean=((IUserInfo)getActivity()).getUser();
     refresh();
   }
+  super.onActivityCreated(savedInstanceState);
 }

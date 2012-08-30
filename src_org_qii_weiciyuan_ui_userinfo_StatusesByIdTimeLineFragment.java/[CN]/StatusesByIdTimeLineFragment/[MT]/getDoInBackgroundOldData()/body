@@ -1,6 +1,6 @@
 {
-  StatusesTimeLineDao dao=new StatusesTimeLineDao(token,uid);
-  if (TextUtils.isEmpty(uid)) {
+  StatusesTimeLineDao dao=new StatusesTimeLineDao(((IToken)getActivity()).getToken(),((IUserInfo)getActivity()).getUser().getId());
+  if (TextUtils.isEmpty(((IUserInfo)getActivity()).getUser().getId())) {
     dao.setScreen_name(((IUserInfo)getActivity()).getUser().getScreen_name());
   }
   if (getList().getStatuses().size() > 0) {
