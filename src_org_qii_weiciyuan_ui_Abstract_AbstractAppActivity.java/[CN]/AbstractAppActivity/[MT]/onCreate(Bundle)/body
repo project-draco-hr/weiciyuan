@@ -6,4 +6,6 @@
     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
   }
   forceShowActionBarOverflowMenu();
+  initDefaultAvatar();
+  initDefaultPic();
 }

@@ -8,4 +8,6 @@
     pictureBitmapWorkerTaskMap.get(task).cancel(true);
   }
   pictureBitmapWorkerTaskMap=null;
+  defaultAvatar=null;
+  defaultPic=null;
 }

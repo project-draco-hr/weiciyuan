@@ -1,0 +1,5 @@
+{
+  int[] attrs=new int[]{R.attr.account};
+  TypedArray ta=obtainStyledAttributes(attrs);
+  defaultAvatar=ta.getDrawable(0);
+}
