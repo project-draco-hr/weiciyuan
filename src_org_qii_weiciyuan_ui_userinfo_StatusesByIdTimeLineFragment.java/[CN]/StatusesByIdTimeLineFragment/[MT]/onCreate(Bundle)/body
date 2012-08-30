@@ -1,5 +1,10 @@
 {
-  userBean=((IUserInfo)getActivity()).getUser();
+  if (userBean == null && savedInstanceState != null) {
+    userBean=(UserBean)savedInstanceState.getSerializable("userbean");
+  }
+ else {
+    userBean=((IUserInfo)getActivity()).getUser();
+  }
   super.onCreate(savedInstanceState);
   setHasOptionsMenu(true);
   setRetainInstance(true);
