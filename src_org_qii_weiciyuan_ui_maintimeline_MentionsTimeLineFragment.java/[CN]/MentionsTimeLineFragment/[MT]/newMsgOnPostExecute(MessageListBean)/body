@@ -1,0 +1,4 @@
+{
+  super.newMsgOnPostExecute(newValue);
+  showNewMsgToastMessage(newValue);
+}
