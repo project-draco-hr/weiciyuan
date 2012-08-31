@@ -4,6 +4,10 @@
   ActionBar actionBar=getActionBar();
   actionBar.setDisplayHomeAsUpEnabled(true);
   actionBar.setTitle(R.string.write_weibo);
+  View title=getLayoutInflater().inflate(R.layout.statusnewactivity_title_layout,null);
+  contentNumber=(TextView)title.findViewById(R.id.content_number);
+  actionBar.setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
+  actionBar.setDisplayShowCustomEnabled(true);
   Intent intent=getIntent();
   token=intent.getStringExtra("token");
   iv=(ImageView)findViewById(R.id.iv);

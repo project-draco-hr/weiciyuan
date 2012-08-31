@@ -5,6 +5,8 @@
     bmpFactoryOptions.inSampleSize=8;
     Bitmap bmp=BitmapFactory.decodeFile(imageFilePath,bmpFactoryOptions);
     iv.setImageBitmap(bmp);
+    pic=bmp;
+    invalidateOptionsMenu();
     picPath=imageFilePath;
   }
  else   if (requestCode == PIC_RESULT && resultCode == RESULT_OK) {
@@ -19,6 +21,8 @@
       AppLogger.e(e.getMessage());
     }
     iv.setImageBitmap(bmp);
+    pic=bmp;
+    invalidateOptionsMenu();
     String[] proj={MediaStore.Images.Media.DATA};
     Cursor cursor=managedQuery(imageFileUri,proj,null,null,null);
     int column_index=cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
