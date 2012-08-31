@@ -1,8 +1,4 @@
 {
   getMenuInflater().inflate(R.menu.statusnewactivity_menu,menu);
-  if (pic != null) {
-    Drawable drawable=new BitmapDrawable(getResources(),pic);
-    menu.findItem(R.id.menu_add_pic).setIcon(drawable);
-  }
   return true;
 }
