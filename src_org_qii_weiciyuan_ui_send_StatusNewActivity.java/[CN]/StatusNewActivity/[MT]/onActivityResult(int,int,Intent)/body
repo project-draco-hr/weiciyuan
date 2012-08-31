@@ -10,9 +10,26 @@
     Bitmap bmp=null;
 switch (requestCode) {
 case CAMERA_RESULT:
-      bmp=BitmapFactory.decodeFile(imageFilePath,bmpFactoryOptions);
-    pic=bmp;
-  invalidateOptionsMenu();
+      File file=new File(imageFilePath);
+    long fileSize=file.length();
+  double size=(double)fileSize / 1024;
+if (size > 500) {
+  final BitmapFactory.Options options=new BitmapFactory.Options();
+  options.inSampleSize=Math.round((float)size / (float)500);
+  options.inJustDecodeBounds=false;
+  Bitmap result=BitmapFactory.decodeFile(imageFilePath,options);
+  FileOutputStream out=null;
+  try {
+    out=new FileOutputStream(imageFilePath);
+  }
+ catch (  FileNotFoundException e) {
+    e.printStackTrace();
+  }
+  result.compress(Bitmap.CompressFormat.JPEG,90,out);
+}
+bmp=BitmapFactory.decodeFile(imageFilePath,bmpFactoryOptions);
+pic=bmp;
+invalidateOptionsMenu();
 picPath=imageFilePath;
 break;
 case PIC_RESULT:
