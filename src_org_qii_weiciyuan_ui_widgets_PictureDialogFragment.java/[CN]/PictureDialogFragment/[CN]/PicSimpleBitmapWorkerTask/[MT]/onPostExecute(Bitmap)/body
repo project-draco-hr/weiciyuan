@@ -5,4 +5,11 @@
     pb.setVisibility(View.INVISIBLE);
     imageView.setImageBitmap(bitmap);
   }
+ else {
+    pb.setVisibility(View.INVISIBLE);
+    int[] attrs=new int[]{R.attr.error};
+    TypedArray ta=getActivity().obtainStyledAttributes(attrs);
+    Drawable drawableFromTheme=ta.getDrawable(0);
+    imageView.setImageDrawable(drawableFromTheme);
+  }
 }
