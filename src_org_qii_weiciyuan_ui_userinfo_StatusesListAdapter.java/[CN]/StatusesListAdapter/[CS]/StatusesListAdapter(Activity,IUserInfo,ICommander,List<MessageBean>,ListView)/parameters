@@ -1,4 +1,5 @@
 Activity activity
+IUserInfo user
 ICommander commander
 List<MessageBean> bean
 ListView listView

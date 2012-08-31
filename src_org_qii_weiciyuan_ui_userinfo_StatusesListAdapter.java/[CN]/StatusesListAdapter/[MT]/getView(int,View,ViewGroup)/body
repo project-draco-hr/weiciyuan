@@ -1,6 +1,25 @@
 {
+  if (bean.get(position).getUser().getId().equals(user.getId())) {
+    ViewHolder holder=new ViewHolder();
+    if (convertView == null || convertView.getTag(R.drawable.app) == null) {
+      convertView=inflater.inflate(R.layout.fragment_listview_item_myself_layout,parent,false);
+      holder.username=(TextView)convertView.findViewById(R.id.username);
+      holder.content=(TextView)convertView.findViewById(R.id.content);
+      holder.repost_content=(TextView)convertView.findViewById(R.id.repost_content);
+      holder.time=(TextView)convertView.findViewById(R.id.time);
+      holder.avatar=(ImageView)convertView.findViewById(R.id.avatar);
+      holder.content_pic=(ImageView)convertView.findViewById(R.id.content_pic);
+      holder.repost_content_pic=(ImageView)convertView.findViewById(R.id.repost_content_pic);
+      convertView.setTag(R.drawable.app,holder);
+    }
+ else {
+      holder=(ViewHolder)convertView.getTag(R.drawable.app);
+    }
+    bindViewData(holder,position);
+    return convertView;
+  }
   ViewHolder holder;
-  if (convertView == null) {
+  if (convertView == null || convertView.getTag(R.drawable.ic_launcher) == null) {
     holder=new ViewHolder();
     convertView=inflater.inflate(R.layout.fragment_listview_item_layout,parent,false);
     holder.username=(TextView)convertView.findViewById(R.id.username);
@@ -10,10 +29,10 @@
     holder.avatar=(ImageView)convertView.findViewById(R.id.avatar);
     holder.content_pic=(ImageView)convertView.findViewById(R.id.content_pic);
     holder.repost_content_pic=(ImageView)convertView.findViewById(R.id.repost_content_pic);
-    convertView.setTag(holder);
+    convertView.setTag(R.drawable.ic_launcher,holder);
   }
  else {
-    holder=(ViewHolder)convertView.getTag();
+    holder=(ViewHolder)convertView.getTag(R.drawable.ic_launcher);
   }
   bindViewData(holder,position);
   return convertView;
