@@ -1,4 +1,4 @@
 Activity activity
 ICommander commander
-MessageListBean bean
+List<MessageBean> bean
 ListView listView

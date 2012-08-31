@@ -1,5 +1,5 @@
 {
-  final MessageBean msg=bean.getStatuses().get(position);
+  final MessageBean msg=bean.get(position);
   MessageBean repost_msg=msg.getRetweeted_status();
   if (msg.getUser() != null) {
     holder.username.setVisibility(View.VISIBLE);

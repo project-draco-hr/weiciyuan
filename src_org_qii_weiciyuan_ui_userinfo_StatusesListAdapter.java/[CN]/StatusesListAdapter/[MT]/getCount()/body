@@ -1,6 +1,6 @@
 {
-  if (bean != null && bean.getStatuses() != null) {
-    return bean.getStatuses().size();
+  if (bean != null && bean.size() != 0) {
+    return bean.size();
   }
  else {
     return 0;
