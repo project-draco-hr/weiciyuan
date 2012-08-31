@@ -4,5 +4,4 @@
   this.bean=bean;
   this.commander=commander;
   this.listView=listView;
-  this.user=user.getUser();
 }
