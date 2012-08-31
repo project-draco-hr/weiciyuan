@@ -10,7 +10,6 @@
   actionBar.setDisplayShowCustomEnabled(true);
   Intent intent=getIntent();
   token=intent.getStringExtra("token");
-  iv=(ImageView)findViewById(R.id.iv);
   content=((EditText)findViewById(R.id.status_new_content));
   content.addTextChangedListener(onEditorActionListener);
 }
