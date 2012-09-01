@@ -1,0 +1,5 @@
+{
+  if (bean == null || bean.getComments().size() == 0) {
+    refresh();
+  }
+}

@@ -9,6 +9,5 @@
     refreshLayout(bean);
   }
  else {
-    new SimpleTask().execute();
   }
 }

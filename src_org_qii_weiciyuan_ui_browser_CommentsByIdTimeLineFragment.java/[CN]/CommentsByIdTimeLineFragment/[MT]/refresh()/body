@@ -1,4 +1,5 @@
 {
+  if (getActivity() == null)   return;
   Map<String,AvatarBitmapWorkerTask> avatarBitmapWorkerTaskHashMap=((AbstractAppActivity)getActivity()).getAvatarBitmapWorkerTaskHashMap();
   new FriendsTimeLineGetNewMsgListTask().execute();
   Set<String> keys=avatarBitmapWorkerTaskHashMap.keySet();
