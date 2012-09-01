@@ -1,0 +1,16 @@
+{
+  mTasks.addFirst(new Runnable(){
+    public void run(){
+      try {
+        r.run();
+      }
+  finally {
+        scheduleNext();
+      }
+    }
+  }
+);
+  if (mActive == null) {
+    scheduleNext();
+  }
+}

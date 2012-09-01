@@ -7,7 +7,7 @@ case android.R.id.home:
 startActivity(intent);
 return true;
 case R.id.menu_refresh:
-if (task == null | task.getStatus() == AsyncTask.Status.FINISHED) {
+if (task == null | task.getStatus() == MyAsyncTask.Status.FINISHED) {
 task=new UpdateMsgTask();
 task.execute();
 }

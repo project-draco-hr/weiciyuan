@@ -4,7 +4,7 @@ case R.id.mentionstimelinefragment_refresh:
     refresh();
   break;
 case R.id.mentionstimelinefragment_group:
-if (newTask == null || newTask.getStatus() == AsyncTask.Status.FINISHED) {
+if (newTask == null || newTask.getStatus() == MyAsyncTask.Status.FINISHED) {
   GroupDialog dialog=new GroupDialog();
   dialog.show(getFragmentManager(),"");
 }

@@ -1,5 +1,5 @@
 {
-  if (oldTask == null || oldTask.getStatus() == AsyncTask.Status.FINISHED) {
+  if (oldTask == null || oldTask.getStatus() == MyAsyncTask.Status.FINISHED) {
     oldTask=new TimeLineGetOlderMsgListTask();
     oldTask.execute();
   }
