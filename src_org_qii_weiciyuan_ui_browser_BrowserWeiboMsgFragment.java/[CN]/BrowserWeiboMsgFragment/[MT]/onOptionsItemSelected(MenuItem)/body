@@ -6,22 +6,11 @@ case android.R.id.home:
   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
 return true;
-case R.id.menu_repost:
-intent=new Intent(getActivity(),BrowserRepostAndCommentListActivity.class);
-intent.putExtra("token",((IToken)getActivity()).getToken());
-intent.putExtra("id",msg.getId());
-intent.putExtra("msg",msg);
-intent.putExtra("tabindex",0);
-startActivity(intent);
-return true;
-case R.id.menu_comment:
-intent=new Intent(getActivity(),BrowserRepostAndCommentListActivity.class);
-intent.putExtra("token",((IToken)getActivity()).getToken());
-intent.putExtra("id",msg.getId());
-intent.putExtra("msg",msg);
-intent.putExtra("tabindex",1);
-startActivity(intent);
-return true;
+case R.id.menu_refresh:
+if (task == null | task.getStatus() == AsyncTask.Status.FINISHED) {
+task=new UpdateMsgTask();
+task.execute();
+}
 case R.id.menu_share:
 Intent sharingIntent=new Intent(Intent.ACTION_SEND);
 sharingIntent.setType("text/plain");

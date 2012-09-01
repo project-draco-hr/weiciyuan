@@ -1,0 +1,6 @@
+{
+  super(fm);
+  list.add(new BrowserWeiboMsgFragment(msg));
+  list.add(new CommentsByIdTimeLineFragment(token,msg.getId()));
+  list.add(new RepostsByIdTimeLineFragment(token,msg.getId()));
+}

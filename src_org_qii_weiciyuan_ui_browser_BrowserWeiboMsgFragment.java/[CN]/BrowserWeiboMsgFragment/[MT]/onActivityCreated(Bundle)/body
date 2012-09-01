@@ -2,6 +2,7 @@
   super.onActivityCreated(savedInstanceState);
   buildViewData();
   setHasOptionsMenu(true);
-  UpdateMsgTask task=new UpdateMsgTask();
+  setRetainInstance(true);
+  task=new UpdateMsgTask();
   task.execute();
 }
