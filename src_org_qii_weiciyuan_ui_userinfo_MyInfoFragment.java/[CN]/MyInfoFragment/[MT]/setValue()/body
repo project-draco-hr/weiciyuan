@@ -12,8 +12,8 @@
     blog_url.setVisibility(View.GONE);
   }
   location.setText(bean.getLocation());
-  setTextViewNum(weibo_number,bean.getStatuses_count());
   setTextViewNum(fans_number,bean.getFollowers_count());
   setTextViewNum(following_number,bean.getFriends_count());
   setTextViewNum(fav_number,bean.getFavourites_count());
+  getActivity().getActionBar().getTabAt(1).setText(getString(R.string.weibo) + "(" + bean.getStatuses_count()+ ")");
 }
