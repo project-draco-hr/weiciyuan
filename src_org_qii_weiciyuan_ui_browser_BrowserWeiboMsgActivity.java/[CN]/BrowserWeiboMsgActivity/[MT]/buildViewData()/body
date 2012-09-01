@@ -10,6 +10,8 @@
   if (msg.getGeo() != null) {
     new GetGoogleLocationInfo(msg.getGeo()).execute();
   }
+  source.setText(Html.fromHtml(msg.getSource()));
+  source.setMovementMethod(LinkMovementMethod.getInstance());
   comment_sum=msg.getComments_count();
   retweet_sum=msg.getReposts_count();
   invalidateOptionsMenu();

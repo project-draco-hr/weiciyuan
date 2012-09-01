@@ -4,6 +4,7 @@
   recontent=(TextView)findViewById(R.id.repost_content);
   time=(TextView)findViewById(R.id.time);
   location=(TextView)findViewById(R.id.location);
+  source=(TextView)findViewById(R.id.source);
   location.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       GeoBean bean=msg.getGeo();
