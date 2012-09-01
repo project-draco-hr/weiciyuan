@@ -1,5 +1,0 @@
-{
-  dealWithException(e);
-  setTextViewDeleted();
-  super.onCancelled(weiboMsgBean);
-}

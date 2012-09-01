@@ -1,0 +1,4 @@
+{
+  inflater.inflate(R.menu.browserweibomsgactivity_menu,menu);
+  super.onCreateOptionsMenu(menu,inflater);
+}

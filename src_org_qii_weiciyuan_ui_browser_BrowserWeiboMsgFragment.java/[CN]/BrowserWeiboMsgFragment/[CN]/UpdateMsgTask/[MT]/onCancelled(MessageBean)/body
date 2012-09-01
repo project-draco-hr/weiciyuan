@@ -1,0 +1,4 @@
+{
+  setTextViewDeleted();
+  super.onCancelled(weiboMsgBean);
+}

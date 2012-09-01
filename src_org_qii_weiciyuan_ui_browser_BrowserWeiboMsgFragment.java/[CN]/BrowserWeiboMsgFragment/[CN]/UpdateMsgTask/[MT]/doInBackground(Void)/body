@@ -1,0 +1,10 @@
+{
+  try {
+    return new ShowStatusDao(((IToken)getActivity()).getToken(),msg.getId()).getMsg();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+  }
+  return null;
+}

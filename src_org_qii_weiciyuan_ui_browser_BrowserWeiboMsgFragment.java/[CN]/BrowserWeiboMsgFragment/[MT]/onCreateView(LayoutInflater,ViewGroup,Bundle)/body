@@ -1,0 +1,48 @@
+{
+  View view=inflater.inflate(R.layout.browserweibomsgactivity_layout,container,false);
+  username=(TextView)view.findViewById(R.id.username);
+  content=(TextView)view.findViewById(R.id.content);
+  recontent=(TextView)view.findViewById(R.id.repost_content);
+  time=(TextView)view.findViewById(R.id.time);
+  location=(TextView)view.findViewById(R.id.location);
+  source=(TextView)view.findViewById(R.id.source);
+  location.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      GeoBean bean=msg.getGeo();
+      String geoUriString="geo:" + bean.getLat() + ","+ bean.getLon()+ "?q="+ location.getText();
+      Uri geoUri=Uri.parse(geoUriString);
+      Intent mapCall=new Intent(Intent.ACTION_VIEW,geoUri);
+      PackageManager packageManager=getActivity().getPackageManager();
+      List<ResolveInfo> activities=packageManager.queryIntentActivities(mapCall,0);
+      boolean isIntentSafe=activities.size() > 0;
+      if (isIntentSafe) {
+        startActivity(mapCall);
+      }
+    }
+  }
+);
+  avatar=(ImageView)view.findViewById(R.id.avatar);
+  content_pic=(ImageView)view.findViewById(R.id.content_pic);
+  repost_pic=(ImageView)view.findViewById(R.id.repost_content_pic);
+  view.findViewById(R.id.first).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent(getActivity(),UserInfoActivity.class);
+      intent.putExtra("token",((IToken)getActivity()).getToken());
+      intent.putExtra("user",msg.getUser());
+      startActivity(intent);
+    }
+  }
+);
+  recontent.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      if (recontent.getSelectionStart() == -1 && recontent.getSelectionEnd() == -1) {
+        Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
+        intent.putExtra("token",((IToken)getActivity()).getToken());
+        intent.putExtra("msg",msg.getRetweeted_status());
+        startActivity(intent);
+      }
+    }
+  }
+);
+  return view;
+}

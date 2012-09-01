@@ -1,0 +1,8 @@
+{
+  if (newValue != null && e == null) {
+    msg=newValue;
+    buildViewData();
+    getActivity().invalidateOptionsMenu();
+  }
+  super.onPostExecute(newValue);
+}

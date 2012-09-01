@@ -1,15 +1,10 @@
 {
   super.onCreate(savedInstanceState);
-  setContentView(R.layout.browserweibomsgactivity_layout);
   ActionBar actionBar=getActionBar();
   actionBar.setDisplayHomeAsUpEnabled(true);
   actionBar.setTitle(getString(R.string.weibo));
   Intent intent=getIntent();
   token=intent.getStringExtra("token");
   msg=(MessageBean)intent.getSerializableExtra("msg");
-  retweetMsg=msg.getRetweeted_status();
-  buildView();
-  buildViewData();
-  UpdateMsgTask task=new UpdateMsgTask();
-  task.execute();
+  getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new BrowserWeiboMsgFragment(msg)).commit();
 }
