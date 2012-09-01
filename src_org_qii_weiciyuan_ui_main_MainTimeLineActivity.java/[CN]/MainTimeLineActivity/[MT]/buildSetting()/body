@@ -7,5 +7,4 @@
  else {
     GlobalContext.getInstance().setEnablePic(false);
   }
-  GlobalContext.getInstance().setAccountBean(accountBean);
 }

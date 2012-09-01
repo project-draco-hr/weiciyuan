@@ -1,18 +1,18 @@
 {
-  SharedPreferences settings=getPreferences(MODE_PRIVATE);
-  String username=settings.getString("username","");
-  String token=settings.getString("token","");
-  String expires=settings.getString("expires","");
-  boolean haveToken=!TextUtils.isEmpty(token) && !TextUtils.isEmpty(expires);
-  boolean haveUsername=!TextUtils.isEmpty(username);
-  if (haveToken) {
-    Intent intent=new Intent(AccountActivity.this,MainTimeLineActivity.class);
-    intent.putExtra("token",token);
-    intent.putExtra("expires",expires);
-    if (haveUsername) {
-      intent.putExtra("username",username);
+  Intent intent=getIntent();
+  if (intent != null) {
+    boolean launcher=intent.getBooleanExtra("launcher",true);
+    if (launcher) {
+      SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+      String id=sharedPref.getString("id","");
+      if (!TextUtils.isEmpty(id)) {
+        AccountBean bean=DatabaseManager.getInstance().getAccount(id);
+        if (bean != null) {
+          Intent start=new Intent(AccountActivity.this,MainTimeLineActivity.class);
+          start.putExtra("account",bean);
+          startActivity(start);
+        }
+      }
     }
-    startActivity(intent);
-    finish();
   }
 }

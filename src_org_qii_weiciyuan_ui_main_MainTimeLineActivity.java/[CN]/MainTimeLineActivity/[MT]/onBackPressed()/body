@@ -1,0 +1,5 @@
+{
+  super.onBackPressed();
+  GlobalContext.getInstance().startedApp=false;
+  finish();
+}

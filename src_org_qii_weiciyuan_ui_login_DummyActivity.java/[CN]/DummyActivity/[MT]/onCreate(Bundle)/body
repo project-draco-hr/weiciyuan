@@ -1,0 +1,8 @@
+{
+  super.onCreate(savedInstanceState);
+  if (!GlobalContext.getInstance().startedApp) {
+    Intent intent=new Intent(this,AccountActivity.class);
+    startActivity(intent);
+  }
+  finish();
+}
