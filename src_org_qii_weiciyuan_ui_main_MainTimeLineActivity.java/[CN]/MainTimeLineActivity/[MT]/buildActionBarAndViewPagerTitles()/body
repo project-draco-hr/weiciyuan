@@ -2,6 +2,8 @@
   ActionBar actionBar=getActionBar();
   actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
   if (getResources().getBoolean(R.bool.is_phone)) {
+    actionBar.setDisplayShowTitleEnabled(false);
+    actionBar.setDisplayShowHomeEnabled(false);
   }
   actionBar.addTab(actionBar.newTab().setText(getString(R.string.home)).setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText(getString(R.string.mentions)).setTabListener(tabListener));
