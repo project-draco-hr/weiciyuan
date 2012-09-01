@@ -9,5 +9,6 @@
   listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
   listView.setAdapter(listAdapter);
   listView.setMultiChoiceModeListener(multiChoiceModeLinstener);
-  new GetAccountListDBTask().execute(null,null,null);
+  getTask=new GetAccountListDBTask();
+  getTask.execute();
 }

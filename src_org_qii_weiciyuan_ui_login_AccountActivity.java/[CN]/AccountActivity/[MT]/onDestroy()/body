@@ -1,0 +1,5 @@
+{
+  super.onDestroy();
+  if (getTask != null)   getTask.cancel(true);
+  if (removeTask != null)   removeTask.cancel(true);
+}
