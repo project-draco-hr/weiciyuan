@@ -11,5 +11,5 @@
   Intent intent=getIntent();
   token=intent.getStringExtra("token");
   content=((EditText)findViewById(R.id.status_new_content));
-  content.addTextChangedListener(onEditorActionListener);
+  content.addTextChangedListener(new TextNumLimitWatcher(contentNumber,content,this));
 }

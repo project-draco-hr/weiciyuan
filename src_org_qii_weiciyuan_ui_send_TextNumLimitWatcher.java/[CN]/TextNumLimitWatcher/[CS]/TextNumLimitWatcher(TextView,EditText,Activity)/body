@@ -1,0 +1,5 @@
+{
+  this.tv=tv;
+  this.et=et;
+  this.activity=activity;
+}
