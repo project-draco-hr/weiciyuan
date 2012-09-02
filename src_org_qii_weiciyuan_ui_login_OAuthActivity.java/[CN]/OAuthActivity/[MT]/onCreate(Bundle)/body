@@ -9,6 +9,8 @@
   settings.setJavaScriptEnabled(true);
   settings.setSaveFormData(false);
   settings.setSavePassword(false);
+  settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+  settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
   CookieSyncManager.createInstance(this);
   CookieManager cookieManager=CookieManager.getInstance();
   cookieManager.removeAllCookie();

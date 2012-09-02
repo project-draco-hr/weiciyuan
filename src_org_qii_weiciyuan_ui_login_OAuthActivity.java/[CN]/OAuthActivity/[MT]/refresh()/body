@@ -1,4 +1,6 @@
 {
+  webView.clearView();
+  webView.loadUrl("about:blank");
   LayoutInflater inflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   ImageView iv=(ImageView)inflater.inflate(R.layout.refresh_action_view,null);
   Animation rotation=AnimationUtils.loadAnimation(this,R.anim.refresh);
