@@ -1,17 +1,11 @@
 {
-  Intent intent;
 switch (item.getItemId()) {
-case android.R.id.home:
-    intent=new Intent(getActivity(),MainTimeLineActivity.class);
-  intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-startActivity(intent);
-return true;
 case R.id.menu_refresh:
-if (task == null | task.getStatus() == MyAsyncTask.Status.FINISHED) {
-task=new UpdateMsgTask();
-task.execute();
-}
-break;
+    if (task == null | task.getStatus() == MyAsyncTask.Status.FINISHED) {
+      task=new UpdateMsgTask();
+      task.execute();
+    }
+  break;
 case R.id.menu_share:
 Intent sharingIntent=new Intent(Intent.ACTION_SEND);
 sharingIntent.setType("text/plain");
