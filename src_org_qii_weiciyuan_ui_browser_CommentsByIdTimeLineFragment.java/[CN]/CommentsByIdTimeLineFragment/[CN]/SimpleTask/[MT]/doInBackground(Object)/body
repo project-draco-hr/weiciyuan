@@ -1,7 +1,0 @@
-{
-  CommentListBean newValue=new CommentsTimeLineByIdDao(token,id).getGSONMsgList();
-  if (newValue != null) {
-    bean=newValue;
-  }
-  return null;
-}

@@ -16,7 +16,6 @@
   }
   headerView.findViewById(R.id.header_progress).setVisibility(View.GONE);
   headerView.findViewById(R.id.header_text).setVisibility(View.GONE);
-  isBusying=false;
   if (bean.getComments().size() == 0) {
     footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
   }

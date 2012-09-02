@@ -1,1 +1,1 @@
-AsyncTask<Void,RepostListBean,RepostListBean>
+MyAsyncTask<Void,RepostListBean,RepostListBean>

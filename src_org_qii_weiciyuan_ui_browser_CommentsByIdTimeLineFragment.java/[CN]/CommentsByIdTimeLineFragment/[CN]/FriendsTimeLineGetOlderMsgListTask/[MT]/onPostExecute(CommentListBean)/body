@@ -1,6 +1,5 @@
 {
   if (newValue != null && newValue.getComments().size() > 1) {
-    Toast.makeText(getActivity(),getString(R.string.total) + newValue.getComments().size() + getString(R.string.old_messages),Toast.LENGTH_SHORT).show();
     List<CommentBean> list=newValue.getComments();
     getList().getComments().addAll(list.subList(1,list.size() - 1));
     ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
@@ -8,7 +7,6 @@
  else {
     ((TextView)footerView.findViewById(R.id.listview_footer)).setVisibility(View.GONE);
   }
-  isBusying=false;
   footerView.findViewById(R.id.refresh).clearAnimation();
   footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
   timeLineAdapter.notifyDataSetChanged();

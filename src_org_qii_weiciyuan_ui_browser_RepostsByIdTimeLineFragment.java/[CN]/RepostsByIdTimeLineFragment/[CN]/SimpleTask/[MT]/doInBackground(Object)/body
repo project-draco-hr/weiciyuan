@@ -1,7 +1,0 @@
-{
-  RepostListBean newValue=new RepostsTimeLineByIdDao(token,id).getGSONMsgList();
-  if (newValue != null) {
-    bean=newValue;
-  }
-  return null;
-}

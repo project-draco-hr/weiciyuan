@@ -1,5 +1,6 @@
 {
-  if (!isBusying) {
-    new FriendsTimeLineGetOlderMsgListTask().execute();
+  if (oldTask == null || oldTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+    oldTask=new FriendsTimeLineGetOlderMsgListTask();
+    oldTask.execute();
   }
 }

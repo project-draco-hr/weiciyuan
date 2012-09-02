@@ -1,6 +1,5 @@
 {
   showListView();
-  isBusying=true;
   ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.loading));
   View view=footerView.findViewById(R.id.refresh);
   view.setVisibility(View.VISIBLE);
