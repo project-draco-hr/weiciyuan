@@ -1,0 +1,4 @@
+{
+  super.onPageFinished(view,url);
+  completeRefresh();
+}

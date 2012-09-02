@@ -12,5 +12,4 @@
   CookieSyncManager.createInstance(this);
   CookieManager cookieManager=CookieManager.getInstance();
   cookieManager.removeAllCookie();
-  webView.loadUrl(getWeiboOAuthUrl());
 }
