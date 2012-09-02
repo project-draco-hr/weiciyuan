@@ -4,9 +4,11 @@
   if (savedInstanceState == null) {
     Intent intent=getIntent();
     accountBean=(AccountBean)intent.getSerializableExtra("account");
+    AppLogger.d(accountBean.getUsernick());
   }
  else {
     accountBean=(AccountBean)savedInstanceState.getSerializable("account");
+    AppLogger.d(accountBean.getUsernick());
   }
   token=accountBean.getAccess_token();
   GlobalContext.getInstance().setSpecialToken(token);
