@@ -2,7 +2,7 @@
   Gson gson=new Gson();
   MessageListBean result=new MessageListBean();
   List<MessageBean> msgList=new ArrayList<MessageBean>();
-  String sql="select * from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ HomeTable.MBLOGID+ " desc";
+  String sql="select * from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ HomeTable.MBLOGID+ " desc limit 50";
   Cursor c=rsd.rawQuery(sql,null);
   while (c.moveToNext()) {
     String json=c.getString(c.getColumnIndex(HomeTable.JSONDATA));

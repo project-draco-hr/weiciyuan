@@ -1,5 +1,3 @@
 {
-  wsd.execSQL("DROP TABLE IF EXISTS " + HomeTable.TABLE_NAME);
-  wsd.execSQL(DatabaseHelper.CREATE_HOME_TABLE_SQL);
   addHomeLineMsg(list,accountId);
 }
