@@ -9,5 +9,8 @@
   settings.setJavaScriptEnabled(true);
   settings.setSaveFormData(false);
   settings.setSavePassword(false);
+  CookieSyncManager.createInstance(this);
+  CookieManager cookieManager=CookieManager.getInstance();
+  cookieManager.removeAllCookie();
   webView.loadUrl(getWeiboOAuthUrl());
 }
