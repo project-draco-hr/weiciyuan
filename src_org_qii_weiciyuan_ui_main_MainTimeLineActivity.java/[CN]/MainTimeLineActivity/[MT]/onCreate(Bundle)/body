@@ -1,8 +1,13 @@
 {
   buildThemeSetting();
   buildFontSetting();
-  Intent intent=getIntent();
-  accountBean=(AccountBean)intent.getSerializableExtra("account");
+  if (savedInstanceState == null) {
+    Intent intent=getIntent();
+    accountBean=(AccountBean)intent.getSerializableExtra("account");
+  }
+ else {
+    accountBean=(AccountBean)savedInstanceState.getSerializable("account");
+  }
   token=accountBean.getAccess_token();
   GlobalContext.getInstance().setSpecialToken(token);
   GlobalContext.getInstance().setAccountBean(accountBean);

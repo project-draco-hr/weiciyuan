@@ -11,6 +11,7 @@
           Intent start=new Intent(AccountActivity.this,MainTimeLineActivity.class);
           start.putExtra("account",bean);
           startActivity(start);
+          finish();
         }
       }
     }
