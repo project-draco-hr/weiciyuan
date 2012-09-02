@@ -1,4 +1,9 @@
 {
-  boolean result=new StatusNewMsgDao(token).setGeoBean(geoBean).sendNewMsg(content);
+  try {
+    boolean result=new StatusNewMsgDao(token).setGeoBean(geoBean).sendNewMsg(content);
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+  }
   return null;
 }
