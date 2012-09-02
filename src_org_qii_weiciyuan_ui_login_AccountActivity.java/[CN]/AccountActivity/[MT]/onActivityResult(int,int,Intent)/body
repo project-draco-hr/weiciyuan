@@ -1,5 +1,8 @@
 {
-  if (data != null) {
-    new GetAccountListDBTask().execute();
+  if (resultCode == RESULT_OK) {
+    if (getTask == null || getTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+      getTask=new GetAccountListDBTask();
+      getTask.execute();
+    }
   }
 }
