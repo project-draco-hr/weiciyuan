@@ -1,5 +1,5 @@
 {
   super(fm);
-  list.add(new RepostsByIdTimeLineFragment(token,id));
+  list.add(new RepostsByIdTimeLineFragment(token,id,msg));
   list.add(new CommentsByIdTimeLineFragment(token,id));
 }

@@ -5,6 +5,7 @@
     bean=(RepostListBean)savedInstanceState.getSerializable("bean");
     token=savedInstanceState.getString("token");
     id=savedInstanceState.getString("id");
+    msg=(MessageBean)savedInstanceState.getSerializable("msg");
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
   }

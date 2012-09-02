@@ -1,0 +1,9 @@
+{
+  String content=et.getText().toString();
+  if (TextUtils.isEmpty(content)) {
+    content=getString(R.string.repost);
+  }
+  RepostNewMsgDao dao=new RepostNewMsgDao(token,id);
+  dao.setStatus(content);
+  return dao.sendNewMsg();
+}
