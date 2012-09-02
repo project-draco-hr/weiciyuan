@@ -1,5 +1,11 @@
 {
-  boolean result=new StatusNewMsgDao(token).setPic(picPath).sendNewMsg(content);
+  boolean result=false;
+  try {
+    result=new StatusNewMsgDao(token).setPic(picPath).sendNewMsg(content);
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+  }
   if (!result)   cancel(true);
   return null;
 }
