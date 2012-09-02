@@ -1,1 +1,1 @@
-AsyncTask<Void,String,String>
+MyAsyncTask<Void,String,String>
