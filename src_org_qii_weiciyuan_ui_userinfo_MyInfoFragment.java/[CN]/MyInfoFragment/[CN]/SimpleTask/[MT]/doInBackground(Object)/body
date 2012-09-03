@@ -1,5 +1,12 @@
 {
-  UserBean user=new ShowUserDao(((IToken)getActivity()).getToken()).setUid(bean.getId()).getUserInfo();
+  UserBean user=null;
+  try {
+    user=new ShowUserDao(((IToken)getActivity()).getToken()).setUid(bean.getId()).getUserInfo();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+  }
   if (user != null) {
     bean=user;
     DatabaseManager.getInstance().updateAccountMyInfo(((IAccountInfo)getActivity()).getAccount(),bean);

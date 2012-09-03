@@ -13,7 +13,14 @@
       cancel(true);
       return null;
     }
-    UserBean user=dao.getUserInfo();
+    UserBean user=null;
+    try {
+      user=dao.getUserInfo();
+    }
+ catch (    WeiboException e) {
+      this.e=e;
+      cancel(true);
+    }
     if (user != null) {
       bean=user;
     }
