@@ -14,5 +14,6 @@ case PIC_RESULT:
 picPath=getPicPathFromUri(imageFileUri);
 break;
 }
+havePic.setVisibility(View.VISIBLE);
 }
 }

@@ -1,4 +1,5 @@
 {
+  haveGPS.setVisibility(View.VISIBLE);
   geoBean=new GeoBean();
   geoBean.setLatitude(result.getLatitude());
   geoBean.setLongitude(result.getLongitude());
