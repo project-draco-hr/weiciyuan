@@ -1,5 +1,4 @@
 {
-  data=url[0];
   if (!isCancelled()) {
     return ImageTool.getAvatarBitmap(data);
   }
