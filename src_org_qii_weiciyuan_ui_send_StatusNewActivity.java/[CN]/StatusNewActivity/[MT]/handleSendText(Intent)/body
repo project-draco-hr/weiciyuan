@@ -1,17 +1,7 @@
 {
-  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
-  String id=sharedPref.getString("id","");
-  if (!TextUtils.isEmpty(id)) {
-    AccountBean bean=DatabaseManager.getInstance().getAccount(id);
-    if (bean != null) {
-      token=bean.getAccess_token();
-      String sharedText=intent.getStringExtra(Intent.EXTRA_TEXT);
-      if (!TextUtils.isEmpty(sharedText)) {
-        content.setText(sharedText);
-      }
-    }
- else {
-      Toast.makeText(this,getString(R.string.dont_have_account),Toast.LENGTH_SHORT).show();
-    }
+  getAccountInfo();
+  String sharedText=intent.getStringExtra(Intent.EXTRA_TEXT);
+  if (!TextUtils.isEmpty(sharedText)) {
+    content.setText(sharedText);
   }
 }

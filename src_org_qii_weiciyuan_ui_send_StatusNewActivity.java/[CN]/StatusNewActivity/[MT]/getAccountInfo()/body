@@ -1,0 +1,11 @@
+{
+  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+  String id=sharedPref.getString("id","");
+  if (!TextUtils.isEmpty(id)) {
+    AccountBean bean=DatabaseManager.getInstance().getAccount(id);
+    if (bean != null) {
+      token=bean.getAccess_token();
+      getActionBar().setSubtitle(bean.getUsernick());
+    }
+  }
+}

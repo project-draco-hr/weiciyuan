@@ -1,33 +1,23 @@
 {
-  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
-  String id=sharedPref.getString("id","");
-  if (!TextUtils.isEmpty(id)) {
-    AccountBean bean=DatabaseManager.getInstance().getAccount(id);
-    if (bean != null) {
-      token=bean.getAccess_token();
-      Uri imageUri=(Uri)intent.getParcelableExtra(Intent.EXTRA_STREAM);
-      BitmapFactory.Options bmpFactoryOptions=new BitmapFactory.Options();
-      bmpFactoryOptions.inSampleSize=8;
-      Bitmap bmp=null;
-      if (imageUri != null) {
-        try {
-          bmp=BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri),null,bmpFactoryOptions);
-        }
- catch (        FileNotFoundException e) {
-          AppLogger.e(e.getMessage());
-        }
-        pic=bmp;
-        invalidateOptionsMenu();
-        String[] proj={MediaStore.Images.Media.DATA};
-        Cursor cursor=managedQuery(imageUri,proj,null,null,null);
-        int column_index=cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        picPath=cursor.getString(column_index);
-        content.setText(getString(R.string.share_pic));
-      }
+  getAccountInfo();
+  Uri imageUri=(Uri)intent.getParcelableExtra(Intent.EXTRA_STREAM);
+  BitmapFactory.Options bmpFactoryOptions=new BitmapFactory.Options();
+  bmpFactoryOptions.inSampleSize=8;
+  Bitmap bmp=null;
+  if (imageUri != null) {
+    try {
+      bmp=BitmapFactory.decodeStream(getContentResolver().openInputStream(imageUri),null,bmpFactoryOptions);
     }
- else {
-      Toast.makeText(this,getString(R.string.dont_have_account),Toast.LENGTH_SHORT).show();
+ catch (    FileNotFoundException e) {
+      AppLogger.e(e.getMessage());
     }
+    pic=bmp;
+    invalidateOptionsMenu();
+    String[] proj={MediaStore.Images.Media.DATA};
+    Cursor cursor=managedQuery(imageUri,proj,null,null,null);
+    int column_index=cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+    cursor.moveToFirst();
+    picPath=cursor.getString(column_index);
+    content.setText(getString(R.string.share_pic));
   }
 }
