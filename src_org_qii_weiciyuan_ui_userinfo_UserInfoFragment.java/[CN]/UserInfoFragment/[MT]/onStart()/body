@@ -1,5 +1,0 @@
-{
-  super.onStart();
-  task=new SimpleTask();
-  task.execute();
-}

@@ -1,9 +1,11 @@
 {
 switch (item.getItemId()) {
 case R.id.menu_refresh:
-    task=new SimpleTask();
-  task.execute();
-break;
+    if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
+      task=new SimpleTask();
+      task.execute();
+    }
+  break;
 }
 return true;
 }
