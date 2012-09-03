@@ -23,5 +23,7 @@
   }
  else {
     token=intent.getStringExtra("token");
+    AccountBean account=(AccountBean)intent.getSerializableExtra("account");
+    getActionBar().setSubtitle(account.getUsernick());
   }
 }
