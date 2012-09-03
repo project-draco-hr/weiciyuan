@@ -1,6 +1,4 @@
 {
-  buildThemeSetting();
-  buildFontSetting();
   if (savedInstanceState == null) {
     Intent intent=getIntent();
     accountBean=(AccountBean)intent.getSerializableExtra("account");

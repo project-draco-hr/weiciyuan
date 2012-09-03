@@ -1,6 +1,4 @@
 {
-  buildThemeSetting();
-  buildFontSetting();
   jumpToHomeLine();
   GlobalContext.getInstance().startedApp=true;
   super.onCreate(savedInstanceState);
