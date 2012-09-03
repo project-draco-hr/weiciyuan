@@ -1,3 +1,5 @@
 {
-  new SimpleTask().execute();
+  if (canSend()) {
+    new SimpleTask().execute();
+  }
 }
