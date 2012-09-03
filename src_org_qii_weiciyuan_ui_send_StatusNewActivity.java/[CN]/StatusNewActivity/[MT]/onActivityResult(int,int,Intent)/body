@@ -5,48 +5,13 @@
       content.setText(getString(R.string.share_pic));
       content.setSelection(content.getText().toString().length());
     }
-    BitmapFactory.Options bmpFactoryOptions=new BitmapFactory.Options();
-    bmpFactoryOptions.inSampleSize=8;
-    Bitmap bmp=null;
 switch (requestCode) {
 case CAMERA_RESULT:
-      File file=new File(imageFilePath);
-    long fileSize=file.length();
-  double size=(double)fileSize / 1024;
-if (size > 500) {
-  final BitmapFactory.Options options=new BitmapFactory.Options();
-  options.inSampleSize=Math.round((float)size / (float)500);
-  options.inJustDecodeBounds=false;
-  Bitmap result=BitmapFactory.decodeFile(imageFilePath,options);
-  FileOutputStream out=null;
-  try {
-    out=new FileOutputStream(imageFilePath);
-  }
- catch (  FileNotFoundException e) {
-    e.printStackTrace();
-  }
-  result.compress(Bitmap.CompressFormat.JPEG,90,out);
-}
-bmp=BitmapFactory.decodeFile(imageFilePath,bmpFactoryOptions);
-pic=bmp;
-invalidateOptionsMenu();
-picPath=imageFilePath;
-break;
+      picPath=imageFilePath;
+    break;
 case PIC_RESULT:
-Uri imageFileUri=intent.getData();
-try {
-bmp=BitmapFactory.decodeStream(getContentResolver().openInputStream(imageFileUri),null,bmpFactoryOptions);
-}
- catch (FileNotFoundException e) {
-AppLogger.e(e.getMessage());
-}
-pic=bmp;
-invalidateOptionsMenu();
-String[] proj={MediaStore.Images.Media.DATA};
-Cursor cursor=managedQuery(imageFileUri,proj,null,null,null);
-int column_index=cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-cursor.moveToFirst();
-picPath=cursor.getString(column_index);
+  Uri imageFileUri=intent.getData();
+picPath=getPicPathFromUri(imageFileUri);
 break;
 }
 }
