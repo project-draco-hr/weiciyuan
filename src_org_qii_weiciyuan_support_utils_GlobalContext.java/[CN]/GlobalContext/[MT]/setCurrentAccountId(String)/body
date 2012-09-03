@@ -1,0 +1,5 @@
+{
+  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+  sharedPref.edit().putString("currentAccountId",id).commit();
+  this.currentAccountId=id;
+}

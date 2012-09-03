@@ -1,0 +1,12 @@
+{
+  if (!TextUtils.isEmpty(currentAccountId)) {
+    return currentAccountId;
+  }
+ else {
+    AppLogger.e("GlobalContext is empty by system");
+    SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+    String value=sharedPref.getString("currentAccountId","");
+    GlobalContext.getInstance().setCurrentAccountId(value);
+    return currentAccountId;
+  }
+}
