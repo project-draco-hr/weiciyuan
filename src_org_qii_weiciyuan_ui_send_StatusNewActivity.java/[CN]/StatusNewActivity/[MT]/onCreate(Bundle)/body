@@ -8,8 +8,20 @@
   contentNumber=(TextView)title.findViewById(R.id.content_number);
   actionBar.setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
   actionBar.setDisplayShowCustomEnabled(true);
-  Intent intent=getIntent();
-  token=intent.getStringExtra("token");
   content=((EditText)findViewById(R.id.status_new_content));
   content.addTextChangedListener(new TextNumLimitWatcher(contentNumber,content,this));
+  Intent intent=getIntent();
+  String action=intent.getAction();
+  String type=intent.getType();
+  if (Intent.ACTION_SEND.equals(action) && type != null) {
+    if ("text/plain".equals(type)) {
+      handleSendText(intent);
+    }
+ else     if (type.startsWith("image/")) {
+      handleSendImage(intent);
+    }
+  }
+ else {
+    token=intent.getStringExtra("token");
+  }
 }

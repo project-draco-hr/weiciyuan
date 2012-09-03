@@ -13,7 +13,7 @@ new MyAlertDialogFragment().show(getFragmentManager(),"");
 break;
 case R.id.menu_send:
 String value=content.getText().toString();
-if (canSend && !TextUtils.isEmpty(value)) {
+if (canSend()) {
 executeTask(value);
 }
 break;
