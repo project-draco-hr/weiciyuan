@@ -1,7 +1,7 @@
 {
   boolean result=false;
   try {
-    result=new StatusNewMsgDao(token).setPic(picPath).sendNewMsg(content);
+    result=new StatusNewMsgDao(token).setPic(picPath).setGeoBean(geoBean).sendNewMsg(content);
   }
  catch (  WeiboException e) {
     e.printStackTrace();
