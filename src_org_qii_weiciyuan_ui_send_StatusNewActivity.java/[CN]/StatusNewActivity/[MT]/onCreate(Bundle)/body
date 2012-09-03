@@ -9,8 +9,23 @@
   haveGPS=(ImageView)title.findViewById(R.id.have_gps);
   haveGPS.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
+      String geoUriString="geo:" + geoBean.getLat() + ","+ geoBean.getLon()+ "?q="+ location;
+      Uri geoUri=Uri.parse(geoUriString);
+      Intent mapCall=new Intent(Intent.ACTION_VIEW,geoUri);
+      PackageManager packageManager=getPackageManager();
+      List<ResolveInfo> activities=packageManager.queryIntentActivities(mapCall,0);
+      boolean isIntentSafe=activities.size() > 0;
+      if (isIntentSafe) {
+        startActivity(mapCall);
+      }
+    }
+  }
+);
+  haveGPS.setOnLongClickListener(new View.OnLongClickListener(){
+    @Override public boolean onLongClick(    View v){
       haveGPS.setVisibility(View.GONE);
       geoBean=null;
+      return true;
     }
   }
 );
