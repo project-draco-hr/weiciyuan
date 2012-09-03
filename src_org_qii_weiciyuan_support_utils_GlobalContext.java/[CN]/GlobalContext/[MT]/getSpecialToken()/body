@@ -1,3 +1,12 @@
 {
-  return specialToken;
+  if (!TextUtils.isEmpty(specialToken)) {
+    return specialToken;
+  }
+ else {
+    AppLogger.e("GlobalContext is empty by system");
+    SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+    String token=sharedPref.getString("token","");
+    this.specialToken=token;
+    return specialToken;
+  }
 }

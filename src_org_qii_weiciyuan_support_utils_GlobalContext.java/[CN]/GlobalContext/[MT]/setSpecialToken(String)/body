@@ -1,3 +1,5 @@
 {
+  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+  sharedPref.edit().putString("token",specialToken).commit();
   this.specialToken=specialToken;
 }

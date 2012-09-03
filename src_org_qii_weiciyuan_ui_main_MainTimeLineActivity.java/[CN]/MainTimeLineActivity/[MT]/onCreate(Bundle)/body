@@ -17,7 +17,6 @@
   editor.commit();
   super.onCreate(savedInstanceState);
   setContentView(R.layout.maintimelineactivity_viewpager_layout);
-  buildSetting();
   if (getResources().getBoolean(R.bool.is_phone)) {
     buildPhoneInterface();
   }
