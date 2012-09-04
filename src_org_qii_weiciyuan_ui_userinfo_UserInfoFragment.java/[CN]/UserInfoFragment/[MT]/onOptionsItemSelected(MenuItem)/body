@@ -6,6 +6,13 @@ case R.id.menu_refresh:
       task.execute();
     }
   break;
+case R.id.menu_at:
+Intent intent=new Intent(getActivity(),StatusNewActivity.class);
+intent.putExtra("token",((IToken)getActivity()).getToken());
+intent.putExtra("content","@" + bean.getScreen_name());
+intent.putExtra("accountName",GlobalContext.getInstance().getCurrentAccountName());
+startActivity(intent);
+break;
 }
 return true;
 }

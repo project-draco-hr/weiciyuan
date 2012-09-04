@@ -1,4 +1,5 @@
 {
+  getActivity().getActionBar().setTitle(bean.getScreen_name());
   username.setText(bean.getScreen_name());
   info.setText(bean.getDescription());
   String avatarUrl=bean.getAvatar_large();
