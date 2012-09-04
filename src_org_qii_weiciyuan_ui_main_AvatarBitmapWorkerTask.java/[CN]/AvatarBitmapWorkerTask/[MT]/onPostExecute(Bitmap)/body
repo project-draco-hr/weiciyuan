@@ -3,9 +3,10 @@
     lruCache.put(data,bitmap);
     if (view != null && view.getTag().equals(data)) {
       view.setImageBitmap(bitmap);
+      view.setTag("");
     }
   }
-  if (taskMap != null && taskMap.get(data) != null) {
-    taskMap.remove(data);
+  if (taskMap != null && taskMap.get(getMemCacheKey(data,position)) != null) {
+    taskMap.remove(getMemCacheKey(data,position));
   }
 }

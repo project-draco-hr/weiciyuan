@@ -27,7 +27,7 @@
     buildRepostContent(repost_msg,holder,position);
   }
  else   if (!TextUtils.isEmpty(msg.getThumbnail_pic()) && GlobalContext.getInstance().isEnablePic()) {
-    buildContentPic(msg,holder,position);
+    buildPic(msg,holder.content_pic,position);
   }
   holder.avatar.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){

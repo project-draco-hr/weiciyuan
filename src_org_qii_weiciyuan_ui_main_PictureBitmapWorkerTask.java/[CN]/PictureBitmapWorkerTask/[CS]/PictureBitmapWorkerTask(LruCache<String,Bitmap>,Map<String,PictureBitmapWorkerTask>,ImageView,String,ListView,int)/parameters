@@ -2,3 +2,5 @@ LruCache<String,Bitmap> lruCache
 Map<String,PictureBitmapWorkerTask> taskMap
 ImageView view
 String url
+ListView listView
+int position

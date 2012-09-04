@@ -3,4 +3,5 @@
   this.taskMap=taskMap;
   this.view=view;
   this.data=url;
+  this.position=position;
 }

@@ -1,6 +1,13 @@
 {
+  view.post(new Runnable(){
+    @Override public void run(){
+      reqHeight=view.getHeight();
+      reqWidth=view.getWidth();
+    }
+  }
+);
   if (!isCancelled()) {
-    return ImageTool.getPictureThumbnailBitmap(data);
+    return ImageTool.getPictureHighDensityThumbnailBitmap(data);
   }
   return null;
 }

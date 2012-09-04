@@ -2,3 +2,4 @@ LruCache<String,Bitmap> lruCache
 Map<String,AvatarBitmapWorkerTask> taskMap
 ImageView view
 String url
+int position

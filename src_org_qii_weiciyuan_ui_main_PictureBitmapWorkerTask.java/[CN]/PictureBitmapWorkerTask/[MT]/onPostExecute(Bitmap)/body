@@ -1,7 +1,7 @@
 {
   if (bitmap != null) {
-    lruCache.put(data,bitmap);
-    if (view != null && view.getTag().equals(data)) {
+    lruCache.put(getMemCacheKey(data,position),bitmap);
+    if (view != null && view.getTag().equals(data) && position <= listView.getLastVisiblePosition() && position >= listView.getFirstVisiblePosition()) {
       view.setImageBitmap(bitmap);
     }
   }
