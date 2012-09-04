@@ -8,6 +8,7 @@
  catch (  JsonSyntaxException e) {
     ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage());
+    return null;
   }
   for (  MessageBean b : value.getStatuses()) {
     TimeTool.dealMills(b);
