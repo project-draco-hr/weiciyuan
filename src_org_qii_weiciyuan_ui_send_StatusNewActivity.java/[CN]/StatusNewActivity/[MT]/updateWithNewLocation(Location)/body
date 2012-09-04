@@ -3,6 +3,6 @@
   geoBean=new GeoBean();
   geoBean.setLatitude(result.getLatitude());
   geoBean.setLongitude(result.getLongitude());
-  new GetGoogleLocationInfo().execute();
+  new GetGoogleLocationInfo(geoBean).execute();
   ((LocationManager)StatusNewActivity.this.getSystemService(Context.LOCATION_SERVICE)).removeUpdates(locationListener);
 }
