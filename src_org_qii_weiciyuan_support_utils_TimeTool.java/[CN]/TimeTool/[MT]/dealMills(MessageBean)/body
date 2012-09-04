@@ -1,0 +1,6 @@
+{
+  Date date=new Date(bean.getCreated_at());
+  Calendar calendar=Calendar.getInstance();
+  calendar.setTime(date);
+  bean.setMills(calendar.getTimeInMillis());
+}
