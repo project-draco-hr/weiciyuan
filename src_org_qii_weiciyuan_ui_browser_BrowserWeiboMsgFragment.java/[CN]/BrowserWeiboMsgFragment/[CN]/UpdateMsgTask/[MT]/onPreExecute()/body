@@ -1,0 +1,8 @@
+{
+  super.onPreExecute();
+  LayoutInflater inflater=(LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  ImageView iv=(ImageView)inflater.inflate(R.layout.refresh_action_view,null);
+  Animation rotation=AnimationUtils.loadAnimation(getActivity(),R.anim.refresh);
+  iv.startAnimation(rotation);
+  refreshItem.setActionView(iv);
+}

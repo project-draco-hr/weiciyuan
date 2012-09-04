@@ -1,7 +1,7 @@
 {
 switch (item.getItemId()) {
 case R.id.menu_refresh:
-    if (task == null | task.getStatus() == MyAsyncTask.Status.FINISHED) {
+    if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
       task=new UpdateMsgTask();
       task.execute();
     }

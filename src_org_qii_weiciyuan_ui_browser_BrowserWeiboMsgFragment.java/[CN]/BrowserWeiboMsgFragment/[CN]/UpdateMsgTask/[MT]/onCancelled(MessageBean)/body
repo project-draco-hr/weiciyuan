@@ -1,4 +1,5 @@
 {
   setTextViewDeleted();
+  completeRefresh();
   super.onCancelled(weiboMsgBean);
 }

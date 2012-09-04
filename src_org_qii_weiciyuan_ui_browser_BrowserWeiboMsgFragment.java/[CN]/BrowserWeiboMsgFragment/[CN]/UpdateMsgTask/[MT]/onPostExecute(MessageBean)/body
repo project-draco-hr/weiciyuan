@@ -2,7 +2,7 @@
   if (newValue != null && e == null) {
     msg=newValue;
     buildViewData();
-    getActivity().invalidateOptionsMenu();
   }
+  completeRefresh();
   super.onPostExecute(newValue);
 }
