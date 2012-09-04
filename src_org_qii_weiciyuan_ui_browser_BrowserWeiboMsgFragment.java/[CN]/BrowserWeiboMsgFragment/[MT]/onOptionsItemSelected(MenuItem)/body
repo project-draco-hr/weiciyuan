@@ -17,6 +17,10 @@ if (isIntentSafe && mShareActionProvider != null) {
 mShareActionProvider.setShareIntent(sharingIntent);
 }
 return true;
+case R.id.menu_copy:
+ClipboardManager cm=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+cm.setPrimaryClip(ClipData.newPlainText("sinaweibo",content.getText().toString()));
+break;
 default :
 return super.onOptionsItemSelected(item);
 }
