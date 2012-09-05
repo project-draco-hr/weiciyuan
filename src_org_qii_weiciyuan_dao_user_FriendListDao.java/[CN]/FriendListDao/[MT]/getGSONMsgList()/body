@@ -7,13 +7,7 @@
   map.put("trim_status",trim_status);
   map.put("count",count);
   map.put("screen_name",screen_name);
-  String jsonData=null;
-  try {
-    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
-  }
- catch (  WeiboException e) {
-    e.printStackTrace();
-  }
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
   Gson gson=new Gson();
   UserListBean value=null;
   try {

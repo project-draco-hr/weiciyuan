@@ -3,10 +3,7 @@
     List<UserBean> list=newValue.getUsers();
     getList().getUsers().addAll(list.subList(1,list.size() - 1));
   }
-  isBusying=false;
-  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
-  footerView.findViewById(R.id.refresh).clearAnimation();
-  footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
+  cleanWork();
   timeLineAdapter.notifyDataSetChanged();
   getActivity().invalidateOptionsMenu();
   super.onPostExecute(newValue);

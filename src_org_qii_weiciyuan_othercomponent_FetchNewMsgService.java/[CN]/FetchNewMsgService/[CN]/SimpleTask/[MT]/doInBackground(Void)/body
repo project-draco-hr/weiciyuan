@@ -14,7 +14,14 @@
   if (commentLineBean.getComments().size() > 0) {
     commentDao.setSince_id(commentLineBean.getComments().get(0).getId());
   }
-  commentResult=commentDao.getGSONMsgList();
+  try {
+    commentResult=commentDao.getGSONMsgList();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+    return null;
+  }
   if (commentResult != null) {
     map.put("comment",commentResult.getComments().size());
   }
@@ -25,7 +32,13 @@
   if (messageListBean.getStatuses().size() > 0) {
     mentionDao.setSince_id(messageListBean.getStatuses().get(0).getId());
   }
-  repostResult=mentionDao.getGSONMsgList();
+  try {
+    repostResult=mentionDao.getGSONMsgList();
+  }
+ catch (  WeiboException e) {
+    cancel(true);
+    return null;
+  }
   if (repostResult != null) {
     map.put("repost",repostResult.getStatuses().size());
   }

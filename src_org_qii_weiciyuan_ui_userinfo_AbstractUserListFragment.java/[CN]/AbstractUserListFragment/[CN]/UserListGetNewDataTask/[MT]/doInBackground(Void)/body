@@ -1,3 +1,10 @@
 {
-  return getDoInBackgroundNewData();
+  try {
+    return getDoInBackgroundNewData();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+  }
+  return null;
 }

@@ -1,3 +1,10 @@
 {
-  return getDoInBackgroundOldData();
+  try {
+    return getDoInBackgroundOldData();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+  }
+  return null;
 }
