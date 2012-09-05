@@ -19,6 +19,7 @@
   }
   holder.content.setTextSize(GlobalContext.getInstance().getFontSize());
   holder.content.setText(msg.getText());
+  ListViewTool.addJustHighLightLinks(holder.content);
   holder.time.setText(msg.getListviewItemShowTime());
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
