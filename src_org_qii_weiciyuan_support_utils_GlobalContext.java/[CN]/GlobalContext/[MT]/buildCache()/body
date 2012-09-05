@@ -1,6 +1,7 @@
 {
   final int memClass=((ActivityManager)getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass();
   final int cacheSize=1024 * 1024 * memClass / 5;
+  AppLogger.e("lruCache size=" + memClass / 5 + "mb");
   avatarCache=new LruCache<String,Bitmap>(cacheSize){
     @Override protected int sizeOf(    String key,    Bitmap bitmap){
       return bitmap.getByteCount();
