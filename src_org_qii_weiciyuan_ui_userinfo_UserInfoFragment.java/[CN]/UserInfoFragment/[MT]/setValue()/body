@@ -29,12 +29,11 @@
     relationship.setText(getString(R.string.he_is_not_following_you));
   }
   if (bean.isFollowing()) {
-    follow_it.setVisibility(View.GONE);
-    unfollow_it.setVisibility(View.VISIBLE);
+    unfollow_it.setText(getString(R.string.unfollow_he));
   }
  else {
-    unfollow_it.setVisibility(View.GONE);
-    follow_it.setVisibility(View.VISIBLE);
+    unfollow_it.setText(getString(R.string.follow_he));
   }
+  unfollow_it.setVisibility(View.VISIBLE);
   getActivity().getActionBar().getTabAt(1).setText(getString(R.string.weibo) + "(" + bean.getStatuses_count()+ ")");
 }
