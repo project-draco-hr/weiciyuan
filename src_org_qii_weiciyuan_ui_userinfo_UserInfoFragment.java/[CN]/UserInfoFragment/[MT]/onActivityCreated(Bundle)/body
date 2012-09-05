@@ -3,8 +3,5 @@
   bean=((IUserInfo)getActivity()).getUser();
   commander=((AbstractAppActivity)getActivity()).getCommander();
   setValue();
-  if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
-    task=new SimpleTask();
-    task.execute();
-  }
+  refresh();
 }

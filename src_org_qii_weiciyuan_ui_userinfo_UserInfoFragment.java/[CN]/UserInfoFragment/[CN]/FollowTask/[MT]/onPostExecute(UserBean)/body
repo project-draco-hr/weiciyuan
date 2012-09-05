@@ -3,4 +3,5 @@
   bean=o;
   stopRefreshMenuAnimation();
   setValue();
+  refresh();
 }
