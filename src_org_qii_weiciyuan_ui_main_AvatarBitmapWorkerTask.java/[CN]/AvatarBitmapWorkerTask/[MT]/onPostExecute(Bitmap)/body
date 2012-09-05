@@ -3,7 +3,8 @@
     lruCache.put(data,bitmap);
     if (view != null) {
       ImageView imageView=view.get();
-      if (imageView != null && imageView.getTag().equals(data)) {
+      AvatarBitmapWorkerTask bitmapDownloaderTask=getAvatarBitmapDownloaderTask(imageView);
+      if (this == bitmapDownloaderTask) {
         imageView.setImageBitmap(bitmap);
       }
     }

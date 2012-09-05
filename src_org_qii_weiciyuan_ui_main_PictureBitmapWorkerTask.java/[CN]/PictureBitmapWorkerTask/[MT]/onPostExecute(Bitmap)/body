@@ -3,7 +3,8 @@
     lruCache.put(getMemCacheKey(data,position),bitmap);
     if (view != null) {
       ImageView imageView=view.get();
-      if (imageView != null && imageView.getTag().equals(data) && position <= listView.getLastVisiblePosition() && position >= listView.getFirstVisiblePosition()) {
+      PictureBitmapWorkerTask bitmapDownloaderTask=getBitmapDownloaderTask(imageView);
+      if (this == bitmapDownloaderTask) {
         imageView.setImageBitmap(bitmap);
       }
     }

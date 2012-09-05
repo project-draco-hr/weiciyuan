@@ -1,0 +1,10 @@
+{
+  if (imageView != null) {
+    Drawable drawable=imageView.getDrawable();
+    if (drawable instanceof PictureBitmapDrawable) {
+      PictureBitmapDrawable downloadedDrawable=(PictureBitmapDrawable)drawable;
+      return downloadedDrawable.getBitmapDownloaderTask();
+    }
+  }
+  return null;
+}
