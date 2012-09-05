@@ -6,6 +6,7 @@
       PictureBitmapWorkerTask bitmapDownloaderTask=getBitmapDownloaderTask(imageView);
       if (this == bitmapDownloaderTask) {
         imageView.setImageBitmap(bitmap);
+        imageView.setBackgroundColor(Color.TRANSPARENT);
       }
     }
   }
