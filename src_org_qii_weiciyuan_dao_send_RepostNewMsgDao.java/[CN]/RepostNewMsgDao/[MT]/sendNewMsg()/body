@@ -5,13 +5,7 @@
   map.put("id",id);
   map.put("status",status);
   map.put("is_comment",is_comment);
-  String jsonData=null;
-  try {
-    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
-  }
- catch (  WeiboException e) {
-    e.printStackTrace();
-  }
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
   Gson gson=new Gson();
   MessageBean value=null;
   try {

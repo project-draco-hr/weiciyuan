@@ -5,5 +5,12 @@
   }
   RepostNewMsgDao dao=new RepostNewMsgDao(token,id);
   dao.setStatus(content);
-  return dao.sendNewMsg();
+  try {
+    return dao.sendNewMsg();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+    return null;
+  }
 }

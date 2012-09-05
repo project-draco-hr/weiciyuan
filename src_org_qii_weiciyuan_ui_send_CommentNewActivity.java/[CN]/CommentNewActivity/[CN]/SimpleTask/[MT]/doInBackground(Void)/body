@@ -1,4 +1,11 @@
 {
   CommentNewMsgDao dao=new CommentNewMsgDao(token,id,((EditText)findViewById(R.id.status_new_content)).getText().toString());
-  return dao.sendNewMsg();
+  try {
+    return dao.sendNewMsg();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+    return null;
+  }
 }

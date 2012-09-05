@@ -8,13 +8,7 @@
   map.put("count",count);
   map.put("page",page);
   map.put("filter_by_author",filter_by_author);
-  String jsonData=null;
-  try {
-    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
-  }
- catch (  WeiboException e) {
-    e.printStackTrace();
-  }
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
   Gson gson=new Gson();
   CommentListBean value=null;
   try {
