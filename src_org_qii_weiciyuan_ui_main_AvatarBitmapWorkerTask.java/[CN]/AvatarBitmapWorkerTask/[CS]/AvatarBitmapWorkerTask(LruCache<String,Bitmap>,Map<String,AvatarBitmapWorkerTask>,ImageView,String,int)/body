@@ -1,7 +1,7 @@
 {
   this.lruCache=lruCache;
   this.taskMap=taskMap;
-  this.view=view;
+  this.view=new WeakReference<ImageView>(view);
   this.data=url;
   this.position=position;
 }

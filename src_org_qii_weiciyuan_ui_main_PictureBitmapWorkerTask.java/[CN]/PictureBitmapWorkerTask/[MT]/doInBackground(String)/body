@@ -1,11 +1,4 @@
 {
-  view.post(new Runnable(){
-    @Override public void run(){
-      reqHeight=view.getHeight();
-      reqWidth=view.getWidth();
-    }
-  }
-);
   if (!isCancelled()) {
     return ImageTool.getPictureHighDensityThumbnailBitmap(data);
   }

@@ -5,6 +5,11 @@
   if (taskMap != null && taskMap.get(data) != null) {
     taskMap.remove(data);
   }
-  view.setTag("");
+  if (view != null) {
+    ImageView imageView=view.get();
+    if (imageView != null && imageView.getTag().equals(data)) {
+      imageView.setTag("");
+    }
+  }
   super.onCancelled(bitmap);
 }

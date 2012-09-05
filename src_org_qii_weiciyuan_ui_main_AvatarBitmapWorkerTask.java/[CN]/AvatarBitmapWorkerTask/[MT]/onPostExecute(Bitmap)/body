@@ -1,9 +1,11 @@
 {
   if (bitmap != null) {
     lruCache.put(data,bitmap);
-    if (view != null && view.getTag().equals(data)) {
-      view.setImageBitmap(bitmap);
-      view.setTag("");
+    if (view != null) {
+      ImageView imageView=view.get();
+      if (imageView != null && imageView.getTag().equals(data)) {
+        imageView.setImageBitmap(bitmap);
+      }
     }
   }
   if (taskMap != null && taskMap.get(getMemCacheKey(data,position)) != null) {
