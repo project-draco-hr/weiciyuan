@@ -1,4 +1,4 @@
 {
-  super(Color.BLACK);
+  super(Color.TRANSPARENT);
   bitmapDownloaderTaskReference=new WeakReference<AvatarBitmapWorkerTask>(bitmapDownloaderTask);
 }
