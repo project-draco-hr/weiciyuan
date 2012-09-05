@@ -5,6 +5,7 @@
   info=(TextView)view.findViewById(R.id.textView_info);
   blog_url=(TextView)view.findViewById(R.id.blog_url);
   location=(TextView)view.findViewById(R.id.location);
+  sex=(TextView)view.findViewById(R.id.sex);
   relationship=(TextView)view.findViewById(R.id.relationship);
   following_number=(Button)view.findViewById(R.id.following_number);
   fans_number=(Button)view.findViewById(R.id.fans_number);
