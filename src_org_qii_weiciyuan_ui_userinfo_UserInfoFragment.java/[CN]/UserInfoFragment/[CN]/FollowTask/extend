@@ -1,1 +1,1 @@
-AsyncTask<Void,UserBean,UserBean>
+MyAsyncTask<Void,UserBean,UserBean>

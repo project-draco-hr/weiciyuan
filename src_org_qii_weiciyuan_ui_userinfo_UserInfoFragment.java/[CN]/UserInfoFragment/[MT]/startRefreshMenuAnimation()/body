@@ -1,0 +1,6 @@
+{
+  ImageView iv=(ImageView)getActivity().getLayoutInflater().inflate(R.layout.refresh_action_view,null);
+  Animation rotation=AnimationUtils.loadAnimation(getActivity(),R.anim.refresh);
+  iv.startAnimation(rotation);
+  if (refreshItem != null)   refreshItem.setActionView(iv);
+}

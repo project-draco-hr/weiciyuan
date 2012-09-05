@@ -1,5 +1,4 @@
 {
-  if (isBusying)   return null;
   FriendshipsDao dao=new FriendshipsDao(((IToken)getActivity()).getToken());
   if (!TextUtils.isEmpty(bean.getId())) {
     dao.setUid(bean.getId());

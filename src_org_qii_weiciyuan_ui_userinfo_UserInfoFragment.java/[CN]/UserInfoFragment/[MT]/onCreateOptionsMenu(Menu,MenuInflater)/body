@@ -1,4 +1,5 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.infofragment_menu,menu);
+  refreshItem=menu.findItem(R.id.menu_refresh);
 }
