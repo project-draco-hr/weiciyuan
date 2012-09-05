@@ -3,6 +3,14 @@
   if (getList().getReposts().size() > 0) {
     dao.setSince_id(getList().getReposts().get(0).getId());
   }
-  RepostListBean result=dao.getGSONMsgList();
+  RepostListBean result=null;
+  try {
+    result=dao.getGSONMsgList();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+    return null;
+  }
   return result;
 }
