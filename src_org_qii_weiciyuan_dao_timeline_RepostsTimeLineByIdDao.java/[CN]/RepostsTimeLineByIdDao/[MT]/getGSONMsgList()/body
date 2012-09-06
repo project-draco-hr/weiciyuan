@@ -18,5 +18,11 @@
     ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage());
   }
+  if (value != null && value.getReposts().size() > 0) {
+    for (    MessageBean b : value.getReposts()) {
+      TimeTool.dealMills(b);
+      ListViewTool.addJustHighLightLinks(b);
+    }
+  }
   return value;
 }
