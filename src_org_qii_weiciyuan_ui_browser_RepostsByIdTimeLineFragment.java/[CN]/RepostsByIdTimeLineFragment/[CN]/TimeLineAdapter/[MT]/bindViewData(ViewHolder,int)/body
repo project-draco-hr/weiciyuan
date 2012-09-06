@@ -20,6 +20,11 @@
     holder.username.setVisibility(View.INVISIBLE);
     holder.avatar.setVisibility(View.INVISIBLE);
   }
-  holder.time.setText(msg.getListviewItemShowTime());
+  String time=msg.getListviewItemShowTime();
+  UpdateString updateString=new UpdateString(time,holder.time,msg,getActivity());
+  if (!holder.time.getText().toString().equals(time)) {
+    holder.time.setText(updateString);
+  }
+  holder.time.setTag(msg.getText());
   holder.content.setText(msg.getListViewSpannableString());
 }
