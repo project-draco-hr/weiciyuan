@@ -1,4 +1,0 @@
-{
-  String rlt=this.mParameters.getString(key);
-  return rlt;
-}

@@ -7,7 +7,12 @@
   for (int loc=0; loc < parameters.size(); loc++) {
     if (first)     first=false;
  else     sb.append("&");
-    sb.append(URLEncoder.encode(parameters.getKey(loc)) + "=" + URLEncoder.encode(parameters.getValue(loc)));
+    try {
+      sb.append(URLEncoder.encode(parameters.getKey(loc),"UTF-8") + "=" + URLEncoder.encode(parameters.getValue(loc),"UTF-8"));
+    }
+ catch (    UnsupportedEncodingException e) {
+      e.printStackTrace();
+    }
   }
   return sb.toString();
 }
