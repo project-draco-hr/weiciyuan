@@ -10,8 +10,20 @@
     AppLogger.e(e.getMessage());
   }
   if (value != null) {
-    for (    FavBean b : value.getFavorites()) {
-      b.getStatus().getListViewSpannableString();
+    List<MessageBean> msgList=new ArrayList<MessageBean>();
+    int size=value.getFavorites().size();
+    for (int i=0; i < size; i++) {
+      msgList.add(value.getFavorites().get(i).getStatus());
+    }
+    Iterator<FavBean> iterator=value.getFavorites().iterator();
+    while (iterator.hasNext()) {
+      FavBean msg=iterator.next();
+      if (msg.getStatus().getUser() == null) {
+        iterator.remove();
+      }
+ else {
+        msg.getStatus().getListViewSpannableString();
+      }
     }
   }
   return value;
