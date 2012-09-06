@@ -1,0 +1,7 @@
+{
+  SpannableString value=SpannableString.valueOf(s);
+  if (addLinks(value,p,scheme,matchFilter,transformFilter)) {
+    return value;
+  }
+  return new SpannableString(s);
+}

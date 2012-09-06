@@ -1,1 +1,1 @@
-AsyncTask<Object,Object,Object>
+MyAsyncTask<Object,Object,Object>

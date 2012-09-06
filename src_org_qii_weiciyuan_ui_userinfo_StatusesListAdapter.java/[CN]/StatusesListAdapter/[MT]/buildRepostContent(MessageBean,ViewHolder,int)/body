@@ -3,7 +3,13 @@
   holder.repost_content.setTextSize(GlobalContext.getInstance().getFontSize());
   if (repost_msg.getUser() != null) {
     holder.repost_content.setText("@" + repost_msg.getUser().getScreen_name() + "???"+ repost_msg.getText());
-    ListViewTool.addJustHighLightLinks(holder.repost_content);
+    if (!TextUtils.isEmpty(repost_msg.getSpannableString())) {
+      holder.repost_content.setText(repost_msg.getSpannableString());
+    }
+ else {
+      ListViewTool.addJustHighLightLinks(repost_msg);
+      holder.repost_content.setText(repost_msg.getSpannableString());
+    }
   }
  else {
     holder.repost_content.setText(repost_msg.getText());

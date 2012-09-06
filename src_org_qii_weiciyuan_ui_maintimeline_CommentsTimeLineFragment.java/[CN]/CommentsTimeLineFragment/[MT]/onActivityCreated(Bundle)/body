@@ -8,6 +8,6 @@
     refreshLayout(bean);
   }
  else {
-    new SimpleTask().execute();
+    new SimpleTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }
 }

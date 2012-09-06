@@ -18,8 +18,13 @@
     holder.avatar.setVisibility(View.INVISIBLE);
   }
   holder.content.setTextSize(GlobalContext.getInstance().getFontSize());
-  holder.content.setText(msg.getText());
-  ListViewTool.addJustHighLightLinks(holder.content);
+  if (!TextUtils.isEmpty(msg.getSpannableString())) {
+    holder.content.setText(msg.getSpannableString());
+  }
+ else {
+    ListViewTool.addJustHighLightLinks(msg);
+    holder.content.setText(msg.getText());
+  }
   holder.time.setText(msg.getListviewItemShowTime());
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
