@@ -25,7 +25,8 @@
     ListViewTool.addJustHighLightLinks(msg);
     holder.content.setText(msg.getListViewSpannableString());
   }
-  holder.time.setText(msg.getListviewItemShowTime());
+  holder.time.setText(new UpdateString(msg.getListviewItemShowTime(),holder.time,msg,activity));
+  holder.time.setTag(msg.getText());
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
   holder.content_pic.setVisibility(View.GONE);
