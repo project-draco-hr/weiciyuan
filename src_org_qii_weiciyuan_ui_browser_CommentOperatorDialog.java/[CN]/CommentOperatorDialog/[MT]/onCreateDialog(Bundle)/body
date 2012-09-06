@@ -1,4 +1,5 @@
 {
+  if (savedInstanceState != null)   bean=(CommentBean)savedInstanceState.getSerializable("msg");
   AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
   String[] items={getString(R.string.reply)};
   builder.setTitle(getString(R.string.and_then));

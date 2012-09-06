@@ -12,5 +12,6 @@
     }
   }
 );
+  if (savedInstanceState != null)   msg=(MessageBean)savedInstanceState.getSerializable("msg");
   return builder.create();
 }
