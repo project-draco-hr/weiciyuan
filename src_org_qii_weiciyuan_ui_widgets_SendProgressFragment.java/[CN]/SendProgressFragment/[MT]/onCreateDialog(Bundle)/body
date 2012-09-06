@@ -1,6 +1,6 @@
 {
   ProgressDialog dialog=new ProgressDialog(getActivity());
-  dialog.setMessage("?????????");
+  dialog.setMessage(getString(R.string.sending));
   dialog.setIndeterminate(false);
   dialog.setCancelable(true);
   return dialog;
