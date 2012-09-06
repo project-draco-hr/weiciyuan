@@ -1,5 +1,6 @@
 {
   AppLogger.d(url);
+  HttpPost httpPost=new HttpPost();
   List<NameValuePair> nameValuePairs=new ArrayList<NameValuePair>();
   Set<String> keys=param.keySet();
   for (  String key : keys) {

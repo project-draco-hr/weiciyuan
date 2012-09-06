@@ -1,5 +1,6 @@
 {
   URIBuilder uriBuilder;
+  HttpGet httpGet=new HttpGet();
   try {
     uriBuilder=new URIBuilder(url);
     httpGet.setURI(uriBuilder.build());
