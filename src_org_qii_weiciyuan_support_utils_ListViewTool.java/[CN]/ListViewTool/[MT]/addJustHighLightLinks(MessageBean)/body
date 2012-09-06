@@ -1,5 +1,5 @@
 {
-  bean.setSpannableString(ListViewTool.getJustHighLightLinks(bean.getText()));
+  bean.setListViewSpannableString(ListViewTool.getJustHighLightLinks(bean.getText()));
   if (bean.getRetweeted_status() != null) {
     String name="";
     UserBean reUser=bean.getRetweeted_status().getUser();
@@ -13,6 +13,6 @@
  else {
       value=ListViewTool.getJustHighLightLinks(bean.getRetweeted_status().getText());
     }
-    bean.getRetweeted_status().setSpannableString(value);
+    bean.getRetweeted_status().setListViewSpannableString(value);
   }
 }
