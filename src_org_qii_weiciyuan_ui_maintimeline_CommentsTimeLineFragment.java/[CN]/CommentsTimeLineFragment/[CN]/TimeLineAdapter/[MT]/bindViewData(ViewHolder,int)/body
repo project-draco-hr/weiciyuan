@@ -17,7 +17,12 @@
   }
   holder.content.setTextSize(GlobalContext.getInstance().getFontSize());
   holder.content.setText(msg.getListViewSpannableString());
-  holder.time.setText(msg.getListviewItemShowTime());
+  String time=msg.getListviewItemShowTime();
+  UpdateString updateString=new UpdateString(time,holder.time,msg,getActivity());
+  if (!holder.time.getText().toString().equals(time)) {
+    holder.time.setText(updateString);
+  }
+  holder.time.setTag(msg.getText());
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
   holder.content_pic.setVisibility(View.GONE);

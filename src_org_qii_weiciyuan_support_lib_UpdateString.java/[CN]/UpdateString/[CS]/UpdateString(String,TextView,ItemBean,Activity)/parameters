@@ -1,4 +1,4 @@
 String s
 TextView time
-MessageBean bean
+ItemBean bean
 Activity activity

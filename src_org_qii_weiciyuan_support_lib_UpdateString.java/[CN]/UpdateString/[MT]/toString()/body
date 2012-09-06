@@ -3,19 +3,27 @@
     @Override public void run(){
       while (!Thread.currentThread().isInterrupted()) {
         SystemClock.sleep(500);
-        activity.runOnUiThread(new Runnable(){
-          @Override public void run(){
-            if (time.getTag().equals(bean.getText())) {
-              String newValue=bean.getListviewItemShowTime();
-              if (!newValue.equals(time.getText().toString()))               time.setText(newValue);
-            }
+        if (time != null && activity != null) {
+          Activity mActivity=activity.get();
+          final TextView mTextView=time.get();
+          mActivity.runOnUiThread(new Runnable(){
+            @Override public void run(){
+              if (mTextView.getTag().equals(bean.getText())) {
+                String newValue=bean.getListviewItemShowTime();
+                if (!newValue.equals(mTextView.getText().toString()))                 mTextView.setText(newValue);
+              }
  else {
-              Thread.currentThread().interrupt();
-              update=null;
+                Thread.currentThread().interrupt();
+                update=null;
+              }
             }
           }
-        }
 );
+        }
+ else {
+          Thread.currentThread().interrupt();
+          update=null;
+        }
       }
     }
   }

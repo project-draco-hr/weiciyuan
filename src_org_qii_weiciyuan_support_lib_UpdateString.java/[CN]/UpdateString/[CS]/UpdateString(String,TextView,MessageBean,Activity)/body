@@ -1,6 +1,0 @@
-{
-  this.s=s;
-  this.time=time;
-  this.bean=bean;
-  this.activity=activity;
-}

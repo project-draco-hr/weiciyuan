@@ -1,7 +1,3 @@
 {
-  if (!TextUtils.isEmpty(created_at)) {
-    SimpleDateFormat format=new SimpleDateFormat("kk:mm");
-    return format.format(new Date(created_at));
-  }
-  return "";
+  return created_at;
 }

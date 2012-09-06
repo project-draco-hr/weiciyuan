@@ -1,0 +1,6 @@
+{
+  this.s=s;
+  this.time=new WeakReference<TextView>(time);
+  this.bean=bean;
+  this.activity=new WeakReference<Activity>(activity);
+}
