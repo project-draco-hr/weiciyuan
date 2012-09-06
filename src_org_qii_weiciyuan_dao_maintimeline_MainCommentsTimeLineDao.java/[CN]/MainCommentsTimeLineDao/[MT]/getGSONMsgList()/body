@@ -18,5 +18,10 @@
     ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage().toString());
   }
+  if (value != null) {
+    for (    CommentBean b : value.getComments()) {
+      b.getListViewSpannableString();
+    }
+  }
   return value;
 }

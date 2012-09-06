@@ -8,6 +8,7 @@
     String json=c.getString(c.getColumnIndex(RepostsTable.JSONDATA));
     try {
       MessageBean value=gson.fromJson(json,MessageBean.class);
+      value.getListViewSpannableString();
       msgList.add(value);
     }
  catch (    JsonSyntaxException e) {

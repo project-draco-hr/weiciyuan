@@ -9,5 +9,10 @@
     ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage());
   }
+  if (value != null) {
+    for (    FavBean b : value.getFavorites()) {
+      b.getStatus().getListViewSpannableString();
+    }
+  }
   return value;
 }

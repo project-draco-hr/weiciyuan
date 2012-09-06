@@ -8,8 +8,7 @@
     String json=c.getString(c.getColumnIndex(HomeTable.JSONDATA));
     try {
       MessageBean value=gson.fromJson(json,MessageBean.class);
-      value.setListViewSpannableString(ListViewTool.getJustHighLightLinks(value.getText()));
-      ListViewTool.addJustHighLightLinks(value);
+      value.getListViewSpannableString();
       msgList.add(value);
     }
  catch (    JsonSyntaxException e) {

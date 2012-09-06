@@ -20,8 +20,7 @@
   }
   if (value != null && value.getReposts().size() > 0) {
     for (    MessageBean b : value.getReposts()) {
-      TimeTool.dealMills(b);
-      ListViewTool.addJustHighLightLinks(b);
+      b.getListViewSpannableString();
     }
   }
   return value;

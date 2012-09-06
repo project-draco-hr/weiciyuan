@@ -8,6 +8,7 @@
     String json=c.getString(c.getColumnIndex(CommentsTable.JSONDATA));
     try {
       CommentBean value=gson.fromJson(json,CommentBean.class);
+      value.getListViewSpannableString();
       msgList.add(value);
     }
  catch (    JsonSyntaxException e) {
