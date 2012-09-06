@@ -1,3 +1,0 @@
-{
-  return sslContext.getSocketFactory().createSocket(socket,host,port,autoClose);
-}

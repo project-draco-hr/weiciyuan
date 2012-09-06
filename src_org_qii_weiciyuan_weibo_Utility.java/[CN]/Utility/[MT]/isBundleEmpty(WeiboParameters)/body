@@ -1,6 +1,0 @@
-{
-  if (bundle == null || bundle.size() == 0) {
-    return true;
-  }
-  return false;
-}

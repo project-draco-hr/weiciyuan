@@ -1,3 +1,0 @@
-{
-  return mOauth_Token_Secret;
-}
