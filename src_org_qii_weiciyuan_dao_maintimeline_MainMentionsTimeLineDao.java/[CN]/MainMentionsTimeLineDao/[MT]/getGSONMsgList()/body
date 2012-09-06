@@ -9,7 +9,7 @@
     ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage().toString());
   }
-  if (value != null) {
+  if (value != null && value.getStatuses().size() > 0) {
     List<MessageBean> msgList=value.getStatuses();
     Iterator<MessageBean> iterator=msgList.iterator();
     while (iterator.hasNext()) {
@@ -17,11 +17,9 @@
       if (msg.getUser() == null) {
         iterator.remove();
       }
-    }
-  }
-  if (value != null) {
-    for (    MessageBean b : value.getStatuses()) {
-      b.getListViewSpannableString();
+ else {
+        msg.getListViewSpannableString();
+      }
     }
   }
   return value;
