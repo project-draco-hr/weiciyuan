@@ -1,5 +1,39 @@
 {
   accountList=accounts;
-  listAdapter.notifyDataSetChanged();
-  Toast.makeText(AccountActivity.this,getString(R.string.remove_successfully),Toast.LENGTH_SHORT).show();
+  Animation anim=AnimationUtils.loadAnimation(AccountActivity.this,R.anim.account_delete_slide_out_right);
+  anim.setAnimationListener(new Animation.AnimationListener(){
+    @Override public void onAnimationStart(    Animation animation){
+    }
+    @Override public void onAnimationEnd(    Animation animation){
+      listAdapter.removeCheckbox();
+      listAdapter.notifyDataSetChanged();
+    }
+    @Override public void onAnimationRepeat(    Animation animation){
+    }
+  }
+);
+  Set<Integer> position=listAdapter.getCheckedItemListViewPosition();
+  int start=listView.getFirstVisiblePosition();
+  int end=listView.getLastVisiblePosition();
+  Iterator<Integer> iterator=position.iterator();
+  while (iterator.hasNext()) {
+    Integer i=iterator.next();
+    if (i < start || i > end) {
+      iterator.remove();
+    }
+  }
+  Integer[] array=position.toArray(new Integer[1]);
+  int arraySize=array.length;
+  for (int i=0; i < arraySize; i++) {
+    array[i]=array[i] - start;
+  }
+  if (arraySize <= listView.getChildCount()) {
+    for (int i=0; i < arraySize; i++) {
+      listView.getChildAt(array[i]).startAnimation(anim);
+    }
+  }
+  int listViewChildCount=listView.getChildCount();
+  for (int i=0; i < listViewChildCount; i++) {
+    listView.getChildAt(i).findViewById(R.id.webView).startAnimation(anim);
+  }
 }

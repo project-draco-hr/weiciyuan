@@ -9,15 +9,18 @@
         AccountBean account=accountList.get(i);
         String uid=account.getUid();
         if (isChecked) {
-          checkedItemPostion.add(uid);
+          checkedItemId.add(uid);
+          checkedItemListViewPosition.add(i);
         }
- else         if (checkedItemPostion.contains(uid)) {
-          checkedItemPostion.remove(uid);
+ else         if (checkedItemId.contains(uid)) {
+          checkedItemId.remove(uid);
+          checkedItemListViewPosition.remove(i);
         }
       }
     }
 );
     if (allChecked)     cb.setChecked(true);
+    cb.setId(R.id.webView);
     linearLayout.addView(cb,0);
   }
   TextView textView=(TextView)mView.findViewById(R.id.account_name);

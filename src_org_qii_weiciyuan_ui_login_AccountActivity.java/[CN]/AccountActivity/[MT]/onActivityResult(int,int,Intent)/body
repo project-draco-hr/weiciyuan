@@ -1,8 +1,5 @@
 {
   if (resultCode == RESULT_OK) {
-    if (getTask == null || getTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-      getTask=new GetAccountListDBTask();
-      getTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-    }
+    refresh();
   }
 }
