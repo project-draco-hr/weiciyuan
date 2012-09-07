@@ -19,6 +19,7 @@
       }
  else {
         msg.getListViewSpannableString();
+        TimeTool.dealMills(msg);
       }
     }
   }
