@@ -1,6 +1,8 @@
 {
+  int reqWidth=396;
+  int reqHeight=500;
   if (!isCancelled()) {
-    return ImageTool.getPictureHighDensityThumbnailBitmap(data);
+    return ImageTool.getPictureHighDensityThumbnailBitmap(data,reqWidth,reqHeight);
   }
   return null;
 }
