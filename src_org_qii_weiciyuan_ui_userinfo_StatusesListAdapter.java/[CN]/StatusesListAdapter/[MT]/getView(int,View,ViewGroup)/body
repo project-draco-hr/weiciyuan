@@ -1,8 +1,9 @@
 {
   if (bean.get(position).getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
-    ViewHolder holder=new ViewHolder();
+    ViewHolder holder;
     if (convertView == null || convertView.getTag(R.drawable.app) == null) {
-      convertView=initMylayout(holder,parent);
+      convertView=initMylayout(parent);
+      holder=buildHolder(convertView);
     }
  else {
       boolean enableBigPic=(Boolean)convertView.getTag(R.drawable.account_black);
@@ -10,16 +11,19 @@
         holder=(ViewHolder)convertView.getTag(R.drawable.app);
       }
  else {
-        convertView=initMylayout(holder,parent);
+        convertView=initMylayout(parent);
+        holder=buildHolder(convertView);
       }
     }
+    convertView.setTag(R.drawable.app,holder);
+    convertView.setTag(R.drawable.account_black,GlobalContext.getInstance().getEnableBigPic());
     bindViewData(holder,position);
     return convertView;
   }
   ViewHolder holder;
   if (convertView == null || convertView.getTag(R.drawable.ic_launcher) == null) {
-    holder=new ViewHolder();
-    convertView=initNormallayout(holder,parent);
+    convertView=initNormallayout(parent);
+    holder=buildHolder(convertView);
   }
  else {
     boolean enableBigPic=(Boolean)convertView.getTag(R.drawable.account_black);
@@ -27,10 +31,12 @@
       holder=(ViewHolder)convertView.getTag(R.drawable.ic_launcher);
     }
  else {
-      holder=new ViewHolder();
-      convertView=initNormallayout(holder,parent);
+      convertView=initNormallayout(parent);
+      holder=buildHolder(convertView);
     }
   }
+  convertView.setTag(R.drawable.ic_launcher,holder);
+  convertView.setTag(R.drawable.account_black,GlobalContext.getInstance().getEnableBigPic());
   bindViewData(holder,position);
   return convertView;
 }
