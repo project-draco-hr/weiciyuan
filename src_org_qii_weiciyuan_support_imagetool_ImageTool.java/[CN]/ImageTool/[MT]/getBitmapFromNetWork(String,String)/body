@@ -1,4 +1,0 @@
-{
-  HttpUtility.getInstance().executeDownloadTask(url,path);
-  return path;
-}

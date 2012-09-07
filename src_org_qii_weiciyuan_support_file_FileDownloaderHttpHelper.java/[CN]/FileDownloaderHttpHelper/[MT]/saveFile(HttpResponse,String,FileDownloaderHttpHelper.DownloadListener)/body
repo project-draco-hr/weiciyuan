@@ -4,5 +4,5 @@
   if (statusCode != HttpStatus.SC_OK) {
     return dealWithError(response);
   }
-  return saveFileAndGetFileAbsolutePath(response,path);
+  return saveFileAndGetFileAbsolutePath(response,path,downloadListener);
 }

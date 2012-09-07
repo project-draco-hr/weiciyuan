@@ -1,7 +1,13 @@
 {
+  FileDownloaderHttpHelper.DownloadListener downloadListener=new FileDownloaderHttpHelper.DownloadListener(){
+    @Override public void pushProgress(    int progress,    int max){
+      publishProgress(progress,max);
+    }
+  }
+;
   data=url[0];
   if (!isCancelled()) {
-    return ImageTool.getNormalBitmap(data);
+    return ImageTool.getNormalBitmap(data,downloadListener);
   }
   return null;
 }

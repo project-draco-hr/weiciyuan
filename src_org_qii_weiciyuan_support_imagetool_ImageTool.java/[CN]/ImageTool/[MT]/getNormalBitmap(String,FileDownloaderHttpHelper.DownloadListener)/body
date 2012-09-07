@@ -3,7 +3,7 @@
   absoluteFilePath=absoluteFilePath + ".jpg";
   Bitmap bitmap=decodeBitmapFromSDCard(absoluteFilePath,MAX_WIDTH,MAX_HEIGHT);
   if (bitmap == null) {
-    String path=getBitmapFromNetWork(url,absoluteFilePath);
+    String path=getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
     bitmap=decodeBitmapFromSDCard(path,MAX_WIDTH,MAX_HEIGHT);
   }
   if (bitmap != null) {

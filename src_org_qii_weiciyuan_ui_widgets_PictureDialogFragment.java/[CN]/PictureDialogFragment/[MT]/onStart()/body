@@ -1,5 +1,5 @@
 {
   super.onStart();
   avatarTask=new PicSimpleBitmapWorkerTask();
-  avatarTask.execute(msg.getBmiddle_pic());
+  avatarTask.execute(url);
 }

@@ -6,6 +6,7 @@
   String result="";
   if (file != null) {
     try {
+      int bytetotal=(int)httpEntity.getContentLength();
       int bytesum=0;
       int byteread=0;
       out=new FileOutputStream(file);
@@ -14,6 +15,9 @@
       while ((byteread=in.read(buffer)) != -1) {
         bytesum+=byteread;
         out.write(buffer,0,byteread);
+        if (downloadListener != null && bytetotal > 0) {
+          downloadListener.pushProgress(bytesum,bytetotal);
+        }
       }
       result=path;
     }

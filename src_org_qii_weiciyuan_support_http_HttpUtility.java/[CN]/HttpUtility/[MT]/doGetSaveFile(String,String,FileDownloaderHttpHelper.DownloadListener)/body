@@ -23,7 +23,7 @@ catch (  IOException ignored) {
     AppLogger.e(ignored.getMessage());
   }
   if (response != null) {
-    return FileDownloaderHttpHelper.saveFile(response,path);
+    return FileDownloaderHttpHelper.saveFile(response,path,downloadListener);
   }
  else {
     return "";

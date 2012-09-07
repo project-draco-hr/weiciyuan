@@ -5,7 +5,7 @@
     return ImageEdit.getRoundedCornerBitmap(bitmap);
   }
  else {
-    String path=getBitmapFromNetWork(url,absoluteFilePath);
+    String path=getBitmapFromNetWork(url,absoluteFilePath,null);
     bitmap=BitmapFactory.decodeFile(path);
     if (bitmap != null)     return ImageEdit.getRoundedCornerBitmap(bitmap);
   }

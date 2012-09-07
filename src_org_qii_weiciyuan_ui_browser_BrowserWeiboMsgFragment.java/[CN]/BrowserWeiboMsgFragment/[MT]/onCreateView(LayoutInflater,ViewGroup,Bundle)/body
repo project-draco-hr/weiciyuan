@@ -33,6 +33,8 @@
     }
   }
 );
+  content_pic.setOnClickListener(picOnClickListener);
+  repost_pic.setOnClickListener(picOnClickListener);
   recontent.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       if (recontent.getSelectionStart() == -1 && recontent.getSelectionEnd() == -1) {

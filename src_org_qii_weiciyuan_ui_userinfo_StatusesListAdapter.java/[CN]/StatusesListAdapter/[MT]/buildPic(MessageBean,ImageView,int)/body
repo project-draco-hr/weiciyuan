@@ -10,8 +10,8 @@
   commander.downContentPic(view,picUrl,position,listView);
   view.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      PictureDialogFragment progressFragment=new PictureDialogFragment(msg);
-      progressFragment.show(activity.getFragmentManager(),"");
+      PictureDialogFragment progressFragment=new PictureDialogFragment(msg.getBmiddle_pic());
+      progressFragment.show(activity.getSupportFragmentManager(),"");
     }
   }
 );

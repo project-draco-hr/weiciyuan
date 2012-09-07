@@ -12,6 +12,6 @@
     }
   }
 );
-  if (savedInstanceState != null)   msg=(MessageBean)savedInstanceState.getSerializable("msg");
+  if (savedInstanceState != null)   url=savedInstanceState.getString("url");
   return builder.create();
 }
