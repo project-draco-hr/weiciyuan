@@ -5,17 +5,23 @@
   clear_cache=findPreference(SettingActivity.CLEAR_CACHE);
   clear_cache.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
-      FileManager.deleteCache();
+      if (calcTask != null && calcTask.getStatus() != MyAsyncTask.Status.FINISHED) {
+        calcTask.cancel(true);
+      }
+      if (removeCache == null || removeCache.getStatus() == MyAsyncTask.Status.FINISHED) {
+        removeCache=new RemoveCache();
+        removeCache.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      }
       return true;
     }
   }
 );
-  task=new CalcCacheSize();
-  task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  calcTask=new CalcCacheSize();
+  calcTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   findPreference(SettingActivity.OFFICIAL_WEIBO).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
       UserBean bean=new UserBean();
-      bean.setScreen_name(getString(R.string.app_name));
+      bean.setScreen_name(getString(R.string.official_weibo_link));
       String token=GlobalContext.getInstance().getSpecialToken();
       Intent intent=new Intent(getActivity(),UserInfoActivity.class);
       intent.putExtra("token",token);

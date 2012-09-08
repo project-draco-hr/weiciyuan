@@ -1,0 +1,4 @@
+{
+  String path=SDCARD_PATH + File.separator + PICTURE_THUMBNAIL_CACHE;
+  return deleteDirectory(new File(path));
+}

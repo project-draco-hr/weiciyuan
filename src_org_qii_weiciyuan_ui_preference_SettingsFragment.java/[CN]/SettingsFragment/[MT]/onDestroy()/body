@@ -1,5 +1,5 @@
 {
   super.onDestroy();
   getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
-  if (task != null)   task.cancel(true);
+  if (calcTask != null)   calcTask.cancel(true);
 }

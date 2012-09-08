@@ -1,0 +1,4 @@
+{
+  super.onPreExecute();
+  Toast.makeText(getActivity(),getString(R.string.remove_ing),Toast.LENGTH_SHORT).show();
+}
