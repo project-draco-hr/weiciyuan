@@ -1,4 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
+  addListViewTimeRefresh();
 }

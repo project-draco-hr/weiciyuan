@@ -9,4 +9,5 @@
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
   }
+  addListViewTimeRefresh();
 }
