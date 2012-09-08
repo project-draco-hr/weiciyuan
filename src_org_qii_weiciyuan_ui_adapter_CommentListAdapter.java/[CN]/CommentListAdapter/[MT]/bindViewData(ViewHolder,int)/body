@@ -25,7 +25,6 @@
   holder.time.setTag(msg.getId());
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
-  holder.content_pic.setVisibility(View.GONE);
   if (repost_msg != null && showOriStatus) {
     buildRepostContent(repost_msg,holder,position);
   }
