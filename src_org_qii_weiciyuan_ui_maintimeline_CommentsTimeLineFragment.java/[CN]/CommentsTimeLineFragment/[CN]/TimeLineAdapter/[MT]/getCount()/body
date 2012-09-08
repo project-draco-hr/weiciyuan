@@ -1,8 +1,0 @@
-{
-  if (getList() != null && getList().getComments() != null) {
-    return getList().getComments().size();
-  }
- else {
-    return 0;
-  }
-}

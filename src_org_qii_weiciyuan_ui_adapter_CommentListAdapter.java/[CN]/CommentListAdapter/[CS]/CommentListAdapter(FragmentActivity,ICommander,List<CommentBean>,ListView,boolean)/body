@@ -1,0 +1,8 @@
+{
+  this.activity=activity;
+  this.inflater=activity.getLayoutInflater();
+  this.bean=bean;
+  this.commander=commander;
+  this.listView=listView;
+  this.showOriStatus=showOriStatus;
+}

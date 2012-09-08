@@ -1,0 +1,8 @@
+{
+  if (getList() != null) {
+    return getList().size();
+  }
+ else {
+    return 0;
+  }
+}

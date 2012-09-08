@@ -1,0 +1,5 @@
+FragmentActivity activity
+ICommander commander
+List<CommentBean> bean
+ListView listView
+boolean showOriStatus

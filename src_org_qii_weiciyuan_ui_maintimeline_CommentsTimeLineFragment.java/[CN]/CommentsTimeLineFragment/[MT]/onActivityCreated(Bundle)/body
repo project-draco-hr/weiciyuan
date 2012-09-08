@@ -3,7 +3,7 @@
   commander=((AbstractAppActivity)getActivity()).getCommander();
   ((MainTimeLineActivity)getActivity()).setCommentsListView(listView);
   if (savedInstanceState != null && (bean == null || bean.getComments().size() == 0)) {
-    bean=(CommentListBean)savedInstanceState.getSerializable("bean");
+    clearAndReplaceValue((CommentListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
   }
