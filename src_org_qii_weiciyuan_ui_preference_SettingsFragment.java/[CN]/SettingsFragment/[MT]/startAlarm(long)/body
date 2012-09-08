@@ -3,5 +3,5 @@
   Intent intent=new Intent(getActivity(),FetchNewMsgService.class);
   PendingIntent sender=PendingIntent.getService(getActivity(),195,intent,PendingIntent.FLAG_CANCEL_CURRENT);
   alarm.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,time,time,sender);
-  Toast.makeText(getActivity(),"start fetch new message",Toast.LENGTH_SHORT).show();
+  Toast.makeText(getActivity(),getString(R.string.start_fetch_msg),Toast.LENGTH_SHORT).show();
 }

@@ -11,13 +11,18 @@
   }
   if (key.equals(SettingActivity.ENABLE_FETCH_MSG)) {
     boolean value=sharedPreferences.getBoolean(key,false);
-    if (!value)     cancelAlarm();
+    if (!value) {
+      cancelAlarm();
+    }
+ else {
+      SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(getActivity());
+      String frequency=sharedPref.getString(SettingActivity.FREQUENCY,"1");
+      scheduleReceiveMessage(frequency);
+    }
   }
   if (key.equals(SettingActivity.FREQUENCY)) {
     String value=sharedPreferences.getString(key,"1");
-    if (value.equals("1"))     startAlarm(3 * 60 * 1000);
-    if (value.equals("2"))     startAlarm(AlarmManager.INTERVAL_FIFTEEN_MINUTES);
-    if (value.equals("3"))     startAlarm(AlarmManager.INTERVAL_HALF_HOUR);
+    scheduleReceiveMessage(value);
   }
   if (key.equals(SettingActivity.THEME)) {
     String value=sharedPreferences.getString(key,"1");
