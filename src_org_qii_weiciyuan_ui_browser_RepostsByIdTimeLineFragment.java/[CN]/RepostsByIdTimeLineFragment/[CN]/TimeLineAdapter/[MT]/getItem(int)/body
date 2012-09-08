@@ -1,4 +1,4 @@
 {
-  if (getList() != null && getList().getReposts().size() > 0)   return getList().getReposts().get(position);
+  if (getList() != null && getList().getReposts().size() > 0 && position < getList().getReposts().size())   return getList().getReposts().get(position);
  else   return null;
 }
