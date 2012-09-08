@@ -1,7 +1,0 @@
-{
-  showListView();
-  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.loading));
-  View view=footerView.findViewById(R.id.refresh);
-  view.setVisibility(View.VISIBLE);
-  view.startAnimation(AnimationUtils.loadAnimation(getActivity(),R.anim.refresh));
-}

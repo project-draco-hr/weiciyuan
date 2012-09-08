@@ -1,4 +1,5 @@
 {
   bean.getComments().clear();
   bean.getComments().addAll(value.getComments());
+  bean.setTotal_number(value.getTotal_number());
 }

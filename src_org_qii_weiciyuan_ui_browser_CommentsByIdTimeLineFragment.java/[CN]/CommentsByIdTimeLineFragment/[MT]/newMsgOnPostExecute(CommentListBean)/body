@@ -14,7 +14,5 @@
       headerView.findViewById(R.id.header_progress).clearAnimation();
     }
   }
-  cleanWork();
   invlidateTabText();
-  super.onPostExecute(newValue);
 }

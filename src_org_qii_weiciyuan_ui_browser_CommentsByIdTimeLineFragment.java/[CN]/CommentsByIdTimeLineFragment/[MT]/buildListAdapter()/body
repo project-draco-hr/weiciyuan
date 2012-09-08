@@ -1,0 +1,4 @@
+{
+  timeLineAdapter=new CommentListAdapter(getActivity(),((AbstractAppActivity)getActivity()).getCommander(),getList().getComments(),listView,false);
+  listView.setAdapter(timeLineAdapter);
+}

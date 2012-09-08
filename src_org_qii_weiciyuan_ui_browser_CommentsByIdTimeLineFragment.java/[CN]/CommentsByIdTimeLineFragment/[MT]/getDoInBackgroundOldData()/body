@@ -3,14 +3,6 @@
   if (getList().getComments().size() > 0) {
     dao.setMax_id(getList().getComments().get(getList().getComments().size() - 1).getId());
   }
-  CommentListBean result=null;
-  try {
-    result=dao.getGSONMsgList();
-  }
- catch (  WeiboException e) {
-    this.e=e;
-    cancel(true);
-    return null;
-  }
+  CommentListBean result=dao.getGSONMsgList();
   return result;
 }

@@ -10,8 +10,8 @@
       for (int i=0; i < visibleItemNum; i++) {
         if (start + i > 0 && timeLineAdapter != null) {
           Object object=timeLineAdapter.getItem(start + i - 1);
-          if (object instanceof MessageBean) {
-            MessageBean msg=(MessageBean)object;
+          if (object instanceof ItemBean) {
+            ItemBean msg=(ItemBean)object;
             TextView time=(TextView)listView.getChildAt(i).findViewById(R.id.time);
             if (time != null)             time.setText(msg.getListviewItemShowTime());
           }

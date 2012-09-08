@@ -1,4 +1,5 @@
 {
   bean.getStatuses().clear();
   bean.getStatuses().addAll(value.getStatuses());
+  bean.setTotal_number(value.getTotal_number());
 }
