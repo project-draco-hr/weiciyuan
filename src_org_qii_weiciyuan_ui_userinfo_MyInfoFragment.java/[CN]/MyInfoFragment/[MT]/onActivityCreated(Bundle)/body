@@ -3,4 +3,5 @@
   bean=((IUserInfo)getActivity()).getUser();
   commander=((AbstractAppActivity)getActivity()).getCommander();
   setValue();
+  refresh();
 }
