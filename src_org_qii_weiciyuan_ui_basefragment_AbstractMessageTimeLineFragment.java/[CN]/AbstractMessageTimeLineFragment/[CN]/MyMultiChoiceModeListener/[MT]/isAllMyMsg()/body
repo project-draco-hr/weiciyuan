@@ -1,0 +1,9 @@
+{
+  SparseBooleanArray size=listView.getCheckedItemPositions();
+  for (int i=0; i < size.size(); i++) {
+    int position=size.keyAt(i);
+    MessageBean msg=(MessageBean)timeLineAdapter.getItem(position - 1);
+    if (!msg.getUser().getId().equals(currentUserId))     return false;
+  }
+  return true;
+}

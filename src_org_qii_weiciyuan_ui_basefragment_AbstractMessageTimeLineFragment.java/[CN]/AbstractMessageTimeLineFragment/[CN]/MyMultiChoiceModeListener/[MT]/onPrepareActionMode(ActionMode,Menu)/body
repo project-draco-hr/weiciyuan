@@ -1,0 +1,26 @@
+{
+  MenuInflater inflater=mode.getMenuInflater();
+  int size=listView.getCheckedItemCount();
+  if (size == 0) {
+    return false;
+  }
+  menu.clear();
+  if (size == 1) {
+    if (isAllMyMsg()) {
+      inflater.inflate(R.menu.fragment_listview_item_contexual_menu_myself,menu);
+    }
+ else {
+      inflater.inflate(R.menu.fragment_listview_item_contexual_menu,menu);
+    }
+    return true;
+  }
+ else {
+    if (isAllMyMsg()) {
+      inflater.inflate(R.menu.fragment_listview_item_contexual_menu_only_delete_and_fav,menu);
+    }
+ else {
+      inflater.inflate(R.menu.fragment_listview_item_contexual_menu_only_fav,menu);
+    }
+    return true;
+  }
+}

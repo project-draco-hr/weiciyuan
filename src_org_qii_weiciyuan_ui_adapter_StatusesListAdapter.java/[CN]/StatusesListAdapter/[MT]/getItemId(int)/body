@@ -1,3 +1,4 @@
 {
-  return 0;
+  if (bean != null && bean.size() > 0 && position < bean.size())   return Long.valueOf(bean.get(position).getId());
+ else   return -1;
 }

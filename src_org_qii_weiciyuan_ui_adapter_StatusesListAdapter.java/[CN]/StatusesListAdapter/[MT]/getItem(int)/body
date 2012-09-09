@@ -1,4 +1,4 @@
 {
-  if (bean != null && bean.size() > 0 && position < bean.size())   return bean.get(position);
+  if (position >= 0 && bean != null && bean.size() > 0 && position < bean.size())   return bean.get(position);
  else   return null;
 }

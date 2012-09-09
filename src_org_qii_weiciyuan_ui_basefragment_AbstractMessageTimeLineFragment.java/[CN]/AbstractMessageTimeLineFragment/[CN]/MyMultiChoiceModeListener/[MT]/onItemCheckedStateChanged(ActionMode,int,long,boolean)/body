@@ -1,0 +1,14 @@
+{
+  int size=listView.getCheckedItemCount();
+  if (size > 0) {
+    SparseBooleanArray s=listView.getCheckedItemPositions();
+    int newCheckedPosition=s.keyAt(size - 1);
+    if (newCheckedPosition > timeLineAdapter.getCount() || newCheckedPosition == 0) {
+      mode.finish();
+    }
+ else {
+      mode.setTitle(String.valueOf(size) + getString(R.string.weibos));
+      mode.invalidate();
+    }
+  }
+}
