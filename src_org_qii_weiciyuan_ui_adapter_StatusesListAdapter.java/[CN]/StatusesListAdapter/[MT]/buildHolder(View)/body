@@ -9,5 +9,6 @@
   holder.avatar=(ImageView)convertView.findViewById(R.id.avatar);
   holder.content_pic=(ImageView)convertView.findViewById(R.id.content_pic);
   holder.repost_content_pic=(ImageView)convertView.findViewById(R.id.repost_content_pic);
+  holder.listview_root=(RelativeLayout)convertView.findViewById(R.id.listview_root);
   return holder;
 }
