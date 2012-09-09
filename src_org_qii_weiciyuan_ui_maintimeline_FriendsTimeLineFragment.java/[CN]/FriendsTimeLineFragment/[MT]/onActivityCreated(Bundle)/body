@@ -1,6 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
   ((MainTimeLineActivity)getActivity()).setHomeListView(listView);
+  ((MainTimeLineActivity)getActivity()).setHomeMode(multiChoiceModeListener);
   if (savedInstanceState != null) {
     clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
