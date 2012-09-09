@@ -1,0 +1,5 @@
+{
+  bean.getReposts().clear();
+  bean.getReposts().addAll(value.getReposts());
+  bean.setTotal_number(value.getTotal_number());
+}

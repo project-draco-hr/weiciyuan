@@ -8,7 +8,7 @@
       if (newValue.getReposts().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
         newValue.getReposts().addAll(getList().getReposts());
       }
-      bean=newValue;
+      clearAndReplaceValue(newValue);
       timeLineAdapter.notifyDataSetChanged();
       listView.setSelectionAfterHeaderView();
       headerView.findViewById(R.id.header_progress).clearAnimation();

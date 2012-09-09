@@ -12,7 +12,7 @@
   if (bean.getReposts().size() == 0) {
     footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
   }
-  timeLineAdapter=new TimeLineAdapter();
+  timeLineAdapter=new StatusesListAdapter(getActivity(),((AbstractAppActivity)getActivity()).getCommander(),getList().getReposts(),listView,false);
   listView.setAdapter(timeLineAdapter);
   listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
     @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
