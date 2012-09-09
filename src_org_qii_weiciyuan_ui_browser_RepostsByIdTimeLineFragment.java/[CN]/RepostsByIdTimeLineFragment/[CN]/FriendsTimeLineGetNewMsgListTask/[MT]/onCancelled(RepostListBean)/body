@@ -1,5 +1,0 @@
-{
-  super.onCancelled(newValue);
-  cleanWork();
-  if (this.e != null)   Toast.makeText(getActivity(),this.e.getError(),Toast.LENGTH_SHORT).show();
-}

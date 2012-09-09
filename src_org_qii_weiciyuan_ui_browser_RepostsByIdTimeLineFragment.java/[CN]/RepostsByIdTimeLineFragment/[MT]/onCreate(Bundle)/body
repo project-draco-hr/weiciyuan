@@ -1,5 +1,6 @@
 {
   super.onCreate(savedInstanceState);
+  bean=new RepostListBean();
   setHasOptionsMenu(true);
   setRetainInstance(true);
 }
