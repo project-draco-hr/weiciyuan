@@ -1,7 +1,7 @@
 {
 switch (item.getItemId()) {
 case R.id.menu_send:
-    new SimpleTask().execute();
+    if (canSend())     new SimpleTask().execute();
   break;
 }
 return true;

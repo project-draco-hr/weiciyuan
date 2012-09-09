@@ -1,5 +1,7 @@
 {
   if ((bean == null || bean.getComments().size() == 0) && newTask == null) {
-    refresh();
+    if (listView != null) {
+      refresh();
+    }
   }
 }
