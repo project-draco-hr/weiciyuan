@@ -1,4 +1,5 @@
 {
+  String sss=token;
   if ((bean == null || bean.getComments().size() == 0) && newTask == null) {
     if (listView != null) {
       refresh();
