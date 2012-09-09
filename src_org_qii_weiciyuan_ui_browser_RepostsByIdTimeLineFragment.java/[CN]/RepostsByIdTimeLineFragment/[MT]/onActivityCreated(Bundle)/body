@@ -9,4 +9,6 @@
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
   }
+  listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
+  listView.setMultiChoiceModeListener(new RepostMultiChoiceModeListener(listView,timeLineAdapter,getActivity(),quick_repost));
 }

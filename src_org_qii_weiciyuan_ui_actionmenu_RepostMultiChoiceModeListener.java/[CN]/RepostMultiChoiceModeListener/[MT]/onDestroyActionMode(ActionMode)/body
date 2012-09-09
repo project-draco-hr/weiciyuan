@@ -1,0 +1,4 @@
+{
+  quick_repost.setVisibility(View.VISIBLE);
+  super.onDestroyActionMode(mode);
+}

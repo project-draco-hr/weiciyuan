@@ -1,0 +1,4 @@
+ListView listView
+BaseAdapter adapter
+Activity activity
+LinearLayout quick_repost

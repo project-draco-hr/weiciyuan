@@ -1,0 +1,4 @@
+{
+  quick_repost.setVisibility(View.GONE);
+  return super.onCreateActionMode(mode,menu);
+}

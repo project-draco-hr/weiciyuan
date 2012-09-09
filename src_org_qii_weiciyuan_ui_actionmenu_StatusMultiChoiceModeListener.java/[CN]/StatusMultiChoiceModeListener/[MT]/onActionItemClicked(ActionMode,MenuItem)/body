@@ -3,19 +3,19 @@
   long[] ids=listView.getCheckedItemIds();
 switch (item.getItemId()) {
 case R.id.menu_repost:
-    MessageBean msg=(MessageBean)timeLineAdapter.getItem(listView.getCheckedItemPositions().keyAt(listView.getCheckedItemCount() - 1) - 1);
+    MessageBean msg=(MessageBean)adapter.getItem(listView.getCheckedItemPositions().keyAt(listView.getCheckedItemCount() - 1) - 1);
   intent=new Intent(getActivity(),RepostNewActivity.class);
-intent.putExtra("token",((IToken)getActivity()).getToken());
+intent.putExtra("token",((IToken)activity).getToken());
 intent.putExtra("id",ids[0]);
 intent.putExtra("msg",msg);
-startActivity(intent);
+getActivity().startActivity(intent);
 mode.finish();
 break;
 case R.id.menu_comment:
 intent=new Intent(getActivity(),CommentNewActivity.class);
-intent.putExtra("token",((IToken)getActivity()).getToken());
+intent.putExtra("token",((IToken)activity).getToken());
 intent.putExtra("id",ids[0]);
-startActivity(intent);
+getActivity().startActivity(intent);
 mode.finish();
 break;
 case R.id.menu_fav:
