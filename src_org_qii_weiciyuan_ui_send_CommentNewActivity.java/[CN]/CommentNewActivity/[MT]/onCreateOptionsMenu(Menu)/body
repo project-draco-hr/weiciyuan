@@ -1,5 +1,5 @@
 {
   getMenuInflater().inflate(R.menu.commentnewactivity_menu,menu);
-  menu.findItem(R.id.menu_enable_repost).setTitle(enableRepostString);
+  menu.findItem(R.id.menu_enable_repost).setTitle(enableCommentOriString);
   return true;
 }

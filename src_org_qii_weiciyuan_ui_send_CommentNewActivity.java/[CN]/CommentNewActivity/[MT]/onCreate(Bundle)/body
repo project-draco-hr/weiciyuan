@@ -12,5 +12,5 @@
   getActionBar().setTitle(getString(R.string.comments));
   et=(EditText)findViewById(R.id.status_new_content);
   et.addTextChangedListener(new TextNumLimitWatcher(contentNumber,et,this));
-  enableRepostString=getString(R.string.disable_repost_when_comment);
+  enableCommentOriString=getString(R.string.disable_comment_to_ori_when_comment);
 }
