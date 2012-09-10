@@ -1,0 +1,17 @@
+{
+  String url=URLHelper.getDestroyStatus();
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("id",id);
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
+  Gson gson=new Gson();
+  try {
+    MessageBean value=gson.fromJson(jsonData,MessageBean.class);
+  }
+ catch (  JsonSyntaxException e) {
+    ActivityUtils.showTips("????????????????????????");
+    AppLogger.e(e.getMessage());
+    return false;
+  }
+  return true;
+}
