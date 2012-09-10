@@ -1,4 +1,0 @@
-{
-  super(listView,adapter,activity);
-  this.quick_repost=quick_repost;
-}

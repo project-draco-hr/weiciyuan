@@ -1,38 +1,23 @@
 {
   MenuInflater inflater=mode.getMenuInflater();
-  int size=listView.getCheckedItemCount();
-  if (size == 0) {
-    return false;
-  }
   menu.clear();
-  if (size == 1) {
-    if (isAllMyMsg()) {
-      inflater.inflate(R.menu.fragment_listview_item_contexual_menu_myself,menu);
-    }
- else {
-      inflater.inflate(R.menu.fragment_listview_item_contexual_menu,menu);
-    }
-    MenuItem item=menu.findItem(R.id.menu_share);
-    ShareActionProvider mShareActionProvider=(ShareActionProvider)item.getActionProvider();
-    MessageBean shareMsg=(MessageBean)adapter.getItem(listView.getCheckedItemPositions().keyAt(listView.getCheckedItemCount() - 1) - 1);
-    Intent sharingIntent=new Intent(Intent.ACTION_SEND);
-    sharingIntent.setType("text/plain");
-    sharingIntent.putExtra(Intent.EXTRA_TEXT,shareMsg.getText());
-    PackageManager packageManager=getActivity().getPackageManager();
-    List<ResolveInfo> activities=packageManager.queryIntentActivities(sharingIntent,0);
-    boolean isIntentSafe=activities.size() > 0;
-    if (isIntentSafe && mShareActionProvider != null) {
-      mShareActionProvider.setShareIntent(sharingIntent);
-    }
-    return true;
+  if (bean.getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+    inflater.inflate(R.menu.fragment_listview_item_contexual_menu_myself,menu);
   }
  else {
-    if (isAllMyMsg()) {
-      inflater.inflate(R.menu.fragment_listview_item_contexual_menu_only_delete_and_fav,menu);
-    }
- else {
-      inflater.inflate(R.menu.fragment_listview_item_contexual_menu_only_fav,menu);
-    }
-    return true;
+    inflater.inflate(R.menu.fragment_listview_item_contexual_menu,menu);
   }
+  mode.setTitle(bean.getUser().getScreen_name());
+  MenuItem item=menu.findItem(R.id.menu_share);
+  ShareActionProvider mShareActionProvider=(ShareActionProvider)item.getActionProvider();
+  Intent sharingIntent=new Intent(Intent.ACTION_SEND);
+  sharingIntent.setType("text/plain");
+  sharingIntent.putExtra(Intent.EXTRA_TEXT,bean.getText());
+  PackageManager packageManager=getActivity().getPackageManager();
+  List<ResolveInfo> activities=packageManager.queryIntentActivities(sharingIntent,0);
+  boolean isIntentSafe=activities.size() > 0;
+  if (isIntentSafe && mShareActionProvider != null) {
+    mShareActionProvider.setShareIntent(sharingIntent);
+  }
+  return true;
 }
