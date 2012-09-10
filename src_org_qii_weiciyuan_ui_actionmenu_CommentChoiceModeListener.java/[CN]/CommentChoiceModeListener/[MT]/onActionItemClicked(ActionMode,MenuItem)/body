@@ -1,0 +1,13 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_comment:
+    Intent intent=new Intent(getActivity(),ReplyToCommentNewActivity.class);
+  intent.putExtra("token",((IToken)getActivity()).getToken());
+intent.putExtra("msg",bean);
+getActivity().startActivity(intent);
+break;
+}
+listView.clearChoices();
+mode.finish();
+return true;
+}

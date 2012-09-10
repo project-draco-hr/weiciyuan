@@ -1,0 +1,4 @@
+ListView listView
+BaseAdapter adapter
+Fragment activity
+CommentBean bean

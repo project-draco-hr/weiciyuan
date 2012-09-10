@@ -1,0 +1,6 @@
+{
+  this.mode=null;
+  listView.clearChoices();
+  adapter.notifyDataSetChanged();
+  ((AbstractTimeLineFragment)activity).setmActionMode(null);
+}
