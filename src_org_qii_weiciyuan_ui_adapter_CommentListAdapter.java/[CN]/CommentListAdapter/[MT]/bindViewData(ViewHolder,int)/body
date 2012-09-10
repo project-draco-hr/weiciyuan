@@ -1,4 +1,6 @@
 {
+  holder.listview_root.setBackgroundColor(defaultBG);
+  if (listView.getCheckedItemPosition() == position + 1)   holder.listview_root.setBackgroundColor(checkedBG);
   final CommentBean msg=getList().get(position);
   MessageBean repost_msg=msg.getStatus();
   holder.username.setText(msg.getUser().getScreen_name());

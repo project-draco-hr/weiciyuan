@@ -11,6 +11,7 @@
     holder.avatar=(ImageView)convertView.findViewById(R.id.avatar);
     holder.repost_content=(TextView)convertView.findViewById(R.id.repost_content);
     holder.repost_content_pic=(ImageView)convertView.findViewById(R.id.repost_content_pic);
+    holder.listview_root=(RelativeLayout)convertView.findViewById(R.id.listview_root);
     convertView.setTag(holder);
   }
  else {
