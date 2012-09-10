@@ -1,5 +1,7 @@
 {
   CommentNewMsgDao dao=new CommentNewMsgDao(token,id,((EditText)findViewById(R.id.status_new_content)).getText().toString());
+  if (enableRepost)   dao.enableComment_ori(true);
+ else   dao.enableComment_ori(false);
   try {
     return dao.sendNewMsg();
   }
