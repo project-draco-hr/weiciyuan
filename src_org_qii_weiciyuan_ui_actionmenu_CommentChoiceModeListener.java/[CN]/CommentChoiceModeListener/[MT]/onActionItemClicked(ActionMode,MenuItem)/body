@@ -5,9 +5,20 @@ case R.id.menu_comment:
   intent.putExtra("token",((IToken)getActivity()).getToken());
 intent.putExtra("msg",bean);
 getActivity().startActivity(intent);
-break;
-}
 listView.clearChoices();
 mode.finish();
+break;
+case R.id.menu_share:
+Intent sharingIntent=new Intent(Intent.ACTION_SEND);
+sharingIntent.setType("text/plain");
+sharingIntent.putExtra(Intent.EXTRA_TEXT,bean.getText());
+PackageManager packageManager=getActivity().getPackageManager();
+List<ResolveInfo> activities=packageManager.queryIntentActivities(sharingIntent,0);
+boolean isIntentSafe=activities.size() > 0;
+if (isIntentSafe && mShareActionProvider != null) {
+mShareActionProvider.setShareIntent(sharingIntent);
+}
+break;
+}
 return true;
 }

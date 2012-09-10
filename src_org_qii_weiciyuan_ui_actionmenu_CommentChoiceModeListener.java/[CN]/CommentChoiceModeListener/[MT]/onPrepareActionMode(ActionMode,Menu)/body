@@ -4,7 +4,7 @@
   inflater.inflate(R.menu.fragment_comment_listview_item_contextual_menu,menu);
   mode.setTitle(bean.getUser().getScreen_name());
   MenuItem item=menu.findItem(R.id.menu_share);
-  ShareActionProvider mShareActionProvider=(ShareActionProvider)item.getActionProvider();
+  mShareActionProvider=(ShareActionProvider)item.getActionProvider();
   Intent sharingIntent=new Intent(Intent.ACTION_SEND);
   sharingIntent.setType("text/plain");
   sharingIntent.putExtra(Intent.EXTRA_TEXT,bean.getText());
