@@ -8,10 +8,10 @@ case R.id.menu_send:
 case R.id.menu_enable_repost:
 if (enableRepost) {
   enableRepost=false;
-  enableRepostString="??????????????? ???";
+  enableRepostString=getString(R.string.disable_repost_when_comment);
 }
- else if (!enableRepost) {
-  enableRepostString="?????????????????????";
+ else {
+  enableRepostString=getString(R.string.enable_repost_when_comment);
   enableRepost=true;
 }
 invalidateOptionsMenu();

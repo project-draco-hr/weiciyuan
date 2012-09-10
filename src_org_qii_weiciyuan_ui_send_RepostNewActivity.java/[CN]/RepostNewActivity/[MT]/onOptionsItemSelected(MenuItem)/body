@@ -6,10 +6,10 @@ case R.id.menu_send:
 case R.id.menu_enable_comment:
 if (enableComment) {
   enableComment=false;
-  enableCommentString="??????????????? ???";
+  enableCommentString=getString(R.string.disable_comment_when_repost);
 }
- else if (!enableComment) {
-  enableCommentString="?????????????????????";
+ else {
+  enableCommentString=getString(R.string.enable_comment_when_repost);
   enableComment=true;
 }
 invalidateOptionsMenu();

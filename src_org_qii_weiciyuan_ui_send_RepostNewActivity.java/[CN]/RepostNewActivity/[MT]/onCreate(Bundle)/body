@@ -15,4 +15,5 @@
   if (msg.getRetweeted_status() != null) {
     et.setText("//@" + msg.getUser().getScreen_name() + ": "+ msg.getText());
   }
+  enableCommentString=getString(R.string.disable_comment_when_repost);
 }
