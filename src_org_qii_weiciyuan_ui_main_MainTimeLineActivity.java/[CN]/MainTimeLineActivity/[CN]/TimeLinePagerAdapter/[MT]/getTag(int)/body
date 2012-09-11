@@ -1,0 +1,7 @@
+{
+  List<String> tagList=new ArrayList<String>();
+  tagList.add(FriendsTimeLineFragment.class.getName());
+  tagList.add(MentionsTimeLineFragment.class.getName());
+  tagList.add(CommentsTimeLineFragment.class.getName());
+  return tagList.get(position);
+}

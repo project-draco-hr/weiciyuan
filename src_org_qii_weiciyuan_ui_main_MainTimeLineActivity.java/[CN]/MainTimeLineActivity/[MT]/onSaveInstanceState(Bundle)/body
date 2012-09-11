@@ -1,4 +1,5 @@
 {
   super.onSaveInstanceState(outState);
   outState.putSerializable("account",accountBean);
+  outState.putString("token",token);
 }

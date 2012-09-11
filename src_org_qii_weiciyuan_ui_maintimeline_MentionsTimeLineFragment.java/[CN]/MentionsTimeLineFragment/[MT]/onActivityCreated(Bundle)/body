@@ -1,7 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
-  ((MainTimeLineActivity)getActivity()).setMentionsListView(listView);
-  ((MainTimeLineActivity)getActivity()).setMentionFragment(this);
   if (savedInstanceState != null) {
     clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();

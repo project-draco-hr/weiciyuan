@@ -2,14 +2,17 @@
   if (savedInstanceState == null) {
     Intent intent=getIntent();
     accountBean=(AccountBean)intent.getSerializableExtra("account");
-    if (accountBean != null)     AppLogger.d(accountBean.getUsernick());
- else     AppLogger.e("MainTneActivity dont have account");
+    if (accountBean != null) {
+      token=accountBean.getAccess_token();
+    }
+ else {
+      AppLogger.e("MainTneActivity dont have account");
+    }
   }
  else {
     accountBean=(AccountBean)savedInstanceState.getSerializable("account");
-    AppLogger.d(accountBean.getUsernick());
+    token=savedInstanceState.getString("token");
   }
-  token=accountBean.getAccess_token();
   GlobalContext.getInstance().setSpecialToken(token);
   GlobalContext.getInstance().setCurrentAccountId(accountBean.getUid());
   GlobalContext.getInstance().setCurrentAccountName(accountBean.getUsernick());
@@ -19,10 +22,5 @@
   editor.commit();
   super.onCreate(savedInstanceState);
   setContentView(R.layout.maintimelineactivity_viewpager_layout);
-  if (getResources().getBoolean(R.bool.is_phone)) {
-    buildPhoneInterface();
-  }
- else {
-    buildPadInterface();
-  }
+  buildPhoneInterface();
 }
