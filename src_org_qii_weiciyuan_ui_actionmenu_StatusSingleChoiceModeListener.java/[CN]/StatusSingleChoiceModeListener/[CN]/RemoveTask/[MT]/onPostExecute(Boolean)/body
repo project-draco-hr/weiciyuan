@@ -1,6 +1,0 @@
-{
-  super.onPostExecute(aBoolean);
-  if (aBoolean) {
-    adapter.removeItem(positon);
-  }
-}

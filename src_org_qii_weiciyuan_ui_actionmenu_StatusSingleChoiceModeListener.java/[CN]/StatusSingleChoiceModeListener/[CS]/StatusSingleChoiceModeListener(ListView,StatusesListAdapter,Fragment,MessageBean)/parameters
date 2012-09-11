@@ -1,4 +1,4 @@
 ListView listView
 StatusesListAdapter adapter
-Fragment activity
+Fragment fragment
 MessageBean bean
