@@ -1,0 +1,7 @@
+{
+  if (mActionMode != null) {
+    listView.clearChoices();
+    mActionMode.finish();
+    mActionMode=null;
+  }
+}
