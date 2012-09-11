@@ -1,7 +1,8 @@
 {
   if (mActionMode != null) {
-    listView.clearChoices();
     mActionMode.finish();
     mActionMode=null;
   }
+  listView.clearChoices();
+  timeLineAdapter.notifyDataSetChanged();
 }
