@@ -1,6 +1,6 @@
 {
   this.listView=listView;
-  this.activity=activity;
+  this.fragment=fragment;
   this.adapter=adapter;
   this.bean=bean;
 }

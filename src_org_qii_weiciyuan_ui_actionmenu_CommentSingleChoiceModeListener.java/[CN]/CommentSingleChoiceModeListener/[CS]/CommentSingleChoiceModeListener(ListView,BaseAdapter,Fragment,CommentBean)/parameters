@@ -1,4 +1,4 @@
 ListView listView
 BaseAdapter adapter
-Fragment activity
+Fragment fragment
 CommentBean bean
