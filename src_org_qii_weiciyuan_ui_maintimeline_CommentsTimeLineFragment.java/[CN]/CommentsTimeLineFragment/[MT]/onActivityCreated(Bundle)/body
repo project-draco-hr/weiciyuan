@@ -19,13 +19,13 @@
           mActionMode=null;
           listView.setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new CommentChoiceModeListener(listView,timeLineAdapter,CommentsTimeLineFragment.this,bean.getComments().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new CommentSingleChoiceModeListener(listView,timeLineAdapter,CommentsTimeLineFragment.this,bean.getComments().get(position - 1)));
           return true;
         }
  else {
           listView.setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new CommentChoiceModeListener(listView,timeLineAdapter,CommentsTimeLineFragment.this,bean.getComments().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new CommentSingleChoiceModeListener(listView,timeLineAdapter,CommentsTimeLineFragment.this,bean.getComments().get(position - 1)));
           return true;
         }
       }
