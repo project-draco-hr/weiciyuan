@@ -1,5 +1,6 @@
 {
   if (newValue != null) {
+    bean.setTotal_number(newValue.getTotal_number());
     if (newValue.getReposts().size() == 0) {
       Toast.makeText(getActivity(),getString(R.string.no_new_message),Toast.LENGTH_SHORT).show();
     }
