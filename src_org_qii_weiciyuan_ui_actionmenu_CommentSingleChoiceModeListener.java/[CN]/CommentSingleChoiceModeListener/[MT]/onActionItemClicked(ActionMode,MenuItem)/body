@@ -26,6 +26,12 @@ Toast.makeText(getActivity(),getActivity().getString(R.string.copy_successfully)
 listView.clearChoices();
 mode.finish();
 break;
+case R.id.menu_remove:
+int position=listView.getCheckedItemPosition() - 1;
+RemoveDialog dialog=new RemoveDialog(position);
+dialog.setTargetFragment(activity,0);
+dialog.show(activity.getFragmentManager(),"");
+break;
 }
 return true;
 }
