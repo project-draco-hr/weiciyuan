@@ -1,5 +1,5 @@
 ListView listView
-BaseAdapter adapter
+StatusesListAdapter adapter
 Fragment activity
 LinearLayout quick_repost
 MessageBean bean
