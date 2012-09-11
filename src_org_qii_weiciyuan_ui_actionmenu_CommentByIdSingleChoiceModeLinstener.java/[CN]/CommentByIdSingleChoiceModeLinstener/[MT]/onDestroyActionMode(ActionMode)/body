@@ -1,0 +1,4 @@
+{
+  if (initState == View.VISIBLE)   quick_repost.setVisibility(View.VISIBLE);
+  super.onDestroyActionMode(mode);
+}

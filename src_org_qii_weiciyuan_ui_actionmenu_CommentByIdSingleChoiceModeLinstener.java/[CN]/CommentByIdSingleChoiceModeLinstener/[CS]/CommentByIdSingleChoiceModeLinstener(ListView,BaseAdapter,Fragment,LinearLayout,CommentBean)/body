@@ -1,0 +1,5 @@
+{
+  super(listView,adapter,activity,bean);
+  this.quick_repost=quick_repost;
+  initState=this.quick_repost.getVisibility();
+}

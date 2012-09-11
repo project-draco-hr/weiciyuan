@@ -2,6 +2,7 @@
   View view=inflater.inflate(R.layout.fragment_comment_listview_layout,container,false);
   empty=(TextView)view.findViewById(R.id.empty);
   progressBar=(ProgressBar)view.findViewById(R.id.progressbar);
+  quick_repost=(LinearLayout)view.findViewById(R.id.quick_repost);
   listView=(ListView)view.findViewById(R.id.listView);
   listView.setScrollingCacheEnabled(false);
   headerView=inflater.inflate(R.layout.fragment_listview_header_layout,null);
@@ -14,6 +15,13 @@
   }
   listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
     @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      if (mActionMode != null) {
+        listView.clearChoices();
+        mActionMode.finish();
+        mActionMode=null;
+        return;
+      }
+      listView.clearChoices();
       if (position - 1 < getList().getComments().size() && position - 1 >= 0) {
         listViewItemClick(parent,view,position - 1,id);
       }

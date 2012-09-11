@@ -1,0 +1,5 @@
+ListView listView
+BaseAdapter adapter
+Fragment activity
+LinearLayout quick_repost
+CommentBean bean
