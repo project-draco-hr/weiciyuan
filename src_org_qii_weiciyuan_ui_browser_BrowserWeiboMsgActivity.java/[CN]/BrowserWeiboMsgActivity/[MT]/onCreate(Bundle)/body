@@ -1,8 +1,14 @@
 {
   super.onCreate(savedInstanceState);
-  Intent intent=getIntent();
-  token=intent.getStringExtra("token");
-  msg=(MessageBean)intent.getSerializableExtra("msg");
+  if (savedInstanceState != null) {
+    msg=(MessageBean)savedInstanceState.getSerializable("msg");
+    token=savedInstanceState.getString("token");
+  }
+ else {
+    Intent intent=getIntent();
+    token=intent.getStringExtra("token");
+    msg=(MessageBean)intent.getSerializableExtra("msg");
+  }
   setContentView(R.layout.maintimelineactivity_viewpager_layout);
   buildViewPager();
   buildActionBarAndViewPagerTitles();

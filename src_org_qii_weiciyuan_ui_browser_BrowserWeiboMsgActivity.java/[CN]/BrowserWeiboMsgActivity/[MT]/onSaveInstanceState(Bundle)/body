@@ -1,0 +1,5 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putSerializable("msg",msg);
+  outState.putString("token",token);
+}
