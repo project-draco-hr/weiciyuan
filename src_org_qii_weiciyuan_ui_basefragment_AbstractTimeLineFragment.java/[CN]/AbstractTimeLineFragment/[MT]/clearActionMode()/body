@@ -3,6 +3,6 @@
     mActionMode.finish();
     mActionMode=null;
   }
-  listView.clearChoices();
-  timeLineAdapter.notifyDataSetChanged();
+  if (listView != null)   listView.clearChoices();
+  if (timeLineAdapter != null)   timeLineAdapter.notifyDataSetChanged();
 }
