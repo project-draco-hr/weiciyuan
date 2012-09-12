@@ -1,0 +1,11 @@
+{
+  FavDao dao=new FavDao(token,id);
+  try {
+    return dao.favIt();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+    return null;
+  }
+}
