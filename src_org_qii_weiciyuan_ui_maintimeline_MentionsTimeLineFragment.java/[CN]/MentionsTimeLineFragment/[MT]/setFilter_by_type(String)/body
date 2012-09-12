@@ -1,0 +1,3 @@
+{
+  this.filter_by_type=filter_by_type;
+}

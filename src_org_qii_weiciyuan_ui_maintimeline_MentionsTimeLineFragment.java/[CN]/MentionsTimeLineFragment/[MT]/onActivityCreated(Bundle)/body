@@ -1,6 +1,10 @@
 {
   super.onActivityCreated(savedInstanceState);
   if (savedInstanceState != null) {
+    group=savedInstanceState.getStringArray("group");
+    selected=savedInstanceState.getInt("selected");
+    filter_by_author=savedInstanceState.getString("filter_by_author");
+    filter_by_type=savedInstanceState.getString("filter_by_type");
     clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);

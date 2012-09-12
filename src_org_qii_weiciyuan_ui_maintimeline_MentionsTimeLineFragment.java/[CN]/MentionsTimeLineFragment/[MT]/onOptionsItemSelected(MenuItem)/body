@@ -5,7 +5,8 @@ case R.id.mentionstimelinefragment_refresh:
   break;
 case R.id.mentionstimelinefragment_group:
 if (newTask == null || newTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-  GroupDialog dialog=new GroupDialog();
+  MentionsGroupDialog dialog=new MentionsGroupDialog(group,selected);
+  dialog.setTargetFragment(MentionsTimeLineFragment.this,0);
   dialog.show(getFragmentManager(),"");
 }
 }

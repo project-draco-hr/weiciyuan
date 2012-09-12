@@ -1,0 +1,4 @@
+{
+  clearAndReplaceValue(DatabaseManager.getInstance().getRepostLineMsgList(((IAccountInfo)getActivity()).getAccount().getUid()));
+  return null;
+}
