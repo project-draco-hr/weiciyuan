@@ -1,7 +1,7 @@
 {
-  if (newValue != null && newValue.getComments().size() > 1) {
-    List<CommentBean> list=newValue.getComments();
-    getList().getComments().addAll(list.subList(1,list.size() - 1));
+  if (newValue != null && newValue.getItemList().size() > 1) {
+    List<CommentBean> list=newValue.getItemList();
+    getList().getItemList().addAll(list.subList(1,list.size() - 1));
     ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
   }
  else {

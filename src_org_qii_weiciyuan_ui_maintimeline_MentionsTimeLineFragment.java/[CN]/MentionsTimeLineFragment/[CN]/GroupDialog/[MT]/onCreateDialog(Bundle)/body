@@ -19,7 +19,7 @@ break;
 }
 if (selected != which) {
 selected=which;
-getList().getStatuses().clear();
+getList().getItemList().clear();
 timeLineAdapter.notifyDataSetChanged();
 refresh();
 getActivity().invalidateOptionsMenu();

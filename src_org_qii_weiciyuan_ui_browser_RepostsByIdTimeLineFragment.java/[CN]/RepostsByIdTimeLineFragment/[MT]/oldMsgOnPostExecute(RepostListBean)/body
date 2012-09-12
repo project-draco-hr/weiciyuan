@@ -1,8 +1,0 @@
-{
-  if (newValue != null && newValue.getReposts().size() > 1) {
-    List<MessageBean> list=newValue.getReposts();
-    getList().getReposts().addAll(list.subList(1,list.size() - 1));
-  }
-  timeLineAdapter.notifyDataSetChanged();
-  invlidateTabText();
-}

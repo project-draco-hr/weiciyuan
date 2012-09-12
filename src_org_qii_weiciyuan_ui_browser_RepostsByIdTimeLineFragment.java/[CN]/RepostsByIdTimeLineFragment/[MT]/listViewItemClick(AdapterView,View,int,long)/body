@@ -1,6 +1,6 @@
 {
   Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
-  intent.putExtra("msg",bean.getReposts().get(position));
+  intent.putExtra("msg",bean.getItemList().get(position));
   intent.putExtra("token",((IToken)getActivity()).getToken());
   startActivity(intent);
 }

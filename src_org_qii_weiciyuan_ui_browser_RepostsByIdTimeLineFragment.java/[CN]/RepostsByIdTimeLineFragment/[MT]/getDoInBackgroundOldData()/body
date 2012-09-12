@@ -1,7 +1,7 @@
 {
   RepostsTimeLineByIdDao dao=new RepostsTimeLineByIdDao(token,id);
-  if (getList().getReposts().size() > 0) {
-    dao.setMax_id(getList().getReposts().get(getList().getReposts().size() - 1).getId());
+  if (getList().getItemList().size() > 0) {
+    dao.setMax_id(getList().getItemList().get(getList().getItemList().size() - 1).getId());
   }
   return dao.getGSONMsgList();
 }

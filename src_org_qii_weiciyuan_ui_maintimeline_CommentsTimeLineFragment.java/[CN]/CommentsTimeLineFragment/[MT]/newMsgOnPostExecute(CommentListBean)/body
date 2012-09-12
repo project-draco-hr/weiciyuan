@@ -1,12 +1,12 @@
 {
   if (newValue != null) {
-    if (newValue.getComments().size() == 0) {
+    if (newValue.getItemList().size() == 0) {
       Toast.makeText(getActivity(),getString(R.string.no_new_message),Toast.LENGTH_SHORT).show();
     }
  else {
-      Toast.makeText(getActivity(),getString(R.string.total) + newValue.getComments().size() + getString(R.string.new_messages),Toast.LENGTH_SHORT).show();
-      if (newValue.getComments().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
-        newValue.getComments().addAll(getList().getComments());
+      Toast.makeText(getActivity(),getString(R.string.total) + newValue.getItemList().size() + getString(R.string.new_messages),Toast.LENGTH_SHORT).show();
+      if (newValue.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+        newValue.getItemList().addAll(getList().getItemList());
       }
       clearAndReplaceValue(newValue);
       timeLineAdapter.notifyDataSetChanged();

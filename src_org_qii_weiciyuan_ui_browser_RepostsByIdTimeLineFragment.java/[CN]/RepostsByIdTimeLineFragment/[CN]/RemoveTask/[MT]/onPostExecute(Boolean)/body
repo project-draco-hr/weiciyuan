@@ -1,6 +1,0 @@
-{
-  super.onPostExecute(aBoolean);
-  if (aBoolean) {
-    ((StatusesListAdapter)timeLineAdapter).removeItem(positon);
-  }
-}

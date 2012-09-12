@@ -1,6 +1,6 @@
 {
   Gson gson=new Gson();
-  List<MessageBean> msgList=list.getStatuses();
+  List<MessageBean> msgList=list.getItemList();
   for (  MessageBean msg : msgList) {
     ContentValues cv=new ContentValues();
     cv.put(HomeTable.MBLOGID,msg.getId());

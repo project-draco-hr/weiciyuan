@@ -1,11 +1,11 @@
 {
   MainCommentsTimeLineDao dao=new MainCommentsTimeLineDao(((MainTimeLineActivity)getActivity()).getToken());
-  if (getList() != null && getList().getComments().size() > 0) {
-    dao.setSince_id(getList().getComments().get(0).getId());
+  if (getList() != null && getList().getItemList().size() > 0) {
+    dao.setSince_id(getList().getItemList().get(0).getId());
   }
   CommentListBean result=dao.getGSONMsgList();
   if (result != null) {
-    if (result.getComments().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+    if (result.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
       DatabaseManager.getInstance().addCommentLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
     }
  else {

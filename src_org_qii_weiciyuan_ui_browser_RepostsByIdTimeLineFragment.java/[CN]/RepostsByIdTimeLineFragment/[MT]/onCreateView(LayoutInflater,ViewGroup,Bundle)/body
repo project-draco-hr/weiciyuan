@@ -10,7 +10,7 @@
   listView.setHeaderDividersEnabled(false);
   footerView=inflater.inflate(R.layout.fragment_listview_footer_layout,null);
   listView.addFooterView(footerView);
-  if (bean.getReposts().size() == 0) {
+  if (bean.getSize() == 0) {
     footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
   }
   listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){

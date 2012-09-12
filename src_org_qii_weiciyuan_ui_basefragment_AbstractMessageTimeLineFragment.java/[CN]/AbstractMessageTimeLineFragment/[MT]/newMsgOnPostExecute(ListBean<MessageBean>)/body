@@ -1,0 +1,15 @@
+{
+  if (newValue != null && getActivity() != null) {
+    if (newValue.getSize() == 0) {
+    }
+ else     if (newValue.getSize() > 0) {
+      if (newValue.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+        newValue.getItemList().addAll(getList().getItemList());
+      }
+      clearAndReplaceValue(newValue);
+      timeLineAdapter.notifyDataSetChanged();
+      listView.setSelectionAfterHeaderView();
+    }
+  }
+  afterGetNewMsg();
+}

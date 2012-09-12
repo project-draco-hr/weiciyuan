@@ -1,7 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
-  if (savedInstanceState != null && bean.getReposts().size() == 0) {
+  if (savedInstanceState != null && bean.getSize() == 0) {
     clearAndReplaceValue((RepostListBean)savedInstanceState.getSerializable("bean"));
     token=savedInstanceState.getString("token");
     id=savedInstanceState.getString("id");
@@ -18,13 +18,13 @@
           mActionMode=null;
           listView.setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new RepostSingleChoiceModeListener(listView,(StatusesListAdapter)timeLineAdapter,RepostsByIdTimeLineFragment.this,quick_repost,bean.getReposts().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new RepostSingleChoiceModeListener(listView,(StatusesListAdapter)timeLineAdapter,RepostsByIdTimeLineFragment.this,quick_repost,bean.getItemList().get(position - 1)));
           return true;
         }
  else {
           listView.setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new RepostSingleChoiceModeListener(listView,(StatusesListAdapter)timeLineAdapter,RepostsByIdTimeLineFragment.this,quick_repost,bean.getReposts().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new RepostSingleChoiceModeListener(listView,(StatusesListAdapter)timeLineAdapter,RepostsByIdTimeLineFragment.this,quick_repost,bean.getItemList().get(position - 1)));
           return true;
         }
       }

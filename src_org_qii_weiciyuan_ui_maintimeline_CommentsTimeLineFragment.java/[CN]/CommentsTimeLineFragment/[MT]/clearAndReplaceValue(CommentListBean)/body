@@ -1,4 +1,4 @@
 {
-  bean.getComments().clear();
-  bean.getComments().addAll(value.getComments());
+  bean.getItemList().clear();
+  bean.getItemList().addAll(value.getItemList());
 }

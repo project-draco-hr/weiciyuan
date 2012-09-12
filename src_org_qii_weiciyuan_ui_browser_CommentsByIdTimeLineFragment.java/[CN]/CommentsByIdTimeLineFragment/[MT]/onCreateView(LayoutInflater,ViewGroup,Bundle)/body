@@ -10,7 +10,7 @@
   listView.setHeaderDividersEnabled(false);
   footerView=inflater.inflate(R.layout.fragment_listview_footer_layout,null);
   listView.addFooterView(footerView);
-  if (bean == null || bean.getComments().size() == 0) {
+  if (bean == null || bean.getItemList().size() == 0) {
     footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
   }
   listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -22,10 +22,10 @@
         return;
       }
       listView.clearChoices();
-      if (position - 1 < getList().getComments().size() && position - 1 >= 0) {
+      if (position - 1 < getList().getItemList().size() && position - 1 >= 0) {
         listViewItemClick(parent,view,position - 1,id);
       }
- else       if (position - 1 >= getList().getComments().size()) {
+ else       if (position - 1 >= getList().getItemList().size()) {
         listViewFooterViewClick(view);
       }
     }

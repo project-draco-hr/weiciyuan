@@ -1,7 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
-  if (savedInstanceState != null && (bean == null || bean.getComments().size() == 0)) {
+  if (savedInstanceState != null && (bean == null || bean.getItemList().size() == 0)) {
     clearAndReplaceValue((CommentListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
@@ -18,13 +18,13 @@
           mActionMode=null;
           listView.setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new CommentSingleChoiceModeListener(listView,timeLineAdapter,CommentsTimeLineFragment.this,bean.getComments().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new CommentSingleChoiceModeListener(listView,timeLineAdapter,CommentsTimeLineFragment.this,bean.getItemList().get(position - 1)));
           return true;
         }
  else {
           listView.setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new CommentSingleChoiceModeListener(listView,timeLineAdapter,CommentsTimeLineFragment.this,bean.getComments().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new CommentSingleChoiceModeListener(listView,timeLineAdapter,CommentsTimeLineFragment.this,bean.getItemList().get(position - 1)));
           return true;
         }
       }

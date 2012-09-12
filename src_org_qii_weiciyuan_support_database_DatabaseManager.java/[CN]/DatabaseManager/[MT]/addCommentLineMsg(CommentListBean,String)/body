@@ -1,6 +1,6 @@
 {
   Gson gson=new Gson();
-  List<CommentBean> msgList=list.getComments();
+  List<CommentBean> msgList=list.getItemList();
   for (  CommentBean msg : msgList) {
     ContentValues cv=new ContentValues();
     cv.put(CommentsTable.MBLOGID,msg.getId());

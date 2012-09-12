@@ -6,8 +6,8 @@
   if (TextUtils.isEmpty(id)) {
     dao.setScreen_name(screenName);
   }
-  if (getList().getStatuses().size() > 0) {
-    dao.setSince_id(getList().getStatuses().get(0).getId());
+  if (getList().getSize() > 0) {
+    dao.setSince_id(getList().getItem(0).getId());
   }
   MessageListBean result=dao.getGSONMsgList();
   return result;

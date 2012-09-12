@@ -1,7 +1,7 @@
 {
   CommentsTimeLineByIdDao dao=new CommentsTimeLineByIdDao(token,id);
-  if (getList().getComments().size() > 0) {
-    dao.setSince_id(getList().getComments().get(0).getId());
+  if (getList().getItemList().size() > 0) {
+    dao.setSince_id(getList().getItemList().get(0).getId());
   }
   CommentListBean result=dao.getGSONMsgList();
   return result;

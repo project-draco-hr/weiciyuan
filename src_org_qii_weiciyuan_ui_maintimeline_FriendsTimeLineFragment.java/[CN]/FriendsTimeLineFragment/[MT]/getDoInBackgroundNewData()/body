@@ -1,11 +1,11 @@
 {
   MainFriendsTimeLineDao dao=new MainFriendsTimeLineDao(((MainTimeLineActivity)getActivity()).getToken());
-  if (getList().getStatuses().size() > 0) {
-    dao.setSince_id(getList().getStatuses().get(0).getId());
+  if (getList().getItemList().size() > 0) {
+    dao.setSince_id(getList().getItemList().get(0).getId());
   }
   MessageListBean result=dao.getGSONMsgList();
   if (result != null) {
-    if (result.getStatuses().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+    if (result.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
       DatabaseManager.getInstance().addHomeLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
     }
  else {
