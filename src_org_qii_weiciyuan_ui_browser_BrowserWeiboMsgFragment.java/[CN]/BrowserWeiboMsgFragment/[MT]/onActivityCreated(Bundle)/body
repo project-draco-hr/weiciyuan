@@ -1,11 +1,13 @@
 {
   super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
+  setRetainInstance(true);
   if (savedInstanceState != null) {
     msg=(MessageBean)savedInstanceState.getSerializable("msg");
   }
+ else {
+    task=new UpdateMsgTask();
+    task.execute();
+  }
   buildViewData();
-  setHasOptionsMenu(true);
-  setRetainInstance(true);
-  task=new UpdateMsgTask();
-  task.execute();
 }
