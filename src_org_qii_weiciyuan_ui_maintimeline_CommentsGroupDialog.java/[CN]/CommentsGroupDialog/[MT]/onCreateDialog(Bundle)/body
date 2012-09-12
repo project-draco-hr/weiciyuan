@@ -1,0 +1,21 @@
+{
+  if (savedInstanceState != null) {
+    group=savedInstanceState.getStringArray("group");
+    selected=savedInstanceState.getInt("selected");
+  }
+  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+  builder.setTitle(getString(R.string.select_group));
+  builder.setSingleChoiceItems(this.group,this.selected,new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      CommentsTimeLineFragment fragment=(CommentsTimeLineFragment)getTargetFragment();
+      if (selected != which) {
+        selected=which;
+        fragment.setSelected(which);
+        fragment.refreshAnother();
+      }
+      dismiss();
+    }
+  }
+);
+  return builder.create();
+}

@@ -1,0 +1,11 @@
+{
+  getList().getItemList().clear();
+  timeLineAdapter.notifyDataSetChanged();
+  if (selected != 0) {
+    refresh();
+  }
+ else {
+    new RefreshDBTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+  getActivity().invalidateOptionsMenu();
+}

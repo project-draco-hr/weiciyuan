@@ -1,16 +1,29 @@
 {
-  MainCommentsTimeLineDao dao=new MainCommentsTimeLineDao(((MainTimeLineActivity)getActivity()).getToken());
-  if (getList() != null && getList().getItemList().size() > 0) {
-    dao.setSince_id(getList().getItemList().get(0).getId());
-  }
-  CommentListBean result=dao.getGSONMsgList();
-  if (result != null) {
-    if (result.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
-      DatabaseManager.getInstance().addCommentLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
+  if (selected == 0 || selected == 1) {
+    MainCommentsTimeLineDao dao=new MainCommentsTimeLineDao(((MainTimeLineActivity)getActivity()).getToken());
+    if (getList() != null && getList().getItemList().size() > 0) {
+      dao.setSince_id(getList().getItemList().get(0).getId());
     }
+    if (selected == 1) {
+      dao.setFilter_by_author("1");
+    }
+    CommentListBean result=dao.getGSONMsgList();
+    if (result != null && selected == 0) {
+      if (result.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+        DatabaseManager.getInstance().addCommentLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
+      }
  else {
-      DatabaseManager.getInstance().replaceCommentLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
+        DatabaseManager.getInstance().replaceCommentLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
+      }
     }
+    return result;
   }
-  return result;
+ else {
+    CommentsTimeLineByMeDao dao=new CommentsTimeLineByMeDao(((MainTimeLineActivity)getActivity()).getToken());
+    if (getList() != null && getList().getItemList().size() > 0) {
+      dao.setSince_id(getList().getItemList().get(0).getId());
+    }
+    CommentListBean result=dao.getGSONMsgList();
+    return result;
+  }
 }

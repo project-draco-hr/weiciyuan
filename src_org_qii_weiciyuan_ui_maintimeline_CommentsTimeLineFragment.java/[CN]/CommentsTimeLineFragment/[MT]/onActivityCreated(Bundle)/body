@@ -2,6 +2,8 @@
   super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
   if (savedInstanceState != null && (bean == null || bean.getItemList().size() == 0)) {
+    group=savedInstanceState.getStringArray("group");
+    selected=savedInstanceState.getInt("selected");
     clearAndReplaceValue((CommentListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
