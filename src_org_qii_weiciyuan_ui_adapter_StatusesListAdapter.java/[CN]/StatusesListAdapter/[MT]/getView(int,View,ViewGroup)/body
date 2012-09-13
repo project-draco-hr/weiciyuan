@@ -1,5 +1,5 @@
 {
-  if (bean.get(position).getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+  if (bean.get(position).getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId()) && GlobalContext.getInstance().isEnablePic()) {
     ViewHolder holder;
     if (convertView == null || convertView.getTag(R.drawable.app) == null) {
       convertView=initMylayout(parent);
