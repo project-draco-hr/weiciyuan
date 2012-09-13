@@ -1,4 +1,14 @@
 {
   super.onNewIntent(intent);
-  buildTabTitle(intent);
+  AccountBean newAccountBean=(AccountBean)intent.getSerializableExtra("account");
+  if (newAccountBean != null && !newAccountBean.getUid().equals(accountBean.getUid())) {
+    overridePendingTransition(0,0);
+    finish();
+    overridePendingTransition(0,0);
+    startActivity(intent);
+    overridePendingTransition(0,0);
+  }
+ else {
+    buildTabTitle(intent);
+  }
 }

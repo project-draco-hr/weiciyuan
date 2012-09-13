@@ -1,0 +1,57 @@
+{
+  ActionBar actionBar=getActionBar();
+  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setTitle(R.string.write_weibo);
+  View title=getLayoutInflater().inflate(R.layout.statusnewactivity_title_layout,null);
+  TextView contentNumber=(TextView)title.findViewById(R.id.content_number);
+  haveGPS=(ImageView)title.findViewById(R.id.have_gps);
+  haveGPS.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      String geoUriString="geo:" + geoBean.getLat() + ","+ geoBean.getLon()+ "?q="+ location;
+      Uri geoUri=Uri.parse(geoUriString);
+      Intent mapCall=new Intent(Intent.ACTION_VIEW,geoUri);
+      PackageManager packageManager=getPackageManager();
+      List<ResolveInfo> activities=packageManager.queryIntentActivities(mapCall,0);
+      boolean isIntentSafe=activities.size() > 0;
+      if (isIntentSafe) {
+        startActivity(mapCall);
+      }
+    }
+  }
+);
+  haveGPS.setOnLongClickListener(new View.OnLongClickListener(){
+    @Override public boolean onLongClick(    View v){
+      haveGPS.setVisibility(View.GONE);
+      geoBean=null;
+      return true;
+    }
+  }
+);
+  havePic=(ImageView)title.findViewById(R.id.have_pic);
+  havePic.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent();
+      intent.setAction(Intent.ACTION_VIEW);
+      intent.setDataAndType(Uri.fromFile(new File(picPath)),"image/png");
+      PackageManager packageManager=getPackageManager();
+      List<ResolveInfo> activities=packageManager.queryIntentActivities(intent,0);
+      boolean isIntentSafe=activities.size() > 0;
+      if (isIntentSafe) {
+        startActivity(intent);
+      }
+    }
+  }
+);
+  havePic.setOnLongClickListener(new View.OnLongClickListener(){
+    @Override public boolean onLongClick(    View v){
+      havePic.setVisibility(View.GONE);
+      picPath="";
+      return true;
+    }
+  }
+);
+  actionBar.setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
+  actionBar.setDisplayShowCustomEnabled(true);
+  content=((EditText)findViewById(R.id.status_new_content));
+  content.addTextChangedListener(new TextNumLimitWatcher(contentNumber,content,this));
+}

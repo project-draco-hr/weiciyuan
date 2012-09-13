@@ -2,15 +2,16 @@
   SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
   String id=sharedPref.getString("id","");
   if (!TextUtils.isEmpty(id)) {
-    AccountBean bean=DatabaseManager.getInstance().getAccount(id);
-    if (bean != null) {
-      token=bean.getAccess_token();
-      getActionBar().setSubtitle(bean.getUsernick());
+    accountBean=DatabaseManager.getInstance().getAccount(id);
+    if (accountBean != null) {
+      token=accountBean.getAccess_token();
+      getActionBar().setSubtitle(accountBean.getUsernick());
     }
  else {
       List<AccountBean> accountList=DatabaseManager.getInstance().getAccountList();
       if (accountList != null && accountList.size() > 0) {
         AccountBean account=accountList.get(0);
+        accountBean=account;
         token=account.getAccess_token();
         getActionBar().setSubtitle(account.getUsernick());
       }
