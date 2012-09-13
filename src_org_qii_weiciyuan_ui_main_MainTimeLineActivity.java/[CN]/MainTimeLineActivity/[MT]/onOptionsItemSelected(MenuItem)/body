@@ -1,14 +1,21 @@
 {
   Intent intent;
 switch (item.getItemId()) {
-case R.id.menu_account:
-    intent=new Intent(this,AccountActivity.class);
-  intent.putExtra("launcher",false);
+case R.id.menu_my_info:
+    intent=new Intent(this,MyInfoActivity.class);
+  intent.putExtra("token",getToken());
+intent.putExtra("user",getUser());
+intent.putExtra("account",getAccount());
 startActivity(intent);
-break;
+return true;
+case R.id.menu_account:
+intent=new Intent(this,AccountActivity.class);
+intent.putExtra("launcher",false);
+startActivity(intent);
+return true;
 case R.id.menu_setting:
 startActivity(new Intent(this,SettingActivity.class));
-break;
+return true;
 }
 return super.onOptionsItemSelected(item);
 }

@@ -1,4 +1,0 @@
-{
-  getMenuInflater().inflate(R.menu.maintimelineactivity_menu,menu);
-  return super.onCreateOptionsMenu(menu);
-}
