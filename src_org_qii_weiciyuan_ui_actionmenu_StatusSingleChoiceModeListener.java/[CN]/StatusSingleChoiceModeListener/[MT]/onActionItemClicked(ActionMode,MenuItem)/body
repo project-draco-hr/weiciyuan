@@ -45,6 +45,13 @@ boolean isIntentSafe=activities.size() > 0;
 if (isIntentSafe && mShareActionProvider != null) {
 mShareActionProvider.setShareIntent(sharingIntent);
 }
+mShareActionProvider.setOnShareTargetSelectedListener(new ShareActionProvider.OnShareTargetSelectedListener(){
+@Override public boolean onShareTargetSelected(ShareActionProvider source,Intent intent){
+finish();
+return false;
+}
+}
+);
 break;
 }
 return true;
