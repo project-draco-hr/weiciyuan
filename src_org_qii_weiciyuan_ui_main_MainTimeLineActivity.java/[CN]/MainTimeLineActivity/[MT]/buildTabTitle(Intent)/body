@@ -1,12 +1,20 @@
 {
-  int commentsum=intent.getIntExtra("commentsum",0);
-  int repostsum=intent.getIntExtra("repostsum",0);
-  if (repostsum > 0) {
-    invlidateTabText(1,repostsum);
+  AccountBean newAccountBean=(AccountBean)intent.getSerializableExtra("account");
+  if (newAccountBean != null && !newAccountBean.getUid().equals(accountBean.getUid())) {
+    overridePendingTransition(0,0);
+    finish();
+    overridePendingTransition(0,0);
+    startActivity(intent);
+    overridePendingTransition(0,0);
+  }
+  CommentListBean comment=(CommentListBean)intent.getSerializableExtra("comment");
+  MessageListBean repost=(MessageListBean)intent.getSerializableExtra("repost");
+  if (repost != null && repost.getSize() > 0) {
+    invlidateTabText(1,repost.getSize());
     getActionBar().setSelectedNavigationItem(1);
   }
-  if (commentsum > 0) {
-    invlidateTabText(2,commentsum);
+  if (comment != null && comment.getSize() > 0) {
+    invlidateTabText(2,comment.getSize());
     getActionBar().setSelectedNavigationItem(2);
   }
 }

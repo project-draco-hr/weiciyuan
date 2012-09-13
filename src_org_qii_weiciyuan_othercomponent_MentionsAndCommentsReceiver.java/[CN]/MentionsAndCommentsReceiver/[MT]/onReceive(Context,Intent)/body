@@ -1,11 +1,9 @@
 {
   this.context=context;
   accountBean=(AccountBean)intent.getSerializableExtra("account");
-  Integer commentsum=intent.getIntExtra("commentsum",0);
-  Integer repostsum=intent.getIntExtra("repostsum",0);
-  sum=commentsum + repostsum;
-  CommentListBean comment=(CommentListBean)intent.getSerializableExtra("comment");
-  MessageListBean repost=(MessageListBean)intent.getSerializableExtra("repost");
+  comment=(CommentListBean)intent.getSerializableExtra("comment");
+  repost=(MessageListBean)intent.getSerializableExtra("repost");
+  sum=comment.getSize() + repost.getSize();
   Set<String> peopleNameSet=new HashSet<String>();
   String lastName;
   if (comment.getSize() > 0) {
