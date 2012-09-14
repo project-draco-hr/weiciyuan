@@ -10,11 +10,11 @@
       return super.onStartCommand(intent,flags,startId);
     }
  else {
-      new SimpleTask().execute();
+      startFetchNewMsg();
     }
   }
  else {
-    new SimpleTask().execute();
+    startFetchNewMsg();
   }
   return super.onStartCommand(intent,flags,startId);
 }

@@ -5,6 +5,6 @@
   alarm.cancel(sender);
   if (clearNotification) {
     NotificationManager notificationManager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-    notificationManager.cancel(MentionsAndCommentsReceiver.NEW_MSG_NOTIFICATION_ID);
+    notificationManager.cancel(Long.valueOf(GlobalContext.getInstance().getCurrentAccountId()).intValue());
   }
 }

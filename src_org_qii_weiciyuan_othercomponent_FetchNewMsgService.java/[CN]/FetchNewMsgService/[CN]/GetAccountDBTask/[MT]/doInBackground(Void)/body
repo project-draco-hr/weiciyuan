@@ -1,0 +1,10 @@
+{
+  List<AccountBean> accountBeanList=DatabaseManager.getInstance().getAccountList();
+  if (accountBeanList.size() > 0) {
+    return accountBeanList;
+  }
+ else {
+    cancel(true);
+    return null;
+  }
+}

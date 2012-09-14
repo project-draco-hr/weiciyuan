@@ -1,5 +1,5 @@
 {
-  showNotification(sum);
+  showNotification();
   stopSelf();
   super.onPostExecute(sum);
 }

@@ -15,5 +15,5 @@
   }
   getActivity().getActionBar().getTabAt(2).setText(getString(R.string.comments));
   NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-  notificationManager.cancelAll();
+  notificationManager.cancel(Long.valueOf(GlobalContext.getInstance().getCurrentAccountId()).intValue());
 }
