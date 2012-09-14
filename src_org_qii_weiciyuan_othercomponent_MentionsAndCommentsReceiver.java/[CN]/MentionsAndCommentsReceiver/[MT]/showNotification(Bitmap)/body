@@ -10,5 +10,5 @@
   if (sum > 1) {
     notification.setNumber(sum);
   }
-  notificationManager.notify(0,notification.getNotification());
+  notificationManager.notify(NEW_MSG_NOTIFICATION_ID,notification.getNotification());
 }

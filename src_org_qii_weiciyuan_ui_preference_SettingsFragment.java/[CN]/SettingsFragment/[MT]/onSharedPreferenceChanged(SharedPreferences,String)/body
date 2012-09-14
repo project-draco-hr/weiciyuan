@@ -15,7 +15,7 @@
       AppNewMsgAlarm.startAlarm(getActivity(),true);
     }
  else {
-      AppNewMsgAlarm.stopAlarm(getActivity(),false);
+      AppNewMsgAlarm.stopAlarm(getActivity(),true);
     }
   }
   if (key.equals(SettingActivity.FREQUENCY)) {
