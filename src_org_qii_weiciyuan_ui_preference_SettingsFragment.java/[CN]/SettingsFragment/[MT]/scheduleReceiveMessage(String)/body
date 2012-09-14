@@ -1,5 +1,3 @@
 {
-  if (value.equals("1"))   startAlarm(3 * 60 * 1000);
-  if (value.equals("2"))   startAlarm(AlarmManager.INTERVAL_FIFTEEN_MINUTES);
-  if (value.equals("3"))   startAlarm(AlarmManager.INTERVAL_HALF_HOUR);
+  startAlarm();
 }

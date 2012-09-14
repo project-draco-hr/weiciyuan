@@ -1,6 +1,13 @@
 {
   ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
   NetworkInfo networkInfo=cm.getActiveNetworkInfo();
+  if (BuildConfig.DEBUG) {
+    Toast.makeText(context,"connection changed",Toast.LENGTH_SHORT).show();
+  }
   if (networkInfo != null && networkInfo.isConnected()) {
+    AppNewMsgAlarm.startAlarm(context,true);
+  }
+ else {
+    AppNewMsgAlarm.stopAlarm(context,false);
   }
 }

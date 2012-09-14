@@ -1,8 +1,3 @@
 {
-  AlarmManager alarm=(AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
-  Intent intent=new Intent(getActivity(),FetchNewMsgService.class);
-  PendingIntent sender=PendingIntent.getService(getActivity(),195,intent,PendingIntent.FLAG_CANCEL_CURRENT);
-  alarm.cancel(sender);
-  NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-  notificationManager.cancelAll();
+  AppNewMsgAlarm.stopAlarm(getActivity(),true);
 }
