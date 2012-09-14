@@ -5,7 +5,14 @@
     Toast.makeText(context,"connection changed",Toast.LENGTH_SHORT).show();
   }
   if (networkInfo != null && networkInfo.isConnected()) {
-    AppNewMsgAlarm.startAlarm(context,true);
+    SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(context);
+    boolean value=sharedPref.getBoolean(SettingActivity.ENABLE_FETCH_MSG,false);
+    if (value) {
+      AppNewMsgAlarm.startAlarm(context,true);
+    }
+ else {
+      AppNewMsgAlarm.stopAlarm(context,false);
+    }
   }
  else {
     AppNewMsgAlarm.stopAlarm(context,false);

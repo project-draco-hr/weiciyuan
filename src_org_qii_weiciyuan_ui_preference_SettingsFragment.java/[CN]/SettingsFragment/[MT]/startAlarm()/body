@@ -1,3 +1,0 @@
-{
-  AppNewMsgAlarm.startAlarm(getActivity(),false);
-}
