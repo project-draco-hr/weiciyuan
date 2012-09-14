@@ -1,4 +1,5 @@
 {
+  scheduledExecutorService=Executors.newSingleThreadScheduledExecutor();
   scheduledExecutorService.scheduleAtFixedRate(new refreshTimeWorker(),1,1,TimeUnit.SECONDS);
   listView.setOnScrollListener(new AbsListView.OnScrollListener(){
     @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
