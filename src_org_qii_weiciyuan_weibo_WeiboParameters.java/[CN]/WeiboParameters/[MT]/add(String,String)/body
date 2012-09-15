@@ -1,9 +1,0 @@
-{
-  if (this.mKeys.contains(key)) {
-    this.mParameters.putString(key,value);
-  }
- else {
-    this.mKeys.add(key);
-    this.mParameters.putString(key,value);
-  }
-}

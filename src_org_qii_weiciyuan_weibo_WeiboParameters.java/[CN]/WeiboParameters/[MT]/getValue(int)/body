@@ -1,5 +1,0 @@
-{
-  String key=this.mKeys.get(location);
-  String rlt=this.mParameters.getString(key);
-  return rlt;
-}

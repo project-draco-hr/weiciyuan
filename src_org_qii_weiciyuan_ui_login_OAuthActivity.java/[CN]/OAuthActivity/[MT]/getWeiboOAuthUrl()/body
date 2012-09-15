@@ -1,8 +1,8 @@
 {
-  WeiboParameters parameters=new WeiboParameters();
-  parameters.add("client_id",APP_KEY);
-  parameters.add("response_type","token");
-  parameters.add("redirect_uri",DIRECT_URL);
-  parameters.add("display","mobile");
+  Map<String,String> parameters=new HashMap<String,String>();
+  parameters.put("client_id",APP_KEY);
+  parameters.put("response_type","token");
+  parameters.put("redirect_uri",DIRECT_URL);
+  parameters.put("display","mobile");
   return URL_OAUTH2_ACCESS_AUTHORIZE + "?" + Utility.encodeUrl(parameters);
 }
