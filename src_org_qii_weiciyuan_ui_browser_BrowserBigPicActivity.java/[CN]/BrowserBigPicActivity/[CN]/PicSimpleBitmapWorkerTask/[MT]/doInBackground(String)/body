@@ -5,9 +5,8 @@
     }
   }
 ;
-  data=url[0];
   if (!isCancelled()) {
-    return ImageTool.getNormalGif(data,downloadListener);
+    return ImageTool.getNormalGif(url,downloadListener);
   }
   return null;
 }

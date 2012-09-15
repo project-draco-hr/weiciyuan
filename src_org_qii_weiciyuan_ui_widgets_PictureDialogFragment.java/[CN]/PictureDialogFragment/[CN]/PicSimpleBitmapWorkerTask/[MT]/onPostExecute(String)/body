@@ -1,0 +1,14 @@
+{
+  if (bitmap != null) {
+    File file=new File(bitmap);
+    AppLogger.e(file.getParent());
+    AppLogger.e(file.getName());
+    imageView.loadDataWithBaseURL("file://" + file.getParent() + "/","<html><center><img src=\"" + file.getName() + "\"></html>","text/html","utf-8","");
+  }
+ else {
+    pb.setVisibility(View.INVISIBLE);
+    int[] attrs=new int[]{R.attr.error};
+    TypedArray ta=getActivity().obtainStyledAttributes(attrs);
+    Drawable drawableFromTheme=ta.getDrawable(0);
+  }
+}

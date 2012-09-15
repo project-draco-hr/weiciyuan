@@ -1,0 +1,6 @@
+{
+  super.onDestroy();
+  imageView.loadUrl("about:blank");
+  imageView.stopLoading();
+  imageView=null;
+}

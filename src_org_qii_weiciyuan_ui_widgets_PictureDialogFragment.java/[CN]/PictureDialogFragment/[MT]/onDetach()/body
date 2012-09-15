@@ -1,0 +1,6 @@
+{
+  super.onDetach();
+  imageView.loadUrl("about:blank");
+  imageView.stopLoading();
+  imageView=null;
+}

@@ -1,7 +1,13 @@
 {
   super.onCreate(savedInstanceState);
-  ImageView view=new ImageView(this);
-  setContentView(view);
+  setContentView(R.layout.fragment_listview_pic_big_layout);
+  ActionBar actionBar=getActionBar();
+  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setTitle(R.string.browser_picture);
+  pb=(ProgressBar)findViewById(R.id.pb);
+  fl=(FrameLayout)findViewById(R.id.fl);
+  imageView=(WebView)findViewById(R.id.iv);
+  imageView.setBackgroundColor(getResources().getColor(R.color.transparent));
   url=getIntent().getStringExtra("url");
-  new SimpleBitmapWorkerTask(view).execute(url);
+  new PicSimpleBitmapWorkerTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }

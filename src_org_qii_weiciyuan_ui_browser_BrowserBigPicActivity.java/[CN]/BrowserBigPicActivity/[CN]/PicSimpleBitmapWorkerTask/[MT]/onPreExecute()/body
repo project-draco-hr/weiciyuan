@@ -1,0 +1,4 @@
+{
+  super.onPreExecute();
+  pb.setIndeterminate(true);
+}

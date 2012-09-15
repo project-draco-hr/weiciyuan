@@ -1,0 +1,5 @@
+{
+  if (bitmap != null) {
+  }
+  super.onCancelled(bitmap);
+}

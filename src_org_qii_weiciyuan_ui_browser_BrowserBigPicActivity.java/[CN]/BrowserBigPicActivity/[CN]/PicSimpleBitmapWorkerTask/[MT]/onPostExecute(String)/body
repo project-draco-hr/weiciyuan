@@ -1,0 +1,21 @@
+{
+  if (bitmap != null) {
+    pb.setVisibility(View.GONE);
+    File file=new File(bitmap);
+    AppLogger.e(file.getParent());
+    AppLogger.e(file.getName());
+    imageView.loadDataWithBaseURL("file://" + file.getParent() + "/","<html><center><img src=\"" + file.getName() + "\"></html>","text/html","utf-8","");
+    final BitmapFactory.Options options=new BitmapFactory.Options();
+    options.inJustDecodeBounds=true;
+    BitmapFactory.decodeFile(bitmap,options);
+    int width=options.outWidth;
+    int height=options.outHeight;
+    getActionBar().setTitle(getActionBar().getTitle() + "(" + String.valueOf(width)+ "x"+ String.valueOf(height)+ ")");
+  }
+ else {
+    pb.setVisibility(View.GONE);
+    int[] attrs=new int[]{R.attr.error};
+    TypedArray ta=BrowserBigPicActivity.this.obtainStyledAttributes(attrs);
+    Drawable drawableFromTheme=ta.getDrawable(0);
+  }
+}
