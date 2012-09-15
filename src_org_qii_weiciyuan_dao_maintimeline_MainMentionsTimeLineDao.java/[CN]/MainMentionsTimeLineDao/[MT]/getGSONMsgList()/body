@@ -7,7 +7,7 @@
   }
  catch (  JsonSyntaxException e) {
     ActivityUtils.showTips("????????????????????????");
-    AppLogger.e(e.getMessage().toString());
+    AppLogger.e(e.getMessage());
   }
   if (value != null && value.getItemList().size() > 0) {
     List<MessageBean> msgList=value.getItemList();

@@ -16,7 +16,7 @@
   }
  catch (  JsonSyntaxException e) {
     ActivityUtils.showTips("????????????????????????");
-    AppLogger.e(e.getMessage().toString());
+    AppLogger.e(e.getMessage());
   }
   if (value != null && value.getSize() > 0) {
     List<CommentBean> msgList=value.getItemList();

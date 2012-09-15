@@ -3,7 +3,7 @@
   setContentView(R.layout.statusnewactivity_layout);
   token=getIntent().getStringExtra("token");
   id=getIntent().getStringExtra("id");
-  msg=(MessageBean)getIntent().getSerializableExtra("msg");
+  MessageBean msg=(MessageBean)getIntent().getSerializableExtra("msg");
   getActionBar().setTitle(getString(R.string.repost));
   getActionBar().setSubtitle(GlobalContext.getInstance().getCurrentAccountName());
   View title=getLayoutInflater().inflate(R.layout.statusnewactivity_title_layout,null);
