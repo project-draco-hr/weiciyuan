@@ -1,5 +1,6 @@
 {
   super.onDestroy();
+  if (task != null)   task.cancel(true);
   imageView.loadUrl("about:blank");
   imageView.stopLoading();
   imageView=null;

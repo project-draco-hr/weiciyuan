@@ -9,5 +9,8 @@
   imageView=(WebView)findViewById(R.id.iv);
   imageView.setBackgroundColor(getResources().getColor(R.color.transparent));
   url=getIntent().getStringExtra("url");
-  new PicSimpleBitmapWorkerTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
+    task=new PicSimpleBitmapWorkerTask();
+    task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
 }
