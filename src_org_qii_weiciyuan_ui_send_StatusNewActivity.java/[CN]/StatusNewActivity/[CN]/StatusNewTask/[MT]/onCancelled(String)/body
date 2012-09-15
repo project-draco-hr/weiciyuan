@@ -1,5 +1,5 @@
 {
   super.onCancelled(s);
   progressFragment.dismissAllowingStateLoss();
-  Toast.makeText(StatusNewActivity.this,getString(R.string.send_failed),Toast.LENGTH_SHORT).show();
+  if (e != null)   Toast.makeText(StatusNewActivity.this,e.getError(),Toast.LENGTH_SHORT).show();
 }

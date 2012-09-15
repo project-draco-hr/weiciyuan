@@ -1,15 +1,22 @@
 {
-  String name="code" + error_code;
-  int i=GlobalContext.getInstance().getResources().getIdentifier(name,"string",GlobalContext.getInstance().getPackageName());
   String result;
-  try {
-    result=GlobalContext.getInstance().getString(i);
+  if (!TextUtils.isEmpty(error)) {
+    result=error;
   }
- catch (  Resources.NotFoundException e) {
-    result=GlobalContext.getInstance().getString(R.string.unknown_error_error_code) + error_code;
+ else {
+    String name="code" + error_code;
+    int i=GlobalContext.getInstance().getResources().getIdentifier(name,"string",GlobalContext.getInstance().getPackageName());
+    try {
+      result=GlobalContext.getInstance().getString(i);
+    }
+ catch (    Resources.NotFoundException e) {
+      if (!TextUtils.isEmpty(oriError)) {
+        result=oriError;
+      }
+ else {
+        result=GlobalContext.getInstance().getString(R.string.unknown_error_error_code) + error_code;
+      }
+    }
   }
-  if (!TextUtils.isEmpty(result)) {
-    return result;
-  }
-  return error;
+  return result;
 }
