@@ -13,7 +13,6 @@
     out.write(("\r\n" + END_MP_BOUNDARY).getBytes());
   }
  catch (  IOException e) {
-    throw new WeiboException(e);
   }
  finally {
     if (null != bis) {
@@ -21,7 +20,6 @@
         bis.close();
       }
  catch (      IOException e) {
-        throw new WeiboException(e);
       }
     }
   }
