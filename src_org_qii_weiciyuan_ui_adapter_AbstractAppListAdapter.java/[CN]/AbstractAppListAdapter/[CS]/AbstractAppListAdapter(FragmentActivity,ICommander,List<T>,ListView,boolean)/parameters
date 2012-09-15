@@ -1,0 +1,5 @@
+FragmentActivity activity
+ICommander commander
+List<T> bean
+ListView listView
+boolean showOriStatus

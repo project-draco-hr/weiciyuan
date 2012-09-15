@@ -1,1 +1,1 @@
-BaseAdapter
+AbstractAppListAdapter<MessageBean>

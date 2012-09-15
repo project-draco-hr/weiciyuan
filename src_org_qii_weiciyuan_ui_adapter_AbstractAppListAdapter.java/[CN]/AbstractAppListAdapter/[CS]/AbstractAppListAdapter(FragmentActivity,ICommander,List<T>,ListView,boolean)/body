@@ -1,0 +1,12 @@
+{
+  this.bean=bean;
+  this.commander=commander;
+  this.inflater=activity.getLayoutInflater();
+  this.listView=listView;
+  this.showOriStatus=showOriStatus;
+  this.activity=activity;
+  defaultBG=activity.getResources().getColor(R.color.transparent);
+  int[] attrs=new int[]{R.attr.listview_checked_color};
+  TypedArray ta=activity.obtainStyledAttributes(attrs);
+  checkedBG=ta.getColor(0,430);
+}

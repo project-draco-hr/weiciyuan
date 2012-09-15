@@ -1,8 +1,0 @@
-{
-  if (bean != null && bean.size() != 0) {
-    return bean.size();
-  }
- else {
-    return 0;
-  }
-}
