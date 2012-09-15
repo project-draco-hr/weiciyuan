@@ -16,6 +16,13 @@
  else {
       picUrl=repost_msg.getThumbnail_pic();
     }
+    holder.repost_content_pic.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        PictureDialogFragment progressFragment=new PictureDialogFragment(repost_msg.getBmiddle_pic());
+        progressFragment.show(activity.getSupportFragmentManager(),"");
+      }
+    }
+);
     commander.downContentPic(holder.repost_content_pic,picUrl,position,listView);
   }
 }
