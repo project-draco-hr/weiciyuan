@@ -1,0 +1,10 @@
+{
+  View convertView;
+  if (GlobalContext.getInstance().getEnableBigPic()) {
+    convertView=inflater.inflate(R.layout.fragment_listview_item_myself_big_pic_layout,parent,false);
+  }
+ else {
+    convertView=inflater.inflate(R.layout.fragment_listview_item_myself_layout,parent,false);
+  }
+  return convertView;
+}
