@@ -1,9 +1,16 @@
 {
   Bitmap bitmap=ori;
+  int h=bitmap.getHeight();
+  int w=bitmap.getWidth();
   int height=reqHeight < bitmap.getHeight() ? reqHeight : bitmap.getHeight();
+  int width=reqWidth < bitmap.getWidth() ? reqWidth : bitmap.getWidth();
   if (height > 0) {
     int needStart=(bitmap.getHeight() - height) / 2;
-    Bitmap cropped=Bitmap.createBitmap(bitmap,0,needStart,bitmap.getWidth(),height);
+    int needWidthStart=(bitmap.getWidth() - width) / 2;
+    Bitmap cropped=Bitmap.createBitmap(bitmap,needWidthStart,needStart,width,height);
+    int hh=cropped.getHeight();
+    int ww=cropped.getWidth();
+    int s=3 + 2;
     return cropped;
   }
  else {

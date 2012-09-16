@@ -7,7 +7,10 @@
     bitmap=BitmapFactory.decodeFile(absoluteFilePath);
   }
   if (bitmap != null) {
-    return Bitmap.createScaledBitmap(bitmap,reqWidth,reqHeight,true);
+    bitmap=Bitmap.createScaledBitmap(bitmap,reqWidth,reqHeight,true);
+  }
+  if (bitmap != null) {
+    bitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
   }
   return bitmap;
 }

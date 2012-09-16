@@ -4,3 +4,4 @@ ImageView view
 String url
 int position
 Activity activity
+FileLocationMethod method

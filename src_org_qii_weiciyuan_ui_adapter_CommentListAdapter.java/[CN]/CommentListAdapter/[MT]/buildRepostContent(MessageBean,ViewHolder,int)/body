@@ -12,9 +12,11 @@
     String picUrl;
     if (GlobalContext.getInstance().getEnableBigPic()) {
       picUrl=repost_msg.getBmiddle_pic();
+      commander.downContentPic(holder.repost_content_pic,picUrl,position,listView,FileLocationMethod.picture_bmiddle);
     }
  else {
       picUrl=repost_msg.getThumbnail_pic();
+      commander.downContentPic(holder.repost_content_pic,picUrl,position,listView,FileLocationMethod.picture_thumbnail);
     }
     holder.repost_content_pic.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
@@ -23,6 +25,5 @@
       }
     }
 );
-    commander.downContentPic(holder.repost_content_pic,picUrl,position,listView);
   }
 }

@@ -1,8 +1,11 @@
 {
-  int reqWidth=396;
-  int reqHeight=500;
   if (!isCancelled()) {
-    return ImageTool.getThumbnailPictureWithRoundedCorner(data,reqWidth,reqHeight,null);
-  }
-  return null;
+switch (method) {
+case picture_thumbnail:
+      return ImageTool.getThumbnailPictureWithRoundedCorner(data);
+case picture_bmiddle:
+    return ImageTool.getMiddlePictureInTimeLine(data,640,120,null);
+}
+}
+return null;
 }

@@ -3,14 +3,25 @@
     lruCache.put(getMemCacheKey(data,position),bitmap);
     if (view != null && view.get() != null) {
       ImageView imageView=view.get();
+      int iw=imageView.getWidth();
+      int ih=imageView.getHeight();
+      int w=bitmap.getWidth();
+      int h=bitmap.getHeight();
       PictureBitmapWorkerTask bitmapDownloaderTask=getBitmapDownloaderTask(imageView);
       if (this == bitmapDownloaderTask) {
-        imageView.setImageBitmap(bitmap);
+switch (method) {
+case picture_thumbnail:
+          imageView.setImageBitmap(bitmap);
         imageView.setBackgroundColor(Color.TRANSPARENT);
-      }
-    }
-  }
-  if (taskMap.get(data) != null) {
-    taskMap.remove(data);
-  }
+      break;
+case picture_bmiddle:
+    imageView.setBackgroundDrawable(new BitmapDrawable(activity.getResources(),bitmap));
+  break;
+}
+}
+}
+}
+if (taskMap.get(data) != null) {
+taskMap.remove(data);
+}
 }

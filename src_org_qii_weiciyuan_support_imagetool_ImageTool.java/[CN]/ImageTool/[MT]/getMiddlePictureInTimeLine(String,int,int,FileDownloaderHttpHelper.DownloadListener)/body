@@ -1,0 +1,21 @@
+{
+  String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.picture_bmiddle);
+  Bitmap bitmap=decodeBitmapFromSDCard(absoluteFilePath,480,MAX_HEIGHT);
+  if (bitmap == null) {
+    String path=getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
+    bitmap=decodeBitmapFromSDCard(absoluteFilePath,480,MAX_HEIGHT);
+  }
+  if (bitmap != null) {
+    int height=bitmap.getHeight();
+    int width=bitmap.getWidth();
+    if (height > reqHeight || width > reqWidth) {
+      bitmap=cutPic(bitmap,reqWidth,reqHeight);
+    }
+    height=bitmap.getHeight();
+    width=bitmap.getWidth();
+    bitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
+    height=bitmap.getHeight();
+    width=bitmap.getWidth();
+  }
+  return bitmap;
+}

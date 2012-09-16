@@ -1,13 +1,14 @@
 {
+  view.setVisibility(View.VISIBLE);
   String picUrl;
   if (GlobalContext.getInstance().getEnableBigPic()) {
     picUrl=msg.getBmiddle_pic();
+    commander.downContentPic(view,picUrl,position,listView,FileLocationMethod.picture_bmiddle);
   }
  else {
     picUrl=msg.getThumbnail_pic();
+    commander.downContentPic(view,picUrl,position,listView,FileLocationMethod.picture_thumbnail);
   }
-  view.setVisibility(View.VISIBLE);
-  commander.downContentPic(view,picUrl,position,listView);
   view.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       PictureDialogFragment progressFragment=new PictureDialogFragment(msg.getBmiddle_pic(),msg.getOriginal_pic());
