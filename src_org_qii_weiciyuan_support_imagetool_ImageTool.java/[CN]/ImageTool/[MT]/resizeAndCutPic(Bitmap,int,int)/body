@@ -1,0 +1,25 @@
+{
+  Bitmap bitmap=ori;
+  int h=bitmap.getHeight();
+  int w=bitmap.getWidth();
+  if (reqWidth > w) {
+    float s=reqWidth / w;
+    Matrix matrix=new Matrix();
+    matrix.setScale(s,s);
+    bitmap=Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+  }
+  int height=reqHeight < bitmap.getHeight() ? reqHeight : bitmap.getHeight();
+  int width=reqWidth < bitmap.getWidth() ? reqWidth : bitmap.getWidth();
+  if (height > 0) {
+    int needStart=(bitmap.getHeight() - height) / 2;
+    int needWidthStart=(bitmap.getWidth() - width) / 2;
+    Bitmap cropped=Bitmap.createBitmap(bitmap,needWidthStart,needStart,width,height);
+    int hh=cropped.getHeight();
+    int ww=cropped.getWidth();
+    int s=3 + 2;
+    return cropped;
+  }
+ else {
+    return bitmap;
+  }
+}

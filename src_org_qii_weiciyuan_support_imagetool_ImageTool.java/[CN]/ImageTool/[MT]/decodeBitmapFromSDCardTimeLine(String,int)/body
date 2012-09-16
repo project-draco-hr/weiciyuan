@@ -1,0 +1,24 @@
+{
+  final BitmapFactory.Options options=new BitmapFactory.Options();
+  options.inJustDecodeBounds=true;
+  BitmapFactory.decodeFile(path,options);
+  final int height=options.outHeight;
+  final int width=options.outWidth;
+  int inSampleSize=1;
+  if (width > 480) {
+    inSampleSize=(int)Math.floor((float)width / (float)reqWidth);
+  }
+  if (height > 800 * 8) {
+    inSampleSize=(int)Math.floor((float)height / (float)800 * 8);
+  }
+  options.inSampleSize=inSampleSize;
+  options.inJustDecodeBounds=false;
+  Bitmap bitmap=null;
+  try {
+    bitmap=BitmapFactory.decodeFile(path,options);
+  }
+ catch (  OutOfMemoryError e) {
+    e.printStackTrace();
+  }
+  return bitmap;
+}
