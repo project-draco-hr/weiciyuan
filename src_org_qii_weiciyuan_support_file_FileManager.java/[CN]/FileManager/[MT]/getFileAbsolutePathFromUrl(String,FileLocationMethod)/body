@@ -3,7 +3,7 @@
   String newRelativePath="";
 switch (method) {
 case avatar:
-    newRelativePath=File.separator + AVATAR_CACHE + oldRelativePath;
+    newRelativePath=File.separator + AVATAR_SMAll + oldRelativePath;
   break;
 case picture_thumbnail:
 newRelativePath=File.separator + PICTURE_THUMBNAIL_CACHE + oldRelativePath;
