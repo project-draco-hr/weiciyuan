@@ -1,7 +1,14 @@
 {
   data=url[0];
   if (!isCancelled()) {
-    return ImageTool.getNormalBitmap(data,null);
-  }
-  return null;
+switch (method) {
+case picture_bmiddle:
+      return ImageTool.getMiddlePictureWithRoundedCorner(data,null);
+case avatar_small:
+    return ImageTool.getSmallAvatarWithRoundedCorner(data);
+case avatar_large:
+  return ImageTool.getBigAvatarWithRoundedCorner(data);
+}
+}
+return null;
 }

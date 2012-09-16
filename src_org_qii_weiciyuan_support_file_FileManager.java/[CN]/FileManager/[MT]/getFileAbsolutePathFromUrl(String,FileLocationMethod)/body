@@ -2,11 +2,20 @@
   String oldRelativePath=getFileRelativePathFromUrl(url);
   String newRelativePath="";
 switch (method) {
-case avatar:
+case avatar_small:
     newRelativePath=File.separator + AVATAR_SMAll + oldRelativePath;
   break;
+case avatar_large:
+newRelativePath=File.separator + AVATAR_LARGE + oldRelativePath;
+break;
 case picture_thumbnail:
-newRelativePath=File.separator + PICTURE_THUMBNAIL_CACHE + oldRelativePath;
+newRelativePath=File.separator + PICTURE_THUMBNAIL + oldRelativePath;
+break;
+case picture_bmiddle:
+newRelativePath=File.separator + PICTURE_BMIDDLE + oldRelativePath;
+break;
+case picture_large:
+newRelativePath=File.separator + PICTURE_LARGE + oldRelativePath;
 break;
 }
 String absolutePath=getFileAbsolutePathFromRelativePath(newRelativePath);

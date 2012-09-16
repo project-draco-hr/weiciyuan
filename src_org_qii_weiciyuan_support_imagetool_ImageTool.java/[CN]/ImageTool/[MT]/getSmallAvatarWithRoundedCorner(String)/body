@@ -1,0 +1,13 @@
+{
+  String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.avatar_small);
+  absoluteFilePath=absoluteFilePath + ".jpg";
+  Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath);
+  if (bitmap == null) {
+    String path=getBitmapFromNetWork(url,absoluteFilePath,null);
+    bitmap=BitmapFactory.decodeFile(path);
+  }
+  if (bitmap != null) {
+    bitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
+  }
+  return bitmap;
+}

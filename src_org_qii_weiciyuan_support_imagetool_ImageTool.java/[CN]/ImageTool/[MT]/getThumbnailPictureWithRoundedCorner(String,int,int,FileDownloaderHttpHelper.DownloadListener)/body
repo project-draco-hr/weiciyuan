@@ -1,6 +1,5 @@
 {
   String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.picture_thumbnail);
-  absoluteFilePath=absoluteFilePath + ".jpg";
   Bitmap bitmap=decodeBitmapFromSDCard(absoluteFilePath,reqWidth,reqHeight);
   if (bitmap == null) {
     String path=getBitmapFromNetWork(url,absoluteFilePath,downloadListener);

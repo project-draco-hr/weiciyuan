@@ -1,0 +1,11 @@
+{
+  String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.picture_large);
+  File file=new File(absoluteFilePath);
+  if (file.exists()) {
+    return absoluteFilePath;
+  }
+ else {
+    String path=getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
+    return absoluteFilePath;
+  }
+}

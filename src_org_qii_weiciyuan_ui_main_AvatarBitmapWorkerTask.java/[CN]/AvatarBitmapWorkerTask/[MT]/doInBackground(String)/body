@@ -1,6 +1,6 @@
 {
   if (!isCancelled()) {
-    return ImageTool.getAvatarBitmap(data);
+    return ImageTool.getSmallAvatarWithRoundedCorner(data);
   }
   return null;
 }

@@ -5,7 +5,7 @@
   info.setText(bean.getDescription());
   String avatarUrl=bean.getAvatar_large();
   if (!TextUtils.isEmpty(avatarUrl)) {
-    new SimpleBitmapWorkerTask(avatar).execute(avatarUrl);
+    new SimpleBitmapWorkerTask(avatar,FileLocationMethod.avatar_large).execute(avatarUrl);
   }
   if (!TextUtils.isEmpty(bean.getUrl())) {
     blog_url.setText(bean.getUrl());
