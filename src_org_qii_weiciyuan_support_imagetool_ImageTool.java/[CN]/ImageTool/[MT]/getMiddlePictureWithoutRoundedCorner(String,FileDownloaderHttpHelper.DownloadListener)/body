@@ -6,6 +6,12 @@
   }
  else {
     String path=getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
-    return absoluteFilePath;
+    file=new File(path);
+    if (file.exists()) {
+      return absoluteFilePath;
+    }
+ else {
+      return "about:blank";
+    }
   }
 }
