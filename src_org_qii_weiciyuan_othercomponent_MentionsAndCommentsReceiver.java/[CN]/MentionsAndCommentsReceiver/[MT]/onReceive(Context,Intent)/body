@@ -35,8 +35,5 @@
  else {
     ticker=lastName + ":" + content.substring(0,20)+ "??????";
   }
-  String avatarUrl;
-  if (comment.getSize() > 0)   avatarUrl=comment.getItemList().get(0).getUser().getAvatar_large();
- else   avatarUrl=repost.getItemList().get(0).getUser().getAvatar_large();
-  new DownloadAvatar(avatarUrl).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  showNotification(null);
 }
