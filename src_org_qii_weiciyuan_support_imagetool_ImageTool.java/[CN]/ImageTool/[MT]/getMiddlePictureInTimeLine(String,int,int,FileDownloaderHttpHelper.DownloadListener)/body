@@ -1,24 +1,74 @@
 {
+  int useWidth=400;
   String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.picture_bmiddle);
-  Bitmap bitmap=decodeBitmapFromSDCardTimeLine(absoluteFilePath,480);
-  if (bitmap == null) {
+  File file=new File(absoluteFilePath);
+  if (!file.exists()) {
     String path=getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
-    bitmap=decodeBitmapFromSDCardTimeLine(absoluteFilePath,480);
   }
-  if (bitmap != null) {
-    int height=bitmap.getHeight();
-    int width=bitmap.getWidth();
-    Bitmap newValue=null;
-    if (height > reqHeight && width > reqWidth) {
-      newValue=cutPic(bitmap,reqWidth,reqHeight);
+  final BitmapFactory.Options options=new BitmapFactory.Options();
+  options.inJustDecodeBounds=true;
+  BitmapFactory.decodeFile(absoluteFilePath,options);
+  final int height=options.outHeight;
+  final int width=options.outWidth;
+  if (height >= reqHeight && width >= useWidth) {
+    try {
+      BitmapRegionDecoder decoder=BitmapRegionDecoder.newInstance(absoluteFilePath,false);
+      Bitmap region=decoder.decodeRegion(new Rect(10,10,useWidth - 10,reqHeight - 10),null);
+      Bitmap anotherValue=ImageEdit.getRoundedCornerBitmap(region);
+      region.recycle();
+      return anotherValue;
+    }
+ catch (    IOException ignored) {
+    }
+  }
+ else   if (height < reqHeight && width >= useWidth) {
+    int cutHeight=height;
+    int cutWidth=(useWidth / reqHeight) * cutHeight;
+    try {
+      BitmapRegionDecoder decoder=BitmapRegionDecoder.newInstance(absoluteFilePath,false);
+      Bitmap region=decoder.decodeRegion(new Rect(0,0,cutWidth,cutHeight),null);
+      Bitmap anotherValue=ImageEdit.getRoundedCornerBitmap(region);
+      region.recycle();
+      return anotherValue;
+    }
+ catch (    IOException ignored) {
+    }
+  }
+ else   if (height >= reqHeight && width < useWidth) {
+    int cutWidth=width;
+    int cutHeight=(reqHeight * cutWidth) / useWidth;
+    try {
+      BitmapRegionDecoder decoder=BitmapRegionDecoder.newInstance(absoluteFilePath,false);
+      Bitmap region=decoder.decodeRegion(new Rect(0,0,cutWidth,cutHeight),null);
+      Bitmap anotherValue=ImageEdit.getRoundedCornerBitmap(region);
+      region.recycle();
+      return anotherValue;
+    }
+ catch (    IOException ignored) {
+    }
+  }
+ else   if (height < reqHeight && width < useWidth) {
+    int cutWidth=0;
+    int cutHeight=0;
+    int betweenWidth=useWidth - width;
+    int betweenHeight=reqHeight - height;
+    if (betweenWidth > betweenHeight) {
+      cutWidth=width;
+      cutHeight=(reqHeight * cutWidth) / useWidth;
     }
  else {
-      newValue=resizeAndCutPic(bitmap,reqWidth,reqHeight);
+      cutHeight=height;
+      cutWidth=(useWidth / reqHeight) * cutHeight;
     }
-    Bitmap anotherValue=ImageEdit.getRoundedCornerBitmap(newValue);
-    newValue.recycle();
-    bitmap.recycle();
-    return anotherValue;
+    try {
+      BitmapRegionDecoder decoder=BitmapRegionDecoder.newInstance(absoluteFilePath,false);
+      Bitmap region=decoder.decodeRegion(new Rect(0,0,cutWidth,cutHeight),null);
+      Bitmap anotherValue=ImageEdit.getRoundedCornerBitmap(region);
+      region.recycle();
+      return anotherValue;
+    }
+ catch (    IOException ignored) {
+    }
   }
-  return bitmap;
+  return null;
 }
