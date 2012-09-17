@@ -6,6 +6,4 @@
   this.position=position;
   this.activity=activity;
   this.method=method;
-  this.reqHeight=reqHeight;
-  this.reqWidth=reqWidth;
 }
