@@ -10,18 +10,19 @@
   if (!TextUtils.isEmpty(repost_msg.getThumbnail_pic())) {
     holder.repost_content_pic.setVisibility(View.VISIBLE);
     String picUrl;
+    boolean isFling=((AbstractTimeLineFragment)activity).isListViewFling();
     if (GlobalContext.getInstance().getEnableBigPic()) {
       picUrl=repost_msg.getBmiddle_pic();
-      commander.downContentPic(holder.repost_content_pic,picUrl,position,listView,FileLocationMethod.picture_bmiddle);
+      commander.downContentPic(holder.repost_content_pic,picUrl,position,listView,FileLocationMethod.picture_bmiddle,isFling);
     }
  else {
       picUrl=repost_msg.getThumbnail_pic();
-      commander.downContentPic(holder.repost_content_pic,picUrl,position,listView,FileLocationMethod.picture_thumbnail);
+      commander.downContentPic(holder.repost_content_pic,picUrl,position,listView,FileLocationMethod.picture_thumbnail,isFling);
     }
     holder.repost_content_pic.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         PictureDialogFragment progressFragment=new PictureDialogFragment(repost_msg.getBmiddle_pic(),repost_msg.getOriginal_pic());
-        progressFragment.show(activity.getSupportFragmentManager(),"");
+        progressFragment.show(activity.getActivity().getSupportFragmentManager(),"");
       }
     }
 );

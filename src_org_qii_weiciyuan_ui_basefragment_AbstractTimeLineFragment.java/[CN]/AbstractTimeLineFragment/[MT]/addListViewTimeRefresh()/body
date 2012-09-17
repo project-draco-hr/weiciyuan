@@ -6,10 +6,11 @@
 switch (scrollState) {
 case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
         enableRefreshTime=true;
-      break;
+      timeLineAdapter.notifyDataSetChanged();
+    break;
 case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
-    enableRefreshTime=false;
-  break;
+  enableRefreshTime=false;
+break;
 case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
 enableRefreshTime=true;
 break;

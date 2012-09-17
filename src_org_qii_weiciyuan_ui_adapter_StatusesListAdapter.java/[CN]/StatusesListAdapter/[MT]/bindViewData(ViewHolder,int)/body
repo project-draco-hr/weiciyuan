@@ -28,7 +28,7 @@
     holder.content.setText(msg.getListViewSpannableString());
   }
   String time=msg.getListviewItemShowTime();
-  UpdateString updateString=new UpdateString(time,holder.time,msg,activity);
+  UpdateString updateString=new UpdateString(time,holder.time,msg,activity.getActivity());
   if (!holder.time.getText().toString().equals(time)) {
     holder.time.setText(updateString);
   }
@@ -44,7 +44,7 @@
   }
   holder.avatar.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      Intent intent=new Intent(activity,UserInfoActivity.class);
+      Intent intent=new Intent(activity.getActivity(),UserInfoActivity.class);
       intent.putExtra("token",((IToken)activity).getToken());
       intent.putExtra("user",msg.getUser());
       activity.startActivity(intent);

@@ -1,6 +1,6 @@
 {
   if (postion >= 0 && postion < bean.size()) {
-    Animation anim=AnimationUtils.loadAnimation(activity,R.anim.account_delete_slide_out_right);
+    Animation anim=AnimationUtils.loadAnimation(activity.getActivity(),R.anim.account_delete_slide_out_right);
     anim.setAnimationListener(new Animation.AnimationListener(){
       @Override public void onAnimationStart(      Animation animation){
         bean.remove(postion);

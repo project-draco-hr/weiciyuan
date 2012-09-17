@@ -1,4 +1,4 @@
 {
-  timeLineAdapter=new StatusesListAdapter(getActivity(),((AbstractAppActivity)getActivity()).getCommander(),getList().getItemList(),listView,true);
+  timeLineAdapter=new StatusesListAdapter(this,((AbstractAppActivity)getActivity()).getCommander(),getList().getItemList(),listView,true);
   listView.setAdapter(timeLineAdapter);
 }

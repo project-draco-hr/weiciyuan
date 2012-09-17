@@ -1,18 +1,19 @@
 {
   view.setVisibility(View.VISIBLE);
   String picUrl;
+  boolean isFling=((AbstractTimeLineFragment)activity).isListViewFling();
   if (GlobalContext.getInstance().getEnableBigPic()) {
     picUrl=msg.getBmiddle_pic();
-    commander.downContentPic(view,picUrl,position,listView,FileLocationMethod.picture_bmiddle);
+    commander.downContentPic(view,picUrl,position,listView,FileLocationMethod.picture_bmiddle,isFling);
   }
  else {
     picUrl=msg.getThumbnail_pic();
-    commander.downContentPic(view,picUrl,position,listView,FileLocationMethod.picture_thumbnail);
+    commander.downContentPic(view,picUrl,position,listView,FileLocationMethod.picture_thumbnail,isFling);
   }
   view.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       PictureDialogFragment progressFragment=new PictureDialogFragment(msg.getBmiddle_pic(),msg.getOriginal_pic());
-      progressFragment.show(activity.getSupportFragmentManager(),"");
+      progressFragment.show(activity.getActivity().getSupportFragmentManager(),"");
     }
   }
 );
