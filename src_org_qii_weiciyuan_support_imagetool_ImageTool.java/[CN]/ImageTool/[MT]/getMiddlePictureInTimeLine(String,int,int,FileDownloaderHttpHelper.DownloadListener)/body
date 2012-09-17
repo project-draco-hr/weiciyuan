@@ -8,13 +8,17 @@
   if (bitmap != null) {
     int height=bitmap.getHeight();
     int width=bitmap.getWidth();
+    Bitmap newValue=null;
     if (height > reqHeight && width > reqWidth) {
-      bitmap=cutPic(bitmap,reqWidth,reqHeight);
+      newValue=cutPic(bitmap,reqWidth,reqHeight);
     }
  else {
-      bitmap=resizeAndCutPic(bitmap,reqWidth,reqHeight);
+      newValue=resizeAndCutPic(bitmap,reqWidth,reqHeight);
     }
-    bitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
+    Bitmap anotherValue=ImageEdit.getRoundedCornerBitmap(newValue);
+    newValue.recycle();
+    bitmap.recycle();
+    return anotherValue;
   }
   return bitmap;
 }

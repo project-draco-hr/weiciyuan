@@ -6,7 +6,10 @@
     float s=reqWidth / w;
     Matrix matrix=new Matrix();
     matrix.setScale(s,s);
-    if (s < 10.0f)     bitmap=Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
+    if (s < 10.0f && bitmap.getHeight() < 1600) {
+      AppLogger.e("s=" + s + "bitmap width="+ bitmap.getWidth()+ "height="+ bitmap.getHeight());
+      bitmap=Bitmap.createScaledBitmap(bitmap,reqWidth,(int)(h * s),true);
+    }
   }
   int height=reqHeight < bitmap.getHeight() ? reqHeight : bitmap.getHeight();
   int width=reqWidth < bitmap.getWidth() ? reqWidth : bitmap.getWidth();

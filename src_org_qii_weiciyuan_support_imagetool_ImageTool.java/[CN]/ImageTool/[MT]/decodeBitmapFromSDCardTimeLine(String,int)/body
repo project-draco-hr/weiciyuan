@@ -13,6 +13,8 @@
   }
   options.inSampleSize=inSampleSize;
   options.inJustDecodeBounds=false;
+  options.inPurgeable=true;
+  options.inInputShareable=true;
   Bitmap bitmap=null;
   try {
     bitmap=BitmapFactory.decodeFile(path,options);

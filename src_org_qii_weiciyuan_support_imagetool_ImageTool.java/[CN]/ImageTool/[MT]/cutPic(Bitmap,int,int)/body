@@ -1,5 +1,4 @@
 {
-  Bitmap bitmap=ori;
   int h=bitmap.getHeight();
   int w=bitmap.getWidth();
   int height=reqHeight < bitmap.getHeight() ? reqHeight : bitmap.getHeight();
@@ -11,6 +10,7 @@
     int hh=cropped.getHeight();
     int ww=cropped.getWidth();
     int s=3 + 2;
+    bitmap=null;
     return cropped;
   }
  else {
