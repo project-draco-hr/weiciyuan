@@ -9,7 +9,8 @@
     String image_url=msg.getUser().getProfile_image_url();
     if (!TextUtils.isEmpty(image_url) && GlobalContext.getInstance().isEnablePic()) {
       holder.avatar.setVisibility(View.VISIBLE);
-      commander.downloadAvatar(holder.avatar,msg.getUser().getProfile_image_url(),position,listView);
+      boolean isFling=((AbstractTimeLineFragment)activity).isListViewFling();
+      commander.downloadAvatar(holder.avatar,msg.getUser().getProfile_image_url(),position,listView,isFling);
     }
  else {
       holder.avatar.setVisibility(View.GONE);
