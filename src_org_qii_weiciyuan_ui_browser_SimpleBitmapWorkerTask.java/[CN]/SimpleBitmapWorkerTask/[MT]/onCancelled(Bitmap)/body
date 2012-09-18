@@ -1,6 +1,13 @@
 {
   if (bitmap != null) {
-    lruCache.put(data,bitmap);
-  }
-  super.onCancelled(bitmap);
+switch (method) {
+case avatar_small:
+      lruCache.put(data,bitmap);
+    break;
+case avatar_large:
+  lruCache.put(data,bitmap);
+break;
+}
+}
+super.onCancelled(bitmap);
 }
