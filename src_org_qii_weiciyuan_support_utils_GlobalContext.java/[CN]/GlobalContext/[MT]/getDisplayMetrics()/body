@@ -1,0 +1,21 @@
+{
+  if (displayMetrics != null) {
+    return displayMetrics;
+  }
+ else {
+    Activity a=getActivity();
+    if (a != null) {
+      Display display=getActivity().getWindowManager().getDefaultDisplay();
+      DisplayMetrics metrics=new DisplayMetrics();
+      display.getMetrics(metrics);
+      this.displayMetrics=metrics;
+      return metrics;
+    }
+ else {
+      DisplayMetrics metrics=new DisplayMetrics();
+      metrics.widthPixels=480;
+      metrics.heightPixels=800;
+      return metrics;
+    }
+  }
+}

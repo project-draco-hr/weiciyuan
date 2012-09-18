@@ -6,7 +6,8 @@
   }
   file=new File(absoluteFilePath);
   if (file.exists()) {
-    Bitmap bitmap=decodeBitmapFromSDCard(absoluteFilePath,MAX_WIDTH,MAX_HEIGHT);
+    DisplayMetrics displayMetrics=GlobalContext.getInstance().getDisplayMetrics();
+    Bitmap bitmap=decodeBitmapFromSDCard(absoluteFilePath,displayMetrics.widthPixels,displayMetrics.heightPixels);
     return bitmap;
   }
   return null;
