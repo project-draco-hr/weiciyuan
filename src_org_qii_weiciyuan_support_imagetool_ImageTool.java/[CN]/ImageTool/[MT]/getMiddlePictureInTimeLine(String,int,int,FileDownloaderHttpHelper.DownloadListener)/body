@@ -44,9 +44,6 @@
     if (cutWidth < width) {
       startX=(width - cutWidth) / 2;
     }
-    AppLogger.e("" + (startX));
-    AppLogger.e("" + (cutWidth));
-    AppLogger.e("" + (cutWidth + startX));
     try {
       BitmapRegionDecoder decoder=BitmapRegionDecoder.newInstance(absoluteFilePath,false);
       Bitmap region=decoder.decodeRegion(new Rect(startX,0,startX + cutWidth,cutHeight),null);
