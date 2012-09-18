@@ -13,6 +13,7 @@
  else {
       AppNewMsgAlarm.stopAlarm(context,false);
     }
+    decideTimeLineBigPic(context,networkInfo);
   }
  else {
     AppNewMsgAlarm.stopAlarm(context,false);

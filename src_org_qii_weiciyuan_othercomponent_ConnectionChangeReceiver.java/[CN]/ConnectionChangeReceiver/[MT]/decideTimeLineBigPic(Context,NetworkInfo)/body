@@ -1,0 +1,23 @@
+{
+  SharedPreferences autoShowBigPic=PreferenceManager.getDefaultSharedPreferences(context);
+  boolean value=autoShowBigPic.getBoolean(SettingActivity.AUTO_SHOW_BIG_PIC,true);
+  if (!value)   return;
+  if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+    GlobalContext.getInstance().setEnableBigPic(true);
+    SharedPreferences bigPicSP=PreferenceManager.getDefaultSharedPreferences(context);
+    bigPicSP.edit().putBoolean(SettingActivity.SHOW_BIG_PIC,true).commit();
+  }
+ else   if (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
+    int subType=networkInfo.getSubtype();
+    if (subType == TelephonyManager.NETWORK_TYPE_GPRS) {
+      GlobalContext.getInstance().setEnableBigPic(false);
+      SharedPreferences bigPicSP=PreferenceManager.getDefaultSharedPreferences(context);
+      bigPicSP.edit().putBoolean(SettingActivity.SHOW_BIG_PIC,false).commit();
+    }
+ else {
+      GlobalContext.getInstance().setEnableBigPic(true);
+      SharedPreferences bigPicSP=PreferenceManager.getDefaultSharedPreferences(context);
+      bigPicSP.edit().putBoolean(SettingActivity.SHOW_BIG_PIC,true).commit();
+    }
+  }
+}
