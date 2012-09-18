@@ -40,9 +40,16 @@
     }
   }
   if (cutWidth > 0 && cutHeight > 0) {
+    int startX=0;
+    if (cutWidth < width) {
+      startX=(width - cutWidth) / 2;
+    }
+    AppLogger.e("" + (startX));
+    AppLogger.e("" + (cutWidth));
+    AppLogger.e("" + (cutWidth + startX));
     try {
       BitmapRegionDecoder decoder=BitmapRegionDecoder.newInstance(absoluteFilePath,false);
-      Bitmap region=decoder.decodeRegion(new Rect(0,0,cutWidth,cutHeight),null);
+      Bitmap region=decoder.decodeRegion(new Rect(startX,0,startX + cutWidth,cutHeight),null);
       Bitmap anotherValue=ImageEdit.getRoundedCornerBitmap(region);
       region.recycle();
       return anotherValue;
