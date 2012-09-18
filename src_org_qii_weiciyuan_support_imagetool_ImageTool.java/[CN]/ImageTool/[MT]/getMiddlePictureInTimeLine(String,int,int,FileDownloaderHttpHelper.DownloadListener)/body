@@ -26,7 +26,7 @@
   }
  else   if (height < reqHeight && width >= useWidth) {
     int cutHeight=height;
-    int cutWidth=(useWidth / reqHeight) * cutHeight;
+    int cutWidth=(useWidth * cutHeight) / reqHeight;
     try {
       BitmapRegionDecoder decoder=BitmapRegionDecoder.newInstance(absoluteFilePath,false);
       Bitmap region=decoder.decodeRegion(new Rect(0,0,cutWidth,cutHeight),null);
@@ -61,7 +61,7 @@
     }
  else {
       cutHeight=height;
-      cutWidth=(useWidth / reqHeight) * cutHeight;
+      cutWidth=(useWidth * cutHeight) / reqHeight;
     }
     try {
       BitmapRegionDecoder decoder=BitmapRegionDecoder.newInstance(absoluteFilePath,false);

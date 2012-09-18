@@ -3,35 +3,28 @@
   final BitmapFactory.Options options=new BitmapFactory.Options();
   options.inJustDecodeBounds=true;
   BitmapFactory.decodeFile(absoluteFilePath,options);
-  final int height=options.outHeight;
-  final int width=options.outWidth;
   options.inSampleSize=calculateInSampleSize(options,useWidth,reqHeight);
   options.inJustDecodeBounds=false;
   options.inPurgeable=true;
   options.inInputShareable=true;
   Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath,options);
+  int height=options.outHeight;
+  int width=options.outWidth;
+  int cutHeight=0;
+  int cutWidth=0;
   if (height >= reqHeight && width >= useWidth) {
-    Bitmap region=Bitmap.createBitmap(bitmap,0,0,useWidth,reqHeight);
-    bitmap.recycle();
-    return region;
+    cutHeight=reqHeight;
+    cutWidth=useWidth;
   }
  else   if (height < reqHeight && width >= useWidth) {
-    int cutHeight=height;
-    int cutWidth=(useWidth / reqHeight) * cutHeight;
-    Bitmap region=Bitmap.createBitmap(bitmap,0,0,cutWidth,reqHeight);
-    bitmap.recycle();
-    return region;
+    cutHeight=height;
+    cutWidth=(useWidth * cutHeight) / reqHeight;
   }
  else   if (height >= reqHeight && width < useWidth) {
-    int cutWidth=width;
-    int cutHeight=(reqHeight * cutWidth) / useWidth;
-    Bitmap region=Bitmap.createBitmap(bitmap,0,0,cutWidth,reqHeight);
-    bitmap.recycle();
-    return region;
+    cutWidth=width;
+    cutHeight=(reqHeight * cutWidth) / useWidth;
   }
  else   if (height < reqHeight && width < useWidth) {
-    int cutWidth=0;
-    int cutHeight=0;
     int betweenWidth=useWidth - width;
     int betweenHeight=reqHeight - height;
     if (betweenWidth > betweenHeight) {
@@ -40,11 +33,15 @@
     }
  else {
       cutHeight=height;
-      cutWidth=(useWidth / reqHeight) * cutHeight;
+      cutWidth=(useWidth * cutHeight) / reqHeight;
     }
-    Bitmap region=Bitmap.createBitmap(bitmap,0,0,cutWidth,reqHeight);
+  }
+  if (cutWidth > 0 && cutHeight > 0) {
+    Bitmap region=Bitmap.createBitmap(bitmap,0,0,cutWidth,cutHeight);
+    Bitmap anotherValue=ImageEdit.getRoundedCornerBitmap(region);
     bitmap.recycle();
-    return region;
+    region.recycle();
+    return anotherValue;
   }
   return null;
 }
