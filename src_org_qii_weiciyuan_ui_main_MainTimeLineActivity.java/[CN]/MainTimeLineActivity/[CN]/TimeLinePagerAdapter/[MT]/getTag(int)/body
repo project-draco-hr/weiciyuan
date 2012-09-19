@@ -3,5 +3,6 @@
   tagList.add(FriendsTimeLineFragment.class.getName());
   tagList.add(MentionsTimeLineFragment.class.getName());
   tagList.add(CommentsTimeLineFragment.class.getName());
+  tagList.add(DiscoverFragment.class.getName());
   return tagList.get(position);
 }

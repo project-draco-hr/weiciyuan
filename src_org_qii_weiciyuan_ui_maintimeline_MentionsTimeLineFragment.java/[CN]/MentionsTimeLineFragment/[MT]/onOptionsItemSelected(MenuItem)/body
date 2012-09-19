@@ -1,13 +1,20 @@
 {
 switch (item.getItemId()) {
+case R.id.friendstimelinefragment_new_weibo:
+    Intent intent=new Intent(getActivity(),StatusNewActivity.class);
+  intent.putExtra("token",((IToken)getActivity()).getToken());
+intent.putExtra("accountName",((IAccountInfo)getActivity()).getAccount().getUsernick());
+intent.putExtra("accountId",((IAccountInfo)getActivity()).getAccount().getUid());
+startActivity(intent);
+break;
 case R.id.mentionstimelinefragment_refresh:
-    refresh();
-  break;
+refresh();
+break;
 case R.id.mentionstimelinefragment_group:
 if (newTask == null || newTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-  MentionsGroupDialog dialog=new MentionsGroupDialog(group,selected);
-  dialog.setTargetFragment(MentionsTimeLineFragment.this,0);
-  dialog.show(getFragmentManager(),"");
+MentionsGroupDialog dialog=new MentionsGroupDialog(group,selected);
+dialog.setTargetFragment(MentionsTimeLineFragment.this,0);
+dialog.show(getFragmentManager(),"");
 }
 }
 return super.onOptionsItemSelected(item);
