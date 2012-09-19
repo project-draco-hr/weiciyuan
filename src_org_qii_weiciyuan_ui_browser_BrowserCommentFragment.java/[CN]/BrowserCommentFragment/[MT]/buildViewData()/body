@@ -1,0 +1,14 @@
+{
+  if (msg.getUser() != null) {
+    username.setText(msg.getUser().getScreen_name());
+    SimpleBitmapWorkerTask avatarTask=new SimpleBitmapWorkerTask(avatar,FileLocationMethod.avatar_small);
+    avatarTask.execute(msg.getUser().getProfile_image_url());
+  }
+  content.setText(msg.getText());
+  ListViewTool.addLinks(content);
+  time.setText(msg.getListviewItemShowTime());
+  if (!TextUtils.isEmpty(msg.getSource())) {
+    source.setText(Html.fromHtml(msg.getSource()).toString());
+  }
+  buildShareActionMenu();
+}

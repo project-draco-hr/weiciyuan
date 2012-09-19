@@ -1,0 +1,18 @@
+{
+  View view=inflater.inflate(R.layout.browserweibomsgactivity_layout,container,false);
+  username=(TextView)view.findViewById(R.id.username);
+  content=(TextView)view.findViewById(R.id.content);
+  time=(TextView)view.findViewById(R.id.time);
+  source=(TextView)view.findViewById(R.id.source);
+  avatar=(ImageView)view.findViewById(R.id.avatar);
+  view.findViewById(R.id.first).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent(getActivity(),UserInfoActivity.class);
+      intent.putExtra("token",((IToken)getActivity()).getToken());
+      intent.putExtra("user",msg.getUser());
+      startActivity(intent);
+    }
+  }
+);
+  return view;
+}

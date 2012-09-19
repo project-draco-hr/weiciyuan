@@ -1,0 +1,9 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
+  setRetainInstance(true);
+  if (savedInstanceState != null) {
+    msg=(CommentBean)savedInstanceState.getSerializable("msg");
+  }
+  buildViewData();
+}

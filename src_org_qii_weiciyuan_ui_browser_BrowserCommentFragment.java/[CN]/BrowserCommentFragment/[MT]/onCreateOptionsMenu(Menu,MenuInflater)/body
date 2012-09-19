@@ -1,0 +1,7 @@
+{
+  inflater.inflate(R.menu.browserweibocommentactivity_menu,menu);
+  MenuItem item=menu.findItem(R.id.menu_share);
+  mShareActionProvider=(ShareActionProvider)item.getActionProvider();
+  buildShareActionMenu();
+  super.onCreateOptionsMenu(menu,inflater);
+}
