@@ -1,0 +1,5 @@
+{
+  bean.getUsers().clear();
+  bean.getUsers().addAll(value.getUsers());
+  bean.setTotal_number(value.getTotal_number());
+}

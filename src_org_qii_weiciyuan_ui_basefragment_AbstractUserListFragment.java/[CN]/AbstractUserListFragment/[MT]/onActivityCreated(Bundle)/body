@@ -2,11 +2,34 @@
   super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
   if (savedInstanceState != null && bean.getUsers().size() == 0) {
-    bean=(UserListBean)savedInstanceState.getSerializable("bean");
+    clearAndReplaceValue((UserListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
   }
  else {
     refresh();
   }
+  listView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+  listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+    @Override public boolean onItemLongClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      if (position - 1 < getList().getUsers().size() && position - 1 >= 0) {
+        if (mActionMode != null) {
+          mActionMode.finish();
+          mActionMode=null;
+          listView.setItemChecked(position,true);
+          timeLineAdapter.notifyDataSetChanged();
+          mActionMode=getActivity().startActionMode(new FriendSingleChoiceModeListener(listView,timeLineAdapter,AbstractUserListFragment.this,bean.getUsers().get(position - 1)));
+          return true;
+        }
+ else {
+          listView.setItemChecked(position,true);
+          timeLineAdapter.notifyDataSetChanged();
+          mActionMode=getActivity().startActionMode(new FriendSingleChoiceModeListener(listView,timeLineAdapter,AbstractUserListFragment.this,bean.getUsers().get(position - 1)));
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+);
 }

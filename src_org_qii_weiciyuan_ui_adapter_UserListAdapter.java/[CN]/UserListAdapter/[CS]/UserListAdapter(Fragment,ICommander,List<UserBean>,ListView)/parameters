@@ -1,0 +1,4 @@
+Fragment activity
+ICommander commander
+List<UserBean> bean
+ListView listView

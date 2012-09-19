@@ -6,7 +6,7 @@
       if (newValue.getUsers().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
         newValue.getUsers().addAll(getList().getUsers());
       }
-      bean=newValue;
+      clearAndReplaceValue(newValue);
       timeLineAdapter.notifyDataSetChanged();
       listView.setSelectionAfterHeaderView();
       headerView.findViewById(R.id.header_progress).clearAnimation();
