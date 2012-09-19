@@ -5,6 +5,7 @@
   imageView.getSettings().setSupportZoom(true);
   imageView.getSettings().setBuiltInZoomControls(true);
   imageView.getSettings().setDisplayZoomControls(false);
+  imageView.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
   pb=(ProgressBar)view.findViewById(R.id.pb);
   fl=(FrameLayout)view.findViewById(R.id.fl);
   builder.setView(view);
