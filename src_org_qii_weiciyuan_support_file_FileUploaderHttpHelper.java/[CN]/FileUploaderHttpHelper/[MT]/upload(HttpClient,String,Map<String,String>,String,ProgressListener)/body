@@ -1,7 +1,12 @@
 {
   AppLogger.d(url);
   HttpPost httpPost=new HttpPost(url);
-  MultipartEntity mpEntity=new MultipartEntity();
+  MultipartEntity mpEntity=new MultipartEntity(){
+    @Override public void writeTo(    OutputStream outstream) throws IOException {
+      super.writeTo(new CountingOutputStream(outstream,listener));
+    }
+  }
+;
   FileBody filebody=new FileBody(new File(path));
   mpEntity.addPart("pic",filebody);
   Set<String> keys=param.keySet();
@@ -25,10 +30,9 @@
  catch (  IOException e) {
     AppLogger.e(e.getMessage());
   }
-  String content=null;
   try {
     if (response != null) {
-      content=EntityUtils.toString(response.getEntity());
+      String content=EntityUtils.toString(response.getEntity());
       return true;
     }
   }

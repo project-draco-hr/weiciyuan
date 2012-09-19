@@ -1,0 +1,8 @@
+{
+  if (values.length > 0) {
+    long data=values[0];
+    Notification.Builder builder=new Notification.Builder(PhotoUploadService.this).setTicker(getString(R.string.send_photo)).setContentTitle(getString(R.string.background_sending)).setContentText(content).setProgress((int)size,(int)data,false).setSmallIcon(R.drawable.upload_white);
+    notification=builder.getNotification();
+    startForeground(NOTIFICATION_ID,notification);
+  }
+}

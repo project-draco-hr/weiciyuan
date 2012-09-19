@@ -3,8 +3,9 @@
   picPath=intent.getStringExtra("picPath");
   content=intent.getStringExtra("content");
   geoBean=(GeoBean)intent.getSerializableExtra("geo");
-  Notification.Builder builder=new Notification.Builder(PhotoUploadService.this).setTicker(getString(R.string.send_photo)).setContentTitle(getString(R.string.background_sending)).setContentText(content).setProgress(100,100,true).setSmallIcon(R.drawable.upload_white);
-  notification=builder.getNotification();
-  new UploadTask().execute();
+  if (task == null) {
+    task=new UploadTask();
+    task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
   return super.onStartCommand(intent,flags,startId);
 }

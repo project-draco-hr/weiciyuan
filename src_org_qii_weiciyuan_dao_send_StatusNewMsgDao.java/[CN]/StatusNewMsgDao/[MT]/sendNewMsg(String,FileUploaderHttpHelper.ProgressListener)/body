@@ -1,6 +1,6 @@
 {
   if (!TextUtils.isEmpty(pic)) {
-    return sendNewMsgWithPic(str);
+    return sendNewMsgWithPic(str,listener);
   }
   String url=URLManager.getRealUrl("update");
   Map<String,String> map=new HashMap<String,String>();

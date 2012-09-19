@@ -1,10 +1,17 @@
 {
   boolean result=false;
+  size=new File(picPath).length();
   try {
-    result=new StatusNewMsgDao(token).setPic(picPath).setGeoBean(geoBean).sendNewMsg(content);
+    result=new StatusNewMsgDao(token).setPic(picPath).setGeoBean(geoBean).sendNewMsg(content,new FileUploaderHttpHelper.ProgressListener(){
+      @Override public void transferred(      long data){
+        publishProgress(data);
+      }
+    }
+);
   }
  catch (  WeiboException e) {
-    e.printStackTrace();
+    this.e=e;
+    cancel(true);
   }
   if (!result)   cancel(true);
   return null;

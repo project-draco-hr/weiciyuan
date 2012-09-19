@@ -1,6 +1,6 @@
 {
   try {
-    boolean result=new StatusNewMsgDao(token).setGeoBean(geoBean).sendNewMsg(content);
+    boolean result=new StatusNewMsgDao(token).setGeoBean(geoBean).sendNewMsg(content,null);
   }
  catch (  WeiboException e) {
     this.e=e;

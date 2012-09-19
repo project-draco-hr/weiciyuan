@@ -1,3 +1,0 @@
-{
-  return FileUploaderHttpHelper.upload(httpClient,url,param,path);
-}
