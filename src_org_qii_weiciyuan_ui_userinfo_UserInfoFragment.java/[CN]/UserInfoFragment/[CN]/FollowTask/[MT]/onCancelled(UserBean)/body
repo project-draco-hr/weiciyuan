@@ -1,7 +1,7 @@
 {
   super.onCancelled(userBean);
-  stopRefreshMenuAnimation();
-  if (e != null) {
+  if (getActivity() != null)   stopRefreshMenuAnimation();
+  if (e != null && (getActivity() != null)) {
     Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
 switch (e.getError_code()) {
 case ErrorCode.ALREADY_FOLLOWED:

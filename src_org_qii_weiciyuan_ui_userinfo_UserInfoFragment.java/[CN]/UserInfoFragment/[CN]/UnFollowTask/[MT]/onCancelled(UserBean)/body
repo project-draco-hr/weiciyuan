@@ -1,4 +1,4 @@
 {
   super.onCancelled(userBean);
-  stopRefreshMenuAnimation();
+  if (getActivity() != null)   stopRefreshMenuAnimation();
 }
