@@ -1,7 +1,7 @@
 {
   FanListDao dao=new FanListDao(((IToken)getActivity()).getToken(),uid);
   if (getList().getUsers().size() > 0) {
-    dao.setCursor(bean.getNext_cursor());
+    dao.setCursor(String.valueOf(bean.getNext_cursor()));
   }
   UserListBean result=dao.getGSONMsgList();
   return result;

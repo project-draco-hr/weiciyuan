@@ -3,4 +3,5 @@
   ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
   footerView.findViewById(R.id.refresh).clearAnimation();
   footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
+  if (bean.getNext_cursor() == 0)   footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
 }

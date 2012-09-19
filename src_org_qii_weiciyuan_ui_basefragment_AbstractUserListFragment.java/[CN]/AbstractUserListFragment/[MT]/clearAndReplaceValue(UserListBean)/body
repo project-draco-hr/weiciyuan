@@ -1,5 +1,7 @@
 {
+  bean.setNext_cursor(value.getNext_cursor());
   bean.getUsers().clear();
   bean.getUsers().addAll(value.getUsers());
   bean.setTotal_number(value.getTotal_number());
+  bean.setPrevious_cursor(value.getPrevious_cursor());
 }

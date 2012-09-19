@@ -1,16 +1,9 @@
 {
-  if (newValue != null) {
-    if (newValue.getUsers().size() == 0) {
-    }
- else {
-      if (newValue.getUsers().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
-        newValue.getUsers().addAll(getList().getUsers());
-      }
-      clearAndReplaceValue(newValue);
-      timeLineAdapter.notifyDataSetChanged();
-      listView.setSelectionAfterHeaderView();
-      headerView.findViewById(R.id.header_progress).clearAnimation();
-    }
+  if (newValue != null && newValue.getUsers().size() > 0) {
+    clearAndReplaceValue(newValue);
+    timeLineAdapter.notifyDataSetChanged();
+    listView.setSelectionAfterHeaderView();
+    headerView.findViewById(R.id.header_progress).clearAnimation();
   }
   cleanWork();
   getActivity().invalidateOptionsMenu();

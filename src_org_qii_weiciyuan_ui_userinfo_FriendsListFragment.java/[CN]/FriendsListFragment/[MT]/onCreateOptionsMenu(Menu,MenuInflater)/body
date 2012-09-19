@@ -1,7 +1,15 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
   if (!TextUtils.isEmpty(currentUser.getFriends_count())) {
-    String number=bean.getUsers().size() + "/" + currentUser.getFriends_count();
+    int size=Integer.valueOf(currentUser.getFriends_count());
+    int newSize=bean.getTotal_number();
+    String number="";
+    if (size >= newSize) {
+      number=bean.getUsers().size() + "/" + size;
+    }
+ else {
+      number=bean.getUsers().size() + "/" + newSize;
+    }
     menu.findItem(R.id.statusesbyidtimelinefragment_status_number).setTitle(number);
   }
 }

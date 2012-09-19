@@ -1,7 +1,8 @@
 {
-  if (newValue != null && newValue.getUsers().size() > 1) {
+  if (newValue != null && newValue.getUsers().size() > 0 && newValue.getPrevious_cursor() != bean.getPrevious_cursor()) {
     List<UserBean> list=newValue.getUsers();
-    getList().getUsers().addAll(list.subList(1,list.size() - 1));
+    getList().getUsers().addAll(list);
+    bean.setNext_cursor(newValue.getNext_cursor());
   }
   cleanWork();
   timeLineAdapter.notifyDataSetChanged();
