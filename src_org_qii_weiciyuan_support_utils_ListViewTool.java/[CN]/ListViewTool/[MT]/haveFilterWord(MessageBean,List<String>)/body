@@ -2,7 +2,6 @@
   if (content.getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
     return false;
   }
-  List<String> filterWordList=DatabaseManager.getInstance().getFilterList();
   for (  String filterWord : filterWordList) {
     if (content.getUser() != null && content.getUser().getScreen_name().contains(filterWord)) {
       return true;

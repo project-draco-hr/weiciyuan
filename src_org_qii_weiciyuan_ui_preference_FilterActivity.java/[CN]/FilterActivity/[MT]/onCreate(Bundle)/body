@@ -2,5 +2,23 @@
   super.onCreate(savedInstanceState);
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setTitle(getString(R.string.filter));
+  View title=getLayoutInflater().inflate(R.layout.filteractivity_title_layout,null);
+  Switch switchBtn=(Switch)title.findViewById(R.id.switchBtn);
+  getActionBar().setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
+  getActionBar().setDisplayShowCustomEnabled(true);
+  switchBtn.setChecked(GlobalContext.getInstance().isEnableFilter());
+  switchBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+    @Override public void onCheckedChanged(    CompoundButton buttonView,    boolean isChecked){
+      GlobalContext.getInstance().setEnableFilter(isChecked);
+      SharedPreferences.Editor editor=PreferenceManager.getDefaultSharedPreferences(FilterActivity.this).edit();
+      if (isChecked) {
+        editor.putBoolean(SettingActivity.FILTER,true).commit();
+      }
+ else {
+        editor.putBoolean(SettingActivity.FILTER,false).commit();
+      }
+    }
+  }
+);
   getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new FilterFragment()).commit();
 }
