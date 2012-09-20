@@ -1,0 +1,6 @@
+{
+  super.onCreate(savedInstanceState);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setTitle(getString(R.string.filter));
+  getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new FilterFragment()).commit();
+}
