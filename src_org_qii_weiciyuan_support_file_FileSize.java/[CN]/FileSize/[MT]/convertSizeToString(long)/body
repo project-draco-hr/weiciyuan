@@ -1,0 +1,23 @@
+{
+  if (fileSize >= 0 && fileSize < SIZE_BT) {
+    return fileSize + "B";
+  }
+ else   if (fileSize >= SIZE_BT && fileSize < SIZE_KB) {
+    return fileSize / SIZE_BT + "KB";
+  }
+ else   if (fileSize >= SIZE_KB && fileSize < SIZE_MB) {
+    return fileSize / SIZE_KB + "MB";
+  }
+ else   if (fileSize >= SIZE_MB && fileSize < SIZE_GB) {
+    BigDecimal longs=new BigDecimal(Double.valueOf(fileSize + "").toString());
+    BigDecimal sizeMB=new BigDecimal(Double.valueOf(SIZE_MB + "").toString());
+    String result=longs.divide(sizeMB,SACLE,BigDecimal.ROUND_HALF_UP).toString();
+    return result + "GB";
+  }
+ else {
+    BigDecimal longs=new BigDecimal(Double.valueOf(fileSize + "").toString());
+    BigDecimal sizeMB=new BigDecimal(Double.valueOf(SIZE_GB + "").toString());
+    String result=longs.divide(sizeMB,SACLE,BigDecimal.ROUND_HALF_UP).toString();
+    return result + "TB";
+  }
+}
