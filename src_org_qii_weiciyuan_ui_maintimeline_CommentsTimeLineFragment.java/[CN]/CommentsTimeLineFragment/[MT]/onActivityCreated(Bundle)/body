@@ -9,7 +9,10 @@
     refreshLayout(bean);
   }
  else {
-    new SimpleTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    if (dbTask == null || dbTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+      dbTask=new SimpleTask();
+      dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    }
   }
   listView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
   listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
