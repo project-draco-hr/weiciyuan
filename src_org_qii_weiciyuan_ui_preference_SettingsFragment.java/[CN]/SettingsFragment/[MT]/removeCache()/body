@@ -1,0 +1,9 @@
+{
+  if (calcTask != null && calcTask.getStatus() != MyAsyncTask.Status.FINISHED) {
+    calcTask.cancel(true);
+  }
+  if (removeCache == null || removeCache.getStatus() == MyAsyncTask.Status.FINISHED) {
+    removeCache=new RemoveCache();
+    removeCache.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}
