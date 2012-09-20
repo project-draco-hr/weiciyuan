@@ -5,5 +5,10 @@
   asString=asString.replace("]",")");
   String sql="delete from " + AccountTable.TABLE_NAME + " where "+ AccountTable.UID+ " in "+ asString;
   wsd.execSQL(sql);
+  for (  String id : args) {
+    deleteAllHomes(id);
+    deleteAllReposts(id);
+    deleteAllComments(id);
+  }
   return getAccountList();
 }

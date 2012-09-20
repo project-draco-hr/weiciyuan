@@ -1,5 +1,4 @@
 {
-  String sql="delete from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ACCOUNTID+ " in "+ "("+ accountId+ ")";
-  wsd.execSQL(sql);
+  deleteAllHomes(accountId);
   addHomeLineMsg(list,accountId);
 }
