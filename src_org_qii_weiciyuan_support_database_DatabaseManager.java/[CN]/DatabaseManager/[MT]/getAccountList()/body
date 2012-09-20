@@ -23,5 +23,6 @@
     }
     accountList.add(account);
   }
+  c.close();
   return accountList;
 }

@@ -16,5 +16,6 @@
     }
   }
   result.setComments(msgList);
+  c.close();
   return result;
 }

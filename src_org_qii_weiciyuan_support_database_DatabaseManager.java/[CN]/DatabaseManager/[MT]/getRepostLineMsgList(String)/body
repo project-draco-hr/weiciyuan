@@ -16,5 +16,6 @@
     }
   }
   result.setStatuses(msgList);
+  c.close();
   return result;
 }
