@@ -1,0 +1,4 @@
+{
+  List<String> set=DatabaseManager.getInstance().getFilterList();
+  return set;
+}

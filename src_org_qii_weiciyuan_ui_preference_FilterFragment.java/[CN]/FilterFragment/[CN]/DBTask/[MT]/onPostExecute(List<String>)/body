@@ -1,0 +1,5 @@
+{
+  super.onPostExecute(set);
+  adapter.clear();
+  adapter.addAll(set);
+}

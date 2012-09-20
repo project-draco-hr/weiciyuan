@@ -15,7 +15,7 @@
     Iterator<MessageBean> iterator=msgList.iterator();
     while (iterator.hasNext()) {
       MessageBean msg=iterator.next();
-      if (msg.getUser() == null) {
+      if (msg.getUser() == null || ListViewTool.haveFilterWord(msg)) {
         iterator.remove();
       }
  else {

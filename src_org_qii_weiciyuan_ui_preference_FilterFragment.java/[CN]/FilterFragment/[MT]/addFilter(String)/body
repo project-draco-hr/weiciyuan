@@ -1,0 +1,4 @@
+{
+  DatabaseManager.getInstance().addFilterKeyword(word);
+  new DBTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}

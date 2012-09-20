@@ -1,0 +1,19 @@
+{
+  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+  final EditText et=new EditText(getActivity());
+  builder.setView(et).setTitle(getString(R.string.input_filter_word)).setPositiveButton(getString(R.string.add),new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      String word=et.getText().toString().trim();
+      if (!TextUtils.isEmpty(word)) {
+        FilterFragment filterFragment=(FilterFragment)getTargetFragment();
+        filterFragment.addFilter(word);
+      }
+    }
+  }
+).setNegativeButton(getString(R.string.cancel),new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+    }
+  }
+);
+  return builder.create();
+}

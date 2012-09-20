@@ -1,0 +1,13 @@
+{
+  ContentValues cv=new ContentValues();
+  cv.put(FilterTable.NAME,word);
+  cv.put(FilterTable.ACTIVE,"true");
+  Cursor c=rsd.query(FilterTable.TABLE_NAME,null,FilterTable.NAME + "=?",new String[]{word},null,null,null);
+  if (c != null && c.getCount() > 0) {
+    return OAuthActivity.DBResult.update_successfully;
+  }
+ else {
+    wsd.insert(FilterTable.TABLE_NAME,FilterTable.ID,cv);
+    return OAuthActivity.DBResult.add_successfuly;
+  }
+}
