@@ -1,0 +1,3 @@
+{
+  return ((AbstractTimeLineFragment)getSupportFragmentManager().findFragmentByTag(MyStatussTimeLineFragment.class.getName()));
+}
