@@ -1,0 +1,13 @@
+{
+switch (v.getId()) {
+case R.id.menu_add_gps:
+    getLocation();
+  break;
+case R.id.menu_add_pic:
+addPic();
+break;
+case R.id.menu_send:
+send();
+break;
+}
+}

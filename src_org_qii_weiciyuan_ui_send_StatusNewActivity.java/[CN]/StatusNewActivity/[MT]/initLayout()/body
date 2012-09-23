@@ -54,4 +54,7 @@
   actionBar.setDisplayShowCustomEnabled(true);
   content=((EditText)findViewById(R.id.status_new_content));
   content.addTextChangedListener(new TextNumLimitWatcher(contentNumber,content,this));
+  findViewById(R.id.menu_add_gps).setOnClickListener(this);
+  findViewById(R.id.menu_add_pic).setOnClickListener(this);
+  findViewById(R.id.menu_send).setOnClickListener(this);
 }

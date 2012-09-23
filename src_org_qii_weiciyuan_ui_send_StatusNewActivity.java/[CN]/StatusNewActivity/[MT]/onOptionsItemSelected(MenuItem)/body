@@ -12,13 +12,10 @@ case R.id.menu_add_gps:
 getLocation();
 break;
 case R.id.menu_add_pic:
-new PictureSelectDialog().show(getFragmentManager(),"");
+addPic();
 break;
 case R.id.menu_send:
-String value=content.getText().toString();
-if (canSend()) {
-executeTask(value);
-}
+send();
 break;
 }
 return true;
