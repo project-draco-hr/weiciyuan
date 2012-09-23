@@ -7,7 +7,7 @@
     }
 switch (requestCode) {
 case CAMERA_RESULT:
-      picPath=imageFilePath;
+      picPath=getPicPathFromUri(imageFileUri);
     break;
 case PIC_RESULT:
   Uri imageFileUri=intent.getData();
