@@ -31,4 +31,8 @@
   if (repost_msg != null && showOriStatus) {
     buildRepostContent(repost_msg,holder,position);
   }
+ else {
+    holder.repost_layout.setVisibility(View.GONE);
+    holder.repost_avatar.setVisibility(View.GONE);
+  }
 }

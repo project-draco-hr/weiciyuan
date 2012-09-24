@@ -10,5 +10,7 @@
   holder.content_pic=(ImageView)convertView.findViewById(R.id.content_pic);
   holder.repost_content_pic=(ImageView)convertView.findViewById(R.id.repost_content_pic);
   holder.listview_root=(RelativeLayout)convertView.findViewById(R.id.listview_root);
+  holder.repost_layout=(LinearLayout)convertView.findViewById(R.id.repost_layout);
+  holder.repost_avatar=(ImageView)convertView.findViewById(R.id.repost_avatar);
   return holder;
 }
