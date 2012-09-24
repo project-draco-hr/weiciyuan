@@ -9,4 +9,8 @@
   String scheme="org.qii.weiciyuan://";
   MyLinkify.addLinks(view,pattern,scheme,null,mentionFilter);
   MyLinkify.addLinks(view,MyLinkify.WEB_URLS);
+  CharSequence content=view.getText();
+  SpannableString value=SpannableString.valueOf(content);
+  ListViewTool.addEmotions(value,view.getTextSize());
+  view.setText(value);
 }

@@ -10,7 +10,9 @@
         String path=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.emotion);
         Bitmap bitmap=BitmapFactory.decodeFile(path);
         if (bitmap != null) {
-          ImageSpan localImageSpan=new ImageSpan(GlobalContext.getInstance().getActivity(),bitmap,ImageSpan.ALIGN_BASELINE);
+          Bitmap scaledBitmap=Bitmap.createScaledBitmap(bitmap,(int)height,(int)height,true);
+          bitmap.recycle();
+          ImageSpan localImageSpan=new ImageSpan(GlobalContext.getInstance().getActivity(),scaledBitmap,ImageSpan.ALIGN_BASELINE);
           value.setSpan(localImageSpan,k,m,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
       }
