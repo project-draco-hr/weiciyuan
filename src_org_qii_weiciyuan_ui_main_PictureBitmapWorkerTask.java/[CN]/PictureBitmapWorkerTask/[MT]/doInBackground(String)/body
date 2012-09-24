@@ -4,7 +4,13 @@ switch (method) {
 case picture_thumbnail:
       return ImageTool.getThumbnailPictureWithRoundedCorner(data);
 case picture_bmiddle:
-    return ImageTool.getMiddlePictureInTimeLine(data,640,120,null);
+    DisplayMetrics metrics=new DisplayMetrics();
+  Display display=activity.getWindowManager().getDefaultDisplay();
+display.getMetrics(metrics);
+float reSize=activity.getResources().getDisplayMetrics().density;
+int height=(int)(reSize * 80);
+int width=(int)(metrics.widthPixels - (16 + 5 + 40+ 5) * reSize);
+return ImageTool.getMiddlePictureInTimeLine(data,width,height,null);
 }
 }
 return null;
