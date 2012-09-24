@@ -3,10 +3,16 @@
   try {
     EmotionsDao dao=new EmotionsDao(token);
     List<EmotionBean> list=dao.getEmotions();
-    size=list.size();
-    DatabaseManager.getInstance().addEmotions(list);
-    GlobalContext.getInstance().setEmotions(DatabaseManager.getInstance().getEmotionsMap());
+    List<EmotionBean> needList=new ArrayList<EmotionBean>();
     for (    EmotionBean bean : list) {
+      if (TextUtils.isEmpty(bean.getCategory())) {
+        needList.add(bean);
+      }
+    }
+    size=needList.size();
+    DatabaseManager.getInstance().addEmotions(needList);
+    GlobalContext.getInstance().setEmotions(DatabaseManager.getInstance().getEmotionsMap());
+    for (    EmotionBean bean : needList) {
       String url=bean.getUrl();
       String path=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.emotion);
       HttpUtility.getInstance().executeDownloadTask(url,path,null);
