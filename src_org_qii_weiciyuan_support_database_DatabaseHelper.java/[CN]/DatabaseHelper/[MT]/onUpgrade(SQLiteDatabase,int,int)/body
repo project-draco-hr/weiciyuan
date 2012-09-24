@@ -6,5 +6,6 @@
   db.execSQL("DROP TABLE IF EXISTS " + CommentsTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + RepostsTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + FilterTable.TABLE_NAME);
+  db.execSQL("DROP TABLE IF EXISTS " + EmotionsTable.TABLE_NAME);
   onCreate(db);
 }

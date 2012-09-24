@@ -1,0 +1,19 @@
+{
+  Matcher localMatcher=Pattern.compile("\\[(\\S+?)\\]").matcher(value);
+  while (localMatcher.find()) {
+    String str2=localMatcher.group(0);
+    int k=localMatcher.start();
+    int m=localMatcher.end();
+    if (m - k < 8) {
+      String url=GlobalContext.getInstance().getEmotions().get(str2);
+      if (!TextUtils.isEmpty(url)) {
+        String path=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.emotion);
+        Bitmap bitmap=BitmapFactory.decodeFile(path);
+        if (bitmap != null) {
+          ImageSpan localImageSpan=new ImageSpan(GlobalContext.getInstance(),bitmap);
+          value.setSpan(localImageSpan,k,m,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+      }
+    }
+  }
+}

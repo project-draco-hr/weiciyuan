@@ -1,0 +1,8 @@
+{
+  ContentValues cv=new ContentValues();
+  cv.put(EmotionsTable.JSONDATA,new Gson().toJson(word));
+  wsd.execSQL("DROP TABLE IF EXISTS " + EmotionsTable.TABLE_NAME);
+  wsd.execSQL(DatabaseHelper.CREATE_EMOTIONS_TABLE_SQL);
+  wsd.insert(EmotionsTable.TABLE_NAME,EmotionsTable.ID,cv);
+  return OAuthActivity.DBResult.add_successfuly;
+}

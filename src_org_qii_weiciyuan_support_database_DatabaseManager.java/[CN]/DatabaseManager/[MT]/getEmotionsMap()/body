@@ -1,0 +1,23 @@
+{
+  Gson gson=new Gson();
+  Map<String,String> map=new HashMap<String,String>();
+  String sql="select * from " + EmotionsTable.TABLE_NAME + " order by "+ EmotionsTable.ID+ " limit 1 ";
+  Cursor c=rsd.rawQuery(sql,null);
+  if (c.moveToNext()) {
+    String json=c.getString(c.getColumnIndex(EmotionsTable.JSONDATA));
+    try {
+      List<EmotionBean> value=gson.fromJson(json,new TypeToken<ArrayList<EmotionBean>>(){
+      }
+.getType());
+      for (      EmotionBean bean : value) {
+        map.put(bean.getPhrase(),bean.getUrl());
+      }
+    }
+ catch (    JsonSyntaxException e) {
+      ActivityUtils.showTips("????????????????????????");
+      AppLogger.e(e.getMessage());
+    }
+  }
+  c.close();
+  return map;
+}
