@@ -1,0 +1,20 @@
+{
+  String url=URLHelper.getEmotions();
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("type",type);
+  map.put("language",language);
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  Gson gson=new Gson();
+  List<EmotionBean> value=null;
+  try {
+    value=gson.fromJson(jsonData,new TypeToken<ArrayList<EmotionBean>>(){
+    }
+.getType());
+  }
+ catch (  JsonSyntaxException e) {
+    ActivityUtils.showTips("????????????????????????");
+    AppLogger.e(e.getMessage());
+  }
+  return value;
+}

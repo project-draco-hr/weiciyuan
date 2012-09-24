@@ -1,0 +1,5 @@
+{
+  super.onPostExecute(aVoid);
+  stopForeground(true);
+  stopSelf();
+}

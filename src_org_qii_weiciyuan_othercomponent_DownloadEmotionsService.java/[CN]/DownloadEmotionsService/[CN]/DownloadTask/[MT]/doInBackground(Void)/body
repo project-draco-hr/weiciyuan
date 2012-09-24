@@ -1,0 +1,26 @@
+{
+  int now=0;
+  try {
+    EmotionsDao dao=new EmotionsDao(token);
+    List<EmotionBean> list=dao.getEmotions();
+    List<EmotionBean> needList=new ArrayList<EmotionBean>();
+    for (    EmotionBean bean : list) {
+      if (TextUtils.isEmpty(bean.getCategory())) {
+        needList.add(bean);
+      }
+    }
+    size=needList.size();
+    for (    EmotionBean bean : needList) {
+      String url=bean.getUrl();
+      String path=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.emotion);
+      HttpUtility.getInstance().executeDownloadTask(url,path,null);
+      now++;
+      publishProgress(now);
+    }
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+  }
+  return null;
+}

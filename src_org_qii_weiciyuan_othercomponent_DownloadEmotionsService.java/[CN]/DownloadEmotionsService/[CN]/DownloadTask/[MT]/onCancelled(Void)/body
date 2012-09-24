@@ -1,0 +1,5 @@
+{
+  super.onCancelled(aVoid);
+  stopForeground(true);
+  stopSelf();
+}

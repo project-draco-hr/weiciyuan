@@ -1,0 +1,6 @@
+{
+  super.onPreExecute();
+  Notification.Builder builder=new Notification.Builder(DownloadEmotionsService.this).setTicker(getString(R.string.download_emotions)).setContentTitle(getString(R.string.weibo_emotions)).setContentText(getString(R.string.background_downloading)).setProgress(0,100,false).setSmallIcon(R.drawable.download_white);
+  notification=builder.getNotification();
+  startForeground(NOTIFICATION_ID,notification);
+}

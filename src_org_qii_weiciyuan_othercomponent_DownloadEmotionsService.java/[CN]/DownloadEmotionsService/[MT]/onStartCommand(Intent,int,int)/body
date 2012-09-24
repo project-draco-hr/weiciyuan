@@ -1,0 +1,8 @@
+{
+  token=intent.getStringExtra("token");
+  if (task == null) {
+    task=new DownloadTask();
+    task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+  return super.onStartCommand(intent,flags,startId);
+}
