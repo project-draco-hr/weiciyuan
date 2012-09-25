@@ -8,7 +8,7 @@ case picture_bmiddle:
   Display display=activity.getWindowManager().getDefaultDisplay();
 display.getMetrics(metrics);
 float reSize=activity.getResources().getDisplayMetrics().density;
-int height=(int)(reSize * 80);
+int height=(int)(reSize * 120);
 int width=(int)(metrics.widthPixels - (16 + 5 + 40+ 5) * reSize);
 return ImageTool.getMiddlePictureInTimeLine(data,width,height,null);
 }
