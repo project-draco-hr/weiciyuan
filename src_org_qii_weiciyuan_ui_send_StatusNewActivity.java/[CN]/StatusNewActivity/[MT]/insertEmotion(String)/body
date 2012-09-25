@@ -1,0 +1,8 @@
+{
+  String ori=content.getText().toString();
+  int index=content.getSelectionStart();
+  StringBuilder stringBuilder=new StringBuilder(ori);
+  stringBuilder.insert(index,emotionChar);
+  content.setText(stringBuilder.toString());
+  content.setSelection(index + emotionChar.length());
+}

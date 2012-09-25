@@ -6,6 +6,10 @@ case R.id.menu_add_gps:
 case R.id.menu_add_pic:
 addPic();
 break;
+case R.id.menu_add_emotions:
+EmotionsDialog dialog=new EmotionsDialog();
+dialog.show(getSupportFragmentManager(),"");
+break;
 case R.id.menu_send:
 send();
 break;
