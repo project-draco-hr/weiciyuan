@@ -1,13 +1,12 @@
 {
 switch (item.getItemId()) {
-case R.id.menu_send:
-    final String content=et.getText().toString();
-  if (!TextUtils.isEmpty(content)) {
-    new SimpleTask().execute();
-  }
- else {
-    Toast.makeText(this,getString(R.string.comment_cant_be_empty),Toast.LENGTH_SHORT).show();
-  }
+case android.R.id.home:
+    InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+  if (imm.isActive())   imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,InputMethodManager.HIDE_NOT_ALWAYS);
+finish();
+break;
+case R.id.menu_clear:
+clearContentMenu();
 break;
 }
 return true;

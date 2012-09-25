@@ -5,7 +5,7 @@
   gridview.setAdapter(new ImageAdapter(getActivity()));
   gridview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
     public void onItemClick(    AdapterView<?> parent,    View v,    int position,    long id){
-      ((StatusNewActivity)getActivity()).insertEmotion(index.get(position));
+      ((IEmotions)getActivity()).insertEmotion(index.get(position));
       dismiss();
     }
   }

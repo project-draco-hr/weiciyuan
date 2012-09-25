@@ -1,0 +1,17 @@
+{
+switch (v.getId()) {
+case R.id.menu_add_emotions:
+    EmotionsDialog dialog=new EmotionsDialog();
+  dialog.show(getSupportFragmentManager(),"");
+break;
+case R.id.menu_send:
+send();
+break;
+case R.id.menu_topic:
+String ori=getEditTextView().getText().toString();
+String topicTag="##";
+getEditTextView().setText(ori + topicTag);
+getEditTextView().setSelection(et.getText().toString().length() - 1);
+break;
+}
+}

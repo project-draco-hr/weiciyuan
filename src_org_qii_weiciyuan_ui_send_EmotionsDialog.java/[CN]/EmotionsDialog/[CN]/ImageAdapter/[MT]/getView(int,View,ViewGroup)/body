@@ -9,6 +9,6 @@
  else {
     imageView=(ImageView)convertView;
   }
-  imageView.setImageBitmap(((StatusNewActivity)getActivity()).getEmotionsPic().get(index.get(position)));
+  imageView.setImageBitmap(((IEmotions)getActivity()).getEmotionsPic().get(index.get(position)));
   return imageView;
 }

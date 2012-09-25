@@ -1,0 +1,12 @@
+{
+  String content=getEditTextView().getText().toString();
+  if (TextUtils.isEmpty(content)) {
+    content=getString(R.string.repost);
+  }
+  RepostNewMsgDao dao=new RepostNewMsgDao(token,id);
+  if (enableComment) {
+    dao.setIs_comment(true);
+  }
+  dao.setStatus(content);
+  return dao.sendNewMsg();
+}
