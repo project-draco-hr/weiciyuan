@@ -1,4 +1,10 @@
 {
   super.onActivityCreated(savedInstanceState);
-  refresh();
+  if (savedInstanceState != null) {
+    q=savedInstanceState.getString("q");
+    page=savedInstanceState.getInt("page");
+  }
+ else {
+    refresh();
+  }
 }
