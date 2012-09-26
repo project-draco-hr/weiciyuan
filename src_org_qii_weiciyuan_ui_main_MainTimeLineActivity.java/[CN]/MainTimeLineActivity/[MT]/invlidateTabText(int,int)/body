@@ -1,7 +1,13 @@
 {
   ActionBar.Tab tab=getActionBar().getTabAt(index);
   String name=tab.getText().toString();
-  String num="(" + number + ")";
+  String num;
+  if (number < 99) {
+    num="(" + number + ")";
+  }
+ else {
+    num="(99+)";
+  }
   if (!name.endsWith(")")) {
     tab.setText(name + num);
   }

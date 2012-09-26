@@ -1,0 +1,6 @@
+{
+  if (getUnreadCountTask == null || getUnreadCountTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+    getUnreadCountTask=new GetUnreadCountTask();
+    getUnreadCountTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

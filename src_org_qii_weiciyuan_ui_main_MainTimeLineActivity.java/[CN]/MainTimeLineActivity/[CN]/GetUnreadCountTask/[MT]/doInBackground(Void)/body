@@ -1,0 +1,10 @@
+{
+  UnreadDao unreadDao=new UnreadDao(token,accountBean.getUid());
+  try {
+    return unreadDao.getCount();
+  }
+ catch (  WeiboException e) {
+    AppLogger.e(e.getError());
+  }
+  return null;
+}

@@ -10,5 +10,6 @@
   map.put("feature",feature);
   map.put("trim_user",trim_user);
   String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  new ClearUnreadDao(access_token,ClearUnreadDao.STATUS).clearUnread();
   return jsonData;
 }

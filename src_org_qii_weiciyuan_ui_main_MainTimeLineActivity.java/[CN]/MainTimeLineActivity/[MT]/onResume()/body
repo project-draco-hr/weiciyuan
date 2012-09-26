@@ -1,0 +1,14 @@
+{
+  super.onResume();
+  IntentFilter filter=new IntentFilter(MentionsAndCommentsReceiver.ACTION);
+  filter.setPriority(1);
+  newMsgBroadcastReceiver=new NewMsgBroadcastReceiver();
+  registerReceiver(newMsgBroadcastReceiver,filter);
+  newMsgScheduledExecutorService=Executors.newSingleThreadScheduledExecutor();
+  newMsgScheduledExecutorService.scheduleAtFixedRate(new Runnable(){
+    @Override public void run(){
+      getUnreadCount();
+    }
+  }
+,10,50,TimeUnit.SECONDS);
+}

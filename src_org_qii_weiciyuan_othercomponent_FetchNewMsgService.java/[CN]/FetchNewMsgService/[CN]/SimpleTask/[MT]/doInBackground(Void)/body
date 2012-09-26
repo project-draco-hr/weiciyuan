@@ -16,8 +16,8 @@
       if (messageListBean.getSize() > 0) {
         mentionDao.setSince_id(messageListBean.getItemList().get(0).getId());
       }
-      commentResult=commentDao.getGSONMsgList();
-      repostResult=mentionDao.getGSONMsgList();
+      commentResult=commentDao.getGSONMsgListWithoutClearUnread();
+      repostResult=mentionDao.getGSONMsgListWithoutClearUnread();
     }
   }
  catch (  WeiboException e) {
