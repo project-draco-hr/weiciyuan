@@ -1,0 +1,8 @@
+{
+  bean.getItemList().clear();
+  page=1;
+  SearchTopicDao dao=new SearchTopicDao(((IToken)getActivity()).getToken(),q);
+  dao.setPage(String.valueOf(page));
+  TopicResultListBean result=dao.getGSONMsgList();
+  return result;
+}
