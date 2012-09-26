@@ -28,15 +28,15 @@
     cutHeight=(reqHeight * cutWidth) / useWidth;
   }
  else   if (height < reqHeight && width < useWidth) {
-    int betweenWidth=useWidth - width;
-    int betweenHeight=reqHeight - height;
+    float betweenWidth=((float)useWidth - (float)width) / (float)width;
+    float betweenHeight=((float)reqHeight - (float)height) / (float)height;
     if (betweenWidth > betweenHeight) {
-      cutHeight=height;
-      cutWidth=(useWidth * cutHeight) / reqHeight;
-    }
- else {
       cutWidth=width;
       cutHeight=(reqHeight * cutWidth) / useWidth;
+    }
+ else {
+      cutHeight=height;
+      cutWidth=(useWidth * cutHeight) / reqHeight;
     }
   }
   if (cutWidth > 0 && cutHeight > 0) {
