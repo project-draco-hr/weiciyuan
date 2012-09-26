@@ -3,4 +3,5 @@
     getList().getItemList().addAll(newValue.getItemList());
     page++;
   }
+  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
 }
