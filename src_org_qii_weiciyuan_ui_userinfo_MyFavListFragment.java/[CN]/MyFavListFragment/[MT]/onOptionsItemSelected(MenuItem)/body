@@ -1,8 +1,11 @@
 {
 switch (item.getItemId()) {
-case R.id.myfavlistfragment_refresh:
-    refresh();
+case R.id.total_number:
+    Toast.makeText(getActivity(),(bean.getTotal_number() - bean.getSize()) + getString(R.string.deleted_by_sina_weibo),Toast.LENGTH_SHORT).show();
   break;
+case R.id.myfavlistfragment_refresh:
+refresh();
+break;
 }
 return super.onOptionsItemSelected(item);
 }

@@ -1,0 +1,9 @@
+{
+  if (newValue != null && newValue.getSize() > 0) {
+    getList().getItemList().addAll(newValue.getItemList());
+    bean.setTotal_number(newValue.getTotal_number());
+    getActivity().invalidateOptionsMenu();
+    page++;
+  }
+  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
+}

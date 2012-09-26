@@ -1,12 +1,12 @@
 {
   super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
-  if (savedInstanceState != null && bean.getFavorites().size() == 0) {
-    bean=(FavListBean)savedInstanceState.getSerializable("bean");
+  if (savedInstanceState != null && bean.getItemList().size() == 0) {
+    clearAndReplaceValue((FavListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
   }
  else {
-    new SimpleTask().execute();
+    refresh();
   }
 }

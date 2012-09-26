@@ -1,7 +1,0 @@
-{
-  FavListBean newValue=new FavListDao(((IToken)getActivity()).getToken()).getGSONMsgList();
-  if (newValue != null) {
-    bean=newValue;
-  }
-  return null;
-}

@@ -1,0 +1,6 @@
+{
+  page=1;
+  FavListDao dao=new FavListDao(((IToken)getActivity()).getToken()).setPage(String.valueOf(page));
+  FavListBean result=dao.getGSONMsgList();
+  return result;
+}

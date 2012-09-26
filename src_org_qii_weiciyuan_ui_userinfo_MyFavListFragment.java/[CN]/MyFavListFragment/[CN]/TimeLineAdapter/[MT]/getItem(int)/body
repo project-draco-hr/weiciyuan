@@ -1,3 +1,0 @@
-{
-  return getList().getFavorites().get(position);
-}

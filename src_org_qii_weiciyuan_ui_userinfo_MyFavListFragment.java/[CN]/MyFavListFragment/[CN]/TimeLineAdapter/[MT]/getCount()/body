@@ -1,8 +1,0 @@
-{
-  if (getList() != null && getList().getFavorites() != null) {
-    return getList().getFavorites().size();
-  }
- else {
-    return 0;
-  }
-}

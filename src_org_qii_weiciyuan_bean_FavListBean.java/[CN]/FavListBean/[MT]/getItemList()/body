@@ -1,0 +1,9 @@
+{
+  if (actualStore == null) {
+    actualStore=new ArrayList<MessageBean>();
+    for (    FavBean b : favorites) {
+      actualStore.add(b.getStatus());
+    }
+  }
+  return actualStore;
+}
