@@ -1,0 +1,8 @@
+{
+  String url=getUrl();
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("uid",uid);
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  return jsonData;
+}

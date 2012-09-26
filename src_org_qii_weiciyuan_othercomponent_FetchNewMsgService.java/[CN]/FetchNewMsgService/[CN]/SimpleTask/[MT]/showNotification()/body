@@ -1,7 +1,0 @@
-{
-  Intent intent=new Intent(MentionsAndCommentsReceiver.ACTION);
-  intent.putExtra("account",accountBean);
-  intent.putExtra("comment",commentResult);
-  intent.putExtra("repost",repostResult);
-  sendOrderedBroadcast(intent,null);
-}

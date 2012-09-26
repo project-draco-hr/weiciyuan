@@ -1,0 +1,13 @@
+{
+  String json=getMsgListJson();
+  Gson gson=new Gson();
+  UnreadBean value=null;
+  try {
+    value=gson.fromJson(json,UnreadBean.class);
+  }
+ catch (  JsonSyntaxException e) {
+    AppLogger.e(e.getMessage());
+    return null;
+  }
+  return value;
+}

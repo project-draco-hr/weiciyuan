@@ -1,26 +1,31 @@
 {
   String accountId=accountBean.getUid();
   String token=accountBean.getAccess_token();
-  CommentListBean commentLineBean=DatabaseManager.getInstance().getCommentLineMsgList(accountId);
-  MessageListBean messageListBean=DatabaseManager.getInstance().getRepostLineMsgList(accountId);
-  MainCommentsTimeLineDao commentDao=new MainCommentsTimeLineDao(token);
-  if (commentLineBean.getSize() > 0) {
-    commentDao.setSince_id(commentLineBean.getItemList().get(0).getId());
-  }
-  MainMentionsTimeLineDao mentionDao=new MainMentionsTimeLineDao(token);
-  if (messageListBean.getSize() > 0) {
-    mentionDao.setSince_id(messageListBean.getItemList().get(0).getId());
-  }
   try {
-    commentResult=commentDao.getGSONMsgList();
-    repostResult=mentionDao.getGSONMsgList();
+    UnreadDao unreadDao=new UnreadDao(token,accountBean.getUid());
+    unreadBean=unreadDao.getCount();
+    int sum=unreadBean.getMention_cmt() + unreadBean.getMention_status() + unreadBean.getCmt();
+    if (sum > 0) {
+      CommentListBean commentLineBean=DatabaseManager.getInstance().getCommentLineMsgList(accountId);
+      MessageListBean messageListBean=DatabaseManager.getInstance().getRepostLineMsgList(accountId);
+      MainCommentsTimeLineDao commentDao=new MainCommentsTimeLineDao(token);
+      if (commentLineBean.getSize() > 0) {
+        commentDao.setSince_id(commentLineBean.getItemList().get(0).getId());
+      }
+      MainMentionsTimeLineDao mentionDao=new MainMentionsTimeLineDao(token);
+      if (messageListBean.getSize() > 0) {
+        mentionDao.setSince_id(messageListBean.getItemList().get(0).getId());
+      }
+      commentResult=commentDao.getGSONMsgList();
+      repostResult=mentionDao.getGSONMsgList();
+    }
   }
  catch (  WeiboException e) {
     this.e=e;
     cancel(true);
     return null;
   }
-  if (commentResult == null || repostResult == null) {
+  if (unreadBean == null) {
     cancel(true);
   }
   return null;
