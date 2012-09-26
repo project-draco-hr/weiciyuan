@@ -2,6 +2,7 @@
   if (newValue != null && newValue.getSize() > 0) {
     getList().getItemList().addAll(newValue.getItemList());
     page++;
+    getActivity().invalidateOptionsMenu();
   }
   ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
 }
