@@ -2,4 +2,10 @@
   timeLineAdapter.notifyDataSetChanged();
   refreshLayout(bean);
   super.onPostExecute(o);
+  if (bean.getSize() == 0) {
+    refresh();
+  }
+  if (getActivity().getActionBar().getTabAt(2).getText().toString().contains(")")) {
+    refresh();
+  }
 }
