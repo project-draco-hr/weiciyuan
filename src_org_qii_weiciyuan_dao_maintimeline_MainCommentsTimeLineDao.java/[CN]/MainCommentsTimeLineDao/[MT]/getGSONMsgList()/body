@@ -9,6 +9,7 @@
   map.put("filter_by_author",filter_by_author);
   map.put("filter_by_source",filter_by_source);
   String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  new ClearUnreadDao(access_token,ClearUnreadDao.CMT).clearUnread();
   Gson gson=new Gson();
   CommentListBean value=null;
   try {

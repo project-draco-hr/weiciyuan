@@ -1,0 +1,11 @@
+{
+  String json=getMsgListJson();
+  try {
+    JSONObject jsonObject=new JSONObject(json);
+    return jsonObject.optBoolean("result",false);
+  }
+ catch (  JSONException e) {
+    AppLogger.e(e.getMessage());
+  }
+  return false;
+}
