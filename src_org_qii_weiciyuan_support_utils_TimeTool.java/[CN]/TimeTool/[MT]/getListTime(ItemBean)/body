@@ -29,5 +29,5 @@
   if (calMonth < 12) {
     return "" + calMonth + GlobalContext.getInstance().getString(R.string.month);
   }
-  return "" + calMonth / 12 + GlobalContext.getInstance().getString(R.string.month);
+  return "" + calMonth / 12 + GlobalContext.getInstance().getString(R.string.year);
 }
