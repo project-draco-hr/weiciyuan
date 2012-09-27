@@ -1,6 +1,12 @@
 {
   if (!isCancelled()) {
-    return ImageTool.getSmallAvatarWithRoundedCorner(data);
+    if (GlobalContext.getInstance().getEnableBigAvatar()) {
+      float reSize=GlobalContext.getInstance().getResources().getDisplayMetrics().density;
+      int width=(int)(40 * reSize);
+      int height=width;
+      return ImageTool.getTimeLineBigAvatarWithRoundedCorner(data,width,height);
+    }
+ else     return ImageTool.getSmallAvatarWithRoundedCorner(data);
   }
   return null;
 }

@@ -1,0 +1,11 @@
+{
+  if (enableBigAvatar != null) {
+    return enableBigAvatar;
+  }
+ else {
+    AppLogger.e("GlobalContext is empty by system");
+    SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+    enableBigAvatar=sharedPref.getBoolean(SettingActivity.SHOW_BIG_AVATAR,false);
+    return enableBigAvatar;
+  }
+}

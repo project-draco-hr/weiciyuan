@@ -1,0 +1,30 @@
+{
+  Bitmap bitmap=null;
+  String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.avatar_large);
+  absoluteFilePath=absoluteFilePath + ".jpg";
+  if (new File(absoluteFilePath).exists()) {
+    BitmapFactory.Options options=new BitmapFactory.Options();
+    options.inJustDecodeBounds=true;
+    BitmapFactory.decodeFile(absoluteFilePath,options);
+    options.inSampleSize=calculateInSampleSize(options,reqWidth,reqHeight);
+    options.inJustDecodeBounds=false;
+    options.inPurgeable=true;
+    options.inInputShareable=true;
+    bitmap=BitmapFactory.decodeFile(absoluteFilePath,options);
+  }
+ else {
+    String path=getBitmapFromNetWork(url,absoluteFilePath,null);
+    BitmapFactory.Options options=new BitmapFactory.Options();
+    options.inJustDecodeBounds=true;
+    BitmapFactory.decodeFile(absoluteFilePath,options);
+    options.inSampleSize=calculateInSampleSize(options,reqWidth,reqHeight);
+    options.inJustDecodeBounds=false;
+    options.inPurgeable=true;
+    options.inInputShareable=true;
+    bitmap=BitmapFactory.decodeFile(absoluteFilePath,options);
+  }
+  if (bitmap != null) {
+    bitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
+  }
+  return bitmap;
+}
