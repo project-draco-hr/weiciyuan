@@ -5,7 +5,8 @@
     holder.repost_content.setText(repost_msg.getListViewSpannableString());
     holder.repost_avatar.setVisibility(View.VISIBLE);
     boolean isFling=((AbstractTimeLineFragment)activity).isListViewFling();
-    if (GlobalContext.getInstance().isEnablePic())     commander.downloadAvatar(holder.repost_avatar,repost_msg.getUser().getProfile_image_url(),position,listView,isFling);
+    if (GlobalContext.getInstance().isEnablePic()) {
+    }
  else     holder.repost_avatar.setVisibility(View.GONE);
   }
  else {
