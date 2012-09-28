@@ -1,0 +1,5 @@
+{
+  if (null != mOnScrollListener) {
+    mOnScrollListener.onScrollStateChanged(view,scrollState);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  setReleaseLabel(releaseLabel,Mode.BOTH);
+}

@@ -1,0 +1,4 @@
+PullToRefreshBase<?> view
+int deltaY
+int scrollY
+boolean isTouchEvent

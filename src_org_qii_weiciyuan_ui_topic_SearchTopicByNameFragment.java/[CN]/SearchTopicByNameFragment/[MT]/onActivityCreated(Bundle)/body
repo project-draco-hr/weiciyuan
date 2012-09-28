@@ -5,6 +5,7 @@
     page=savedInstanceState.getInt("page");
   }
  else {
+    pullToRefreshListView.startRefreshNow();
     refresh();
   }
 }

@@ -1,0 +1,33 @@
+{
+  super(context);
+  this.context=context;
+  ViewGroup header=(ViewGroup)LayoutInflater.from(context).inflate(R.layout.pull_to_refresh_header,this);
+  mHeaderText=(TextView)header.findViewById(R.id.pull_to_refresh_text);
+  mSubHeaderText=(TextView)header.findViewById(R.id.pull_to_refresh_sub_text);
+  mHeaderImage=(ImageView)header.findViewById(R.id.pull_to_refresh_image);
+  header_text=(LinearLayout)header.findViewById(R.id.header_text);
+  imagelayout=(LinearLayout)header.findViewById(R.id.imagelayout);
+  mHeaderImage.setScaleType(ScaleType.MATRIX);
+switch (mode) {
+case PULL_UP_TO_REFRESH:
+    mPullLabel=context.getString(R.string.pull_to_refresh_from_bottom_pull_label);
+  mRefreshingLabel=context.getString(R.string.pull_to_refresh_from_bottom_refreshing_label);
+mReleaseLabel=context.getString(R.string.pull_to_refresh_from_bottom_release_label);
+break;
+case PULL_DOWN_TO_REFRESH:
+default :
+mPullLabel=context.getString(R.string.pull_to_refresh_pull_label);
+mRefreshingLabel=context.getString(R.string.pull_to_refresh_refreshing_label);
+mReleaseLabel=context.getString(R.string.pull_to_refresh_release_label);
+break;
+}
+if (attrs.hasValue(R.styleable.PullToRefreshListView_ptrHeaderTextColor)) {
+ColorStateList colors=attrs.getColorStateList(R.styleable.PullToRefreshListView_ptrHeaderTextColor);
+setTextColor(null != colors ? colors : ColorStateList.valueOf(0xFF000000));
+}
+if (attrs.hasValue(R.styleable.PullToRefreshListView_ptrHeaderSubTextColor)) {
+ColorStateList colors=attrs.getColorStateList(R.styleable.PullToRefreshListView_ptrHeaderSubTextColor);
+setSubTextColor(null != colors ? colors : ColorStateList.valueOf(0xFF000000));
+}
+reset();
+}

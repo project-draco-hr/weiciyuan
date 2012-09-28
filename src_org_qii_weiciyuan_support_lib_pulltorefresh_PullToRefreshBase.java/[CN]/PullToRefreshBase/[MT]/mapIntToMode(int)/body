@@ -1,0 +1,13 @@
+{
+switch (modeInt) {
+case 0x0:
+    return DISABLED;
+case 0x1:
+default :
+  return PULL_DOWN_TO_REFRESH;
+case 0x2:
+return PULL_UP_TO_REFRESH;
+case 0x3:
+return BOTH;
+}
+}

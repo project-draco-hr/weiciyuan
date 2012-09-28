@@ -1,4 +1,4 @@
 {
-  timeLineAdapter=new CommentListAdapter(this,((AbstractAppActivity)getActivity()).getCommander(),getList().getItemList(),listView,true);
-  listView.setAdapter(timeLineAdapter);
+  timeLineAdapter=new CommentListAdapter(this,((AbstractAppActivity)getActivity()).getCommander(),getList().getItemList(),getListView(),true);
+  pullToRefreshListView.setAdapter(timeLineAdapter);
 }

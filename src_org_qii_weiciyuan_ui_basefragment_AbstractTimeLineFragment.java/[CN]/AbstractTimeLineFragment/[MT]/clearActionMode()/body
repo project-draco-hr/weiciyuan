@@ -3,8 +3,8 @@
     mActionMode.finish();
     mActionMode=null;
   }
-  if (listView != null && listView.getCheckedItemCount() > 0) {
-    listView.clearChoices();
+  if (pullToRefreshListView != null && getListView().getCheckedItemCount() > 0) {
+    getListView().clearChoices();
     if (timeLineAdapter != null)     timeLineAdapter.notifyDataSetChanged();
   }
 }

@@ -1,0 +1,10 @@
+{
+switch (mCurrentMode) {
+case PULL_UP_TO_REFRESH:
+    mFooterLayout.releaseToRefresh();
+  break;
+case PULL_DOWN_TO_REFRESH:
+mHeaderLayout.releaseToRefresh();
+break;
+}
+}

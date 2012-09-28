@@ -1,0 +1,9 @@
+{
+  if (mode != mMode) {
+    if (DEBUG) {
+      Log.d(LOG_TAG,"Setting mode to: " + mode);
+    }
+    mMode=mode;
+    updateUIForMode();
+  }
+}

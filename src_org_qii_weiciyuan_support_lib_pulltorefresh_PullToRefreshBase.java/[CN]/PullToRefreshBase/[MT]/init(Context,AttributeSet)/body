@@ -1,0 +1,32 @@
+{
+  setOrientation(LinearLayout.VERTICAL);
+  ViewConfiguration config=ViewConfiguration.get(context);
+  mTouchSlop=config.getScaledTouchSlop();
+  TypedArray a=context.obtainStyledAttributes(attrs,R.styleable.PullToRefreshListView);
+  if (a.hasValue(R.styleable.PullToRefreshListView_ptrMode)) {
+    mMode=Mode.mapIntToMode(a.getInteger(R.styleable.PullToRefreshListView_ptrMode,0));
+  }
+  mRefreshableView=createRefreshableView(context,attrs);
+  mRefreshableView.setOverScrollMode(OVER_SCROLL_NEVER);
+  addRefreshableView(context,mRefreshableView);
+  mHeaderLayout=createLoadingLayout(context,Mode.PULL_DOWN_TO_REFRESH,a);
+  mFooterLayout=createLoadingLayout(context,Mode.PULL_UP_TO_REFRESH,a);
+  if (a.hasValue(R.styleable.PullToRefreshListView_ptrHeaderBackground)) {
+    Drawable background=a.getDrawable(R.styleable.PullToRefreshListView_ptrHeaderBackground);
+    if (null != background) {
+      setBackgroundDrawable(background);
+    }
+  }
+  if (a.hasValue(R.styleable.PullToRefreshListView_ptrAdapterViewBackground)) {
+    Drawable background=a.getDrawable(R.styleable.PullToRefreshListView_ptrAdapterViewBackground);
+    if (null != background) {
+      mRefreshableView.setBackgroundDrawable(background);
+    }
+  }
+  if (a.hasValue(R.styleable.PullToRefreshListView_ptrOverScroll)) {
+    mOverScrollEnabled=a.getBoolean(R.styleable.PullToRefreshListView_ptrOverScroll,true);
+  }
+  handleStyledAttributes(a);
+  a.recycle();
+  updateUIForMode();
+}

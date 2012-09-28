@@ -1,6 +1,7 @@
 {
   if ((bean == null || bean.getSize() == 0) && newTask == null) {
-    if (listView != null) {
+    if (pullToRefreshListView != null) {
+      pullToRefreshListView.startRefreshNow();
       refresh();
     }
   }

@@ -1,0 +1,5 @@
+{
+  mHeaderText.setText(wrapHtmlLabel(mPullLabel));
+  final MediaPlayer mp=MediaPlayer.create(context,R.raw.pop);
+  mp.start();
+}

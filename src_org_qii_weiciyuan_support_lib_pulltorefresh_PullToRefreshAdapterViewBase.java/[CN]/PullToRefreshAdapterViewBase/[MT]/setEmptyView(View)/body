@@ -1,0 +1,21 @@
+{
+  FrameLayout refreshableViewWrapper=getRefreshableViewWrapper();
+  if (null != mEmptyView) {
+    refreshableViewWrapper.removeView(mEmptyView);
+  }
+  if (null != newEmptyView) {
+    newEmptyView.setClickable(true);
+    ViewParent newEmptyViewParent=newEmptyView.getParent();
+    if (null != newEmptyViewParent && newEmptyViewParent instanceof ViewGroup) {
+      ((ViewGroup)newEmptyViewParent).removeView(newEmptyView);
+    }
+    refreshableViewWrapper.addView(newEmptyView,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+    if (mRefreshableView instanceof EmptyViewMethodAccessor) {
+      ((EmptyViewMethodAccessor)mRefreshableView).setEmptyViewInternal(newEmptyView);
+    }
+ else {
+      mRefreshableView.setEmptyView(newEmptyView);
+    }
+    mEmptyView=newEmptyView;
+  }
+}

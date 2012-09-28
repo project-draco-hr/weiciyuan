@@ -8,7 +8,7 @@
       }
       clearAndReplaceValue(newValue);
       timeLineAdapter.notifyDataSetChanged();
-      listView.setSelectionAfterHeaderView();
+      getListView().setSelectionAfterHeaderView();
     }
   }
   afterGetNewMsg();

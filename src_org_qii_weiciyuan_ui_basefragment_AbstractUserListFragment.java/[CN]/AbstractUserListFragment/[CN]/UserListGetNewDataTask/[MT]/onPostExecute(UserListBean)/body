@@ -2,8 +2,7 @@
   if (newValue != null && newValue.getUsers().size() > 0) {
     clearAndReplaceValue(newValue);
     timeLineAdapter.notifyDataSetChanged();
-    listView.setSelectionAfterHeaderView();
-    headerView.findViewById(R.id.header_progress).clearAnimation();
+    getListView().setSelectionAfterHeaderView();
   }
   cleanWork();
   getActivity().invalidateOptionsMenu();

@@ -1,0 +1,3 @@
+{
+  return ((InternalListView)getRefreshableView()).getContextMenuInfo();
+}

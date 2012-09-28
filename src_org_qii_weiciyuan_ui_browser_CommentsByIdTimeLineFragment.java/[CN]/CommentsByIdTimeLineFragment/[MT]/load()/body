@@ -1,7 +1,8 @@
 {
   String sss=token;
   if ((bean == null || bean.getItemList().size() == 0) && newTask == null) {
-    if (listView != null) {
+    if (pullToRefreshListView != null) {
+      pullToRefreshListView.startRefreshNow();
       refresh();
     }
   }

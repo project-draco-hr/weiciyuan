@@ -1,0 +1,3 @@
+{
+  ((AdapterView<ListAdapter>)mRefreshableView).setAdapter(adapter);
+}

@@ -1,0 +1,54 @@
+{
+  if (!isPullToRefreshEnabled()) {
+    return false;
+  }
+  final int action=event.getAction();
+  if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
+    mIsBeingDragged=false;
+    return false;
+  }
+  if (action != MotionEvent.ACTION_DOWN && mIsBeingDragged) {
+    return true;
+  }
+switch (action) {
+case MotionEvent.ACTION_MOVE:
+{
+      if (mDisableScrollingWhileRefreshing && isRefreshing()) {
+        return true;
+      }
+      if (isReadyForPull()) {
+        final float y=event.getY();
+        final float dy=y - mLastMotionY;
+        final float yDiff=Math.abs(dy);
+        final float xDiff=Math.abs(event.getX() - mLastMotionX);
+        if (yDiff > mTouchSlop && (!mFilterTouchEvents || yDiff > xDiff)) {
+          if (mMode.canPullDown() && dy >= 1f && isReadyForPullDown()) {
+            mLastMotionY=y;
+            mIsBeingDragged=true;
+            if (mMode == Mode.BOTH) {
+              mCurrentMode=Mode.PULL_DOWN_TO_REFRESH;
+            }
+          }
+ else           if (mMode.canPullUp() && dy <= -1f && isReadyForPullUp()) {
+            mLastMotionY=y;
+            mIsBeingDragged=true;
+            if (mMode == Mode.BOTH) {
+              mCurrentMode=Mode.PULL_UP_TO_REFRESH;
+            }
+          }
+        }
+      }
+      break;
+    }
+case MotionEvent.ACTION_DOWN:
+{
+    if (isReadyForPull()) {
+      mLastMotionY=mInitialMotionY=event.getY();
+      mLastMotionX=event.getX();
+      mIsBeingDragged=false;
+    }
+    break;
+  }
+}
+return mIsBeingDragged;
+}

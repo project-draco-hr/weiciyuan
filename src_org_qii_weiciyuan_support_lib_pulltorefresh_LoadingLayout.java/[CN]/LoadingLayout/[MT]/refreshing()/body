@@ -1,0 +1,7 @@
+{
+  header_text.setVisibility(View.GONE);
+  imagelayout.setVisibility(View.VISIBLE);
+  mHeaderText.setText(wrapHtmlLabel(mRefreshingLabel));
+  mHeaderImage.startAnimation(AnimationUtils.loadAnimation(context,R.anim.refresh));
+  mSubHeaderText.setVisibility(View.GONE);
+}

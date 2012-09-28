@@ -1,0 +1,9 @@
+{
+  if (TextUtils.isEmpty(label)) {
+    mSubHeaderText.setVisibility(View.GONE);
+  }
+ else {
+    mSubHeaderText.setText(label);
+    mSubHeaderText.setVisibility(View.VISIBLE);
+  }
+}

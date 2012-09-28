@@ -1,0 +1,14 @@
+{
+  mState=PULL_TO_REFRESH;
+  mIsBeingDragged=false;
+  if (mMode.canPullDown()) {
+    mHeaderLayout.reset();
+  }
+  if (mMode.canPullUp()) {
+    mFooterLayout.reset();
+  }
+  MediaPlayer mp=MediaPlayer.create(context,R.raw.pop);
+  mp.setVolume(9.f,9.f);
+  mp.start();
+  smoothScrollTo(0);
+}

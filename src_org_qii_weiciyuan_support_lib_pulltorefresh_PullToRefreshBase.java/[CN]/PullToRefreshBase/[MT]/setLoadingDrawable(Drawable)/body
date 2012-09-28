@@ -1,0 +1,3 @@
+{
+  setLoadingDrawable(drawable,Mode.BOTH);
+}

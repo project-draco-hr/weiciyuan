@@ -1,13 +1,14 @@
 {
 switch (item.getItemId()) {
 case R.id.mentionstimelinefragment_refresh:
-    refresh();
-  break;
+    pullToRefreshListView.startRefreshNow();
+  refresh();
+break;
 case R.id.mentionstimelinefragment_group:
 if (newTask == null || newTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-  CommentsGroupDialog dialog=new CommentsGroupDialog(group,selected);
-  dialog.setTargetFragment(CommentsTimeLineFragment.this,0);
-  dialog.show(getFragmentManager(),"");
+CommentsGroupDialog dialog=new CommentsGroupDialog(group,selected);
+dialog.setTargetFragment(CommentsTimeLineFragment.this,0);
+dialog.show(getFragmentManager(),"");
 }
 }
 return super.onOptionsItemSelected(item);

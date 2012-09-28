@@ -1,0 +1,11 @@
+{
+switch (mMode) {
+case PULL_DOWN_TO_REFRESH:
+    return isReadyForPullDown();
+case PULL_UP_TO_REFRESH:
+  return isReadyForPullUp();
+case BOTH:
+return isReadyForPullUp() || isReadyForPullDown();
+}
+return false;
+}

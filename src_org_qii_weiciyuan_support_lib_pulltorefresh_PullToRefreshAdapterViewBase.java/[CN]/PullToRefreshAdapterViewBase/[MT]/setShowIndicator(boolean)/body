@@ -1,0 +1,9 @@
+{
+  mShowIndicator=showIndicator;
+  if (getShowIndicatorInternal()) {
+    addIndicatorViews();
+  }
+ else {
+    removeIndicatorViews();
+  }
+}

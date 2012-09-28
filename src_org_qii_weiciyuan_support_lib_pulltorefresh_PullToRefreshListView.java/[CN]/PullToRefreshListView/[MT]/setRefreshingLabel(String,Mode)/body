@@ -1,0 +1,9 @@
+{
+  super.setRefreshingLabel(refreshingLabel,mode);
+  if (null != mHeaderLoadingView && mode.canPullDown()) {
+    mHeaderLoadingView.setRefreshingLabel(refreshingLabel);
+  }
+  if (null != mFooterLoadingView && mode.canPullUp()) {
+    mFooterLoadingView.setRefreshingLabel(refreshingLabel);
+  }
+}

@@ -4,5 +4,4 @@
     page++;
     getActivity().invalidateOptionsMenu();
   }
-  ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
 }

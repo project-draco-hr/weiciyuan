@@ -1,0 +1,3 @@
+{
+  return this == PULL_DOWN_TO_REFRESH || this == BOTH;
+}

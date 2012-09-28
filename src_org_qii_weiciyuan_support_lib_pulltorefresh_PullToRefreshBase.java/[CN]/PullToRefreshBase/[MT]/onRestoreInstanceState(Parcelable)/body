@@ -1,0 +1,17 @@
+{
+  if (state instanceof Bundle) {
+    Bundle bundle=(Bundle)state;
+    mMode=Mode.mapIntToMode(bundle.getInt(STATE_MODE,0));
+    mCurrentMode=Mode.mapIntToMode(bundle.getInt(STATE_CURRENT_MODE,0));
+    mDisableScrollingWhileRefreshing=bundle.getBoolean(STATE_DISABLE_SCROLLING_REFRESHING,true);
+    mShowViewWhileRefreshing=bundle.getBoolean(STATE_SHOW_REFRESHING_VIEW,true);
+    super.onRestoreInstanceState(bundle.getParcelable(STATE_SUPER));
+    final int viewState=bundle.getInt(STATE_STATE,PULL_TO_REFRESH);
+    if (viewState == REFRESHING) {
+      setRefreshingInternal(true);
+      mState=viewState;
+    }
+    return;
+  }
+  super.onRestoreInstanceState(state);
+}

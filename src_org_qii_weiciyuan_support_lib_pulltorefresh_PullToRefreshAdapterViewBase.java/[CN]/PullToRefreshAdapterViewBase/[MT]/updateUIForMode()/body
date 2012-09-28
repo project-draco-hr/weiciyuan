@@ -1,0 +1,9 @@
+{
+  super.updateUIForMode();
+  if (getShowIndicatorInternal()) {
+    addIndicatorViews();
+  }
+ else {
+    removeIndicatorViews();
+  }
+}

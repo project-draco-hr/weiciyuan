@@ -1,0 +1,4 @@
+{
+  super(context,mode);
+  mRefreshableView.setOnScrollListener(this);
+}

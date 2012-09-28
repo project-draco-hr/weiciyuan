@@ -1,0 +1,6 @@
+{
+  super.onScrollChanged(l,t,oldl,oldt);
+  if (null != mEmptyView && !mScrollEmptyView) {
+    mEmptyView.scrollTo(-l,-t);
+  }
+}

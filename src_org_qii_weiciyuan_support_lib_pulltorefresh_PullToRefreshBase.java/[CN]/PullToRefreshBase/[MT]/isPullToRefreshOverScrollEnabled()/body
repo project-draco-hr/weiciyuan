@@ -1,0 +1,6 @@
+{
+  if (VERSION.SDK_INT >= VERSION_CODES.GINGERBREAD) {
+    return mOverScrollEnabled && OverscrollHelper.isAndroidOverScrollEnabled(mRefreshableView);
+  }
+  return false;
+}

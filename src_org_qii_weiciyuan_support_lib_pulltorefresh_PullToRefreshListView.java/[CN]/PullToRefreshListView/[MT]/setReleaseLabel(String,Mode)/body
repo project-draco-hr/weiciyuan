@@ -1,0 +1,9 @@
+{
+  super.setReleaseLabel(releaseLabel,mode);
+  if (null != mHeaderLoadingView && mode.canPullDown()) {
+    mHeaderLoadingView.setReleaseLabel(releaseLabel);
+  }
+  if (null != mFooterLoadingView && mode.canPullUp()) {
+    mFooterLoadingView.setReleaseLabel(releaseLabel);
+  }
+}

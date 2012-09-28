@@ -6,9 +6,6 @@ case R.id.commentsbyidtimelinefragment_comment:
 intent.putExtra("id",id);
 startActivity(intent);
 break;
-case R.id.commentsbyidtimelinefragment_refresh:
-refresh();
-break;
 }
 return super.onOptionsItemSelected(item);
 }

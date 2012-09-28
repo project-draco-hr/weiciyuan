@@ -1,0 +1,5 @@
+{
+  if (mState != PULL_TO_REFRESH) {
+    resetHeader();
+  }
+}

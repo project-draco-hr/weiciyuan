@@ -7,6 +7,7 @@
     refreshLayout(bean);
   }
  else {
+    pullToRefreshListView.startRefreshNow();
     refresh();
   }
 }

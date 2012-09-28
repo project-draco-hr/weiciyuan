@@ -1,0 +1,24 @@
+{
+  if (view.isPullToRefreshOverScrollEnabled()) {
+    final Mode mode=view.getMode();
+    if (mode != Mode.DISABLED && !isTouchEvent) {
+      final int newY=(deltaY + scrollY);
+      if (PullToRefreshBase.DEBUG) {
+        Log.d(LOG_TAG,"OverScroll. DeltaY: " + deltaY + ", ScrollY: "+ scrollY+ ", NewY: "+ newY+ ", ScrollRange: "+ scrollRange);
+      }
+      if (newY < (0 - fuzzyThreshold)) {
+        if (mode.canPullDown()) {
+          view.setHeaderScroll((int)(scaleFactor * (view.getScrollY() + newY)));
+        }
+      }
+ else       if (newY > (scrollRange + fuzzyThreshold)) {
+        if (mode.canPullUp()) {
+          view.setHeaderScroll((int)(scaleFactor * (view.getScrollY() + newY - scrollRange)));
+        }
+      }
+ else       if (Math.abs(newY) <= fuzzyThreshold || Math.abs(newY - scrollRange) <= fuzzyThreshold) {
+        view.smoothScrollTo(0,PullToRefreshBase.SMOOTH_SCROLL_LONG_DURATION_MS);
+      }
+    }
+  }
+}

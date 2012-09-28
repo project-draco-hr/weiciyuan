@@ -1,0 +1,3 @@
+{
+  mSubHeaderText.setTextColor(color);
+}

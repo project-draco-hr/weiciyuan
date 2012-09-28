@@ -9,8 +9,7 @@
       }
       clearAndReplaceValue(newValue);
       timeLineAdapter.notifyDataSetChanged();
-      listView.setSelectionAfterHeaderView();
-      headerView.findViewById(R.id.header_progress).clearAnimation();
+      getListView().setSelectionAfterHeaderView();
     }
   }
   invlidateTabText();

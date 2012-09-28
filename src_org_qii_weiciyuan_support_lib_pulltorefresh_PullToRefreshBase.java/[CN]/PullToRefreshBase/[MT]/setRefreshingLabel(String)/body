@@ -1,0 +1,3 @@
+{
+  setRefreshingLabel(refreshingLabel,Mode.BOTH);
+}

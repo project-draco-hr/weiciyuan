@@ -1,0 +1,12 @@
+{
+  if (null != mCurrentSmoothScrollRunnable) {
+    mCurrentSmoothScrollRunnable.stop();
+  }
+  if (getScrollY() != y) {
+    if (null == mScrollAnimationInterpolator) {
+      mScrollAnimationInterpolator=new DecelerateInterpolator();
+    }
+    mCurrentSmoothScrollRunnable=new SmoothScrollRunnable(getScrollY(),y,duration);
+    post(mCurrentSmoothScrollRunnable);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  if (null != mHeaderLayout && mode.canPullDown()) {
+  }
+  if (null != mFooterLayout && mode.canPullUp()) {
+  }
+  refreshLoadingViewsHeight();
+}

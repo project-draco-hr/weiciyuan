@@ -1,0 +1,12 @@
+{
+  if (DEBUG) {
+    Log.d(LOG_TAG,"addView: " + child.getClass().getSimpleName());
+  }
+  final T refreshableView=getRefreshableView();
+  if (refreshableView instanceof ViewGroup) {
+    ((ViewGroup)refreshableView).addView(child,index,params);
+  }
+ else {
+    throw new UnsupportedOperationException("Refreshable View is not a ViewGroup so can't addView");
+  }
+}

@@ -1,0 +1,16 @@
+{
+  if (this == mHeaderLayout.getParent()) {
+    removeView(mHeaderLayout);
+  }
+  if (mMode.canPullDown()) {
+    addViewInternal(mHeaderLayout,0,new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  }
+  if (this == mFooterLayout.getParent()) {
+    removeView(mFooterLayout);
+  }
+  if (mMode.canPullUp()) {
+    addViewInternal(mFooterLayout,new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  }
+  refreshLoadingViewsHeight();
+  mCurrentMode=(mMode != Mode.BOTH) ? mMode : Mode.PULL_DOWN_TO_REFRESH;
+}

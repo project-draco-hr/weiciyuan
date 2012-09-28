@@ -1,0 +1,11 @@
+{
+  super.onPullToRefresh();
+  if (getShowIndicatorInternal()) {
+switch (getCurrentMode()) {
+case PULL_UP_TO_REFRESH:
+      break;
+case PULL_DOWN_TO_REFRESH:
+    break;
+}
+}
+}

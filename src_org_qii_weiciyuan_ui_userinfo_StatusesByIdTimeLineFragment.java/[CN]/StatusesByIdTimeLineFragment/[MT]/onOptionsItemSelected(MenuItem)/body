@@ -1,8 +1,9 @@
 {
 switch (item.getItemId()) {
 case R.id.statusesbyidtimelinefragment_status_refresh:
-    refresh();
-  break;
+    pullToRefreshListView.startRefreshNow();
+  refresh();
+return true;
 }
 return super.onOptionsItemSelected(item);
 }

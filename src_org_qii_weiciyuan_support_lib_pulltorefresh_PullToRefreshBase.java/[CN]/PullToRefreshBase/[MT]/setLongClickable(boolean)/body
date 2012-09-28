@@ -1,0 +1,3 @@
+{
+  getRefreshableView().setLongClickable(longClickable);
+}

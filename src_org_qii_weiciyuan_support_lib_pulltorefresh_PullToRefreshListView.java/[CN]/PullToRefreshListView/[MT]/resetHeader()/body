@@ -1,0 +1,35 @@
+{
+  ListAdapter adapter=mRefreshableView.getAdapter();
+  if (!getShowViewWhileRefreshing() || null == adapter || adapter.isEmpty()) {
+    super.resetHeader();
+    return;
+  }
+  LoadingLayout originalLoadingLayout;
+  LoadingLayout listViewLoadingLayout;
+  int scrollToHeight=getHeaderHeight();
+  int selection;
+  boolean scroll;
+switch (getCurrentMode()) {
+case PULL_UP_TO_REFRESH:
+    originalLoadingLayout=getFooterLayout();
+  listViewLoadingLayout=mFooterLoadingView;
+selection=mRefreshableView.getCount() - 1;
+scroll=mRefreshableView.getLastVisiblePosition() == selection;
+break;
+case PULL_DOWN_TO_REFRESH:
+default :
+originalLoadingLayout=getHeaderLayout();
+listViewLoadingLayout=mHeaderLoadingView;
+scrollToHeight*=-1;
+selection=0;
+scroll=mRefreshableView.getFirstVisiblePosition() == selection;
+break;
+}
+originalLoadingLayout.setVisibility(View.VISIBLE);
+if (scroll && getState() != MANUAL_REFRESHING) {
+mRefreshableView.setSelection(selection);
+setHeaderScroll(scrollToHeight);
+}
+listViewLoadingLayout.setVisibility(View.GONE);
+super.resetHeader();
+}

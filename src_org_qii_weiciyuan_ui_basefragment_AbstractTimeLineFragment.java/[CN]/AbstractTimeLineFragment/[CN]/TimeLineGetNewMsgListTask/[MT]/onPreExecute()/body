@@ -1,8 +1,5 @@
 {
   showListView();
   footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
-  headerView.findViewById(R.id.header_progress).setVisibility(View.VISIBLE);
-  headerView.findViewById(R.id.header_text).setVisibility(View.VISIBLE);
-  headerView.findViewById(R.id.header_progress).startAnimation(AnimationUtils.loadAnimation(getActivity(),R.anim.refresh));
-  listView.setSelection(0);
+  getListView().setSelection(0);
 }

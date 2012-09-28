@@ -7,9 +7,6 @@ intent.putExtra("id",id);
 intent.putExtra("msg",((IWeiboMsgInfo)getActivity()).getMsg());
 startActivity(intent);
 break;
-case R.id.repostsbyidtimelinefragment_repost_refresh:
-refresh();
-break;
 }
 return super.onOptionsItemSelected(item);
 }

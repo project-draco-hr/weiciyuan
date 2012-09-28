@@ -1,0 +1,6 @@
+{
+  if (!isRefreshing()) {
+    setRefreshingInternal(doScroll);
+    mState=MANUAL_REFRESHING;
+  }
+}

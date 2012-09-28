@@ -8,6 +8,7 @@
   }
  else {
     userBean=((IUserInfo)getActivity()).getUser();
+    pullToRefreshListView.startRefreshNow();
     refresh();
   }
   super.onActivityCreated(savedInstanceState);

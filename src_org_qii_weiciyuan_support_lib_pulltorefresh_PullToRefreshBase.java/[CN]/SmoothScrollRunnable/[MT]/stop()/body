@@ -1,0 +1,4 @@
+{
+  mContinueRunning=false;
+  removeCallbacks(this);
+}

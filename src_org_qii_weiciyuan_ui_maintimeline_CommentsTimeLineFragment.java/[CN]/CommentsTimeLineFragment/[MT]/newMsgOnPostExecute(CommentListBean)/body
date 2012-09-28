@@ -10,7 +10,7 @@
       }
       clearAndReplaceValue(newValue);
       timeLineAdapter.notifyDataSetChanged();
-      listView.setSelectionAfterHeaderView();
+      getListView().setSelectionAfterHeaderView();
     }
   }
   getActivity().getActionBar().getTabAt(2).setText(getString(R.string.comments));

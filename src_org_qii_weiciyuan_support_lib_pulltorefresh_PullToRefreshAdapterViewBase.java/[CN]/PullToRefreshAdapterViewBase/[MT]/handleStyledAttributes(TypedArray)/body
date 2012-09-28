@@ -1,0 +1,3 @@
+{
+  mShowIndicator=a.getBoolean(R.styleable.PullToRefreshListView_ptrShowIndicator,DEFAULT_SHOW_INDICATOR);
+}

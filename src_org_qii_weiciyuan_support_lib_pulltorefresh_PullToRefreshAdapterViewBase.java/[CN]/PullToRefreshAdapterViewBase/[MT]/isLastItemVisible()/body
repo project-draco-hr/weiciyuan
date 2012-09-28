@@ -1,0 +1,24 @@
+{
+  final Adapter adapter=mRefreshableView.getAdapter();
+  if (null == adapter || adapter.isEmpty()) {
+    if (DEBUG) {
+      Log.d(LOG_TAG,"isLastItemVisible. Empty View.");
+    }
+    return true;
+  }
+ else {
+    final int lastItemPosition=mRefreshableView.getCount() - 1;
+    final int lastVisiblePosition=mRefreshableView.getLastVisiblePosition();
+    if (DEBUG) {
+      Log.d(LOG_TAG,"isLastItemVisible. Last Item Position: " + lastItemPosition + " Last Visible Pos: "+ lastVisiblePosition);
+    }
+    if (lastVisiblePosition >= lastItemPosition - 1) {
+      final int childIndex=lastVisiblePosition - mRefreshableView.getFirstVisiblePosition();
+      final View lastVisibleChild=mRefreshableView.getChildAt(childIndex);
+      if (lastVisibleChild != null) {
+        return lastVisibleChild.getBottom() <= mRefreshableView.getBottom();
+      }
+    }
+  }
+  return false;
+}

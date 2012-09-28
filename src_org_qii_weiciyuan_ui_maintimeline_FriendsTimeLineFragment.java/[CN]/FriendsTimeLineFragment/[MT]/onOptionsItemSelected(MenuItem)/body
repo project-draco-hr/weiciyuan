@@ -8,6 +8,7 @@ intent.putExtra("accountId",((IAccountInfo)getActivity()).getAccount().getUid())
 startActivity(intent);
 break;
 case R.id.friendstimelinefragment_refresh:
+pullToRefreshListView.startRefreshNow();
 refresh();
 break;
 case R.id.friendstimelinefragment_name:

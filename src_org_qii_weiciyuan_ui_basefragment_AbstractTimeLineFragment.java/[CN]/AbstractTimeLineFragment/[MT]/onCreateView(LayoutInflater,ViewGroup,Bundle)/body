@@ -2,25 +2,28 @@
   View view=inflater.inflate(R.layout.fragment_listview_layout,container,false);
   empty=(TextView)view.findViewById(R.id.empty);
   progressBar=(ProgressBar)view.findViewById(R.id.progressbar);
-  listView=(ListView)view.findViewById(R.id.listView);
-  listView.setScrollingCacheEnabled(false);
-  headerView=inflater.inflate(R.layout.fragment_listview_header_layout,null);
-  listView.addHeaderView(headerView);
-  listView.setHeaderDividersEnabled(false);
+  pullToRefreshListView=(PullToRefreshListView)view.findViewById(R.id.listView);
+  pullToRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>(){
+    @Override public void onRefresh(    PullToRefreshBase<ListView> refreshView){
+      refresh();
+    }
+  }
+);
+  getListView().setHeaderDividersEnabled(false);
   footerView=inflater.inflate(R.layout.fragment_listview_footer_layout,null);
-  listView.addFooterView(footerView);
+  getListView().addFooterView(footerView);
   if (bean == null || bean.getSize() == 0) {
     footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
   }
-  listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+  pullToRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
     @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
       if (mActionMode != null) {
-        listView.clearChoices();
+        getListView().clearChoices();
         mActionMode.finish();
         mActionMode=null;
         return;
       }
-      listView.clearChoices();
+      getListView().clearChoices();
       if (position - 1 < getList().getSize() && position - 1 >= 0) {
         listViewItemClick(parent,view,position - 1,id);
       }
