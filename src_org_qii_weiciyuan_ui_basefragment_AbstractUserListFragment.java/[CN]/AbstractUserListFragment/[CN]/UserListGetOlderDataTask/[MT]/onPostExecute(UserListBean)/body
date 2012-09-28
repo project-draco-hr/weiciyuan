@@ -4,8 +4,8 @@
     getList().getUsers().addAll(list);
     bean.setNext_cursor(newValue.getNext_cursor());
   }
-  cleanWork();
   timeLineAdapter.notifyDataSetChanged();
   getActivity().invalidateOptionsMenu();
+  dismissFooterView();
   super.onPostExecute(newValue);
 }

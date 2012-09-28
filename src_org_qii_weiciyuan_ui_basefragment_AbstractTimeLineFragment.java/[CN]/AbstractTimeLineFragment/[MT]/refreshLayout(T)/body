@@ -1,14 +1,11 @@
 {
   if (bean != null && bean.getSize() > 0) {
-    footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
     progressBar.setVisibility(View.INVISIBLE);
   }
  else   if (bean == null || bean.getSize() == 0) {
-    footerView.findViewById(R.id.listview_footer).setVisibility(View.INVISIBLE);
     progressBar.setVisibility(View.INVISIBLE);
   }
  else   if (bean.getSize() == bean.getTotal_number()) {
-    footerView.findViewById(R.id.listview_footer).setVisibility(View.INVISIBLE);
     progressBar.setVisibility(View.INVISIBLE);
   }
 }

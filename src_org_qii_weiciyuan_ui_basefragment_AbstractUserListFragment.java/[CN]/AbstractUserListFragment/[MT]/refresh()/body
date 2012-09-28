@@ -1,10 +1,12 @@
 {
-  Map<String,AvatarBitmapWorkerTask> avatarBitmapWorkerTaskHashMap=((AbstractAppActivity)getActivity()).getAvatarBitmapWorkerTaskHashMap();
-  newTask=new UserListGetNewDataTask();
-  newTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  Set<String> keys=avatarBitmapWorkerTaskHashMap.keySet();
-  for (  String key : keys) {
-    avatarBitmapWorkerTaskHashMap.get(key).cancel(true);
-    avatarBitmapWorkerTaskHashMap.remove(key);
+  if (newTask == null || newTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+    Map<String,AvatarBitmapWorkerTask> avatarBitmapWorkerTaskHashMap=((AbstractAppActivity)getActivity()).getAvatarBitmapWorkerTaskHashMap();
+    newTask=new UserListGetNewDataTask();
+    newTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    Set<String> keys=avatarBitmapWorkerTaskHashMap.keySet();
+    for (    String key : keys) {
+      avatarBitmapWorkerTaskHashMap.get(key).cancel(true);
+      avatarBitmapWorkerTaskHashMap.remove(key);
+    }
   }
 }

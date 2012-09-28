@@ -1,10 +1,4 @@
 {
   refreshLayout(getList());
   pullToRefreshListView.onRefreshComplete();
-  if (bean.getSize() == 0) {
-    footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
-  }
- else {
-    footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
-  }
 }

@@ -1,5 +1,5 @@
 {
-  if (!isBusying) {
+  if (oldTask == null || oldTask.getStatus() == MyAsyncTask.Status.FINISHED) {
     oldTask=new UserListGetOlderDataTask();
     oldTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }

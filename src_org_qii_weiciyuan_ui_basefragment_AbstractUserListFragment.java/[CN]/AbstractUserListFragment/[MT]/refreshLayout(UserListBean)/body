@@ -1,11 +1,9 @@
 {
   if (bean.getUsers().size() > 0) {
-    footerView.findViewById(R.id.listview_footer).setVisibility(View.VISIBLE);
     empty.setVisibility(View.INVISIBLE);
     progressBar.setVisibility(View.INVISIBLE);
   }
  else {
-    footerView.findViewById(R.id.listview_footer).setVisibility(View.INVISIBLE);
     empty.setVisibility(View.VISIBLE);
     progressBar.setVisibility(View.INVISIBLE);
   }

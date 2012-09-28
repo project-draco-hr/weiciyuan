@@ -1,5 +1,4 @@
 {
   showListView();
-  footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
   getListView().setSelection(0);
 }

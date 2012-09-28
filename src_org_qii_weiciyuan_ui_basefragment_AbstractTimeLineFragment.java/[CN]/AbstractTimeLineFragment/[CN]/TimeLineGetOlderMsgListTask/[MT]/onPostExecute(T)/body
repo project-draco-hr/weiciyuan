@@ -1,11 +1,5 @@
 {
   oldMsgOnPostExecute(newValue);
-  if (newValue.getSize() > 1) {
-    ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
-  }
- else   if (newValue.getSize() == 1) {
-    footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
-  }
   cleanWork();
   super.onPostExecute(newValue);
 }

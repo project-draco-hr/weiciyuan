@@ -9,11 +9,15 @@
     }
   }
 );
+  pullToRefreshListView.setOnLastItemVisibleListener(new PullToRefreshBase.OnLastItemVisibleListener(){
+    @Override public void onLastItemVisible(){
+      listViewFooterViewClick(null);
+    }
+  }
+);
   footerView=inflater.inflate(R.layout.fragment_listview_footer_layout,null);
   getListView().addFooterView(footerView);
-  if (bean.getUsers().size() == 0) {
-    footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
-  }
+  dismissFooterView();
   timeLineAdapter=new UserListAdapter(AbstractUserListFragment.this,((AbstractAppActivity)getActivity()).getCommander(),bean.getUsers(),getListView());
   pullToRefreshListView.setAdapter(timeLineAdapter);
   getListView().setOnItemClickListener(new AdapterView.OnItemClickListener(){

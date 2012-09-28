@@ -1,8 +1,13 @@
 {
   super.onCancelled(messageListBean);
   if (getActivity() != null) {
-    ((TextView)footerView.findViewById(R.id.listview_footer)).setText(getString(R.string.more));
-    if (this.e != null)     Toast.makeText(getActivity(),e.getError(),Toast.LENGTH_SHORT).show();
-    cleanWork();
+    if (this.e != null) {
+      Toast.makeText(getActivity(),e.getError(),Toast.LENGTH_SHORT).show();
+      showErrorFooterView();
+      pullToRefreshListView.onRefreshComplete();
+    }
+ else {
+      dismissFooterView();
+    }
   }
 }

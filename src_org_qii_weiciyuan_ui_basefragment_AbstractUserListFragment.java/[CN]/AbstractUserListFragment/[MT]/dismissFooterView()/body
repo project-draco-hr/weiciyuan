@@ -1,0 +1,5 @@
+{
+  footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
+  footerView.findViewById(R.id.refresh).clearAnimation();
+  footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
+}
