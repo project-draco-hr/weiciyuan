@@ -4,6 +4,7 @@
   actionBar.setTitle(R.string.write_weibo);
   View title=getLayoutInflater().inflate(R.layout.statusnewactivity_title_layout,null);
   TextView contentNumber=(TextView)title.findViewById(R.id.content_number);
+  contentNumber.setVisibility(View.GONE);
   haveGPS=(ImageView)title.findViewById(R.id.have_gps);
   haveGPS.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
@@ -53,7 +54,7 @@
   actionBar.setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
   actionBar.setDisplayShowCustomEnabled(true);
   content=((EditText)findViewById(R.id.status_new_content));
-  content.addTextChangedListener(new TextNumLimitWatcher(contentNumber,content,this));
+  content.addTextChangedListener(new TextNumLimitWatcher((TextView)findViewById(R.id.menu_send),content,this));
   findViewById(R.id.menu_add_gps).setOnClickListener(this);
   findViewById(R.id.menu_add_pic).setOnClickListener(this);
   findViewById(R.id.menu_send).setOnClickListener(this);

@@ -27,10 +27,6 @@ String topicTag="##";
 content.setText(ori + topicTag);
 content.setSelection(content.getText().toString().length() - 1);
 break;
-case R.id.menu_clear:
-ClearContentDialog clearContentDialog=new ClearContentDialog();
-clearContentDialog.show(getSupportFragmentManager(),"");
-break;
 }
 return true;
 }

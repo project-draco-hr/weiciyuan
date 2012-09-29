@@ -5,9 +5,6 @@ case android.R.id.home:
   if (imm.isActive())   imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,InputMethodManager.HIDE_NOT_ALWAYS);
 finish();
 break;
-case R.id.menu_clear:
-clearContentMenu();
-break;
 }
 return true;
 }

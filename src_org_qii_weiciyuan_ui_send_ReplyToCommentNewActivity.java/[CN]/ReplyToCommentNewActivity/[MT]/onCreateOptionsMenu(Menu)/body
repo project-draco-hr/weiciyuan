@@ -1,4 +1,5 @@
 {
   getMenuInflater().inflate(R.menu.commentnewactivity_menu,menu);
+  menu.findItem(R.id.menu_enable_repost).setVisible(false);
   return true;
 }
