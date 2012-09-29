@@ -1,6 +1,5 @@
 {
   super.onPostExecute(o);
   bean=o;
-  stopRefreshMenuAnimation();
   setValue();
 }

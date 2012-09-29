@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case R.id.statusesbyidtimelinefragment_status_refresh:
+case R.id.menu_refresh:
     pullToRefreshListView.startRefreshNow();
   refresh();
 return true;

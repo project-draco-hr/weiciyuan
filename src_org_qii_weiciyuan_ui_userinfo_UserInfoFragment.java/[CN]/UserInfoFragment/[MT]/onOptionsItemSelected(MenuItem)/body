@@ -2,15 +2,7 @@
 switch (item.getItemId()) {
 case R.id.menu_refresh:
     refresh();
-  break;
-case R.id.menu_at:
-Intent intent=new Intent(getActivity(),StatusNewActivity.class);
-intent.putExtra("token",((IToken)getActivity()).getToken());
-intent.putExtra("content","@" + bean.getScreen_name());
-intent.putExtra("accountName",GlobalContext.getInstance().getCurrentAccountName());
-intent.putExtra("accountId",GlobalContext.getInstance().getCurrentAccountId());
-startActivity(intent);
-break;
+  return true;
 }
 return true;
 }

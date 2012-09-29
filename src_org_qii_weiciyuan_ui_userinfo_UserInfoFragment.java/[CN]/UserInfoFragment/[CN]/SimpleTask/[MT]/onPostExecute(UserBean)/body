@@ -1,5 +1,4 @@
 {
-  stopRefreshMenuAnimation();
   setValue();
   super.onPostExecute(o);
 }

@@ -1,0 +1,4 @@
+{
+  getMenuInflater().inflate(R.menu.infofragment_menu,menu);
+  return super.onCreateOptionsMenu(menu);
+}
