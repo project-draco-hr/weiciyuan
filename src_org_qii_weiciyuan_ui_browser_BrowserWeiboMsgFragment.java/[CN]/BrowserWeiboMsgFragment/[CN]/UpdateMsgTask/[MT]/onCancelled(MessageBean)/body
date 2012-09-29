@@ -7,6 +7,5 @@
         setTextViewDeleted();
       }
     }
-    completeRefresh();
   }
 }

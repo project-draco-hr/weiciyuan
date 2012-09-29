@@ -3,6 +3,5 @@
     msg=newValue;
     buildViewData();
   }
-  completeRefresh();
   super.onPostExecute(newValue);
 }

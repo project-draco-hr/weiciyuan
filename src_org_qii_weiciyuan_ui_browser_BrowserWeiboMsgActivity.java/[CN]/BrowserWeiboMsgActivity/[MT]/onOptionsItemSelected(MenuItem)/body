@@ -5,6 +5,33 @@ case android.R.id.home:
   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
 return true;
+case R.id.repostsbyidtimelinefragment_repost:
+intent=new Intent(this,RepostNewActivity.class);
+intent.putExtra("token",getToken());
+intent.putExtra("id",getMsg().getId());
+intent.putExtra("msg",getMsg());
+startActivity(intent);
+return true;
+case R.id.commentsbyidtimelinefragment_comment:
+intent=new Intent(this,CommentNewActivity.class);
+intent.putExtra("token",getToken());
+intent.putExtra("id",getMsg().getId());
+startActivity(intent);
+return true;
+case R.id.menu_share:
+buildShareActionMenu();
+return true;
+case R.id.menu_copy:
+ClipboardManager cm=(ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+cm.setPrimaryClip(ClipData.newPlainText("sinaweibo",getMsg().getText()));
+Toast.makeText(this,getString(R.string.copy_successfully),Toast.LENGTH_SHORT).show();
+return true;
+case R.id.menu_fav:
+if (favTask == null || favTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+favTask=new FavAsyncTask(getToken(),msg.getId());
+favTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
-return super.onOptionsItemSelected(item);
+return true;
+}
+return false;
 }

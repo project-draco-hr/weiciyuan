@@ -1,12 +1,9 @@
 {
 switch (item.getItemId()) {
-case R.id.repostsbyidtimelinefragment_repost:
-    Intent intent=new Intent(getActivity(),RepostNewActivity.class);
-  intent.putExtra("token",token);
-intent.putExtra("id",id);
-intent.putExtra("msg",((IWeiboMsgInfo)getActivity()).getMsg());
-startActivity(intent);
-break;
+case R.id.menu_refresh:
+    pullToRefreshListView.startRefreshNow();
+  refresh();
+return true;
 }
 return super.onOptionsItemSelected(item);
 }

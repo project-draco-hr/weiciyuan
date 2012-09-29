@@ -1,8 +1,0 @@
-{
-  inflater.inflate(R.menu.browserweibomsgactivity_menu,menu);
-  MenuItem item=menu.findItem(R.id.menu_share);
-  mShareActionProvider=(ShareActionProvider)item.getActionProvider();
-  buildShareActionMenu();
-  refreshItem=menu.findItem(R.id.menu_refresh);
-  super.onCreateOptionsMenu(menu,inflater);
-}

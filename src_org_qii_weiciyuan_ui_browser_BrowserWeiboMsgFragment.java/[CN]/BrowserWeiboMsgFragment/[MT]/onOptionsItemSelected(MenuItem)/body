@@ -1,41 +1,11 @@
 {
-  Intent intent;
 switch (item.getItemId()) {
-case R.id.repostsbyidtimelinefragment_repost:
-    intent=new Intent(getActivity(),RepostNewActivity.class);
-  intent.putExtra("token",((IToken)getActivity()).getToken());
-intent.putExtra("id",((IWeiboMsgInfo)getActivity()).getMsg().getId());
-intent.putExtra("msg",((IWeiboMsgInfo)getActivity()).getMsg());
-startActivity(intent);
-break;
-case R.id.commentsbyidtimelinefragment_comment:
-intent=new Intent(getActivity(),CommentNewActivity.class);
-intent.putExtra("token",((IToken)getActivity()).getToken());
-intent.putExtra("id",((IWeiboMsgInfo)getActivity()).getMsg().getId());
-startActivity(intent);
-break;
 case R.id.menu_refresh:
-if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
-task=new UpdateMsgTask();
-task.execute();
-}
-break;
-case R.id.menu_share:
-buildShareActionMenu();
-return true;
-case R.id.menu_copy:
-ClipboardManager cm=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-cm.setPrimaryClip(ClipData.newPlainText("sinaweibo",content.getText().toString()));
-Toast.makeText(getActivity(),getString(R.string.copy_successfully),Toast.LENGTH_SHORT).show();
-break;
-case R.id.menu_fav:
-if (favTask == null || favTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-favTask=new FavAsyncTask(((IToken)getActivity()).getToken(),msg.getId());
-favTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-}
-break;
-default :
-return super.onOptionsItemSelected(item);
+    if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
+      task=new UpdateMsgTask();
+      task.execute();
+    }
+  break;
 }
 return true;
 }

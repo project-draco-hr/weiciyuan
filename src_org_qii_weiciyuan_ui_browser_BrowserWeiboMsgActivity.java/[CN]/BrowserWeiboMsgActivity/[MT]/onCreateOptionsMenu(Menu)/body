@@ -1,0 +1,7 @@
+{
+  getMenuInflater().inflate(R.menu.browserweibomsgactivity_menu,menu);
+  MenuItem item=menu.findItem(R.id.menu_share);
+  mShareActionProvider=(ShareActionProvider)item.getActionProvider();
+  buildShareActionMenu();
+  return super.onCreateOptionsMenu(menu);
+}
