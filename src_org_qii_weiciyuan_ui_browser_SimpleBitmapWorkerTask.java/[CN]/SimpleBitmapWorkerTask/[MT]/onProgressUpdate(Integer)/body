@@ -1,0 +1,10 @@
+{
+  super.onProgressUpdate(values);
+  if (pb != null) {
+    pb.setIndeterminate(false);
+    Integer progress=values[0];
+    Integer max=values[1];
+    pb.setMax(max);
+    pb.setProgress(progress);
+  }
+}

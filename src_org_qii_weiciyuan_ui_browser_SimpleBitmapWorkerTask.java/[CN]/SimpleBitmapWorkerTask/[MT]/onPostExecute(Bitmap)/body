@@ -1,5 +1,6 @@
 {
   if (bitmap != null) {
+    view.setVisibility(View.VISIBLE);
     view.setImageBitmap(bitmap);
 switch (method) {
 case avatar_small:
@@ -10,4 +11,5 @@ case avatar_large:
 break;
 }
 }
+if (pb != null) pb.setVisibility(View.GONE);
 }

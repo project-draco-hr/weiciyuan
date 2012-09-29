@@ -24,6 +24,8 @@
   avatar=(ImageView)view.findViewById(R.id.avatar);
   content_pic=(ImageView)view.findViewById(R.id.content_pic);
   repost_pic=(ImageView)view.findViewById(R.id.repost_content_pic);
+  content_pic_pb=(ProgressBar)view.findViewById(R.id.content_pic_pb);
+  repost_pic_pb=(ProgressBar)view.findViewById(R.id.repost_content_pic_pb);
   view.findViewById(R.id.first).setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),UserInfoActivity.class);
