@@ -1,0 +1,12 @@
+{
+  super.onCreate(savedInstanceState);
+  addPreferencesFromResource(R.xml.about_pref);
+  findPreference("thought").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
+    @Override public boolean onPreferenceClick(    Preference preference){
+      ThoughtDialog dialog=new ThoughtDialog();
+      dialog.show(getFragmentManager(),"");
+      return true;
+    }
+  }
+);
+}
