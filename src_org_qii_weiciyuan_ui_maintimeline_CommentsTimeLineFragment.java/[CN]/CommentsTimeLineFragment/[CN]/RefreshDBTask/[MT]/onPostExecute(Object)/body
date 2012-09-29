@@ -1,9 +1,5 @@
 {
   timeLineAdapter.notifyDataSetChanged();
   refreshLayout(bean);
-  if (bean.getSize() == 0) {
-  }
- else {
-  }
   super.onPostExecute(o);
 }
