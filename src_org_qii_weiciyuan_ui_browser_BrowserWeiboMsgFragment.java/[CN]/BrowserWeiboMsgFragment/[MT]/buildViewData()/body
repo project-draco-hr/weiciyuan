@@ -40,6 +40,7 @@
     }
  else {
       recontent.setText(msg.getRetweeted_status().getText());
+      ListViewTool.addLinks(recontent);
     }
     if (!TextUtils.isEmpty(msg.getRetweeted_status().getBmiddle_pic())) {
       SimpleBitmapWorkerTask task=new SimpleBitmapWorkerTask(repost_pic,FileLocationMethod.picture_bmiddle,repost_pic_pb);

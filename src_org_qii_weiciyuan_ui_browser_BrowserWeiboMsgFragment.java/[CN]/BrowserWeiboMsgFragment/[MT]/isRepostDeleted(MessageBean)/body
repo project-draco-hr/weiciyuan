@@ -1,0 +1,8 @@
+{
+  if (msg.getRetweeted_status() != null && msg.getRetweeted_status().getUser() != null) {
+    if (newValue.getRetweeted_status() != null && newValue.getRetweeted_status().getUser() == null) {
+      return true;
+    }
+  }
+  return false;
+}

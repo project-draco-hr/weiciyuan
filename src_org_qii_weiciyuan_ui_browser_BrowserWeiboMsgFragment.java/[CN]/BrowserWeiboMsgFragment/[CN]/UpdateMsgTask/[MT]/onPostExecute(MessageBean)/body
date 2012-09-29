@@ -1,7 +1,18 @@
 {
   if (newValue != null && e == null) {
-    msg=newValue;
-    buildViewData();
+    if (isStatusDeleted(newValue)) {
+      setTextViewDeleted(content);
+      if (recontent.getVisibility() == View.VISIBLE) {
+        setTextViewDeleted(recontent);
+      }
+    }
+ else     if (isRepostDeleted(newValue)) {
+      setTextViewDeleted(recontent);
+    }
+ else {
+      msg=newValue;
+      buildViewData();
+    }
   }
   super.onPostExecute(newValue);
 }

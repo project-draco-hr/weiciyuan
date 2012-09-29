@@ -1,0 +1,6 @@
+{
+  if ((msg != null))   if ((msg.getUser() != null) && (newValue.getUser() == null)) {
+    return true;
+  }
+  return false;
+}
