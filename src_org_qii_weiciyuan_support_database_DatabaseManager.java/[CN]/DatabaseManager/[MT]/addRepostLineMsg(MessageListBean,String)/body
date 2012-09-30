@@ -11,4 +11,5 @@
     cv.put(RepostsTable.JSONDATA,json);
     wsd.insert(RepostsTable.TABLE_NAME,RepostsTable.ID,cv);
   }
+  reduceRepostTable(accountId);
 }

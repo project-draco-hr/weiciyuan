@@ -9,4 +9,5 @@
     cv.put(CommentsTable.JSONDATA,json);
     wsd.insert(CommentsTable.TABLE_NAME,CommentsTable.ID,cv);
   }
+  reduceCommentTable(accountId);
 }
