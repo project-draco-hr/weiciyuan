@@ -1,6 +1,6 @@
 {
   if (bitmap != null) {
-    lruCache.put(getMemCacheKey(data,position),bitmap);
+    lruCache.put(data,bitmap);
     if (view != null && view.get() != null) {
       ImageView imageView=view.get();
       PictureBitmapWorkerTask bitmapDownloaderTask=getBitmapDownloaderTask(imageView);

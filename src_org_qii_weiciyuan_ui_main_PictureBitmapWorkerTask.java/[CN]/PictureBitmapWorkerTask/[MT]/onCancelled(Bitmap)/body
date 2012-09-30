@@ -1,6 +1,6 @@
 {
   if (bitmap != null) {
-    lruCache.put(getMemCacheKey(data,position),bitmap);
+    lruCache.put(data,bitmap);
   }
   if (taskMap != null && taskMap.get(data) != null) {
     taskMap.remove(data);
