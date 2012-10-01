@@ -53,6 +53,12 @@ return false;
 }
 );
 break;
+case R.id.menu_copy:
+ClipboardManager cm=(ClipboardManager)fragment.getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+cm.setPrimaryClip(ClipData.newPlainText("sinaweibo",bean.getText()));
+Toast.makeText(fragment.getActivity(),fragment.getString(R.string.copy_successfully),Toast.LENGTH_SHORT).show();
+mode.finish();
+break;
 }
 return true;
 }
