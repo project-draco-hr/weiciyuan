@@ -7,7 +7,6 @@
     mMode=Mode.mapIntToMode(a.getInteger(R.styleable.PullToRefreshListView_ptrMode,0));
   }
   mRefreshableView=createRefreshableView(context,attrs);
-  mRefreshableView.setOverScrollMode(OVER_SCROLL_NEVER);
   addRefreshableView(context,mRefreshableView);
   mHeaderLayout=createLoadingLayout(context,Mode.PULL_DOWN_TO_REFRESH,a);
   mFooterLayout=createLoadingLayout(context,Mode.PULL_UP_TO_REFRESH,a);

@@ -6,6 +6,7 @@
   frame.addView(mHeaderLoadingView,FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
   mHeaderLoadingView.setVisibility(View.GONE);
   lv.addHeaderView(frame,null,false);
+  lv.setOverScrollMode(OVER_SCROLL_NEVER);
   a.recycle();
   lv.setId(android.R.id.list);
   return lv;
