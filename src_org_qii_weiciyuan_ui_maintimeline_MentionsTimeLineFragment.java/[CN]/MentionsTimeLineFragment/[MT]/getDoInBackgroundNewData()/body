@@ -1,5 +1,5 @@
 {
-  MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(((MainTimeLineActivity)getActivity()).getToken());
+  MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(token);
   if (getList().getItemList().size() > 0) {
     dao.setSince_id(getList().getItemList().get(0).getId());
   }
@@ -7,7 +7,7 @@
   dao.setFilter_by_type(filter_by_type);
   MessageListBean result=dao.getGSONMsgList();
   if (result != null && selected == 0) {
-    DatabaseManager.getInstance().addRepostLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
+    DatabaseManager.getInstance().addRepostLineMsg(result,accountBean.getUid());
   }
   return result;
 }

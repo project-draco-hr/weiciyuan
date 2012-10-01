@@ -1,6 +1,6 @@
 {
   if (selected == 0 || selected == 1) {
-    MainCommentsTimeLineDao dao=new MainCommentsTimeLineDao(((MainTimeLineActivity)getActivity()).getToken());
+    MainCommentsTimeLineDao dao=new MainCommentsTimeLineDao(token);
     if (getList().getItemList().size() > 0) {
       dao.setMax_id(getList().getItemList().get(getList().getItemList().size() - 1).getId());
     }
@@ -11,7 +11,7 @@
     return result;
   }
  else {
-    CommentsTimeLineByMeDao dao=new CommentsTimeLineByMeDao(((MainTimeLineActivity)getActivity()).getToken());
+    CommentsTimeLineByMeDao dao=new CommentsTimeLineByMeDao(token);
     if (getList().getItemList().size() > 0) {
       dao.setMax_id(getList().getItemList().get(getList().getItemList().size() - 1).getId());
     }

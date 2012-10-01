@@ -2,8 +2,8 @@
 switch (item.getItemId()) {
 case R.id.friendstimelinefragment_new_weibo:
     Intent intent=new Intent(getActivity(),StatusNewActivity.class);
-  intent.putExtra("token",((IToken)getActivity()).getToken());
-intent.putExtra("account",((IAccountInfo)getActivity()).getAccount());
+  intent.putExtra("token",token);
+intent.putExtra("account",accountBean);
 startActivity(intent);
 break;
 case R.id.mentionstimelinefragment_refresh:

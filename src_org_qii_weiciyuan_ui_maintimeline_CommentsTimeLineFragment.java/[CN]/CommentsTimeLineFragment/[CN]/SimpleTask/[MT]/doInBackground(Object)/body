@@ -1,5 +1,5 @@
 {
-  CommentListBean value=DatabaseManager.getInstance().getCommentLineMsgList(((IAccountInfo)getActivity()).getAccount().getUid());
+  CommentListBean value=DatabaseManager.getInstance().getCommentLineMsgList(accountBean.getUid());
   clearAndReplaceValue(value);
   return null;
 }
