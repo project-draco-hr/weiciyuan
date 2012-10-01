@@ -5,22 +5,7 @@
   if (msg.getUser() != null) {
     holder.username.setVisibility(View.VISIBLE);
     holder.username.setText(msg.getUser().getScreen_name());
-    String image_url=msg.getUser().getProfile_image_url();
-    if (!TextUtils.isEmpty(image_url) && GlobalContext.getInstance().isEnablePic()) {
-      holder.avatar.setVisibility(View.VISIBLE);
-      boolean isFling=((AbstractTimeLineFragment)fragment).isListViewFling();
-      String url;
-      if (GlobalContext.getInstance().getEnableBigAvatar()) {
-        url=msg.getUser().getAvatar_large();
-      }
- else {
-        url=msg.getUser().getProfile_image_url();
-      }
-      commander.downloadAvatar(holder.avatar,url,position,listView,isFling);
-    }
- else {
-      holder.avatar.setVisibility(View.GONE);
-    }
+    buildAvatar(holder.avatar,position,msg.getUser());
   }
  else {
     holder.username.setVisibility(View.INVISIBLE);
@@ -43,6 +28,9 @@
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
   holder.content_pic.setVisibility(View.GONE);
+  if (!TextUtils.isEmpty(msg.getThumbnail_pic()) && GlobalContext.getInstance().isEnablePic()) {
+    buildPic(msg,holder.content_pic,position);
+  }
   MessageBean repost_msg=msg.getRetweeted_status();
   if (repost_msg != null && showOriStatus) {
     holder.repost_layout.setVisibility(View.VISIBLE);
@@ -53,16 +41,4 @@
     holder.repost_layout.setVisibility(View.GONE);
     holder.repost_flag.setVisibility(View.GONE);
   }
-  if (!TextUtils.isEmpty(msg.getThumbnail_pic()) && GlobalContext.getInstance().isEnablePic()) {
-    buildPic(msg,holder.content_pic,position);
-  }
-  holder.avatar.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      Intent intent=new Intent(getActivity(),UserInfoActivity.class);
-      intent.putExtra("token",((IToken)getActivity()).getToken());
-      intent.putExtra("user",msg.getUser());
-      getActivity().startActivity(intent);
-    }
-  }
-);
 }

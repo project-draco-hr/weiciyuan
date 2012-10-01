@@ -1,44 +1,28 @@
 {
   holder.listview_root.setBackgroundColor(defaultBG);
   if (listView.getCheckedItemPosition() == position + 1)   holder.listview_root.setBackgroundColor(checkedBG);
-  final CommentBean msg=getList().get(position);
-  MessageBean repost_msg=msg.getStatus();
-  holder.username.setText(msg.getUser().getScreen_name());
-  String image_url=msg.getUser().getProfile_image_url();
-  if (!TextUtils.isEmpty(image_url) && GlobalContext.getInstance().isEnablePic()) {
-    holder.avatar.setVisibility(View.VISIBLE);
-    boolean isFling=((AbstractTimeLineFragment)fragment).isListViewFling();
-    String url;
-    if (GlobalContext.getInstance().getEnableBigAvatar()) {
-      url=msg.getUser().getAvatar_large();
-    }
- else {
-      url=msg.getUser().getProfile_image_url();
-    }
-    commander.downloadAvatar(holder.avatar,url,position,listView,isFling);
-    holder.avatar.setOnClickListener(new View.OnClickListener(){
-      @Override public void onClick(      View v){
-        Intent intent=new Intent(getActivity(),UserInfoActivity.class);
-        intent.putExtra("token",((IToken)getActivity()).getToken());
-        intent.putExtra("user",msg.getUser());
-        getActivity().startActivity(intent);
-      }
-    }
-);
+  final CommentBean comment=getList().get(position);
+  holder.username.setText(comment.getUser().getScreen_name());
+  if (comment.getUser() != null) {
+    holder.username.setVisibility(View.VISIBLE);
+    holder.username.setText(comment.getUser().getScreen_name());
+    buildAvatar(holder.avatar,position,comment.getUser());
   }
  else {
-    holder.avatar.setVisibility(View.GONE);
+    holder.username.setVisibility(View.INVISIBLE);
+    holder.avatar.setVisibility(View.INVISIBLE);
   }
   holder.content.setTextSize(GlobalContext.getInstance().getFontSize());
-  holder.content.setText(msg.getListViewSpannableString());
-  String time=msg.getListviewItemShowTime();
-  UpdateString updateString=new UpdateString(time,holder.time,msg,getActivity());
+  holder.content.setText(comment.getListViewSpannableString());
+  String time=comment.getListviewItemShowTime();
+  UpdateString updateString=new UpdateString(time,holder.time,comment,getActivity());
   if (!holder.time.getText().toString().equals(time)) {
     holder.time.setText(updateString);
   }
-  holder.time.setTag(msg.getId());
+  holder.time.setTag(comment.getId());
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
+  MessageBean repost_msg=comment.getStatus();
   if (repost_msg != null && showOriStatus) {
     buildRepostContent(repost_msg,holder,position);
   }
