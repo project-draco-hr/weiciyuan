@@ -1,6 +1,11 @@
 {
   scheduledExecutorService=Executors.newSingleThreadScheduledExecutor();
-  scheduledExecutorService.scheduleAtFixedRate(new refreshTimeWorker(),1,1,TimeUnit.SECONDS);
+  scheduledExecutorService.scheduleAtFixedRate(new Runnable(){
+    @Override public void run(){
+      new RefreshTimeWorker(AbstractTimeLineFragment.this).refreshTime();
+    }
+  }
+,1,1,TimeUnit.SECONDS);
   pullToRefreshListView.setOnScrollListener(new AbsListView.OnScrollListener(){
     @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
 switch (scrollState) {
