@@ -16,6 +16,7 @@
         getActivity().runOnUiThread(new Runnable(){
           @Override public void run(){
             View view=getCurrentShowFragment().getListView().getChildAt(finalI);
+            if (view == null)             return;
             AbstractAppListAdapter.ViewHolder holder=(AbstractAppListAdapter.ViewHolder)view.getTag();
             TextView time=holder.time;
             if (time != null)             time.setText(timeString);
