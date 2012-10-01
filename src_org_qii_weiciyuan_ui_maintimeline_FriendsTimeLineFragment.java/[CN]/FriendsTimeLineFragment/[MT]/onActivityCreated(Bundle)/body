@@ -1,6 +1,6 @@
 {
-  super.onActivityCreated(savedInstanceState);
   if (savedInstanceState != null) {
+    userBean=(UserBean)savedInstanceState.getSerializable("userBean");
     clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
@@ -12,4 +12,5 @@
     }
   }
   getActivity().invalidateOptionsMenu();
+  super.onActivityCreated(savedInstanceState);
 }

@@ -1,8 +1,9 @@
 {
 switch (item.getItemId()) {
 case android.R.id.home:
-    InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-  if (imm.isActive())   imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,InputMethodManager.HIDE_NOT_ALWAYS);
+    savaDraft();
+  InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+if (imm.isActive()) imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,InputMethodManager.HIDE_NOT_ALWAYS);
 Intent intent=new Intent(this,MainTimeLineActivity.class);
 intent.putExtra("account",getAccount());
 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

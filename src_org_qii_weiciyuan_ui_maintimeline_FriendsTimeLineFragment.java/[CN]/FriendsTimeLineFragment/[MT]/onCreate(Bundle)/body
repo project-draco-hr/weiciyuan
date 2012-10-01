@@ -1,4 +1,3 @@
 {
-  userBean=((IUserInfo)getActivity()).getUser();
   super.onCreate(savedInstanceState);
 }

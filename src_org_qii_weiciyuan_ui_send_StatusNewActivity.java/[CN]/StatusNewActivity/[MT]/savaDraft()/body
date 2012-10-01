@@ -1,0 +1,6 @@
+{
+  if (!TextUtils.isEmpty(content.getText().toString())) {
+    SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+    sharedPref.edit().putString(TYPE_DRAFT,content.getText().toString()).commit();
+  }
+}

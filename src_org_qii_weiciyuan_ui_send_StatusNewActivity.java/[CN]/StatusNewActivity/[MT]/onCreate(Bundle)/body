@@ -15,17 +15,17 @@
   }
  else {
     token=intent.getStringExtra("token");
-    String accountName=intent.getStringExtra("accountName");
-    String accountId=intent.getStringExtra("accountId");
-    accountBean=new AccountBean();
-    accountBean.setAccess_token(token);
-    accountBean.setUsernick(accountName);
-    accountBean.setUsername(accountName);
-    accountBean.setUid(accountId);
-    getActionBar().setSubtitle(accountName);
+    accountBean=(AccountBean)intent.getSerializableExtra("account");
+    getActionBar().setSubtitle(accountBean.getUsernick());
     String contentTxt=intent.getStringExtra("content");
     if (!TextUtils.isEmpty(contentTxt)) {
       content.setText(contentTxt + " ");
+      content.setSelection(content.getText().toString().length());
+    }
+ else {
+      SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+      String draft=sharedPref.getString(TYPE_DRAFT,"");
+      content.setText(draft);
       content.setSelection(content.getText().toString().length());
     }
   }
