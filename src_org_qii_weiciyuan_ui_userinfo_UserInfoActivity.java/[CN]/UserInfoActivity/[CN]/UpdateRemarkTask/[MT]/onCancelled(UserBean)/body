@@ -1,0 +1,6 @@
+{
+  super.onCancelled(userBean);
+  if (this.e != null) {
+    Toast.makeText(UserInfoActivity.this,this.e.getError(),Toast.LENGTH_SHORT).show();
+  }
+}

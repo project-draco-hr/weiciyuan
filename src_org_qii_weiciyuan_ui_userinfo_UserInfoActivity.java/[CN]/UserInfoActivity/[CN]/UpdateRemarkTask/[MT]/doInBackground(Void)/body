@@ -1,0 +1,10 @@
+{
+  try {
+    return new RemarkDao(getToken(),bean.getId(),remark).updateRemark();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+  }
+  return null;
+}

@@ -1,6 +1,6 @@
 {
   List<String> tagList=new ArrayList<String>();
-  tagList.add(BrowserWeiboMsgFragment.class.getName());
+  tagList.add(UserInfoFragment.class.getName());
   tagList.add(StatusesByIdTimeLineFragment.class.getName());
   return tagList.get(position);
 }

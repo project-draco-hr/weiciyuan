@@ -1,3 +1,3 @@
 {
-  return URLManager.getRealUrl("unread");
+  return URLManager.getRealUrl("unread_count");
 }

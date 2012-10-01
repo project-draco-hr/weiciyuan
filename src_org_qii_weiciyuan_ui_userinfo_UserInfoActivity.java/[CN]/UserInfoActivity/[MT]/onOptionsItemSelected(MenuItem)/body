@@ -14,6 +14,10 @@ intent.putExtra("accountName",GlobalContext.getInstance().getCurrentAccountName(
 intent.putExtra("accountId",GlobalContext.getInstance().getCurrentAccountId());
 startActivity(intent);
 break;
+case R.id.menu_modify_remark:
+UpdateRemarkDialog dialog=new UpdateRemarkDialog();
+dialog.show(getSupportFragmentManager(),"");
+break;
 }
 return false;
 }
