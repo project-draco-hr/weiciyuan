@@ -1,0 +1,10 @@
+{
+  boolean myself=bean.get(position).getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId()) && GlobalContext.getInstance().isEnablePic();
+  boolean myselfBigPic=myself && GlobalContext.getInstance().getEnableBigPic();
+  boolean normal=!myself;
+  boolean normalBigPic=normal && GlobalContext.getInstance().getEnableBigPic();
+  if (myselfBigPic)   return TYPE_MYSELF_BIG_PIC;
+  if (normalBigPic)   return TYPE_NORMAL_BIG_PIC;
+  if (myself)   return TYPE_MYSELF;
+ else   return TYPE_NORMAL;
+}
