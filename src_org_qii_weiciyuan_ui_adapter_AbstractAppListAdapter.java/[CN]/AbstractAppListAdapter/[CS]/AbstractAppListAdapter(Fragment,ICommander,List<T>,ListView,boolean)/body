@@ -4,7 +4,7 @@
   this.inflater=fragment.getActivity().getLayoutInflater();
   this.listView=listView;
   this.showOriStatus=showOriStatus;
-  this.activity=fragment;
+  this.fragment=fragment;
   defaultBG=fragment.getResources().getColor(R.color.transparent);
   int[] attrs=new int[]{R.attr.listview_checked_color};
   TypedArray ta=fragment.getActivity().obtainStyledAttributes(attrs);

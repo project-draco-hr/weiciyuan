@@ -1,4 +1,4 @@
-Fragment activity
+Fragment fragment
 ICommander commander
 List<MessageBean> bean
 ListView listView

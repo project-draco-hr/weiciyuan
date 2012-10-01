@@ -7,5 +7,7 @@
   }
   if (repost_msg.getUser() != null && GlobalContext.getInstance().isEnablePic()) {
   }
- else   holder.repost_avatar.setVisibility(View.GONE);
+ else {
+    holder.repost_flag.setVisibility(View.GONE);
+  }
 }

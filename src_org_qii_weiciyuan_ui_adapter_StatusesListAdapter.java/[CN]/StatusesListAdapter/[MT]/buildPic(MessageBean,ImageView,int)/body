@@ -1,7 +1,7 @@
 {
   view.setVisibility(View.VISIBLE);
   String picUrl;
-  boolean isFling=((AbstractTimeLineFragment)activity).isListViewFling();
+  boolean isFling=((AbstractTimeLineFragment)fragment).isListViewFling();
   if (GlobalContext.getInstance().getEnableBigPic()) {
     picUrl=msg.getBmiddle_pic();
     commander.downContentPic(view,picUrl,position,listView,FileLocationMethod.picture_bmiddle,isFling);
@@ -13,7 +13,7 @@
   view.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       PictureDialogFragment progressFragment=new PictureDialogFragment(msg.getBmiddle_pic(),msg.getOriginal_pic());
-      progressFragment.show(activity.getActivity().getSupportFragmentManager(),"");
+      progressFragment.show(getActivity().getSupportFragmentManager(),"");
     }
   }
 );
