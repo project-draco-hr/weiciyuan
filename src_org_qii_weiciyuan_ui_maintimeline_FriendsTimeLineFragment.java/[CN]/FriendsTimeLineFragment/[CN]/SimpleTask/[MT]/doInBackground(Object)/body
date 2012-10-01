@@ -1,4 +1,4 @@
 {
-  clearAndReplaceValue(DatabaseManager.getInstance().getHomeLineMsgList(((IAccountInfo)getActivity()).getAccount().getUid()));
+  clearAndReplaceValue(DatabaseManager.getInstance().getHomeLineMsgList(accountBean.getUid()));
   return null;
 }

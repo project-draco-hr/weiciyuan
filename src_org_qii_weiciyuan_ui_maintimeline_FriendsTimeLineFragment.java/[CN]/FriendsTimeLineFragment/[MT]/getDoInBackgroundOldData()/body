@@ -1,5 +1,5 @@
 {
-  MainFriendsTimeLineDao dao=new MainFriendsTimeLineDao(((MainTimeLineActivity)getActivity()).getToken());
+  MainFriendsTimeLineDao dao=new MainFriendsTimeLineDao(token);
   if (getList().getItemList().size() > 0) {
     dao.setMax_id(getList().getItemList().get(getList().getItemList().size() - 1).getId());
   }

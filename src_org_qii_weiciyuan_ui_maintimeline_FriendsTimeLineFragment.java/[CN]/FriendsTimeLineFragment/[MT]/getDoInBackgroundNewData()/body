@@ -1,11 +1,11 @@
 {
-  MainFriendsTimeLineDao dao=new MainFriendsTimeLineDao(((MainTimeLineActivity)getActivity()).getToken());
+  MainFriendsTimeLineDao dao=new MainFriendsTimeLineDao(token);
   if (getList().getItemList().size() > 0) {
     dao.setSince_id(getList().getItemList().get(0).getId());
   }
   MessageListBean result=dao.getGSONMsgList();
   if (result != null) {
-    DatabaseManager.getInstance().addHomeLineMsg(result,((IAccountInfo)getActivity()).getAccount().getUid());
+    DatabaseManager.getInstance().addHomeLineMsg(result,accountBean.getUid());
   }
   return result;
 }
