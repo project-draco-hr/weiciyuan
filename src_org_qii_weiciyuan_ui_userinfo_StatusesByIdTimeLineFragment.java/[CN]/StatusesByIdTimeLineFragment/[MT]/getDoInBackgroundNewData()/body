@@ -1,7 +1,6 @@
 {
-  String token=((IToken)getActivity()).getToken();
-  String id=((IUserInfo)getActivity()).getUser().getId();
-  String screenName=((IUserInfo)getActivity()).getUser().getScreen_name();
+  String id=userBean.getId();
+  String screenName=userBean.getScreen_name();
   StatusesTimeLineDao dao=new StatusesTimeLineDao(token,id);
   if (TextUtils.isEmpty(id)) {
     dao.setScreen_name(screenName);

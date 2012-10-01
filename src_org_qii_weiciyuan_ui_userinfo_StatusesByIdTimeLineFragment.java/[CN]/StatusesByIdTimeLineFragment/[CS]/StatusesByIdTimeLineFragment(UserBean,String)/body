@@ -1,0 +1,4 @@
+{
+  this.userBean=userBean;
+  this.token=token;
+}

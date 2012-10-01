@@ -2,12 +2,12 @@
   commander=((AbstractAppActivity)getActivity()).getCommander();
   if (savedInstanceState != null) {
     clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
-    userBean=(UserBean)savedInstanceState.getSerializable("userbean");
+    userBean=(UserBean)savedInstanceState.getSerializable("userBean");
+    token=savedInstanceState.getString("token");
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
   }
  else {
-    userBean=((IUserInfo)getActivity()).getUser();
     pullToRefreshListView.startRefreshNow();
     refresh();
   }
