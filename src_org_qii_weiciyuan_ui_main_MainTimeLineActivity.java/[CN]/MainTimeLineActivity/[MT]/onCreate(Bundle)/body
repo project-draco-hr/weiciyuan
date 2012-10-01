@@ -1,4 +1,5 @@
 {
+  super.onCreate(savedInstanceState);
   if (savedInstanceState == null) {
     Intent intent=getIntent();
     accountBean=(AccountBean)intent.getSerializableExtra("account");
@@ -25,7 +26,6 @@
   SharedPreferences.Editor editor=sharedPref.edit();
   editor.putString("id",accountBean.getUid());
   editor.commit();
-  super.onCreate(savedInstanceState);
   setContentView(R.layout.maintimelineactivity_viewpager_layout);
   buildPhoneInterface();
 }

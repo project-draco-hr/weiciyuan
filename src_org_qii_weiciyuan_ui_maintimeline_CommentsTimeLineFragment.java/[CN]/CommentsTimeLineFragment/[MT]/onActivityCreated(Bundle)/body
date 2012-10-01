@@ -2,6 +2,9 @@
   super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
   if (savedInstanceState != null && (bean == null || bean.getItemList().size() == 0)) {
+    userBean=(UserBean)savedInstanceState.getSerializable("userBean");
+    accountBean=(AccountBean)savedInstanceState.getSerializable("account");
+    token=savedInstanceState.getString("token");
     group=savedInstanceState.getStringArray("group");
     selected=savedInstanceState.getInt("selected");
     clearAndReplaceValue((CommentListBean)savedInstanceState.getSerializable("bean"));
