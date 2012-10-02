@@ -48,5 +48,6 @@
     }
   }
 );
+  repost_pic_layout=(FrameLayout)view.findViewById(R.id.repost_pic_layout);
   return view;
 }

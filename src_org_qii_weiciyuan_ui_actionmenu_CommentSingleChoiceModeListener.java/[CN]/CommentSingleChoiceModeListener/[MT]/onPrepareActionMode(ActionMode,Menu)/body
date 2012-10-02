@@ -1,7 +1,9 @@
 {
   MenuInflater inflater=mode.getMenuInflater();
   menu.clear();
-  if (bean.getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+  boolean isMyComment=bean.getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId());
+  boolean isCommentUnderMyStatus=bean.getStatus().getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId());
+  if (isMyComment || isCommentUnderMyStatus) {
     inflater.inflate(R.menu.fragment_comment_listview_item_contextual_menu_myself,menu);
   }
  else {
