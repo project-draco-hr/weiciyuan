@@ -1,0 +1,15 @@
+{
+  String name="";
+  UserBean reUser=bean.getUser();
+  if (reUser != null) {
+    name=reUser.getScreen_name();
+  }
+  SpannableString value;
+  if (!TextUtils.isEmpty(name)) {
+    value=ListViewTool.getJustHighLightLinks("@" + name + "???"+ bean.getText());
+  }
+ else {
+    value=ListViewTool.getJustHighLightLinks(bean.getText());
+  }
+  bean.setListViewReplySpannableString(value);
+}

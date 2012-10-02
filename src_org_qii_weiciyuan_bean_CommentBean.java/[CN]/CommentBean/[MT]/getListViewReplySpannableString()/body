@@ -1,0 +1,9 @@
+{
+  if (!TextUtils.isEmpty(listViewReplySpannableString)) {
+    return listViewReplySpannableString;
+  }
+ else {
+    ListViewTool.addJustHighLightLinksOnlyReplyComment(this);
+    return listViewReplySpannableString;
+  }
+}
