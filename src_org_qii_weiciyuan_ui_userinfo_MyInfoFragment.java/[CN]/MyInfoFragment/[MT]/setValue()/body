@@ -7,6 +7,7 @@
   }
   if (!TextUtils.isEmpty(bean.getUrl())) {
     blog_url.setText(bean.getUrl());
+    ListViewTool.addLinks(blog_url);
   }
  else {
     blog_url.setVisibility(View.GONE);
