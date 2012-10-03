@@ -28,7 +28,7 @@
   getActionBar().setTitle(getString(R.string.personal_info));
   setContentView(R.layout.maintimelineactivity_viewpager_layout);
   mViewPager=(ViewPager)findViewById(R.id.viewpager);
-  TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getSupportFragmentManager());
+  TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getFragmentManager());
   mViewPager.setOffscreenPageLimit(2);
   mViewPager.setAdapter(adapter);
   mViewPager.setOnPageChangeListener(onPageChangeListener);

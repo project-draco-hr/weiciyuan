@@ -1,3 +1,3 @@
 {
-  return ((AbstractTimeLineFragment)getSupportFragmentManager().findFragmentByTag(CommentsTimeLineFragment.class.getName()));
+  return ((AbstractTimeLineFragment)getFragmentManager().findFragmentByTag(CommentsTimeLineFragment.class.getName()));
 }

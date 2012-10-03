@@ -8,5 +8,5 @@
     }
   }
 );
-  progressFragment.show(getSupportFragmentManager(),"");
+  progressFragment.show(getFragmentManager(),"");
 }

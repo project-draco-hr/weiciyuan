@@ -4,5 +4,5 @@
   Intent intent=getIntent();
   CommentBean bean=(CommentBean)intent.getSerializableExtra("comment");
   token=intent.getStringExtra("token");
-  getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new BrowserCommentFragment(bean)).commit();
+  getFragmentManager().beginTransaction().replace(android.R.id.content,new BrowserCommentFragment(bean)).commit();
 }

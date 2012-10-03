@@ -16,7 +16,7 @@ startActivity(intent);
 break;
 case R.id.menu_modify_remark:
 UpdateRemarkDialog dialog=new UpdateRemarkDialog();
-dialog.show(getSupportFragmentManager(),"");
+dialog.show(getFragmentManager(),"");
 break;
 }
 return false;

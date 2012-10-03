@@ -7,7 +7,7 @@
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setTitle(getString(R.string.my_info));
   mViewPager=(ViewPager)findViewById(R.id.viewpager);
-  TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getSupportFragmentManager());
+  TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getFragmentManager());
   mViewPager.setOffscreenPageLimit(5);
   mViewPager.setAdapter(adapter);
   mViewPager.setOnPageChangeListener(onPageChangeListener);

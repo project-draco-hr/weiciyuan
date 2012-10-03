@@ -4,5 +4,5 @@
   getActionBar().setTitle(getString(R.string.my_fav_list));
   token=getIntent().getStringExtra("token");
   bean=(UserBean)getIntent().getSerializableExtra("user");
-  getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new MyFavListFragment()).commit();
+  getFragmentManager().beginTransaction().replace(android.R.id.content,new MyFavListFragment()).commit();
 }

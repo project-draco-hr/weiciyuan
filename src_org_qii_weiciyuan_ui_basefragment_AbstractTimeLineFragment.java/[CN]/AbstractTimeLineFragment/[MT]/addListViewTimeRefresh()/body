@@ -6,23 +6,4 @@
     }
   }
 ,1,1,TimeUnit.SECONDS);
-  pullToRefreshListView.setOnScrollListener(new AbsListView.OnScrollListener(){
-    @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
-switch (scrollState) {
-case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
-        enableRefreshTime=true;
-      timeLineAdapter.notifyDataSetChanged();
-    break;
-case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
-  enableRefreshTime=false;
-break;
-case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
-enableRefreshTime=true;
-break;
-}
-}
-@Override public void onScroll(AbsListView view,int firstVisibleItem,int visibleItemCount,int totalItemCount){
-}
-}
-);
 }

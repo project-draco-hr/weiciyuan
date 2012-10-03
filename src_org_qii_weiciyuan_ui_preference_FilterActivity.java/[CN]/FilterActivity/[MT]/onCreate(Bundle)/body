@@ -20,5 +20,5 @@
     }
   }
 );
-  getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new FilterFragment()).commit();
+  getFragmentManager().beginTransaction().replace(android.R.id.content,new FilterFragment()).commit();
 }

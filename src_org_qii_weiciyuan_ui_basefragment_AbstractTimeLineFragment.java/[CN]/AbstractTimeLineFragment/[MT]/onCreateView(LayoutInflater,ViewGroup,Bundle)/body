@@ -19,24 +19,43 @@
   footerView=inflater.inflate(R.layout.fragment_listview_footer_layout,null);
   getListView().addFooterView(footerView);
   dismissFooterView();
-  pullToRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-    @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
-      if (mActionMode != null) {
-        getListView().clearChoices();
-        mActionMode.finish();
-        mActionMode=null;
-        return;
-      }
-      getListView().clearChoices();
-      if (position - 1 < getList().getSize() && position - 1 >= 0) {
-        listViewItemClick(parent,view,position - 1,id);
-      }
- else       if (position - 1 >= getList().getSize()) {
-        listViewFooterViewClick(view);
-      }
-    }
-  }
+  pullToRefreshListView.setOnScrollListener(new AbsListView.OnScrollListener(){
+    @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
+switch (scrollState) {
+case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
+        enableRefreshTime=true;
+      timeLineAdapter.notifyDataSetChanged();
+    break;
+case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
+  enableRefreshTime=false;
+break;
+case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
+enableRefreshTime=true;
+break;
+}
+}
+@Override public void onScroll(AbsListView view,int firstVisibleItem,int visibleItemCount,int totalItemCount){
+}
+}
 );
-  buildListAdapter();
-  return view;
+pullToRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+@Override public void onItemClick(AdapterView<?> parent,View view,int position,long id){
+if (mActionMode != null) {
+getListView().clearChoices();
+mActionMode.finish();
+mActionMode=null;
+return;
+}
+getListView().clearChoices();
+if (position - 1 < getList().getSize() && position - 1 >= 0) {
+listViewItemClick(parent,view,position - 1,id);
+}
+ else if (position - 1 >= getList().getSize()) {
+listViewFooterViewClick(view);
+}
+}
+}
+);
+buildListAdapter();
+return view;
 }
