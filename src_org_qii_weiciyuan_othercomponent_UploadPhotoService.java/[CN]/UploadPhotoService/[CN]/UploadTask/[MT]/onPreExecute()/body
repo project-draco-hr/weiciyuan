@@ -1,0 +1,7 @@
+{
+  super.onPreExecute();
+  Notification.Builder builder=new Notification.Builder(UploadPhotoService.this).setTicker(getString(R.string.send_photo)).setContentTitle(getString(R.string.background_sending)).setContentText(content).setProgress(0,100,false).setSmallIcon(R.drawable.upload_white);
+  notification=builder.getNotification();
+  startForeground(NOTIFICATION_ID,notification);
+  Toast.makeText(UploadPhotoService.this,getString(R.string.background_sending),Toast.LENGTH_SHORT).show();
+}
