@@ -7,8 +7,10 @@
   if (mMode.canPullUp()) {
     mFooterLayout.reset();
   }
-  MediaPlayer mp=MediaPlayer.create(context,R.raw.pop);
-  mp.setVolume(9.f,9.f);
-  mp.start();
+  if (GlobalContext.getInstance().getEnableSound()) {
+    MediaPlayer mp=MediaPlayer.create(context,R.raw.pop);
+    mp.setVolume(9.f,9.f);
+    mp.start();
+  }
   smoothScrollTo(0);
 }

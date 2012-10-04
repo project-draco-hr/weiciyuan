@@ -1,8 +1,10 @@
 {
   setRefreshingInternal(true);
   mOnRefreshListener.onRefresh(this);
-  final MediaPlayer mp=MediaPlayer.create(context,R.raw.psst2);
-  mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
-  mp.start();
-  mp.setVolume(9.f,9.f);
+  if (GlobalContext.getInstance().getEnableSound()) {
+    final MediaPlayer mp=MediaPlayer.create(context,R.raw.psst2);
+    mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
+    mp.start();
+    mp.setVolume(9.f,9.f);
+  }
 }

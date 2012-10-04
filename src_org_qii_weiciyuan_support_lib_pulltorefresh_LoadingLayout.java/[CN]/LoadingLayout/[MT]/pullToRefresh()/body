@@ -1,5 +1,7 @@
 {
   mHeaderText.setText(wrapHtmlLabel(mPullLabel));
-  final MediaPlayer mp=MediaPlayer.create(context,R.raw.pop);
-  mp.start();
+  if (GlobalContext.getInstance().getEnableSound()) {
+    final MediaPlayer mp=MediaPlayer.create(context,R.raw.pop);
+    mp.start();
+  }
 }
