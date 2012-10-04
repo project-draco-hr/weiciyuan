@@ -1,0 +1,8 @@
+{
+  super.onCreate(savedInstanceState);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setTitle(getString(R.string.appearance));
+  getFragmentManager().beginTransaction().replace(android.R.id.content,new AppearanceFragment()).commit();
+  getFragmentManager().executePendingTransactions();
+  PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
+}

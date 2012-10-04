@@ -1,0 +1,5 @@
+{
+  super.onCreate(savedInstanceState);
+  addPreferencesFromResource(R.xml.appearance_pref);
+  setRetainInstance(true);
+}
