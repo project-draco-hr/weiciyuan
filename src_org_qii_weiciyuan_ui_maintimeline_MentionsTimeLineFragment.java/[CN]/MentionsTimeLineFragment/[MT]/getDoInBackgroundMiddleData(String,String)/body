@@ -1,0 +1,9 @@
+{
+  MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(token);
+  dao.setMax_id(beginId);
+  dao.setSince_id(endId);
+  dao.setFilter_by_author(filter_by_author);
+  dao.setFilter_by_type(filter_by_type);
+  MessageListBean result=dao.getGSONMsgList();
+  return result;
+}

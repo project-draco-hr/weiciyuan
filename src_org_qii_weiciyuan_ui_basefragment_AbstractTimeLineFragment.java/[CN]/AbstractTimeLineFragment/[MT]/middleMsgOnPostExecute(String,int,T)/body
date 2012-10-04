@@ -1,0 +1,22 @@
+{
+  if (newValue == null)   return;
+  if (newValue.getSize() == 1) {
+    bean.getItemList().remove(position);
+    timeLineAdapter.notifyDataSetChanged();
+    return;
+  }
+  ItemBean lastItem=newValue.getItem(newValue.getSize() - 1);
+  if (!lastItem.getId().equals(endTag)) {
+    bean.getItemList().addAll(position,newValue.getItemList().subList(1,newValue.getSize()));
+    timeLineAdapter.notifyDataSetChanged();
+    return;
+  }
+  if (lastItem.getId().equals(endTag)) {
+    int nullIndex=position + newValue.getSize() - 1;
+    bean.getItemList().addAll(position,newValue.getItemList().subList(1,newValue.getSize()));
+    bean.getItemList().remove(nullIndex - 1);
+    bean.getItemList().remove(nullIndex - 1);
+    timeLineAdapter.notifyDataSetChanged();
+    return;
+  }
+}

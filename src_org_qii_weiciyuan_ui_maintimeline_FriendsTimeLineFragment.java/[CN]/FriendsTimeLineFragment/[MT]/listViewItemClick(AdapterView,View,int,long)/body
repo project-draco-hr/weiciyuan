@@ -1,4 +1,5 @@
 {
+  MessageBean msg=bean.getItemList().get(position);
   Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
   intent.putExtra("msg",bean.getItemList().get(position));
   intent.putExtra("token",token);

@@ -1,0 +1,6 @@
+{
+  if (middleTask == null || middleTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+    middleTask=new TimeLineGetMiddleMsgListTask(beginId,endId,endTag,position);
+    middleTask.execute();
+  }
+}

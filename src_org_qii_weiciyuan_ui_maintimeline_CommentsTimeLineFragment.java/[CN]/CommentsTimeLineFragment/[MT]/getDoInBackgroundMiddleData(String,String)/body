@@ -1,0 +1,21 @@
+{
+  if (selected == 0 || selected == 1) {
+    MainCommentsTimeLineDao dao=new MainCommentsTimeLineDao(token);
+    if (getList().getItemList().size() > 0) {
+      dao.setMax_id(beginId);
+      dao.setSince_id(endId);
+    }
+    if (selected == 1) {
+      dao.setFilter_by_author("1");
+    }
+    CommentListBean result=dao.getGSONMsgList();
+    return result;
+  }
+ else {
+    CommentsTimeLineByMeDao dao=new CommentsTimeLineByMeDao(token);
+    dao.setMax_id(beginId);
+    dao.setSince_id(endId);
+    CommentListBean result=dao.getGSONMsgList();
+    return result;
+  }
+}

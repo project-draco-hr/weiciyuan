@@ -1,0 +1,5 @@
+{
+  middleMsgOnPostExecute(endTag,position,newValue);
+  cleanWork();
+  super.onPostExecute(newValue);
+}

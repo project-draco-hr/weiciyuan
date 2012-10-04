@@ -1,0 +1,10 @@
+{
+  try {
+    return getDoInBackgroundMiddleData(beginId,endId);
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+  }
+  return null;
+}

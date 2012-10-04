@@ -1,0 +1,6 @@
+{
+  RepostsTimeLineByIdDao dao=new RepostsTimeLineByIdDao(token,id);
+  dao.setMax_id(beginId);
+  dao.setSince_id(endId);
+  return dao.getGSONMsgList();
+}

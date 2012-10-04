@@ -6,6 +6,12 @@
       if (newValue.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
         newValue.getItemList().addAll(getList().getItemList());
       }
+ else {
+        if (getList().getSize() > 0) {
+          newValue.getItemList().add(null);
+        }
+        newValue.getItemList().addAll(getList().getItemList());
+      }
       clearAndReplaceValue(newValue);
       timeLineAdapter.notifyDataSetChanged();
       getListView().setSelectionAfterHeaderView();

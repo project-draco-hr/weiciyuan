@@ -1,12 +1,15 @@
 {
-  ViewHolder holder;
+  ViewHolder holder=null;
   if (convertView == null || convertView.getTag() == null) {
 switch (getItemViewType(position)) {
-case TYPE_MYSELF:
-      convertView=initMylayout(parent);
+case TYPE_MIDDLE:
+      convertView=initMiddleLayout(parent);
     break;
-case TYPE_MYSELF_BIG_PIC:
+case TYPE_MYSELF:
   convertView=initMylayout(parent);
+break;
+case TYPE_MYSELF_BIG_PIC:
+convertView=initMylayout(parent);
 break;
 case TYPE_NORMAL:
 convertView=initNormallayout(parent);
@@ -18,12 +21,16 @@ default :
 convertView=initNormallayout(parent);
 break;
 }
+if (getItemViewType(position) != TYPE_MIDDLE) {
 holder=buildHolder(convertView);
 convertView.setTag(holder);
+}
 }
  else {
 holder=(ViewHolder)convertView.getTag();
 }
+if (getItemViewType(position) != TYPE_MIDDLE) {
 bindViewData(holder,position);
+}
 return convertView;
 }

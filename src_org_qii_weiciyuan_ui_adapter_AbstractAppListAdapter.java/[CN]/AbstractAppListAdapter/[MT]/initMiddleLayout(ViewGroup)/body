@@ -1,0 +1,5 @@
+{
+  View convertView;
+  convertView=inflater.inflate(R.layout.fragment_listview_middle_layout,parent,false);
+  return convertView;
+}
