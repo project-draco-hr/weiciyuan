@@ -1,4 +1,6 @@
 {
   super.onDetach();
+  removeRefresh();
+  if (autoRefreshTask != null)   autoRefreshTask.cancel(true);
   if (dbTask != null)   dbTask.cancel(true);
 }

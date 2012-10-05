@@ -1,0 +1,16 @@
+{
+  if (!GlobalContext.getInstance().getEnableAutoRefresh()) {
+    return;
+  }
+  ConnectivityManager cm=(ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+  NetworkInfo networkInfo=cm.getActiveNetworkInfo();
+  boolean haveNetwork=(networkInfo != null) && (networkInfo.isConnected());
+  boolean haveWifi=haveNetwork && (networkInfo.getType() == ConnectivityManager.TYPE_WIFI);
+  if (!haveWifi) {
+    return;
+  }
+  if (autoRefreshTask == null || autoRefreshTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+    autoRefreshTask=new AutoRefreshTask();
+    autoRefreshTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

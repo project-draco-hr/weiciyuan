@@ -1,0 +1,28 @@
+{
+  super.onPostExecute(newValue);
+  int firstPosition=getListView().getFirstVisiblePosition();
+  int size;
+  if (newValue != null && getActivity() != null) {
+    if (newValue.getSize() == 0) {
+    }
+ else     if (newValue.getSize() > 0) {
+      size=newValue.getSize();
+      if (newValue.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+        newValue.getItemList().addAll(getList().getItemList());
+      }
+ else {
+        if (getList().getSize() > 0) {
+          newValue.getItemList().add(null);
+        }
+        newValue.getItemList().addAll(getList().getItemList());
+      }
+      int index=getListView().getFirstVisiblePosition();
+      clearAndReplaceValue(newValue);
+      View v=getListView().getChildAt(1);
+      int top=(v == null) ? 0 : v.getTop();
+      timeLineAdapter.notifyDataSetChanged();
+      int ss=index + size;
+      getListView().setSelectionFromTop(ss + 1,top);
+    }
+  }
+}

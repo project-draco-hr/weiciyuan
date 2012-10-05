@@ -1,0 +1,4 @@
+{
+  scheduledRefreshExecutorService=Executors.newSingleThreadScheduledExecutor();
+  scheduledRefreshExecutorService.scheduleAtFixedRate(new AutoTask(),AppConfig.AUTO_REFRESH_INITIALDELAY,AppConfig.AUTO_REFRESH_PERIOD,TimeUnit.SECONDS);
+}

@@ -1,0 +1,3 @@
+{
+  if (scheduledRefreshExecutorService != null && !scheduledRefreshExecutorService.isShutdown())   scheduledRefreshExecutorService.shutdownNow();
+}
