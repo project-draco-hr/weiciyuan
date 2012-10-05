@@ -21,6 +21,10 @@
     @Override public void onClick(    DialogInterface dialog,    int which){
       avatarTask.cancel(true);
       dismissAllowingStateLoss();
+      if (!GlobalContext.getInstance().isEnablePic() && GlobalContext.getInstance().getEnableBigPic()) {
+        AbstractTimeLineFragment fragment=(AbstractTimeLineFragment)getTargetFragment();
+        fragment.getAdapter().notifyDataSetChanged();
+      }
     }
   }
 );

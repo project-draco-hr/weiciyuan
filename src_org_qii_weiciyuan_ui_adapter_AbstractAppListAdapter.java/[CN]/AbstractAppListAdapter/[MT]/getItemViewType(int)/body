@@ -1,6 +1,6 @@
 {
   if (bean.get(position) == null)   return TYPE_MIDDLE;
-  boolean myself=bean.get(position).getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId()) && GlobalContext.getInstance().isEnablePic();
+  boolean myself=bean.get(position).getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId());
   boolean myselfBigPic=myself && GlobalContext.getInstance().getEnableBigPic();
   boolean normal=!myself;
   boolean normalBigPic=normal && GlobalContext.getInstance().getEnableBigPic();

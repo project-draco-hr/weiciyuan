@@ -12,7 +12,7 @@
     options.inInputShareable=true;
     bitmap=BitmapFactory.decodeFile(absoluteFilePath,options);
   }
- else {
+ else   if (GlobalContext.getInstance().isEnablePic()) {
     String path=getBitmapFromNetWork(url,absoluteFilePath,null);
     BitmapFactory.Options options=new BitmapFactory.Options();
     options.inJustDecodeBounds=true;

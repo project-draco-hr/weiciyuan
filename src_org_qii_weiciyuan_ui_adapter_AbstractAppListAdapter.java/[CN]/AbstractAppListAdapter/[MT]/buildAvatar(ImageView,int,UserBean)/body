@@ -1,6 +1,6 @@
 {
   String image_url=user.getProfile_image_url();
-  if (!TextUtils.isEmpty(image_url) && GlobalContext.getInstance().isEnablePic()) {
+  if (!TextUtils.isEmpty(image_url)) {
     view.setVisibility(View.VISIBLE);
     boolean isFling=((AbstractTimeLineFragment)fragment).isListViewFling();
     String url;

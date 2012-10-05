@@ -28,7 +28,7 @@
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
   holder.content_pic.setVisibility(View.GONE);
-  if (!TextUtils.isEmpty(msg.getThumbnail_pic()) && GlobalContext.getInstance().isEnablePic()) {
+  if (!TextUtils.isEmpty(msg.getThumbnail_pic())) {
     buildPic(msg,holder.content_pic,position);
   }
   MessageBean repost_msg=msg.getRetweeted_status();
