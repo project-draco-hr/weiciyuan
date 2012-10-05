@@ -1,9 +1,3 @@
 {
   super.setUserVisibleHint(isVisibleToUser);
-  if (isVisibleToUser) {
-    addListViewTimeRefresh();
-  }
- else {
-    removeListViewTimeRefresh();
-  }
 }
