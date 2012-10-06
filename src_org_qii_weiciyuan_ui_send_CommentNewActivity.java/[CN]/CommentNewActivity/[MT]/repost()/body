@@ -1,0 +1,24 @@
+{
+  String content=((EditText)findViewById(R.id.status_new_content)).getText().toString();
+  if (msg.getRetweeted_status() != null) {
+    String msgContent="//@" + msg.getUser().getScreen_name() + ": "+ msg.getText();
+    String total=content + msgContent;
+    if (total.length() < 140) {
+      content=total;
+    }
+  }
+  RepostNewMsgDao dao=new RepostNewMsgDao(token,id);
+  boolean comment=true;
+  boolean oriComment=enableCommentOri.isChecked();
+  if (comment && oriComment) {
+    dao.setIs_comment(RepostNewMsgDao.ENABLE_COMMENT_ALL);
+  }
+ else   if (comment) {
+    dao.setIs_comment(RepostNewMsgDao.ENABLE_COMMENT);
+  }
+ else   if (oriComment) {
+    dao.setIs_comment(RepostNewMsgDao.ENABLE_ORI_COMMENT);
+  }
+  dao.setStatus(content);
+  return dao.sendNewMsg();
+}

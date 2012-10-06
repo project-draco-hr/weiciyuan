@@ -13,6 +13,14 @@ enableCommentOri.setChecked(false);
 enableCommentOri.setChecked(true);
 }
 break;
+case R.id.menu_enable_repost:
+if (enableRepost.isChecked()) {
+enableRepost.setChecked(false);
+}
+ else {
+enableRepost.setChecked(true);
+}
+break;
 }
 return true;
 }

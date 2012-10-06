@@ -1,10 +1,15 @@
 {
-  CommentNewMsgDao dao=new CommentNewMsgDao(token,id,((EditText)findViewById(R.id.status_new_content)).getText().toString());
-  if (enableCommentOri.isChecked()) {
-    dao.enableComment_ori(true);
+  if (!enableRepost.isChecked()) {
+    CommentNewMsgDao dao=new CommentNewMsgDao(token,id,((EditText)findViewById(R.id.status_new_content)).getText().toString());
+    if (enableCommentOri.isChecked()) {
+      dao.enableComment_ori(true);
+    }
+ else {
+      dao.enableComment_ori(false);
+    }
+    return dao.sendNewMsg();
   }
  else {
-    dao.enableComment_ori(false);
+    return repost();
   }
-  return dao.sendNewMsg();
 }
