@@ -4,5 +4,6 @@
   getActionBar().setSubtitle(GlobalContext.getInstance().getCurrentAccountName());
   token=getIntent().getStringExtra("token");
   id=getIntent().getStringExtra("id");
+  msg=(MessageBean)getIntent().getSerializableExtra("msg");
   getActionBar().setTitle(getString(R.string.comments));
 }

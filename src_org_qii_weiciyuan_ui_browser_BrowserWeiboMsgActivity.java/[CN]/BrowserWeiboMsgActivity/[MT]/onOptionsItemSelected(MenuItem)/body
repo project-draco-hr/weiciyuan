@@ -16,6 +16,7 @@ case R.id.commentsbyidtimelinefragment_comment:
 intent=new Intent(this,CommentNewActivity.class);
 intent.putExtra("token",getToken());
 intent.putExtra("id",getMsg().getId());
+intent.putExtra("msg",getMsg());
 startActivity(intent);
 return true;
 case R.id.menu_share:

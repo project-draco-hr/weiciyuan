@@ -1,3 +1,6 @@
 {
+  if (msg != null && msg.getRetweeted_status() != null) {
+    enableCommentOri.setVisible(true);
+  }
   return super.onPrepareOptionsMenu(menu);
 }
