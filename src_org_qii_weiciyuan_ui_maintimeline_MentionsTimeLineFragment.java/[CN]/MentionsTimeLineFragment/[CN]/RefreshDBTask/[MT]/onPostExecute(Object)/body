@@ -1,5 +1,0 @@
-{
-  timeLineAdapter.notifyDataSetChanged();
-  refreshLayout(bean);
-  super.onPostExecute(o);
-}

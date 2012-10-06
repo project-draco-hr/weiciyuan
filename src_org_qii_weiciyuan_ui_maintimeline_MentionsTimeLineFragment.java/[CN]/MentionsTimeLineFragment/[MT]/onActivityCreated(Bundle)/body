@@ -8,6 +8,9 @@
     selected=savedInstanceState.getInt("selected");
     filter_by_author=savedInstanceState.getString("filter_by_author");
     filter_by_type=savedInstanceState.getString("filter_by_type");
+    hashMap.put(0,(MessageListBean)savedInstanceState.getSerializable("0"));
+    hashMap.put(1,(MessageListBean)savedInstanceState.getSerializable("1"));
+    hashMap.put(2,(MessageListBean)savedInstanceState.getSerializable("2"));
     clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
@@ -17,5 +20,8 @@
       dbTask=new SimpleTask();
       dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
+    hashMap.put(0,new MessageListBean());
+    hashMap.put(1,new MessageListBean());
+    hashMap.put(2,new MessageListBean());
   }
 }

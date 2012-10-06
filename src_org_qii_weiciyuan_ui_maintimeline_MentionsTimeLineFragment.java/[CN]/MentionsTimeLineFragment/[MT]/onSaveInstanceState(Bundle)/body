@@ -8,4 +8,7 @@
   outState.putInt("selected",selected);
   outState.putString("filter_by_author",filter_by_author);
   outState.putString("filter_by_type",filter_by_type);
+  outState.putSerializable("0",hashMap.get(0));
+  outState.putSerializable("1",hashMap.get(1));
+  outState.putSerializable("2",hashMap.get(2));
 }
