@@ -7,6 +7,9 @@
     token=savedInstanceState.getString("token");
     group=savedInstanceState.getStringArray("group");
     selected=savedInstanceState.getInt("selected");
+    hashMap.put(0,(CommentListBean)savedInstanceState.getSerializable("0"));
+    hashMap.put(1,(CommentListBean)savedInstanceState.getSerializable("1"));
+    hashMap.put(2,(CommentListBean)savedInstanceState.getSerializable("2"));
     clearAndReplaceValue((CommentListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
@@ -16,6 +19,9 @@
       dbTask=new SimpleTask();
       dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
+    hashMap.put(0,new CommentListBean());
+    hashMap.put(1,new CommentListBean());
+    hashMap.put(2,new CommentListBean());
   }
   getListView().setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
   getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){

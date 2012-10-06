@@ -1,11 +1,13 @@
 {
-  getList().getItemList().clear();
-  timeLineAdapter.notifyDataSetChanged();
-  if (selected != 0) {
+  if (hashMap.get(selected).getSize() == 0) {
+    bean.getItemList().clear();
+    getAdapter().notifyDataSetChanged();
+    pullToRefreshListView.startRefreshNow();
     refresh();
   }
  else {
-    new RefreshDBTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    clearAndReplaceValue(hashMap.get(selected));
+    getAdapter().notifyDataSetChanged();
   }
   getActivity().invalidateOptionsMenu();
 }
