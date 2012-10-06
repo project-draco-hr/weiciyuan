@@ -2,7 +2,7 @@
   super.onCreate(savedInstanceState);
   token=getIntent().getStringExtra("token");
   id=getIntent().getStringExtra("id");
-  MessageBean msg=(MessageBean)getIntent().getSerializableExtra("msg");
+  msg=(MessageBean)getIntent().getSerializableExtra("msg");
   getActionBar().setTitle(getString(R.string.repost));
   getActionBar().setSubtitle(GlobalContext.getInstance().getCurrentAccountName());
   if (msg.getRetweeted_status() != null) {
@@ -11,5 +11,4 @@
  else {
     getEditTextView().setHint(getString(R.string.repost) + "//@" + msg.getUser().getScreen_name()+ "???"+ msg.getText());
   }
-  enableCommentString=getString(R.string.disable_comment_when_repost);
 }

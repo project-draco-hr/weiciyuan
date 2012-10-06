@@ -1,4 +1,0 @@
-{
-  if (enable)   this.is_comment="1";
- else   this.is_comment="0";
-}

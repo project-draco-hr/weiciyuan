@@ -4,8 +4,16 @@
     content=getString(R.string.repost);
   }
   RepostNewMsgDao dao=new RepostNewMsgDao(token,id);
-  if (enableComment) {
-    dao.setIs_comment(true);
+  boolean comment=menuEnableComment.isChecked();
+  boolean oriComment=(menuEnableOriComment != null && menuEnableOriComment.isChecked());
+  if (comment && oriComment) {
+    dao.setIs_comment(RepostNewMsgDao.ENABLE_COMMENT_ALL);
+  }
+ else   if (comment) {
+    dao.setIs_comment(RepostNewMsgDao.ENABLE_COMMENT);
+  }
+ else   if (oriComment) {
+    dao.setIs_comment(RepostNewMsgDao.ENABLE_ORI_COMMENT);
   }
   dao.setStatus(content);
   return dao.sendNewMsg();
