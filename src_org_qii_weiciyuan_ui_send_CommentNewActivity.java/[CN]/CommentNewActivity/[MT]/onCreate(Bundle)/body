@@ -6,4 +6,5 @@
   id=getIntent().getStringExtra("id");
   msg=(MessageBean)getIntent().getSerializableExtra("msg");
   getActionBar().setTitle(getString(R.string.comments));
+  getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
 }
