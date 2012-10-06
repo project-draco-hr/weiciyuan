@@ -5,16 +5,13 @@ case android.R.id.home:
   if (imm.isActive())   imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,InputMethodManager.HIDE_NOT_ALWAYS);
 finish();
 break;
-case R.id.menu_enable_repost:
-if (enableCommentOri) {
-enableCommentOri=false;
-enableCommentOriString=getString(R.string.disable_comment_to_ori_when_comment);
+case R.id.menu_enable_ori_comment:
+if (enableCommentOri.isChecked()) {
+enableCommentOri.setChecked(false);
 }
  else {
-enableCommentOriString=getString(R.string.enable_comment_to_ori_when_comment);
-enableCommentOri=true;
+enableCommentOri.setChecked(true);
 }
-invalidateOptionsMenu();
 break;
 }
 return true;

@@ -5,5 +5,4 @@
   token=getIntent().getStringExtra("token");
   id=getIntent().getStringExtra("id");
   getActionBar().setTitle(getString(R.string.comments));
-  enableCommentOriString=getString(R.string.disable_comment_to_ori_when_comment);
 }
