@@ -3,6 +3,9 @@
     userBean=(UserBean)savedInstanceState.getSerializable("userBean");
     accountBean=(AccountBean)savedInstanceState.getSerializable("account");
     token=savedInstanceState.getString("token");
+    group=(HashMap)savedInstanceState.getSerializable("group");
+    hashMap=(HashMap)savedInstanceState.getSerializable("hashmap");
+    selectedId=savedInstanceState.getInt("selectedId");
     clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
@@ -12,6 +15,10 @@
       dbTask=new SimpleTask();
       dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
+    group.put(0,"??????");
+    group.put(-1,"????????????");
+    hashMap.put(0,new MessageListBean());
+    hashMap.put(-1,new MessageListBean());
   }
   getActivity().invalidateOptionsMenu();
   super.onActivityCreated(savedInstanceState);

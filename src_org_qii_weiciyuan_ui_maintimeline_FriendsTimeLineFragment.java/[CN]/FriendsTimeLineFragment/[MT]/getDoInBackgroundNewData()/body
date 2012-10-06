@@ -1,5 +1,11 @@
 {
-  MainFriendsTimeLineDao dao=new MainFriendsTimeLineDao(token);
+  MainFriendsTimeLineDao dao;
+  if (selectedId == -1) {
+    dao=new BilateralTimeLineDao(token);
+  }
+ else {
+    dao=new MainFriendsTimeLineDao(token);
+  }
   if (getList().getItemList().size() > 0) {
     dao.setSince_id(getList().getItemList().get(0).getId());
   }

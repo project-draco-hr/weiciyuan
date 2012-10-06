@@ -1,10 +1,10 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.friendstimelinefragment_menu,menu);
-  if (getResources().getBoolean(R.bool.is_phone)) {
+  if (selectedId == 0) {
     menu.findItem(R.id.friendstimelinefragment_name).setTitle(userBean.getScreen_name());
   }
  else {
-    menu.removeItem(R.id.friendstimelinefragment_name);
+    menu.findItem(R.id.friendstimelinefragment_name).setTitle(group.get(selectedId));
   }
 }

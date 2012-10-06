@@ -1,4 +1,5 @@
 {
   super.afterGetNewMsg();
   getActivity().getActionBar().getTabAt(0).setText(getString(R.string.home));
+  clearAndReplaceValue(selectedId,bean);
 }

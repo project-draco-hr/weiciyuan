@@ -1,0 +1,12 @@
+{
+  if (hashMap.get(selectedId).getSize() == 0) {
+    bean.getItemList().clear();
+    getAdapter().notifyDataSetChanged();
+    pullToRefreshListView.startRefreshNow();
+  }
+ else {
+    clearAndReplaceValue(hashMap.get(selectedId));
+    getAdapter().notifyDataSetChanged();
+  }
+  getActivity().invalidateOptionsMenu();
+}

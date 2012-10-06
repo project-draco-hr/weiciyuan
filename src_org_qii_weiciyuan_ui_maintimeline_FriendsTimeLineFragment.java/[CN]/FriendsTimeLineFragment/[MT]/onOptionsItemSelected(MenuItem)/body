@@ -11,11 +11,9 @@ pullToRefreshListView.startRefreshNow();
 refresh();
 break;
 case R.id.friendstimelinefragment_name:
-intent=new Intent(getActivity(),MyInfoActivity.class);
-intent.putExtra("token",token);
-intent.putExtra("user",userBean);
-intent.putExtra("account",accountBean);
-startActivity(intent);
+FriendsGroupDialog dialog=new FriendsGroupDialog(group,selectedId);
+dialog.setTargetFragment(this,1);
+dialog.show(getFragmentManager(),"");
 break;
 }
 return super.onOptionsItemSelected(item);
