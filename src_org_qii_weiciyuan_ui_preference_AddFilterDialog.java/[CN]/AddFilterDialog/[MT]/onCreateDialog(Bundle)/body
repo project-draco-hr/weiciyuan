@@ -15,5 +15,7 @@
     }
   }
 );
-  return builder.create();
+  AlertDialog dialog=builder.create();
+  dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+  return dialog;
 }
