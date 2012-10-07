@@ -1,0 +1,11 @@
+{
+  AtUserDao dao=new AtUserDao(token,q);
+  try {
+    return dao.getUserInfo();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+    return null;
+  }
+}
