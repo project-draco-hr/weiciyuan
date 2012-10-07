@@ -1,0 +1,21 @@
+{
+  String url=URLHelper.getAtUser();
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("q",q);
+  map.put("count",count);
+  map.put("type",type);
+  map.put("range",range);
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  Gson gson=new Gson();
+  List<AtUserBean> value=null;
+  try {
+    value=gson.fromJson(jsonData,new TypeToken<List<AtUserBean>>(){
+    }
+.getType());
+  }
+ catch (  JsonSyntaxException e) {
+    AppLogger.e(e.getMessage());
+  }
+  return value;
+}
