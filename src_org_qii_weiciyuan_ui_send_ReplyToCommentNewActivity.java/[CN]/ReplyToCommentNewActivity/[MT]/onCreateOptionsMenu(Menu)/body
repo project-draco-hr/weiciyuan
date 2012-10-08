@@ -1,6 +1,7 @@
 {
   getMenuInflater().inflate(R.menu.commentnewactivity_menu,menu);
   menu.findItem(R.id.menu_enable_ori_comment).setVisible(false);
-  menu.findItem(R.id.menu_enable_repost).setVisible(false);
+  menu.findItem(R.id.menu_enable_repost).setVisible(true);
+  enableRepost=menu.findItem(R.id.menu_enable_repost);
   return true;
 }

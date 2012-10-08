@@ -1,0 +1,11 @@
+{
+  String content=((EditText)findViewById(R.id.status_new_content)).getText().toString();
+  String msgContent="//@" + bean.getUser().getScreen_name() + ": "+ bean.getText();
+  String total=content + msgContent;
+  if (total.length() < 140) {
+    content=total;
+  }
+  RepostNewMsgDao dao=new RepostNewMsgDao(token,bean.getStatus().getId());
+  dao.setStatus(content);
+  return dao.sendNewMsg();
+}
