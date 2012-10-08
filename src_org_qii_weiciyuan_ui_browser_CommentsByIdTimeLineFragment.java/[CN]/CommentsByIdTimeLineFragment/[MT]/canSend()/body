@@ -19,5 +19,7 @@
       et.setError(getString(R.string.content_words_number_too_many));
     }
   }
+  Animation shake=AnimationUtils.loadAnimation(getActivity(),R.anim.shake);
+  et.startAnimation(shake);
   return false;
 }
