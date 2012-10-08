@@ -1,0 +1,16 @@
+{
+  super.onActivityResult(requestCode,resultCode,intent);
+  if (resultCode == RESULT_OK) {
+switch (requestCode) {
+case AT_USER:
+      String name=intent.getStringExtra("name");
+    String ori=getEditTextView().getText().toString();
+  int index=getEditTextView().getSelectionStart();
+StringBuilder stringBuilder=new StringBuilder(ori);
+stringBuilder.insert(index,name);
+getEditTextView().setText(stringBuilder.toString());
+getEditTextView().setSelection(index + name.length());
+break;
+}
+}
+}

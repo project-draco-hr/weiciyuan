@@ -1,0 +1,21 @@
+{
+  super.onPostExecute(atUserBeans);
+  if (isCancelled())   return;
+  if (atUserBeans.size() == 0) {
+    result.clear();
+    atList=atUserBeans;
+    adapter.notifyDataSetChanged();
+    return;
+  }
+  result.clear();
+  for (  AtUserBean b : atUserBeans) {
+    if (b.getRemark().contains(q)) {
+      result.add(b.getNickname() + "(" + b.getRemark()+ ")");
+    }
+ else {
+      result.add(b.getNickname());
+    }
+  }
+  atList=atUserBeans;
+  adapter.notifyDataSetChanged();
+}

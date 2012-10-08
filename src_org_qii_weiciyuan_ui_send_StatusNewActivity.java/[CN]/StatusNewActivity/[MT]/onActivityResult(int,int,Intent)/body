@@ -1,19 +1,33 @@
 {
   super.onActivityResult(requestCode,resultCode,intent);
   if (resultCode == RESULT_OK) {
-    if (TextUtils.isEmpty(content.getText().toString())) {
-      content.setText(getString(R.string.share_pic));
-      content.setSelection(content.getText().toString().length());
-    }
 switch (requestCode) {
 case CAMERA_RESULT:
-      picPath=getPicPathFromUri(imageFileUri);
-    break;
-case PIC_RESULT:
-  Uri imageFileUri=intent.getData();
-picPath=getPicPathFromUri(imageFileUri);
+      if (TextUtils.isEmpty(content.getText().toString())) {
+        content.setText(getString(R.string.share_pic));
+        content.setSelection(content.getText().toString().length());
+      }
+    picPath=getPicPathFromUri(imageFileUri);
+  havePic.setVisibility(View.VISIBLE);
 break;
+case PIC_RESULT:
+if (TextUtils.isEmpty(content.getText().toString())) {
+content.setText(getString(R.string.share_pic));
+content.setSelection(content.getText().toString().length());
 }
+Uri imageFileUri=intent.getData();
+picPath=getPicPathFromUri(imageFileUri);
 havePic.setVisibility(View.VISIBLE);
+break;
+case AT_USER:
+String name=intent.getStringExtra("name");
+String ori=content.getText().toString();
+int index=content.getSelectionStart();
+StringBuilder stringBuilder=new StringBuilder(ori);
+stringBuilder.insert(index,name);
+content.setText(stringBuilder.toString());
+content.setSelection(index + name.length());
+return;
+}
 }
 }

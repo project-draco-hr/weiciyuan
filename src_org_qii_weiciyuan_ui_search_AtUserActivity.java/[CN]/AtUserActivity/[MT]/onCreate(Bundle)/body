@@ -1,0 +1,5 @@
+{
+  super.onCreate(savedInstanceState);
+  String token=getIntent().getStringExtra("token");
+  getFragmentManager().beginTransaction().replace(android.R.id.content,new AtUserFragment(token)).commit();
+}

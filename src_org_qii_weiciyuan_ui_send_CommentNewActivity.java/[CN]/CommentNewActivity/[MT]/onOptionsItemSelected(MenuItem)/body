@@ -21,6 +21,11 @@ enableRepost.setChecked(false);
 enableRepost.setChecked(true);
 }
 break;
+case R.id.menu_at:
+Intent intent=new Intent(CommentNewActivity.this,AtUserActivity.class);
+intent.putExtra("token",token);
+startActivityForResult(intent,AT_USER);
+break;
 }
 return true;
 }

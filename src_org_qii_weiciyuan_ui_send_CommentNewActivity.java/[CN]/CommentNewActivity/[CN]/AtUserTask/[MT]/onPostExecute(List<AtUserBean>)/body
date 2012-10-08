@@ -1,6 +1,0 @@
-{
-  super.onPostExecute(atUserBeans);
-  if (isCancelled())   return;
-  if (atUserBeans.size() == 0)   return;
-  AppLogger.e(atUserBeans.get(0).getNickname());
-}

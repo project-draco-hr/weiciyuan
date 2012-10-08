@@ -1,10 +1,11 @@
 {
+  Intent intent;
 switch (item.getItemId()) {
 case android.R.id.home:
     savaDraft();
   InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 if (imm.isActive()) imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,InputMethodManager.HIDE_NOT_ALWAYS);
-Intent intent=new Intent(this,MainTimeLineActivity.class);
+intent=new Intent(this,MainTimeLineActivity.class);
 intent.putExtra("account",getAccount());
 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
@@ -27,6 +28,11 @@ String ori=content.getText().toString();
 String topicTag="##";
 content.setText(ori + topicTag);
 content.setSelection(content.getText().toString().length() - 1);
+break;
+case R.id.menu_at:
+intent=new Intent(StatusNewActivity.this,AtUserActivity.class);
+intent.putExtra("token",token);
+startActivityForResult(intent,AT_USER);
 break;
 }
 return true;
