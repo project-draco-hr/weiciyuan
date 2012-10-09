@@ -1,5 +1,15 @@
 {
   super(fm);
-  list.add(new MyInfoFragment());
-  list.add(new StatusesByIdTimeLineFragment(getUser(),getToken()));
+  if (getMyInfoFragment() == null) {
+    list.add(new MyInfoFragment());
+  }
+ else {
+    list.add(getMyInfoFragment());
+  }
+  if (getStatusFragment() == null) {
+    list.add(new StatusesByIdTimeLineFragment(getUser(),getToken()));
+  }
+ else {
+    list.add(getStatusFragment());
+  }
 }
