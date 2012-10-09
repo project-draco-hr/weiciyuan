@@ -8,13 +8,13 @@
           mActionMode=null;
           getListView().setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new FriendSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new FriendSingleChoiceModeListener(getListView(),timeLineAdapter,FanListFragment.this,bean.getUsers().get(position - 1)));
           return true;
         }
  else {
           getListView().setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new FriendSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new FriendSingleChoiceModeListener(getListView(),timeLineAdapter,FanListFragment.this,bean.getUsers().get(position - 1)));
           return true;
         }
       }
