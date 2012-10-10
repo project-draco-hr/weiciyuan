@@ -5,6 +5,15 @@
   if (dbTask == null || dbTask.getStatus() != MyAsyncTask.Status.FINISHED) {
     return;
   }
+  if (newTask != null && newTask.getStatus() != MyAsyncTask.Status.FINISHED) {
+    return;
+  }
+  if (oldTask != null && oldTask.getStatus() != MyAsyncTask.Status.FINISHED) {
+    return;
+  }
+  if (middleTask != null && middleTask.getStatus() != MyAsyncTask.Status.FINISHED) {
+    return;
+  }
   ConnectivityManager cm=(ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
   NetworkInfo networkInfo=cm.getActiveNetworkInfo();
   boolean haveNetwork=(networkInfo != null) && (networkInfo.isConnected());
