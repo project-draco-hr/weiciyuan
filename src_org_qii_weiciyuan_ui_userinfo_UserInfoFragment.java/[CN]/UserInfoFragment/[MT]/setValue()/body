@@ -49,7 +49,7 @@
   boolean he=bean.isFollow_me();
   boolean me=bean.isFollowing();
   if (he && me) {
-    relationship.setText(getString(R.string.following_together));
+    relationship.setText(getString(R.string.following_each_other));
   }
  else   if (he && !me) {
     relationship.setText(getString(R.string.he_is_following_you));
@@ -58,7 +58,7 @@
     relationship.setText(getString(R.string.you_is_following_he));
   }
  else {
-    relationship.setText(getString(R.string.stranger_together));
+    relationship.setText(getString(R.string.stranger_each_other));
   }
   getActivity().getActionBar().getTabAt(1).setText(getString(R.string.weibo) + "(" + bean.getStatuses_count()+ ")");
 }
