@@ -10,6 +10,7 @@
   relationship=(TextView)view.findViewById(R.id.relationship);
   following_number=(TextView)view.findViewById(R.id.following_number);
   fans_number=(TextView)view.findViewById(R.id.fans_number);
+  blog_url_layout=view.findViewById(R.id.blog_url_layout);
   View fan_layout=view.findViewById(R.id.fan_layout);
   View following_layout=view.findViewById(R.id.following_layout);
   unfollow_it=(Button)view.findViewById(R.id.unfollow);
