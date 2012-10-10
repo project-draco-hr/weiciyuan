@@ -1,0 +1,10 @@
+{
+  super.onCancelled(userBean);
+  if (e != null) {
+    Toast.makeText(UserInfoActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+switch (e.getError_code()) {
+case ErrorCode.ALREADY_FOLLOWED:
+      break;
+  }
+}
+}

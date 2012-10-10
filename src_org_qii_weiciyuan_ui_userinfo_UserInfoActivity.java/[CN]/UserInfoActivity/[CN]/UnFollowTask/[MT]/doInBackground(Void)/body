@@ -1,5 +1,5 @@
 {
-  FriendshipsDao dao=new FriendshipsDao(((IToken)getActivity()).getToken());
+  FriendshipsDao dao=new FriendshipsDao(getToken());
   if (!TextUtils.isEmpty(bean.getId())) {
     dao.setUid(bean.getId());
   }
@@ -7,7 +7,7 @@
     dao.setScreen_name(bean.getScreen_name());
   }
   try {
-    return dao.followIt();
+    return dao.unFollowIt();
   }
  catch (  WeiboException e) {
     AppLogger.e(e.getError());

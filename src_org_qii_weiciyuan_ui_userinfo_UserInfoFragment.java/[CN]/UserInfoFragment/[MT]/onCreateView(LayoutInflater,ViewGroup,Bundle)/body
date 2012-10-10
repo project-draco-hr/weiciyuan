@@ -17,8 +17,6 @@
   verified_layout=view.findViewById(R.id.verified_layout);
   View fan_layout=view.findViewById(R.id.fan_layout);
   View following_layout=view.findViewById(R.id.following_layout);
-  unfollow_it=(Button)view.findViewById(R.id.unfollow);
-  unfollow_it.setOnClickListener(onClickListener);
   following_layout.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),FriendListActivity.class);

@@ -52,12 +52,5 @@
  else {
     relationship.setText(getString(R.string.he_is_not_following_you));
   }
-  if (bean.isFollowing()) {
-    unfollow_it.setText(getString(R.string.unfollow_he));
-  }
- else {
-    unfollow_it.setText(getString(R.string.follow_he));
-  }
-  unfollow_it.setVisibility(View.VISIBLE);
   getActivity().getActionBar().getTabAt(1).setText(getString(R.string.weibo) + "(" + bean.getStatuses_count()+ ")");
 }

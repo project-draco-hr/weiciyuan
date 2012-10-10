@@ -1,5 +1,4 @@
 {
   super.onDetach();
   if (task != null)   task.cancel(true);
-  if (followOrUnfollowTask != null)   followOrUnfollowTask.cancel(true);
 }

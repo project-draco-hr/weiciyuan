@@ -1,0 +1,11 @@
+{
+  super.onPrepareOptionsMenu(menu);
+  if (bean.isFollowing()) {
+    menu.findItem(R.id.menu_follow).setVisible(false);
+    menu.findItem(R.id.menu_unfollow).setVisible(true);
+  }
+ else {
+    menu.findItem(R.id.menu_follow).setVisible(true);
+    menu.findItem(R.id.menu_unfollow).setVisible(false);
+  }
+}

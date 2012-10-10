@@ -17,6 +17,18 @@ case R.id.menu_modify_remark:
 UpdateRemarkDialog dialog=new UpdateRemarkDialog();
 dialog.show(getFragmentManager(),"");
 break;
+case R.id.menu_follow:
+if (followOrUnfollowTask == null || followOrUnfollowTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+followOrUnfollowTask=new FollowTask();
+followOrUnfollowTask.execute();
+}
+break;
+case R.id.menu_unfollow:
+if (followOrUnfollowTask == null || followOrUnfollowTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+followOrUnfollowTask=new UnFollowTask();
+followOrUnfollowTask.execute();
+}
+break;
 }
 return false;
 }
