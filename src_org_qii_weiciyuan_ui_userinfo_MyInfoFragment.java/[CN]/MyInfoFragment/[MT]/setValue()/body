@@ -10,6 +10,7 @@
     ListViewTool.addLinks(blog_url);
   }
  else {
+    blog_url_layout.setVisibility(View.GONE);
     blog_url.setVisibility(View.GONE);
   }
   location.setText(bean.getLocation());

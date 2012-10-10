@@ -5,10 +5,14 @@
   info=(TextView)view.findViewById(R.id.textView_info);
   blog_url=(TextView)view.findViewById(R.id.blog_url);
   location=(TextView)view.findViewById(R.id.location);
-  following_number=(Button)view.findViewById(R.id.following_number);
-  fans_number=(Button)view.findViewById(R.id.fans_number);
-  fav_number=(Button)view.findViewById(R.id.fav_number);
-  following_number.setOnClickListener(new View.OnClickListener(){
+  following_number=(TextView)view.findViewById(R.id.following_number);
+  fans_number=(TextView)view.findViewById(R.id.fans_number);
+  fav_number=(TextView)view.findViewById(R.id.fav_number);
+  blog_url_layout=view.findViewById(R.id.blog_url_layout);
+  View fan_layout=view.findViewById(R.id.fan_layout);
+  View following_layout=view.findViewById(R.id.following_layout);
+  View fav_layout=view.findViewById(R.id.fav_layout);
+  following_layout.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),FriendListActivity.class);
       intent.putExtra("token",((IToken)getActivity()).getToken());
@@ -17,7 +21,7 @@
     }
   }
 );
-  fans_number.setOnClickListener(new View.OnClickListener(){
+  fan_layout.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),FanListActivity.class);
       intent.putExtra("token",((IToken)getActivity()).getToken());
@@ -26,7 +30,7 @@
     }
   }
 );
-  fav_number.setOnClickListener(new View.OnClickListener(){
+  fav_layout.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),MyFavActivity.class);
       intent.putExtra("token",((IToken)getActivity()).getToken());
