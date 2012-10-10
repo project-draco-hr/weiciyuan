@@ -9,6 +9,10 @@
   if (bean.isVerified()) {
     isVerified.setVisibility(View.VISIBLE);
     isVerified.setText(getString(R.string.verified_user));
+    verified_reason.setText(bean.getVerified_reason());
+  }
+ else {
+    verified_layout.setVisibility(View.GONE);
   }
   if (!TextUtils.isEmpty(bean.getDescription())) {
     info.setText(bean.getDescription());
