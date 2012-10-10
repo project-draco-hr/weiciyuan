@@ -1,0 +1,8 @@
+{
+  super.setUserVisibleHint(isVisibleToUser);
+  if (isVisible() && isVisibleToUser) {
+    if (getActivity().getActionBar().getTabAt(2).getText().toString().contains(")")) {
+      pullToRefreshListView.startRefreshNow();
+    }
+  }
+}

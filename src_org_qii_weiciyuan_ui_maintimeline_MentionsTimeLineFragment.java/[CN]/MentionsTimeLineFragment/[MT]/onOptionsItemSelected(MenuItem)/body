@@ -8,7 +8,6 @@ startActivity(intent);
 break;
 case R.id.mentionstimelinefragment_refresh:
 pullToRefreshListView.startRefreshNow();
-refresh();
 break;
 case R.id.mentionstimelinefragment_group:
 if (newTask == null || newTask.getStatus() == MyAsyncTask.Status.FINISHED) {
