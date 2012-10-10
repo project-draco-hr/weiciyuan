@@ -1,3 +1,4 @@
 {
   inflater.inflate(R.menu.mystatustimelinefragment_menu,menu);
+  menu.findItem(R.id.name).setTitle(getString(R.string.personal_info));
 }
