@@ -1,3 +1,4 @@
 {
   if (mode != null)   mode.finish();
+  if (followTask != null)   followTask.cancel(true);
 }

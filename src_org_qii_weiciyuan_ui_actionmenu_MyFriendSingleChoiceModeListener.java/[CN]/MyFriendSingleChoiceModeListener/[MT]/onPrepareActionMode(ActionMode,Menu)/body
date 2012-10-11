@@ -1,0 +1,7 @@
+{
+  MenuInflater inflater=mode.getMenuInflater();
+  menu.clear();
+  inflater.inflate(R.menu.myfriendlistfragment_item_contextual_menu,menu);
+  mode.setTitle(bean.getScreen_name());
+  return true;
+}

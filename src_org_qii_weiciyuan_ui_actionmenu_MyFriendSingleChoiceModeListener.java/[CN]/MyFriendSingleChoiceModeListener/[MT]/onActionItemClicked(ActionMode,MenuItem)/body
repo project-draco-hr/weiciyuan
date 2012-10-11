@@ -10,10 +10,10 @@ getActivity().startActivity(intent);
 listView.clearChoices();
 mode.finish();
 break;
-case R.id.menu_follow:
-if (followTask == null || followTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-followTask=new FollowTask();
-followTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+case R.id.menu_unfollow:
+if (unfollowTask == null || unfollowTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+unfollowTask=new UnFollowTask();
+unfollowTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
 listView.clearChoices();
 mode.finish();

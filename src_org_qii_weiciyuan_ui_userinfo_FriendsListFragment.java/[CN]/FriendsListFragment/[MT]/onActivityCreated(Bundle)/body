@@ -8,13 +8,23 @@
           mActionMode=null;
           getListView().setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new FriendSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+          if (currentUser.getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+            mActionMode=getActivity().startActionMode(new MyFriendSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+          }
+ else {
+            mActionMode=getActivity().startActionMode(new FriendSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+          }
           return true;
         }
  else {
           getListView().setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new FriendSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+          if (currentUser.getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+            mActionMode=getActivity().startActionMode(new MyFriendSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+          }
+ else {
+            mActionMode=getActivity().startActionMode(new FriendSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+          }
           return true;
         }
       }
