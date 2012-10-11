@@ -1,8 +1,15 @@
 {
   if (msg.getUser() != null) {
     username.setText(msg.getUser().getScreen_name());
-    SimpleBitmapWorkerTask avatarTask=new SimpleBitmapWorkerTask(avatar,FileLocationMethod.avatar_small);
-    avatarTask.execute(msg.getUser().getProfile_image_url());
+    String url=msg.getUser().getProfile_image_url();
+    Bitmap bitmap=GlobalContext.getInstance().getAvatarCache().get(url);
+    if (bitmap != null) {
+      avatar.setImageBitmap(bitmap);
+    }
+ else {
+      SimpleBitmapWorkerTask avatarTask=new SimpleBitmapWorkerTask(avatar,FileLocationMethod.avatar_small);
+      avatarTask.execute(url);
+    }
   }
   content.setText(msg.getText());
   ListViewTool.addLinks(content);
