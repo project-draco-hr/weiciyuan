@@ -7,6 +7,5 @@
   if (!TextUtils.isEmpty(image_url)) {
     commander.downloadAvatar(holder.avatar,user.getProfile_image_url(),position,listView,false);
   }
-  holder.time.setVisibility(View.GONE);
   holder.content.setText(user.getDescription());
 }
