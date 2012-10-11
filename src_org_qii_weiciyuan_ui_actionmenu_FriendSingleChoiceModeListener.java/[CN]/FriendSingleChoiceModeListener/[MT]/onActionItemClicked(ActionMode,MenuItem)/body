@@ -11,9 +11,17 @@ listView.clearChoices();
 mode.finish();
 break;
 case R.id.menu_follow:
-if (followTask == null || followTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-followTask=new FollowTask();
-followTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+if (followOrUnfollowTask == null || followOrUnfollowTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+followOrUnfollowTask=new FollowTask();
+followOrUnfollowTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
+listView.clearChoices();
+mode.finish();
+break;
+case R.id.menu_unfollow:
+if (followOrUnfollowTask == null || followOrUnfollowTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+followOrUnfollowTask=new UnFollowTask();
+followOrUnfollowTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
 listView.clearChoices();
 mode.finish();
