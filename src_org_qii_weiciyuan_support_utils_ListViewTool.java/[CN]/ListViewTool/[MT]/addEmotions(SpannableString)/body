@@ -8,10 +8,19 @@
       String url=GlobalContext.getInstance().getEmotions().get(str2);
       if (!TextUtils.isEmpty(url)) {
         String path=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.emotion);
-        Bitmap bitmap=BitmapFactory.decodeFile(path);
-        if (bitmap != null) {
-          ImageSpan localImageSpan=new ImageSpan(GlobalContext.getInstance().getActivity(),bitmap,ImageSpan.ALIGN_BASELINE);
-          value.setSpan(localImageSpan,k,m,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        String name=new File(path).getName();
+        AssetManager assetManager=GlobalContext.getInstance().getAssets();
+        InputStream inputStream;
+        try {
+          inputStream=assetManager.open(name);
+          Bitmap bitmap=BitmapFactory.decodeStream(inputStream);
+          if (bitmap != null) {
+            ImageSpan localImageSpan=new ImageSpan(GlobalContext.getInstance().getActivity(),bitmap,ImageSpan.ALIGN_BASELINE);
+            value.setSpan(localImageSpan,k,m,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+          }
+        }
+ catch (        IOException e) {
+          AppLogger.e(e.getMessage());
         }
       }
     }

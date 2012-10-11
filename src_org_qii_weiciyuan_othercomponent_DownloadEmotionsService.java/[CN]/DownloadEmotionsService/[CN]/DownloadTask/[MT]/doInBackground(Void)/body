@@ -11,7 +11,6 @@
     }
     size=needList.size();
     DatabaseManager.getInstance().addEmotions(needList);
-    GlobalContext.getInstance().setEmotions(DatabaseManager.getInstance().getEmotionsMap());
     for (    EmotionBean bean : needList) {
       String url=bean.getUrl();
       String path=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.emotion);

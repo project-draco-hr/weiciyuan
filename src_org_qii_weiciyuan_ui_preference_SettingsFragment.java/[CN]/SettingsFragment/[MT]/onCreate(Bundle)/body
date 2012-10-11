@@ -27,13 +27,4 @@
     }
   }
 );
-  findPreference(SettingActivity.DOWNLOAD_EMOTIONS).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
-      Intent service=new Intent(getActivity(),DownloadEmotionsService.class);
-      service.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-      getActivity().startService(service);
-      return true;
-    }
-  }
-);
 }
