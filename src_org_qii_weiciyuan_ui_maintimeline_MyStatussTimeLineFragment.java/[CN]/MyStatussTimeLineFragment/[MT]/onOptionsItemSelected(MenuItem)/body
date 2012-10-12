@@ -1,11 +1,8 @@
 {
 switch (item.getItemId()) {
-case R.id.statusesbyidtimelinefragment_status_refresh:
-    pullToRefreshListView.startRefreshNow();
-  break;
 case R.id.name:
-Intent intent=new Intent(getActivity(),MyInfoActivity.class);
-intent.putExtra("token",token);
+    Intent intent=new Intent(getActivity(),MyInfoActivity.class);
+  intent.putExtra("token",token);
 intent.putExtra("user",userBean);
 intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
 startActivity(intent);

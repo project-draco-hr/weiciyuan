@@ -1,4 +1,4 @@
 {
-  getMenuInflater().inflate(R.menu.infofragment_menu,menu);
+  getMenuInflater().inflate(R.menu.actionbar_menu_infofragment,menu);
   return super.onCreateOptionsMenu(menu);
 }

@@ -1,4 +1,4 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
-  inflater.inflate(R.menu.discoverfragment_menu,menu);
+  inflater.inflate(R.menu.actionbar_menu_discoverfragment,menu);
 }

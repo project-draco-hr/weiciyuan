@@ -1,7 +1,7 @@
 {
   MenuInflater inflater=mode.getMenuInflater();
   menu.clear();
-  inflater.inflate(R.menu.fragment_user_listview_item_contextual_menu,menu);
+  inflater.inflate(R.menu.contextual_menu_fragment_user_listview,menu);
   mode.setTitle(bean.getScreen_name());
   return true;
 }
