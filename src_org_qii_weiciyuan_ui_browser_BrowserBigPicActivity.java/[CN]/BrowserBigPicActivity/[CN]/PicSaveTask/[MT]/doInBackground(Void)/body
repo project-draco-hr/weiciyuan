@@ -1,0 +1,10 @@
+{
+  try {
+    MediaStore.Images.Media.insertImage(getContentResolver(),path,"","");
+  }
+ catch (  FileNotFoundException e) {
+    AppLogger.e(e.getMessage());
+    cancel(true);
+  }
+  return null;
+}

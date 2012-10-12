@@ -1,0 +1,4 @@
+{
+  super.onPostExecute(aVoid);
+  Toast.makeText(BrowserBigPicActivity.this,getString(R.string.save_to_album_successfully),Toast.LENGTH_SHORT).show();
+}

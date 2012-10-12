@@ -1,5 +1,6 @@
 {
-  if (bitmap != null) {
+  if (!TextUtils.isEmpty(bitmap)) {
+    path=bitmap;
     pb.setVisibility(View.GONE);
     File file=new File(bitmap);
     AppLogger.e(file.getParent());

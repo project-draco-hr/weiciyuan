@@ -5,6 +5,17 @@ case android.R.id.home:
   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
 return true;
+case R.id.menu_save:
+if (task != null && task.getStatus() == MyAsyncTask.Status.FINISHED) {
+if (saveTask == null) {
+saveTask=new PicSaveTask();
+saveTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
+ else if (saveTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+Toast.makeText(BrowserBigPicActivity.this,getString(R.string.already_saved),Toast.LENGTH_SHORT).show();
+}
+}
+break;
 }
 return super.onOptionsItemSelected(item);
 }
