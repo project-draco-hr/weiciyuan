@@ -1,0 +1,39 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_at:
+    Intent intent=new Intent(getActivity(),StatusNewActivity.class);
+  intent.putExtra("token",((IToken)getActivity()).getToken());
+intent.putExtra("content","@" + bean.getScreen_name());
+intent.putExtra("accountName",GlobalContext.getInstance().getCurrentAccountName());
+intent.putExtra("accountId",GlobalContext.getInstance().getCurrentAccountId());
+getActivity().startActivity(intent);
+listView.clearChoices();
+mode.finish();
+break;
+case R.id.menu_follow:
+if (followOrUnfollowTask == null || followOrUnfollowTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+followOrUnfollowTask=new FollowTask();
+followOrUnfollowTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
+listView.clearChoices();
+mode.finish();
+break;
+case R.id.menu_unfollow:
+if (followOrUnfollowTask == null || followOrUnfollowTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+followOrUnfollowTask=new UnFollowTask();
+followOrUnfollowTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
+listView.clearChoices();
+mode.finish();
+break;
+case R.id.menu_remove_fan:
+if (followOrUnfollowTask == null || followOrUnfollowTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+followOrUnfollowTask=new RemoveFanTask();
+followOrUnfollowTask.execute();
+}
+listView.clearChoices();
+mode.finish();
+break;
+}
+return true;
+}

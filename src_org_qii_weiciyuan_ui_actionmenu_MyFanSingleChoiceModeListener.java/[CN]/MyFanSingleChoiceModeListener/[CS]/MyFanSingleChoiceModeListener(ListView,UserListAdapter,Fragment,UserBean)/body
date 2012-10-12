@@ -1,0 +1,6 @@
+{
+  this.listView=listView;
+  this.fragment=fragment;
+  this.adapter=adapter;
+  this.bean=bean;
+}

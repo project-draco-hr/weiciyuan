@@ -1,0 +1,4 @@
+ListView listView
+UserListAdapter adapter
+Fragment fragment
+UserBean bean
