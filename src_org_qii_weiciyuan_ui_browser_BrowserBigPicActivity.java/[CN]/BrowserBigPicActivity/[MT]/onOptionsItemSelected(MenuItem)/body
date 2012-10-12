@@ -16,6 +16,20 @@ Toast.makeText(BrowserBigPicActivity.this,getString(R.string.already_saved),Toas
 }
 }
 break;
+case R.id.menu_share:
+Intent sharingIntent=new Intent(Intent.ACTION_SEND);
+sharingIntent.setType("image/jpeg");
+if (!TextUtils.isEmpty(path)) {
+Uri uri=Uri.fromFile(new File(path));
+sharingIntent.putExtra(Intent.EXTRA_STREAM,uri);
+PackageManager packageManager=getPackageManager();
+List<ResolveInfo> activities=packageManager.queryIntentActivities(sharingIntent,0);
+boolean isIntentSafe=activities.size() > 0;
+if (isIntentSafe && mShareActionProvider != null) {
+mShareActionProvider.setShareIntent(sharingIntent);
+}
+}
+break;
 }
 return super.onOptionsItemSelected(item);
 }
