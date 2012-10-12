@@ -1,0 +1,12 @@
+{
+  FanDao dao=new FanDao(getToken(),bean.getId());
+  try {
+    return dao.removeFan();
+  }
+ catch (  WeiboException e) {
+    AppLogger.e(e.getError());
+    this.e=e;
+    cancel(true);
+    return null;
+  }
+}

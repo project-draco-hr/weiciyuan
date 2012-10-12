@@ -29,6 +29,12 @@ followOrUnfollowTask=new UnFollowTask();
 followOrUnfollowTask.execute();
 }
 break;
+case R.id.menu_remove_fan:
+if (followOrUnfollowTask == null || followOrUnfollowTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+followOrUnfollowTask=new RemoveFanTask();
+followOrUnfollowTask.execute();
+}
+break;
 }
 return false;
 }
