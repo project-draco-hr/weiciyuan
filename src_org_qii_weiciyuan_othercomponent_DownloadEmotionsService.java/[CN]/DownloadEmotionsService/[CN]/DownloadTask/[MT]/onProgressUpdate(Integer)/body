@@ -1,7 +1,7 @@
 {
   if (values.length > 0) {
     int data=values[0];
-    Notification.Builder builder=new Notification.Builder(DownloadEmotionsService.this).setTicker(getString(R.string.download_emotions)).setContentTitle(getString(R.string.weibo_emotions)).setContentText(getString(R.string.background_downloading)).setProgress(size,data,false).setNumber(size - data).setSmallIcon(R.drawable.download_white);
+    Notification.Builder builder=new Notification.Builder(DownloadEmotionsService.this).setTicker(getString(R.string.download_emotions)).setContentTitle(getString(R.string.weibo_emotions)).setContentText(getString(R.string.background_downloading)).setProgress(size,data,false).setNumber(size - data).setSmallIcon(R.drawable.download_light);
     notification=builder.getNotification();
     startForeground(NOTIFICATION_ID,notification);
   }
