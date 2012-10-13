@@ -1,4 +1,3 @@
 {
-  mActionMode=null;
   listAdapter.notifyDataSetChanged();
 }

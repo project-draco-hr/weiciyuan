@@ -4,7 +4,7 @@
   SharedPreferences.Editor editor=settings.edit();
   editor.putString("token",token);
   editor.commit();
-  Intent intent=new Intent(this,MainTimeLineActivity.class);
+  Intent intent=new Intent(AccountActivity.this,MainTimeLineActivity.class);
   intent.putExtra("account",accountList.get(i));
   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
   startActivity(intent);
