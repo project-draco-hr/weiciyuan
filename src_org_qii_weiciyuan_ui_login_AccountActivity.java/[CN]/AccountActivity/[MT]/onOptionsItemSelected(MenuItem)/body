@@ -1,0 +1,8 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_add_account:
+    addAccount();
+  break;
+}
+return true;
+}

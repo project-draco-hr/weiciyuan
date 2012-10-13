@@ -1,5 +1,5 @@
 {
-  if (resultCode == RESULT_OK) {
+  if (requestCode == ADD_ACCOUNT_REQUEST_CODE && resultCode == RESULT_OK) {
     refresh();
   }
 }
