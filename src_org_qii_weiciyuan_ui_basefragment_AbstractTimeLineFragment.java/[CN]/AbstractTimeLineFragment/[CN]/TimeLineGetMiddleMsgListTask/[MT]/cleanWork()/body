@@ -1,3 +1,3 @@
 {
-  timeLineAdapter.notifyDataSetChanged();
+  getAdapter().notifyDataSetChanged();
 }

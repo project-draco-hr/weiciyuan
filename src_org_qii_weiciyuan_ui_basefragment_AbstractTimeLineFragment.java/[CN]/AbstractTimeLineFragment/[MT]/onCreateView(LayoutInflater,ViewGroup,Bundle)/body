@@ -24,7 +24,7 @@
 switch (scrollState) {
 case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
         enableRefreshTime=true;
-      timeLineAdapter.notifyDataSetChanged();
+      getAdapter().notifyDataSetChanged();
     break;
 case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
   enableRefreshTime=false;

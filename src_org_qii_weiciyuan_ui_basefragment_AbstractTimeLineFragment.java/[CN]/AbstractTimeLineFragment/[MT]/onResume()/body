@@ -1,5 +1,5 @@
 {
   super.onResume();
   addListViewTimeRefresh();
-  timeLineAdapter.notifyDataSetChanged();
+  getAdapter().notifyDataSetChanged();
 }

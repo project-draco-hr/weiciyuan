@@ -5,6 +5,6 @@
   }
   if (pullToRefreshListView != null && getListView().getCheckedItemCount() > 0) {
     getListView().clearChoices();
-    if (timeLineAdapter != null)     timeLineAdapter.notifyDataSetChanged();
+    if (getAdapter() != null)     getAdapter().notifyDataSetChanged();
   }
 }
