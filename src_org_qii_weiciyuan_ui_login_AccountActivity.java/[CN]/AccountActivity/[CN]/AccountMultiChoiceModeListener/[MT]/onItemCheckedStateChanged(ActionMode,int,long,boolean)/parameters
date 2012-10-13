@@ -1,0 +1,4 @@
+ActionMode mode
+int position
+long id
+boolean checked

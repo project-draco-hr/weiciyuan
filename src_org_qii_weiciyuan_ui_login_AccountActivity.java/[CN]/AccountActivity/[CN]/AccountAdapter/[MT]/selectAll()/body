@@ -1,5 +1,0 @@
-{
-  needCheckbox=true;
-  allChecked=true;
-  notifyDataSetChanged();
-}

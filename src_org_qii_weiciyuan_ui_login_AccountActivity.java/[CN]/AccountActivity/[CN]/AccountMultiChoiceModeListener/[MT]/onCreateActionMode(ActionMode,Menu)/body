@@ -1,0 +1,5 @@
+{
+  mode.getMenuInflater().inflate(R.menu.contextual_menu_accountactivity,menu);
+  mActionMode=mode;
+  return true;
+}

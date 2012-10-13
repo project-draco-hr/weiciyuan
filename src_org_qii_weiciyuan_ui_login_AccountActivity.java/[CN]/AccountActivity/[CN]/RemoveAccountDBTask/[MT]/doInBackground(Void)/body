@@ -1,3 +1,3 @@
 {
-  return DatabaseManager.getInstance().removeAndGetNewAccountList(listAdapter.getCheckedItemId());
+  return DatabaseManager.getInstance().removeAndGetNewAccountList(set);
 }

@@ -1,5 +1,0 @@
-{
-  needCheckbox=false;
-  unSelectAll();
-  notifyDataSetChanged();
-}

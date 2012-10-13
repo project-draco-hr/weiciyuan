@@ -1,26 +1,16 @@
 {
   LayoutInflater layoutInflater=getLayoutInflater();
   View mView=layoutInflater.inflate(R.layout.accountactivity_listview_item_layout,viewGroup,false);
-  if (needCheckbox) {
+  if (mActionMode != null) {
     LinearLayout linearLayout=(LinearLayout)mView;
     CheckBox cb=new CheckBox(AccountActivity.this);
     cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
       @Override public void onCheckedChanged(      CompoundButton buttonView,      boolean isChecked){
-        AccountBean account=accountList.get(i);
-        String uid=account.getUid();
-        if (isChecked) {
-          checkedItemId.add(uid);
-          checkedItemListViewPosition.add(i);
-        }
- else         if (checkedItemId.contains(uid)) {
-          checkedItemId.remove(uid);
-          checkedItemListViewPosition.remove(i);
-        }
+        listView.setItemChecked(i,isChecked);
       }
     }
 );
-    if (allChecked)     cb.setChecked(true);
-    cb.setId(R.id.webView);
+    cb.setChecked(listView.getCheckedItemPositions().get(i));
     linearLayout.addView(cb,0);
   }
   TextView textView=(TextView)mView.findViewById(R.id.account_name);
