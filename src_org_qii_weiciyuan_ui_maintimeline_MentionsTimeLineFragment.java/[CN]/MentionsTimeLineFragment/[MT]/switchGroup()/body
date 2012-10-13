@@ -3,7 +3,6 @@
     bean.getItemList().clear();
     getAdapter().notifyDataSetChanged();
     pullToRefreshListView.startRefreshNow();
-    refresh();
   }
  else {
     clearAndReplaceValue(hashMap.get(selected));
