@@ -1,0 +1,23 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.statusnewactivity_layout);
+  initLayout();
+  Intent intent=getIntent();
+  String action=intent.getAction();
+  String type=intent.getType();
+  if (Intent.ACTION_SEND.equals(action) && type != null) {
+    if ("text/plain".equals(type)) {
+      handleSendText(intent);
+    }
+ else     if (type.startsWith("image/")) {
+      handleSendImage(intent);
+    }
+  }
+ else {
+    handleNormalOperation(intent);
+  }
+  if (getEmotionsTask == null || getEmotionsTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+    getEmotionsTask=new GetEmotionsTask();
+    getEmotionsTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

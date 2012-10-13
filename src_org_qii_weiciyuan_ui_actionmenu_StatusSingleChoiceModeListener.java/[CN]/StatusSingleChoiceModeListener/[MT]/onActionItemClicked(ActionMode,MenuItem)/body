@@ -5,7 +5,7 @@
 switch (item.getItemId()) {
 case R.id.menu_repost:
     msg=(MessageBean)adapter.getItem(listView.getCheckedItemPositions().keyAt(listView.getCheckedItemCount() - 1) - 1);
-  intent=new Intent(getActivity(),RepostNewActivity.class);
+  intent=new Intent(getActivity(),WriteRepostActivity.class);
 intent.putExtra("token",((IToken)getActivity()).getToken());
 intent.putExtra("id",String.valueOf(ids[0]));
 intent.putExtra("msg",msg);
@@ -15,7 +15,7 @@ mode.finish();
 break;
 case R.id.menu_comment:
 msg=(MessageBean)adapter.getItem(listView.getCheckedItemPositions().keyAt(listView.getCheckedItemCount() - 1) - 1);
-intent=new Intent(getActivity(),CommentNewActivity.class);
+intent=new Intent(getActivity(),WriteCommentActivity.class);
 intent.putExtra("token",((IToken)getActivity()).getToken());
 intent.putExtra("id",String.valueOf(ids[0]));
 intent.putExtra("msg",msg);

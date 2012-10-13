@@ -1,0 +1,16 @@
+{
+  token=intent.getStringExtra("token");
+  accountBean=(AccountBean)intent.getSerializableExtra("account");
+  getActionBar().setSubtitle(accountBean.getUsernick());
+  String contentTxt=intent.getStringExtra("content");
+  if (!TextUtils.isEmpty(contentTxt)) {
+    content.setText(contentTxt + " ");
+    content.setSelection(content.getText().toString().length());
+  }
+ else {
+    SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+    String draft=sharedPref.getString(TYPE_DRAFT,"");
+    content.setText(draft);
+    content.setSelection(content.getText().toString().length());
+  }
+}

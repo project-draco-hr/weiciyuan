@@ -1,0 +1,22 @@
+{
+  Map<String,String> emotions=GlobalContext.getInstance().getEmotions();
+  List<String> index=new ArrayList<String>();
+  index.addAll(emotions.keySet());
+  for (  String str : index) {
+    if (!isCancelled()) {
+      String url=emotions.get(str);
+      String path=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.emotion);
+      String name=new File(path).getName();
+      AssetManager assetManager=GlobalContext.getInstance().getAssets();
+      InputStream inputStream;
+      try {
+        inputStream=assetManager.open(name);
+        Bitmap bitmap=BitmapFactory.decodeStream(inputStream);
+        emotionsPic.put(str,bitmap);
+      }
+ catch (      IOException ignored) {
+      }
+    }
+  }
+  return null;
+}

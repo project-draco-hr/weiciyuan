@@ -1,3 +1,0 @@
-{
-  new PictureSelectDialog().show(getFragmentManager(),"");
-}

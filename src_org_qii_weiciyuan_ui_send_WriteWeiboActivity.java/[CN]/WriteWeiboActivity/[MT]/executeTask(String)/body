@@ -1,0 +1,14 @@
+{
+  if (TextUtils.isEmpty(picPath)) {
+    new StatusNewTask(content).execute();
+  }
+ else {
+    Intent intent=new Intent(WriteWeiboActivity.this,UploadPhotoService.class);
+    intent.putExtra("token",token);
+    intent.putExtra("picPath",picPath);
+    intent.putExtra("content",content);
+    intent.putExtra("geo",geoBean);
+    startService(intent);
+    finish();
+  }
+}

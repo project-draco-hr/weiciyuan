@@ -7,7 +7,7 @@
     @Override public void onClick(    DialogInterface dialog,    int which){
 switch (which) {
 case 0:
-        Intent intent=new Intent(getActivity(),ReplyToCommentNewActivity.class);
+        Intent intent=new Intent(getActivity(),WriteReplyToCommentActivity.class);
       intent.putExtra("msg",bean);
     intent.putExtra("token",((IToken)getActivity()).getToken());
   startActivity(intent);

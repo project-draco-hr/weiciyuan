@@ -1,7 +1,7 @@
 {
 switch (item.getItemId()) {
 case R.id.write_weibo:
-    Intent intent=new Intent(getActivity(),StatusNewActivity.class);
+    Intent intent=new Intent(getActivity(),WriteWeiboActivity.class);
   intent.putExtra("token",token);
 intent.putExtra("account",accountBean);
 startActivity(intent);

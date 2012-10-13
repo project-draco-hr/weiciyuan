@@ -2,7 +2,7 @@
   Intent intent;
 switch (item.getItemId()) {
 case R.id.menu_comment:
-    intent=new Intent(getActivity(),ReplyToCommentNewActivity.class);
+    intent=new Intent(getActivity(),WriteReplyToCommentActivity.class);
   intent.putExtra("token",((IToken)getActivity()).getToken());
 intent.putExtra("msg",msg);
 getActivity().startActivity(intent);

@@ -6,14 +6,14 @@ case android.R.id.home:
 startActivity(intent);
 return true;
 case R.id.repostsbyidtimelinefragment_repost:
-intent=new Intent(this,RepostNewActivity.class);
+intent=new Intent(this,WriteRepostActivity.class);
 intent.putExtra("token",getToken());
 intent.putExtra("id",getMsg().getId());
 intent.putExtra("msg",getMsg());
 startActivity(intent);
 return true;
 case R.id.commentsbyidtimelinefragment_comment:
-intent=new Intent(this,CommentNewActivity.class);
+intent=new Intent(this,WriteCommentActivity.class);
 intent.putExtra("token",getToken());
 intent.putExtra("id",getMsg().getId());
 intent.putExtra("msg",getMsg());

@@ -1,0 +1,8 @@
+{
+  haveGPS.setVisibility(View.VISIBLE);
+  geoBean=new GeoBean();
+  geoBean.setLatitude(result.getLatitude());
+  geoBean.setLongitude(result.getLongitude());
+  new GetGoogleLocationInfo(geoBean).execute();
+  ((LocationManager)WriteWeiboActivity.this.getSystemService(Context.LOCATION_SERVICE)).removeUpdates(locationListener);
+}

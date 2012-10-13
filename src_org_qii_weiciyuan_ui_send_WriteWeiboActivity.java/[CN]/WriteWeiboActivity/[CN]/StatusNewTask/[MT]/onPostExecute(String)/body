@@ -1,0 +1,8 @@
+{
+  progressFragment.dismissAllowingStateLoss();
+  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(WriteWeiboActivity.this);
+  sharedPref.edit().remove(TYPE_DRAFT).commit();
+  finish();
+  Toast.makeText(WriteWeiboActivity.this,getString(R.string.send_successfully),Toast.LENGTH_SHORT).show();
+  super.onPostExecute(s);
+}
