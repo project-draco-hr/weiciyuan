@@ -1,7 +1,7 @@
 {
 switch (v.getId()) {
 case R.id.menu_add_emotions:
-    EmotionsDialog dialog=new EmotionsDialog();
+    EmotionsGridDialog dialog=new EmotionsGridDialog();
   dialog.show(getFragmentManager(),"");
 break;
 case R.id.menu_send:
