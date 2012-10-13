@@ -1,16 +1,15 @@
 {
 switch (item.getItemId()) {
-case R.id.friendstimelinefragment_new_weibo:
+case R.id.write_weibo:
     Intent intent=new Intent(getActivity(),StatusNewActivity.class);
   intent.putExtra("token",token);
 intent.putExtra("account",accountBean);
 startActivity(intent);
 break;
-case R.id.friendstimelinefragment_refresh:
+case R.id.refresh:
 pullToRefreshListView.startRefreshNow();
-refresh();
 break;
-case R.id.friendstimelinefragment_name:
+case R.id.group_name:
 if (canSwitchGroup()) {
 FriendsGroupDialog dialog=new FriendsGroupDialog(group,selectedId);
 dialog.setTargetFragment(this,1);

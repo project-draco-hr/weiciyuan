@@ -2,9 +2,9 @@
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.actionbar_menu_friendstimelinefragment,menu);
   if (selectedId == 0) {
-    menu.findItem(R.id.friendstimelinefragment_name).setTitle(userBean.getScreen_name());
+    menu.findItem(R.id.group_name).setTitle(userBean.getScreen_name());
   }
  else {
-    menu.findItem(R.id.friendstimelinefragment_name).setTitle(group.get(selectedId));
+    menu.findItem(R.id.group_name).setTitle(group.get(selectedId));
   }
 }
