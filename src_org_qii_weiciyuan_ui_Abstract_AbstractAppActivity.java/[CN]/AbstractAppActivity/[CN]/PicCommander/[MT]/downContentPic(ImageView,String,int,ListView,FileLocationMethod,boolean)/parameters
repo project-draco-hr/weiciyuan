@@ -1,0 +1,6 @@
+ImageView view
+String urlKey
+int position
+ListView listView
+FileLocationMethod method
+boolean isFling

@@ -1,0 +1,34 @@
+{
+  Bitmap bitmap=getBitmapFromMemCache(urlKey);
+  if (bitmap != null) {
+switch (method) {
+case picture_thumbnail:
+      view.setImageBitmap(bitmap);
+    view.setBackgroundColor(Color.TRANSPARENT);
+  pictureBitmapWorkerTaskMap.remove(urlKey);
+break;
+case picture_bmiddle:
+view.setBackgroundDrawable(new BitmapDrawable(getResources(),bitmap));
+pictureBitmapWorkerTaskMap.remove(urlKey);
+break;
+}
+}
+ else {
+switch (method) {
+case picture_thumbnail:
+view.setImageDrawable(transPic);
+view.setBackgroundDrawable(transPic);
+break;
+case picture_bmiddle:
+view.setBackgroundDrawable(transPic);
+break;
+}
+if (cancelPotentialDownload(urlKey,view) && !isFling) {
+PictureBitmapWorkerTask task=new PictureBitmapWorkerTask(GlobalContext.getInstance().getAvatarCache(),pictureBitmapWorkerTaskMap,view,urlKey,position,AbstractAppActivity.this,method);
+PictureBitmapDrawable downloadedDrawable=new PictureBitmapDrawable(task);
+view.setImageDrawable(downloadedDrawable);
+task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+pictureBitmapWorkerTaskMap.put(urlKey,task);
+}
+}
+}

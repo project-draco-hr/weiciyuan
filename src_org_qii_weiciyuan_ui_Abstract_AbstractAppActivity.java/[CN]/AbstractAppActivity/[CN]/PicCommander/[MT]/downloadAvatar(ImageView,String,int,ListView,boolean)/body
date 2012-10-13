@@ -1,0 +1,17 @@
+{
+  Bitmap bitmap=getBitmapFromMemCache(urlKey);
+  if (bitmap != null) {
+    view.setImageBitmap(bitmap);
+    avatarBitmapWorkerTaskHashMap.remove(getMemCacheKey(urlKey,position));
+  }
+ else {
+    view.setImageDrawable(getResources().getDrawable(R.color.transparent));
+    if (cancelPotentialAvatarDownload(urlKey,view) && !isFling) {
+      AvatarBitmapWorkerTask task=new AvatarBitmapWorkerTask(GlobalContext.getInstance().getAvatarCache(),avatarBitmapWorkerTaskHashMap,view,urlKey,position);
+      AvatarBitmapDrawable downloadedDrawable=new AvatarBitmapDrawable(task);
+      view.setImageDrawable(downloadedDrawable);
+      task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      avatarBitmapWorkerTaskHashMap.put(getMemCacheKey(urlKey,position),task);
+    }
+  }
+}
