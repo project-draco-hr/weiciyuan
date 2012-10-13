@@ -6,6 +6,9 @@ case android.R.id.home:
 intent.putExtra("launcher",false);
 startActivity(intent);
 return true;
+case R.id.menu_refresh:
+refresh();
+return true;
 default :
 return super.onOptionsItemSelected(item);
 }

@@ -1,14 +1,6 @@
 {
-  MenuInflater inflater=getMenuInflater();
-  inflater.inflate(R.menu.actionbar_menu_oauthactivity,menu);
-  refreshItem=menu.findItem(R.id.menu_add_account);
-  refreshItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener(){
-    @Override public boolean onMenuItemClick(    MenuItem item){
-      refresh();
-      return true;
-    }
-  }
-);
+  getMenuInflater().inflate(R.menu.actionbar_menu_oauthactivity,menu);
+  refreshItem=menu.findItem(R.id.menu_refresh);
   refresh();
   return true;
 }
