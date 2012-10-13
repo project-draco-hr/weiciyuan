@@ -14,7 +14,7 @@
         Bitmap bitmap=BitmapFactory.decodeStream(inputStream);
         emotionsPic.put(str,bitmap);
       }
- catch (      IOException e) {
+ catch (      IOException ignored) {
       }
     }
   }
