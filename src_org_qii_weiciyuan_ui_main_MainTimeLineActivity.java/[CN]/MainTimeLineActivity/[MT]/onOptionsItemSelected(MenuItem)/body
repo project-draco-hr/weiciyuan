@@ -12,6 +12,7 @@ case R.id.menu_account:
 intent=new Intent(this,AccountActivity.class);
 intent.putExtra("launcher",false);
 startActivity(intent);
+finish();
 return true;
 case R.id.menu_setting:
 startActivity(new Intent(this,SettingActivity.class));
