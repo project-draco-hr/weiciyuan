@@ -1,17 +1,9 @@
 {
   LayoutInflater layoutInflater=getLayoutInflater();
   View mView=layoutInflater.inflate(R.layout.accountactivity_listview_item_layout,viewGroup,false);
-  if (mActionMode != null) {
-    LinearLayout linearLayout=(LinearLayout)mView;
-    CheckBox cb=new CheckBox(AccountActivity.this);
-    cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-      @Override public void onCheckedChanged(      CompoundButton buttonView,      boolean isChecked){
-        listView.setItemChecked(i,isChecked);
-      }
-    }
-);
-    cb.setChecked(listView.getCheckedItemPositions().get(i));
-    linearLayout.addView(cb,0);
+  mView.findViewById(R.id.listview_root).setBackgroundColor(defaultBG);
+  if (listView.getCheckedItemPositions().get(i)) {
+    mView.findViewById(R.id.listview_root).setBackgroundColor(checkedBG);
   }
   TextView textView=(TextView)mView.findViewById(R.id.account_name);
   textView.setText(accountList.get(i).getUsernick());
