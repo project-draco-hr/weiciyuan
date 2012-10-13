@@ -10,18 +10,9 @@ intent.putExtra("account",getAccount());
 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
 break;
-case R.id.menu_add_gps:
-getLocation();
-break;
-case R.id.menu_add_pic:
-addPic();
-break;
 case R.id.menu_emoticon:
 EmotionsDialog dialog=new EmotionsDialog();
 dialog.show(getFragmentManager(),"");
-break;
-case R.id.menu_send:
-send();
 break;
 case R.id.menu_topic:
 String ori=content.getText().toString();

@@ -14,7 +14,7 @@ getEditTextView().setText(ori + topicTag);
 getEditTextView().setSelection(et.getText().toString().length() - 1);
 break;
 case R.id.menu_at:
-Intent intent=new Intent(AbstractNewActivity.this,AtUserActivity.class);
+Intent intent=new Intent(AbstractWriteActivity.this,AtUserActivity.class);
 intent.putExtra("token",token);
 startActivityForResult(intent,AT_USER);
 break;

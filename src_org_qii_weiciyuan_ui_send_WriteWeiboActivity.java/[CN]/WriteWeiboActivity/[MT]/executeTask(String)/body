@@ -1,6 +1,6 @@
 {
   if (TextUtils.isEmpty(picPath)) {
-    new StatusNewTask(content).execute();
+    new StatusNewTask(content).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }
  else {
     Intent intent=new Intent(WriteWeiboActivity.this,UploadPhotoService.class);

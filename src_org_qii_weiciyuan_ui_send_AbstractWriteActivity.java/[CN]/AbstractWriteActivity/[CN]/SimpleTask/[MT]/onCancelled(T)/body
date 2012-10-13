@@ -1,7 +1,7 @@
 {
   super.onCancelled(commentBean);
   if (this.e != null) {
-    Toast.makeText(AbstractNewActivity.this,e.getError(),Toast.LENGTH_SHORT).show();
+    Toast.makeText(AbstractWriteActivity.this,e.getError(),Toast.LENGTH_SHORT).show();
   }
   if (progressFragment != null)   progressFragment.dismissAllowingStateLoss();
 }
