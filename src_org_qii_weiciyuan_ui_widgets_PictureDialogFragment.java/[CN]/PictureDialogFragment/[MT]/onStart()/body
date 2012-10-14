@@ -1,5 +1,5 @@
 {
   super.onStart();
-  avatarTask=new PicSimpleBitmapWorkerTask();
-  avatarTask.execute(url);
+  picTask=new PicSimpleBitmapWorkerTask();
+  picTask.execute(url);
 }

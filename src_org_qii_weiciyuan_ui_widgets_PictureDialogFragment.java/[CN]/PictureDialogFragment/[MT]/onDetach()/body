@@ -3,5 +3,5 @@
   imageView.loadUrl("about:blank");
   imageView.stopLoading();
   imageView=null;
-  if (avatarTask != null)   avatarTask.cancel(true);
+  if (picTask != null)   picTask.cancel(true);
 }
