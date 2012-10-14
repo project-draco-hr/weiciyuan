@@ -3,7 +3,7 @@
   params.setParameter(CoreProtocolPNames.PROTOCOL_VERSION,HttpVersion.HTTP_1_1);
   PoolingClientConnectionManager connectionManager=new PoolingClientConnectionManager();
   connectionManager.setMaxTotal(5);
-  httpClient=new DecompressingHttpClient(new DefaultHttpClient(connectionManager));
+  httpClient=new DefaultHttpClient(connectionManager);
   HttpConnectionParams.setConnectionTimeout(httpClient.getParams(),10000);
   HttpConnectionParams.setSoTimeout(httpClient.getParams(),8000);
 }
