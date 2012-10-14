@@ -1,6 +1,5 @@
 {
-  int sum=3;
-  for (int i=0; i < sum; i++) {
+  for (int i=0; i < AppConfig.RETRY_TIMES; i++) {
     boolean result=HttpUtility.getInstance().executeDownloadTask(url,path,downloadListener);
     if (result)     return true;
   }
