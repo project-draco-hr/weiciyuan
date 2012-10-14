@@ -12,6 +12,7 @@
   HttpResponse response=null;
   try {
     response=httpClient.execute(httpGet);
+    return FileDownloaderHttpHelper.saveFile(response,path,downloadListener);
   }
  catch (  ConnectTimeoutException ignored) {
     AppLogger.e(ignored.getMessage());
@@ -23,10 +24,5 @@ catch (  IOException ignored) {
     AppLogger.e("1" + ignored.getMessage());
     ignored.printStackTrace();
   }
-  if (response != null) {
-    return FileDownloaderHttpHelper.saveFile(response,path,downloadListener);
-  }
- else {
-    return false;
-  }
+  return false;
 }
