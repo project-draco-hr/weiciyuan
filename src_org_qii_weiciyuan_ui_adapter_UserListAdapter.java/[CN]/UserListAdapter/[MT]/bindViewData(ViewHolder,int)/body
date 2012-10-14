@@ -5,7 +5,8 @@
   holder.username.setText(user.getScreen_name());
   String image_url=user.getProfile_image_url();
   if (!TextUtils.isEmpty(image_url)) {
-    commander.downloadAvatar(holder.avatar,user.getProfile_image_url(),position,listView,false);
+    boolean isFling=((AbstractUserListFragment)activity).isListViewFling();
+    commander.downloadAvatar(holder.avatar,user.getProfile_image_url(),position,listView,isFling);
   }
   holder.content.setText(user.getDescription());
 }
