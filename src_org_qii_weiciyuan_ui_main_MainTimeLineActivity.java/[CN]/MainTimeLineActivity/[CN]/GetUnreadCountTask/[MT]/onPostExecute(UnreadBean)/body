@@ -4,8 +4,8 @@
     int unreadStatus=unreadBean.getStatus();
     int unreadMentionsCount=unreadBean.getMention_cmt() + unreadBean.getMention_status();
     int unreadCommentsCount=unreadBean.getCmt();
-    if (unreadStatus > 0)     invlidateTabText(0,unreadStatus);
-    if (unreadMentionsCount > 0)     invlidateTabText(1,unreadMentionsCount);
-    if (unreadCommentsCount > 0)     invlidateTabText(2,unreadCommentsCount);
+    if (unreadStatus > 0)     buildTabText(0,unreadStatus);
+    if (unreadMentionsCount > 0)     buildTabText(1,unreadMentionsCount);
+    if (unreadCommentsCount > 0)     buildTabText(2,unreadCommentsCount);
   }
 }
