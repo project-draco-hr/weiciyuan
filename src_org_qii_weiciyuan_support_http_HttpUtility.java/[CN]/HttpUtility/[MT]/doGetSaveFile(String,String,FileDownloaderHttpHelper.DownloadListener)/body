@@ -20,12 +20,13 @@ catch (  ClientProtocolException ignored) {
     AppLogger.e(ignored.getMessage());
   }
 catch (  IOException ignored) {
-    AppLogger.e(ignored.getMessage());
+    AppLogger.e("1" + ignored.getMessage());
+    ignored.printStackTrace();
   }
   if (response != null) {
     return FileDownloaderHttpHelper.saveFile(response,path,downloadListener);
   }
  else {
-    return "";
+    return false;
   }
 }

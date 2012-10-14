@@ -5,8 +5,8 @@
     return ImageEdit.getRoundedCornerBitmap(bitmap);
   }
  else   if (GlobalContext.getInstance().isEnablePic()) {
-    String path=getBitmapFromNetWork(url,absoluteFilePath,null);
-    bitmap=BitmapFactory.decodeFile(path);
+    getBitmapFromNetWork(url,absoluteFilePath,null);
+    bitmap=BitmapFactory.decodeFile(absoluteFilePath);
     if (bitmap != null)     return ImageEdit.getRoundedCornerBitmap(bitmap);
   }
   return null;

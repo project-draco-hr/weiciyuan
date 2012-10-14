@@ -5,8 +5,8 @@
     return absoluteFilePath;
   }
  else {
-    String path=getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
-    file=new File(path);
+    getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
+    file=new File(absoluteFilePath);
     if (file.exists()) {
       return absoluteFilePath;
     }

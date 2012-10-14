@@ -1,10 +1,15 @@
 {
-  String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.avatar_small);
-  absoluteFilePath=absoluteFilePath + ".jpg";
-  Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath);
-  if (bitmap == null && GlobalContext.getInstance().isEnablePic()) {
-    String path=getBitmapFromNetWork(url,absoluteFilePath,null);
-    bitmap=BitmapFactory.decodeFile(path);
+  Bitmap bitmap=null;
+  if (FileManager.isExternalStorageMounted()) {
+    String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.avatar_small);
+    absoluteFilePath=absoluteFilePath + ".jpg";
+    bitmap=BitmapFactory.decodeFile(absoluteFilePath);
+    if (bitmap == null && GlobalContext.getInstance().isEnablePic()) {
+      getBitmapFromNetWork(url,absoluteFilePath,null);
+      bitmap=BitmapFactory.decodeFile(absoluteFilePath);
+    }
+  }
+ else {
   }
   if (bitmap != null) {
     if (bitmap.getHeight() < reqHeight || bitmap.getWidth() < reqWidth) {
@@ -14,9 +19,6 @@
       scaledBitmap.recycle();
       return roundedBitmap;
     }
- else {
-      return bitmap;
-    }
   }
-  return null;
+  return bitmap;
 }

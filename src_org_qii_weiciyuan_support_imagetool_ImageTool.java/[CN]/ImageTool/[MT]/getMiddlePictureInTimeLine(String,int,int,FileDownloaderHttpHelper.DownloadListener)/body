@@ -6,7 +6,7 @@
     return null;
   }
   if (!file.exists()) {
-    String path=getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
+    getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
   }
   if (absoluteFilePath.endsWith(".gif")) {
     return getMiddlePictureInTimeLineGif(absoluteFilePath,reqWidth,reqHeight);

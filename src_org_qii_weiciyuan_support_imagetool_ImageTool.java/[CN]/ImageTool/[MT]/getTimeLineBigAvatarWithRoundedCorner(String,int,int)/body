@@ -13,7 +13,7 @@
     bitmap=BitmapFactory.decodeFile(absoluteFilePath,options);
   }
  else   if (GlobalContext.getInstance().isEnablePic()) {
-    String path=getBitmapFromNetWork(url,absoluteFilePath,null);
+    getBitmapFromNetWork(url,absoluteFilePath,null);
     BitmapFactory.Options options=new BitmapFactory.Options();
     options.inJustDecodeBounds=true;
     BitmapFactory.decodeFile(absoluteFilePath,options);

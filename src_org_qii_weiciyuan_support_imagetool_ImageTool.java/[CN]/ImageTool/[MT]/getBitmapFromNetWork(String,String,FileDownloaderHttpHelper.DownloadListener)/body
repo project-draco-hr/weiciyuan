@@ -1,4 +1,8 @@
 {
-  HttpUtility.getInstance().executeDownloadTask(url,path,downloadListener);
-  return path;
+  int sum=3;
+  for (int i=0; i < sum; i++) {
+    boolean result=HttpUtility.getInstance().executeDownloadTask(url,path,downloadListener);
+    if (result)     return true;
+  }
+  return false;
 }

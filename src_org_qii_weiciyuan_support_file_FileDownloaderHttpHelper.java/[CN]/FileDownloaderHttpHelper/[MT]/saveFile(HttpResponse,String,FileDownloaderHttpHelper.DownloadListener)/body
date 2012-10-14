@@ -1,8 +1,5 @@
 {
   StatusLine status=response.getStatusLine();
   int statusCode=status.getStatusCode();
-  if (statusCode != HttpStatus.SC_OK) {
-    return dealWithError(response);
-  }
-  return saveFileAndGetFileAbsolutePath(response,path,downloadListener);
+  return statusCode == HttpStatus.SC_OK && saveFileAndGetFileAbsolutePath(response,path,downloadListener);
 }
