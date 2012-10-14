@@ -1,23 +1,13 @@
 {
   super.onCreate(savedInstanceState);
-  if (savedInstanceState == null) {
-    Intent intent=getIntent();
-    accountBean=(AccountBean)intent.getSerializableExtra("account");
-    if (accountBean != null) {
-      token=accountBean.getAccess_token();
-    }
- else {
-      AppLogger.e("MainTneActivity dont have account");
-      finish();
-    }
-  }
- else {
+  if (savedInstanceState != null) {
     accountBean=(AccountBean)savedInstanceState.getSerializable("account");
     token=savedInstanceState.getString("token");
-    if (accountBean == null) {
-      AppLogger.e("MainTneActivity dont have account");
-      finish();
-    }
+  }
+ else {
+    Intent intent=getIntent();
+    accountBean=(AccountBean)intent.getSerializableExtra("account");
+    token=accountBean.getAccess_token();
   }
   GlobalContext.getInstance().setSpecialToken(token);
   GlobalContext.getInstance().setCurrentAccountId(accountBean.getUid());

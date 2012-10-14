@@ -1,17 +1,20 @@
 {
   super.onNewIntent(intent);
   AccountBean newAccountBean=(AccountBean)intent.getSerializableExtra("account");
-  if (newAccountBean != null && !newAccountBean.getUid().equals(accountBean.getUid())) {
+  if (newAccountBean == null) {
+    return;
+  }
+  if (newAccountBean.getUid().equals(accountBean.getUid())) {
+    accountBean=newAccountBean;
+    token=newAccountBean.getAccess_token();
+    GlobalContext.getInstance().setSpecialToken(token);
+    buildTabTitle(intent);
+  }
+ else {
     overridePendingTransition(0,0);
     finish();
     overridePendingTransition(0,0);
     startActivity(intent);
     overridePendingTransition(0,0);
-  }
- else   if (newAccountBean != null) {
-    accountBean=newAccountBean;
-    token=newAccountBean.getAccess_token();
-    GlobalContext.getInstance().setSpecialToken(token);
-    buildTabTitle(intent);
   }
 }
