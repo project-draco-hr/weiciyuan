@@ -1,4 +1,7 @@
 {
+  if (!FileManager.isExternalStorageMounted()) {
+    return null;
+  }
   String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.avatar_large);
   absoluteFilePath=absoluteFilePath + ".jpg";
   Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath);

@@ -5,6 +5,9 @@
   String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.avatar_large);
   absoluteFilePath=absoluteFilePath + ".jpg";
   boolean fileExist=new File(absoluteFilePath).exists();
+  if (!fileExist && !GlobalContext.getInstance().isEnablePic()) {
+    return null;
+  }
   if (!fileExist) {
     boolean result=getBitmapFromNetWork(url,absoluteFilePath,null);
     if (!result)     return null;
