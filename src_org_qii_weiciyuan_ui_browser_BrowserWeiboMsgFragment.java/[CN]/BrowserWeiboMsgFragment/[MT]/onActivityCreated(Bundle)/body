@@ -6,7 +6,7 @@
     msg=(MessageBean)savedInstanceState.getSerializable("msg");
   }
  else {
-    task=new UpdateMsgTask();
-    task.execute();
+    updateMsgTask=new UpdateMsgTask();
+    updateMsgTask.execute();
   }
 }

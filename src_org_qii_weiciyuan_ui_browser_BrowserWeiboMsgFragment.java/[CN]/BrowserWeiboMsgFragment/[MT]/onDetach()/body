@@ -1,10 +1,16 @@
 {
   super.onDetach();
-  if (task != null) {
-    task.cancel(true);
+  if (updateMsgTask != null) {
+    updateMsgTask.cancel(true);
   }
   if (geoTask != null) {
     geoTask.cancel(true);
+  }
+  if (avatarTask != null) {
+    avatarTask.cancel(true);
+  }
+  if (picTask != null) {
+    picTask.cancel(true);
   }
   avatar.setImageDrawable(null);
   content_pic.setImageDrawable(null);
