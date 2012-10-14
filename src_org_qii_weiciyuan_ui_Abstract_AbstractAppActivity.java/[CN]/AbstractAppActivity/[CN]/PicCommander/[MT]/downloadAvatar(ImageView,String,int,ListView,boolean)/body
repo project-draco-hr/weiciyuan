@@ -2,6 +2,7 @@
   Bitmap bitmap=getBitmapFromMemCache(urlKey);
   if (bitmap != null) {
     view.setImageBitmap(bitmap);
+    cancelPotentialAvatarDownload(urlKey,view);
     avatarBitmapWorkerTaskHashMap.remove(getMemCacheKey(urlKey,position));
   }
  else {

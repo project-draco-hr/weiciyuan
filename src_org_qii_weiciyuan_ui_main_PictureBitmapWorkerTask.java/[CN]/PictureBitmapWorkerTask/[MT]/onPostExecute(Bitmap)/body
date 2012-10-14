@@ -1,6 +1,5 @@
 {
   if (bitmap != null) {
-    lruCache.put(data,bitmap);
     if (view != null && view.get() != null) {
       ImageView imageView=view.get();
       PictureBitmapWorkerTask bitmapDownloaderTask=getBitmapDownloaderTask(imageView);
@@ -14,6 +13,7 @@ case picture_bmiddle:
     imageView.setBackgroundDrawable(new BitmapDrawable(activity.getResources(),bitmap));
   break;
 }
+lruCache.put(data,bitmap);
 }
 }
 }

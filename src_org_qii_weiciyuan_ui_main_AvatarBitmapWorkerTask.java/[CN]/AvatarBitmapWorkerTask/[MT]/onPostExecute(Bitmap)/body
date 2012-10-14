@@ -1,11 +1,11 @@
 {
   if (bitmap != null) {
-    lruCache.put(data,bitmap);
     if (view != null && view.get() != null) {
       ImageView imageView=view.get();
       AvatarBitmapWorkerTask bitmapDownloaderTask=getAvatarBitmapDownloaderTask(imageView);
       if (this == bitmapDownloaderTask) {
         imageView.setImageBitmap(bitmap);
+        lruCache.put(data,bitmap);
       }
     }
   }
