@@ -2,13 +2,12 @@
   super.onCreate(savedInstanceState);
   if (savedInstanceState != null) {
     accountBean=(AccountBean)savedInstanceState.getSerializable("account");
-    token=savedInstanceState.getString("token");
   }
  else {
     Intent intent=getIntent();
     accountBean=(AccountBean)intent.getSerializableExtra("account");
-    token=accountBean.getAccess_token();
   }
+  token=accountBean.getAccess_token();
   GlobalContext.getInstance().setSpecialToken(token);
   GlobalContext.getInstance().setAccountBean(accountBean);
   GlobalContext.getInstance().setCurrentAccountId(accountBean.getUid());
