@@ -15,9 +15,8 @@
   holder.content.setTextSize(GlobalContext.getInstance().getFontSize());
   holder.content.setText(comment.getListViewSpannableString());
   String time=comment.getListviewItemShowTime();
-  UpdateString updateString=new UpdateString(time,holder.time,comment,getActivity());
   if (!holder.time.getText().toString().equals(time)) {
-    holder.time.setText(updateString);
+    holder.time.setText(time);
   }
   holder.time.setTag(comment.getId());
   holder.repost_content.setVisibility(View.GONE);
