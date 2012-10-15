@@ -1,6 +1,6 @@
 {
-  Intent intent=new Intent(getActivity(),WriteReplyToCommentActivity.class);
+  Intent intent=new Intent(getActivity(),BrowserCommentActivity.class);
+  intent.putExtra("comment",bean.getItem(position));
   intent.putExtra("token",token);
-  intent.putExtra("msg",bean.getItem(position));
   getActivity().startActivity(intent);
 }

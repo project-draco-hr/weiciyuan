@@ -1,5 +1,4 @@
 {
   buildMenu(mode,menu);
-  menu.findItem(R.id.menu_view).setVisible(true);
   return true;
 }
