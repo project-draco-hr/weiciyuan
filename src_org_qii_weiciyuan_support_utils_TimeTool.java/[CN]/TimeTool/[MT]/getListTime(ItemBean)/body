@@ -11,7 +11,7 @@
   long calcMills=now - msg;
   long calSeconds=calcMills / 1000;
   if (calSeconds < 60) {
-    return "" + calSeconds + GlobalContext.getInstance().getString(R.string.sec);
+    return GlobalContext.getInstance().getString(R.string.justnow);
   }
   long calMins=calSeconds / 60;
   if (calMins < 60) {
