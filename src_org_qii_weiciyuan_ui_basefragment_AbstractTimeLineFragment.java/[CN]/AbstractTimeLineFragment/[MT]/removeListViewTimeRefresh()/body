@@ -1,3 +1,0 @@
-{
-  if (scheduledExecutorService != null && !scheduledExecutorService.isShutdown())   scheduledExecutorService.shutdownNow();
-}

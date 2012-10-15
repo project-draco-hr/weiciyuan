@@ -24,12 +24,14 @@
     @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
 switch (scrollState) {
 case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
-        enableRefreshTime=true;
-      getAdapter().notifyDataSetChanged();
-    break;
+        if (!enableRefreshTime) {
+          enableRefreshTime=true;
+          getAdapter().notifyDataSetChanged();
+        }
+      break;
 case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
-  enableRefreshTime=false;
-break;
+    enableRefreshTime=false;
+  break;
 case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
 enableRefreshTime=true;
 break;

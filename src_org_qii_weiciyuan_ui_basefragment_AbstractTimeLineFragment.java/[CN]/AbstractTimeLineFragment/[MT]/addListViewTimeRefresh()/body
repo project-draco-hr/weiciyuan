@@ -1,9 +1,0 @@
-{
-  scheduledExecutorService=Executors.newSingleThreadScheduledExecutor();
-  scheduledExecutorService.scheduleAtFixedRate(new Runnable(){
-    @Override public void run(){
-      new RefreshTimeWorker(AbstractTimeLineFragment.this).refreshTime();
-    }
-  }
-,1,1,TimeUnit.SECONDS);
-}
