@@ -44,6 +44,6 @@
  else {
       ticker=lastName + ":" + content.substring(0,20)+ "??????";
     }
-    showNotification();
+    if (!TextUtils.isEmpty(lastName))     showNotification();
   }
 }
