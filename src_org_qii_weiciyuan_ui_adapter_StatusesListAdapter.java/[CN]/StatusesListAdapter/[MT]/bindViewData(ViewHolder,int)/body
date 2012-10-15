@@ -20,9 +20,8 @@
     holder.content.setText(msg.getListViewSpannableString());
   }
   String time=msg.getListviewItemShowTime();
-  UpdateString updateString=new UpdateString(time,holder.time,msg,getActivity());
   if (!holder.time.getText().toString().equals(time)) {
-    holder.time.setText(updateString);
+    holder.time.setText(time);
   }
   holder.time.setTag(msg.getId());
   holder.repost_content.setVisibility(View.GONE);
