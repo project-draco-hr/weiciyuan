@@ -6,11 +6,10 @@
     value=gson.fromJson(json,TopicResultListBean.class);
   }
  catch (  JsonSyntaxException e) {
-    ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage());
     return null;
   }
-  if (value != null && value.getStatuses().size() > 0) {
+  if (value != null && value.getStatuses() != null && value.getStatuses().size() > 0) {
     List<MessageBean> msgList=value.getStatuses();
     Iterator<MessageBean> iterator=msgList.iterator();
     while (iterator.hasNext()) {
