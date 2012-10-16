@@ -1,5 +1,10 @@
 {
   super.onCreate(savedInstanceState);
   addPreferencesFromResource(R.xml.appearance_pref);
+  listAvatarMode=findPreference(SettingActivity.LIST_AVATAR_MODE);
+  listPicMode=findPreference(SettingActivity.LIST_PIC_MODE);
+  theme=findPreference(SettingActivity.THEME);
+  buildSummary();
   setRetainInstance(true);
+  PreferenceManager.getDefaultSharedPreferences(getActivity()).registerOnSharedPreferenceChangeListener(this);
 }

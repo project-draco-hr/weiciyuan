@@ -8,15 +8,6 @@
       GlobalContext.getInstance().setEnablePic(false);
     }
   }
-  if (key.equals(SettingActivity.ENABLE_FETCH_MSG)) {
-    boolean value=sharedPreferences.getBoolean(key,false);
-    if (value) {
-      AppNewMsgAlarm.startAlarm(this,false);
-    }
- else {
-      AppNewMsgAlarm.stopAlarm(this,true);
-    }
-  }
   if (key.equals(SettingActivity.THEME)) {
     String value=sharedPreferences.getString(key,"3");
     if (value.equals("1"))     GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Black);
@@ -33,13 +24,5 @@
   if (key.equals(SettingActivity.FONT_SIZE)) {
     String value=sharedPreferences.getString(key,"15");
     GlobalContext.getInstance().setFontSize(Integer.valueOf(value));
-  }
-  if (key.equals(SettingActivity.SHOW_BIG_PIC)) {
-    boolean value=sharedPreferences.getBoolean(key,false);
-    GlobalContext.getInstance().setEnableBigPic(value);
-  }
-  if (key.equals(SettingActivity.SHOW_BIG_AVATAR)) {
-    boolean value=sharedPreferences.getBoolean(key,false);
-    GlobalContext.getInstance().setEnableBigAvatar(value);
   }
 }

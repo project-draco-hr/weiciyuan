@@ -5,7 +5,21 @@
  else {
     AppLogger.e("GlobalContext is empty by system");
     SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
-    enableBigPic=sharedPref.getBoolean(SettingActivity.SHOW_BIG_PIC,false);
+    String value=sharedPref.getString(SettingActivity.LIST_PIC_MODE,"1");
+    if (value.equals("1"))     enableBigPic=false;
+    if (value.equals("2"))     enableBigPic=true;
+    if (value.equals("3")) {
+      ConnectivityManager cm=(ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+      NetworkInfo networkInfo=cm.getActiveNetworkInfo();
+      if (networkInfo != null && networkInfo.isConnected()) {
+        if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+          enableBigPic=true;
+        }
+ else {
+          enableBigPic=false;
+        }
+      }
+    }
     return enableBigPic;
   }
 }

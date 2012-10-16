@@ -1,0 +1,38 @@
+{
+  if (key.equals(SettingActivity.LIST_AVATAR_MODE)) {
+    String value=sharedPreferences.getString(key,"1");
+    if (value.equals("1"))     GlobalContext.getInstance().setEnableBigAvatar(false);
+    if (value.equals("2"))     GlobalContext.getInstance().setEnableBigAvatar(true);
+    if (value.equals("3")) {
+      ConnectivityManager cm=(ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+      NetworkInfo networkInfo=cm.getActiveNetworkInfo();
+      if (networkInfo != null && networkInfo.isConnected()) {
+        if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+          GlobalContext.getInstance().setEnableBigAvatar(true);
+        }
+ else {
+          GlobalContext.getInstance().setEnableBigAvatar(false);
+        }
+      }
+    }
+    buildSummary();
+  }
+  if (key.equals(SettingActivity.LIST_PIC_MODE)) {
+    String value=sharedPreferences.getString(key,"1");
+    if (value.equals("1"))     GlobalContext.getInstance().setEnableBigPic(false);
+    if (value.equals("2"))     GlobalContext.getInstance().setEnableBigPic(true);
+    if (value.equals("3")) {
+      ConnectivityManager cm=(ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+      NetworkInfo networkInfo=cm.getActiveNetworkInfo();
+      if (networkInfo != null && networkInfo.isConnected()) {
+        if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+          GlobalContext.getInstance().setEnableBigPic(true);
+        }
+ else {
+          GlobalContext.getInstance().setEnableBigPic(false);
+        }
+      }
+    }
+    buildSummary();
+  }
+}

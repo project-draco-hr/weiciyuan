@@ -1,4 +1,5 @@
 {
   super.onBackPressed();
+  PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
   finish();
 }
