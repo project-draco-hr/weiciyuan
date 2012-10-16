@@ -1,14 +1,4 @@
 {
-  if (bitmap != null) {
-switch (method) {
-case avatar_small:
-      lruCache.put(data,bitmap);
-    break;
-case avatar_large:
-  lruCache.put(data,bitmap);
-break;
-}
-}
-if (pb != null) pb.setVisibility(View.GONE);
-super.onCancelled(bitmap);
+  if (pb != null)   pb.setVisibility(View.GONE);
+  super.onCancelled(bitmap);
 }

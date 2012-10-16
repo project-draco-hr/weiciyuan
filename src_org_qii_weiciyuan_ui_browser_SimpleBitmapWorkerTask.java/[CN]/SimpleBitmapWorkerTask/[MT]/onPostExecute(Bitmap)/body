@@ -1,4 +1,5 @@
 {
+  if (pb != null)   pb.setVisibility(View.GONE);
   if (bitmap != null) {
     view.setVisibility(View.VISIBLE);
     view.setImageBitmap(bitmap);
@@ -11,5 +12,4 @@ case avatar_large:
 break;
 }
 }
-if (pb != null) pb.setVisibility(View.GONE);
 }
