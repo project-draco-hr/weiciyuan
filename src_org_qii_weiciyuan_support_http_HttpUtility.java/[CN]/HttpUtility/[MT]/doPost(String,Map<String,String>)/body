@@ -22,7 +22,7 @@
   httpPost.setEntity(entity);
   HttpResponse response=getHttpResponse(httpPost,null);
   if (response != null) {
-    return dealWithResponse(response);
+    return handleResponse(response);
   }
  else {
     return "";

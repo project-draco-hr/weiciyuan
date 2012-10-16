@@ -1,0 +1,5 @@
+{
+  StatusLine status=response.getStatusLine();
+  int statusCode=status.getStatusCode();
+  return statusCode == HttpStatus.SC_OK && saveFileAndGetFileAbsolutePath(httpGet,response,path,downloadListener);
+}

@@ -1,3 +1,4 @@
+HttpGet httpGet
 HttpResponse response
 String path
 FileDownloaderHttpHelper.DownloadListener downloadListener

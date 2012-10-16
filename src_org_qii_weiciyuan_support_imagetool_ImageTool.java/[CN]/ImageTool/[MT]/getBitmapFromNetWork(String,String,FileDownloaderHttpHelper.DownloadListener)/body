@@ -1,7 +1,5 @@
 {
-  for (int i=0; i < AppConfig.RETRY_TIMES; i++) {
-    boolean result=HttpUtility.getInstance().executeDownloadTask(url,path,downloadListener);
-    if (result)     return true;
-  }
+  boolean result=HttpUtility.getInstance().executeDownloadTask(url,path,downloadListener);
+  if (result)   return true;
   return false;
 }

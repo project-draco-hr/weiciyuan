@@ -20,10 +20,10 @@
         downloadListener.pushProgress(bytesum,bytetotal);
       }
     }
+    EntityUtils.consume(response.getEntity());
   }
- catch (  FileNotFoundException ignored) {
-  }
-catch (  IOException ignored) {
+ catch (  Exception ignored) {
+    httpGet.abort();
   }
  finally {
     if (in != null) {
@@ -40,11 +40,6 @@ catch (  IOException ignored) {
  catch (      IOException ignored) {
       }
     }
-  }
-  try {
-    EntityUtils.consume(response.getEntity());
-  }
- catch (  IOException ignored) {
   }
   return file.exists() && (file.length() > 0);
 }

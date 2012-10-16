@@ -12,17 +12,11 @@
   HttpResponse response=null;
   try {
     response=httpClient.execute(httpGet);
-    return FileDownloaderHttpHelper.saveFile(response,path,downloadListener);
+    return FileDownloaderHttpHelper.saveFile(httpGet,response,path,downloadListener);
   }
- catch (  ConnectTimeoutException ignored) {
+ catch (  Exception ignored) {
     AppLogger.e(ignored.getMessage());
-  }
-catch (  ClientProtocolException ignored) {
-    AppLogger.e(ignored.getMessage());
-  }
-catch (  IOException ignored) {
-    AppLogger.e("1" + ignored.getMessage());
-    ignored.printStackTrace();
+    httpGet.abort();
   }
   return false;
 }

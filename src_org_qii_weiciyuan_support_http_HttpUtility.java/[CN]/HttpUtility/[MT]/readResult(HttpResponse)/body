@@ -3,6 +3,7 @@
   String result="";
   try {
     result=EntityUtils.toString(entity);
+    EntityUtils.consume(entity);
   }
  catch (  IOException e) {
     AppLogger.e(e.getMessage());

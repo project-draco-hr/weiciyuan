@@ -2,8 +2,19 @@
   HttpParams params=new BasicHttpParams();
   params.setParameter(CoreProtocolPNames.PROTOCOL_VERSION,HttpVersion.HTTP_1_1);
   PoolingClientConnectionManager connectionManager=new PoolingClientConnectionManager();
-  connectionManager.setMaxTotal(8);
-  httpClient=new DefaultHttpClient(connectionManager);
-  HttpConnectionParams.setConnectionTimeout(httpClient.getParams(),18000);
-  HttpConnectionParams.setSoTimeout(httpClient.getParams(),18000);
+  connectionManager.setMaxTotal(5);
+  DefaultHttpClient backend=new DefaultHttpClient(connectionManager);
+  HttpRequestRetryHandler myRetryHandler=new HttpRequestRetryHandler(){
+    public boolean retryRequest(    IOException exception,    int executionCount,    HttpContext context){
+      if (executionCount >= AppConfig.RETRY_TIMES) {
+        return false;
+      }
+      return true;
+    }
+  }
+;
+  backend.setHttpRequestRetryHandler(myRetryHandler);
+  httpClient=new DecompressingHttpClient(backend);
+  HttpConnectionParams.setConnectionTimeout(httpClient.getParams(),15000);
+  HttpConnectionParams.setSoTimeout(httpClient.getParams(),15000);
 }

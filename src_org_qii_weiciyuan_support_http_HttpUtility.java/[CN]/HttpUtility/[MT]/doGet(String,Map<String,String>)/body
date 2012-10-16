@@ -19,9 +19,10 @@
   localContext.setAttribute(ClientContext.COOKIE_STORE,cookieStore);
   HttpResponse response=getHttpResponse(httpGet,localContext);
   if (response != null) {
-    return dealWithResponse(response);
+    return handleResponse(response);
   }
  else {
+    httpGet.abort();
     return "";
   }
 }
