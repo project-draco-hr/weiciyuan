@@ -1,4 +1,15 @@
 {
   super.onCreate(savedInstanceState);
   addPreferencesFromResource(R.xml.about_pref);
+  findPreference(SettingActivity.SUGGEST).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
+    @Override public boolean onPreferenceClick(    Preference preference){
+      Intent intent=new Intent(getActivity(),WriteWeiboActivity.class);
+      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+      intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
+      intent.putExtra("content",buildContent());
+      startActivity(intent);
+      return true;
+    }
+  }
+);
 }
