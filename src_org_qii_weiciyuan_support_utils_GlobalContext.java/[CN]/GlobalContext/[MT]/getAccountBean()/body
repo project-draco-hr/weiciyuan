@@ -14,8 +14,7 @@
  else {
       List<AccountBean> accountList=DatabaseManager.getInstance().getAccountList();
       if (accountList != null && accountList.size() > 0) {
-        AccountBean account=accountList.get(0);
-        accountBean=account;
+        accountBean=accountList.get(0);
         return accountBean;
       }
     }
