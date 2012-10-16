@@ -3,6 +3,7 @@
   addPreferencesFromResource(R.xml.pref);
   getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
   clear_cache=findPreference(SettingActivity.CLEAR_CACHE);
+  frequency=findPreference(SettingActivity.FREQUENCY);
   clear_cache.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
       RemoveCacheDialog dialog=new RemoveCacheDialog();
@@ -27,4 +28,5 @@
     }
   }
 );
+  buildSummary();
 }

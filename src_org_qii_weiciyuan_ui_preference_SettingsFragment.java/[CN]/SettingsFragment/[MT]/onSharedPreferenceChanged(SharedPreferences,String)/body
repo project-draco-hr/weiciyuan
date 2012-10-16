@@ -10,6 +10,7 @@
   }
   if (key.equals(SettingActivity.FREQUENCY)) {
     AppNewMsgAlarm.startAlarm(getActivity(),false);
+    buildSummary();
   }
   if (key.equals(SettingActivity.FONT_SIZE)) {
     String value=sharedPreferences.getString(key,"15");
