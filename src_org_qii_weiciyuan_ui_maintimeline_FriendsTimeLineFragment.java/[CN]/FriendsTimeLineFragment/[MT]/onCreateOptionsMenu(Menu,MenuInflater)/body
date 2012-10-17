@@ -1,10 +1,13 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.actionbar_menu_friendstimelinefragment,menu);
-  if (selectedId == 0) {
-    menu.findItem(R.id.group_name).setTitle(userBean.getScreen_name());
+  if (selectedId.equals("0")) {
+    name=menu.findItem(R.id.group_name);
+    name.setTitle(userBean.getScreen_name());
   }
  else {
-    menu.findItem(R.id.group_name).setTitle(group.get(selectedId));
+    for (    GroupBean b : group.getLists()) {
+      if (b.getIdstr().equals(selectedId))       name.setTitle(b.getName());
+    }
   }
 }

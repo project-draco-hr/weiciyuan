@@ -1,0 +1,4 @@
+{
+  super(access_token);
+  this.list_id=list_id;
+}

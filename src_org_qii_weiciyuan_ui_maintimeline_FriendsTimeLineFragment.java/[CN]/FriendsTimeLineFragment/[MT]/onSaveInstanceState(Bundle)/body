@@ -6,5 +6,5 @@
   outState.putString("token",token);
   outState.putSerializable("group",group);
   outState.putSerializable("hashmap",hashMap);
-  outState.putInt("selectedId",selectedId);
+  outState.putString("selectedId",selectedId);
 }

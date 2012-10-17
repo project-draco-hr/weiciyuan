@@ -1,16 +1,19 @@
 {
   MainFriendsTimeLineDao dao;
-  if (selectedId == -1) {
+  if (selectedId.equals("-1")) {
     dao=new BilateralTimeLineDao(token);
   }
- else {
+ else   if (selectedId.equals("0")) {
     dao=new MainFriendsTimeLineDao(token);
+  }
+ else {
+    dao=new FriendGroupTimeLineDao("2.00vv3LGCpftsPE93a8e2f0e915h68D",selectedId);
   }
   if (getList().getItemList().size() > 0) {
     dao.setSince_id(getList().getItemList().get(0).getId());
   }
   MessageListBean result=dao.getGSONMsgList();
-  if (result != null) {
+  if (result != null && selectedId.equals("0")) {
     DatabaseManager.getInstance().addHomeLineMsg(result,accountBean.getUid());
   }
   return result;

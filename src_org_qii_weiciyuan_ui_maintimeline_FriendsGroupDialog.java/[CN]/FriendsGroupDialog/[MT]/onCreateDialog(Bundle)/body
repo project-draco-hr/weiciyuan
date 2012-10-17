@@ -1,25 +1,31 @@
 {
   if (savedInstanceState != null) {
-    group=(HashMap<Integer,String>)savedInstanceState.getSerializable("group");
-    selected=savedInstanceState.getInt("selected");
+    group=(GroupListBean)savedInstanceState.getSerializable("group");
+    selected=savedInstanceState.getString("selected");
   }
-  Set<Integer> keys=group.keySet();
-  final Integer[] keyArray=keys.toArray(new Integer[keys.size()]);
+  final List<GroupBean> list=group.getLists();
+  List<String> name=new ArrayList<String>();
+  name.add(getString(R.string.all_people));
   int position=0;
-  for (int i=0; i < keyArray.length; i++) {
-    if (keyArray[i] == selected)     position=i;
+  for (  GroupBean b : list) {
+    name.add(b.getName());
+    if (b.getIdstr().equals(selected)) {
+      position=list.indexOf(b) + 1;
+    }
   }
-  String[] valueArray=new String[keyArray.length];
-  for (int i=0; i < keyArray.length; i++) {
-    valueArray[i]=group.get(keyArray[i]);
-  }
+  String[] valueArray=name.toArray(new String[0]);
   AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
   builder.setTitle(getString(R.string.select_group));
   builder.setSingleChoiceItems(valueArray,position,new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialog,    int which){
       FriendsTimeLineFragment fragment=(FriendsTimeLineFragment)getTargetFragment();
-      int selectedItemId=keyArray[which].intValue();
-      if (selected != selectedItemId) {
+      String selectedItemId="0";
+      if (which == 0) {
+      }
+ else {
+        selectedItemId=list.get(which - 1).getIdstr();
+      }
+      if (!selected.equals(selectedItemId)) {
         fragment.setSelected(selectedItemId);
         fragment.switchGroup();
       }
