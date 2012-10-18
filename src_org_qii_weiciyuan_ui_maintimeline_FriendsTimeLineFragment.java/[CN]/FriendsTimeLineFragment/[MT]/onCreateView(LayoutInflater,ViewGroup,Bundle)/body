@@ -1,0 +1,5 @@
+{
+  View view=super.onCreateView(inflater,container,savedInstanceState);
+  groupListView=(ListView)view.findViewById(R.id.group_listView);
+  return view;
+}

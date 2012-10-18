@@ -10,6 +10,7 @@ case R.id.refresh:
 pullToRefreshListView.startRefreshNow();
 break;
 case R.id.group_name:
+switchGroupListViewAndNormalListView();
 break;
 }
 return super.onOptionsItemSelected(item);

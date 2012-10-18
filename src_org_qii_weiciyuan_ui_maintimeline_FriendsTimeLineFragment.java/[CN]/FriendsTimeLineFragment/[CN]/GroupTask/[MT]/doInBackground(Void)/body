@@ -3,7 +3,8 @@
     return new FriendGroupDao("2.00vv3LGCpftsPE93a8e2f0e915h68D").getGroup();
   }
  catch (  WeiboException e) {
-    e.printStackTrace();
+    this.e=e;
+    cancel(true);
   }
   return null;
 }
