@@ -1,0 +1,46 @@
+{
+  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+  String value=sharedPref.getString(SettingActivity.UPLOAD_PIC_QUALITY,"4");
+  if (value.equals("1")) {
+    return picPath;
+  }
+ else {
+    BitmapFactory.Options options=new BitmapFactory.Options();
+    options.inJustDecodeBounds=false;
+    options.inSampleSize=1;
+    if (value.equals("2")) {
+      options.inSampleSize=2;
+    }
+ else     if (value.equals("3")) {
+      options.inSampleSize=4;
+    }
+ else     if (value.equals("4")) {
+      options.inSampleSize=4;
+      ConnectivityManager cm=(ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+      NetworkInfo networkInfo=cm.getActiveNetworkInfo();
+      if (networkInfo != null && networkInfo.isConnected() && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+        return picPath;
+      }
+    }
+    Bitmap bitmap=BitmapFactory.decodeFile(picPath,options);
+    FileOutputStream stream=null;
+    String tmp=FileManager.getUploadPicTempFile();
+    try {
+      new File(tmp).getParentFile().mkdirs();
+      new File(tmp).createNewFile();
+      stream=new FileOutputStream(new File(tmp));
+    }
+ catch (    IOException ignored) {
+    }
+    bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
+    if (stream != null) {
+      try {
+        stream.close();
+        bitmap.recycle();
+      }
+ catch (      IOException ignored) {
+      }
+    }
+    return tmp;
+  }
+}

@@ -1,0 +1,5 @@
+{
+  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
+  String draft=sharedPref.getString(TYPE_DRAFT,"");
+  return draft;
+}

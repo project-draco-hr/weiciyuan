@@ -1,0 +1,3 @@
+{
+  return SDCARD_PATH + File.separator + "upload.jpg";
+}

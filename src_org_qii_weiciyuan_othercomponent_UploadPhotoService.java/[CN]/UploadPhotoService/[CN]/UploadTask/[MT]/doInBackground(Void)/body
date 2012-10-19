@@ -1,8 +1,9 @@
 {
   boolean result=false;
-  size=new File(picPath).length();
+  String uploadPicPath=compressPic();
+  size=new File(uploadPicPath).length();
   try {
-    result=new StatusNewMsgDao(token).setPic(picPath).setGeoBean(geoBean).sendNewMsg(content,new FileUploaderHttpHelper.ProgressListener(){
+    result=new StatusNewMsgDao(token).setPic(uploadPicPath).setGeoBean(geoBean).sendNewMsg(content,new FileUploaderHttpHelper.ProgressListener(){
       @Override public void transferred(      long data){
         publishProgress(data);
       }

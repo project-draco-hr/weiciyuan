@@ -7,10 +7,4 @@
     content.setText(contentTxt + " ");
     content.setSelection(content.getText().toString().length());
   }
- else {
-    SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
-    String draft=sharedPref.getString(TYPE_DRAFT,"");
-    content.setText(draft);
-    content.setSelection(content.getText().toString().length());
-  }
 }
