@@ -1,8 +1,9 @@
 {
-  HttpParams params=new BasicHttpParams();
-  params.setParameter(CoreProtocolPNames.PROTOCOL_VERSION,HttpVersion.HTTP_1_1);
-  PoolingClientConnectionManager connectionManager=new PoolingClientConnectionManager();
-  connectionManager.setMaxTotal(5);
+  SchemeRegistry schemeRegistry=new SchemeRegistry();
+  schemeRegistry.register(new Scheme("http",80,PlainSocketFactory.getSocketFactory()));
+  schemeRegistry.register(new Scheme("https",443,SSLSocketFactory.getSocketFactory()));
+  PoolingClientConnectionManager connectionManager=new PoolingClientConnectionManager(schemeRegistry);
+  connectionManager.setMaxTotal(9);
   DefaultHttpClient backend=new DefaultHttpClient(connectionManager);
   HttpRequestRetryHandler myRetryHandler=new HttpRequestRetryHandler(){
     public boolean retryRequest(    IOException exception,    int executionCount,    HttpContext context){
@@ -14,7 +15,11 @@
   }
 ;
   backend.setHttpRequestRetryHandler(myRetryHandler);
-  httpClient=new DecompressingHttpClient(backend);
+  CacheConfig cacheConfig=new CacheConfig();
+  cacheConfig.setMaxCacheEntries(1000);
+  cacheConfig.setMaxObjectSizeBytes(8192);
+  httpClient=new CachingHttpClient(new DecompressingHttpClient(backend),cacheConfig);
   HttpConnectionParams.setConnectionTimeout(httpClient.getParams(),5000);
   HttpConnectionParams.setSoTimeout(httpClient.getParams(),8000);
+  httpClient.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION,HttpVersion.HTTP_1_1);
 }
