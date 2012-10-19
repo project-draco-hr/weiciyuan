@@ -1,13 +1,4 @@
 {
-  if (key.equals(SettingActivity.ENABLE_PIC)) {
-    boolean value=sharedPreferences.getBoolean(key,true);
-    if (value) {
-      GlobalContext.getInstance().setEnablePic(true);
-    }
- else {
-      GlobalContext.getInstance().setEnablePic(false);
-    }
-  }
   if (key.equals(SettingActivity.THEME)) {
     String value=sharedPreferences.getString(key,"3");
     if (value.equals("1"))     GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Black);
