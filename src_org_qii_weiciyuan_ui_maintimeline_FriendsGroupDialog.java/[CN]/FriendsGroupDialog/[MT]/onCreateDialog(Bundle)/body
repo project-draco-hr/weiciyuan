@@ -16,7 +16,7 @@
   String[] valueArray=name.toArray(new String[0]);
   AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
   builder.setTitle(getString(R.string.select_group));
-  builder.setSingleChoiceItems(valueArray,position,new DialogInterface.OnClickListener(){
+  builder.setItems(valueArray,new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialog,    int which){
       FriendsTimeLineFragment fragment=(FriendsTimeLineFragment)getTargetFragment();
       String selectedItemId="0";
