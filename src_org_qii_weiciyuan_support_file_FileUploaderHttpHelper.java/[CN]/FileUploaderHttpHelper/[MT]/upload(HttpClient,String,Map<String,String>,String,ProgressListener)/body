@@ -32,8 +32,13 @@
   }
   try {
     if (response != null) {
-      String content=EntityUtils.toString(response.getEntity());
-      return true;
+      if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+        EntityUtils.consume(response.getEntity());
+        return true;
+      }
+ else {
+        EntityUtils.consume(response.getEntity());
+      }
     }
   }
  catch (  IOException e) {
