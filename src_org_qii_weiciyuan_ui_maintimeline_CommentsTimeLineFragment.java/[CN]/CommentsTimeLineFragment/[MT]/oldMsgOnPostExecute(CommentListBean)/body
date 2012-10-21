@@ -1,5 +1,5 @@
 {
   if (newValue != null && newValue.getSize() > 1) {
-    getList().getItemList().addAll(newValue.getItemList().subList(1,newValue.getItemList().size() - 1));
+    getList().getItemList().addAll(newValue.getItemList().subList(1,newValue.getItemList().size()));
   }
 }

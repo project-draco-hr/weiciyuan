@@ -1,11 +1,8 @@
 {
-  if (selected == 0 || selected == 1) {
+  if (selected == 0) {
     MainCommentsTimeLineDao dao=new MainCommentsTimeLineDao(token);
     if (getList() != null && getList().getItemList().size() > 0) {
       dao.setSince_id(getList().getItemList().get(0).getId());
-    }
-    if (selected == 1) {
-      dao.setFilter_by_author("1");
     }
     CommentListBean result=dao.getGSONMsgList();
     if (result != null && selected == 0) {
@@ -13,7 +10,15 @@
     }
     return result;
   }
- else {
+ else   if (selected == 1) {
+    MentionsCommentTimeLineDao dao=new MentionsCommentTimeLineDao(token);
+    if (getList() != null && getList().getItemList().size() > 0) {
+      dao.setSince_id(getList().getItemList().get(0).getId());
+    }
+    CommentListBean result=dao.getGSONMsgList();
+    return result;
+  }
+ else   if (selected == 2) {
     CommentsTimeLineByMeDao dao=new CommentsTimeLineByMeDao(token);
     if (getList() != null && getList().getItemList().size() > 0) {
       dao.setSince_id(getList().getItemList().get(0).getId());
@@ -21,4 +26,5 @@
     CommentListBean result=dao.getGSONMsgList();
     return result;
   }
+  return null;
 }

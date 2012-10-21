@@ -1,5 +1,5 @@
 {
-  String url=URLHelper.getCommentList();
+  String url=getUrl();
   Map<String,String> map=new HashMap<String,String>();
   map.put("access_token",access_token);
   map.put("since_id",since_id);

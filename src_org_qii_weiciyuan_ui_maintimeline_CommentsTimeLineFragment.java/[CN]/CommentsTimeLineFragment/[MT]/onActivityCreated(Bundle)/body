@@ -10,6 +10,8 @@
     hashMap.put(0,(CommentListBean)savedInstanceState.getSerializable("0"));
     hashMap.put(1,(CommentListBean)savedInstanceState.getSerializable("1"));
     hashMap.put(2,(CommentListBean)savedInstanceState.getSerializable("2"));
+    hashMap.put(3,(CommentListBean)savedInstanceState.getSerializable("3"));
+    hashMap.put(4,(CommentListBean)savedInstanceState.getSerializable("4"));
     clearAndReplaceValue((CommentListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
@@ -22,6 +24,8 @@
     hashMap.put(0,new CommentListBean());
     hashMap.put(1,new CommentListBean());
     hashMap.put(2,new CommentListBean());
+    hashMap.put(3,new CommentListBean());
+    hashMap.put(4,new CommentListBean());
   }
   getListView().setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
   getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
