@@ -1,0 +1,4 @@
+{
+  mode.getMenuInflater().inflate(R.menu.contextual_menu_draftfragment,menu);
+  return true;
+}

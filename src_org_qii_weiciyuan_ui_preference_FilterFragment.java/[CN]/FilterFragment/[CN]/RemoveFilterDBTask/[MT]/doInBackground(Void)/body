@@ -1,0 +1,3 @@
+{
+  return DatabaseManager.getInstance().removeAndGetNewFilterList(set);
+}
