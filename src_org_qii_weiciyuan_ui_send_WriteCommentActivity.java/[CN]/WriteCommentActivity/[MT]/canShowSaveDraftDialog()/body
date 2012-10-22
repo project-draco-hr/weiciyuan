@@ -1,0 +1,9 @@
+{
+  if (commentDraftBean == null) {
+    return true;
+  }
+ else   if (!commentDraftBean.getContent().equals(getEditTextView().getText().toString())) {
+    return true;
+  }
+  return false;
+}

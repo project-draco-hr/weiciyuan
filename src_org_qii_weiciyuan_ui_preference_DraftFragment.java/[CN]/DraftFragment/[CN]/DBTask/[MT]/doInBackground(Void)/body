@@ -1,0 +1,4 @@
+{
+  List<DraftListViewItemBean> set=DraftDBManager.getInstance().getDraftList(GlobalContext.getInstance().getAccountBean().getUid());
+  return set;
+}

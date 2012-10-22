@@ -1,0 +1,9 @@
+{
+  if (!TextUtils.isEmpty(et.getText().toString()) && canShowSaveDraftDialog()) {
+    SaveDraftDialog dialog=new SaveDraftDialog();
+    dialog.show(getFragmentManager(),"");
+  }
+ else {
+    super.onBackPressed();
+  }
+}

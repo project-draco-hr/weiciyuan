@@ -1,0 +1,8 @@
+{
+  ContentValues cv=new ContentValues();
+  cv.put(DraftTable.CONTENT,content);
+  cv.put(DraftTable.ACCOUNTID,accountId);
+  cv.put(DraftTable.JSONDATA,new Gson().toJson(messageBean));
+  cv.put(DraftTable.TYPE,DraftTable.TYPE_REPOST);
+  wsd.insert(DraftTable.TABLE_NAME,DraftTable.ID,cv);
+}

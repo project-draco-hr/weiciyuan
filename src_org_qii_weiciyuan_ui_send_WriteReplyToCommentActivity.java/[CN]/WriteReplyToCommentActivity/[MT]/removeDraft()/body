@@ -1,0 +1,3 @@
+{
+  if (replyDraftBean != null)   DraftDBManager.getInstance().remove(replyDraftBean.getId());
+}

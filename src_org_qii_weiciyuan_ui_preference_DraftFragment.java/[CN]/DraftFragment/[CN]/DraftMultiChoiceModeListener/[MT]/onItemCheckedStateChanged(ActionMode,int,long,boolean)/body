@@ -1,0 +1,4 @@
+{
+  mode.setTitle(String.valueOf(getListView().getCheckedItemCount()));
+  adapter.notifyDataSetChanged();
+}

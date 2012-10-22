@@ -1,0 +1,3 @@
+{
+  if (commentDraftBean != null)   DraftDBManager.getInstance().remove(commentDraftBean.getId());
+}

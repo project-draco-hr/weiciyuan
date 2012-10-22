@@ -1,0 +1,14 @@
+{
+  if (!TextUtils.isEmpty(content.getText().toString())) {
+    boolean haveDraft=statusDraftBean != null;
+    boolean isDraftChanged=haveDraft && !statusDraftBean.getContent().equals(content.getText().toString());
+    if (isDraftChanged) {
+      DraftDBManager.getInstance().remove(statusDraftBean.getId());
+      DraftDBManager.getInstance().insertStatus(content.getText().toString(),null,null,accountBean.getUid());
+    }
+ else {
+      DraftDBManager.getInstance().insertStatus(content.getText().toString(),null,null,accountBean.getUid());
+    }
+  }
+  finish();
+}

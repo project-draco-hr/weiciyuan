@@ -1,0 +1,9 @@
+{
+  String[] args=checkedItemPosition.toArray(new String[0]);
+  String asString=Arrays.toString(args);
+  asString=asString.replace("[","(");
+  asString=asString.replace("]",")");
+  String sql="delete from " + DraftTable.TABLE_NAME + " where "+ DraftTable.ID+ " in "+ asString;
+  wsd.execSQL(sql);
+  return getDraftList(acountId);
+}

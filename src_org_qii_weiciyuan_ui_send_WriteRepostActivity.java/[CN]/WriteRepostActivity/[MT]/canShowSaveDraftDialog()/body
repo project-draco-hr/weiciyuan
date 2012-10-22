@@ -1,0 +1,9 @@
+{
+  if (repostDraftBean == null) {
+    return true;
+  }
+ else   if (!repostDraftBean.getContent().equals(getEditTextView().getText().toString())) {
+    return true;
+  }
+  return false;
+}

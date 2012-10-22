@@ -1,0 +1,9 @@
+{
+  if (replyDraftBean == null) {
+    return true;
+  }
+ else   if (!replyDraftBean.getContent().equals(getEditTextView().getText().toString())) {
+    return true;
+  }
+  return false;
+}

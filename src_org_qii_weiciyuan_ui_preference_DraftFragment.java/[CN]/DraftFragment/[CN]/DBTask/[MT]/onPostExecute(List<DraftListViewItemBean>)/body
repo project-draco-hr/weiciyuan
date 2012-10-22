@@ -1,0 +1,6 @@
+{
+  super.onPostExecute(set);
+  list.clear();
+  list.addAll(set);
+  adapter.notifyDataSetChanged();
+}

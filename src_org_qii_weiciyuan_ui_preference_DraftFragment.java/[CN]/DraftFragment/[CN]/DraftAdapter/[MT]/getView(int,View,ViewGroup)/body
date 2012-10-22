@@ -1,0 +1,28 @@
+{
+  View view=getActivity().getLayoutInflater().inflate(android.R.layout.simple_list_item_1,parent,false);
+  TextView tv=(TextView)view;
+  tv.setBackgroundColor(defaultBG);
+  if (getListView().getCheckedItemPositions().get(position)) {
+    tv.setBackgroundColor(checkedBG);
+  }
+  int type=list.get(position).getType();
+switch (type) {
+case DraftTable.TYPE_WEIBO:
+    StatusDraftBean bean=list.get(position).getStatusDraftBean();
+  tv.setText(bean.getContent());
+break;
+case DraftTable.TYPE_REPOST:
+RepostDraftBean repostDraftBean=list.get(position).getRepostDraftBean();
+tv.setText(repostDraftBean.getContent());
+break;
+case DraftTable.TYPE_COMMENT:
+CommentDraftBean commentDraftBean=list.get(position).getCommentDraftBean();
+tv.setText(commentDraftBean.getContent());
+break;
+case DraftTable.TYPE_REPLY:
+ReplyDraftBean replyDraftBean=list.get(position).getReplyDraftBean();
+tv.setText(replyDraftBean.getContent());
+break;
+}
+return view;
+}

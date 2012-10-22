@@ -1,0 +1,1 @@
+MyAsyncTask<Void,List<DraftListViewItemBean>,List<DraftListViewItemBean>>

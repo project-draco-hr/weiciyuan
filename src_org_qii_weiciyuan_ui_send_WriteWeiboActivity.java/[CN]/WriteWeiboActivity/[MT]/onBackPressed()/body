@@ -1,4 +1,9 @@
 {
-  super.onBackPressed();
-  savaDraft();
+  if (!TextUtils.isEmpty(content.getText().toString()) && canShowSaveDraftDialog()) {
+    SaveDraftDialog dialog=new SaveDraftDialog();
+    dialog.show(getFragmentManager(),"");
+  }
+ else {
+    super.onBackPressed();
+  }
 }

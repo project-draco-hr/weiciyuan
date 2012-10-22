@@ -1,10 +1,14 @@
 {
-  token=intent.getStringExtra("token");
   accountBean=(AccountBean)intent.getSerializableExtra("account");
+  token=accountBean.getAccess_token();
   getActionBar().setSubtitle(accountBean.getUsernick());
   String contentTxt=intent.getStringExtra("content");
   if (!TextUtils.isEmpty(contentTxt)) {
     content.setText(contentTxt + " ");
     content.setSelection(content.getText().toString().length());
+  }
+  statusDraftBean=(StatusDraftBean)intent.getSerializableExtra("draft");
+  if (statusDraftBean != null) {
+    content.setText(statusDraftBean.getContent());
   }
 }

@@ -1,0 +1,6 @@
+{
+  if (!TextUtils.isEmpty(getEditTextView().getText().toString())) {
+    DraftDBManager.getInstance().insertRepost(getEditTextView().getText().toString(),msg,GlobalContext.getInstance().getCurrentAccountId());
+  }
+  finish();
+}

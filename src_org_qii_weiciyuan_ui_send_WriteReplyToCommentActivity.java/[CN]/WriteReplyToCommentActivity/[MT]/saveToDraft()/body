@@ -1,0 +1,6 @@
+{
+  if (!TextUtils.isEmpty(getEditTextView().getText().toString())) {
+    DraftDBManager.getInstance().insertReply(getEditTextView().getText().toString(),bean,GlobalContext.getInstance().getCurrentAccountId());
+  }
+  finish();
+}

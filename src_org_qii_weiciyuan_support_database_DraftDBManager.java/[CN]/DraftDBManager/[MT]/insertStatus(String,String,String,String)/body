@@ -1,0 +1,9 @@
+{
+  ContentValues cv=new ContentValues();
+  cv.put(DraftTable.CONTENT,content);
+  cv.put(DraftTable.ACCOUNTID,accountId);
+  if (!TextUtils.isEmpty(gps))   cv.put(DraftTable.GPS,gps);
+  if (!TextUtils.isEmpty(pic))   cv.put(DraftTable.PIC,pic);
+  cv.put(DraftTable.TYPE,DraftTable.TYPE_WEIBO);
+  wsd.insert(DraftTable.TABLE_NAME,DraftTable.ID,cv);
+}

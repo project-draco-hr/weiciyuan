@@ -1,8 +1,16 @@
 {
   super.onCreate(savedInstanceState);
-  getActionBar().setTitle(R.string.comments);
-  getActionBar().setSubtitle(GlobalContext.getInstance().getCurrentAccountName());
-  bean=(CommentBean)getIntent().getSerializableExtra("msg");
   getActionBar().setTitle(getString(R.string.reply_to_comment));
-  getEditTextView().setHint("@" + bean.getUser().getScreen_name() + "???"+ bean.getText());
+  getActionBar().setSubtitle(GlobalContext.getInstance().getCurrentAccountName());
+  token=getIntent().getStringExtra("token");
+  if (TextUtils.isEmpty(token))   token=GlobalContext.getInstance().getSpecialToken();
+  bean=(CommentBean)getIntent().getSerializableExtra("msg");
+  if (bean != null) {
+    getEditTextView().setHint("@" + bean.getUser().getScreen_name() + "???"+ bean.getText());
+  }
+ else {
+    replyDraftBean=(ReplyDraftBean)getIntent().getSerializableExtra("draft");
+    getEditTextView().setText(replyDraftBean.getContent());
+    bean=replyDraftBean.getCommentBean();
+  }
 }

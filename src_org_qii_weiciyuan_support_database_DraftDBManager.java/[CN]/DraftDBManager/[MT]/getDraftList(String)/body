@@ -1,0 +1,61 @@
+{
+  Gson gson=new Gson();
+  List<DraftListViewItemBean> result=new ArrayList<DraftListViewItemBean>();
+  String sql="select * from " + DraftTable.TABLE_NAME + " where "+ DraftTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ DraftTable.ID+ " desc";
+  Cursor c=rsd.rawQuery(sql,null);
+  while (c.moveToNext()) {
+    DraftListViewItemBean item=new DraftListViewItemBean();
+    int type=c.getInt(c.getColumnIndex(DraftTable.TYPE));
+    item.setType(type);
+    item.setId(c.getString(c.getColumnIndex(DraftTable.ID)));
+    String content;
+switch (type) {
+case DraftTable.TYPE_WEIBO:
+      content=c.getString(c.getColumnIndex(DraftTable.CONTENT));
+    StatusDraftBean bean=new StatusDraftBean();
+  bean.setId(c.getString(c.getColumnIndex(DraftTable.ID)));
+bean.setContent(content);
+bean.setAccountId(accountId);
+bean.setGps(c.getString(c.getColumnIndex(DraftTable.GPS)));
+bean.setPic(c.getString(c.getColumnIndex(DraftTable.PIC)));
+item.setStatusDraftBean(bean);
+result.add(item);
+break;
+case DraftTable.TYPE_REPOST:
+content=c.getString(c.getColumnIndex(DraftTable.CONTENT));
+RepostDraftBean repostDraftBean=new RepostDraftBean();
+repostDraftBean.setId(c.getString(c.getColumnIndex(DraftTable.ID)));
+repostDraftBean.setContent(content);
+repostDraftBean.setAccountId(accountId);
+MessageBean messageBean=gson.fromJson(c.getString(c.getColumnIndex(DraftTable.JSONDATA)),MessageBean.class);
+repostDraftBean.setMessageBean(messageBean);
+item.setRepostDraftBean(repostDraftBean);
+result.add(item);
+break;
+case DraftTable.TYPE_COMMENT:
+content=c.getString(c.getColumnIndex(DraftTable.CONTENT));
+CommentDraftBean commentDraftBean=new CommentDraftBean();
+commentDraftBean.setId(c.getString(c.getColumnIndex(DraftTable.ID)));
+commentDraftBean.setContent(content);
+commentDraftBean.setAccountId(accountId);
+MessageBean commentMessageBean=gson.fromJson(c.getString(c.getColumnIndex(DraftTable.JSONDATA)),MessageBean.class);
+commentDraftBean.setMessageBean(commentMessageBean);
+item.setCommentDraftBean(commentDraftBean);
+result.add(item);
+break;
+case DraftTable.TYPE_REPLY:
+content=c.getString(c.getColumnIndex(DraftTable.CONTENT));
+ReplyDraftBean replyDraftBean=new ReplyDraftBean();
+replyDraftBean.setId(c.getString(c.getColumnIndex(DraftTable.ID)));
+replyDraftBean.setContent(content);
+replyDraftBean.setAccountId(accountId);
+CommentBean commentBean=gson.fromJson(c.getString(c.getColumnIndex(DraftTable.JSONDATA)),CommentBean.class);
+replyDraftBean.setCommentBean(commentBean);
+item.setReplyDraftBean(replyDraftBean);
+result.add(item);
+break;
+}
+}
+c.close();
+return result;
+}

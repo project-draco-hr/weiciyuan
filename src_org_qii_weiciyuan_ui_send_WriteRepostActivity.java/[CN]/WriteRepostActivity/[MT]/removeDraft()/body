@@ -1,0 +1,3 @@
+{
+  if (repostDraftBean != null)   DraftDBManager.getInstance().remove(repostDraftBean.getId());
+}

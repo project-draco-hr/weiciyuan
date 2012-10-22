@@ -6,12 +6,7 @@
     Intent intent=new Intent(WriteWeiboActivity.this,UploadPhotoService.class);
     intent.putExtra("token",token);
     intent.putExtra("picPath",picPath);
-    if (!content.equals(getLastContent())) {
-      intent.putExtra("content",content);
-    }
- else {
-      intent.putExtra("content",content + " ");
-    }
+    intent.putExtra("content",content);
     intent.putExtra("geo",geoBean);
     startService(intent);
     finish();

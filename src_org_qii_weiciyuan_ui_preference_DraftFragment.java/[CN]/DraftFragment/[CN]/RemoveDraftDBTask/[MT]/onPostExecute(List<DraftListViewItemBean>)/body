@@ -1,0 +1,4 @@
+{
+  list=result;
+  adapter.notifyDataSetChanged();
+}

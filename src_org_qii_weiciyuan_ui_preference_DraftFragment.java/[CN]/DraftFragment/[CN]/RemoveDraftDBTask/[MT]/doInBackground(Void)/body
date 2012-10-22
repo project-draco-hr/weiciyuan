@@ -1,0 +1,3 @@
+{
+  return DraftDBManager.getInstance().removeAndGet(set,GlobalContext.getInstance().getAccountBean().getUid());
+}

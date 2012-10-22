@@ -1,0 +1,4 @@
+{
+  String sql="delete from " + DraftTable.TABLE_NAME + " where "+ DraftTable.ID+ " = "+ id;
+  wsd.execSQL(sql);
+}

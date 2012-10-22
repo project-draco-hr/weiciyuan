@@ -1,0 +1,9 @@
+{
+  if (statusDraftBean == null) {
+    return true;
+  }
+ else   if (!statusDraftBean.getContent().equals(content.getText().toString())) {
+    return true;
+  }
+  return false;
+}
