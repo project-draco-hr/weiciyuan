@@ -1,6 +1,6 @@
 {
   if (!enableRepost.isChecked()) {
-    CommentNewMsgDao dao=new CommentNewMsgDao(token,id,((EditText)findViewById(R.id.status_new_content)).getText().toString());
+    CommentNewMsgDao dao=new CommentNewMsgDao(token,msg.getId(),((EditText)findViewById(R.id.status_new_content)).getText().toString());
     if (enableCommentOri.isChecked()) {
       dao.enableComment_ori(true);
     }

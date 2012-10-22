@@ -7,7 +7,7 @@
       content=total;
     }
   }
-  RepostNewMsgDao dao=new RepostNewMsgDao(token,id);
+  RepostNewMsgDao dao=new RepostNewMsgDao(token,msg.getId());
   boolean comment=true;
   boolean oriComment=enableCommentOri.isChecked();
   if (comment && oriComment) {
