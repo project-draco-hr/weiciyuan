@@ -1,5 +1,6 @@
 {
   token=intent.getStringExtra("token");
+  accountId=intent.getStringExtra("accountId");
   picPath=intent.getStringExtra("picPath");
   content=intent.getStringExtra("content");
   geoBean=(GeoBean)intent.getSerializableExtra("geo");
