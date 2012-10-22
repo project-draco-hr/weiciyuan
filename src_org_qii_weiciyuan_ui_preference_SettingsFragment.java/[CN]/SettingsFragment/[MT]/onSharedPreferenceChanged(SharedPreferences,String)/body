@@ -1,6 +1,7 @@
 {
   if (key.equals(SettingActivity.ENABLE_FETCH_MSG)) {
     boolean value=sharedPreferences.getBoolean(key,false);
+    buildSummary();
     if (value) {
       AppNewMsgAlarm.startAlarm(getActivity(),false);
     }
