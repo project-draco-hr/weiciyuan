@@ -1,4 +1,4 @@
 {
-  String url=URLHelper.getUnFavitUrl();
+  String url=URLHelper.FAV_DESTROY;
   return executeTask(url);
 }

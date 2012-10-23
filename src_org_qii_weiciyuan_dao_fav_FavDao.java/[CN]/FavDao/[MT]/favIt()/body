@@ -1,4 +1,4 @@
 {
-  String url=URLHelper.getFavitUrl();
+  String url=URLHelper.FAV_CREATE;
   return executeTask(url);
 }

@@ -1,4 +1,4 @@
 {
-  String url=URLHelper.getUnFollowitUrl();
+  String url=URLHelper.FRIENDSHIPS_DESTROY;
   return executeTask(url);
 }

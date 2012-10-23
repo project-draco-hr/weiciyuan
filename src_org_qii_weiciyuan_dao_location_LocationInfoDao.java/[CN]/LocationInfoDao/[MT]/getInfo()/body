@@ -3,7 +3,7 @@
   map.put("language","zh-CN");
   map.put("sensor","false");
   map.put("latlng",getLatlng());
-  String url=URLHelper.getGoogleLocatonUrl();
+  String url=URLHelper.GOOGLELOCATION;
   String jsonData=null;
   try {
     jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);

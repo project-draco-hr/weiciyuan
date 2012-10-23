@@ -2,7 +2,7 @@
   if (!TextUtils.isEmpty(pic)) {
     return sendNewMsgWithPic(str,listener);
   }
-  String url=URLManager.getRealUrl("update");
+  String url=URLHelper.STATUSES_UPDATE;
   Map<String,String> map=new HashMap<String,String>();
   map.put("access_token",access_token);
   map.put("status",str);

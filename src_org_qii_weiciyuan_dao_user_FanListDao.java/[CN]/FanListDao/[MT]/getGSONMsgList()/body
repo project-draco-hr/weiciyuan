@@ -1,5 +1,5 @@
 {
-  String url=URLHelper.getFanListById();
+  String url=URLHelper.FOLLOWERS_LIST_BYID;
   Map<String,String> map=new HashMap<String,String>();
   map.put("access_token",access_token);
   map.put("uid",uid);
@@ -14,7 +14,6 @@
     value=gson.fromJson(jsonData,UserListBean.class);
   }
  catch (  JsonSyntaxException e) {
-    ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage());
   }
   return value;

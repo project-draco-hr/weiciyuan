@@ -1,4 +1,4 @@
 {
-  String url=URLHelper.getFollowitUrl();
+  String url=URLHelper.FRIENDSHIPS_CREATE;
   return executeTask(url);
 }

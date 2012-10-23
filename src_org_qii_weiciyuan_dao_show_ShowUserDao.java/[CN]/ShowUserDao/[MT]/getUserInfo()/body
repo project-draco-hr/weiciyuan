@@ -1,5 +1,5 @@
 {
-  String url=URLHelper.getUser();
+  String url=URLHelper.USER_SHOW;
   Map<String,String> map=new HashMap<String,String>();
   map.put("access_token",access_token);
   map.put("uid",uid);
@@ -11,7 +11,6 @@
     value=gson.fromJson(jsonData,UserBean.class);
   }
  catch (  JsonSyntaxException e) {
-    ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage());
   }
   return value;

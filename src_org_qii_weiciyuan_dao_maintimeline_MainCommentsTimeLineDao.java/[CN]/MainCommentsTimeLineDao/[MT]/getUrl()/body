@@ -1,3 +1,3 @@
 {
-  return URLHelper.getCommentList();
+  return URLHelper.COMMENTS_TO_ME_TIMELINE;
 }

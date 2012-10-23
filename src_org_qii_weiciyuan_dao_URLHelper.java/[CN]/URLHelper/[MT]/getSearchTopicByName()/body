@@ -1,3 +1,0 @@
-{
-  return URLManager.getRealUrl("topic_search");
-}

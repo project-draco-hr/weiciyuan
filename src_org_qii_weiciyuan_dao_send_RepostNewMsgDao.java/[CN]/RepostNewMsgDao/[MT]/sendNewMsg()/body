@@ -1,5 +1,5 @@
 {
-  String url=URLHelper.new_Repost();
+  String url=URLHelper.REPOST_CREATE;
   Map<String,String> map=new HashMap<String,String>();
   map.put("access_token",access_token);
   map.put("id",id);
@@ -12,7 +12,6 @@
     value=gson.fromJson(jsonData,MessageBean.class);
   }
  catch (  JsonSyntaxException e) {
-    ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage());
   }
   return value;

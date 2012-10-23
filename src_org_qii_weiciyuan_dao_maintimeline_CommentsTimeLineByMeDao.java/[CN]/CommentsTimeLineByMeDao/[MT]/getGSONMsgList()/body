@@ -1,5 +1,5 @@
 {
-  String url=URLHelper.getCommentListByMe();
+  String url=URLHelper.COMMENTS_BY_ME_TIMELINE;
   Map<String,String> map=new HashMap<String,String>();
   map.put("access_token",access_token);
   map.put("since_id",since_id);
@@ -14,7 +14,6 @@
     value=gson.fromJson(jsonData,CommentListBean.class);
   }
  catch (  JsonSyntaxException e) {
-    ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage());
   }
   if (value != null && value.getSize() > 0) {

@@ -1,5 +1,5 @@
 {
-  String url=URLHelper.getDestroyStatus();
+  String url=URLHelper.STATUSES_DESTROY;
   Map<String,String> map=new HashMap<String,String>();
   map.put("access_token",access_token);
   map.put("id",id);
@@ -9,7 +9,6 @@
     MessageBean value=gson.fromJson(jsonData,MessageBean.class);
   }
  catch (  JsonSyntaxException e) {
-    ActivityUtils.showTips("????????????????????????");
     AppLogger.e(e.getMessage());
     return false;
   }
