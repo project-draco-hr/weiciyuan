@@ -1,5 +1,0 @@
-{
-  super.onCancelled(s);
-  progressFragment.dismissAllowingStateLoss();
-  if (e != null)   Toast.makeText(WriteWeiboActivity.this,e.getError(),Toast.LENGTH_SHORT).show();
-}

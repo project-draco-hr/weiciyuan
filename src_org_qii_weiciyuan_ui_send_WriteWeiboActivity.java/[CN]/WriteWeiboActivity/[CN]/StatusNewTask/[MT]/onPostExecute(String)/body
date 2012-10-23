@@ -1,7 +1,0 @@
-{
-  progressFragment.dismissAllowingStateLoss();
-  if (statusDraftBean != null)   DraftDBManager.getInstance().remove(statusDraftBean.getId());
-  Toast.makeText(WriteWeiboActivity.this,getString(R.string.send_successfully),Toast.LENGTH_SHORT).show();
-  finish();
-  super.onPostExecute(s);
-}

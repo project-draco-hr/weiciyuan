@@ -1,7 +1,7 @@
 {
   super.onPostExecute(aVoid);
   if (statusDraftBean != null)   DraftDBManager.getInstance().remove(statusDraftBean.getId());
-  Toast.makeText(UploadPhotoService.this,getString(R.string.send_successfully),Toast.LENGTH_SHORT).show();
+  Toast.makeText(SendWeiboService.this,getString(R.string.send_successfully),Toast.LENGTH_SHORT).show();
   stopForeground(true);
   stopSelf();
 }

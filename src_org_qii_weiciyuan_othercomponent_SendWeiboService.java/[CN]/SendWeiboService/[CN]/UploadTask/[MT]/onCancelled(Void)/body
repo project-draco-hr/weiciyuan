@@ -7,7 +7,7 @@
  else {
     DraftDBManager.getInstance().insertStatus(content,geoBean,picPath,accountId);
   }
-  Toast.makeText(UploadPhotoService.this,getString(R.string.send_failed_and_save_to_draft),Toast.LENGTH_SHORT).show();
+  Toast.makeText(SendWeiboService.this,getString(R.string.send_failed_and_save_to_draft),Toast.LENGTH_SHORT).show();
   stopForeground(true);
   stopSelf();
 }

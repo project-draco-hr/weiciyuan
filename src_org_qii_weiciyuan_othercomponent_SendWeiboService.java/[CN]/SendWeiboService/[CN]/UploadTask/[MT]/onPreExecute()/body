@@ -1,0 +1,13 @@
+{
+  super.onPreExecute();
+  Notification.Builder builder=new Notification.Builder(SendWeiboService.this).setTicker(getString(R.string.sending)).setContentTitle(getString(R.string.sending)).setContentText(content).setSmallIcon(R.drawable.upload_white);
+  if (!TextUtils.isEmpty(picPath)) {
+    builder.setProgress(0,100,false);
+  }
+ else {
+    builder.setProgress(0,100,true);
+  }
+  notification=builder.getNotification();
+  startForeground(NOTIFICATION_ID,notification);
+  Toast.makeText(SendWeiboService.this,getString(R.string.background_sending),Toast.LENGTH_SHORT).show();
+}

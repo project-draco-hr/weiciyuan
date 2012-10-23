@@ -1,0 +1,19 @@
+{
+  boolean result=false;
+  String uploadPicPath=compressPic();
+  size=new File(uploadPicPath).length();
+  try {
+    if (!TextUtils.isEmpty(picPath)) {
+      result=sendPic(uploadPicPath);
+    }
+ else {
+      result=sendText();
+    }
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+  }
+  if (!result)   cancel(true);
+  return null;
+}
