@@ -9,6 +9,7 @@
     intent.putExtra("accountId",accountBean.getUid());
     intent.putExtra("content",content);
     intent.putExtra("geo",geoBean);
+    if (statusDraftBean != null)     intent.putExtra("draft",statusDraftBean);
     startService(intent);
     finish();
   }

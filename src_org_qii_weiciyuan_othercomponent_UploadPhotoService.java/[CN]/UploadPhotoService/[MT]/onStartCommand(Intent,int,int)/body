@@ -4,6 +4,7 @@
   picPath=intent.getStringExtra("picPath");
   content=intent.getStringExtra("content");
   geoBean=(GeoBean)intent.getSerializableExtra("geo");
+  statusDraftBean=(StatusDraftBean)intent.getSerializableExtra("draft");
   if (task == null) {
     task=new UploadTask();
     task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
