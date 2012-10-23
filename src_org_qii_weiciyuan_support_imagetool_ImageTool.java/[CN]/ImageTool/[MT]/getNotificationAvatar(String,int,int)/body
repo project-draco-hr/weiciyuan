@@ -1,5 +1,5 @@
 {
-  String absoluteFilePath=FileManager.getFileAbsolutePathFromUrl(url,FileLocationMethod.avatar_large);
+  String absoluteFilePath=FileManager.getFilePathFromUrl(url,FileLocationMethod.avatar_large);
   absoluteFilePath=absoluteFilePath + ".jpg";
   Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath);
   if (bitmap == null) {

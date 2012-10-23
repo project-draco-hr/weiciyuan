@@ -1,5 +1,8 @@
 {
-  String oldRelativePath=getFileRelativePathFromUrl(url);
+  if (!isExternalStorageMounted())   return "";
+  int index=url.indexOf("//");
+  String s=url.substring(index + 2);
+  String oldRelativePath=s.substring(s.indexOf("/"));
   String newRelativePath="";
 switch (method) {
 case avatar_small:
@@ -22,6 +25,5 @@ String name=new File(oldRelativePath).getName();
 newRelativePath=File.separator + EMOTION + File.separator+ name;
 break;
 }
-String absolutePath=getFileAbsolutePathFromRelativePath(newRelativePath);
-return absolutePath;
+return getSdCardPath() + File.separator + newRelativePath;
 }

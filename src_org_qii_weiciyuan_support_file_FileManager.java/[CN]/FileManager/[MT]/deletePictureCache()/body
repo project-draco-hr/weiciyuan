@@ -1,7 +1,7 @@
 {
-  String thumbnailPath=SDCARD_PATH + File.separator + PICTURE_THUMBNAIL;
-  String middlePath=SDCARD_PATH + File.separator + PICTURE_BMIDDLE;
-  String oriPath=SDCARD_PATH + File.separator + PICTURE_LARGE;
+  String thumbnailPath=getSdCardPath() + File.separator + PICTURE_THUMBNAIL;
+  String middlePath=getSdCardPath() + File.separator + PICTURE_BMIDDLE;
+  String oriPath=getSdCardPath() + File.separator + PICTURE_LARGE;
   deleteDirectory(new File(thumbnailPath));
   deleteDirectory(new File(middlePath));
   deleteDirectory(new File(oriPath));

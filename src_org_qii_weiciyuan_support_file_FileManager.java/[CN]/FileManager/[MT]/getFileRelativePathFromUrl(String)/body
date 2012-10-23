@@ -1,6 +1,0 @@
-{
-  int index=url.indexOf("//");
-  String s=url.substring(index + 2);
-  String result=s.substring(s.indexOf("/"));
-  return result;
-}

@@ -1,0 +1,8 @@
+{
+  if (isExternalStorageMounted()) {
+    return GlobalContext.getInstance().getExternalCacheDir().getAbsolutePath();
+  }
+ else {
+    return "";
+  }
+}
