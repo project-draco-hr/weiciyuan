@@ -4,10 +4,10 @@
     boolean isDraftChanged=haveDraft && !statusDraftBean.getContent().equals(content.getText().toString());
     if (isDraftChanged) {
       DraftDBManager.getInstance().remove(statusDraftBean.getId());
-      DraftDBManager.getInstance().insertStatus(content.getText().toString(),null,null,accountBean.getUid());
+      DraftDBManager.getInstance().insertStatus(content.getText().toString(),geoBean,picPath,accountBean.getUid());
     }
  else {
-      DraftDBManager.getInstance().insertStatus(content.getText().toString(),null,null,accountBean.getUid());
+      DraftDBManager.getInstance().insertStatus(content.getText().toString(),geoBean,picPath,accountBean.getUid());
     }
   }
   finish();

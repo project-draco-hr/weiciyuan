@@ -10,5 +10,9 @@
   statusDraftBean=(StatusDraftBean)intent.getSerializableExtra("draft");
   if (statusDraftBean != null) {
     content.setText(statusDraftBean.getContent());
+    picPath=statusDraftBean.getPic();
+    geoBean=statusDraftBean.getGps();
+    if (!TextUtils.isEmpty(picPath))     havePic.setVisibility(View.VISIBLE);
+    if (geoBean != null)     new GetGoogleLocationInfo(geoBean).execute();
   }
 }

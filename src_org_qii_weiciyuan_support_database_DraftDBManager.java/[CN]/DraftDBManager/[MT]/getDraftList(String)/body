@@ -16,7 +16,10 @@ case DraftTable.TYPE_WEIBO:
   bean.setId(c.getString(c.getColumnIndex(DraftTable.ID)));
 bean.setContent(content);
 bean.setAccountId(accountId);
-bean.setGps(c.getString(c.getColumnIndex(DraftTable.GPS)));
+String gpsJson=c.getString(c.getColumnIndex(DraftTable.GPS));
+if (!TextUtils.isEmpty(gpsJson)) {
+bean.setGps(new Gson().fromJson(gpsJson,GeoBean.class));
+}
 bean.setPic(c.getString(c.getColumnIndex(DraftTable.PIC)));
 item.setStatusDraftBean(bean);
 result.add(item);
