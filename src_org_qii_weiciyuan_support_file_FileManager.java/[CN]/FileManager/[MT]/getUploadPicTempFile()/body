@@ -1,3 +1,4 @@
 {
-  return getSdCardPath() + File.separator + "upload.jpg";
+  if (!isExternalStorageMounted())   return "";
+ else   return getSdCardPath() + File.separator + "upload.jpg";
 }
