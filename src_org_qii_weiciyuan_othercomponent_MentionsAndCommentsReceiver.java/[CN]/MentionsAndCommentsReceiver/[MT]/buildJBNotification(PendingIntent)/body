@@ -30,6 +30,11 @@
       inboxStyle.addLine(m.getUser().getScreen_name() + ":" + m.getText());
     }
   }
+  if (mentionCommentsResult != null) {
+    for (    CommentBean m : mentionCommentsResult.getItemList()) {
+      inboxStyle.addLine(m.getUser().getScreen_name() + ":" + m.getText());
+    }
+  }
   builder.setStyle(inboxStyle);
   return builder.build();
 }

@@ -3,9 +3,6 @@
   if (newMsgAccountBean.getUid().equals(MainTimeLineActivity.this.accountBean.getUid())) {
     abortBroadcast();
     UnreadBean unreadBean=(UnreadBean)intent.getSerializableExtra("unread");
-    int unreadMentionsCount=unreadBean.getMention_cmt() + unreadBean.getMention_status();
-    int unreadCommentsCount=unreadBean.getCmt();
-    if (unreadMentionsCount > 0)     buildTabText(1,unreadMentionsCount);
-    if (unreadCommentsCount > 0)     buildTabText(2,unreadCommentsCount);
+    buildUnreadTabTxt(unreadBean);
   }
 }

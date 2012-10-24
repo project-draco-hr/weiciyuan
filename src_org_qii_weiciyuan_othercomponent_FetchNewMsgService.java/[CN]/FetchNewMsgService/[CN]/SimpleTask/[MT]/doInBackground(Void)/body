@@ -1,18 +1,22 @@
 {
-  String accountId=accountBean.getUid();
   String token=accountBean.getAccess_token();
   try {
     UnreadDao unreadDao=new UnreadDao(token,accountBean.getUid());
     unreadBean=unreadDao.getCount();
-    int comment=unreadBean.getCmt();
-    int mention=unreadBean.getMention_cmt() + unreadBean.getMention_status();
-    if (comment > 0) {
-      MainCommentsTimeLineDao commentDao=new MainCommentsTimeLineDao(token).setCount(String.valueOf(comment));
+    int unreadCommentCount=unreadBean.getCmt();
+    int unreadMentionStatusCount=unreadBean.getMention_status();
+    int unreadMentionCommentCount=unreadBean.getMention_cmt();
+    if (unreadCommentCount > 0) {
+      MainCommentsTimeLineDao commentDao=new MainCommentsTimeLineDao(token).setCount(String.valueOf(unreadCommentCount));
       commentResult=commentDao.getGSONMsgListWithoutClearUnread();
     }
-    if (mention > 0) {
-      MainMentionsTimeLineDao mentionDao=new MainMentionsTimeLineDao(token).setCount(String.valueOf(mention));
-      repostResult=mentionDao.getGSONMsgListWithoutClearUnread();
+    if (unreadMentionStatusCount > 0) {
+      MainMentionsTimeLineDao mentionDao=new MainMentionsTimeLineDao(token).setCount(String.valueOf(unreadMentionStatusCount));
+      mentionStatusesResult=mentionDao.getGSONMsgListWithoutClearUnread();
+    }
+    if (unreadMentionCommentCount > 0) {
+      MainCommentsTimeLineDao dao=new MentionsCommentTimeLineDao(token).setCount(String.valueOf(unreadMentionCommentCount));
+      mentionCommentsResult=dao.getGSONMsgListWithoutClearUnread();
     }
   }
  catch (  WeiboException e) {
