@@ -1,0 +1,4 @@
+{
+  super.onDestroy();
+  getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+}

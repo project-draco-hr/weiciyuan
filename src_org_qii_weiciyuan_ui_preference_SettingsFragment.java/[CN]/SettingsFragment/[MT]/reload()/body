@@ -1,8 +1,0 @@
-{
-  Intent intent=getActivity().getIntent();
-  getActivity().overridePendingTransition(0,0);
-  getActivity().finish();
-  getActivity().overridePendingTransition(0,0);
-  startActivity(intent);
-  getActivity().overridePendingTransition(R.anim.stay,R.anim.alphaout);
-}

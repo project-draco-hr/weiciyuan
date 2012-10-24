@@ -1,0 +1,7 @@
+{
+  super.onCreate(savedInstanceState);
+  addPreferencesFromResource(R.xml.notification_pref);
+  getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+  frequency=findPreference(SettingActivity.FREQUENCY);
+  buildSummary();
+}

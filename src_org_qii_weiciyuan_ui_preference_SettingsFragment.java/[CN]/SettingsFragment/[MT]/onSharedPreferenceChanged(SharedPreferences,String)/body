@@ -1,18 +1,4 @@
 {
-  if (key.equals(SettingActivity.ENABLE_FETCH_MSG)) {
-    boolean value=sharedPreferences.getBoolean(key,false);
-    buildSummary();
-    if (value) {
-      AppNewMsgAlarm.startAlarm(getActivity(),false);
-    }
- else {
-      AppNewMsgAlarm.stopAlarm(getActivity(),true);
-    }
-  }
-  if (key.equals(SettingActivity.FREQUENCY)) {
-    AppNewMsgAlarm.startAlarm(getActivity(),false);
-    buildSummary();
-  }
   if (key.equals(SettingActivity.FONT_SIZE)) {
     String value=sharedPreferences.getString(key,"15");
     GlobalContext.getInstance().setFontSize(Integer.valueOf(value));
