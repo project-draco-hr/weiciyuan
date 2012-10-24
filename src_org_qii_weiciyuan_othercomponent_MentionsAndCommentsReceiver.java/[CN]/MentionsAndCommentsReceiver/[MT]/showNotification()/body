@@ -4,11 +4,14 @@
   i.putExtra("comment",comment);
   i.putExtra("repost",repost);
   i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-  PendingIntent activity=PendingIntent.getActivity(context,Long.valueOf(accountBean.getUid()).intValue(),i,PendingIntent.FLAG_UPDATE_CURRENT);
+  PendingIntent pendingIntent=PendingIntent.getActivity(context,Long.valueOf(accountBean.getUid()).intValue(),i,PendingIntent.FLAG_UPDATE_CURRENT);
   NotificationManager notificationManager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-  Notification.Builder notification=new Notification.Builder(context).setTicker(ticker).setContentTitle(title).setContentText(content).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(activity);
-  if (sum > 1) {
-    notification.setNumber(sum);
+  Notification notification;
+  if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+    notification=buildICSNotification(pendingIntent);
   }
-  notificationManager.notify(Long.valueOf(accountBean.getUid()).intValue(),notification.getNotification());
+ else {
+    notification=buildJBNotification(pendingIntent);
+  }
+  notificationManager.notify(Long.valueOf(accountBean.getUid()).intValue(),notification);
 }

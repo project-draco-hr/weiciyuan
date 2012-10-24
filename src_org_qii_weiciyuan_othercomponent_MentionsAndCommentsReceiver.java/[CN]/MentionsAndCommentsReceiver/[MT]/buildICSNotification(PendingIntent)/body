@@ -1,0 +1,7 @@
+{
+  Notification.Builder builder=new Notification.Builder(context).setTicker(ticker).setContentTitle(title).setContentText(content).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(pendingIntent);
+  if (sum > 1) {
+    builder.setNumber(sum);
+  }
+  return builder.getNotification();
+}
