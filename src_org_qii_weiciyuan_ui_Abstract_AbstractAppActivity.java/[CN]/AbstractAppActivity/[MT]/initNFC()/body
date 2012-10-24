@@ -1,0 +1,14 @@
+{
+  NfcAdapter mNfcAdapter=NfcAdapter.getDefaultAdapter(this);
+  if (mNfcAdapter == null) {
+    return;
+  }
+  mNfcAdapter.setNdefPushMessageCallback(new NfcAdapter.CreateNdefMessageCallback(){
+    @Override public NdefMessage createNdefMessage(    NfcEvent event){
+      String text=(GlobalContext.getInstance().getCurrentAccountName());
+      NdefMessage msg=new NdefMessage(new NdefRecord[]{createMimeRecord("application/org.qii.weiciyuan.beam",text.getBytes()),NdefRecord.createApplicationRecord(getPackageName())});
+      return msg;
+    }
+  }
+,this);
+}

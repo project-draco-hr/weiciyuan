@@ -1,0 +1,7 @@
+{
+  Parcelable[] rawMsgs=intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
+  NdefMessage msg=(NdefMessage)rawMsgs[0];
+  Toast.makeText(this,new String(msg.getRecords()[0].getPayload()),Toast.LENGTH_SHORT).show();
+  bean=new UserBean();
+  bean.setScreen_name(new String(msg.getRecords()[0].getPayload()));
+}
