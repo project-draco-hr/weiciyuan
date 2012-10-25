@@ -1,4 +1,5 @@
 {
+  pullToRefreshListView.setVisibility(View.VISIBLE);
   getAdapter().notifyDataSetChanged();
   refreshLayout(bean);
   super.onPostExecute(o);

@@ -1,4 +1,5 @@
 {
+  pullToRefreshListView.setVisibility(View.VISIBLE);
   timeLineAdapter.notifyDataSetChanged();
   refreshLayout(bean);
   super.onPostExecute(o);
