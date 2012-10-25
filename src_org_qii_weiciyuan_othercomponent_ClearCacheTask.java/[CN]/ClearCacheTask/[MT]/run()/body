@@ -1,0 +1,8 @@
+{
+  AppLogger.d("clear cache task start");
+  List<String> pathList=FileManager.getCachePath();
+  for (  String path : pathList) {
+    if (!TextUtils.isEmpty(path))     handleDir(new File(path));
+  }
+  AppLogger.d("clear cache task stop");
+}

@@ -1,0 +1,8 @@
+{
+  long time=file.lastModified();
+  long calcMills=now - time;
+  long day=TimeUnit.MILLISECONDS.toDays(calcMills);
+  if (day > AppConfig.SAVED_DAYS) {
+    file.delete();
+  }
+}

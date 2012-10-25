@@ -1,6 +1,7 @@
 {
   super.onNewIntent(intent);
   AccountBean newAccountBean=(AccountBean)intent.getSerializableExtra("account");
+  AppLogger.e("0");
   if (newAccountBean == null) {
     return;
   }
@@ -9,8 +10,10 @@
     token=newAccountBean.getAccess_token();
     GlobalContext.getInstance().setSpecialToken(token);
     buildTabTitle(intent);
+    AppLogger.e("5");
   }
  else {
+    AppLogger.e("4");
     overridePendingTransition(0,0);
     finish();
     overridePendingTransition(0,0);

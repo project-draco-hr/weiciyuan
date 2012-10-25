@@ -1,0 +1,13 @@
+{
+  File[] fileArray=file.listFiles();
+  if (fileArray != null && fileArray.length != 0) {
+    for (    File fileSI : fileArray) {
+      if (fileSI.isDirectory()) {
+        handleDir(fileSI);
+      }
+      if (fileSI.isFile()) {
+        handleFile(fileSI);
+      }
+    }
+  }
+}

@@ -2,10 +2,12 @@
   super.onCreate(savedInstanceState);
   if (savedInstanceState != null) {
     accountBean=(AccountBean)savedInstanceState.getSerializable("account");
+    AppLogger.e("1");
   }
  else {
     Intent intent=getIntent();
     accountBean=(AccountBean)intent.getSerializableExtra("account");
+    AppLogger.e("2");
   }
   token=accountBean.getAccess_token();
   GlobalContext.getInstance().setSpecialToken(token);
@@ -16,4 +18,5 @@
   editor.commit();
   setContentView(R.layout.maintimelineactivity_viewpager_layout);
   buildPhoneInterface();
+  new Thread(new ClearCacheTask()).start();
 }
