@@ -1,8 +1,15 @@
 {
   AppLogger.d("clear cache task start");
-  List<String> pathList=FileManager.getCachePath();
-  for (  String path : pathList) {
-    if (!TextUtils.isEmpty(path))     handleDir(new File(path));
+  ConnectivityManager cm=(ConnectivityManager)GlobalContext.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
+  NetworkInfo networkInfo=cm.getActiveNetworkInfo();
+  if (networkInfo != null && networkInfo.isConnected() && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+    List<String> pathList=FileManager.getCachePath();
+    for (    String path : pathList) {
+      if (!TextUtils.isEmpty(path))       handleDir(new File(path));
+    }
+    AppLogger.d("clear cache task stop");
   }
-  AppLogger.d("clear cache task stop");
+ else {
+    AppLogger.d("this device dont have wifi network, clear cache task stop");
+  }
 }
