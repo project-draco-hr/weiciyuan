@@ -1,5 +1,5 @@
 {
-  Notification.Builder builder=new Notification.Builder(context).setTicker(ticker).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(pendingIntent);
+  Notification.Builder builder=new Notification.Builder(context).setTicker(ticker).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.notification).setAutoCancel(true).setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)).setContentIntent(pendingIntent);
   int mentionCmt=unreadBean.getMention_cmt();
   int mentionStatus=unreadBean.getMention_status();
   int mention=mentionStatus + mentionCmt;
