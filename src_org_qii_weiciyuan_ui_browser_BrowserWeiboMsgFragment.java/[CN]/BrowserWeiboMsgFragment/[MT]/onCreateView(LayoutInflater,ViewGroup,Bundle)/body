@@ -39,7 +39,7 @@
   repost_pic.setOnClickListener(picOnClickListener);
   recontent.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      if (recontent.getSelectionStart() == -1 && recontent.getSelectionEnd() == -1) {
+      if (recontent.getSelectionStart() == -1 && recontent.getSelectionEnd() == -1 && msg.getRetweeted_status().getUser() != null) {
         Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
         intent.putExtra("token",((IToken)getActivity()).getToken());
         intent.putExtra("msg",msg.getRetweeted_status());
