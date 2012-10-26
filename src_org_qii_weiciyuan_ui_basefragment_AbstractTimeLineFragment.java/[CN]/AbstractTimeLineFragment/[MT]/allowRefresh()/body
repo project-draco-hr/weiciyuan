@@ -1,0 +1,3 @@
+{
+  return (newTask == null || newTask.getStatus() == MyAsyncTask.Status.FINISHED) && pullToRefreshListView.getVisibility() == View.VISIBLE;
+}

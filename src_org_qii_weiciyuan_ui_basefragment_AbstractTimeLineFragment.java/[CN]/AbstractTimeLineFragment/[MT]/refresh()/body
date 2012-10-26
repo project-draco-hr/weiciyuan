@@ -1,5 +1,5 @@
 {
-  if (newTask == null || newTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+  if (allowRefresh()) {
     newTask=new TimeLineGetNewMsgListTask();
     newTask.execute();
     Map<String,AvatarBitmapWorkerTask> avatarBitmapWorkerTaskHashMap=((AbstractAppActivity)getActivity()).getAvatarBitmapWorkerTaskHashMap();
