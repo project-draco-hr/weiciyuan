@@ -4,4 +4,11 @@
   mViewPager.setOffscreenPageLimit(3);
   mViewPager.setAdapter(adapter);
   mViewPager.setOnPageChangeListener(onPageChangeListener);
+  gestureDetector=new GestureDetector(BrowserWeiboMsgActivity.this,new MyOnGestureListener());
+  mViewPager.setOnTouchListener(new View.OnTouchListener(){
+    @Override public boolean onTouch(    View v,    MotionEvent event){
+      return gestureDetector.onTouchEvent(event);
+    }
+  }
+);
 }
