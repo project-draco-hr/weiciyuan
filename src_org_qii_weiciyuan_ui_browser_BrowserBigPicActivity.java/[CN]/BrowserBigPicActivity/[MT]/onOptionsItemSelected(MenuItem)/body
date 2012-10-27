@@ -30,6 +30,16 @@ mShareActionProvider.setShareIntent(sharingIntent);
 }
 }
 break;
+case R.id.menu_download:
+if (task != null) {
+task.cancel(true);
+}
+if (!TextUtils.isEmpty(path)) {
+new File(path).delete();
+}
+task=new PicSimpleBitmapWorkerTask();
+task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+break;
 }
 return super.onOptionsItemSelected(item);
 }

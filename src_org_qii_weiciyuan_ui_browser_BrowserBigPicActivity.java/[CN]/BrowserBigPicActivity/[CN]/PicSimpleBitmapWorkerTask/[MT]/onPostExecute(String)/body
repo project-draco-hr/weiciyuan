@@ -1,10 +1,11 @@
 {
   if (!TextUtils.isEmpty(bitmap)) {
     path=bitmap;
-    pb.setVisibility(View.GONE);
+    pb.setVisibility(View.INVISIBLE);
     File file=new File(bitmap);
     AppLogger.e(file.getParent());
     AppLogger.e(file.getName());
+    webView.setVisibility(View.VISIBLE);
     webView.loadDataWithBaseURL("file://" + file.getParent() + "/","<html style=\"BACKGROUND-COLOR: transparent\"><center><img src=\"" + file.getName() + "\"></BODY></html>","text/html","utf-8","");
     final BitmapFactory.Options options=new BitmapFactory.Options();
     options.inJustDecodeBounds=true;
