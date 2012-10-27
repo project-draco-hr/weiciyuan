@@ -9,6 +9,7 @@
     accountBean=(AccountBean)intent.getSerializableExtra("account");
     AppLogger.e("2");
   }
+  if (accountBean == null)   accountBean=GlobalContext.getInstance().getAccountBean();
   token=accountBean.getAccess_token();
   GlobalContext.getInstance().setSpecialToken(token);
   GlobalContext.getInstance().setAccountBean(accountBean);
