@@ -1,5 +1,5 @@
 {
-  if (pb != null)   pb.setVisibility(View.GONE);
+  if (pb != null)   pb.setVisibility(View.INVISIBLE);
   if (bitmap != null) {
     view.setVisibility(View.VISIBLE);
     view.setImageBitmap(bitmap);
