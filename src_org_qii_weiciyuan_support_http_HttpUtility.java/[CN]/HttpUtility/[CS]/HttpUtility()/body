@@ -17,7 +17,7 @@
   backend.setHttpRequestRetryHandler(myRetryHandler);
   CacheConfig cacheConfig=new CacheConfig();
   cacheConfig.setMaxCacheEntries(1000);
-  cacheConfig.setMaxObjectSizeBytes(8192);
+  cacheConfig.setMaxObjectSize(8192);
   httpClient=new CachingHttpClient(new DecompressingHttpClient(backend),cacheConfig);
   HttpConnectionParams.setConnectionTimeout(httpClient.getParams(),5000);
   HttpConnectionParams.setSoTimeout(httpClient.getParams(),8000);
