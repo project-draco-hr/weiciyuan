@@ -6,7 +6,7 @@
   }
 ;
   if (!isCancelled()) {
-    return ImageTool.getLargePictureWithoutRoundedCorner(url,downloadListener);
+    return ImageTool.getLargePictureWithoutRoundedCorner(downloadUrl,downloadListener);
   }
   return null;
 }

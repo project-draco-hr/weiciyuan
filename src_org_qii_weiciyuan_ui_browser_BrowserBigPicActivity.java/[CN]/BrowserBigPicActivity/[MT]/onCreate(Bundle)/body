@@ -5,19 +5,19 @@
   actionBar.setDisplayHomeAsUpEnabled(true);
   actionBar.setTitle(R.string.browser_picture);
   pb=(ProgressBar)findViewById(R.id.pb);
-  fl=(FrameLayout)findViewById(R.id.fl);
   webView=(WebView)findViewById(R.id.iv);
-  webView.getSettings().setSupportZoom(true);
-  webView.getSettings().setBuiltInZoomControls(true);
-  webView.getSettings().setDisplayZoomControls(false);
   webView.setBackgroundColor(getResources().getColor(R.color.transparent));
+  webView.getSettings().setJavaScriptEnabled(true);
   webView.getSettings().setUseWideViewPort(true);
   webView.getSettings().setLoadWithOverviewMode(true);
-  webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
-  webView.setScrollbarFadingEnabled(false);
+  webView.getSettings().setBuiltInZoomControls(true);
+  webView.getSettings().setDisplayZoomControls(false);
+  webView.setVerticalScrollBarEnabled(false);
+  webView.setHorizontalScrollBarEnabled(false);
   url=getIntent().getStringExtra("url");
+  oriUrl=getIntent().getStringExtra("oriUrl");
   if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
-    task=new PicSimpleBitmapWorkerTask();
+    task=new PicSimpleBitmapWorkerTask(url);
     task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }
 }

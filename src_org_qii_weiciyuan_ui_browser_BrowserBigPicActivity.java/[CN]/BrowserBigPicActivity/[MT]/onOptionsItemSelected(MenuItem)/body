@@ -5,6 +5,15 @@ case android.R.id.home:
   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
 return true;
+case R.id.menu_switch:
+if (task != null) {
+task.cancel(true);
+}
+task=new PicSimpleBitmapWorkerTask(oriUrl);
+task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+oriMenu.setVisible(false);
+getActionBar().setSubtitle(null);
+break;
 case R.id.menu_save:
 if (task != null && task.getStatus() == MyAsyncTask.Status.FINISHED) {
 if (saveTask == null) {
@@ -37,7 +46,12 @@ task.cancel(true);
 if (!TextUtils.isEmpty(path)) {
 new File(path).delete();
 }
-task=new PicSimpleBitmapWorkerTask();
+if (oriMenu.isVisible()) {
+task=new PicSimpleBitmapWorkerTask(url);
+}
+ else {
+task=new PicSimpleBitmapWorkerTask(oriUrl);
+}
 task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 break;
 }

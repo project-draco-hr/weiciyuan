@@ -2,5 +2,6 @@
   getMenuInflater().inflate(R.menu.actionbar_menu_browserbigpicactivity,menu);
   MenuItem item=menu.findItem(R.id.menu_share);
   mShareActionProvider=(ShareActionProvider)item.getActionProvider();
+  oriMenu=menu.findItem(R.id.menu_switch);
   return super.onCreateOptionsMenu(menu);
 }
