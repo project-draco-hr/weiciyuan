@@ -1,7 +1,0 @@
-{
-  super.onDetach();
-  imageView.loadUrl("about:blank");
-  imageView.stopLoading();
-  imageView=null;
-  if (picTask != null)   picTask.cancel(true);
-}

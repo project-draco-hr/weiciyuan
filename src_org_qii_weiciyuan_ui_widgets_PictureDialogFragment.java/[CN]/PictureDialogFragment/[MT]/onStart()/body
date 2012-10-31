@@ -1,5 +1,0 @@
-{
-  super.onStart();
-  picTask=new PicSimpleBitmapWorkerTask();
-  picTask.execute(url);
-}
