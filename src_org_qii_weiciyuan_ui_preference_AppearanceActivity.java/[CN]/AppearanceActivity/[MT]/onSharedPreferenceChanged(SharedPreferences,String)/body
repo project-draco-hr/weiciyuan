@@ -1,10 +1,12 @@
 {
   if (key.equals(SettingActivity.THEME)) {
-    String value=sharedPreferences.getString(key,"2");
-    if (value.equals("1"))     GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Black);
-    if (value.equals("2"))     GlobalContext.getInstance().setAppTheme(R.style.AppTheme_White);
-    if (value.equals("3"))     GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Pure_Black);
-    if (value.equals("4"))     GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Black_White);
+    String value=sharedPreferences.getString(key,"1");
+    if (value.equals("2")) {
+      GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Pure_Black);
+    }
+ else {
+      GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Black_White);
+    }
     Intent intent=new Intent(this,AppearanceActivity.class);
     finish();
     overridePendingTransition(0,0);
