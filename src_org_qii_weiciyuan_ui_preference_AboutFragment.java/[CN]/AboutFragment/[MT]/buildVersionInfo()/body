@@ -12,6 +12,9 @@
     version=packInfo.versionName;
   }
   if (!TextUtils.isEmpty(version)) {
-    findPreference(SettingActivity.VERSION).setSummary(version);
+    return version;
+  }
+ else {
+    return "";
   }
 }

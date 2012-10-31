@@ -13,17 +13,5 @@
       }
     }
   }
-  String version="";
-  PackageManager packageManager=getActivity().getPackageManager();
-  PackageInfo packInfo=null;
-  try {
-    packInfo=packageManager.getPackageInfo(getActivity().getPackageName(),0);
-  }
- catch (  PackageManager.NameNotFoundException e) {
-    AppLogger.e(e.getMessage());
-  }
-  if (packInfo != null) {
-    version=packInfo.versionName;
-  }
-  return "@?????????App #?????????App??????# " + android.os.Build.MANUFACTURER + " "+ android.os.Build.MODEL+ ",Android "+ android.os.Build.VERSION.RELEASE+ ","+ network+ " version:"+ version;
+  return "@?????????App #?????????App??????# " + android.os.Build.MANUFACTURER + " "+ android.os.Build.MODEL+ ",Android "+ android.os.Build.VERSION.RELEASE+ ","+ network+ " version:"+ buildVersionInfo();
 }

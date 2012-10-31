@@ -25,5 +25,5 @@
     }
   }
 );
-  buildVersionInfo();
+  findPreference(SettingActivity.VERSION).setSummary(buildVersionInfo());
 }
