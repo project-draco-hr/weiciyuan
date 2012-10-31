@@ -2,7 +2,7 @@
   ActionBar actionBar=getActionBar();
   actionBar.setDisplayHomeAsUpEnabled(true);
   actionBar.setTitle(R.string.write_weibo);
-  View title=getLayoutInflater().inflate(R.layout.statusnewactivity_title_layout,null);
+  View title=getLayoutInflater().inflate(R.layout.writeweiboactivity_title_layout,null);
   TextView contentNumber=(TextView)title.findViewById(R.id.content_number);
   contentNumber.setVisibility(View.GONE);
   haveGPS=(ImageView)title.findViewById(R.id.have_gps);

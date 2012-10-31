@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
-  setContentView(R.layout.statusnewactivity_layout);
+  setContentView(R.layout.writeweiboactivity_layout);
   initLayout();
   Intent intent=getIntent();
   String action=intent.getAction();

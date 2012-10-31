@@ -17,7 +17,7 @@
   SharedPreferences.Editor editor=sharedPref.edit();
   editor.putString("id",accountBean.getUid());
   editor.commit();
-  setContentView(R.layout.maintimelineactivity_viewpager_layout);
+  setContentView(R.layout.viewpager_layout);
   buildPhoneInterface();
   new Thread(new ClearCacheTask()).start();
 }

@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
-  setContentView(R.layout.repostnewactivity_layout);
+  setContentView(R.layout.abstractwriteactivity_layout);
   getActionBar().setDisplayShowCustomEnabled(true);
   getActionBar().setDisplayHomeAsUpEnabled(true);
   token=getIntent().getStringExtra("token");
