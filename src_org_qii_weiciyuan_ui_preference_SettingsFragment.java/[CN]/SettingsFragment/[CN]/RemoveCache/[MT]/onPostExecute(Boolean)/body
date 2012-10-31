@@ -1,7 +1,0 @@
-{
-  if (getActivity() == null)   return;
-  if (calcTask == null || calcTask.getStatus() == Status.FINISHED) {
-    calcTask=new CalcCacheSize();
-    calcTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
-}

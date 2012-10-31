@@ -1,3 +1,0 @@
-{
-  clear_cache.setSummary(getString(R.string.clear_avatar_and_pic) + "(" + s+ ")");
-}
