@@ -1,9 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  setContentView(R.layout.maintimelineactivity_viewpager_layout);
-  token=getIntent().getStringExtra("token");
-  id=getIntent().getStringExtra("id");
-  msg=(MessageBean)getIntent().getSerializableExtra("msg");
-  buildViewPager();
-  buildActionBarAndViewPagerTitles();
-}
