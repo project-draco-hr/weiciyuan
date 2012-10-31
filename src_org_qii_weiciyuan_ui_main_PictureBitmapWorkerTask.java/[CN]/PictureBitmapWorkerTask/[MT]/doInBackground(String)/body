@@ -9,7 +9,7 @@ case picture_bmiddle:
 display.getMetrics(metrics);
 float reSize=activity.getResources().getDisplayMetrics().density;
 int height=activity.getResources().getDimensionPixelSize(R.dimen.timeline_big_avatar_height);
-int width=(int)(metrics.widthPixels - (16 + 5 + 40+ 5) * reSize);
+int width=(int)(metrics.widthPixels - (8 + 8) * reSize);
 return ImageTool.getMiddlePictureInTimeLine(data,width,height,null);
 }
 }
