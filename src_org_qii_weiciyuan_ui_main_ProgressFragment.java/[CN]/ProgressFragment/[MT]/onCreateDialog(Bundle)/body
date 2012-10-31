@@ -1,7 +1,0 @@
-{
-  ProgressDialog dialog=new ProgressDialog(getActivity());
-  dialog.setMessage("?????????");
-  dialog.setIndeterminate(false);
-  dialog.setCancelable(true);
-  return dialog;
-}
