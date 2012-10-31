@@ -25,29 +25,5 @@
     }
   }
 );
-  findPreference(SettingActivity.AUTHOR).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
-      Toast.makeText(getActivity(),"??????????????????",Toast.LENGTH_SHORT).show();
-      if (mp != null) {
-        mp.stop();
-      }
-      mp=MediaPlayer.create(getActivity(),R.raw.star);
-      mp.start();
-      return true;
-    }
-  }
-);
-  String version="";
-  PackageManager packageManager=getActivity().getPackageManager();
-  PackageInfo packInfo=null;
-  try {
-    packInfo=packageManager.getPackageInfo(getActivity().getPackageName(),0);
-  }
- catch (  PackageManager.NameNotFoundException e) {
-    AppLogger.e(e.getMessage());
-  }
-  if (packInfo != null) {
-    version=packInfo.versionName;
-  }
-  if (!TextUtils.isEmpty(version))   findPreference(SettingActivity.VERSION).setSummary(version);
+  buildVersionInfo();
 }

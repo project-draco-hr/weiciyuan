@@ -1,0 +1,17 @@
+{
+  String version="";
+  PackageManager packageManager=getActivity().getPackageManager();
+  PackageInfo packInfo=null;
+  try {
+    packInfo=packageManager.getPackageInfo(getActivity().getPackageName(),0);
+  }
+ catch (  PackageManager.NameNotFoundException e) {
+    AppLogger.e(e.getMessage());
+  }
+  if (packInfo != null) {
+    version=packInfo.versionName;
+  }
+  if (!TextUtils.isEmpty(version)) {
+    findPreference(SettingActivity.VERSION).setSummary(version);
+  }
+}

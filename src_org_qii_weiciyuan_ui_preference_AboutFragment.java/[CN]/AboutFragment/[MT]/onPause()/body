@@ -1,4 +1,0 @@
-{
-  super.onPause();
-  if (mp != null)   mp.stop();
-}
