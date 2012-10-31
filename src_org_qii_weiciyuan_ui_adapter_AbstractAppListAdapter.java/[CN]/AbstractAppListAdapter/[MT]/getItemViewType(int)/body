@@ -4,6 +4,7 @@
   boolean myselfBigPic=myself && GlobalContext.getInstance().getEnableBigPic();
   boolean normal=!myself;
   boolean normalBigPic=normal && GlobalContext.getInstance().getEnableBigPic();
+  if (!showOriStatus)   return TYPE_SIMPLE;
   if (myselfBigPic)   return TYPE_MYSELF_BIG_PIC;
   if (normalBigPic)   return TYPE_NORMAL_BIG_PIC;
   if (myself)   return TYPE_MYSELF;

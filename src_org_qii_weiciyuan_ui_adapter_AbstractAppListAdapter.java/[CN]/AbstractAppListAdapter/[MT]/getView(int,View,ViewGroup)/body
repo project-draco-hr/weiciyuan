@@ -2,11 +2,14 @@
   ViewHolder holder=null;
   if (convertView == null || convertView.getTag() == null) {
 switch (getItemViewType(position)) {
-case TYPE_MIDDLE:
-      convertView=initMiddleLayout(parent);
+case TYPE_SIMPLE:
+      convertView=initSimpleLayout(parent);
     break;
+case TYPE_MIDDLE:
+  convertView=initMiddleLayout(parent);
+break;
 case TYPE_MYSELF:
-  convertView=initMylayout(parent);
+convertView=initMylayout(parent);
 break;
 case TYPE_MYSELF_BIG_PIC:
 convertView=initMylayout(parent);
