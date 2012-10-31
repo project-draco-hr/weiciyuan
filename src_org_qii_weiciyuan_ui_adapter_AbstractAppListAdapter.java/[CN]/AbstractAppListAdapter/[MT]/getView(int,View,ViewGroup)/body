@@ -30,6 +30,7 @@ convertView.setTag(holder);
 holder=(ViewHolder)convertView.getTag();
 }
 if (getItemViewType(position) != TYPE_MIDDLE) {
+configViewFont(holder);
 bindViewData(holder,position);
 }
 return convertView;

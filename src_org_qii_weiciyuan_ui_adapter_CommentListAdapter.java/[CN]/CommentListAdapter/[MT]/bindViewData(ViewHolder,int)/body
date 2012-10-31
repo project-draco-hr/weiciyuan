@@ -11,17 +11,14 @@
  else {
       holder.username.setText(user.getScreen_name());
     }
-    holder.username.setTextSize(GlobalContext.getInstance().getFontSize());
     buildAvatar(holder.avatar,position,user);
   }
  else {
     holder.username.setVisibility(View.INVISIBLE);
     holder.avatar.setVisibility(View.INVISIBLE);
   }
-  holder.content.setTextSize(GlobalContext.getInstance().getFontSize());
   holder.content.setText(comment.getListViewSpannableString());
   String time=comment.getListviewItemShowTime();
-  holder.time.setTextSize(GlobalContext.getInstance().getFontSize());
   if (!holder.time.getText().toString().equals(time)) {
     holder.time.setText(time);
   }
@@ -34,7 +31,6 @@
     holder.repost_flag.setVisibility(View.VISIBLE);
     holder.repost_content.setVisibility(View.VISIBLE);
     holder.repost_flag.setImageDrawable(replyPic);
-    holder.repost_content.setTextSize(GlobalContext.getInstance().getFontSize());
     holder.repost_content.setText(reply.getListViewReplySpannableString());
   }
  else {

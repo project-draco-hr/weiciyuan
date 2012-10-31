@@ -1,0 +1,6 @@
+{
+  holder.time.setTextSize(GlobalContext.getInstance().getFontSize() - 3);
+  holder.content.setTextSize(GlobalContext.getInstance().getFontSize());
+  holder.username.setTextSize(GlobalContext.getInstance().getFontSize());
+  holder.repost_content.setTextSize(GlobalContext.getInstance().getFontSize());
+}

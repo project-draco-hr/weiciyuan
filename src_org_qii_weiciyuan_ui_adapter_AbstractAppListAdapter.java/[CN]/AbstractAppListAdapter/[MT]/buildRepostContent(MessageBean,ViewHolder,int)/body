@@ -1,6 +1,5 @@
 {
   holder.repost_content.setVisibility(View.VISIBLE);
-  holder.repost_content.setTextSize(GlobalContext.getInstance().getFontSize());
   holder.repost_content.setText(repost_msg.getListViewSpannableString());
   if (!TextUtils.isEmpty(repost_msg.getBmiddle_pic())) {
     buildPic(repost_msg,holder.repost_content_pic,position);
