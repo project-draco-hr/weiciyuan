@@ -1,5 +1,5 @@
 {
   super.onCreate(savedInstanceState);
-  addPreferencesFromResource(R.xml.control);
+  addPreferencesFromResource(R.xml.control_pref);
   PreferenceManager.getDefaultSharedPreferences(getActivity()).registerOnSharedPreferenceChangeListener(this);
 }
