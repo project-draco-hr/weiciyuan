@@ -1,6 +1,5 @@
 {
   super.onCreate(savedInstanceState);
   addPreferencesFromResource(R.xml.control);
-  upload_pic_quality=findPreference(SettingActivity.UPLOAD_PIC_QUALITY);
   PreferenceManager.getDefaultSharedPreferences(getActivity()).registerOnSharedPreferenceChangeListener(this);
 }
