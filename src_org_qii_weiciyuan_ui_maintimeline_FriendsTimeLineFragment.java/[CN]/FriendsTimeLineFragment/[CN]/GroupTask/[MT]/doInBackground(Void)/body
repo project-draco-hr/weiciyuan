@@ -1,6 +1,6 @@
 {
   try {
-    return new FriendGroupDao("2.00vv3LGCpftsPE93a8e2f0e915h68D").getGroup();
+    return new FriendGroupDao(token).getGroup();
   }
  catch (  WeiboException e) {
     this.e=e;

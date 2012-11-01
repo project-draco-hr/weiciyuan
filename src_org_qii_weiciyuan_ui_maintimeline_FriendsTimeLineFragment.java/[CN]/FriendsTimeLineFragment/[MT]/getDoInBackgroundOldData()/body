@@ -7,7 +7,7 @@
     dao=new MainFriendsTimeLineDao(token);
   }
  else {
-    dao=new FriendGroupTimeLineDao("2.00vv3LGCpftsPE93a8e2f0e915h68D",selectedId);
+    dao=new FriendGroupTimeLineDao(token,selectedId);
   }
   if (getList().getItemList().size() > 0) {
     dao.setMax_id(getList().getItemList().get(getList().getItemList().size() - 1).getId());
