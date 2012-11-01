@@ -6,7 +6,12 @@
   }
 ;
   if (!isCancelled()) {
-    return ImageTool.getLargePictureWithoutRoundedCorner(downloadUrl,downloadListener);
+    if (downloadUrl.equals(url)) {
+      return ImageTool.getLargePictureWithoutRoundedCorner(downloadUrl,downloadListener,FileLocationMethod.picture_bmiddle);
+    }
+ else     if (downloadUrl.equals(oriUrl)) {
+      return ImageTool.getLargePictureWithoutRoundedCorner(downloadUrl,downloadListener,FileLocationMethod.picture_large);
+    }
   }
   return null;
 }

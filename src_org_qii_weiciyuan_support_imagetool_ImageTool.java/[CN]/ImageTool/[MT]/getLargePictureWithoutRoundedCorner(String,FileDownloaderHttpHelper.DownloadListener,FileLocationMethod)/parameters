@@ -1,2 +1,3 @@
 String url
 FileDownloaderHttpHelper.DownloadListener downloadListener
+FileLocationMethod fileLocationMethod

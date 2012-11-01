@@ -1,5 +1,5 @@
 {
-  String absoluteFilePath=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_large);
+  String absoluteFilePath=FileManager.getFilePathFromUrl(url,fileLocationMethod);
   File file=new File(absoluteFilePath);
   if (file.exists()) {
     return absoluteFilePath;
