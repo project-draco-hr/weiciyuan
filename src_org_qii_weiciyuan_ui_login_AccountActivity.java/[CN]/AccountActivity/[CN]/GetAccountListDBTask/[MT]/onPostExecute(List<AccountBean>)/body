@@ -1,4 +1,7 @@
 {
   accountList=accounts;
   listAdapter.notifyDataSetChanged();
+  if (accountList == null || accountList.size() == 0) {
+    addAccount();
+  }
 }
