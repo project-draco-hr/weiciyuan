@@ -5,6 +5,9 @@
   if (selectedId.equals("0")) {
     name.setTitle(userBean.getScreen_name());
   }
+  if (selectedId.equals("1")) {
+    name.setTitle(getString(R.string.bilateral));
+  }
  else {
     for (    GroupBean b : group.getLists()) {
       if (b.getIdstr().equals(selectedId)) {

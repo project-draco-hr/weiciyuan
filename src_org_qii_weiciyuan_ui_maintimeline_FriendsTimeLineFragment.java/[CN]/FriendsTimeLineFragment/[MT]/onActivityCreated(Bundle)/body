@@ -16,6 +16,7 @@
       dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
     hashMap.put("0",new MessageListBean());
+    hashMap.put("1",new MessageListBean());
   }
   super.onActivityCreated(savedInstanceState);
   new GroupTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
