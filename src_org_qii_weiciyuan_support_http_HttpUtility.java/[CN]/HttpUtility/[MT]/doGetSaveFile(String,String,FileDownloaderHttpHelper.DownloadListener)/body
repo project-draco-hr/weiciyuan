@@ -18,5 +18,8 @@
     AppLogger.e(ignored.getMessage());
     httpGet.abort();
   }
+ finally {
+    httpGet.releaseConnection();
+  }
   return false;
 }

@@ -22,9 +22,13 @@
   httpPost.setEntity(entity);
   HttpResponse response=getHttpResponse(httpPost,null);
   if (response != null) {
-    return handleResponse(response);
+    String result=handleResponse(response);
+    httpPost.releaseConnection();
+    return result;
   }
  else {
+    httpPost.abort();
+    httpPost.releaseConnection();
     return "";
   }
 }
