@@ -18,7 +18,7 @@
   }
  else {
     if (dbTask == null || dbTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-      dbTask=new SimpleTask();
+      dbTask=new DBCacheTask();
       dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
     hashMap.put(0,new CommentListBean());

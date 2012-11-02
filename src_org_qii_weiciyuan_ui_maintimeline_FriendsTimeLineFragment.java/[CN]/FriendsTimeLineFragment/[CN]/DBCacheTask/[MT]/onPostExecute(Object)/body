@@ -3,5 +3,7 @@
   timeLineAdapter.notifyDataSetChanged();
   refreshLayout(bean);
   super.onPostExecute(o);
-  if (bean.getSize() == 0)   refresh();
+  if (bean.getSize() == 0) {
+    pullToRefreshListView.startRefreshNow();
+  }
 }
