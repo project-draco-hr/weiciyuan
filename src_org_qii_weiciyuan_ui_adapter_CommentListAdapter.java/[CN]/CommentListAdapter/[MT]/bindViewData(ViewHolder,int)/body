@@ -11,7 +11,12 @@
  else {
       holder.username.setText(user.getScreen_name());
     }
-    buildAvatar(holder.avatar,position,user);
+    if (!showOriStatus && !GlobalContext.getInstance().getEnableCommentRepostListAvatar()) {
+      holder.avatar.setLayoutParams(new RelativeLayout.LayoutParams(0,0));
+    }
+ else {
+      buildAvatar(holder.avatar,position,user);
+    }
   }
  else {
     holder.username.setVisibility(View.INVISIBLE);
