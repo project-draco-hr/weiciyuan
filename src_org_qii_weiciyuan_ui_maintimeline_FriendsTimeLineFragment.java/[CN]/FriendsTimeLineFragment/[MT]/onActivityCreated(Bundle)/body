@@ -19,7 +19,8 @@
     hashMap.put("1",new MessageListBean());
   }
   super.onActivityCreated(savedInstanceState);
-  new GroupTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  groupTask=new GroupTask();
+  groupTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   groupAdapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,new ArrayList<String>());
   groupListView.setAdapter(groupAdapter);
   groupListView.setOnItemClickListener(new GroupListViewItemClickListener());
