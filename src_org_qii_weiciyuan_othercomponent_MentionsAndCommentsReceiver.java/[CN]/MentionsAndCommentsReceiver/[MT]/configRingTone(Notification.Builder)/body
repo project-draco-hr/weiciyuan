@@ -1,0 +1,11 @@
+{
+  Uri uri=null;
+  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(context);
+  String path=sharedPref.getString(SettingActivity.ENABLE_RINGTONE,"");
+  if (!TextUtils.isEmpty(path)) {
+    uri=Uri.parse(path);
+  }
+  if (uri != null) {
+    builder.setSound(uri);
+  }
+}
