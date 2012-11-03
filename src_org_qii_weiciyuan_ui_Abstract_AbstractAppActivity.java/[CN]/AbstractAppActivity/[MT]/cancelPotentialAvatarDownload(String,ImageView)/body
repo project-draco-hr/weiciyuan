@@ -5,7 +5,7 @@
     if ((bitmapUrl == null) || (!bitmapUrl.equals(url))) {
       bitmapDownloaderTask.cancel(true);
     }
- else {
+ else     if (bitmapDownloaderTask.getStatus() == MyAsyncTask.Status.PENDING || bitmapDownloaderTask.getStatus() == MyAsyncTask.Status.RUNNING) {
       return false;
     }
   }
