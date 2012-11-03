@@ -2,11 +2,6 @@
   super.onCreate(savedInstanceState);
   addPreferencesFromResource(R.xml.notification_pref);
   getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
-  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(getActivity());
-  String path=sharedPref.getString(SettingActivity.ENABLE_RINGTONE,"");
-  if (!TextUtils.isEmpty(path)) {
-    uri=Uri.parse(path);
-  }
   frequency=findPreference(SettingActivity.FREQUENCY);
   ringtone=findPreference(SettingActivity.ENABLE_RINGTONE);
   ringtone.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
@@ -23,5 +18,10 @@
     }
   }
 );
+  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(getActivity());
+  String path=sharedPref.getString(SettingActivity.ENABLE_RINGTONE,"");
+  if (!TextUtils.isEmpty(path)) {
+    uri=Uri.parse(path);
+  }
   buildSummary();
 }

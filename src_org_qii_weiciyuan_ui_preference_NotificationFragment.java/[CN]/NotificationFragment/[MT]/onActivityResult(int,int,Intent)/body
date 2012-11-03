@@ -7,5 +7,6 @@
     }
     SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(getActivity());
     sharedPref.edit().putString(SettingActivity.ENABLE_RINGTONE,ringTonePath).commit();
+    buildSummary();
   }
 }

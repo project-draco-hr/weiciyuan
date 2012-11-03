@@ -6,4 +6,8 @@
  else {
     frequency.setSummary(getString(R.string.stopped));
   }
+  if (uri != null) {
+    Ringtone r=RingtoneManager.getRingtone(getActivity(),uri);
+    ringtone.setSummary(r.getTitle(getActivity()));
+  }
 }
