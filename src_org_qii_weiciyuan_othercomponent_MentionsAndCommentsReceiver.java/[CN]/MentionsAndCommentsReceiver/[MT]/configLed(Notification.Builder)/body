@@ -1,0 +1,5 @@
+{
+  if (allowLed()) {
+    builder.setLights(Color.WHITE,300,1000);
+  }
+}

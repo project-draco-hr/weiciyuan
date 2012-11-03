@@ -1,0 +1,5 @@
+{
+  configRingTone(builder);
+  configLed(builder);
+  configVibrate(builder);
+}
