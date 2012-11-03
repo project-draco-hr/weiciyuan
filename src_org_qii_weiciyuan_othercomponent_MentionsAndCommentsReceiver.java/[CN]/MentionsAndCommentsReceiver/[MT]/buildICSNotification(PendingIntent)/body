@@ -1,5 +1,5 @@
 {
-  Notification.Builder builder=new Notification.Builder(context).setTicker(ticker).setContentTitle(title).setContentText(content).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(pendingIntent);
+  Notification.Builder builder=new Notification.Builder(context).setTicker(ticker).setContentTitle(title).setContentText(content).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(pendingIntent).setOnlyAlertOnce(true);
   configVibrateLedRingTone(builder);
   if (sum > 1) {
     builder.setNumber(sum);
