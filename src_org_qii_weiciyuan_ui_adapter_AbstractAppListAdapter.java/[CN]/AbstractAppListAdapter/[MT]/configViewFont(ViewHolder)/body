@@ -3,4 +3,6 @@
   holder.content.setTextSize(GlobalContext.getInstance().getFontSize());
   holder.username.setTextSize(GlobalContext.getInstance().getFontSize());
   holder.repost_content.setTextSize(GlobalContext.getInstance().getFontSize());
+  if (holder.repost_count != null)   holder.repost_count.setTextSize(GlobalContext.getInstance().getFontSize() - 5);
+  if (holder.comment_count != null)   holder.comment_count.setTextSize(GlobalContext.getInstance().getFontSize() - 5);
 }
