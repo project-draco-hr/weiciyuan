@@ -9,7 +9,7 @@
     name.setTitle(getString(R.string.bilateral));
   }
  else {
-    for (    GroupBean b : group.getLists()) {
+    for (    GroupBean b : GlobalContext.getInstance().getGroup().getLists()) {
       if (b.getIdstr().equals(selectedId)) {
         name.setTitle(b.getName());
         return;

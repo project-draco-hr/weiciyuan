@@ -4,7 +4,6 @@
   outState.putSerializable("bean",bean);
   outState.putSerializable("userBean",userBean);
   outState.putString("token",token);
-  outState.putSerializable("group",group);
   outState.putSerializable("hashmap",hashMap);
   outState.putString("selectedId",selectedId);
 }

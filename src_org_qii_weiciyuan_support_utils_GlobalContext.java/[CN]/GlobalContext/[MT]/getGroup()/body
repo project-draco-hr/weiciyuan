@@ -1,0 +1,13 @@
+{
+  if (group != null) {
+    return group;
+  }
+ else {
+    GroupListBean cache=GroupDBManager.getInstance().getGroupInfo(GlobalContext.getInstance().getCurrentAccountId());
+    if (cache != null) {
+      group=cache;
+      return group;
+    }
+  }
+  return null;
+}

@@ -1,11 +1,4 @@
 {
-  if (!TextUtils.isEmpty(specialToken)) {
-    return specialToken;
-  }
- else {
-    SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
-    String token=sharedPref.getString("token","");
-    this.specialToken=token;
-    return specialToken;
-  }
+  if (getAccountBean() != null)   return getAccountBean().getAccess_token();
+ else   return "";
 }

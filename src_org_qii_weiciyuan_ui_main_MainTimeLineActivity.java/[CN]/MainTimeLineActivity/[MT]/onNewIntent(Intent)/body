@@ -8,7 +8,7 @@
   if (newAccountBean.getUid().equals(accountBean.getUid())) {
     accountBean=newAccountBean;
     token=newAccountBean.getAccess_token();
-    GlobalContext.getInstance().setSpecialToken(token);
+    GlobalContext.getInstance().setAccountBean(accountBean);
     buildTabTitle(intent);
     AppLogger.e("5");
   }
