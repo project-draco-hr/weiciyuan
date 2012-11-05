@@ -1,5 +1,5 @@
 {
-  UnreadDao unreadDao=new UnreadDao(token,accountBean.getUid());
+  UnreadDao unreadDao=new UnreadDao(getToken(),accountBean.getUid());
   try {
     return unreadDao.getCount();
   }

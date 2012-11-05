@@ -1,22 +1,19 @@
 {
   super.onCreate(savedInstanceState);
+  setContentView(R.layout.viewpager_layout);
   if (savedInstanceState != null) {
     accountBean=(AccountBean)savedInstanceState.getSerializable("account");
-    AppLogger.e("1");
   }
  else {
     Intent intent=getIntent();
     accountBean=(AccountBean)intent.getSerializableExtra("account");
-    AppLogger.e("2");
   }
   if (accountBean == null)   accountBean=GlobalContext.getInstance().getAccountBean();
-  token=accountBean.getAccess_token();
   GlobalContext.getInstance().setAccountBean(accountBean);
   SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
   SharedPreferences.Editor editor=sharedPref.edit();
   editor.putString("id",accountBean.getUid());
   editor.commit();
-  setContentView(R.layout.viewpager_layout);
   buildPhoneInterface();
   new Thread(new ClearCacheTask()).start();
 }
