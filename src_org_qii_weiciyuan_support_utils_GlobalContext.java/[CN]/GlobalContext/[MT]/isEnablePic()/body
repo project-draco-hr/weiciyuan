@@ -3,7 +3,6 @@
     return enablePic;
   }
  else {
-    AppLogger.e("GlobalContext is empty by system");
     SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
     enablePic=!sharedPref.getBoolean(SettingActivity.DISABLE_DOWNLOAD_AVATAR_PIC,false);
     return enablePic;

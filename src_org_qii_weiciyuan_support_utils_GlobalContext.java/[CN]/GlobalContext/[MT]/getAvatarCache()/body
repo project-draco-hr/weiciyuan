@@ -3,7 +3,6 @@
     return avatarCache;
   }
  else {
-    AppLogger.e("GlobalContext is empty by system");
     buildCache();
     return avatarCache;
   }
