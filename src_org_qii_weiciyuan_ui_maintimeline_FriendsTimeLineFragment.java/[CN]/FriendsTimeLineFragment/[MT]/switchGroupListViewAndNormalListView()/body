@@ -1,10 +1,8 @@
 {
   if (pullToRefreshListView.getVisibility() == View.VISIBLE) {
-    groupListView.setVisibility(View.VISIBLE);
     pullToRefreshListView.setVisibility(View.GONE);
   }
  else {
-    groupListView.setVisibility(View.GONE);
     pullToRefreshListView.setVisibility(View.VISIBLE);
   }
 }
