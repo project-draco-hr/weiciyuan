@@ -1,6 +1,7 @@
 {
   super.onCreate();
   globalContext=this;
+  sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
   buildCache();
   getEmotions();
 }

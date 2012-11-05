@@ -1,5 +1,4 @@
 {
-  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
   sharedPref.edit().putBoolean(SettingActivity.SHOW_BIG_AVATAR,enableBigAvatar);
   this.enableBigAvatar=enableBigAvatar;
 }

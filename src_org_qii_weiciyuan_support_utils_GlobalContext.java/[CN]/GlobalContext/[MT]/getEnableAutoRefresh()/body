@@ -1,6 +1,5 @@
 {
   if (autoRefresh == null) {
-    SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
     autoRefresh=sharedPref.getBoolean(SettingActivity.AUTO_REFRESH,false);
   }
   return autoRefresh;

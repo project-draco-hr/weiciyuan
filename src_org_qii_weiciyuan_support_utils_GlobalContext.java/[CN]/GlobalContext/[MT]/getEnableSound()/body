@@ -1,6 +1,5 @@
 {
   if (enableSound == null) {
-    SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
     enableSound=sharedPref.getBoolean(SettingActivity.SOUND,true);
   }
   return enableSound;
