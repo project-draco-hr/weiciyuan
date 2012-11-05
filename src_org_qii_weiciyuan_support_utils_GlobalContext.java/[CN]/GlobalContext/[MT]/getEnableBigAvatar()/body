@@ -1,10 +1,7 @@
 {
-  if (enableBigAvatar != null) {
-    return enableBigAvatar;
-  }
- else {
+  if (enableBigAvatar == null) {
     SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
     enableBigAvatar=sharedPref.getBoolean(SettingActivity.SHOW_BIG_AVATAR,false);
-    return enableBigAvatar;
   }
+  return enableBigAvatar;
 }

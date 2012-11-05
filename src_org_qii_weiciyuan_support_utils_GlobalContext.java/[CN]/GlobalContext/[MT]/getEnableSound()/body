@@ -1,10 +1,7 @@
 {
-  if (enableSound != null) {
-    return enableSound;
-  }
- else {
+  if (enableSound == null) {
     SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
     enableSound=sharedPref.getBoolean(SettingActivity.SOUND,true);
-    return enableSound;
   }
+  return enableSound;
 }

@@ -1,23 +1,16 @@
 {
-  if (accountBean != null) {
-    return accountBean;
-  }
- else {
+  if (accountBean == null) {
     SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
     String id=sharedPref.getString("id","");
     if (!TextUtils.isEmpty(id)) {
       accountBean=DatabaseManager.getInstance().getAccount(id);
-      if (accountBean != null) {
-        return accountBean;
-      }
     }
  else {
       List<AccountBean> accountList=DatabaseManager.getInstance().getAccountList();
       if (accountList != null && accountList.size() > 0) {
         accountBean=accountList.get(0);
-        return accountBean;
       }
     }
   }
-  return null;
+  return accountBean;
 }

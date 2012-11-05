@@ -1,9 +1,6 @@
 {
-  if (avatarCache != null) {
-    return avatarCache;
-  }
- else {
+  if (avatarCache == null) {
     buildCache();
-    return avatarCache;
   }
+  return avatarCache;
 }

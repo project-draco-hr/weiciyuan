@@ -1,8 +1,5 @@
 {
-  if (theme != 0) {
-    return theme;
-  }
- else {
+  if (theme == 0) {
     SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
     String value=sharedPref.getString(SettingActivity.THEME,"1");
 switch (Integer.valueOf(value)) {
@@ -16,6 +13,6 @@ default :
 GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Four);
 break;
 }
-return theme;
 }
+return theme;
 }

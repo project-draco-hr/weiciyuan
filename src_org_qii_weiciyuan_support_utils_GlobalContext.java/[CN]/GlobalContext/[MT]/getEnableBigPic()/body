@@ -1,10 +1,7 @@
 {
-  if (enableBigPic != null) {
-    return enableBigPic;
-  }
- else {
+  if (enableBigPic == null) {
     SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
     enableBigPic=sharedPref.getBoolean(SettingActivity.SHOW_BIG_PIC,false);
-    return enableBigPic;
   }
+  return enableBigPic;
 }

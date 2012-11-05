@@ -1,10 +1,7 @@
 {
-  if (enablePic != null) {
-    return enablePic;
-  }
- else {
+  if (enablePic == null) {
     SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
     enablePic=!sharedPref.getBoolean(SettingActivity.DISABLE_DOWNLOAD_AVATAR_PIC,false);
-    return enablePic;
   }
+  return enablePic;
 }

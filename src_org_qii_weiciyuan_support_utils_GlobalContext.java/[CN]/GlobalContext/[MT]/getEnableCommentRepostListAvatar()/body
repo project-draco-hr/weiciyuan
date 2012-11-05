@@ -1,10 +1,7 @@
 {
-  if (enableCommentRepostListAvatar != null) {
-    return enableCommentRepostListAvatar;
-  }
- else {
+  if (enableCommentRepostListAvatar == null) {
     SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
     enableCommentRepostListAvatar=!sharedPref.getBoolean(SettingActivity.CLOSE_COMMENT_AND_REPOST_AVATAR,false);
-    return enableCommentRepostListAvatar;
   }
+  return enableCommentRepostListAvatar;
 }

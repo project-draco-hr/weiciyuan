@@ -1,9 +1,7 @@
 {
   if (enableFilter == null) {
     SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(this);
-    boolean result=sharedPreferences.getBoolean(SettingActivity.FILTER,false);
-    this.enableFilter=result;
-    return result;
+    enableFilter=sharedPreferences.getBoolean(SettingActivity.FILTER,false);
   }
   return enableFilter;
 }
