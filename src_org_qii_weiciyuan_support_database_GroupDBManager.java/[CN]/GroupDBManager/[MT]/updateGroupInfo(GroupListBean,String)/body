@@ -1,0 +1,10 @@
+{
+  if (bean == null || bean.getLists().size() == 0) {
+    return;
+  }
+  clearGroup(accountId);
+  ContentValues cv=new ContentValues();
+  cv.put(GroupTable.ACCOUNTID,accountId);
+  cv.put(GroupTable.JSONDATA,new Gson().toJson(bean));
+  wsd.insert(GroupTable.TABLE_NAME,HomeTable.ID,cv);
+}

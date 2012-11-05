@@ -1,0 +1,7 @@
+{
+  super.onCancelled(groupListBean);
+  GroupListBean cache=GroupDBManager.getInstance().getGroupInfo(GlobalContext.getInstance().getCurrentAccountId());
+  if (cache != null) {
+    buildGroupInfo(cache);
+  }
+}

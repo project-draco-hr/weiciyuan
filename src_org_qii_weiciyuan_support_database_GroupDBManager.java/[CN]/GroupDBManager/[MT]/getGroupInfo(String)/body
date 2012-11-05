@@ -1,0 +1,12 @@
+{
+  String sql="select * from " + GroupTable.TABLE_NAME + " where "+ GroupTable.ACCOUNTID+ "  = "+ accountId;
+  Cursor c=rsd.rawQuery(sql,null);
+  if (c.moveToNext()) {
+    String json=c.getString(c.getColumnIndex(GroupTable.JSONDATA));
+    if (!TextUtils.isEmpty(json)) {
+      GroupListBean bean=new Gson().fromJson(json,GroupListBean.class);
+      if (bean != null)       return bean;
+    }
+  }
+  return null;
+}
