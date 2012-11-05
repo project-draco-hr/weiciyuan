@@ -41,6 +41,9 @@ DatabaseManager.getInstance().addFilterKeyword(bean.getScreen_name());
 Toast.makeText(this,getString(R.string.filter_successfully),Toast.LENGTH_SHORT).show();
 }
 break;
+case R.id.menu_manage_group:
+manageGroup();
+break;
 }
 return false;
 }

@@ -1,0 +1,4 @@
+{
+  ManageGroupDialog dialog=new ManageGroupDialog(GlobalContext.getInstance().getGroup(),null);
+  dialog.show(getFragmentManager(),"");
+}
