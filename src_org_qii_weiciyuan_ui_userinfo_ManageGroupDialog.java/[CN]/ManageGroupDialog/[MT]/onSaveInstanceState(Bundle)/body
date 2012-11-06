@@ -1,5 +1,7 @@
 {
   super.onSaveInstanceState(outState);
   outState.putSerializable("group",group);
-  outState.putSerializable("selected",selected);
+  outState.putString("uid",uid);
+  outState.putStringArray("valueArray",valueArray);
+  outState.putBooleanArray("selectedArray",selectedArray);
 }

@@ -1,0 +1,15 @@
+{
+  GroupListDao dao=new GroupListDao(GlobalContext.getInstance().getSpecialToken(),uid);
+  try {
+    List<String> list=dao.getInfo();
+    for (    String s : list) {
+      AppLogger.e(s);
+    }
+    return list;
+  }
+ catch (  WeiboException e) {
+    cancel(true);
+    AppLogger.e(e.getMessage());
+  }
+  return null;
+}

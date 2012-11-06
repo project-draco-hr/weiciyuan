@@ -1,0 +1,14 @@
+{
+  super.onPostExecute(strings);
+  if (strings != null && strings.size() > 0) {
+    int length=valueArray.length;
+    for (    String id : strings) {
+      for (int i=0; i < length; i++) {
+        if (group.getLists().get(i).getIdstr().equals(id)) {
+          selectedArray[i]=true;
+          ((AlertDialog)getDialog()).getListView().setItemChecked(i,true);
+        }
+      }
+    }
+  }
+}
