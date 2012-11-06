@@ -1,0 +1,22 @@
+{
+  ModifyGroupMemberDao dao=new ModifyGroupMemberDao(token,bean.getId());
+  for (  String id : add) {
+    try {
+      dao.add(id);
+    }
+ catch (    WeiboException e) {
+      AppLogger.e(e.getMessage());
+      cancel(true);
+    }
+  }
+  for (  String id : remove) {
+    try {
+      dao.delete(id);
+    }
+ catch (    WeiboException e) {
+      AppLogger.e(e.getMessage());
+      cancel(true);
+    }
+  }
+  return null;
+}

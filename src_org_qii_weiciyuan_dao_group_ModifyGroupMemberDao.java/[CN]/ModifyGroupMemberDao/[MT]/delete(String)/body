@@ -1,0 +1,4 @@
+{
+  this.list_id=list_id;
+  executeTask(URLHelper.GROUP_MEMBER_DESTROY);
+}

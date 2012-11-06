@@ -4,4 +4,7 @@
   outState.putString("uid",uid);
   outState.putStringArray("valueArray",valueArray);
   outState.putBooleanArray("selectedArray",selectedArray);
+  outState.putStringArrayList("currentList",currentList);
+  outState.putStringArrayList("addList",addList);
+  outState.putStringArrayList("removeList",removeList);
 }

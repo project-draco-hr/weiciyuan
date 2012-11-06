@@ -1,2 +1,9 @@
 {
+  String id=group.getLists().get(which).getIdstr();
+  if (isChecked) {
+    if (!currentList.contains(id))     addList.add(id);
+  }
+ else {
+    if (currentList.contains(id))     removeList.add(group.getLists().get(which).getIdstr());
+  }
 }

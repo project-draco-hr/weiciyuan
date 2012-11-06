@@ -1,0 +1,6 @@
+{
+  if (modifyGroupMemberTask == null || modifyGroupMemberTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+    modifyGroupMemberTask=new ModifyGroupMemberTask(add,remove);
+    modifyGroupMemberTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

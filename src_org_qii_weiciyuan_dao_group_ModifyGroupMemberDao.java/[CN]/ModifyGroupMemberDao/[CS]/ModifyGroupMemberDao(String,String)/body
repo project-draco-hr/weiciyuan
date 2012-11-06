@@ -1,5 +1,4 @@
 {
   this.access_token=token;
   this.uid=uid;
-  this.list_id=list_id;
 }

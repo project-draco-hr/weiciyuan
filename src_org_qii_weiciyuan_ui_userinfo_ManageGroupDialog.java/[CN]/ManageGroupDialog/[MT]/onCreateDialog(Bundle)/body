@@ -4,6 +4,9 @@
     uid=savedInstanceState.getString("uid");
     valueArray=savedInstanceState.getStringArray("valueArray");
     selectedArray=savedInstanceState.getBooleanArray("selectedArray");
+    currentList=savedInstanceState.getStringArrayList("currentList");
+    addList=savedInstanceState.getStringArrayList("addList");
+    removeList=savedInstanceState.getStringArrayList("removeList");
   }
   final List<GroupBean> list=group.getLists();
   selectedArray=new boolean[list.size()];
@@ -16,6 +19,8 @@
   builder.setTitle(getString(R.string.manage_group));
   builder.setMultiChoiceItems(valueArray,selectedArray,new DialogMultiChoiceClickListener()).setPositiveButton(getString(R.string.save),new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialog,    int which){
+      UserInfoActivity activity=(UserInfoActivity)getActivity();
+      activity.handleGroup(addList,removeList);
     }
   }
 ).setNegativeButton(getString(R.string.cancel),new DialogInterface.OnClickListener(){
