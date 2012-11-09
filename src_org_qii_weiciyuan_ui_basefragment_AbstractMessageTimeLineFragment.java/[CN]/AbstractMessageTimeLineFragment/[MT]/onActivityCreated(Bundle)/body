@@ -10,13 +10,13 @@
           mActionMode=null;
           getListView().setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new StatusSingleChoiceModeListener(getListView(),(StatusesListAdapter)timeLineAdapter,AbstractMessageTimeLineFragment.this,bean.getItemList().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new StatusSingleChoiceModeListener(getListView(),(StatusListAdapter)timeLineAdapter,AbstractMessageTimeLineFragment.this,bean.getItemList().get(position - 1)));
           return true;
         }
  else {
           getListView().setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new StatusSingleChoiceModeListener(getListView(),(StatusesListAdapter)timeLineAdapter,AbstractMessageTimeLineFragment.this,bean.getItemList().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new StatusSingleChoiceModeListener(getListView(),(StatusListAdapter)timeLineAdapter,AbstractMessageTimeLineFragment.this,bean.getItemList().get(position - 1)));
           return true;
         }
       }

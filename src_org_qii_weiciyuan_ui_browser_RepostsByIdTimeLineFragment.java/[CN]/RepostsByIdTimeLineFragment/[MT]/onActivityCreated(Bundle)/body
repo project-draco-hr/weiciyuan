@@ -18,13 +18,13 @@
           mActionMode=null;
           getListView().setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new RepostSingleChoiceModeListener(getListView(),(StatusesListAdapter)timeLineAdapter,RepostsByIdTimeLineFragment.this,quick_repost,bean.getItemList().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new RepostSingleChoiceModeListener(getListView(),(StatusListAdapter)timeLineAdapter,RepostsByIdTimeLineFragment.this,quick_repost,bean.getItemList().get(position - 1)));
           return true;
         }
  else {
           getListView().setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new RepostSingleChoiceModeListener(getListView(),(StatusesListAdapter)timeLineAdapter,RepostsByIdTimeLineFragment.this,quick_repost,bean.getItemList().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new RepostSingleChoiceModeListener(getListView(),(StatusListAdapter)timeLineAdapter,RepostsByIdTimeLineFragment.this,quick_repost,bean.getItemList().get(position - 1)));
           return true;
         }
       }
