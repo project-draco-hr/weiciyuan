@@ -1,6 +1,4 @@
 {
   super.onDetach();
-  if (newTask != null)   newTask.cancel(true);
-  if (oldTask != null)   oldTask.cancel(true);
-  if (middleTask != null)   middleTask.cancel(true);
+  Utility.cancelTasks(newTask,oldTask,middleTask);
 }
