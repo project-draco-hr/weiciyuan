@@ -12,6 +12,7 @@
   webView.getSettings().setLoadWithOverviewMode(true);
   webView.getSettings().setBuiltInZoomControls(true);
   webView.getSettings().setDisplayZoomControls(false);
+  webView.setVerticalScrollBarEnabled(false);
   webView.setHorizontalScrollBarEnabled(false);
   url=getIntent().getStringExtra("url");
   oriUrl=getIntent().getStringExtra("oriUrl");
