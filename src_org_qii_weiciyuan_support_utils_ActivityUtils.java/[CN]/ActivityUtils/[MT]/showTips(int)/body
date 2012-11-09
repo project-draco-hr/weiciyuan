@@ -1,3 +1,0 @@
-{
-  showTips(GlobalContext.getInstance().getString(resId));
-}

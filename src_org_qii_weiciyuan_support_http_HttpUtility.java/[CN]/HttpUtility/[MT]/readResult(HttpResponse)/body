@@ -7,7 +7,7 @@
   }
  catch (  IOException e) {
     AppLogger.e(e.getMessage());
-    ActivityUtils.showTips(R.string.timeout);
+    throw new WeiboException(GlobalContext.getInstance().getString(R.string.timeout),e);
   }
   AppLogger.d(result);
   return result;
