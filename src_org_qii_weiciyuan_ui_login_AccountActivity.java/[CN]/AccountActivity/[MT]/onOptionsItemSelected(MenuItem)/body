@@ -3,6 +3,9 @@ switch (item.getItemId()) {
 case R.id.menu_add_account:
     addAccount();
   break;
+case R.id.menu_hack_login:
+startActivity(new Intent(this,BlackMagicActivity.class));
+break;
 }
 return true;
 }

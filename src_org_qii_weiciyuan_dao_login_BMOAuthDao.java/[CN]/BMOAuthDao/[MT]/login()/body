@@ -1,0 +1,19 @@
+{
+  String url=URLHelper.OAUTH2_ACCESS_TOKEN;
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("username",username);
+  map.put("password",password);
+  map.put("client_id",client_id);
+  map.put("client_secret",client_secret);
+  map.put("grant_type",grant_type);
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
+  if ((jsonData != null) && (jsonData.contains("{"))) {
+    try {
+      JSONObject localJSONObject=new JSONObject(jsonData);
+      return localJSONObject.optString("access_token");
+    }
+ catch (    JSONException localJSONException) {
+    }
+  }
+  return "";
+}

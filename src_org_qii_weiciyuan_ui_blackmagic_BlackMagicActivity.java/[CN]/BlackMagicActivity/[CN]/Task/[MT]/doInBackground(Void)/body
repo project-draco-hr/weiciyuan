@@ -1,0 +1,18 @@
+{
+  try {
+    String token=new BMOAuthDao(username.getText().toString(),password.getText().toString(),appkey,appSecret).login();
+    UserBean user=new OAuthDao(token).getOAuthUserInfo();
+    AccountBean account=new AccountBean();
+    account.setAccess_token(token);
+    account.setUsername(user.getName());
+    account.setUid(user.getId());
+    account.setUsernick(user.getScreen_name());
+    account.setAvatar_url(user.getProfile_image_url());
+    account.setInfo(user);
+    DatabaseManager.getInstance().addOrUpdateAccount(account);
+    return token;
+  }
+ catch (  WeiboException e) {
+  }
+  return "";
+}
