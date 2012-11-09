@@ -47,6 +47,7 @@
     }
   }
   if (msg.getRetweeted_status() != null) {
+    repost_layout.setVisibility(View.VISIBLE);
     recontent.setVisibility(View.VISIBLE);
     if (msg.getRetweeted_status().getUser() != null) {
       recontent.setText("@" + msg.getRetweeted_status().getUser().getScreen_name() + "???"+ msg.getRetweeted_status().getText());
