@@ -1,5 +1,4 @@
 {
   super.onDetach();
-  if (dbTask != null)   dbTask.cancel(true);
-  if (groupTask != null)   groupTask.cancel(true);
+  Utility.cancelTasks(dbTask,groupTask);
 }

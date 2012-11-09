@@ -1,5 +1,5 @@
 {
   super.onPause();
   removeRefresh();
-  if (autoRefreshTask != null)   autoRefreshTask.cancel(true);
+  Utility.cancelTasks(autoRefreshTask);
 }

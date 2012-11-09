@@ -1,0 +1,5 @@
+{
+  for (  MyAsyncTask task : tasks) {
+    if (task != null)     task.cancel(true);
+  }
+}
