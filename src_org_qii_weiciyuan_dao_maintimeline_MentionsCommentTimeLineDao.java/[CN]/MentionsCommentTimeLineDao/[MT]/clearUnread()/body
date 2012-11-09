@@ -1,0 +1,7 @@
+{
+  try {
+    new ClearUnreadDao(access_token,ClearUnreadDao.MENTION_CMT).clearUnread();
+  }
+ catch (  WeiboException ignored) {
+  }
+}
