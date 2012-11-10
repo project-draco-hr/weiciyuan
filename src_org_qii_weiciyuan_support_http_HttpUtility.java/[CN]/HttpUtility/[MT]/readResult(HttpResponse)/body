@@ -2,6 +2,7 @@
   HttpEntity entity=response.getEntity();
   String result="";
   try {
+    AppLogger.d(String.valueOf(entity.getContentLength()));
     result=EntityUtils.toString(entity);
     EntityUtils.consume(entity);
   }
