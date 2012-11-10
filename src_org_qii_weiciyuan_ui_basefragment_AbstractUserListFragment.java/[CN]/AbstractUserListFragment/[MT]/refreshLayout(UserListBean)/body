@@ -4,7 +4,7 @@
     progressBar.setVisibility(View.INVISIBLE);
   }
  else {
-    empty.setVisibility(View.VISIBLE);
+    empty.setVisibility(View.INVISIBLE);
     progressBar.setVisibility(View.INVISIBLE);
   }
 }

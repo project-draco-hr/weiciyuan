@@ -1,0 +1,3 @@
+{
+  return getFragmentManager().findFragmentByTag(SearchUserFragment.class.getName());
+}

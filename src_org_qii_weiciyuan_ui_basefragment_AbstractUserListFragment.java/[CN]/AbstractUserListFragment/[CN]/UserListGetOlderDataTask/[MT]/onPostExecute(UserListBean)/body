@@ -1,9 +1,5 @@
 {
-  if (newValue != null && newValue.getUsers().size() > 0 && newValue.getPrevious_cursor() != bean.getPrevious_cursor()) {
-    List<UserBean> list=newValue.getUsers();
-    getList().getUsers().addAll(list);
-    bean.setNext_cursor(newValue.getNext_cursor());
-  }
+  oldUserOnPostExecute(newValue);
   timeLineAdapter.notifyDataSetChanged();
   getActivity().invalidateOptionsMenu();
   dismissFooterView();

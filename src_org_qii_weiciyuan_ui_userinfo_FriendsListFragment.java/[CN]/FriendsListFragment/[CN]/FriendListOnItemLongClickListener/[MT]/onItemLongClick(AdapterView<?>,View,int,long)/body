@@ -1,0 +1,29 @@
+{
+  if (position - 1 < getList().getUsers().size() && position - 1 >= 0) {
+    if (mActionMode != null) {
+      mActionMode.finish();
+      mActionMode=null;
+      getListView().setItemChecked(position,true);
+      timeLineAdapter.notifyDataSetChanged();
+      if (currentUser.getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+        mActionMode=getActivity().startActionMode(new MyFriendSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+      }
+ else {
+        mActionMode=getActivity().startActionMode(new NormalFriendShipSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+      }
+      return true;
+    }
+ else {
+      getListView().setItemChecked(position,true);
+      timeLineAdapter.notifyDataSetChanged();
+      if (currentUser.getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+        mActionMode=getActivity().startActionMode(new MyFriendSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+      }
+ else {
+        mActionMode=getActivity().startActionMode(new NormalFriendShipSingleChoiceModeListener(getListView(),timeLineAdapter,FriendsListFragment.this,bean.getUsers().get(position - 1)));
+      }
+      return true;
+    }
+  }
+  return false;
+}

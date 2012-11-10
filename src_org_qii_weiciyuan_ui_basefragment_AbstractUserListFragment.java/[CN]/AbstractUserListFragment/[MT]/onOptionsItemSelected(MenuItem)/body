@@ -2,8 +2,7 @@
 switch (item.getItemId()) {
 case R.id.refresh:
     pullToRefreshListView.startRefreshNow();
-  refresh();
-break;
+  break;
 }
 return super.onOptionsItemSelected(item);
 }

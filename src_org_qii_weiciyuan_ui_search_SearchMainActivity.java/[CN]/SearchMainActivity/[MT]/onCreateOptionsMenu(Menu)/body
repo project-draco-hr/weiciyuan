@@ -1,8 +1,22 @@
 {
   getMenuInflater().inflate(R.menu.actionbar_menu_searchmainactivity,menu);
-  SearchManager searchManager=(SearchManager)getSystemService(Context.SEARCH_SERVICE);
-  SearchView searchView=(SearchView)menu.findItem(R.id.search).getActionView();
+  final SearchManager searchManager=(SearchManager)getSystemService(Context.SEARCH_SERVICE);
+  final SearchView searchView=(SearchView)menu.findItem(R.id.search).getActionView();
   searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-  searchView.setIconifiedByDefault(true);
+  searchView.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
+  searchView.setIconifiedByDefault(false);
+  searchView.setSubmitButtonEnabled(false);
+  searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+    @Override public boolean onQueryTextSubmit(    String query){
+      search(query);
+      InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+      if (imm.isActive())       imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,InputMethodManager.HIDE_NOT_ALWAYS);
+      return true;
+    }
+    @Override public boolean onQueryTextChange(    String newText){
+      return false;
+    }
+  }
+);
   return super.onCreateOptionsMenu(menu);
 }

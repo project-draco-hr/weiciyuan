@@ -1,0 +1,8 @@
+{
+  if (newValue != null && newValue.getSize() > 0) {
+    getList().getItemList().addAll(newValue.getItemList());
+    bean.setTotal_number(newValue.getTotal_number());
+    getActivity().invalidateOptionsMenu();
+    page++;
+  }
+}

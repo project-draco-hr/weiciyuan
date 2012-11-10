@@ -1,0 +1,7 @@
+{
+  if (newValue != null && newValue.getUsers().size() > 0) {
+    List<UserBean> list=newValue.getUsers();
+    getList().getUsers().addAll(list);
+    page++;
+  }
+}

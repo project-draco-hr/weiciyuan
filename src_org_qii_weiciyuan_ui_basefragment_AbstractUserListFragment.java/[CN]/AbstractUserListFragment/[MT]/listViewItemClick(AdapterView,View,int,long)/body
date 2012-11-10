@@ -1,6 +1,6 @@
 {
   Intent intent=new Intent(getActivity(),UserInfoActivity.class);
-  intent.putExtra("token",((IToken)getActivity()).getToken());
+  intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
   intent.putExtra("user",bean.getUsers().get(position));
   startActivity(intent);
 }

@@ -1,0 +1,5 @@
+{
+  this.access_token=access_token;
+  this.q=q;
+  this.count=String.valueOf(AppConfig.DEFAULT_MSG_NUMBERS);
+}

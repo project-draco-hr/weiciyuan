@@ -2,14 +2,8 @@
   super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
   if (savedInstanceState != null) {
-    currentUser=(UserBean)savedInstanceState.getSerializable("currentUser");
-    uid=savedInstanceState.getString("uid");
     clearAndReplaceValue((UserListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
-    refreshLayout(bean);
   }
- else {
-    pullToRefreshListView.startRefreshNow();
-  }
-  getListView().setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+  refreshLayout(bean);
 }

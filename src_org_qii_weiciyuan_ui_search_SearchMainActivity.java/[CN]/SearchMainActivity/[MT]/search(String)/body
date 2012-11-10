@@ -1,0 +1,13 @@
+{
+  if (!TextUtils.isEmpty(q)) {
+    this.q=q;
+switch (mViewPager.getCurrentItem()) {
+case 0:
+      ((SearchStatusFragment)getSearchStatusFragment()).search();
+    break;
+case 1:
+  ((SearchUserFragment)getSearchUserFragment()).search();
+break;
+}
+}
+}

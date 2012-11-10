@@ -14,6 +14,9 @@ intent.putExtra("launcher",false);
 startActivity(intent);
 finish();
 return true;
+case R.id.menu_search:
+startActivity(new Intent(this,SearchMainActivity.class));
+return true;
 case R.id.menu_setting:
 startActivity(new Intent(this,SettingActivity.class));
 return true;

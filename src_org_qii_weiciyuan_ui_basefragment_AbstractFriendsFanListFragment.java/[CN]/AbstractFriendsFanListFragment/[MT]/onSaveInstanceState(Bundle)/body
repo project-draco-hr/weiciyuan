@@ -1,0 +1,5 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putSerializable("currentUser",currentUser);
+  outState.putString("uid",uid);
+}

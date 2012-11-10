@@ -1,6 +1,5 @@
 {
   super.onCreate(savedInstanceState);
-  currentUser=((IUserInfo)getActivity()).getUser();
   setHasOptionsMenu(true);
   setRetainInstance(true);
 }

@@ -1,0 +1,15 @@
+{
+  super(fm);
+  if (getSearchStatusFragment() == null) {
+    list.add(new SearchStatusFragment());
+  }
+ else {
+    list.add(getSearchStatusFragment());
+  }
+  if (getSearchUserFragment() == null) {
+    list.add(new SearchUserFragment());
+  }
+ else {
+    list.add(getSearchUserFragment());
+  }
+}

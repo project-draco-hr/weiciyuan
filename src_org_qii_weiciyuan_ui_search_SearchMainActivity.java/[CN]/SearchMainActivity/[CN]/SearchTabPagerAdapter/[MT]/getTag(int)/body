@@ -1,0 +1,6 @@
+{
+  List<String> tagList=new ArrayList<String>();
+  tagList.add(SearchStatusFragment.class.getName());
+  tagList.add(SearchUserFragment.class.getName());
+  return tagList.get(position);
+}
