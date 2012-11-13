@@ -7,11 +7,10 @@
 switch (method) {
 case picture_thumbnail:
           imageView.setImageBitmap(bitmap);
-        imageView.setBackgroundColor(Color.TRANSPARENT);
-      break;
+        break;
 case picture_bmiddle:
-    imageView.setImageBitmap(bitmap);
-  break;
+      imageView.setImageBitmap(bitmap);
+    break;
 }
 lruCache.put(data,bitmap);
 }
