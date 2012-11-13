@@ -22,7 +22,6 @@ view.setImageDrawable(transPic);
 view.setBackgroundDrawable(transPic);
 break;
 case picture_bmiddle:
-view.setBackgroundDrawable(transPic);
 view.setImageDrawable(transPic);
 break;
 }
