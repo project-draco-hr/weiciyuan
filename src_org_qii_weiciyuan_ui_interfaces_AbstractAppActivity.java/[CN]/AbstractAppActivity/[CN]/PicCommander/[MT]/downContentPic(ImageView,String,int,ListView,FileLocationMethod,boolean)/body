@@ -9,7 +9,8 @@ case picture_thumbnail:
 pictureBitmapWorkerTaskMap.remove(urlKey);
 break;
 case picture_bmiddle:
-view.setBackgroundDrawable(new BitmapDrawable(getResources(),bitmap));
+view.setImageBitmap(bitmap);
+view.setBackgroundDrawable(picBgBorder);
 cancelPotentialDownload(urlKey,view);
 pictureBitmapWorkerTaskMap.remove(urlKey);
 break;
@@ -23,6 +24,7 @@ view.setBackgroundDrawable(transPic);
 break;
 case picture_bmiddle:
 view.setBackgroundDrawable(transPic);
+view.setImageDrawable(transPic);
 break;
 }
 if (cancelPotentialDownload(urlKey,view) && !isFling) {

@@ -10,8 +10,12 @@ case picture_thumbnail:
         imageView.setBackgroundColor(Color.TRANSPARENT);
       break;
 case picture_bmiddle:
-    imageView.setBackgroundDrawable(new BitmapDrawable(activity.getResources(),bitmap));
-  break;
+    imageView.setImageBitmap(bitmap);
+  int[] attrs=new int[]{R.attr.listview_pic_bg_border};
+TypedArray ta=activity.obtainStyledAttributes(attrs);
+Drawable drawable=ta.getDrawable(0);
+imageView.setBackgroundDrawable(drawable);
+break;
 }
 lruCache.put(data,bitmap);
 }

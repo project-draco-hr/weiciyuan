@@ -1,0 +1,5 @@
+{
+  int[] attrs=new int[]{R.attr.listview_pic_bg_border};
+  TypedArray ta=obtainStyledAttributes(attrs);
+  picBgBorder=ta.getDrawable(0);
+}

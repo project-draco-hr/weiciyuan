@@ -13,6 +13,7 @@
   forceShowActionBarOverflowMenu();
   initDefaultAvatar();
   initDefaultPic();
+  initPicBgBorder();
   initErrorPic();
   initNFC();
 }
