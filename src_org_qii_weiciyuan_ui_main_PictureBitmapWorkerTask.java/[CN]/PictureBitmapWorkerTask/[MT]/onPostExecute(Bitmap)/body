@@ -10,7 +10,7 @@ case picture_thumbnail:
         imageView.setBackgroundColor(Color.TRANSPARENT);
       break;
 case picture_bmiddle:
-    imageView.setBackgroundDrawable(new BitmapDrawable(activity.getResources(),bitmap));
+    imageView.setImageBitmap(bitmap);
   break;
 }
 lruCache.put(data,bitmap);
