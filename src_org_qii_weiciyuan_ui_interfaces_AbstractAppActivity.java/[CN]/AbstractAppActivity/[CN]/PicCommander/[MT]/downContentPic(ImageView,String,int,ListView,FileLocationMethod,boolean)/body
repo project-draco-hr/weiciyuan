@@ -9,8 +9,7 @@ case picture_thumbnail:
 pictureBitmapWorkerTaskMap.remove(urlKey);
 break;
 case picture_bmiddle:
-view.setImageBitmap(bitmap);
-view.setBackgroundDrawable(picBgBorder);
+view.setBackgroundDrawable(new BitmapDrawable(getResources(),bitmap));
 cancelPotentialDownload(urlKey,view);
 pictureBitmapWorkerTaskMap.remove(urlKey);
 break;
