@@ -46,6 +46,11 @@
       picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getThumbnail_pic());
     }
   }
+ else {
+    content_pic.setVisibility(View.GONE);
+    content_pic_pb.setVisibility(View.GONE);
+    pic_layout.setVisibility(View.GONE);
+  }
   if (msg.getRetweeted_status() != null) {
     repost_layout.setVisibility(View.VISIBLE);
     recontent.setVisibility(View.VISIBLE);
@@ -73,6 +78,9 @@
         picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getRetweeted_status().getThumbnail_pic());
       }
     }
+  }
+ else {
+    repost_layout.setVisibility(View.GONE);
   }
   getActivity().getActionBar().getTabAt(1).setText(getString(R.string.comments) + "(" + msg.getComments_count()+ ")");
   getActivity().getActionBar().getTabAt(2).setText(getString(R.string.repost) + "(" + msg.getReposts_count()+ ")");

@@ -38,6 +38,7 @@
   content_pic.setOnClickListener(picOnClickListener);
   repost_pic.setOnClickListener(picOnClickListener);
   repost_layout=(LinearLayout)view.findViewById(R.id.repost_layout);
+  pic_layout=(FrameLayout)view.findViewById(R.id.pic_layout);
   recontent.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       if (recontent.getSelectionStart() == -1 && recontent.getSelectionEnd() == -1 && msg.getRetweeted_status().getUser() != null) {
