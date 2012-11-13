@@ -1,6 +1,6 @@
 {
   ViewHolder holder=null;
-  if (convertView == null || convertView.getTag() == null) {
+  if (convertView == null || convertView.getTag(R.drawable.ic_launcher + getItemViewType(position)) == null) {
 switch (getItemViewType(position)) {
 case TYPE_SIMPLE:
       convertView=initSimpleLayout(parent);
@@ -26,11 +26,11 @@ break;
 }
 if (getItemViewType(position) != TYPE_MIDDLE) {
 holder=buildHolder(convertView);
-convertView.setTag(holder);
+convertView.setTag(R.drawable.ic_launcher + getItemViewType(position),holder);
 }
 }
  else {
-holder=(ViewHolder)convertView.getTag();
+holder=(ViewHolder)convertView.getTag(R.drawable.ic_launcher + getItemViewType(position));
 }
 if (getItemViewType(position) != TYPE_MIDDLE) {
 configViewFont(holder);
