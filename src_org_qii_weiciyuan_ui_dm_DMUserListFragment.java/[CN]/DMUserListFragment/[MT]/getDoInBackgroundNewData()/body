@@ -1,0 +1,3 @@
+{
+  return new DMDao(GlobalContext.getInstance().getSpecialToken()).getUserList();
+}

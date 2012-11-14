@@ -1,6 +1,6 @@
 {
   if (getList() != null) {
-    return getList().getSize();
+    return getList().size();
   }
  else {
     return 0;

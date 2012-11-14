@@ -1,5 +1,5 @@
 {
-  final DMUserBean msg=bean.getItem(position);
+  final DMUserBean msg=bean.get(position);
   UserBean user=msg.getUser();
   if (user != null) {
     holder.username.setVisibility(View.VISIBLE);

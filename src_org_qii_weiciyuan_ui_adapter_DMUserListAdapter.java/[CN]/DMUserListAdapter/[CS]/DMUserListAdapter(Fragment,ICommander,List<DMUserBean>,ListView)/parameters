@@ -1,4 +1,4 @@
 Fragment fragment
 ICommander commander
-DMUserListBean bean
+List<DMUserBean> bean
 ListView listView

@@ -17,6 +17,9 @@ return true;
 case R.id.menu_search:
 startActivity(new Intent(this,SearchMainActivity.class));
 return true;
+case R.id.menu_dm:
+startActivity(new Intent(this,DMActivity.class));
+return true;
 case R.id.menu_setting:
 startActivity(new Intent(this,SettingActivity.class));
 return true;
