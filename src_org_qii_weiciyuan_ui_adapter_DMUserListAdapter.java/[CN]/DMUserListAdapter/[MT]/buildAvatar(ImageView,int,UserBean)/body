@@ -14,7 +14,7 @@
     view.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         Intent intent=new Intent(getActivity(),UserInfoActivity.class);
-        intent.putExtra("token",((IToken)getActivity()).getToken());
+        intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
         intent.putExtra("user",user);
         getActivity().startActivity(intent);
       }
