@@ -1,0 +1,29 @@
+{
+  if (mViewPager.getCurrentItem() != tab.getPosition())   mViewPager.setCurrentItem(tab.getPosition());
+  if (getHomeFragment() != null) {
+    getHomeFragment().clearActionMode();
+  }
+  if (getMentionFragment() != null) {
+    getMentionFragment().clearActionMode();
+  }
+  if (getCommentFragment() != null) {
+    getCommentFragment().clearActionMode();
+  }
+  if (getMyFragment() != null) {
+    getMyFragment().clearActionMode();
+  }
+switch (tab.getPosition()) {
+case 0:
+    home=true;
+  break;
+case 1:
+mentions=true;
+break;
+case 2:
+comments=true;
+break;
+case 3:
+my=true;
+break;
+}
+}
