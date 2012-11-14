@@ -3,12 +3,7 @@
   UserBean user=msg.getUser();
   if (user != null) {
     holder.username.setVisibility(View.VISIBLE);
-    if (!TextUtils.isEmpty(user.getRemark())) {
-      holder.username.setText(new StringBuilder(user.getScreen_name()).append("(").append(user.getRemark()).append(")").toString());
-    }
- else {
-      holder.username.setText(user.getScreen_name());
-    }
+    buildUsername(holder,user);
     buildAvatar(holder.avatar,position,user);
   }
  else {
