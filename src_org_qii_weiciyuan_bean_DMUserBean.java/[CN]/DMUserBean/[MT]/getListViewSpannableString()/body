@@ -1,0 +1,9 @@
+{
+  if (!TextUtils.isEmpty(listViewSpannableString)) {
+    return listViewSpannableString;
+  }
+ else {
+    ListViewTool.addJustHighLightLinks(this);
+    return listViewSpannableString;
+  }
+}
