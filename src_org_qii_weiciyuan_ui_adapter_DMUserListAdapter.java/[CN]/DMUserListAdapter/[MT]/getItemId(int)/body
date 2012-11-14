@@ -1,0 +1,4 @@
+{
+  if (getList() != null && getList().getItem(position) != null && getList().getSize() > 0 && position < getList().getSize())   return Long.valueOf(getList().getItem(position).getId());
+ else   return -1;
+}

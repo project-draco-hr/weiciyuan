@@ -1,0 +1,4 @@
+{
+  if (position >= 0 && getList() != null && getList().getSize() > 0 && position < getList().getSize())   return getList().getItem(position);
+  return null;
+}
