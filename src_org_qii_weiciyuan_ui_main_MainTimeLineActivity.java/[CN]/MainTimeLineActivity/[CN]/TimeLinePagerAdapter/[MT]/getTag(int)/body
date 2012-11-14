@@ -3,6 +3,11 @@
   tagList.add(FriendsTimeLineFragment.class.getName());
   tagList.add(MentionsTimeLineFragment.class.getName());
   tagList.add(CommentsTimeLineFragment.class.getName());
-  tagList.add(MyStatussTimeLineFragment.class.getName());
+  if (AppConfig.BLACK_MAGIC) {
+    tagList.add(DMUserListFragment.class.getName());
+  }
+ else {
+    tagList.add(MyStatussTimeLineFragment.class.getName());
+  }
   return tagList.get(position);
 }

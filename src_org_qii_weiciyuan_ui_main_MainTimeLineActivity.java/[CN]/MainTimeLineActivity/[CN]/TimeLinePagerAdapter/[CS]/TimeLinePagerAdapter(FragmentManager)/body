@@ -18,10 +18,20 @@
  else {
     list.add(getCommentFragment());
   }
-  if (getMyFragment() == null) {
-    list.add(new MyStatussTimeLineFragment(getUser(),getToken()));
+  if (AppConfig.BLACK_MAGIC) {
+    if (getDMFragment() == null) {
+      list.add(new DMUserListFragment());
+    }
+ else {
+      list.add(getDMFragment());
+    }
   }
  else {
-    list.add(getMyFragment());
+    if (getMyFragment() == null) {
+      list.add(new MyStatussTimeLineFragment(getUser(),getToken()));
+    }
+ else {
+      list.add(getMyFragment());
+    }
   }
 }

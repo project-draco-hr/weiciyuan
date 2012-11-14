@@ -1,4 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
+  setHasOptionsMenu(true);
+  setRetainInstance(true);
   pullToRefreshListView.startRefreshNow();
 }
