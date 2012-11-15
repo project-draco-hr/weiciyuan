@@ -1,0 +1,7 @@
+{
+  String bitmapUrl=(String)imageView.getTag();
+  if ((!TextUtils.isEmpty(bitmapUrl)) && (bitmapUrl.equals(url))) {
+    return true;
+  }
+  return false;
+}

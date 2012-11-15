@@ -4,7 +4,7 @@
       ImageView imageView=view.get();
       AvatarBitmapWorkerTask bitmapDownloaderTask=getAvatarBitmapDownloaderTask(imageView);
       if (this == bitmapDownloaderTask) {
-        imageView.setImageBitmap(bitmap);
+        playImageViewAnimation(imageView,bitmap);
         lruCache.put(data,bitmap);
       }
     }

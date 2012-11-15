@@ -1,14 +1,20 @@
 {
-  Bitmap bitmap=getBitmapFromMemCache(urlKey);
+  final Bitmap bitmap=getBitmapFromMemCache(urlKey);
   if (bitmap != null) {
 switch (method) {
 case picture_thumbnail:
-      view.setImageBitmap(bitmap);
+      if (!isSameUrl(urlKey,view)) {
+        view.setImageBitmap(bitmap);
+        view.setTag(urlKey);
+      }
     cancelPotentialDownload(urlKey,view);
   pictureBitmapWorkerTaskMap.remove(urlKey);
 break;
 case picture_bmiddle:
+if (!isSameUrl(urlKey,view)) {
 view.setImageBitmap(bitmap);
+view.setTag(urlKey);
+}
 cancelPotentialDownload(urlKey,view);
 pictureBitmapWorkerTaskMap.remove(urlKey);
 break;

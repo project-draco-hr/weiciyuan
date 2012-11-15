@@ -4,4 +4,5 @@
   this.view=new WeakReference<ImageView>(view);
   this.data=url;
   this.position=position;
+  this.activity=activity;
 }

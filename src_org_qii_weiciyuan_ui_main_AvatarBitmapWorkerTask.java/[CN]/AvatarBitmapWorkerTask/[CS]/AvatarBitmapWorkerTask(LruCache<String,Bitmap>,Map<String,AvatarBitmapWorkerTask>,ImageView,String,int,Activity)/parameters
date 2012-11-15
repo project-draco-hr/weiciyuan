@@ -3,3 +3,4 @@ Map<String,AvatarBitmapWorkerTask> taskMap
 ImageView view
 String url
 int position
+Activity activity

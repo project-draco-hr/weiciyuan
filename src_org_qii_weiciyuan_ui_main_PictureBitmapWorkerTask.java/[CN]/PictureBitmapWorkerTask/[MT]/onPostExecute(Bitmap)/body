@@ -6,10 +6,10 @@
       if (this == bitmapDownloaderTask) {
 switch (method) {
 case picture_thumbnail:
-          imageView.setImageBitmap(bitmap);
+          playImageViewAnimation(imageView,bitmap);
         break;
 case picture_bmiddle:
-      imageView.setImageBitmap(bitmap);
+      playImageViewAnimation(imageView,bitmap);
     break;
 }
 lruCache.put(data,bitmap);
