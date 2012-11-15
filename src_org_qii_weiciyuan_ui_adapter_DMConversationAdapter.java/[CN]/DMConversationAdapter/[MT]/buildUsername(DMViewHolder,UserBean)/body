@@ -1,0 +1,8 @@
+{
+  if (!TextUtils.isEmpty(user.getRemark())) {
+    holder.username.setText(new StringBuilder(user.getScreen_name()).append("(").append(user.getRemark()).append(")").toString());
+  }
+ else {
+    holder.username.setText(user.getScreen_name());
+  }
+}

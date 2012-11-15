@@ -1,0 +1,25 @@
+{
+  final DMBean msg=bean.get(position);
+  UserBean user=msg.getUser();
+  if (user != null) {
+    holder.username.setVisibility(View.VISIBLE);
+    buildUsername(holder,user);
+    buildAvatar(holder.avatar,position,user);
+  }
+ else {
+    holder.username.setVisibility(View.INVISIBLE);
+    holder.avatar.setVisibility(View.INVISIBLE);
+  }
+  if (!TextUtils.isEmpty(msg.getListViewSpannableString())) {
+    holder.content.setText(msg.getListViewSpannableString());
+  }
+ else {
+    ListViewTool.addJustHighLightLinks(msg);
+    holder.content.setText(msg.getListViewSpannableString());
+  }
+  String time=msg.getListviewItemShowTime();
+  if (!holder.time.getText().toString().equals(time)) {
+    holder.time.setText(time);
+  }
+  holder.time.setTag(msg.getId());
+}

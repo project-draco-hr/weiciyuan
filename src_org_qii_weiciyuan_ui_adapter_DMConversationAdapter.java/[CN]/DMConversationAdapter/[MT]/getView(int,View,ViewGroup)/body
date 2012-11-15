@@ -1,0 +1,14 @@
+{
+  DMViewHolder holder=null;
+  if (convertView == null || convertView.getTag() == null) {
+    convertView=initSimpleLayout(parent);
+    holder=buildHolder(convertView);
+    convertView.setTag(R.drawable.ic_launcher + getItemViewType(position),holder);
+  }
+ else {
+    holder=(DMViewHolder)convertView.getTag();
+  }
+  configViewFont(holder);
+  bindViewData(holder,position);
+  return convertView;
+}

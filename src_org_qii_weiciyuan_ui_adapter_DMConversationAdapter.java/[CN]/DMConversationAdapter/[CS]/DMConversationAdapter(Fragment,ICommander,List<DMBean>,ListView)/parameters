@@ -1,0 +1,4 @@
+Fragment fragment
+ICommander commander
+List<DMBean> bean
+ListView listView

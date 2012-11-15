@@ -1,0 +1,4 @@
+{
+  this.uid=uid;
+  return this;
+}
