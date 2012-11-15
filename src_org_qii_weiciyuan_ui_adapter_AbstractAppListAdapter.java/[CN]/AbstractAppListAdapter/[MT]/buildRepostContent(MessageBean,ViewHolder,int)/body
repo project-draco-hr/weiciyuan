@@ -1,6 +1,9 @@
 {
   holder.repost_content.setVisibility(View.VISIBLE);
-  holder.repost_content.setText(repost_msg.getListViewSpannableString());
+  if (!repost_msg.getId().equals((String)holder.repost_content.getTag())) {
+    holder.repost_content.setText(repost_msg.getListViewSpannableString());
+    holder.repost_content.setTag(repost_msg.getId());
+  }
   if (!TextUtils.isEmpty(repost_msg.getBmiddle_pic())) {
     buildPic(repost_msg,holder.repost_content_pic,position);
   }

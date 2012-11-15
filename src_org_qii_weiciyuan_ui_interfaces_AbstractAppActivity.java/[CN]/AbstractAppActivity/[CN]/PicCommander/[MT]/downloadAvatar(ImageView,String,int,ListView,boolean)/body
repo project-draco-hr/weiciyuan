@@ -10,6 +10,7 @@
   }
  else {
     view.setImageDrawable(transPic);
+    view.setTag("");
     if (cancelPotentialAvatarDownload(urlKey,view) && !isFling) {
       AvatarBitmapWorkerTask task=new AvatarBitmapWorkerTask(GlobalContext.getInstance().getAvatarCache(),avatarBitmapWorkerTaskHashMap,view,urlKey,position,AbstractAppActivity.this);
       AvatarBitmapDrawable downloadedDrawable=new AvatarBitmapDrawable(task);

@@ -1,3 +1,6 @@
 {
   super.setUserVisibleHint(isVisibleToUser);
+  if (this.isVisible() && isVisibleToUser) {
+    getAdapter().notifyDataSetChanged();
+  }
 }

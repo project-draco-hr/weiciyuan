@@ -24,9 +24,11 @@ break;
 switch (method) {
 case picture_thumbnail:
 view.setImageDrawable(transPic);
+view.setTag("");
 break;
 case picture_bmiddle:
 view.setImageDrawable(transPic);
+view.setTag("");
 break;
 }
 if (cancelPotentialDownload(urlKey,view) && !isFling) {
