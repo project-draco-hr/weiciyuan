@@ -1,0 +1,5 @@
+{
+  int widthMeasureSpecMode=MeasureSpec.getMode(widthMeasureSpec);
+  int heightMeasureSpecMode=MeasureSpec.getMode(heightMeasureSpec);
+  return widthMeasureSpecMode == MeasureSpec.EXACTLY && heightMeasureSpecMode == MeasureSpec.EXACTLY;
+}

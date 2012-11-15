@@ -1,0 +1,7 @@
+{
+  if (mBlockMeasurement && mMeasuredExactly) {
+  }
+ else {
+    super.requestLayout();
+  }
+}

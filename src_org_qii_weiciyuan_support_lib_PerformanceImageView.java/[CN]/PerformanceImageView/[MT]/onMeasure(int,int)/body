@@ -1,0 +1,4 @@
+{
+  mMeasuredExactly=isMeasuredExactly(widthMeasureSpec,heightMeasureSpec);
+  super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+}
