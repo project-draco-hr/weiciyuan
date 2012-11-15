@@ -1,3 +1,3 @@
 {
-  return new DMConversationDao(GlobalContext.getInstance().getSpecialToken()).setUid(uid).getConversationList();
+  return new DMConversationDao(GlobalContext.getInstance().getSpecialToken()).setUid(userBean.getId()).getConversationList();
 }

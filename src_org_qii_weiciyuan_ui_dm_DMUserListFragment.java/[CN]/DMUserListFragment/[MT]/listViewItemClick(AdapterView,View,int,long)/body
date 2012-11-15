@@ -1,6 +1,5 @@
 {
-  String uid=bean.getItem(position).getUser().getId();
   Intent intent=new Intent(getActivity(),DMActivity.class);
-  intent.putExtra("uid",uid);
+  intent.putExtra("user",bean.getItem(position).getUser());
   startActivity(intent);
 }
