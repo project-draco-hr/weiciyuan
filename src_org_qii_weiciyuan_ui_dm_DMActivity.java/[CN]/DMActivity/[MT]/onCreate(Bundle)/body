@@ -4,5 +4,5 @@
   actionBar.setDisplayHomeAsUpEnabled(true);
   UserBean bean=(UserBean)getIntent().getSerializableExtra("user");
   setTitle(bean.getScreen_name());
-  getFragmentManager().beginTransaction().replace(android.R.id.content,new DMListFragment(bean)).commit();
+  getFragmentManager().beginTransaction().replace(android.R.id.content,new DMConversationListFragment(bean)).commit();
 }
