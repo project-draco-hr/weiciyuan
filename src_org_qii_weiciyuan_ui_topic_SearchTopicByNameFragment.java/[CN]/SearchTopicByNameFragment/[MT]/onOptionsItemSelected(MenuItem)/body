@@ -7,9 +7,6 @@ intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
 intent.putExtra("content","#" + q + "#");
 startActivity(intent);
 break;
-case R.id.menu_total_number:
-Toast.makeText(getActivity(),getString(R.string.deleted_by_sina_weibo),Toast.LENGTH_SHORT).show();
-break;
 case R.id.menu_refresh:
 pullToRefreshListView.startRefreshNow();
 break;

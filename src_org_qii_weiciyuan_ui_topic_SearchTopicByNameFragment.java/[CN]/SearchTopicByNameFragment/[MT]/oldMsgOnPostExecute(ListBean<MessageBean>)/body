@@ -2,6 +2,6 @@
   if (newValue != null && newValue.getSize() > 0) {
     getList().getItemList().addAll(newValue.getItemList());
     page++;
-    getActivity().invalidateOptionsMenu();
+    buildActionBatSubtitle();
   }
 }
