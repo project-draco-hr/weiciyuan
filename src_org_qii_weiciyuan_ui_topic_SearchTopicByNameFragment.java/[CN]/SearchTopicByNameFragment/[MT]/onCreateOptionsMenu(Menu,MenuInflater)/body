@@ -1,9 +1,9 @@
 {
   super.onCreateOptionsMenu(menu,inflater);
-  inflater.inflate(R.menu.actionbar_menu_myfavlistfragment,menu);
+  inflater.inflate(R.menu.actionbar_menu_searchtopicbynamefragment,menu);
   if (bean != null) {
     int newSize=bean.getTotal_number();
     String number=bean.getSize() + "/" + newSize;
-    menu.findItem(R.id.total_number).setTitle(number);
+    menu.findItem(R.id.menu_total_number).setTitle(number);
   }
 }
