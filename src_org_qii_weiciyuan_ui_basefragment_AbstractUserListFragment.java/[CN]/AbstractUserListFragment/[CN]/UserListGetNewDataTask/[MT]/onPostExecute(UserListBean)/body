@@ -1,10 +1,10 @@
 {
   if (newValue != null && newValue.getUsers().size() > 0) {
     clearAndReplaceValue(newValue);
-    timeLineAdapter.notifyDataSetChanged();
+    getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
+    newUserOnPostExecute();
   }
   cleanWork();
-  getActivity().invalidateOptionsMenu();
   super.onPostExecute(newValue);
 }

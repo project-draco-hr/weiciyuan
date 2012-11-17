@@ -1,0 +1,7 @@
+{
+  if (bean != null) {
+    int newSize=bean.getTotal_number();
+    String number=bean.getSize() + "/" + newSize;
+    getActivity().getActionBar().setSubtitle(number);
+  }
+}

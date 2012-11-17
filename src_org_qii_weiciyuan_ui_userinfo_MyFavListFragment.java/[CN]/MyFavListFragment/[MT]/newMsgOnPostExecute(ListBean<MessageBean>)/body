@@ -3,6 +3,6 @@
     clearAndReplaceValue(newValue);
     timeLineAdapter.notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
-    getActivity().invalidateOptionsMenu();
+    buildActionBarSubtitle();
   }
 }

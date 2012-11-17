@@ -5,7 +5,7 @@
     currentUser=(UserBean)savedInstanceState.getSerializable("currentUser");
     uid=savedInstanceState.getString("uid");
     clearAndReplaceValue((UserListBean)savedInstanceState.getSerializable("bean"));
-    timeLineAdapter.notifyDataSetChanged();
+    getAdapter().notifyDataSetChanged();
   }
  else {
     pullToRefreshListView.startRefreshNow();

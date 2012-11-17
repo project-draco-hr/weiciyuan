@@ -1,7 +1,6 @@
 {
   oldUserOnPostExecute(newValue);
-  timeLineAdapter.notifyDataSetChanged();
-  getActivity().invalidateOptionsMenu();
+  getAdapter().notifyDataSetChanged();
   dismissFooterView();
   super.onPostExecute(newValue);
 }

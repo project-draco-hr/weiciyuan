@@ -1,12 +1,8 @@
 {
 switch (item.getItemId()) {
-case R.id.total_number:
-    Toast.makeText(getActivity(),getString(R.string.deleted_by_sina_weibo),Toast.LENGTH_SHORT).show();
-  break;
 case R.id.myfavlistfragment_refresh:
-pullToRefreshListView.startRefreshNow();
-refresh();
-break;
+    pullToRefreshListView.startRefreshNow();
+  break;
 }
 return super.onOptionsItemSelected(item);
 }
