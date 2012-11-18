@@ -1,0 +1,10 @@
+{
+  super.onPostExecute(atUserBeans);
+  if (isCancelled())   return;
+  if (atUserBeans == null || atUserBeans.size() == 0) {
+    return;
+  }
+  result.clear();
+  result.addAll(atUserBeans);
+  adapter.notifyDataSetChanged();
+}

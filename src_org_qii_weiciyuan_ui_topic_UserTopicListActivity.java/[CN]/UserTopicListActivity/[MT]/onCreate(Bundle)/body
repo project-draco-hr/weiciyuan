@@ -1,0 +1,7 @@
+{
+  super.onCreate(savedInstanceState);
+  UserBean userBean=(UserBean)getIntent().getSerializableExtra("userBean");
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setTitle(getString(R.string.topic));
+  getFragmentManager().beginTransaction().replace(android.R.id.content,new UserTopicListFragment(userBean)).commit();
+}

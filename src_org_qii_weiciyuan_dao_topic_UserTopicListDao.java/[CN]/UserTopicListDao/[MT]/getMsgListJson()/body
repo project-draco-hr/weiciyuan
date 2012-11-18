@@ -1,0 +1,11 @@
+{
+  String url=URLHelper.TOPIC_USER_LIST;
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("count",count);
+  map.put("page",page);
+  map.put("uid",uid);
+  String jsonData=null;
+  jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  return jsonData;
+}

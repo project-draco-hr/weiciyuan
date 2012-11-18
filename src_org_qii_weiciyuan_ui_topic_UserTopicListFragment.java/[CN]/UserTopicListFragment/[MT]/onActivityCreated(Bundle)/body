@@ -1,0 +1,26 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  if (savedInstanceState != null) {
+    userBean=(UserBean)savedInstanceState.getSerializable("userBean");
+  }
+  adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,result);
+  setListAdapter(adapter);
+  getListView().setOnItemClickListener(new AdapterView.OnItemClickListener(){
+    @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      String str=result.get(position);
+      String q;
+      if (str.startsWith("#") && str.endsWith("#")) {
+        q=str.substring(1,str.length() - 1);
+      }
+ else {
+        q=str;
+      }
+      Intent intent=new Intent(getActivity(),SearchTopicByNameActivity.class);
+      intent.putExtra("q",q);
+      startActivity(intent);
+    }
+  }
+);
+  task=new TopicListTask();
+  task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}

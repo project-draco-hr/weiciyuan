@@ -1,10 +1,13 @@
 {
   super.onCreate(savedInstanceState);
-  Uri data=getIntent().getData();
-  String d=data.toString();
-  int index=d.lastIndexOf("/");
-  String newValue=d.substring(index + 1);
+  String q=getIntent().getStringExtra("q");
+  if (TextUtils.isEmpty(q)) {
+    Uri data=getIntent().getData();
+    String d=data.toString();
+    int index=d.lastIndexOf("/");
+    q=d.substring(index + 1);
+  }
   getActionBar().setDisplayHomeAsUpEnabled(true);
-  getActionBar().setTitle("#" + newValue + "#");
-  getFragmentManager().beginTransaction().replace(android.R.id.content,new SearchTopicByNameFragment(newValue)).commit();
+  getActionBar().setTitle("#" + q + "#");
+  getFragmentManager().beginTransaction().replace(android.R.id.content,new SearchTopicByNameFragment(q)).commit();
 }
