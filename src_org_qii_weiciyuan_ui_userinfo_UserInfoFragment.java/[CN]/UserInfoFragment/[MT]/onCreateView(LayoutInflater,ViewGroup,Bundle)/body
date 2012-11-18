@@ -11,12 +11,14 @@
   relationship=(TextView)view.findViewById(R.id.relationship);
   following_number=(TextView)view.findViewById(R.id.following_number);
   fans_number=(TextView)view.findViewById(R.id.fans_number);
+  topic_number=(TextView)view.findViewById(R.id.topic_number);
   blog_url_layout=view.findViewById(R.id.blog_url_layout);
   intro_layout=view.findViewById(R.id.intro_layout);
   location_layout=view.findViewById(R.id.location_layout);
   verified_layout=view.findViewById(R.id.verified_layout);
   View fan_layout=view.findViewById(R.id.fan_layout);
   View following_layout=view.findViewById(R.id.following_layout);
+  View topic_layout=view.findViewById(R.id.topic_layout);
   following_layout.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),FriendListActivity.class);
@@ -31,6 +33,15 @@
       Intent intent=new Intent(getActivity(),FanListActivity.class);
       intent.putExtra("token",((IToken)getActivity()).getToken());
       intent.putExtra("user",bean);
+      startActivity(intent);
+    }
+  }
+);
+  topic_layout.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent(getActivity(),UserTopicListActivity.class);
+      intent.putExtra("userBean",bean);
+      intent.putStringArrayListExtra("topicList",topicList);
       startActivity(intent);
     }
   }

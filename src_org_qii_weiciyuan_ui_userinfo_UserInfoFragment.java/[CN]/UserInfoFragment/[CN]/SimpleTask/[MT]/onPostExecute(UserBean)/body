@@ -1,4 +1,6 @@
 {
   setValue();
+  topicListTask=new TopicListTask();
+  topicListTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   super.onPostExecute(o);
 }

@@ -1,6 +1,12 @@
 {
   super.onActivityCreated(savedInstanceState);
-  bean=((IUserInfo)getActivity()).getUser();
+  if (savedInstanceState != null) {
+    topicList=savedInstanceState.getStringArrayList("topicList");
+    bean=(UserBean)savedInstanceState.getSerializable("bean");
+  }
+ else {
+    bean=((IUserInfo)getActivity()).getUser();
+  }
   commander=((AbstractAppActivity)getActivity()).getCommander();
   setValue();
   refresh();

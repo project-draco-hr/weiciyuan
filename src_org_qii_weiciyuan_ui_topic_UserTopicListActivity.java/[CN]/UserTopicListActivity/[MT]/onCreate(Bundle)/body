@@ -4,5 +4,14 @@
   ArrayList<String> topicList=getIntent().getStringArrayListExtra("topicList");
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setTitle(getString(R.string.topic));
-  getFragmentManager().beginTransaction().replace(android.R.id.content,new UserTopicListFragment(userBean,topicList)).commit();
+  if (savedInstanceState == null) {
+    UserTopicListFragment fragment;
+    if (topicList != null) {
+      fragment=new UserTopicListFragment(userBean,topicList);
+    }
+ else {
+      fragment=new UserTopicListFragment(userBean);
+    }
+    getFragmentManager().beginTransaction().replace(android.R.id.content,fragment).commit();
+  }
 }
