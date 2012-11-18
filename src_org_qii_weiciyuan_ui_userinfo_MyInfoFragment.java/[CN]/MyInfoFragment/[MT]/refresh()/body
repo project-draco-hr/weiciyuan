@@ -1,6 +1,6 @@
 {
-  if (task == null || task.getStatus() == AsyncTask.Status.FINISHED) {
-    task=new SimpleTask();
-    task.execute();
+  if (refreshTask == null || refreshTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+    refreshTask=new RefreshTask();
+    refreshTask.execute();
   }
 }
