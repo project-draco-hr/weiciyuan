@@ -50,6 +50,7 @@
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),UserTopicListActivity.class);
       intent.putExtra("userBean",bean);
+      intent.putStringArrayListExtra("topicList",topicList);
       startActivity(intent);
     }
   }

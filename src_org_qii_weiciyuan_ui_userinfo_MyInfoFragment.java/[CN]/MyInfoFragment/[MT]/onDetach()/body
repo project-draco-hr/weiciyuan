@@ -1,4 +1,4 @@
 {
   super.onDetach();
-  Utility.cancelTasks(refreshTask,avatarTask);
+  Utility.cancelTasks(refreshTask,avatarTask,topicListTask);
 }
