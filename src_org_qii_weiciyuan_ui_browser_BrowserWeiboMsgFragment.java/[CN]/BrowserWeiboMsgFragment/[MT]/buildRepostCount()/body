@@ -1,0 +1,24 @@
+{
+  MessageBean repostBean=msg.getRetweeted_status();
+  if (repostBean.getComments_count() == 0 && repostBean.getReposts_count() == 0) {
+    count_layout.setVisibility(View.GONE);
+    return;
+  }
+ else {
+    count_layout.setVisibility(View.VISIBLE);
+  }
+  if (repostBean.getComments_count() > 0) {
+    comment_count.setVisibility(View.VISIBLE);
+    comment_count.setText(String.valueOf(repostBean.getComments_count()));
+  }
+ else {
+    comment_count.setVisibility(View.GONE);
+  }
+  if (repostBean.getReposts_count() > 0) {
+    repost_count.setVisibility(View.VISIBLE);
+    repost_count.setText(String.valueOf(repostBean.getReposts_count()));
+  }
+ else {
+    repost_count.setVisibility(View.GONE);
+  }
+}

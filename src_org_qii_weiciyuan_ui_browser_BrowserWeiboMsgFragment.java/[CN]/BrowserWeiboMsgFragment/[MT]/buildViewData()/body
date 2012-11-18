@@ -57,6 +57,7 @@
     if (msg.getRetweeted_status().getUser() != null) {
       recontent.setText("@" + msg.getRetweeted_status().getUser().getScreen_name() + "???"+ msg.getRetweeted_status().getText());
       ListViewTool.addLinks(recontent);
+      buildRepostCount();
     }
  else {
       recontent.setText(msg.getRetweeted_status().getText());
