@@ -1,8 +1,0 @@
-{
-  if (pullToRefreshListView.getVisibility() == View.VISIBLE) {
-    pullToRefreshListView.setVisibility(View.GONE);
-  }
- else {
-    pullToRefreshListView.setVisibility(View.VISIBLE);
-  }
-}

@@ -2,7 +2,7 @@
   if (hashMap.get(selectedId) == null || hashMap.get(selectedId).getSize() == 0) {
     bean.getItemList().clear();
     getAdapter().notifyDataSetChanged();
-    pullToRefreshListView.startRefreshNow();
+    getPullToRefreshListView().startRefreshNow();
   }
  else {
     clearAndReplaceValue(hashMap.get(selectedId));
