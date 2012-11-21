@@ -51,14 +51,14 @@ return;
 getListView().clearChoices();
 if (position - 1 < getList().getSize() && position - 1 >= 0) {
 int index=position - 1;
-Object msg=bean.getItemList().get(index);
+Object msg=getList().getItemList().get(index);
 if (msg != null) {
 listViewItemClick(parent,view,index,id);
 }
  else {
-String beginId=bean.getItem(index - 1).getId();
-String endTag=bean.getItem(index + 1).getId();
-String endId=bean.getItem(index + 2).getId();
+String beginId=getList().getItem(index - 1).getId();
+String endTag=getList().getItem(index + 1).getId();
+String endId=getList().getItem(index + 2).getId();
 loadMiddleMsg(beginId,endId,endTag,index);
 Toast.makeText(getActivity(),getString(R.string.loading_middle_msg),Toast.LENGTH_SHORT).show();
 }
