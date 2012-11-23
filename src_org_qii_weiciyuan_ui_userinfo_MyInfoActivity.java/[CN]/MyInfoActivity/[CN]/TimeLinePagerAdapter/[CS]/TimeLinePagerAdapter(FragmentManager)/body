@@ -7,7 +7,7 @@
     list.add(getMyInfoFragment());
   }
   if (getStatusFragment() == null) {
-    list.add(new StatusesByIdTimeLineFragment(getUser(),getToken()));
+    list.add(new StatusesByIdTimeLineFragment(getUser(),GlobalContext.getInstance().getSpecialToken()));
   }
  else {
     list.add(getStatusFragment());
