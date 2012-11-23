@@ -1,0 +1,8 @@
+{
+  if (newValue != null && getActivity() != null && newValue.getSize() > 0) {
+    getList().addNewData(newValue);
+    getAdapter().notifyDataSetChanged();
+    getListView().setSelectionAfterHeaderView();
+    buildActionBatSubtitle();
+  }
+}

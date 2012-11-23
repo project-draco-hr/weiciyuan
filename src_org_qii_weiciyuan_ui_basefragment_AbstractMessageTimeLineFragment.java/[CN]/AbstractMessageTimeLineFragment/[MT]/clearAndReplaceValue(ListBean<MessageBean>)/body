@@ -1,5 +1,5 @@
 {
-  bean.getItemList().clear();
-  bean.getItemList().addAll(value.getItemList());
-  bean.setTotal_number(value.getTotal_number());
+  getList().getItemList().clear();
+  getList().getItemList().addAll(value.getItemList());
+  getList().setTotal_number(value.getTotal_number());
 }

@@ -1,7 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
-  if (savedInstanceState != null && (bean == null || bean.getItemList().size() == 0)) {
+  if (savedInstanceState != null && (getList() == null || getList().getItemList().size() == 0)) {
     userBean=(UserBean)savedInstanceState.getSerializable("userBean");
     accountBean=(AccountBean)savedInstanceState.getSerializable("account");
     token=savedInstanceState.getString("token");
@@ -14,7 +14,7 @@
     hashMap.put(4,(CommentListBean)savedInstanceState.getSerializable("4"));
     clearAndReplaceValue((CommentListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
-    refreshLayout(bean);
+    refreshLayout(getList());
   }
  else {
     if (dbTask == null || dbTask.getStatus() == MyAsyncTask.Status.FINISHED) {
@@ -36,13 +36,13 @@
           mActionMode=null;
           getListView().setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new CommentSingleChoiceModeListener(getListView(),timeLineAdapter,CommentsTimeLineFragment.this,bean.getItemList().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new CommentSingleChoiceModeListener(getListView(),timeLineAdapter,CommentsTimeLineFragment.this,getList().getItemList().get(position - 1)));
           return true;
         }
  else {
           getListView().setItemChecked(position,true);
           timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new CommentSingleChoiceModeListener(getListView(),timeLineAdapter,CommentsTimeLineFragment.this,bean.getItemList().get(position - 1)));
+          mActionMode=getActivity().startActionMode(new CommentSingleChoiceModeListener(getListView(),timeLineAdapter,CommentsTimeLineFragment.this,getList().getItemList().get(position - 1)));
           return true;
         }
       }

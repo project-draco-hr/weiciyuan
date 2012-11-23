@@ -1,8 +1,0 @@
-{
-  if (newValue != null && getActivity() != null && newValue.getSize() > 0) {
-    clearAndReplaceValue(newValue);
-    timeLineAdapter.notifyDataSetChanged();
-    getListView().setSelectionAfterHeaderView();
-    getActivity().invalidateOptionsMenu();
-  }
-}

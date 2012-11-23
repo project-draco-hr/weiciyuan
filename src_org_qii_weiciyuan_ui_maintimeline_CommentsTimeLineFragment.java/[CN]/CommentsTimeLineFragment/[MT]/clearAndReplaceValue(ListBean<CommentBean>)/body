@@ -1,4 +1,4 @@
 {
-  bean.getItemList().clear();
-  bean.getItemList().addAll(value.getItemList());
+  getList().getItemList().clear();
+  getList().getItemList().addAll(value.getItemList());
 }

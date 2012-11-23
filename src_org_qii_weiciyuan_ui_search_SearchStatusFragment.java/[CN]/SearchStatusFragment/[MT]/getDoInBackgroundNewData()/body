@@ -1,6 +1,6 @@
 {
   page=1;
   SearchDao dao=new SearchDao(GlobalContext.getInstance().getSpecialToken(),((SearchMainActivity)getActivity()).getSearchWord());
-  ListBean<MessageBean> result=dao.getStatusList();
+  SearchStatusListBean result=dao.getStatusList();
   return result;
 }

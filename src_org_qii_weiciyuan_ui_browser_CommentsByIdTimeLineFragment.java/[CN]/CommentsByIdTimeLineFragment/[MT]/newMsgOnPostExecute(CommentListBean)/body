@@ -8,7 +8,7 @@
         newValue.getItemList().addAll(getList().getItemList());
       }
       clearAndReplaceValue(newValue);
-      timeLineAdapter.notifyDataSetChanged();
+      getAdapter().notifyDataSetChanged();
       getListView().setSelectionAfterHeaderView();
     }
   }

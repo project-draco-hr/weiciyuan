@@ -10,14 +10,14 @@
           mActionMode.finish();
           mActionMode=null;
           getListView().setItemChecked(position,true);
-          timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new StatusSingleChoiceModeListener(getListView(),(StatusListAdapter)timeLineAdapter,AbstractMessageTimeLineFragment.this,bean.getItemList().get(position - 1)));
+          getAdapter().notifyDataSetChanged();
+          mActionMode=getActivity().startActionMode(new StatusSingleChoiceModeListener(getListView(),(StatusListAdapter)timeLineAdapter,AbstractMessageTimeLineFragment.this,getList().getItemList().get(position - 1)));
           return true;
         }
  else {
           getListView().setItemChecked(position,true);
-          timeLineAdapter.notifyDataSetChanged();
-          mActionMode=getActivity().startActionMode(new StatusSingleChoiceModeListener(getListView(),(StatusListAdapter)timeLineAdapter,AbstractMessageTimeLineFragment.this,bean.getItemList().get(position - 1)));
+          getAdapter().notifyDataSetChanged();
+          mActionMode=getActivity().startActionMode(new StatusSingleChoiceModeListener(getListView(),(StatusListAdapter)timeLineAdapter,AbstractMessageTimeLineFragment.this,getList().getItemList().get(position - 1)));
           return true;
         }
       }

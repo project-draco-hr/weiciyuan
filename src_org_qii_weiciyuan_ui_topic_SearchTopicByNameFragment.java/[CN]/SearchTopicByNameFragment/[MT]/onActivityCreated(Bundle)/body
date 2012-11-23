@@ -6,6 +6,5 @@
   }
  else {
     pullToRefreshListView.startRefreshNow();
-    refresh();
   }
 }

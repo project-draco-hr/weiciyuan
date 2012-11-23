@@ -1,1 +1,1 @@
-AbstractTimeLineFragment<ListBean<MessageBean>>
+AbstractTimeLineFragment<T>

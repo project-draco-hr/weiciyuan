@@ -1,4 +1,4 @@
 {
   refreshLayout(getList());
-  pullToRefreshListView.onRefreshComplete();
+  getPullToRefreshListView().onRefreshComplete();
 }

@@ -1,7 +1,7 @@
 {
   if (allowRefresh()) {
     newTask=new TimeLineGetNewMsgListTask();
-    newTask.execute();
+    newTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     Map<String,AvatarBitmapWorkerTask> avatarBitmapWorkerTaskHashMap=((AbstractAppActivity)getActivity()).getAvatarBitmapWorkerTaskHashMap();
     Map<String,PictureBitmapWorkerTask> pictureBitmapWorkerTaskMap=((AbstractAppActivity)getActivity()).getPictureBitmapWorkerTaskMap();
     Set<String> keys=avatarBitmapWorkerTaskHashMap.keySet();

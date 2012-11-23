@@ -15,7 +15,7 @@
         newValue.getItemList().addAll(getList().getItemList());
       }
       clearAndReplaceValue(newValue);
-      clearAndReplaceValue(selected,bean);
+      clearAndReplaceValue(selected,getList());
       timeLineAdapter.notifyDataSetChanged();
       getListView().setSelectionAfterHeaderView();
     }

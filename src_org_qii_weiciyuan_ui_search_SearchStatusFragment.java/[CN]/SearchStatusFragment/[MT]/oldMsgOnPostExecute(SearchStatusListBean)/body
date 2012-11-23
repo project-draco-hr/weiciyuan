@@ -1,0 +1,8 @@
+{
+  if (newValue != null && newValue.getSize() > 0) {
+    getList().addOldData(newValue);
+    getAdapter().notifyDataSetChanged();
+    getActivity().invalidateOptionsMenu();
+    page++;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  if (newValue != null) {
+    if (newValue.getSize() == 0) {
+    }
+ else     if (newValue.getSize() > 0) {
+      if (newValue.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+        newValue.getItemList().addAll(getItemList());
+      }
+ else {
+        if (getSize() > 0) {
+          newValue.getItemList().add(null);
+        }
+        newValue.getItemList().addAll(this.getItemList());
+      }
+      this.getItemList().clear();
+      this.getItemList().addAll(newValue.getItemList());
+      this.setTotal_number(newValue.getTotal_number());
+    }
+  }
+}

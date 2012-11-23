@@ -4,7 +4,7 @@
     }
  else     if (newValue.getSize() > 0) {
       clearAndReplaceValue(newValue);
-      timeLineAdapter.notifyDataSetChanged();
+      getAdapter().notifyDataSetChanged();
       getListView().setSelectionAfterHeaderView();
     }
   }

@@ -1,0 +1,6 @@
+{
+  if (oldValue != null && oldValue.getSize() > 1) {
+    getItemList().addAll(oldValue.getItemList().subList(1,oldValue.getSize()));
+    setTotal_number(oldValue.getTotal_number());
+  }
+}
