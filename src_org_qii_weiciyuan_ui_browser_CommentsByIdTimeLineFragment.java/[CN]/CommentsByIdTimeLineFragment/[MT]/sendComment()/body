@@ -1,5 +1,5 @@
 {
   if (canSend()) {
-    new SimpleTask().execute();
+    new QuickCommentTask().execute();
   }
 }

@@ -1,0 +1,7 @@
+{
+  if (oldValue != null && oldValue.getItemList().size() > 1) {
+    List<CommentBean> list=oldValue.getItemList();
+    getItemList().addAll(list.subList(1,list.size()));
+    setTotal_number(oldValue.getTotal_number());
+  }
+}

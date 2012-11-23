@@ -1,16 +1,8 @@
 {
-  if (newValue != null) {
-    bean.setTotal_number(newValue.getTotal_number());
-    if (newValue.getItemList().size() == 0) {
-    }
- else {
-      if (newValue.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
-        newValue.getItemList().addAll(getList().getItemList());
-      }
-      clearAndReplaceValue(newValue);
-      getAdapter().notifyDataSetChanged();
-      getListView().setSelectionAfterHeaderView();
-    }
+  if (newValue != null && newValue.getSize() > 0) {
+    getList().addNewData(newValue);
+    getAdapter().notifyDataSetChanged();
+    getListView().setSelectionAfterHeaderView();
+    invlidateTabText();
   }
-  invlidateTabText();
 }
