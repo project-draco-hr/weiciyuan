@@ -9,7 +9,7 @@ switch (which) {
 case 0:
         Intent intent=new Intent(getActivity(),WriteReplyToCommentActivity.class);
       intent.putExtra("msg",bean);
-    intent.putExtra("token",((IToken)getActivity()).getToken());
+    intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
   startActivity(intent);
 break;
 case 1:

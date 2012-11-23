@@ -22,7 +22,7 @@
   following_layout.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),FriendListActivity.class);
-      intent.putExtra("token",((IToken)getActivity()).getToken());
+      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
       intent.putExtra("user",bean);
       startActivity(intent);
     }
@@ -31,7 +31,7 @@
   fan_layout.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),FanListActivity.class);
-      intent.putExtra("token",((IToken)getActivity()).getToken());
+      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
       intent.putExtra("user",bean);
       startActivity(intent);
     }

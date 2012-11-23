@@ -1,5 +1,5 @@
 {
-  FriendshipsDao dao=new FriendshipsDao(((IToken)getActivity()).getToken());
+  FriendshipsDao dao=new FriendshipsDao(GlobalContext.getInstance().getSpecialToken());
   if (!TextUtils.isEmpty(bean.getId())) {
     dao.setUid(bean.getId());
   }

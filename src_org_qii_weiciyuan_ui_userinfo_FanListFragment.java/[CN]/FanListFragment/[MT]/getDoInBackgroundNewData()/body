@@ -1,5 +1,5 @@
 {
-  FanListDao dao=new FanListDao(((IToken)getActivity()).getToken(),uid);
+  FanListDao dao=new FanListDao(GlobalContext.getInstance().getSpecialToken(),uid);
   if (getList().getUsers().size() > 0 && bean.getPrevious_cursor() > 0) {
     dao.setCursor(String.valueOf(bean.getPrevious_cursor() - 1));
   }

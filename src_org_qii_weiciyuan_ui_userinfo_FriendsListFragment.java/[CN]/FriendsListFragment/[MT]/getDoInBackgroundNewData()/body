@@ -1,5 +1,5 @@
 {
-  FriendListDao dao=new FriendListDao(((IToken)getActivity()).getToken(),uid);
+  FriendListDao dao=new FriendListDao(GlobalContext.getInstance().getSpecialToken(),uid);
   if (getList().getUsers().size() > 0 && bean.getPrevious_cursor() > 0) {
     dao.setCursor(String.valueOf(bean.getPrevious_cursor() - 1));
   }

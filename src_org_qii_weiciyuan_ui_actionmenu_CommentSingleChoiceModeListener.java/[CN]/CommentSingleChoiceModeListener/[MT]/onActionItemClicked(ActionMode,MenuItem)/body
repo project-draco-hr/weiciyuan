@@ -4,14 +4,14 @@ switch (item.getItemId()) {
 case R.id.menu_view:
     intent=new Intent(getActivity(),BrowserCommentActivity.class);
   intent.putExtra("comment",bean);
-intent.putExtra("token",((IToken)getActivity()).getToken());
+intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
 getActivity().startActivity(intent);
 listView.clearChoices();
 mode.finish();
 break;
 case R.id.menu_comment:
 intent=new Intent(getActivity(),WriteReplyToCommentActivity.class);
-intent.putExtra("token",((IToken)getActivity()).getToken());
+intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
 intent.putExtra("msg",bean);
 getActivity().startActivity(intent);
 listView.clearChoices();

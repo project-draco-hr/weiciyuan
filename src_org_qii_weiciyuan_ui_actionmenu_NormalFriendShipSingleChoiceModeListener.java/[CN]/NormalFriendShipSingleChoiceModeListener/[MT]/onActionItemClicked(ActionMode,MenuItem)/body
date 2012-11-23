@@ -2,7 +2,7 @@
 switch (item.getItemId()) {
 case R.id.menu_at:
     Intent intent=new Intent(getActivity(),WriteWeiboActivity.class);
-  intent.putExtra("token",((IToken)getActivity()).getToken());
+  intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
 intent.putExtra("content","@" + bean.getScreen_name());
 intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
 getActivity().startActivity(intent);

@@ -1,6 +1,6 @@
 {
   if (!isCancelled()) {
-    ShowUserDao dao=new ShowUserDao(((IToken)getActivity()).getToken());
+    ShowUserDao dao=new ShowUserDao(GlobalContext.getInstance().getSpecialToken());
     boolean haveId=!TextUtils.isEmpty(bean.getId());
     boolean haveName=!TextUtils.isEmpty(bean.getScreen_name());
     if (haveId) {

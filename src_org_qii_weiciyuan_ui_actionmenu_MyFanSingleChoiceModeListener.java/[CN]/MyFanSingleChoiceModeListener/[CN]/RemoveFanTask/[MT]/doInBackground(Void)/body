@@ -1,5 +1,5 @@
 {
-  FanDao dao=new FanDao(((IToken)getActivity()).getToken(),bean.getId());
+  FanDao dao=new FanDao(GlobalContext.getInstance().getSpecialToken(),bean.getId());
   try {
     return dao.removeFan();
   }
