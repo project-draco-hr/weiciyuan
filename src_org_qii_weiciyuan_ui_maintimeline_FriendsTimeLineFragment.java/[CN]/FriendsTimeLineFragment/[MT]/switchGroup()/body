@@ -1,6 +1,6 @@
 {
   if (hashMap.get(selectedId) == null || hashMap.get(selectedId).getSize() == 0) {
-    bean.getItemList().clear();
+    getList().getItemList().clear();
     getAdapter().notifyDataSetChanged();
     getPullToRefreshListView().startRefreshNow();
   }

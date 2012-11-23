@@ -7,7 +7,7 @@
     selectedId=savedInstanceState.getString("selectedId");
     clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
-    refreshLayout(bean);
+    refreshLayout(getList());
   }
  else {
     if (dbTask == null || dbTask.getStatus() == MyAsyncTask.Status.FINISHED) {
