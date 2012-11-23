@@ -1,1 +1,1 @@
-ListBean<CommentBean>
+ListBean<CommentBean,CommentListBean>

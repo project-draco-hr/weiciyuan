@@ -2,7 +2,7 @@
   super.onActivityCreated(savedInstanceState);
   commander=((AbstractAppActivity)getActivity()).getCommander();
   if (savedInstanceState != null && bean.getItemList().size() == 0) {
-    clearAndReplaceValue((ListBean<MessageBean>)savedInstanceState.getSerializable("bean"));
+    clearAndReplaceValue((FavListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(bean);
   }

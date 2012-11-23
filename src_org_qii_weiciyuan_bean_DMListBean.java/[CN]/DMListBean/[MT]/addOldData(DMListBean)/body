@@ -1,0 +1,4 @@
+{
+  setTotal_number(oldValue.getTotal_number());
+  getItemList().addAll(oldValue.getItemList());
+}
