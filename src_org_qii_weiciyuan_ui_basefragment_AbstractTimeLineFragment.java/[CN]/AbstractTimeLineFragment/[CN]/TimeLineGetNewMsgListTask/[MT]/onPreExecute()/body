@@ -1,4 +1,5 @@
 {
   showListView();
+  clearActionMode();
   Utility.stopListViewScrollingAndScrollToTop(getListView());
 }
