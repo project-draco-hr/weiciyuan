@@ -1,7 +1,6 @@
 {
   if (!isCancelled()) {
-    float reSize=GlobalContext.getInstance().getResources().getDisplayMetrics().density;
-    int width=(int)(40 * reSize);
+    int width=Utility.dip2px(40);
     int height=width;
     if (GlobalContext.getInstance().getEnableBigAvatar()) {
       return ImageTool.getTimeLineBigAvatarWithRoundedCorner(data,width,height);
