@@ -10,6 +10,14 @@ break;
 case R.id.menu_refresh:
 pullToRefreshListView.startRefreshNow();
 break;
+case R.id.menu_follow_topic:
+if (Utility.isTaskStopped(followTopicTask)) {
+followTopicTask=new FollowTopicTask();
+followTopicTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
+break;
+case R.id.menu_unfollow_topic:
+break;
 }
 return super.onOptionsItemSelected(item);
 }

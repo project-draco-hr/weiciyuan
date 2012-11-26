@@ -2,4 +2,5 @@
   super.onSaveInstanceState(outState);
   outState.putString("q",q);
   outState.putInt("page",page);
+  outState.putSerializable("bean",bean);
 }

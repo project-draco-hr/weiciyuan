@@ -3,8 +3,9 @@
   if (savedInstanceState != null) {
     q=savedInstanceState.getString("q");
     page=savedInstanceState.getInt("page");
+    bean=(TopicResultListBean)savedInstanceState.getSerializable("bean");
   }
  else {
-    pullToRefreshListView.startRefreshNow();
+    getPullToRefreshListView().startRefreshNow();
   }
 }
