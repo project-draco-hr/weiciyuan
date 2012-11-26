@@ -1,0 +1,10 @@
+{
+  try {
+    return new TopicDao(GlobalContext.getInstance().getSpecialToken()).follow(keyWord);
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+  }
+  return false;
+}

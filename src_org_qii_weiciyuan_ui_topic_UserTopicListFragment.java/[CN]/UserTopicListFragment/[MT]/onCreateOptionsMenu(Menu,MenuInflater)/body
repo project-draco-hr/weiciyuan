@@ -1,0 +1,4 @@
+{
+  super.onCreateOptionsMenu(menu,inflater);
+  if (userBean.getId().equals(GlobalContext.getInstance().getCurrentAccountId()))   inflater.inflate(R.menu.actionbar_menu_usertopiclistfragment,menu);
+}

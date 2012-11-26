@@ -1,0 +1,6 @@
+{
+  if (Utility.isTaskStopped(followTopicTask)) {
+    followTopicTask=new FollowTopicTask(keyWord);
+    followTopicTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}
