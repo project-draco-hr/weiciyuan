@@ -1,0 +1,4 @@
+{
+  task=new TopicListTask();
+  task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
