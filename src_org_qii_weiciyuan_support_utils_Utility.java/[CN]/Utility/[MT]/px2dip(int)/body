@@ -1,4 +1,4 @@
 {
   float reSize=GlobalContext.getInstance().getResources().getDisplayMetrics().density;
-  return (int)((dipValue * reSize) + 0.5);
+  return (int)((pxValue / reSize) + 0.5);
 }
