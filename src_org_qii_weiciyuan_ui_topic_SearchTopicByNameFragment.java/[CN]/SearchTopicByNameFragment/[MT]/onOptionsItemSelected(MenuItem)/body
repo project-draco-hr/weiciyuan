@@ -17,6 +17,10 @@ followTopicTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
 break;
 case R.id.menu_unfollow_topic:
+if (Utility.isTaskStopped(unFollowTopicTask)) {
+unFollowTopicTask=new UnFollowTopicTask();
+unFollowTopicTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
 break;
 }
 return super.onOptionsItemSelected(item);

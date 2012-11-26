@@ -1,6 +1,6 @@
 {
   try {
-    return new TopicDao(GlobalContext.getInstance().getSpecialToken()).follow(q);
+    return new TopicDao(GlobalContext.getInstance().getSpecialToken()).destroy(q);
   }
  catch (  WeiboException e) {
     this.e=e;
