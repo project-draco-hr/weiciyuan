@@ -1,0 +1,5 @@
+{
+  if (!isExternalStorageMounted())   return "";
+  String path=getSdCardPath() + File.separator + TXT2PIC;
+  return path;
+}
