@@ -44,4 +44,5 @@
     }
   }
 );
+  findPreference(SettingActivity.CACHE_PATH).setSummary(GlobalContext.getInstance().getExternalCacheDir().getAbsolutePath());
 }
