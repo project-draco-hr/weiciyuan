@@ -1,0 +1,6 @@
+{
+  if (Utility.isTaskStopped(string2PicTask)) {
+    string2PicTask=new String2PicTask();
+    string2PicTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

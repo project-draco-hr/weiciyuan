@@ -1,0 +1,11 @@
+{
+  super.onPostExecute(s);
+  if (!TextUtils.isEmpty(s)) {
+    havePic.setVisibility(View.VISIBLE);
+    picPath=s;
+    Toast.makeText(WriteWeiboActivity.this,getString(R.string.convert_successfully),Toast.LENGTH_SHORT).show();
+  }
+ else {
+    Toast.makeText(WriteWeiboActivity.this,getString(R.string.convert_failed),Toast.LENGTH_SHORT).show();
+  }
+}

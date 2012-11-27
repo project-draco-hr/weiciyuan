@@ -1,0 +1,3 @@
+{
+  return ImageEdit.convertStringToBitmap(WriteWeiboActivity.this,content);
+}

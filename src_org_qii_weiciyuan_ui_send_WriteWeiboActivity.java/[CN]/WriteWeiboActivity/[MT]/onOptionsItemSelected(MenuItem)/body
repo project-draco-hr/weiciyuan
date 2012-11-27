@@ -26,7 +26,7 @@ intent.putExtra("token",token);
 startActivityForResult(intent,AT_USER);
 break;
 case R.id.menu_txt_to_pic:
-convertStringToBitmap(content);
+convertStringToBitmap();
 break;
 }
 return true;
