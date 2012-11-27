@@ -1,0 +1,14 @@
+{
+  if (!isExternalStorageMounted())   return false;
+  File file=new File(path);
+  String name=file.getName();
+  String newPath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath() + File.separator + name;
+  try {
+    FileManager.createNewFileInSDCard(newPath);
+    copyFile(file,new File(newPath));
+    return true;
+  }
+ catch (  IOException e) {
+    return false;
+  }
+}

@@ -1,6 +1,6 @@
 {
   super.onDestroy();
-  if (task != null)   task.cancel(true);
+  Utility.cancelTasks(task,saveTask);
   webView.loadUrl("about:blank");
   webView.stopLoading();
   webView=null;

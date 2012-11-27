@@ -1,5 +1,0 @@
-{
-  super.onCancelled(aVoid);
-  Toast.makeText(BrowserBigPicActivity.this,getString(R.string.cant_save_pic),Toast.LENGTH_SHORT).show();
-  saveTask=null;
-}
