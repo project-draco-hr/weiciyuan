@@ -55,6 +55,7 @@
   actionBar.setDisplayShowCustomEnabled(true);
   content=((EditText)findViewById(R.id.status_new_content));
   content.addTextChangedListener(new TextNumLimitWatcher((TextView)findViewById(R.id.menu_send),content,this));
+  content.setDrawingCacheEnabled(true);
   View.OnClickListener onClickListener=new BottomButtonClickListener();
   findViewById(R.id.menu_add_gps).setOnClickListener(onClickListener);
   findViewById(R.id.menu_add_pic).setOnClickListener(onClickListener);

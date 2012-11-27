@@ -1,4 +1,5 @@
 {
   getMenuInflater().inflate(R.menu.actionbar_menu_statusnewactivity,menu);
+  txt2PicMenuItem=menu.findItem(R.id.menu_txt_to_pic);
   return true;
 }

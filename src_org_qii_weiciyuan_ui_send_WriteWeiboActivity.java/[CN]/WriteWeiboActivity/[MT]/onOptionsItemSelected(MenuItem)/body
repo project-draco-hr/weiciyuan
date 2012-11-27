@@ -25,6 +25,9 @@ intent=new Intent(WriteWeiboActivity.this,AtUserActivity.class);
 intent.putExtra("token",token);
 startActivityForResult(intent,AT_USER);
 break;
+case R.id.menu_txt_to_pic:
+convertStringToBitmap(content);
+break;
 }
 return true;
 }
