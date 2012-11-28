@@ -1,0 +1,6 @@
+{
+  String ori=getEditTextView().getText().toString();
+  String topicTag="##";
+  getEditTextView().setText(ori + topicTag);
+  getEditTextView().setSelection(et.getText().toString().length() - 1);
+}
