@@ -1,0 +1,11 @@
+{
+  DestroyStatusDao dao=new DestroyStatusDao(token,id);
+  try {
+    return dao.destroy();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+    return false;
+  }
+}

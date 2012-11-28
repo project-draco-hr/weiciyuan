@@ -1,5 +1,8 @@
 {
   getMenuInflater().inflate(R.menu.actionbar_menu_browserweibomsgactivity,menu);
+  if (msg.getUser() != null && msg.getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+    menu.findItem(R.id.menu_delete).setVisible(true);
+  }
   MenuItem item=menu.findItem(R.id.menu_share);
   mShareActionProvider=(ShareActionProvider)item.getActionProvider();
   buildShareActionMenu();

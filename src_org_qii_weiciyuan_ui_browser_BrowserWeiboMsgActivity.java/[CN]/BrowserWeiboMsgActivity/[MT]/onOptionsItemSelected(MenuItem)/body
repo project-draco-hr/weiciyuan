@@ -33,6 +33,10 @@ favTask=new FavAsyncTask(getToken(),msg.getId());
 favTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
 return true;
+case R.id.menu_delete:
+RemoveWeiboMsgDialog dialog=new RemoveWeiboMsgDialog(msg.getId());
+dialog.show(getFragmentManager(),"");
+return true;
 }
 return false;
 }

@@ -1,0 +1,6 @@
+{
+  super.onCreate(savedInstanceState);
+  if (savedInstanceState != null) {
+    id=savedInstanceState.getString("id");
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (Utility.isTaskStopped(removeTask)) {
+    removeTask=new RemoveTask(id);
+    removeTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

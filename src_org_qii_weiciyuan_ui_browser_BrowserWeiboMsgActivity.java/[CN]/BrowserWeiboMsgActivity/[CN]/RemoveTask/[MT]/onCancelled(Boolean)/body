@@ -1,0 +1,6 @@
+{
+  super.onCancelled(aBoolean);
+  if (this.e != null) {
+    Toast.makeText(BrowserWeiboMsgActivity.this,e.getError(),Toast.LENGTH_SHORT).show();
+  }
+}
