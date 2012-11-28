@@ -1,0 +1,4 @@
+{
+  if (sharedPreferences == null)   sharedPreferences=PreferenceManager.getDefaultSharedPreferences(paramContext);
+  return sharedPreferences;
+}

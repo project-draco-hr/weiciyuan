@@ -1,0 +1,3 @@
+{
+  return getSharedPreferencesObject(paramContext).getInt(paramString,paramInt);
+}

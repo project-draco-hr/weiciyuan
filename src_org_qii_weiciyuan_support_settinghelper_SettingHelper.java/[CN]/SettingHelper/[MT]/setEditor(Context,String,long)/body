@@ -1,0 +1,3 @@
+{
+  getEditorObject(paramContext).putLong(paramString,paramLong).commit();
+}
