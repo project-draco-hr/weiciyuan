@@ -1,0 +1,14 @@
+{
+  int i=0;
+  for (int j=0; j < paramString.length(); j++) {
+    if (paramString.substring(j,j + 1).matches("[??-???]"))     i+=2;
+ else     i++;
+  }
+  if (i % 2 > 0) {
+    i=1 + i / 2;
+  }
+ else {
+    i=i / 2;
+  }
+  return i;
+}
