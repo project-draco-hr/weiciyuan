@@ -1,0 +1,4 @@
+{
+  ClearContentDialog dialog=new ClearContentDialog();
+  dialog.show(getFragmentManager(),"");
+}

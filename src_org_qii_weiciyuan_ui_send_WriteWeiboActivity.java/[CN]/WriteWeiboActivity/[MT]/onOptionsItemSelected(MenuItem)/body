@@ -28,6 +28,9 @@ break;
 case R.id.menu_txt_to_pic:
 convertStringToBitmap();
 break;
+case R.id.menu_clear:
+clearContentMenu();
+break;
 }
 return true;
 }
