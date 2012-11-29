@@ -18,7 +18,7 @@
   CacheConfig cacheConfig=new CacheConfig();
   cacheConfig.setMaxCacheEntries(1000);
   cacheConfig.setMaxObjectSize(8192);
-  httpClient=new DecompressingHttpClient(new CachingHttpClient(backend,cacheConfig));
+  httpClient=backend;
   HttpConnectionParams.setConnectionTimeout(httpClient.getParams(),5000);
   HttpConnectionParams.setSoTimeout(httpClient.getParams(),8000);
   httpClient.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION,HttpVersion.HTTP_1_1);
