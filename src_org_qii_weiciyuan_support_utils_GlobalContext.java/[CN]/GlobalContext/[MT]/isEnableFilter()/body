@@ -1,6 +1,0 @@
-{
-  if (enableFilter == null) {
-    enableFilter=sharedPref.getBoolean(SettingActivity.FILTER,false);
-  }
-  return enableFilter;
-}

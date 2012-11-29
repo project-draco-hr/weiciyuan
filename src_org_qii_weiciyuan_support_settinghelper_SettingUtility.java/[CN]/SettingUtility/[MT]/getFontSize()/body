@@ -1,3 +1,4 @@
 {
-  return SettingHelper.getSharedPreferences(getContext(),SettingActivity.FONT_SIZE,15);
+  String value=SettingHelper.getSharedPreferences(getContext(),SettingActivity.FONT_SIZE,"15");
+  return Integer.valueOf(value);
 }

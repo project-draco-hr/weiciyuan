@@ -1,6 +1,0 @@
-{
-  if (enableCommentRepostListAvatar == null) {
-    enableCommentRepostListAvatar=!sharedPref.getBoolean(SettingActivity.CLOSE_COMMENT_AND_REPOST_AVATAR,false);
-  }
-  return enableCommentRepostListAvatar;
-}

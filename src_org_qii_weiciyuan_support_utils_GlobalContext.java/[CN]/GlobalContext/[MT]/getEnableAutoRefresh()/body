@@ -1,6 +1,0 @@
-{
-  if (enableAutoRefresh == null) {
-    enableAutoRefresh=sharedPref.getBoolean(SettingActivity.AUTO_REFRESH,false);
-  }
-  return enableAutoRefresh;
-}

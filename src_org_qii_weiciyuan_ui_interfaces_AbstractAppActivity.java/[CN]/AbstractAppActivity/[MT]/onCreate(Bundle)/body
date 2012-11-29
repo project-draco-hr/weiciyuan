@@ -1,6 +1,6 @@
 {
   if (savedInstanceState == null) {
-    theme=GlobalContext.getInstance().getAppTheme();
+    theme=SettingUtility.getAppTheme();
   }
  else {
     theme=savedInstanceState.getInt("theme");

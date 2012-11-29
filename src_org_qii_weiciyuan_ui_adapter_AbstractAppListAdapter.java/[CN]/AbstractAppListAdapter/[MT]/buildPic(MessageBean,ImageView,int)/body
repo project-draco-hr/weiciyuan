@@ -2,7 +2,7 @@
   view.setVisibility(View.VISIBLE);
   String picUrl;
   boolean isFling=((AbstractTimeLineFragment)fragment).isListViewFling();
-  if (GlobalContext.getInstance().getEnableBigPic()) {
+  if (SettingUtility.getEnableBigPic()) {
     picUrl=msg.getBmiddle_pic();
     commander.downContentPic(view,picUrl,position,listView,FileLocationMethod.picture_bmiddle,isFling);
   }

@@ -3,7 +3,7 @@
     username.setText(msg.getUser().getScreen_name());
     String url;
     FileLocationMethod method;
-    if (GlobalContext.getInstance().getEnableBigAvatar()) {
+    if (SettingUtility.getEnableBigAvatar()) {
       url=msg.getUser().getAvatar_large();
       method=FileLocationMethod.avatar_large;
     }

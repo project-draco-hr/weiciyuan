@@ -1,6 +1,0 @@
-{
-  if (enableBigPic == null) {
-    enableBigPic=sharedPref.getBoolean(SettingActivity.SHOW_BIG_PIC,false);
-  }
-  return enableBigPic;
-}

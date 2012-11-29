@@ -1,4 +1,0 @@
-{
-  sharedPref.edit().putBoolean(SettingActivity.SHOW_BIG_PIC,enableBigPic).commit();
-  this.enableBigPic=enableBigPic;
-}

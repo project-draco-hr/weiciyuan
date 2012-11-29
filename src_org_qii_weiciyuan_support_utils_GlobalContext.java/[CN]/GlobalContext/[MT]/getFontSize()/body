@@ -1,8 +1,0 @@
-{
-  if (fontSize == 0) {
-    String value=sharedPref.getString(SettingActivity.FONT_SIZE,"15");
-    GlobalContext.getInstance().setFontSize(Integer.valueOf(value));
-    return fontSize;
-  }
-  return fontSize;
-}

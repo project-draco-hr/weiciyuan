@@ -1,8 +1,8 @@
 {
-  holder.time.setTextSize(GlobalContext.getInstance().getFontSize() - 3);
-  holder.content.setTextSize(GlobalContext.getInstance().getFontSize());
-  holder.username.setTextSize(GlobalContext.getInstance().getFontSize());
-  holder.repost_content.setTextSize(GlobalContext.getInstance().getFontSize());
-  if (holder.repost_count != null)   holder.repost_count.setTextSize(GlobalContext.getInstance().getFontSize() - 5);
-  if (holder.comment_count != null)   holder.comment_count.setTextSize(GlobalContext.getInstance().getFontSize() - 5);
+  holder.time.setTextSize(SettingUtility.getFontSize() - 3);
+  holder.content.setTextSize(SettingUtility.getFontSize());
+  holder.username.setTextSize(SettingUtility.getFontSize());
+  holder.repost_content.setTextSize(SettingUtility.getFontSize());
+  if (holder.repost_count != null)   holder.repost_count.setTextSize(SettingUtility.getFontSize() - 5);
+  if (holder.comment_count != null)   holder.comment_count.setTextSize(SettingUtility.getFontSize() - 5);
 }

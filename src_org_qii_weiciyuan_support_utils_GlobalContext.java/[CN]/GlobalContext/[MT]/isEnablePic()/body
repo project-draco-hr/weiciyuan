@@ -1,6 +1,0 @@
-{
-  if (enablePic == null) {
-    enablePic=!sharedPref.getBoolean(SettingActivity.DISABLE_DOWNLOAD_AVATAR_PIC,false);
-  }
-  return enablePic;
-}

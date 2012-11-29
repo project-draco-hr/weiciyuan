@@ -11,7 +11,7 @@
  else {
       holder.username.setText(user.getScreen_name());
     }
-    if (!showOriStatus && !GlobalContext.getInstance().getEnableCommentRepostListAvatar()) {
+    if (!showOriStatus && !SettingUtility.getEnableCommentRepostListAvatar()) {
       holder.avatar.setLayoutParams(new RelativeLayout.LayoutParams(0,0));
     }
  else {

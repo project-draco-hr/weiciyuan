@@ -4,7 +4,7 @@
     view.setVisibility(View.VISIBLE);
     boolean isFling=((AbstractTimeLineFragment)fragment).isListViewFling();
     String url;
-    if (GlobalContext.getInstance().getEnableBigAvatar()) {
+    if (SettingUtility.getEnableBigAvatar()) {
       url=user.getAvatar_large();
     }
  else {

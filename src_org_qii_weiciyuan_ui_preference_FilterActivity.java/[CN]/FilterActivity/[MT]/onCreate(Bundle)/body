@@ -6,17 +6,10 @@
   Switch switchBtn=(Switch)title.findViewById(R.id.switchBtn);
   getActionBar().setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
   getActionBar().setDisplayShowCustomEnabled(true);
-  switchBtn.setChecked(GlobalContext.getInstance().isEnableFilter());
+  switchBtn.setChecked(SettingUtility.isEnableFilter());
   switchBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
     @Override public void onCheckedChanged(    CompoundButton buttonView,    boolean isChecked){
-      GlobalContext.getInstance().setEnableFilter(isChecked);
-      SharedPreferences.Editor editor=PreferenceManager.getDefaultSharedPreferences(FilterActivity.this).edit();
-      if (isChecked) {
-        editor.putBoolean(SettingActivity.FILTER,true).commit();
-      }
- else {
-        editor.putBoolean(SettingActivity.FILTER,false).commit();
-      }
+      SettingUtility.setEnableFilter(isChecked);
     }
   }
 );

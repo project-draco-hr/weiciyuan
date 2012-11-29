@@ -1,26 +1,10 @@
 {
   if (key.equals(SettingActivity.THEME)) {
-    String value=sharedPreferences.getString(key,"1");
-switch (Integer.valueOf(value)) {
-case 1:
-      GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Four);
-    break;
-case 2:
-  GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Pure_Black);
-break;
-default :
-GlobalContext.getInstance().setAppTheme(R.style.AppTheme_Four);
-break;
-}
-Intent intent=new Intent(this,AppearanceActivity.class);
-finish();
-overridePendingTransition(0,0);
-intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-startActivity(intent);
-overridePendingTransition(R.anim.stay,R.anim.alphaout);
-}
-if (key.equals(SettingActivity.FONT_SIZE)) {
-String value=sharedPreferences.getString(key,"15");
-GlobalContext.getInstance().setFontSize(Integer.valueOf(value));
-}
+    Intent intent=new Intent(this,AppearanceActivity.class);
+    finish();
+    overridePendingTransition(0,0);
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(intent);
+    overridePendingTransition(R.anim.stay,R.anim.alphaout);
+  }
 }

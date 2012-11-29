@@ -1,4 +1,0 @@
-{
-  sharedPref.edit().putBoolean(SettingActivity.SHOW_BIG_AVATAR,enableBigAvatar);
-  this.enableBigAvatar=enableBigAvatar;
-}

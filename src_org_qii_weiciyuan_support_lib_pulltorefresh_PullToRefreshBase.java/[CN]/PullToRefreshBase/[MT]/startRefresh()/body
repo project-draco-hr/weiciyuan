@@ -1,7 +1,7 @@
 {
   setRefreshingInternal(true);
   mOnRefreshListener.onRefresh(this);
-  if (GlobalContext.getInstance().getEnableSound()) {
+  if (SettingUtility.getEnableSound()) {
     final MediaPlayer mp=MediaPlayer.create(context,R.raw.psst2);
     mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
     mp.start();

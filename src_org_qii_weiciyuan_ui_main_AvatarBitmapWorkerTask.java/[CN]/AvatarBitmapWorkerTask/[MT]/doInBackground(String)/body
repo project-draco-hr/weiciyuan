@@ -2,7 +2,7 @@
   if (!isCancelled()) {
     int width=Utility.dip2px(40);
     int height=width;
-    if (GlobalContext.getInstance().getEnableBigAvatar()) {
+    if (SettingUtility.getEnableBigAvatar()) {
       return ImageTool.getTimeLineBigAvatarWithRoundedCorner(data,width,height);
     }
  else     return ImageTool.getSmallAvatarWithRoundedCorner(data,width,height);

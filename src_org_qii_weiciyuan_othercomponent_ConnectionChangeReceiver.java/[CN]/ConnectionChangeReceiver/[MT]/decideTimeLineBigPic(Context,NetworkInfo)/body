@@ -5,28 +5,28 @@
   if (!avatarModeValue.equals("3") && !picModeValue.equals("3"))   return;
   if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
     if (avatarModeValue.equals("3")) {
-      GlobalContext.getInstance().setEnableBigAvatar(true);
+      SettingUtility.setEnableBigAvatar(true);
     }
     if (picModeValue.equals("3")) {
-      GlobalContext.getInstance().setEnableBigPic(true);
+      SettingUtility.setEnableBigPic(true);
     }
   }
  else   if (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
     int subType=networkInfo.getSubtype();
     if (subType == TelephonyManager.NETWORK_TYPE_GPRS) {
       if (avatarModeValue.equals("3")) {
-        GlobalContext.getInstance().setEnableBigAvatar(false);
+        SettingUtility.setEnableBigAvatar(false);
       }
       if (picModeValue.equals("3")) {
-        GlobalContext.getInstance().setEnableBigPic(false);
+        SettingUtility.setEnableBigPic(false);
       }
     }
  else {
       if (avatarModeValue.equals("3")) {
-        GlobalContext.getInstance().setEnableBigAvatar(false);
+        SettingUtility.setEnableBigAvatar(false);
       }
       if (picModeValue.equals("3")) {
-        GlobalContext.getInstance().setEnableBigPic(false);
+        SettingUtility.setEnableBigPic(false);
       }
     }
   }

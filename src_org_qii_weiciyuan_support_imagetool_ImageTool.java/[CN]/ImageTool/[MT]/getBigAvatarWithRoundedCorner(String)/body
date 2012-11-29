@@ -5,7 +5,7 @@
   String absoluteFilePath=FileManager.getFilePathFromUrl(url,FileLocationMethod.avatar_large);
   absoluteFilePath=absoluteFilePath + ".jpg";
   Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath);
-  if (bitmap == null && GlobalContext.getInstance().isEnablePic()) {
+  if (bitmap == null && SettingUtility.isEnablePic()) {
     getBitmapFromNetWork(url,absoluteFilePath,null);
     bitmap=BitmapFactory.decodeFile(absoluteFilePath);
   }

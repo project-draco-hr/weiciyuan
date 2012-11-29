@@ -1,6 +1,0 @@
-{
-  if (enableBigAvatar == null) {
-    enableBigAvatar=sharedPref.getBoolean(SettingActivity.SHOW_BIG_AVATAR,false);
-  }
-  return enableBigAvatar;
-}

@@ -1,6 +1,0 @@
-{
-  if (enableSound == null) {
-    enableSound=sharedPref.getBoolean(SettingActivity.SOUND,true);
-  }
-  return enableSound;
-}

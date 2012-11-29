@@ -18,7 +18,7 @@
       if (msg.getUser() == null) {
         iterator.remove();
       }
- else       if (GlobalContext.getInstance().isEnableFilter() && ListViewTool.haveFilterWord(msg,filterWordList)) {
+ else       if (SettingUtility.isEnableFilter() && ListViewTool.haveFilterWord(msg,filterWordList)) {
         iterator.remove();
       }
  else {

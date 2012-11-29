@@ -1,0 +1,3 @@
+{
+  SettingHelper.setEditor(getContext(),SettingActivity.FILTER,isChecked);
+}

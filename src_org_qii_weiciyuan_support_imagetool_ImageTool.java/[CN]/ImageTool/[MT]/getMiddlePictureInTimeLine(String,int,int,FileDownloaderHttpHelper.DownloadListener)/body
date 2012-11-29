@@ -2,7 +2,7 @@
   int useWidth=reqWidth;
   String absoluteFilePath=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_bmiddle);
   File file=new File(absoluteFilePath);
-  if (!file.exists() && !GlobalContext.getInstance().isEnablePic()) {
+  if (!file.exists() && !SettingUtility.isEnablePic()) {
     return null;
   }
   if (!file.exists()) {
