@@ -1,5 +1,5 @@
 {
-  if (url.startsWith(DIRECT_URL)) {
+  if (url.startsWith(URLHelper.DIRECT_URL)) {
     handleRedirectUrl(view,url);
     view.stopLoading();
     return;
