@@ -1,0 +1,4 @@
+{
+  getMenuInflater().inflate(R.menu.actionbar_menu_blackmagicactivity,menu);
+  return super.onCreateOptionsMenu(menu);
+}

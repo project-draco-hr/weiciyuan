@@ -3,9 +3,9 @@
   setContentView(R.layout.blackmagicactivity_layout);
   ActionBar actionBar=getActionBar();
   actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setTitle(getString(R.string.hack_login));
   username=(EditText)findViewById(R.id.username);
   password=(EditText)findViewById(R.id.password);
-  button=(Button)findViewById(R.id.button);
   spinner=(Spinner)findViewById(R.id.spinner);
   SpinnerAdapter mSpinnerAdapter=ArrayAdapter.createFromResource(this,R.array.tail,android.R.layout.simple_spinner_dropdown_item);
   spinner.setAdapter(mSpinnerAdapter);
@@ -17,12 +17,6 @@
       appSecret=value.substring(value.indexOf(",") + 1);
     }
     @Override public void onNothingSelected(    AdapterView<?> parent){
-    }
-  }
-);
-  button.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      new Task().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
   }
 );
