@@ -18,7 +18,7 @@
  else {
     list.add(getCommentFragment());
   }
-  if (AppConfig.BLACK_MAGIC) {
+  if (getResources().getBoolean(R.bool.blackmagic)) {
     if (getDMFragment() == null) {
       list.add(new DMUserListFragment());
     }

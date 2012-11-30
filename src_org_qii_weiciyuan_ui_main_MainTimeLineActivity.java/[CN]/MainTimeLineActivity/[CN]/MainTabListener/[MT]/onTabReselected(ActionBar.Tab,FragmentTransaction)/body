@@ -18,7 +18,7 @@ break;
 case 3:
 if (my) {
 AbstractTimeLineFragment fragment;
-if (AppConfig.BLACK_MAGIC) {
+if (getResources().getBoolean(R.bool.blackmagic)) {
 fragment=getDMFragment();
 }
  else {

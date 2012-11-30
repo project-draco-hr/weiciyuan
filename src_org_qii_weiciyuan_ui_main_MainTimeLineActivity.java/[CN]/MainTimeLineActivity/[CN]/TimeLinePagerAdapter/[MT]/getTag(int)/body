@@ -3,7 +3,7 @@
   tagList.add(FriendsTimeLineFragment.class.getName());
   tagList.add(MentionsTimeLineFragment.class.getName());
   tagList.add(CommentsTimeLineFragment.class.getName());
-  if (AppConfig.BLACK_MAGIC) {
+  if (getResources().getBoolean(R.bool.blackmagic)) {
     tagList.add(DMUserListFragment.class.getName());
   }
  else {

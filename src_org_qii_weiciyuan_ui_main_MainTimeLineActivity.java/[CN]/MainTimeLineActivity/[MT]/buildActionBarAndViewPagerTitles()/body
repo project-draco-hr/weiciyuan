@@ -10,7 +10,7 @@
   actionBar.addTab(actionBar.newTab().setText(getString(R.string.home)).setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText(getString(R.string.mentions)).setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText(getString(R.string.comments)).setTabListener(tabListener));
-  if (AppConfig.BLACK_MAGIC) {
+  if (getResources().getBoolean(R.bool.blackmagic)) {
     actionBar.addTab(actionBar.newTab().setText(getString(R.string.dm)).setTabListener(tabListener));
   }
  else {
