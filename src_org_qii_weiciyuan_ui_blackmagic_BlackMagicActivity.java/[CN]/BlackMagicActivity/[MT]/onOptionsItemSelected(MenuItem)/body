@@ -7,7 +7,10 @@ intent.putExtra("launcher",false);
 startActivity(intent);
 return true;
 case R.id.menu_login:
-new Task().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+if (Utility.isTaskStopped(loginTask)) {
+loginTask=new LoginTask();
+loginTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
 return true;
 default :
 return super.onOptionsItemSelected(item);

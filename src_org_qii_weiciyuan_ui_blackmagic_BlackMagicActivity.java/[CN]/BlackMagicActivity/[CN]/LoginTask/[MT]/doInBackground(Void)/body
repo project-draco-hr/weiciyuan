@@ -13,6 +13,8 @@
     return token;
   }
  catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
   }
   return "";
 }
