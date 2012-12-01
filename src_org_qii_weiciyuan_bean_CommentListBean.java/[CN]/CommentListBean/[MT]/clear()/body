@@ -1,0 +1,4 @@
+{
+  setTotal_number(0);
+  getItemList().clear();
+}
