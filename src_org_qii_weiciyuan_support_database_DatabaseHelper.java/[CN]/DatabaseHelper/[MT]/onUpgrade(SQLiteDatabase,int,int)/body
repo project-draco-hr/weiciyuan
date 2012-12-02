@@ -15,4 +15,9 @@
     db.execSQL("DROP TABLE IF EXISTS " + GroupTable.TABLE_NAME);
     db.execSQL(CREATE_GROUP_TABLE_SQL);
   }
+  if (oldVersion < 16) {
+    db.execSQL(CREATE_HOME_INDEX_SQL);
+    db.execSQL(CREATE_REPOST_INDEX_SQL);
+    db.execSQL(CREATE_COMMENT_INDEX_SQL);
+  }
 }
