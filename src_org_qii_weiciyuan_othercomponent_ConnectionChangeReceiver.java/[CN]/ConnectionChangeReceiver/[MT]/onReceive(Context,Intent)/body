@@ -1,19 +1,12 @@
 {
-  ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-  NetworkInfo networkInfo=cm.getActiveNetworkInfo();
-  if (BuildConfig.DEBUG) {
-    Toast.makeText(context,"connection changed",Toast.LENGTH_SHORT).show();
-  }
-  if (networkInfo != null && networkInfo.isConnected()) {
-    SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(context);
-    boolean value=sharedPref.getBoolean(SettingActivity.ENABLE_FETCH_MSG,false);
-    if (value) {
+  if (Utility.isConnected(context)) {
+    if (SettingUtility.getEnableFetchMSG()) {
       AppNewMsgAlarm.startAlarm(context,true);
     }
  else {
       AppNewMsgAlarm.stopAlarm(context,false);
     }
-    decideTimeLineBigPic(context,networkInfo);
+    decideTimeLineBigPic(context);
   }
  else {
     AppNewMsgAlarm.stopAlarm(context,false);
