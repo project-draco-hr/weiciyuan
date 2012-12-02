@@ -3,5 +3,7 @@
     this.getItemList().clear();
     this.getItemList().addAll(newValue.getItemList());
     this.setTotal_number(newValue.getTotal_number());
+    this.favorites.clear();
+    this.favorites.addAll(newValue.getFavorites());
   }
 }
