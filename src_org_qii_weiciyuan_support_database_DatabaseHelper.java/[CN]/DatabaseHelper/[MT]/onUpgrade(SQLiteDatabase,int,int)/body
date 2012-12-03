@@ -1,9 +1,11 @@
 {
 switch (oldVersion) {
 case 15:
-    db.execSQL(CREATE_HOME_INDEX_SQL);
-  db.execSQL(CREATE_REPOST_INDEX_SQL);
+    db.execSQL(CREATE_DMS_TABLE_SQL);
+  db.execSQL(CREATE_HOME_INDEX_SQL);
+db.execSQL(CREATE_REPOST_INDEX_SQL);
 db.execSQL(CREATE_COMMENT_INDEX_SQL);
+db.execSQL(CREATE_DM_INDEX_SQL);
 break;
 default :
 db.execSQL("DROP TABLE IF EXISTS " + AccountTable.TABLE_NAME);
