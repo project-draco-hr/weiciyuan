@@ -1,17 +1,6 @@
 {
-  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-  boolean value=sharedPref.getBoolean(SettingActivity.DISABLE_FETCH_AT_NIGHT,true);
-  if (value) {
-    Calendar cal=Calendar.getInstance();
-    int hour=cal.get(Calendar.HOUR_OF_DAY);
-    if (hour >= NIGHT_START_TIME_HOUR && hour <= NIGHT_END_TIME_HOUR) {
-      if (BuildConfig.DEBUG)       Toast.makeText(getApplicationContext(),"between 1 and 8 clock,stop service",Toast.LENGTH_SHORT).show();
-      stopSelf();
-      return super.onStartCommand(intent,flags,startId);
-    }
- else {
-      startFetchNewMsg();
-    }
+  if (SettingUtility.disableFetchAtNight() && isNowNight()) {
+    stopSelf();
   }
  else {
     startFetchNewMsg();
