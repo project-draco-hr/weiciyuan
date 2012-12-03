@@ -1,0 +1,4 @@
+{
+  AudioManager manager=(AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
+  return manager.getRingerMode() == AudioManager.RINGER_MODE_NORMAL;
+}
