@@ -1,3 +1,7 @@
 {
+  HttpHost host=getProxySetting();
+  if (host != null) {
+    httpUtility.httpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY,host);
+  }
   return httpUtility;
 }
