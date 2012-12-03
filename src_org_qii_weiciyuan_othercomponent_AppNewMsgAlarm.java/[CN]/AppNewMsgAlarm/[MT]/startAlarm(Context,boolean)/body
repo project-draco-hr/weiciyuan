@@ -1,6 +1,5 @@
 {
-  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(context);
-  String value=sharedPref.getString(SettingActivity.FREQUENCY,"1");
+  String value=SettingUtility.getFrequency();
   long time=AlarmManager.INTERVAL_DAY;
   if (value.equals("1"))   time=(3 * 60 * 1000);
   if (value.equals("2"))   time=(AlarmManager.INTERVAL_FIFTEEN_MINUTES);
