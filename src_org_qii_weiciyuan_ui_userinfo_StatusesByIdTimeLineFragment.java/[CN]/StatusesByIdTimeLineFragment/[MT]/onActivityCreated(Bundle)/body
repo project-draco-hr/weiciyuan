@@ -4,12 +4,11 @@
     clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
     userBean=(UserBean)savedInstanceState.getSerializable("userBean");
     token=savedInstanceState.getString("token");
-    timeLineAdapter.notifyDataSetChanged();
+    getAdapter().notifyDataSetChanged();
     refreshLayout(bean);
   }
  else {
-    pullToRefreshListView.startRefreshNow();
-    refresh();
+    getPullToRefreshListView().startRefreshNow();
   }
   super.onActivityCreated(savedInstanceState);
 }
