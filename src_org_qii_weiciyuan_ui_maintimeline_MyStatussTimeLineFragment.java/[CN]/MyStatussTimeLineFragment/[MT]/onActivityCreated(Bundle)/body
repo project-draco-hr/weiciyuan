@@ -1,0 +1,17 @@
+{
+  commander=((AbstractAppActivity)getActivity()).getCommander();
+  if (savedInstanceState != null) {
+    getList().addNewData((MessageListBean)savedInstanceState.getSerializable("bean"));
+    userBean=(UserBean)savedInstanceState.getSerializable("userBean");
+    token=savedInstanceState.getString("token");
+    getAdapter().notifyDataSetChanged();
+    refreshLayout(bean);
+  }
+ else {
+    if (Utility.isTaskStopped(dbTask)) {
+      dbTask=new DBCacheTask();
+      dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    }
+  }
+  super.onActivityCreated(savedInstanceState);
+}

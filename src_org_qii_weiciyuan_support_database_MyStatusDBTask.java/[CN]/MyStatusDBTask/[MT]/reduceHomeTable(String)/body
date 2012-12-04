@@ -1,0 +1,14 @@
+{
+  String searchCount="select count(" + MyStatusTable.ID + ") as total"+ " from "+ MyStatusTable.TABLE_NAME+ " where "+ MyStatusTable.ACCOUNTID+ " = "+ accountId;
+  int total=0;
+  Cursor c=getWsd().rawQuery(searchCount,null);
+  if (c.moveToNext()) {
+    total=c.getInt(c.getColumnIndex("total"));
+  }
+  c.close();
+  int needDeletedNumber=total - AppConfig.MAX_DATABASE_TABLE_ENTRY_NUMBER;
+  if (needDeletedNumber > 0) {
+    String sql=" delete from " + MyStatusTable.TABLE_NAME + " where "+ MyStatusTable.ID+ " in "+ "( select "+ MyStatusTable.ID+ " from "+ MyStatusTable.TABLE_NAME+ " where "+ MyStatusTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ MyStatusTable.ID+ " asc limit "+ needDeletedNumber+ " ) ";
+    getWsd().execSQL(sql);
+  }
+}

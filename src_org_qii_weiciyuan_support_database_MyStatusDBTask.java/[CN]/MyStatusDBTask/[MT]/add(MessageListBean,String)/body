@@ -1,0 +1,16 @@
+{
+  if (list == null || list.getSize() == 0) {
+    return;
+  }
+  Gson gson=new Gson();
+  List<MessageBean> msgList=list.getItemList();
+  for (  MessageBean msg : msgList) {
+    ContentValues cv=new ContentValues();
+    cv.put(MyStatusTable.MBLOGID,msg.getId());
+    cv.put(MyStatusTable.ACCOUNTID,accountId);
+    String json=gson.toJson(msg);
+    cv.put(MyStatusTable.JSONDATA,json);
+    getWsd().insert(MyStatusTable.TABLE_NAME,MyStatusTable.ID,cv);
+  }
+  reduceHomeTable(accountId);
+}

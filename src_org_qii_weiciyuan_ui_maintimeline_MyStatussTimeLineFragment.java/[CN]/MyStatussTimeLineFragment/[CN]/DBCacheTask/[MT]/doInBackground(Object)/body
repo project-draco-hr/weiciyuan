@@ -1,0 +1,4 @@
+{
+  getList().addNewData(MyStatusDBTask.get(GlobalContext.getInstance().getCurrentAccountId()));
+  return null;
+}

@@ -1,0 +1,20 @@
+{
+  Gson gson=new Gson();
+  MessageListBean result=new MessageListBean();
+  List<MessageBean> msgList=new ArrayList<MessageBean>();
+  String sql="select * from " + MyStatusTable.TABLE_NAME + " where "+ MyStatusTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ MyStatusTable.MBLOGID+ " desc limit 50";
+  Cursor c=getRsd().rawQuery(sql,null);
+  while (c.moveToNext()) {
+    String json=c.getString(c.getColumnIndex(HomeTable.JSONDATA));
+    try {
+      MessageBean value=gson.fromJson(json,MessageBean.class);
+      value.getListViewSpannableString();
+      msgList.add(value);
+    }
+ catch (    JsonSyntaxException ignored) {
+    }
+  }
+  result.setStatuses(msgList);
+  c.close();
+  return result;
+}

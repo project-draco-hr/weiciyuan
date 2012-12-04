@@ -1,0 +1,13 @@
+{
+  String id=userBean.getId();
+  String screenName=userBean.getScreen_name();
+  StatusesTimeLineDao dao=new StatusesTimeLineDao(token,id);
+  if (TextUtils.isEmpty(id)) {
+    dao.setScreen_name(screenName);
+  }
+  if (getList().getSize() > 0) {
+    dao.setMax_id(getList().getItemList().get(getList().getSize() - 1).getId());
+  }
+  MessageListBean result=dao.getGSONMsgList();
+  return result;
+}

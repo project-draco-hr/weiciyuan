@@ -1,3 +1,4 @@
 {
-  super(userBean,token);
+  this.userBean=userBean;
+  this.token=token;
 }
