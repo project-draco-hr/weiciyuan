@@ -6,5 +6,5 @@
   ContentValues cv=new ContentValues();
   cv.put(GroupTable.ACCOUNTID,accountId);
   cv.put(GroupTable.JSONDATA,new Gson().toJson(bean));
-  wsd.insert(GroupTable.TABLE_NAME,HomeTable.ID,cv);
+  getWsd().insert(GroupTable.TABLE_NAME,HomeTable.ID,cv);
 }

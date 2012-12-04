@@ -1,6 +1,6 @@
 {
   if (group == null) {
-    group=GroupDBManager.getInstance().getGroupInfo(GlobalContext.getInstance().getCurrentAccountId());
+    group=GroupDBTask.get(GlobalContext.getInstance().getCurrentAccountId());
   }
   return group;
 }

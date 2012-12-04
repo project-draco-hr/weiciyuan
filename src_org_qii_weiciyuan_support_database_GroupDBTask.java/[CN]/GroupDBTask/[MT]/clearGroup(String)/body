@@ -1,4 +1,4 @@
 {
   String sql="delete from " + GroupTable.TABLE_NAME + " where "+ GroupTable.ACCOUNTID+ " = "+ "\""+ accountId+ "\"";
-  wsd.execSQL(sql);
+  getWsd().execSQL(sql);
 }

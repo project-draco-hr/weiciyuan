@@ -1,6 +1,6 @@
 {
   String sql="select * from " + GroupTable.TABLE_NAME + " where "+ GroupTable.ACCOUNTID+ "  = "+ accountId;
-  Cursor c=rsd.rawQuery(sql,null);
+  Cursor c=getRsd().rawQuery(sql,null);
   if (c.moveToNext()) {
     String json=c.getString(c.getColumnIndex(GroupTable.JSONDATA));
     if (!TextUtils.isEmpty(json)) {

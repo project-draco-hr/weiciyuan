@@ -1,5 +1,5 @@
 {
-  GroupDBManager.getInstance().updateGroupInfo(groupListBean,GlobalContext.getInstance().getCurrentAccountId());
+  GroupDBTask.update(groupListBean,GlobalContext.getInstance().getCurrentAccountId());
   GlobalContext.getInstance().setGroup(groupListBean);
   super.onPostExecute(groupListBean);
 }
