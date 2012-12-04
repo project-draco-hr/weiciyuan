@@ -1,21 +1,7 @@
 {
 switch (oldVersion) {
-case 15:
-    db.execSQL(CREATE_DMS_TABLE_SQL);
-  db.execSQL(CREATE_HOME_INDEX_SQL);
-db.execSQL(CREATE_REPOST_INDEX_SQL);
-db.execSQL(CREATE_COMMENT_INDEX_SQL);
-db.execSQL(CREATE_DM_INDEX_SQL);
-break;
 default :
-db.execSQL("DROP TABLE IF EXISTS " + AccountTable.TABLE_NAME);
-db.execSQL("DROP TABLE IF EXISTS " + GroupTable.TABLE_NAME);
-db.execSQL("DROP TABLE IF EXISTS " + HomeTable.TABLE_NAME);
-db.execSQL("DROP TABLE IF EXISTS " + CommentsTable.TABLE_NAME);
-db.execSQL("DROP TABLE IF EXISTS " + RepostsTable.TABLE_NAME);
-db.execSQL("DROP TABLE IF EXISTS " + FilterTable.TABLE_NAME);
-db.execSQL("DROP TABLE IF EXISTS " + EmotionsTable.TABLE_NAME);
-db.execSQL("DROP TABLE IF EXISTS " + DraftTable.TABLE_NAME);
-onCreate(db);
+    deleteAllTableExceptAccount(db);
+  createOtherTable(db);
 }
 }
