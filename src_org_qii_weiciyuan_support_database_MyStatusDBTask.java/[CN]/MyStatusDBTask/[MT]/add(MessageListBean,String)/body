@@ -12,5 +12,5 @@
     cv.put(MyStatusTable.JSONDATA,json);
     getWsd().insert(MyStatusTable.TABLE_NAME,MyStatusTable.ID,cv);
   }
-  reduceHomeTable(accountId);
+  reduceTableSize(accountId);
 }
