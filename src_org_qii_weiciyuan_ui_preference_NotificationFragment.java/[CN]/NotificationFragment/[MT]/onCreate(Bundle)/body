@@ -3,6 +3,7 @@
   addPreferencesFromResource(R.xml.notification_pref);
   getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
   frequency=findPreference(SettingActivity.FREQUENCY);
+  notification_style=findPreference(SettingActivity.JBNOTIFICATION_STYLE);
   ringtone=findPreference(SettingActivity.ENABLE_RINGTONE);
   ringtone.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){

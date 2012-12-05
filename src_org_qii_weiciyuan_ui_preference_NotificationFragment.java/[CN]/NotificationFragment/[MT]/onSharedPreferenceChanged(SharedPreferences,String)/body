@@ -13,4 +13,7 @@
     AppNewMsgAlarm.startAlarm(getActivity(),false);
     buildSummary();
   }
+  if (key.equals(SettingActivity.JBNOTIFICATION_STYLE)) {
+    buildSummary();
+  }
 }

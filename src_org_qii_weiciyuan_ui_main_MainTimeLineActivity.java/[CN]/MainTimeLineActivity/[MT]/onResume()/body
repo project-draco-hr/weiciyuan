@@ -1,6 +1,6 @@
 {
   super.onResume();
-  IntentFilter filter=new IntentFilter(MentionsAndCommentsReceiver.ACTION);
+  IntentFilter filter=new IntentFilter(UnreadMsgReceiver.ACTION);
   filter.setPriority(1);
   newMsgBroadcastReceiver=new NewMsgBroadcastReceiver();
   registerReceiver(newMsgBroadcastReceiver,filter);

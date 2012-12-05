@@ -13,4 +13,5 @@
  else {
     ringtone.setSummary(getString(R.string.silent));
   }
+  notification_style.setSummary(getActivity().getResources().getStringArray(R.array.notification_style)[SettingUtility.getNotificationStyle() - 1]);
 }

@@ -1,0 +1,11 @@
+{
+  String value=SettingHelper.getSharedPreferences(getContext(),SettingActivity.JBNOTIFICATION_STYLE,"1");
+switch (Integer.valueOf(value)) {
+case 1:
+    return 1;
+case 2:
+  return 2;
+default :
+return 1;
+}
+}

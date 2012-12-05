@@ -5,7 +5,16 @@
     notification=new ICSNotification(context,accountBean,comment,repost,mentionCommentsResult,unreadBean).get();
   }
  else {
-    notification=new JBBigTextNotification(context,accountBean,comment,repost,mentionCommentsResult,unreadBean).get();
-  }
-  notificationManager.notify(Long.valueOf(accountBean.getUid()).intValue(),notification);
+switch (SettingUtility.getNotificationStyle()) {
+case 1:
+      notification=new JBInboxNotification(context,accountBean,comment,repost,mentionCommentsResult,unreadBean).get();
+    break;
+case 2:
+  notification=new JBBigTextNotification(context,accountBean,comment,repost,mentionCommentsResult,unreadBean).get();
+break;
+default :
+notification=new JBInboxNotification(context,accountBean,comment,repost,mentionCommentsResult,unreadBean).get();
+}
+}
+notificationManager.notify(Long.valueOf(accountBean.getUid()).intValue(),notification);
 }
