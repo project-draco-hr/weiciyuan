@@ -1,5 +1,16 @@
 {
   super.onCreate(savedInstanceState);
+  View title=getActivity().getLayoutInflater().inflate(R.layout.filteractivity_title_layout,null);
+  Switch switchBtn=(Switch)title.findViewById(R.id.switchBtn);
+  getActivity().getActionBar().setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
+  getActivity().getActionBar().setDisplayShowCustomEnabled(true);
+  switchBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+    @Override public void onCheckedChanged(    CompoundButton buttonView,    boolean isChecked){
+      SettingUtility.setEnableFetchMSG(isChecked);
+    }
+  }
+);
+  switchBtn.setChecked(SettingUtility.getEnableFetchMSG());
   addPreferencesFromResource(R.xml.notification_pref);
   getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
   frequency=findPreference(SettingActivity.FREQUENCY);

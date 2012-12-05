@@ -1,5 +1,5 @@
 {
-  if (PreferenceManager.getDefaultSharedPreferences(getActivity()).getBoolean(SettingActivity.ENABLE_FETCH_MSG,false)) {
+  if (SettingUtility.getEnableFetchMSG()) {
     String value=PreferenceManager.getDefaultSharedPreferences(getActivity()).getString(SettingActivity.FREQUENCY,"1");
     frequency.setSummary(getActivity().getResources().getStringArray(R.array.frequency)[Integer.valueOf(value) - 1]);
   }
