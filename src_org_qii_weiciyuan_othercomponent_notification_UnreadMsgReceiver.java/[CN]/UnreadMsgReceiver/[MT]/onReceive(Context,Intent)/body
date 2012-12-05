@@ -1,0 +1,15 @@
+{
+  this.context=context;
+  accountBean=(AccountBean)intent.getSerializableExtra("account");
+  comment=(CommentListBean)intent.getSerializableExtra("comment");
+  repost=(MessageListBean)intent.getSerializableExtra("repost");
+  mentionCommentsResult=(CommentListBean)intent.getSerializableExtra("mention_comment");
+  unreadBean=(UnreadBean)intent.getSerializableExtra("unread");
+  sum=unreadBean.getMention_cmt() + unreadBean.getMention_status() + unreadBean.getCmt();
+  if (sum == 0 && accountBean != null) {
+    clearNotification(accountBean);
+  }
+ else   if (sum > 0) {
+    showNotification();
+  }
+}

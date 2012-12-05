@@ -1,0 +1,8 @@
+{
+  this.context=context;
+  this.accountBean=accountBean;
+  this.comment=comment;
+  this.repost=repost;
+  this.mentionCommentsResult=mentionCommentsResult;
+  this.unreadBean=unreadBean;
+}

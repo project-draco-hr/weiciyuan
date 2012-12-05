@@ -1,5 +1,5 @@
 {
-  Intent intent=new Intent(MentionsAndCommentsReceiver.ACTION);
+  Intent intent=new Intent(UnreadMsgReceiver.ACTION);
   intent.putExtra("account",accountBean);
   intent.putExtra("comment",commentResult);
   intent.putExtra("repost",mentionStatusesResult);

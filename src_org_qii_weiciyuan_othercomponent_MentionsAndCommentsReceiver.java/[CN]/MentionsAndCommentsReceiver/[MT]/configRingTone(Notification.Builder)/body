@@ -1,9 +1,0 @@
-{
-  Uri uri=null;
-  if (!TextUtils.isEmpty(SettingUtility.getRingtone())) {
-    uri=Uri.parse(SettingUtility.getRingtone());
-  }
-  if (uri != null) {
-    builder.setSound(uri);
-  }
-}

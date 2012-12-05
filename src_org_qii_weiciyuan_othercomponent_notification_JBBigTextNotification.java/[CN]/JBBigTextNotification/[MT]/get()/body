@@ -1,0 +1,24 @@
+{
+  Notification.Builder builder=new Notification.Builder(context).setTicker(getTicker()).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
+  builder.setContentTitle(getTicker());
+  if (getCount() > 1) {
+    builder.setNumber(getCount());
+  }
+  Notification.BigTextStyle bigTextStyle=new Notification.BigTextStyle(builder);
+  if (repost != null) {
+    for (    MessageBean m : repost.getItemList()) {
+      bigTextStyle.setBigContentTitle(m.getUser().getScreen_name() + "???");
+      bigTextStyle.bigText(m.getText());
+    }
+  }
+  if (mentionCommentsResult != null) {
+    for (    CommentBean m : mentionCommentsResult.getItemList()) {
+      bigTextStyle.setBigContentTitle(m.getUser().getScreen_name() + "???");
+      bigTextStyle.bigText(m.getText());
+    }
+  }
+  bigTextStyle.setSummaryText(accountBean.getUsernick());
+  builder.setStyle(bigTextStyle);
+  Utility.configVibrateLedRingTone(builder);
+  return builder.build();
+}
