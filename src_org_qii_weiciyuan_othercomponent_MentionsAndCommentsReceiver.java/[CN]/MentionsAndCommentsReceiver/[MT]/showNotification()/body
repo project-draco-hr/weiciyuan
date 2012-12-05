@@ -11,7 +11,7 @@
     notification=buildICSNotification(pendingIntent);
   }
  else {
-    notification=buildJBNotification(pendingIntent);
+    notification=buildJBBigTextNotification(pendingIntent);
   }
   notificationManager.notify(Long.valueOf(accountBean.getUid()).intValue(),notification);
 }

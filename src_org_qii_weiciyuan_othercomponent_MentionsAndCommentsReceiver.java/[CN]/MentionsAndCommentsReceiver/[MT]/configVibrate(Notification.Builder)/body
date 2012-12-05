@@ -1,5 +1,5 @@
 {
-  if (allowVibrate()) {
+  if (SettingUtility.allowVibrate()) {
     long[] pattern={0,200,500};
     builder.setVibrate(pattern);
   }

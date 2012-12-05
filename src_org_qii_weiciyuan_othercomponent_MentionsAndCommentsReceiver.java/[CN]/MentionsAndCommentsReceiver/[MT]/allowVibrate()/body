@@ -1,4 +1,0 @@
-{
-  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(context);
-  return sharedPref.getBoolean(SettingActivity.ENABLE_VIBRATE,false);
-}
