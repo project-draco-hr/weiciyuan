@@ -9,7 +9,7 @@
   if (sum == 0 && accountBean != null) {
     clearNotification(accountBean);
   }
- else   if (sum > 0) {
+ else   if (allowShowNotification()) {
     showNotification();
   }
 }

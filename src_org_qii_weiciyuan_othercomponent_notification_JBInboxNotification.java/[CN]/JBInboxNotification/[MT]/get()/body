@@ -1,11 +1,11 @@
 {
-  Notification.Builder builder=new Notification.Builder(context).setTicker(getTicker()).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
-  builder.setContentTitle(getTicker());
-  if (getCount() > 1) {
-    builder.setNumber(getCount());
+  Notification.Builder builder=new Notification.Builder(context).setTicker(NotificationUtility.getTicker(unreadBean)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
+  builder.setContentTitle(NotificationUtility.getTicker(unreadBean));
+  if (NotificationUtility.getCount(unreadBean) > 1) {
+    builder.setNumber(NotificationUtility.getCount(unreadBean));
   }
   Notification.InboxStyle inboxStyle=new Notification.InboxStyle(builder);
-  inboxStyle.setBigContentTitle(getTicker());
+  inboxStyle.setBigContentTitle(NotificationUtility.getTicker(unreadBean));
   if (comment != null) {
     for (    CommentBean c : comment.getItemList()) {
       inboxStyle.addLine(c.getUser().getScreen_name() + ":" + c.getText());

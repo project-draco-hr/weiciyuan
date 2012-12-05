@@ -3,7 +3,7 @@
   if (SettingUtility.allowMentionToMe()) {
     count+=unreadBean.getMention_status();
   }
-  if (SettingUtility.allowMentionToMe()) {
+  if (SettingUtility.allowCommentToMe()) {
     count+=unreadBean.getCmt();
   }
   if (SettingUtility.allowMentionCommentToMe()) {

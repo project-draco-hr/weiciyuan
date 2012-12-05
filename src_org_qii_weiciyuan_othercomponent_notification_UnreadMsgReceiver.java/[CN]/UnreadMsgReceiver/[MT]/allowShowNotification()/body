@@ -1,0 +1,3 @@
+{
+  return sum > 0 && (comment != null || repost != null || mentionCommentsResult != null);
+}

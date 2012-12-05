@@ -1,3 +1,0 @@
-{
-  return unreadBean.getMention_cmt() + unreadBean.getMention_status() + unreadBean.getCmt();
-}

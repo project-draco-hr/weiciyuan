@@ -1,0 +1,23 @@
+{
+  int mentionCmt=unreadBean.getMention_cmt();
+  int mentionStatus=unreadBean.getMention_status();
+  int mention=0;
+  if (SettingUtility.allowMentionToMe()) {
+    mention+=mentionStatus;
+  }
+  if (SettingUtility.allowMentionCommentToMe()) {
+    mention+=mentionCmt;
+  }
+  int cmt=unreadBean.getCmt();
+  StringBuilder stringBuilder=new StringBuilder();
+  if (mention > 0) {
+    String txt=String.format(GlobalContext.getInstance().getString(R.string.new_mentions),String.valueOf(mention));
+    stringBuilder.append(txt);
+  }
+  if (cmt > 0 && SettingUtility.allowCommentToMe()) {
+    if (mention > 0)     stringBuilder.append("???");
+    String txt=String.format(GlobalContext.getInstance().getString(R.string.new_comments),String.valueOf(cmt));
+    stringBuilder.append(txt);
+  }
+  return stringBuilder.toString();
+}

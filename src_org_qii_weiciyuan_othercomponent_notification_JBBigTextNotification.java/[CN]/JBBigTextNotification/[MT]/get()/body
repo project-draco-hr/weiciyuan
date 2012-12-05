@@ -1,8 +1,8 @@
 {
-  Notification.Builder builder=new Notification.Builder(context).setTicker(getTicker()).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
-  builder.setContentTitle(getTicker());
-  if (getCount() > 1) {
-    builder.setNumber(getCount());
+  Notification.Builder builder=new Notification.Builder(context).setTicker(NotificationUtility.getTicker(unreadBean)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
+  builder.setContentTitle(NotificationUtility.getTicker(unreadBean));
+  if (NotificationUtility.getCount(unreadBean) > 1) {
+    builder.setNumber(NotificationUtility.getCount(unreadBean));
   }
   Notification.BigTextStyle bigTextStyle=new Notification.BigTextStyle(builder);
   if (repost != null) {
