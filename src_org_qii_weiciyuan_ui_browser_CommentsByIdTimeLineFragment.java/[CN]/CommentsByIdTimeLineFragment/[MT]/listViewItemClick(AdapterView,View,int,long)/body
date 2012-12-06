@@ -1,6 +1,4 @@
 {
-  Intent intent=new Intent(getActivity(),BrowserCommentActivity.class);
-  intent.putExtra("comment",bean.getItem(position));
-  intent.putExtra("token",token);
-  getActivity().startActivity(intent);
+  CommentByIdFloatingMenu menu=new CommentByIdFloatingMenu(getList().getItem(position));
+  menu.show(getFragmentManager(),"");
 }

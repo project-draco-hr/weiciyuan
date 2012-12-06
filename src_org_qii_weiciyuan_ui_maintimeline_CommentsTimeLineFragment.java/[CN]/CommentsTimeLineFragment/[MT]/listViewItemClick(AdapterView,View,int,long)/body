@@ -1,6 +1,4 @@
 {
-  Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
-  intent.putExtra("msg",getList().getItemList().get(position).getStatus());
-  intent.putExtra("token",((MainTimeLineActivity)getActivity()).getToken());
-  startActivity(intent);
+  CommentFloatingMenu menu=new CommentFloatingMenu(getList().getItem(position));
+  menu.show(getFragmentManager(),"");
 }
