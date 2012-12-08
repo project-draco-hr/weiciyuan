@@ -1,6 +1,6 @@
 {
   getPullToRefreshListView().setVisibility(View.VISIBLE);
-  timeLineAdapter.notifyDataSetChanged();
+  getAdapter().notifyDataSetChanged();
   refreshLayout(getList());
   super.onPostExecute(o);
   if (getList().getSize() == 0) {

@@ -3,6 +3,8 @@
   setHasOptionsMenu(true);
   setRetainInstance(true);
   if (savedInstanceState != null) {
+    bean.addNewData((DMUserListBean)savedInstanceState.getSerializable("bean"));
+    getAdapter().notifyDataSetChanged();
   }
  else {
     if (dbTask == null || dbTask.getStatus() == MyAsyncTask.Status.FINISHED) {
