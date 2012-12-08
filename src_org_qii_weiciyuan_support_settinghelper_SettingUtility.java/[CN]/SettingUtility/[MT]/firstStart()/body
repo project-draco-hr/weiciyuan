@@ -1,0 +1,5 @@
+{
+  boolean value=SettingHelper.getSharedPreferences(getContext(),FIRSTSTART,true);
+  if (value)   SettingHelper.setEditor(getContext(),FIRSTSTART,false);
+  return value;
+}
