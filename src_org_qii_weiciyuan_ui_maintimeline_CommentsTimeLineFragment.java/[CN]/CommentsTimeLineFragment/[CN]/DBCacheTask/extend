@@ -1,1 +1,1 @@
-MyAsyncTask<Object,Object,Object>
+MyAsyncTask<Void,CommentListBean,CommentListBean>

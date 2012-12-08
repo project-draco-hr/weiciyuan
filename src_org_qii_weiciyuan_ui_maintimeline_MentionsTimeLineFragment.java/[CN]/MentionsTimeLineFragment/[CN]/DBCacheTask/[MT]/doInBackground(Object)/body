@@ -1,5 +1,0 @@
-{
-  clearAndReplaceValue(DatabaseManager.getInstance().getRepostLineMsgList(GlobalContext.getInstance().getCurrentAccountId()));
-  clearAndReplaceValue(0,bean);
-  return null;
-}
