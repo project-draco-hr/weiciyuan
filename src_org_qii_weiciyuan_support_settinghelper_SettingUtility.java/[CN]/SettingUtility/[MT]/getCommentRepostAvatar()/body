@@ -1,0 +1,4 @@
+{
+  String value=SettingHelper.getSharedPreferences(getContext(),SettingActivity.COMMENT_REPOST_AVATAR,"1");
+  return Integer.valueOf(value);
+}

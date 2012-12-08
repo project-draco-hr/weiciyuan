@@ -1,3 +1,3 @@
 {
-  return !SettingHelper.getSharedPreferences(getContext(),SettingActivity.CLOSE_COMMENT_AND_REPOST_AVATAR,false);
+  return SettingHelper.getSharedPreferences(getContext(),SettingActivity.SHOW_COMMENT_REPOST_AVATAR,true);
 }
