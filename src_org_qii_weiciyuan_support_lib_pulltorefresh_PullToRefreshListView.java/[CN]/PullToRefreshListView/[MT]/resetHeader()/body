@@ -31,5 +31,6 @@ mRefreshableView.setSelection(selection);
 setHeaderScroll(scrollToHeight);
 }
 listViewLoadingLayout.setVisibility(View.GONE);
+resetSavedLastVisibleIndex();
 super.resetHeader();
 }
