@@ -1,3 +1,6 @@
 {
   getItemList().addAll(oldValue.getItemList());
+  this.setTotal_number(oldValue.getTotal_number());
+  this.setNext_cursor(oldValue.getNext_cursor());
+  this.setPrevious_cursor(oldValue.getPrevious_cursor());
 }

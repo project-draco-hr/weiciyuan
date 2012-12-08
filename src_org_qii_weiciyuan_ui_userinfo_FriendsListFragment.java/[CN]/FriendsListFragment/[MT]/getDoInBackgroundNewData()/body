@@ -1,8 +1,5 @@
 {
   FriendListDao dao=new FriendListDao(GlobalContext.getInstance().getSpecialToken(),uid);
-  if (getList().getUsers().size() > 0 && bean.getPrevious_cursor() > 0) {
-    dao.setCursor(String.valueOf(bean.getPrevious_cursor() - 1));
-  }
-  UserListBean result=dao.getGSONMsgList();
-  return result;
+  dao.setCursor(String.valueOf(0));
+  return dao.getGSONMsgList();
 }

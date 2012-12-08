@@ -1,0 +1,21 @@
+{
+  Gson gson=new Gson();
+  DMUserListBean result=new DMUserListBean();
+  String sql="select * from " + DMTable.TABLE_NAME + " where "+ DMTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ DMTable.MBLOGID+ " desc limit 1";
+  Cursor c=getRsd().rawQuery(sql,null);
+  while (c.moveToNext()) {
+    String json=c.getString(c.getColumnIndex(DMTable.JSONDATA));
+    try {
+      DMUserListBean value=gson.fromJson(json,DMUserListBean.class);
+      for (      DMUserBean b : value.getItemList()) {
+        b.getListViewSpannableString();
+        b.getListviewItemShowTime();
+      }
+      return value;
+    }
+ catch (    JsonSyntaxException ignored) {
+    }
+  }
+  c.close();
+  return result;
+}

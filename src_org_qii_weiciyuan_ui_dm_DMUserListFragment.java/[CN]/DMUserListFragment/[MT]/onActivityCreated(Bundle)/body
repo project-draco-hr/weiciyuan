@@ -2,5 +2,12 @@
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
   setRetainInstance(true);
-  pullToRefreshListView.startRefreshNow();
+  if (savedInstanceState != null) {
+  }
+ else {
+    if (dbTask == null || dbTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+      dbTask=new DBCacheTask();
+      dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    }
+  }
 }

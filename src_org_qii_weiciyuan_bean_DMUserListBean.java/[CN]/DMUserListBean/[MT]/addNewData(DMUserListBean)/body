@@ -1,4 +1,7 @@
 {
   getItemList().clear();
   getItemList().addAll(newValue.getItemList());
+  this.setTotal_number(newValue.getTotal_number());
+  this.setNext_cursor(newValue.getNext_cursor());
+  this.setPrevious_cursor(newValue.getPrevious_cursor());
 }

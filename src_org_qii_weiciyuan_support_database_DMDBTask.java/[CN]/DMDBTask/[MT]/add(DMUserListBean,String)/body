@@ -1,0 +1,13 @@
+{
+  if (list == null || list.getSize() == 0) {
+    return;
+  }
+  clear(accountId);
+  Gson gson=new Gson();
+  ContentValues cv=new ContentValues();
+  cv.put(DMTable.MBLOGID,list.getItem(0).getId());
+  cv.put(DMTable.ACCOUNTID,accountId);
+  String json=gson.toJson(list);
+  cv.put(DMTable.JSONDATA,json);
+  getWsd().insert(DMTable.TABLE_NAME,DMTable.ID,cv);
+}

@@ -1,0 +1,4 @@
+{
+  String sql="delete from " + DMTable.TABLE_NAME + " where "+ DMTable.ACCOUNTID+ " in "+ "("+ accountId+ ")";
+  getWsd().execSQL(sql);
+}

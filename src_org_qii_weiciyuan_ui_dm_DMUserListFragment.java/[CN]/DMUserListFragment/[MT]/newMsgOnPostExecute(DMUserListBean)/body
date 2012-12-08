@@ -1,11 +1,7 @@
 {
-  if (newValue != null && getActivity() != null) {
-    if (newValue.getSize() == 0) {
-    }
- else     if (newValue.getSize() > 0) {
-      clearAndReplaceValue(newValue);
-      timeLineAdapter.notifyDataSetChanged();
-      getListView().setSelectionAfterHeaderView();
-    }
+  if (newValue != null && newValue.getSize() > 0 && getActivity() != null) {
+    getList().addNewData(newValue);
+    getAdapter().notifyDataSetChanged();
+    getListView().setSelectionAfterHeaderView();
   }
 }

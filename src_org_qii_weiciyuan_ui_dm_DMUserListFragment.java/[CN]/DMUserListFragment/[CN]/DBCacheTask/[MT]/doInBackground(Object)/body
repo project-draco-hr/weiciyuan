@@ -1,0 +1,4 @@
+{
+  getList().addNewData(DMDBTask.get(GlobalContext.getInstance().getCurrentAccountId()));
+  return null;
+}

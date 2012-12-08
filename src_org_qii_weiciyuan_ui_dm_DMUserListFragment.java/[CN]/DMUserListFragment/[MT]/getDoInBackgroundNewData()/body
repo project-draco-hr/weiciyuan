@@ -1,3 +1,9 @@
 {
-  return new DMDao(GlobalContext.getInstance().getSpecialToken()).getUserList();
+  DMDao dao=new DMDao(GlobalContext.getInstance().getSpecialToken());
+  dao.setCursor(String.valueOf(0));
+  DMUserListBean result=dao.getUserList();
+  if (result != null) {
+    DMDBTask.add(result,GlobalContext.getInstance().getCurrentAccountId());
+  }
+  return result;
 }

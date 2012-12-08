@@ -1,2 +1,6 @@
 {
+  if (newValue != null && newValue.getSize() > 0 && getActivity() != null) {
+    getList().addOldData(newValue);
+    getAdapter().notifyDataSetChanged();
+  }
 }
