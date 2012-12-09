@@ -1,7 +1,8 @@
 {
   super.onCreate(savedInstanceState);
-  ActionBar actionBar=getActionBar();
-  actionBar.setDisplayHomeAsUpEnabled(true);
+  getActionBar().setDisplayShowHomeEnabled(false);
+  getActionBar().setDisplayShowTitleEnabled(true);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
   UserBean bean=(UserBean)getIntent().getSerializableExtra("user");
   setTitle(bean.getScreen_name());
   getFragmentManager().beginTransaction().replace(android.R.id.content,new DMConversationListFragment(bean)).commit();
