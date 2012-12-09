@@ -1,6 +1,17 @@
 {
   View view=inflater.inflate(R.layout.myinfofragment_layout,container,false);
   avatar=(ImageView)view.findViewById(R.id.avatar);
+  avatar.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      String path=FileManager.getFilePathFromUrl(bean.getAvatar_large(),FileLocationMethod.avatar_large);
+      path=path + ".jpg";
+      if (new File(path).exists()) {
+        UserAvatarDialog dialog=new UserAvatarDialog(path);
+        dialog.show(getFragmentManager(),"");
+      }
+    }
+  }
+);
   username=(TextView)view.findViewById(R.id.username);
   isVerified=(TextView)view.findViewById(R.id.isVerified);
   verified_reason=(TextView)view.findViewById(R.id.verified_info);
