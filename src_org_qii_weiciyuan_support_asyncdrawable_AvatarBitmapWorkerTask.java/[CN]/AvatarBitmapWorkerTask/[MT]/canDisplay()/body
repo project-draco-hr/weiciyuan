@@ -1,0 +1,10 @@
+{
+  if (view != null && view.get() != null) {
+    ImageView imageView=view.get();
+    AvatarBitmapWorkerTask bitmapDownloaderTask=getAvatarBitmapDownloaderTask(imageView);
+    if (this == bitmapDownloaderTask && imageView.getTag().equals(getUrl())) {
+      return true;
+    }
+  }
+  return false;
+}

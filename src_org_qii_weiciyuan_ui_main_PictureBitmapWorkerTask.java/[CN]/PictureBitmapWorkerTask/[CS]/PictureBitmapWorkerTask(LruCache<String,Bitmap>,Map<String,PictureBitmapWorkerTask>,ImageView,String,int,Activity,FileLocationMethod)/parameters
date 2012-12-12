@@ -1,7 +1,0 @@
-LruCache<String,Bitmap> lruCache
-Map<String,PictureBitmapWorkerTask> taskMap
-ImageView view
-String url
-int position
-Activity activity
-FileLocationMethod method

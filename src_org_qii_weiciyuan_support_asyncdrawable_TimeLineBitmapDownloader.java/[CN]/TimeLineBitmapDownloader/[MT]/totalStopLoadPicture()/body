@@ -1,0 +1,12 @@
+{
+  if (avatarBitmapWorkerTaskHashMap != null) {
+    for (    String task : avatarBitmapWorkerTaskHashMap.keySet()) {
+      avatarBitmapWorkerTaskHashMap.get(task).cancel(true);
+    }
+  }
+  if (pictureBitmapWorkerTaskMap != null) {
+    for (    String task : pictureBitmapWorkerTaskMap.keySet()) {
+      pictureBitmapWorkerTaskMap.get(task).cancel(true);
+    }
+  }
+}

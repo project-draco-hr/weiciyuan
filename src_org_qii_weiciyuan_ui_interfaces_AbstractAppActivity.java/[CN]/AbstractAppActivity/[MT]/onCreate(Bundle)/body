@@ -11,9 +11,6 @@
     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
   }
   forceShowActionBarOverflowMenu();
-  initDefaultAvatar();
-  initDefaultPic();
-  initPicBgBorder();
-  initErrorPic();
   initNFC();
+  commander=new TimeLineBitmapDownloader(this);
 }
