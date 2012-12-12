@@ -16,6 +16,8 @@
       ViewHolder holder=(ViewHolder)view.getTag(index);
       if (holder == null)       return;
       holder.avatar.setImageBitmap(null);
+      holder.content_pic.setImageBitmap(null);
+      holder.repost_content_pic.setImageBitmap(null);
     }
   }
 );
