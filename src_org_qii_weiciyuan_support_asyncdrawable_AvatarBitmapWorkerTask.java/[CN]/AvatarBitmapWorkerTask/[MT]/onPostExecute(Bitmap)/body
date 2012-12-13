@@ -1,14 +1,15 @@
 {
   if (bitmap != null) {
-    if (view != null && view.get() != null) {
-      ImageView imageView=view.get();
-      if (canDisplay()) {
-        playImageViewAnimation(imageView,bitmap);
-        lruCache.put(data,bitmap);
+    for (    WeakReference<ImageView> view : viewList) {
+      if (view != null && view.get() != null) {
+        if (canDisplay(view)) {
+          playImageViewAnimation(view,bitmap);
+          lruCache.put(url,bitmap);
+        }
       }
     }
-  }
-  if (taskMap != null && taskMap.get(getMemCacheKey(data,position)) != null) {
-    taskMap.remove(getMemCacheKey(data,position));
+    if (taskMap != null && taskMap.get(url) != null) {
+      taskMap.remove(url);
+    }
   }
 }

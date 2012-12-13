@@ -3,7 +3,6 @@
   final Animation anim_in=AnimationUtils.loadAnimation(activity,R.anim.timeline_pic_fade_in);
   anim_out.setAnimationListener(new Animation.AnimationListener(){
     @Override public void onAnimationStart(    Animation animation){
-      view.setTag(getUrl());
     }
     @Override public void onAnimationRepeat(    Animation animation){
     }
@@ -17,12 +16,12 @@
         }
       }
 );
-      if (canDisplay()) {
-        view.setImageBitmap(bitmap);
-        view.startAnimation(anim_in);
+      if (canDisplay(view)) {
+        view.get().setImageBitmap(bitmap);
+        view.get().startAnimation(anim_in);
       }
     }
   }
 );
-  if (view.getAnimation() == null || view.getAnimation().hasEnded())   view.startAnimation(anim_out);
+  view.get().startAnimation(anim_out);
 }

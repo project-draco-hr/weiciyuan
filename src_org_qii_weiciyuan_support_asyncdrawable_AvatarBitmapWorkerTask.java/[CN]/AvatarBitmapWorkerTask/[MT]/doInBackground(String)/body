@@ -3,9 +3,9 @@
     int width=Utility.dip2px(40);
     int height=width;
     if (SettingUtility.getEnableBigAvatar()) {
-      return ImageTool.getTimeLineBigAvatarWithRoundedCorner(data,width,height);
+      return ImageTool.getTimeLineBigAvatarWithRoundedCorner(this.url,width,height);
     }
- else     return ImageTool.getSmallAvatarWithRoundedCorner(data,width,height);
+ else     return ImageTool.getSmallAvatarWithRoundedCorner(this.url,width,height);
   }
   return null;
 }

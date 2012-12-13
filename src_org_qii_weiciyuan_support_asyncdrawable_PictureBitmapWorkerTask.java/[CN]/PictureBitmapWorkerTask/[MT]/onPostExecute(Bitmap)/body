@@ -1,17 +1,18 @@
 {
   if (bitmap != null) {
-    if (view != null && view.get() != null) {
-      ImageView imageView=view.get();
-      if (canDisplay()) {
+    for (    WeakReference<ImageView> view : viewList) {
+      if (view != null && view.get() != null) {
+        if (canDisplay(view)) {
 switch (method) {
 case picture_thumbnail:
-          playImageViewAnimation(imageView,bitmap);
-        break;
+            playImageViewAnimation(view,bitmap);
+          break;
 case picture_bmiddle:
-      playImageViewAnimation(imageView,bitmap);
-    break;
+        playImageViewAnimation(view,bitmap);
+      break;
+  }
+  lruCache.put(data,bitmap);
 }
-lruCache.put(data,bitmap);
 }
 }
 }

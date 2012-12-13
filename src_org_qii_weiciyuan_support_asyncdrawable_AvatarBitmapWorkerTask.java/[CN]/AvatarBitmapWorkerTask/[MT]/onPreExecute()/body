@@ -1,9 +1,0 @@
-{
-  super.onPreExecute();
-  if (view != null) {
-    ImageView imageView=view.get();
-    if (imageView != null) {
-      imageView.setTag(data);
-    }
-  }
-}
