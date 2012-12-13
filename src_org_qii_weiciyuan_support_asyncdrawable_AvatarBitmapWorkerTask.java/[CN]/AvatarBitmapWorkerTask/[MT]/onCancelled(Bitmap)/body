@@ -2,5 +2,6 @@
   if (taskMap != null && taskMap.get(url) != null) {
     taskMap.remove(url);
   }
+  clean();
   super.onCancelled(bitmap);
 }

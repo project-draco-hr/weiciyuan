@@ -22,8 +22,11 @@
   Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath,options);
   if (bitmap != null) {
     Bitmap roundBitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
-    bitmap.recycle();
-    return roundBitmap;
+    if (roundBitmap != bitmap) {
+      bitmap.recycle();
+      bitmap=roundBitmap;
+    }
+    return bitmap;
   }
   return bitmap;
 }

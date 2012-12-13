@@ -2,12 +2,22 @@
   String absoluteFilePath=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_thumbnail);
   Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath);
   if (bitmap != null) {
-    return ImageEdit.getRoundedCornerBitmap(bitmap);
+    Bitmap roundedCornerBitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
+    if (roundedCornerBitmap != bitmap) {
+      bitmap.recycle();
+      bitmap=roundedCornerBitmap;
+    }
   }
  else   if (SettingUtility.isEnablePic()) {
     getBitmapFromNetWork(url,absoluteFilePath,null);
     bitmap=BitmapFactory.decodeFile(absoluteFilePath);
-    if (bitmap != null)     return ImageEdit.getRoundedCornerBitmap(bitmap);
+    if (bitmap != null) {
+      Bitmap roundedCornerBitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
+      if (roundedCornerBitmap != bitmap) {
+        bitmap.recycle();
+        bitmap=roundedCornerBitmap;
+      }
+    }
   }
-  return null;
+  return bitmap;
 }
