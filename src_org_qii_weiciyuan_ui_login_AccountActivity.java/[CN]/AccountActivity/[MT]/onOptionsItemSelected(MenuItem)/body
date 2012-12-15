@@ -4,7 +4,8 @@ case R.id.menu_add_account:
     addAccount();
   break;
 case R.id.menu_hack_login:
-startActivity(new Intent(this,BlackMagicActivity.class));
+Intent intent=new Intent(this,BlackMagicActivity.class);
+startActivityForResult(intent,ADD_ACCOUNT_REQUEST_CODE);
 break;
 }
 return true;
