@@ -1,6 +1,8 @@
 {
   HttpEntity entity=response.getEntity();
   String result="";
+  GlobalContext globalContext=GlobalContext.getInstance();
+  String errorStr=globalContext.getString(R.string.timeout);
   try {
     AppLogger.d(String.valueOf(entity.getContentLength()));
     result=EntityUtils.toString(entity);
@@ -8,7 +10,7 @@
   }
  catch (  IOException e) {
     AppLogger.e(e.getMessage());
-    throw new WeiboException(GlobalContext.getInstance().getString(R.string.timeout),e);
+    throw new WeiboException(errorStr,e);
   }
   AppLogger.d(result);
   return result;

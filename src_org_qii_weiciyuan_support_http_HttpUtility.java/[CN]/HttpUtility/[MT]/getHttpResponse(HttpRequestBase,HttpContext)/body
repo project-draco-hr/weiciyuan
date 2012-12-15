@@ -1,5 +1,7 @@
 {
   HttpResponse response=null;
+  GlobalContext globalContext=GlobalContext.getInstance();
+  String errorStr=globalContext.getString(R.string.timeout);
   try {
     if (localContext != null) {
       response=httpClient.execute(httpRequest,localContext);
@@ -12,17 +14,17 @@
     e.printStackTrace();
     AppLogger.e(e.getMessage());
     httpRequest.abort();
-    throw new WeiboException(GlobalContext.getInstance().getString(R.string.timeout),e);
+    throw new WeiboException(errorStr,e);
   }
 catch (  ClientProtocolException e) {
     AppLogger.e(e.getMessage());
     httpRequest.abort();
-    throw new WeiboException(GlobalContext.getInstance().getString(R.string.timeout),e);
+    throw new WeiboException(errorStr,e);
   }
 catch (  IOException e) {
     AppLogger.e(e.getMessage());
     httpRequest.abort();
-    throw new WeiboException(GlobalContext.getInstance().getString(R.string.timeout),e);
+    throw new WeiboException(errorStr,e);
   }
   return response;
 }
