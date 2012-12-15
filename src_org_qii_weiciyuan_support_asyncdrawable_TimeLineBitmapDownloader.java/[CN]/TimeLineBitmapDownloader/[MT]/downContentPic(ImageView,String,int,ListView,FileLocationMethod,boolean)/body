@@ -2,37 +2,28 @@
   view.clearAnimation();
   final Bitmap bitmap=getBitmapFromMemCache(urlKey);
   if (bitmap != null) {
-switch (method) {
-case picture_thumbnail:
-      view.setImageBitmap(bitmap);
+    view.setImageBitmap(bitmap);
     cancelPotentialDownload(urlKey,view);
-  picTasks.remove(urlKey);
-break;
-case picture_bmiddle:
-view.setImageBitmap(bitmap);
-cancelPotentialDownload(urlKey,view);
-picTasks.remove(urlKey);
-break;
-}
-}
+    picTasks.remove(urlKey);
+  }
  else {
-if (isFling) {
-view.setImageDrawable(transPic);
-return;
-}
-PictureBitmapWorkerTask task=picTasks.get(urlKey);
-if (task != null) {
-task.addView(view);
-view.setImageDrawable(new PictureBitmapDrawable(task));
-return;
-}
-if (cancelPotentialDownload(urlKey,view)) {
-task=new PictureBitmapWorkerTask(picTasks,view,urlKey,activity,method);
-PictureBitmapDrawable downloadedDrawable=new PictureBitmapDrawable(task);
-view.setImageDrawable(downloadedDrawable);
-task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-picTasks.put(urlKey,task);
-return;
-}
-}
+    if (isFling) {
+      view.setImageDrawable(transPic);
+      return;
+    }
+    PictureBitmapWorkerTask task=picTasks.get(urlKey);
+    if (task != null) {
+      task.addView(view);
+      view.setImageDrawable(new PictureBitmapDrawable(task));
+      return;
+    }
+    if (cancelPotentialDownload(urlKey,view)) {
+      task=new PictureBitmapWorkerTask(picTasks,view,urlKey,activity,method);
+      PictureBitmapDrawable downloadedDrawable=new PictureBitmapDrawable(task);
+      view.setImageDrawable(downloadedDrawable);
+      task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      picTasks.put(urlKey,task);
+      return;
+    }
+  }
 }

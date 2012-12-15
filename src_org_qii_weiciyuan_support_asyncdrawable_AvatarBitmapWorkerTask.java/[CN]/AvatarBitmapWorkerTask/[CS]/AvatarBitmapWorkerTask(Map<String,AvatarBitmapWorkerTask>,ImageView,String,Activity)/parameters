@@ -1,4 +1,0 @@
-Map<String,AvatarBitmapWorkerTask> taskMap
-ImageView view
-String url
-Activity activity

@@ -1,9 +1,0 @@
-{
-  if (taskMap != null && taskMap.get(url) != null) {
-    taskMap.remove(url);
-  }
-  viewList.clear();
-  activity=null;
-  taskMap=null;
-  lruCache=null;
-}

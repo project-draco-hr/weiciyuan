@@ -1,29 +1,8 @@
 {
-  view.clearAnimation();
-  Bitmap bitmap=getBitmapFromMemCache(urlKey);
-  if (bitmap != null) {
-    view.setImageBitmap(bitmap);
-    cancelPotentialAvatarDownload(urlKey,view);
-    avatarTasks.remove(urlKey);
+  if (SettingUtility.getEnableBigAvatar()) {
+    downContentPic(view,urlKey,position,listView,FileLocationMethod.avatar_large,isFling);
   }
  else {
-    if (isFling) {
-      view.setImageDrawable(transPic);
-      return;
-    }
-    AvatarBitmapWorkerTask task=avatarTasks.get(urlKey);
-    if (task != null) {
-      task.addView(view);
-      view.setImageDrawable(new AvatarBitmapDrawable(task));
-      return;
-    }
-    if (cancelPotentialAvatarDownload(urlKey,view)) {
-      task=new AvatarBitmapWorkerTask(avatarTasks,view,urlKey,activity);
-      AvatarBitmapDrawable downloadedDrawable=new AvatarBitmapDrawable(task);
-      view.setImageDrawable(downloadedDrawable);
-      task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-      avatarTasks.put(urlKey,task);
-      return;
-    }
+    downContentPic(view,urlKey,position,listView,FileLocationMethod.avatar_small,isFling);
   }
 }

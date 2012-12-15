@@ -1,9 +1,4 @@
 {
-  if (avatarTasks != null) {
-    for (    String task : avatarTasks.keySet()) {
-      avatarTasks.get(task).cancel(true);
-    }
-  }
   if (picTasks != null) {
     for (    String task : picTasks.keySet()) {
       picTasks.get(task).cancel(true);

@@ -1,11 +1,15 @@
 {
   if (!isCancelled()) {
 switch (method) {
+case avatar_large:
+      return ImageTool.getRoundedCornerPic(this.data,Utility.dip2px(40),Utility.dip2px(40),FileLocationMethod.avatar_large);
+case avatar_small:
+    return ImageTool.getRoundedCornerPic(this.data,Utility.dip2px(40),Utility.dip2px(40),FileLocationMethod.avatar_small);
 case picture_thumbnail:
-      return ImageTool.getThumbnailPictureWithRoundedCorner(data);
+  return ImageTool.getThumbnailPictureWithRoundedCorner(data);
 case picture_bmiddle:
-    DisplayMetrics metrics=new DisplayMetrics();
-  Display display=activity.getWindowManager().getDefaultDisplay();
+DisplayMetrics metrics=new DisplayMetrics();
+Display display=activity.getWindowManager().getDefaultDisplay();
 display.getMetrics(metrics);
 float reSize=activity.getResources().getDisplayMetrics().density;
 int height=activity.getResources().getDimensionPixelSize(R.dimen.timeline_big_avatar_height);
