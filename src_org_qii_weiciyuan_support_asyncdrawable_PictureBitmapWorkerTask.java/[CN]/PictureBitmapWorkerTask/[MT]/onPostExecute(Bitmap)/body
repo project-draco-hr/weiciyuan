@@ -4,21 +4,14 @@
     if (view != null && view.get() != null) {
       if (canDisplay(view)) {
         if (bitmap != null) {
-switch (method) {
-case picture_thumbnail:
-            playImageViewAnimation(view,bitmap);
-          break;
-case picture_bmiddle:
-        playImageViewAnimation(view,bitmap);
-      break;
-  }
-  lruCache.put(data,bitmap);
-}
+          playImageViewAnimation(view,bitmap);
+          lruCache.put(data,bitmap);
+        }
  else {
-  view.get().setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
-}
-}
-}
-}
-clean();
+          view.get().setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+      }
+    }
+  }
+  clean();
 }
