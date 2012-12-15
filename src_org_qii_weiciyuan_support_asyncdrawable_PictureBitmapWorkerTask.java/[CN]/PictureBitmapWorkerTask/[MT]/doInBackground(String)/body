@@ -1,6 +1,6 @@
 {
-  int avatarWidth=GlobalContext.getInstance().getResources().getDimensionPixelSize(R.dimen.timeline_avatar_width);
-  int avatarHeight=GlobalContext.getInstance().getResources().getDimensionPixelSize(R.dimen.timeline_avatar_height);
+  int avatarWidth=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_avatar_width);
+  int avatarHeight=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_avatar_height);
   if (!isCancelled()) {
 switch (method) {
 case avatar_large:
@@ -10,9 +10,9 @@ case avatar_small:
 case picture_thumbnail:
   return ImageTool.getThumbnailPictureWithRoundedCorner(data);
 case picture_bmiddle:
-DisplayMetrics metrics=GlobalContext.getInstance().getDisplayMetrics();
-float reSize=GlobalContext.getInstance().getResources().getDisplayMetrics().density;
-int height=GlobalContext.getInstance().getResources().getDimensionPixelSize(R.dimen.timeline_pic_high_thumbnail_height);
+DisplayMetrics metrics=globalContext.getDisplayMetrics();
+float reSize=globalContext.getResources().getDisplayMetrics().density;
+int height=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_high_thumbnail_height);
 int width=(int)(metrics.widthPixels - (8 + 8) * reSize);
 return ImageTool.getMiddlePictureInTimeLine(data,width,height,null);
 }

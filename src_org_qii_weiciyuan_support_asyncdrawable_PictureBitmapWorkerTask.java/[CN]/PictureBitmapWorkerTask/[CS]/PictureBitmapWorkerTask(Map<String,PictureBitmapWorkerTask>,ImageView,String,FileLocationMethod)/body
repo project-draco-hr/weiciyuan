@@ -1,5 +1,6 @@
 {
-  this.lruCache=GlobalContext.getInstance().getAvatarCache();
+  this.globalContext=GlobalContext.getInstance();
+  this.lruCache=globalContext.getAvatarCache();
   this.taskMap=taskMap;
   viewList.add(new WeakReference<ImageView>(view));
   this.data=url;

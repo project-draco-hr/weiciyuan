@@ -5,4 +5,5 @@
   viewList.clear();
   taskMap=null;
   lruCache=null;
+  globalContext=null;
 }
