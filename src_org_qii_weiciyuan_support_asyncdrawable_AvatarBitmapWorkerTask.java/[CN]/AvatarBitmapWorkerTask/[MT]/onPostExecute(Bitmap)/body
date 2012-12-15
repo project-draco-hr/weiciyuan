@@ -1,15 +1,16 @@
 {
-  if (bitmap != null) {
-    for (    WeakReference<ImageView> view : viewList) {
-      if (view != null && view.get() != null) {
-        if (canDisplay(view)) {
+  super.onPostExecute(bitmap);
+  for (  WeakReference<ImageView> view : viewList) {
+    if (view != null && view.get() != null) {
+      if (canDisplay(view)) {
+        if (bitmap != null) {
           playImageViewAnimation(view,bitmap);
           lruCache.put(url,bitmap);
         }
+ else {
+          view.get().setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
       }
-    }
-    if (taskMap != null && taskMap.get(url) != null) {
-      taskMap.remove(url);
     }
   }
   clean();

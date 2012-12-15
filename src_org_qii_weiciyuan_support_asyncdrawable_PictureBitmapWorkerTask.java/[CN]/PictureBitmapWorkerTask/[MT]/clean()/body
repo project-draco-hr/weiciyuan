@@ -1,4 +1,7 @@
 {
+  if (taskMap != null && taskMap.get(data) != null) {
+    taskMap.remove(data);
+  }
   viewList.clear();
   activity=null;
   taskMap=null;

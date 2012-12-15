@@ -1,7 +1,4 @@
 {
-  if (taskMap != null && taskMap.get(data) != null) {
-    taskMap.remove(data);
-  }
   clean();
   super.onCancelled(bitmap);
 }

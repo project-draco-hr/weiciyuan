@@ -1,8 +1,9 @@
 {
-  if (bitmap != null) {
-    for (    WeakReference<ImageView> view : viewList) {
-      if (view != null && view.get() != null) {
-        if (canDisplay(view)) {
+  super.onPostExecute(bitmap);
+  for (  WeakReference<ImageView> view : viewList) {
+    if (view != null && view.get() != null) {
+      if (canDisplay(view)) {
+        if (bitmap != null) {
 switch (method) {
 case picture_thumbnail:
             playImageViewAnimation(view,bitmap);
@@ -13,11 +14,11 @@ case picture_bmiddle:
   }
   lruCache.put(data,bitmap);
 }
+ else {
+  view.get().setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
 }
 }
 }
-if (taskMap.get(data) != null) {
-taskMap.remove(data);
 }
 clean();
 }
