@@ -3,7 +3,6 @@
     taskMap.remove(data);
   }
   viewList.clear();
-  activity=null;
   taskMap=null;
   lruCache=null;
 }

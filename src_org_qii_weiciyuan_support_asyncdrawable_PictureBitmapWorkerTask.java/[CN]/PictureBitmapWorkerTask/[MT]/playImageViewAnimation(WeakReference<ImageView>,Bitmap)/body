@@ -1,6 +1,6 @@
 {
-  final Animation anim_out=AnimationUtils.loadAnimation(activity,R.anim.timeline_pic_fade_out);
-  final Animation anim_in=AnimationUtils.loadAnimation(activity,R.anim.timeline_pic_fade_in);
+  final Animation anim_out=AnimationUtils.loadAnimation(view.get().getContext(),R.anim.timeline_pic_fade_out);
+  final Animation anim_in=AnimationUtils.loadAnimation(view.get().getContext(),R.anim.timeline_pic_fade_in);
   anim_out.setAnimationListener(new Animation.AnimationListener(){
     @Override public void onAnimationStart(    Animation animation){
     }

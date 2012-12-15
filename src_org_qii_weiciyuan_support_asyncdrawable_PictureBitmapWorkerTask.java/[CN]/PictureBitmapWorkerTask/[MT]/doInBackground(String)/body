@@ -8,11 +8,9 @@ case avatar_small:
 case picture_thumbnail:
   return ImageTool.getThumbnailPictureWithRoundedCorner(data);
 case picture_bmiddle:
-DisplayMetrics metrics=new DisplayMetrics();
-Display display=activity.getWindowManager().getDefaultDisplay();
-display.getMetrics(metrics);
-float reSize=activity.getResources().getDisplayMetrics().density;
-int height=activity.getResources().getDimensionPixelSize(R.dimen.timeline_big_avatar_height);
+DisplayMetrics metrics=GlobalContext.getInstance().getDisplayMetrics();
+float reSize=GlobalContext.getInstance().getResources().getDisplayMetrics().density;
+int height=GlobalContext.getInstance().getResources().getDimensionPixelSize(R.dimen.timeline_big_avatar_height);
 int width=(int)(metrics.widthPixels - (8 + 8) * reSize);
 return ImageTool.getMiddlePictureInTimeLine(data,width,height,null);
 }
