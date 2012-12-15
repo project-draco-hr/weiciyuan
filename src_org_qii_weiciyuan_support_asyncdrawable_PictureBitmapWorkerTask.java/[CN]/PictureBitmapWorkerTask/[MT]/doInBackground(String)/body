@@ -10,7 +10,7 @@ case picture_thumbnail:
 case picture_bmiddle:
 DisplayMetrics metrics=GlobalContext.getInstance().getDisplayMetrics();
 float reSize=GlobalContext.getInstance().getResources().getDisplayMetrics().density;
-int height=GlobalContext.getInstance().getResources().getDimensionPixelSize(R.dimen.timeline_big_avatar_height);
+int height=GlobalContext.getInstance().getResources().getDimensionPixelSize(R.dimen.timeline_pic_high_thumbnail_height);
 int width=(int)(metrics.widthPixels - (8 + 8) * reSize);
 return ImageTool.getMiddlePictureInTimeLine(data,width,height,null);
 }
