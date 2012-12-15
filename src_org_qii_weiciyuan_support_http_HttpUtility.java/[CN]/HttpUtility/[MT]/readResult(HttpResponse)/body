@@ -3,6 +3,7 @@
   String result="";
   GlobalContext globalContext=GlobalContext.getInstance();
   String errorStr=globalContext.getString(R.string.timeout);
+  globalContext=null;
   try {
     AppLogger.d(String.valueOf(entity.getContentLength()));
     result=EntityUtils.toString(entity);
