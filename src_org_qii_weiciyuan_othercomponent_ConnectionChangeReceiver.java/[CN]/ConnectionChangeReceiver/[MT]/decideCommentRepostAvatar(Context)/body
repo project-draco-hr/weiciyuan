@@ -1,7 +1,5 @@
 {
-switch (SettingUtility.getCommentRepostAvatar()) {
-case 3:
+  if (SettingUtility.getCommentRepostAvatar() == 3) {
     SettingUtility.setEnableCommentRepostAvatar(Utility.isWifi(context));
-  break;
-}
+  }
 }
