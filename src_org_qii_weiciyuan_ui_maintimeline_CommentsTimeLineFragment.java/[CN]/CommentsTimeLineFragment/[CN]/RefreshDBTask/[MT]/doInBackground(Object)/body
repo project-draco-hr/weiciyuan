@@ -1,5 +1,0 @@
-{
-  CommentListBean value=DatabaseManager.getInstance().getCommentLineMsgList(accountBean.getUid());
-  clearAndReplaceValue(value);
-  return null;
-}

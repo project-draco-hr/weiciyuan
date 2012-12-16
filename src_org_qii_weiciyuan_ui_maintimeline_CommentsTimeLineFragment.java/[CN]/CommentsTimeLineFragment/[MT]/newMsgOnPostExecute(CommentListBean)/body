@@ -16,7 +16,7 @@
       }
       clearAndReplaceValue(newValue);
       clearAndReplaceValue(selected,getList());
-      timeLineAdapter.notifyDataSetChanged();
+      getAdapter().notifyDataSetChanged();
       getListView().setSelectionAfterHeaderView();
     }
   }
