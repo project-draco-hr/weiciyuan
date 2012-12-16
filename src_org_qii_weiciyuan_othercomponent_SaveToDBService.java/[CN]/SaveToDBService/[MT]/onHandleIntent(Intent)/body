@@ -1,0 +1,10 @@
+{
+  int type=intent.getIntExtra("type",0);
+  String accountId=intent.getStringExtra("accountId");
+switch (type) {
+case TYPE_STATUS:
+    MessageListBean value=(MessageListBean)intent.getSerializableExtra("value");
+  DatabaseManager.getInstance().replaceHomeLineMsg(value,accountId);
+break;
+}
+}

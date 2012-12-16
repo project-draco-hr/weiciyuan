@@ -1,0 +1,7 @@
+{
+  Intent intent=new Intent(context,SaveToDBService.class);
+  intent.putExtra("type",type);
+  intent.putExtra("value",value);
+  intent.putExtra("accountId",accountId);
+  context.startService(intent);
+}

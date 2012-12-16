@@ -4,6 +4,9 @@
     getList().addNewData(newValue);
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
+    if (getList() != null && selectedId.equals("0")) {
+      SaveToDBService.save(getActivity(),SaveToDBService.TYPE_STATUS,getList(),accountBean.getUid());
+    }
   }
   afterGetNewMsg();
 }

@@ -7,10 +7,10 @@
   }
   c.close();
   AppLogger.e("total=" + total);
-  int needDeletedNumber=total - Integer.valueOf(SettingUtility.getMsgCount());
+  int needDeletedNumber=total - AppConfig.DEFAULT_DB_CACHE_COUNT;
   if (needDeletedNumber > 0) {
     AppLogger.e("" + needDeletedNumber);
-    String sql=" delete from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ID+ " in "+ "( select "+ HomeTable.ID+ " from "+ HomeTable.TABLE_NAME+ " where "+ HomeTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ HomeTable.ID+ " asc limit "+ needDeletedNumber+ " ) ";
+    String sql=" delete from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ID+ " in "+ "( select "+ HomeTable.ID+ " from "+ HomeTable.TABLE_NAME+ " where "+ HomeTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ HomeTable.ID+ " desc limit "+ needDeletedNumber+ " ) ";
     wsd.execSQL(sql);
   }
 }

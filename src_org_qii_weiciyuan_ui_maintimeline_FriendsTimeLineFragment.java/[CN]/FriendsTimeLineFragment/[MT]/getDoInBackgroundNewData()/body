@@ -13,8 +13,5 @@
     dao.setSince_id(getList().getItemList().get(0).getId());
   }
   MessageListBean result=dao.getGSONMsgList();
-  if (result != null && selectedId.equals("0")) {
-    DatabaseManager.getInstance().replaceHomeLineMsg(result,accountBean.getUid());
-  }
   return result;
 }
