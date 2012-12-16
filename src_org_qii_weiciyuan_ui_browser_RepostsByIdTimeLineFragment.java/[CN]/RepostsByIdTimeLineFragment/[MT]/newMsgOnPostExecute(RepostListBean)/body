@@ -1,8 +1,8 @@
 {
   if (getActivity() != null && newValue.getSize() > 0) {
-    getList().addNewData(newValue);
+    getList().replaceAll(newValue);
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
+    invlidateTabText();
   }
-  afterGetNewMsg();
 }
