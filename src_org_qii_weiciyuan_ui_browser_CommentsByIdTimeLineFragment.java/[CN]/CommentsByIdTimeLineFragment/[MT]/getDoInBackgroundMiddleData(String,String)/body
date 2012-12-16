@@ -1,7 +1,3 @@
 {
-  CommentsTimeLineByIdDao dao=new CommentsTimeLineByIdDao(token,id);
-  dao.setMax_id(beginId);
-  dao.setSince_id(endId);
-  CommentListBean result=dao.getGSONMsgList();
-  return result;
+  throw new UnsupportedOperationException("comment by id list dont support this operation");
 }
