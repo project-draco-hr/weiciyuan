@@ -1,6 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
-  commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
   if (savedInstanceState != null) {
     currentUser=(UserBean)savedInstanceState.getSerializable("currentUser");
     uid=savedInstanceState.getString("uid");
