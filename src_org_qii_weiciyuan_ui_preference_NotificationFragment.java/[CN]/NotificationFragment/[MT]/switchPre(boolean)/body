@@ -1,0 +1,5 @@
+{
+  for (  Preference p : preferenceList) {
+    p.setEnabled(value);
+  }
+}
