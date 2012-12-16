@@ -9,6 +9,4 @@
   outState.putSerializable("0",hashMap.get(0));
   outState.putSerializable("1",hashMap.get(1));
   outState.putSerializable("2",hashMap.get(2));
-  outState.putSerializable("3",hashMap.get(3));
-  outState.putSerializable("4",hashMap.get(4));
 }

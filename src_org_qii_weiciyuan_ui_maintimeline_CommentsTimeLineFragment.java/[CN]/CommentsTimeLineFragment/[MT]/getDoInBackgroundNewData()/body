@@ -2,24 +2,24 @@
   CommentListBean result;
   ICommentsTimeLineDao dao;
 switch (selected) {
-case 0:
+case TYPE_RECEIVED_COMMENT:
     dao=new MainCommentsTimeLineDao(token);
   break;
-case 1:
+case TYPE_MENTIONED_COMMENT_TO_ME:
 dao=new MentionsCommentTimeLineDao(token);
 break;
-case 2:
+case TYPE_COMMENT_BY_ME:
 dao=new CommentsTimeLineByMeDao(token);
 break;
 default :
-dao=new CommentsTimeLineByMeDao(token);
+dao=new MainCommentsTimeLineDao(token);
 break;
 }
 if (getList() != null && getList().getItemList().size() > 0) {
 dao.setSince_id(getList().getItemList().get(0).getId());
 }
 result=dao.getGSONMsgList();
-if (result != null && selected == 0) {
+if (result != null && selected == TYPE_RECEIVED_COMMENT) {
 DatabaseManager.getInstance().addCommentLineMsg(result,accountBean.getUid());
 }
 return result;
