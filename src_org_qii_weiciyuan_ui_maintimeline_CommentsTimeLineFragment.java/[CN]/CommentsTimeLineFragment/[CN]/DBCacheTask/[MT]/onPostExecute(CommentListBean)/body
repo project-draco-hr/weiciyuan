@@ -8,9 +8,9 @@
   getAdapter().notifyDataSetChanged();
   refreshLayout(getList());
   if (getList().getSize() == 0) {
-    pullToRefreshListView.startRefreshNow();
+    getPullToRefreshListView().startRefreshNow();
   }
   if (getActivity().getActionBar().getTabAt(2).getText().toString().contains(")")) {
-    pullToRefreshListView.startRefreshNow();
+    getPullToRefreshListView().startRefreshNow();
   }
 }
