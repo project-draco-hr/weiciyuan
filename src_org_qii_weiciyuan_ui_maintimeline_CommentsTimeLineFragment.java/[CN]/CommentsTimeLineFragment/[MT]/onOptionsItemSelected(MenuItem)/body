@@ -7,7 +7,7 @@ intent.putExtra("account",accountBean);
 startActivity(intent);
 break;
 case R.id.refresh:
-if (allowRefresh()) pullToRefreshListView.startRefreshNow();
+if (allowRefresh()) getPullToRefreshListView().startRefreshNow();
 break;
 case R.id.group_name:
 if (canSwitchGroup()) {

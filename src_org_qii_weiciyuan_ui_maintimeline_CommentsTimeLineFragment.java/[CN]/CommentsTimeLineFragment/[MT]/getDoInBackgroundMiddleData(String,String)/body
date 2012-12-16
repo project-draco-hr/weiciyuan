@@ -1,26 +1,3 @@
 {
-  if (selected == 0) {
-    MainCommentsTimeLineDao dao=new MainCommentsTimeLineDao(token);
-    if (getList().getItemList().size() > 0) {
-      dao.setMax_id(beginId);
-      dao.setSince_id(endId);
-    }
-    CommentListBean result=dao.getGSONMsgList();
-    return result;
-  }
- else   if (selected == 1) {
-    MentionsCommentTimeLineDao dao=new MentionsCommentTimeLineDao(token);
-    dao.setMax_id(beginId);
-    dao.setSince_id(endId);
-    CommentListBean result=dao.getGSONMsgList();
-    return result;
-  }
- else   if (selected == 2) {
-    CommentsTimeLineByMeDao dao=new CommentsTimeLineByMeDao(token);
-    dao.setMax_id(beginId);
-    dao.setSince_id(endId);
-    CommentListBean result=dao.getGSONMsgList();
-    return result;
-  }
-  return null;
+  throw new UnsupportedOperationException("comment list dont support this operation");
 }
