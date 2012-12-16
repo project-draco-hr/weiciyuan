@@ -3,8 +3,19 @@
   listAvatarMode.setSummary(getActivity().getResources().getStringArray(R.array.list_avatar_mode)[Integer.valueOf(value) - 1]);
   value=PreferenceManager.getDefaultSharedPreferences(getActivity()).getString(SettingActivity.LIST_PIC_MODE,"1");
   listPicMode.setSummary(getActivity().getResources().getStringArray(R.array.list_pic_mode)[Integer.valueOf(value) - 1]);
+  value=PreferenceManager.getDefaultSharedPreferences(getActivity()).getString(SettingActivity.FONT_SIZE,"1");
+  String[] values=getActivity().getResources().getStringArray(R.array.font_value);
+  int index=-1;
+  for (int i=0; i < values.length; i++) {
+    if (value.equals(values[i])) {
+      index=i;
+    }
+  }
+  if (index >= 0) {
+    listFontSize.setSummary(getActivity().getResources().getStringArray(R.array.font)[index]);
+  }
   value=PreferenceManager.getDefaultSharedPreferences(getActivity()).getString(SettingActivity.THEME,"2");
-  int index=Integer.valueOf(value);
+  index=Integer.valueOf(value);
   if (index > 2) {
     index=1;
   }

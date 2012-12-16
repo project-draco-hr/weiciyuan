@@ -1,4 +1,5 @@
 {
+  buildSummary();
   if (key.equals(SettingActivity.LIST_AVATAR_MODE)) {
     String value=sharedPreferences.getString(key,"1");
     if (value.equals("1"))     SettingUtility.setEnableBigAvatar(false);
@@ -6,7 +7,6 @@
     if (value.equals("3")) {
       SettingUtility.setEnableBigAvatar(Utility.isWifi(getActivity()));
     }
-    buildSummary();
   }
   if (key.equals(SettingActivity.LIST_PIC_MODE)) {
     String value=sharedPreferences.getString(key,"1");
@@ -15,6 +15,5 @@
     if (value.equals("3")) {
       SettingUtility.setEnableBigPic(Utility.isWifi(getActivity()));
     }
-    buildSummary();
   }
 }
