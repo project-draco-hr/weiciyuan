@@ -12,7 +12,7 @@
   if (newValue == null || newValue.getSize() == 0 || getActivity() == null || isListViewFling())   return;
   int firstPosition=getListView().getFirstVisiblePosition();
   int size=newValue.getSize();
-  if (newValue.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+  if (newValue.getItemList().size() < Integer.valueOf(SettingUtility.getMsgCount())) {
     newValue.getItemList().addAll(getList().getItemList());
   }
  else {

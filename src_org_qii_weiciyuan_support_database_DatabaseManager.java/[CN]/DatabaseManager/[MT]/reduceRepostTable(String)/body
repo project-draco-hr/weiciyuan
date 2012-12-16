@@ -7,7 +7,7 @@
   }
   c.close();
   AppLogger.e("total=" + total);
-  int needDeletedNumber=total - AppConfig.MAX_DATABASE_TABLE_ENTRY_NUMBER;
+  int needDeletedNumber=total - Integer.valueOf(SettingUtility.getMsgCount());
   if (needDeletedNumber > 0) {
     AppLogger.e("" + needDeletedNumber);
     String sql=" delete from " + RepostsTable.TABLE_NAME + " where "+ RepostsTable.ID+ " in "+ "( select "+ RepostsTable.ID+ " from "+ RepostsTable.TABLE_NAME+ " where "+ RepostsTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ RepostsTable.ID+ " asc limit "+ needDeletedNumber+ " ) ";

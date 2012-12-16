@@ -3,7 +3,7 @@
     if (newValue.getSize() == 0) {
     }
  else     if (newValue.getSize() > 0) {
-      if (newValue.getItemList().size() < AppConfig.DEFAULT_MSG_NUMBERS) {
+      if (newValue.getItemList().size() < Integer.valueOf(SettingUtility.getMsgCount())) {
         newValue.getItemList().addAll(getItemList());
       }
  else {

@@ -1,3 +1,4 @@
 {
   this.access_token=token;
+  this.count=SettingUtility.getMsgCount();
 }

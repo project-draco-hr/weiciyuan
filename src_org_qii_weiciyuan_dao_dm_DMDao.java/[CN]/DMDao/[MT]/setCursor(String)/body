@@ -1,3 +1,4 @@
 {
   this.cursor=cursor;
+  this.count=SettingUtility.getMsgCount();
 }
