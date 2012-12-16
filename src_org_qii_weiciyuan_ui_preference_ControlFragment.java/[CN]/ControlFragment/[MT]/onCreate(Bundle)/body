@@ -1,5 +1,9 @@
 {
   super.onCreate(savedInstanceState);
   addPreferencesFromResource(R.xml.control_pref);
+  msgCount=findPreference(SettingActivity.MSG_COUNT);
+  commentRepostListAvatar=findPreference(SettingActivity.COMMENT_REPOST_AVATAR);
+  uploadPicQuality=findPreference(SettingActivity.UPLOAD_PIC_QUALITY);
+  buildSummary();
   PreferenceManager.getDefaultSharedPreferences(getActivity()).registerOnSharedPreferenceChangeListener(this);
 }
