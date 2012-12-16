@@ -3,6 +3,6 @@
     getList().addNewData(newValue);
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
+    getActivity().invalidateOptionsMenu();
   }
-  afterGetNewMsg();
 }
