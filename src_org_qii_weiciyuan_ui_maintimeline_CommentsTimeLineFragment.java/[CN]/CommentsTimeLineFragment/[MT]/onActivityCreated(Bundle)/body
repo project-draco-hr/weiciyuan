@@ -1,6 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
-  commander=((AbstractAppActivity)getActivity()).getCommander();
+  commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
   if (savedInstanceState != null && (getList() == null || getList().getItemList().size() == 0)) {
     userBean=(UserBean)savedInstanceState.getSerializable("userBean");
     accountBean=(AccountBean)savedInstanceState.getSerializable("account");

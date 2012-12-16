@@ -1,4 +1,4 @@
 {
-  timeLineAdapter=new DMUserListAdapter(this,((AbstractAppActivity)getActivity()).getCommander(),getList().getItemList(),getListView());
+  timeLineAdapter=new DMUserListAdapter(this,((AbstractAppActivity)getActivity()).getBitmapDownloader(),getList().getItemList(),getListView());
   getListView().setAdapter(timeLineAdapter);
 }

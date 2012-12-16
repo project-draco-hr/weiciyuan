@@ -1,5 +1,5 @@
 {
-  commander=((AbstractAppActivity)getActivity()).getCommander();
+  commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
   if (savedInstanceState != null) {
     getList().addNewData((MessageListBean)savedInstanceState.getSerializable("bean"));
     userBean=(UserBean)savedInstanceState.getSerializable("userBean");
