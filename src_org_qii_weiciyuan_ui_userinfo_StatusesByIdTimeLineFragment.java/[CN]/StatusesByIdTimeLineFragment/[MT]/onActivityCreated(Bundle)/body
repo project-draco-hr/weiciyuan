@@ -1,5 +1,4 @@
 {
-  commander=((AbstractAppActivity)getActivity()).getCommander();
   if (savedInstanceState != null) {
     clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
     userBean=(UserBean)savedInstanceState.getSerializable("userBean");
