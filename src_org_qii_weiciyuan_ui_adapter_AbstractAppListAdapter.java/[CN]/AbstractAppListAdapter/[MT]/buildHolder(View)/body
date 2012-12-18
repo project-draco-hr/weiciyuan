@@ -5,7 +5,7 @@
   tp.setFakeBoldText(true);
   holder.content=(TextView)convertView.findViewById(R.id.content);
   holder.repost_content=(TextView)convertView.findViewById(R.id.repost_content);
-  holder.time=(TextView)convertView.findViewById(R.id.time);
+  holder.time=(TimeTextView)convertView.findViewById(R.id.time);
   holder.avatar=(ImageView)convertView.findViewById(R.id.avatar);
   holder.content_pic=(ImageView)convertView.findViewById(R.id.content_pic);
   holder.repost_content_pic=(ImageView)convertView.findViewById(R.id.repost_content_pic);
