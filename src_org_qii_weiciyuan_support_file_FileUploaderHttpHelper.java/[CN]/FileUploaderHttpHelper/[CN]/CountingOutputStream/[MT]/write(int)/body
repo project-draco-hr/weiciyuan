@@ -1,5 +1,0 @@
-{
-  out.write(b);
-  this.transferred++;
-  this.listener.transferred(this.transferred);
-}

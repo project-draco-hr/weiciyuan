@@ -1,5 +1,0 @@
-HttpClient httpClient
-String url
-Map<String,String> param
-String path
-ProgressListener listener

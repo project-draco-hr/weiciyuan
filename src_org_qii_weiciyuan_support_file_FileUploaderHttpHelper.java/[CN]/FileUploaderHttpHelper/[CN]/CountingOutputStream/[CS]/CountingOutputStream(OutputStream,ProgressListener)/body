@@ -1,5 +1,0 @@
-{
-  super(out);
-  this.listener=listener;
-  this.transferred=0;
-}

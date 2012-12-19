@@ -1,8 +1,0 @@
-{
-  StatusLine status=httpResponse.getStatusLine();
-  int statusCode=status.getStatusCode();
-  if (statusCode != HttpStatus.SC_OK) {
-    return handleError(httpResponse);
-  }
-  return readResult(httpResponse);
-}

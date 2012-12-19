@@ -1,25 +1,2 @@
 {
-  SchemeRegistry schemeRegistry=new SchemeRegistry();
-  schemeRegistry.register(new Scheme("http",80,PlainSocketFactory.getSocketFactory()));
-  schemeRegistry.register(new Scheme("https",443,SSLSocketFactory.getSocketFactory()));
-  PoolingClientConnectionManager connectionManager=new PoolingClientConnectionManager(schemeRegistry);
-  connectionManager.setMaxTotal(9);
-  DefaultHttpClient backend=new DefaultHttpClient(connectionManager);
-  HttpRequestRetryHandler myRetryHandler=new HttpRequestRetryHandler(){
-    public boolean retryRequest(    IOException exception,    int executionCount,    HttpContext context){
-      if (executionCount >= AppConfig.RETRY_TIMES) {
-        return false;
-      }
-      return true;
-    }
-  }
-;
-  backend.setHttpRequestRetryHandler(myRetryHandler);
-  CacheConfig cacheConfig=new CacheConfig();
-  cacheConfig.setMaxCacheEntries(1000);
-  cacheConfig.setMaxObjectSize(8192);
-  httpClient=new DecompressingHttpClient(backend);
-  HttpConnectionParams.setConnectionTimeout(httpClient.getParams(),5000);
-  HttpConnectionParams.setSoTimeout(httpClient.getParams(),8000);
-  httpClient.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION,HttpVersion.HTTP_1_1);
 }
