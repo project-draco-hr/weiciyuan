@@ -9,5 +9,11 @@
     }
   }
 );
+  if (user.isVerified()) {
+    view.isVerified();
+  }
+ else {
+    view.reset();
+  }
   buildAvatar(view.getImageView(),position,user);
 }

@@ -4,6 +4,7 @@
   View v=inflate.inflate(R.layout.timelineimageview_avatar_layout,null);
   mImageView=(ImageView)v.findViewById(R.id.imageview);
   mCover=(ImageView)v.findViewById(R.id.imageview_cover);
+  vImageView=(ImageView)v.findViewById(R.id.imageview_v);
   mImageView.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
   mCover.setImageDrawable(getResources().getDrawable(R.drawable.timelineimageview_cover));
   mCover.setOnTouchListener(new OnTouchListener(){

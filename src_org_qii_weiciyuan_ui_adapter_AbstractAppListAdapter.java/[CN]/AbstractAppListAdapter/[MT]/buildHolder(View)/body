@@ -6,7 +6,7 @@
   holder.content=(TextView)convertView.findViewById(R.id.content);
   holder.repost_content=(TextView)convertView.findViewById(R.id.repost_content);
   holder.time=(TimeTextView)convertView.findViewById(R.id.time);
-  holder.avatar=(TimeLineImageView)convertView.findViewById(R.id.avatar);
+  holder.avatar=(TimeLineAvatarImageView)convertView.findViewById(R.id.avatar);
   holder.content_pic=(TimeLineImageView)convertView.findViewById(R.id.content_pic);
   holder.repost_content_pic=(TimeLineImageView)convertView.findViewById(R.id.repost_content_pic);
   holder.listview_root=(RelativeLayout)convertView.findViewById(R.id.listview_root);

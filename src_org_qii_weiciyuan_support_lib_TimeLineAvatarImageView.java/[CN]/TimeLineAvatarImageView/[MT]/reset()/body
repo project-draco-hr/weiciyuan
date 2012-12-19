@@ -1,0 +1,3 @@
+{
+  vImageView.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+}
