@@ -1,0 +1,26 @@
+{
+  try {
+    URL url=new URL(urlAddress);
+    HttpURLConnection uRLConnection=(HttpURLConnection)url.openConnection();
+    uRLConnection.setDoInput(true);
+    uRLConnection.setDoOutput(true);
+    uRLConnection.setRequestMethod("POST");
+    uRLConnection.setUseCaches(false);
+    uRLConnection.setConnectTimeout(5000);
+    uRLConnection.setReadTimeout(8000);
+    uRLConnection.setInstanceFollowRedirects(false);
+    uRLConnection.setRequestProperty("Connection","Keep-Alive");
+    uRLConnection.setRequestProperty("Charset","UTF-8");
+    uRLConnection.setRequestProperty("Accept-Encoding","gzip, deflate");
+    uRLConnection.connect();
+    DataOutputStream out=new DataOutputStream(uRLConnection.getOutputStream());
+    out.write(Utility.encodeUrl(param).getBytes());
+    out.flush();
+    out.close();
+    return handleResponse(uRLConnection);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    return null;
+  }
+}

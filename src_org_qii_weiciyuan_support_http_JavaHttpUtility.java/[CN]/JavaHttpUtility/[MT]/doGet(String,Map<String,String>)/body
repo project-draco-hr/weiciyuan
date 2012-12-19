@@ -1,0 +1,22 @@
+{
+  InputStream is=null;
+  try {
+    StringBuilder urlBuilder=new StringBuilder(urlStr);
+    urlBuilder.append("?").append(Utility.encodeUrl(param));
+    URL url=new URL(urlBuilder.toString());
+    HttpURLConnection urlConnection=(HttpURLConnection)url.openConnection();
+    urlConnection.setRequestMethod("GET");
+    urlConnection.setDoOutput(false);
+    urlConnection.setConnectTimeout(5000);
+    urlConnection.setReadTimeout(8000);
+    urlConnection.setRequestProperty("Connection","Keep-Alive");
+    urlConnection.setRequestProperty("Charset","UTF-8");
+    urlConnection.setRequestProperty("Accept-Encoding","gzip, deflate");
+    urlConnection.connect();
+    return handleResponse(urlConnection);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  return "";
+}

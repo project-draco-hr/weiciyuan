@@ -1,0 +1,9 @@
+{
+switch (httpMethod) {
+case Post:
+    return doPost(url,param);
+case Get:
+  return doGet(url,param);
+}
+return "";
+}

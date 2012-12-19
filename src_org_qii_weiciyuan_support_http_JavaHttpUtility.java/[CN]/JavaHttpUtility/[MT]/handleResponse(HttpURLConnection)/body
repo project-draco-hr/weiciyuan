@@ -1,0 +1,18 @@
+{
+  GlobalContext globalContext=GlobalContext.getInstance();
+  String errorStr=globalContext.getString(R.string.timeout);
+  globalContext=null;
+  int status=0;
+  try {
+    status=httpURLConnection.getResponseCode();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    httpURLConnection.disconnect();
+    throw new WeiboException(errorStr,e);
+  }
+  if (status != 200) {
+    return handleError(httpURLConnection);
+  }
+  return readResult(httpURLConnection);
+}

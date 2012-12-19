@@ -1,0 +1,2 @@
+String urlAddress
+Map<String,String> param
