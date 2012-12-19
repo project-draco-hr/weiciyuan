@@ -11,15 +11,6 @@
       url=user.getProfile_image_url();
     }
     commander.downloadAvatar(view,url,position,listView,isFling);
-    view.setOnClickListener(new View.OnClickListener(){
-      @Override public void onClick(      View v){
-        Intent intent=new Intent(getActivity(),UserInfoActivity.class);
-        intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-        intent.putExtra("user",user);
-        getActivity().startActivity(intent);
-      }
-    }
-);
   }
  else {
     view.setVisibility(View.GONE);
