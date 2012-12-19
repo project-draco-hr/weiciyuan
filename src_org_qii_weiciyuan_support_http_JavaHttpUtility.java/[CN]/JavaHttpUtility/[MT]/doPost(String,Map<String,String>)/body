@@ -1,4 +1,7 @@
 {
+  GlobalContext globalContext=GlobalContext.getInstance();
+  String errorStr=globalContext.getString(R.string.timeout);
+  globalContext=null;
   try {
     URL url=new URL(urlAddress);
     HttpURLConnection uRLConnection=(HttpURLConnection)url.openConnection();
@@ -21,6 +24,6 @@
   }
  catch (  IOException e) {
     e.printStackTrace();
-    return null;
+    throw new WeiboException(errorStr,e);
   }
 }

@@ -1,4 +1,7 @@
 {
+  GlobalContext globalContext=GlobalContext.getInstance();
+  String errorStr=globalContext.getString(R.string.timeout);
+  globalContext=null;
   InputStream is=null;
   try {
     StringBuilder urlBuilder=new StringBuilder(urlStr);
@@ -17,6 +20,6 @@
   }
  catch (  IOException e) {
     e.printStackTrace();
+    throw new WeiboException(errorStr,e);
   }
-  return "";
 }
