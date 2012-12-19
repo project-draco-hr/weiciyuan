@@ -5,6 +5,7 @@
     holder.repost_content.setTag(repost_msg.getId());
   }
   if (!TextUtils.isEmpty(repost_msg.getBmiddle_pic())) {
+    holder.repost_content_pic.setVisibility(View.VISIBLE);
     buildPic(repost_msg,holder.repost_content_pic,position);
   }
 }
