@@ -1,14 +1,15 @@
 {
   super.onPostExecute(bitmap);
   for (  WeakReference<ImageView> view : viewList) {
-    if (view != null && view.get() != null) {
-      if (canDisplay(view)) {
+    ImageView imageView=view.get();
+    if (imageView != null) {
+      if (canDisplay(imageView)) {
         if (bitmap != null) {
-          playImageViewAnimation(view,bitmap);
+          playImageViewAnimation(imageView,bitmap);
           lruCache.put(data,bitmap);
         }
  else {
-          view.get().setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+          imageView.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
       }
     }

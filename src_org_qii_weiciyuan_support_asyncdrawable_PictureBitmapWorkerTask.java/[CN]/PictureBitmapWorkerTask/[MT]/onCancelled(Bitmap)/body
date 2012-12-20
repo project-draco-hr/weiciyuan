@@ -1,4 +1,12 @@
 {
+  for (  WeakReference<ImageView> view : viewList) {
+    ImageView imageView=view.get();
+    if (imageView != null) {
+      if (canDisplay(imageView)) {
+        imageView.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+      }
+    }
+  }
   clean();
   super.onCancelled(bitmap);
 }
