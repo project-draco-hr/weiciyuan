@@ -9,6 +9,7 @@ case CAMERA_RESULT:
       }
     picPath=getPicPathFromUri(imageFileUri);
   havePic.setVisibility(View.VISIBLE);
+((ImageButton)findViewById(R.id.menu_add_pic)).setImageLevel(1);
 break;
 case PIC_RESULT:
 if (TextUtils.isEmpty(content.getText().toString())) {
@@ -18,6 +19,7 @@ content.setSelection(content.getText().toString().length());
 Uri imageFileUri=intent.getData();
 picPath=getPicPathFromUri(imageFileUri);
 havePic.setVisibility(View.VISIBLE);
+((ImageButton)findViewById(R.id.menu_add_pic)).setImageLevel(1);
 break;
 case AT_USER:
 String name=intent.getStringExtra("name");
