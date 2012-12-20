@@ -8,8 +8,13 @@
   et.addTextChangedListener(new TextNumLimitWatcher((TextView)findViewById(R.id.menu_send),et,this));
   findViewById(R.id.menu_topic).setOnClickListener(this);
   findViewById(R.id.menu_at).setOnClickListener(this);
-  findViewById(R.id.menu_add_emotions).setOnClickListener(this);
+  findViewById(R.id.menu_emoticon).setOnClickListener(this);
   findViewById(R.id.menu_send).setOnClickListener(this);
+  View.OnLongClickListener onLongClickListener=new BottomButtonLongClickListener();
+  findViewById(R.id.menu_at).setOnLongClickListener(onLongClickListener);
+  findViewById(R.id.menu_emoticon).setOnLongClickListener(onLongClickListener);
+  findViewById(R.id.menu_topic).setOnLongClickListener(onLongClickListener);
+  findViewById(R.id.menu_send).setOnLongClickListener(onLongClickListener);
   if (getEmotionsTask == null || getEmotionsTask.getStatus() == MyAsyncTask.Status.FINISHED) {
     getEmotionsTask=new GetEmotionsTask();
     getEmotionsTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
