@@ -1,0 +1,4 @@
+{
+  int level=((ImageButton)findViewById(R.id.menu_add_pic)).getDrawable().getLevel();
+  return level == 1;
+}

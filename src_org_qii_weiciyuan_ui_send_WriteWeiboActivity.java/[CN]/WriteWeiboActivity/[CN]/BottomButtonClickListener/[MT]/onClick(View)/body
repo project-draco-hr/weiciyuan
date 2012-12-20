@@ -4,7 +4,9 @@ case R.id.menu_add_gps:
     addLocation();
   break;
 case R.id.menu_add_pic:
-addPic();
+ImageButton imageButton=(ImageButton)findViewById(R.id.menu_add_pic);
+if (imageButton.getDrawable().getLevel() == 0) addPic();
+ else showPic();
 break;
 case R.id.menu_emoticon:
 EmotionsGridDialog dialog=new EmotionsGridDialog();

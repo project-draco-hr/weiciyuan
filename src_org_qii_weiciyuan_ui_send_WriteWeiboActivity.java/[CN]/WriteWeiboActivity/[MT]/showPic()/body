@@ -1,0 +1,3 @@
+{
+  new BrowserPictureDialog(picPath).show(getFragmentManager(),"");
+}

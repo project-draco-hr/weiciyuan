@@ -1,0 +1,3 @@
+{
+  ((ImageButton)findViewById(R.id.menu_add_pic)).setImageLevel(1);
+}

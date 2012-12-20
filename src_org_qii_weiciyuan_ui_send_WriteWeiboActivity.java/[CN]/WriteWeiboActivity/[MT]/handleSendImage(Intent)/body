@@ -5,6 +5,6 @@
     picPath=getPicPathFromUri(imageUri);
     content.setText(getString(R.string.share_pic));
     content.setSelection(content.getText().toString().length());
-    havePic.setVisibility(View.VISIBLE);
+    enablePicture();
   }
 }

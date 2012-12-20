@@ -12,7 +12,7 @@
     content.setText(statusDraftBean.getContent());
     picPath=statusDraftBean.getPic();
     geoBean=statusDraftBean.getGps();
-    if (!TextUtils.isEmpty(picPath))     havePic.setVisibility(View.VISIBLE);
+    if (!TextUtils.isEmpty(picPath))     enablePicture();
     if (geoBean != null)     new GetGoogleLocationInfo(geoBean).execute();
   }
 }

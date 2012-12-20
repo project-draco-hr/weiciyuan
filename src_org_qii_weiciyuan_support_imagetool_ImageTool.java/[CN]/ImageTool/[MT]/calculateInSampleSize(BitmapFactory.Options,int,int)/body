@@ -6,9 +6,11 @@
     if (height > reqHeight && reqHeight != 0) {
       inSampleSize=Math.round((float)height / (float)reqHeight);
     }
- else     if (width > reqWidth && reqWidth != 0) {
-      inSampleSize=Math.round((float)width / (float)reqWidth);
+    int tmp=0;
+    if (width > reqWidth && reqWidth != 0) {
+      tmp=Math.round((float)width / (float)reqWidth);
     }
+    if (tmp > inSampleSize)     inSampleSize=tmp;
   }
   return inSampleSize;
 }
