@@ -57,11 +57,13 @@
   content.addTextChangedListener(new TextNumLimitWatcher((TextView)findViewById(R.id.menu_send),content,this));
   content.setDrawingCacheEnabled(true);
   View.OnClickListener onClickListener=new BottomButtonClickListener();
-  findViewById(R.id.menu_add_gps).setOnClickListener(onClickListener);
+  findViewById(R.id.menu_at).setOnClickListener(onClickListener);
+  findViewById(R.id.menu_emoticon).setOnClickListener(onClickListener);
   findViewById(R.id.menu_add_pic).setOnClickListener(onClickListener);
   findViewById(R.id.menu_send).setOnClickListener(onClickListener);
   View.OnLongClickListener onLongClickListener=new BottomButtonLongClickListener();
-  findViewById(R.id.menu_add_gps).setOnLongClickListener(onLongClickListener);
+  findViewById(R.id.menu_at).setOnLongClickListener(onLongClickListener);
+  findViewById(R.id.menu_emoticon).setOnLongClickListener(onLongClickListener);
   findViewById(R.id.menu_add_pic).setOnLongClickListener(onLongClickListener);
   findViewById(R.id.menu_send).setOnLongClickListener(onLongClickListener);
 }

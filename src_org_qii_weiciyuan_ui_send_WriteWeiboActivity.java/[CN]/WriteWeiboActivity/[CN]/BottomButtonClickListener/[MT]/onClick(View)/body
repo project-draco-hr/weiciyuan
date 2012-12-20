@@ -6,12 +6,17 @@ case R.id.menu_add_gps:
 case R.id.menu_add_pic:
 addPic();
 break;
-case R.id.menu_add_emotions:
+case R.id.menu_emoticon:
 EmotionsGridDialog dialog=new EmotionsGridDialog();
 dialog.show(getFragmentManager(),"");
 break;
 case R.id.menu_send:
 send();
+break;
+case R.id.menu_at:
+Intent intent=new Intent(WriteWeiboActivity.this,AtUserActivity.class);
+intent.putExtra("token",token);
+startActivityForResult(intent,AT_USER);
 break;
 }
 }

@@ -10,10 +10,6 @@ intent.putExtra("account",getAccount());
 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
 break;
-case R.id.menu_emoticon:
-EmotionsGridDialog dialog=new EmotionsGridDialog();
-dialog.show(getFragmentManager(),"");
-break;
 case R.id.menu_topic:
 String ori=content.getText().toString();
 String topicTag="##";
@@ -30,6 +26,9 @@ convertStringToBitmap();
 break;
 case R.id.menu_clear:
 clearContentMenu();
+break;
+case R.id.menu_add_gps:
+addLocation();
 break;
 }
 return true;
