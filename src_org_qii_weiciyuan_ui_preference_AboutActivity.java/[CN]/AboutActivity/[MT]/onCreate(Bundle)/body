@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   getActionBar().setDisplayHomeAsUpEnabled(true);
-  getActionBar().setTitle(getString(R.string.about));
+  getActionBar().setTitle(getString(R.string.pref_about_title));
   if (savedInstanceState == null) {
     getFragmentManager().beginTransaction().replace(android.R.id.content,new AboutFragment()).commit();
   }
