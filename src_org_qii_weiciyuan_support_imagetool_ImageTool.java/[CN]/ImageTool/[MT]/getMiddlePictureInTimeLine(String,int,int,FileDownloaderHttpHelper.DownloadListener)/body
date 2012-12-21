@@ -1,75 +1,79 @@
 {
-  int useWidth=reqWidth;
-  String absoluteFilePath=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_bmiddle);
-  File file=new File(absoluteFilePath);
-  if (!file.exists() && !SettingUtility.isEnablePic()) {
-    return null;
-  }
-  if (!file.exists()) {
-    getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
-  }
-  if (absoluteFilePath.endsWith(".gif")) {
-    return getMiddlePictureInTimeLineGif(absoluteFilePath,reqWidth,reqHeight);
-  }
-  BitmapFactory.Options options=new BitmapFactory.Options();
-  options.inJustDecodeBounds=true;
-  BitmapFactory.decodeFile(absoluteFilePath,options);
-  int height=options.outHeight;
-  int width=options.outWidth;
-  int cutHeight=0;
-  int cutWidth=0;
-  if (height >= reqHeight && width >= useWidth) {
-    cutHeight=reqHeight;
-    cutWidth=useWidth;
-  }
- else   if (height < reqHeight && width >= useWidth) {
-    cutHeight=height;
-    cutWidth=(useWidth * cutHeight) / reqHeight;
-  }
- else   if (height >= reqHeight && width < useWidth) {
-    cutWidth=width;
-    cutHeight=(reqHeight * cutWidth) / useWidth;
-  }
- else   if (height < reqHeight && width < useWidth) {
-    float betweenWidth=((float)useWidth - (float)width) / (float)width;
-    float betweenHeight=((float)reqHeight - (float)height) / (float)height;
-    if (betweenWidth > betweenHeight) {
-      cutWidth=width;
-      cutHeight=(reqHeight * cutWidth) / useWidth;
+  try {
+    String filePath=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_bmiddle);
+    File file=new File(filePath);
+    if (!file.exists() && !SettingUtility.isEnablePic()) {
+      return null;
     }
- else {
+    if (!file.exists()) {
+      getBitmapFromNetWork(url,filePath,downloadListener);
+    }
+    if (isGif(filePath)) {
+      return getMiddlePictureInTimeLineGif(filePath,reqWidth,reqHeight);
+    }
+    BitmapFactory.Options options=new BitmapFactory.Options();
+    options.inJustDecodeBounds=true;
+    BitmapFactory.decodeFile(filePath,options);
+    int height=options.outHeight;
+    int width=options.outWidth;
+    int cutHeight=0;
+    int cutWidth=0;
+    if (height >= reqHeight && width >= reqWidth) {
+      cutHeight=reqHeight;
+      cutWidth=reqWidth;
+    }
+ else     if (height < reqHeight && width >= reqWidth) {
       cutHeight=height;
-      cutWidth=(useWidth * cutHeight) / reqHeight;
+      cutWidth=(reqWidth * cutHeight) / reqHeight;
     }
-  }
-  if (cutWidth > 0 && cutHeight > 0) {
-    int startX=0;
-    if (cutWidth < width) {
-      startX=(width - cutWidth) / 2;
+ else     if (height >= reqHeight && width < reqWidth) {
+      cutWidth=width;
+      cutHeight=(reqHeight * cutWidth) / reqWidth;
     }
-    try {
-      BitmapRegionDecoder decoder=BitmapRegionDecoder.newInstance(absoluteFilePath,false);
-      if (decoder != null) {
-        Bitmap bitmap=decoder.decodeRegion(new Rect(startX,0,startX + cutWidth,cutHeight),null);
-        if (bitmap.getHeight() < reqHeight && bitmap.getWidth() < reqWidth) {
-          Bitmap scale=Bitmap.createScaledBitmap(bitmap,reqWidth,reqHeight,true);
-          if (scale != bitmap) {
-            bitmap.recycle();
-            bitmap=scale;
-          }
-        }
-        if (bitmap != null) {
-          Bitmap roundedCornerBitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
-          if (roundedCornerBitmap != bitmap) {
-            bitmap.recycle();
-            bitmap=roundedCornerBitmap;
-          }
-          return bitmap;
-        }
+ else     if (height < reqHeight && width < reqWidth) {
+      float betweenWidth=((float)reqWidth - (float)width) / (float)width;
+      float betweenHeight=((float)reqHeight - (float)height) / (float)height;
+      if (betweenWidth > betweenHeight) {
+        cutWidth=width;
+        cutHeight=(reqHeight * cutWidth) / reqWidth;
+      }
+ else {
+        cutHeight=height;
+        cutWidth=(reqWidth * cutHeight) / reqHeight;
       }
     }
- catch (    IOException ignored) {
+    if (cutWidth > 0 && cutHeight > 0) {
+      int startX=0;
+      if (cutWidth < width) {
+        startX=(width - cutWidth) / 2;
+      }
+      try {
+        BitmapRegionDecoder decoder=BitmapRegionDecoder.newInstance(filePath,false);
+        if (decoder != null) {
+          Bitmap bitmap=decoder.decodeRegion(new Rect(startX,0,startX + cutWidth,cutHeight),null);
+          if (bitmap.getHeight() < reqHeight && bitmap.getWidth() < reqWidth) {
+            Bitmap scale=Bitmap.createScaledBitmap(bitmap,reqWidth,reqHeight,true);
+            if (scale != bitmap) {
+              bitmap.recycle();
+              bitmap=scale;
+            }
+          }
+          if (bitmap != null) {
+            Bitmap roundedCornerBitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
+            if (roundedCornerBitmap != bitmap) {
+              bitmap.recycle();
+              bitmap=roundedCornerBitmap;
+            }
+            return bitmap;
+          }
+        }
+      }
+ catch (      IOException ignored) {
+      }
     }
+    return null;
   }
-  return null;
+ catch (  OutOfMemoryError ignored) {
+    return null;
+  }
 }

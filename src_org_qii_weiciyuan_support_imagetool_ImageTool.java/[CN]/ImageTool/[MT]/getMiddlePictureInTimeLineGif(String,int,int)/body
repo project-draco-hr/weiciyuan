@@ -1,58 +1,65 @@
 {
-  int useWidth=reqWidth;
-  final BitmapFactory.Options options=new BitmapFactory.Options();
-  options.inJustDecodeBounds=true;
-  BitmapFactory.decodeFile(absoluteFilePath,options);
-  options.inSampleSize=calculateInSampleSize(options,useWidth,reqHeight);
-  options.inJustDecodeBounds=false;
-  options.inPurgeable=true;
-  options.inInputShareable=true;
-  Bitmap bitmap=BitmapFactory.decodeFile(absoluteFilePath,options);
-  int height=options.outHeight;
-  int width=options.outWidth;
-  int cutHeight=0;
-  int cutWidth=0;
-  if (height >= reqHeight && width >= useWidth) {
-    cutHeight=reqHeight;
-    cutWidth=useWidth;
-  }
- else   if (height < reqHeight && width >= useWidth) {
-    cutHeight=height;
-    cutWidth=(useWidth * cutHeight) / reqHeight;
-  }
- else   if (height >= reqHeight && width < useWidth) {
-    cutWidth=width;
-    cutHeight=(reqHeight * cutWidth) / useWidth;
-  }
- else   if (height < reqHeight && width < useWidth) {
-    float betweenWidth=((float)useWidth - (float)width) / (float)width;
-    float betweenHeight=((float)reqHeight - (float)height) / (float)height;
-    if (betweenWidth > betweenHeight) {
-      cutWidth=width;
-      cutHeight=(reqHeight * cutWidth) / useWidth;
+  try {
+    BitmapFactory.Options options=new BitmapFactory.Options();
+    options.inJustDecodeBounds=true;
+    BitmapFactory.decodeFile(filePath,options);
+    options.inSampleSize=calculateInSampleSize(options,reqWidth,reqHeight);
+    options.inJustDecodeBounds=false;
+    options.inPurgeable=true;
+    options.inInputShareable=true;
+    Bitmap bitmap=BitmapFactory.decodeFile(filePath,options);
+    if (bitmap == null)     return null;
+    int height=options.outHeight;
+    int width=options.outWidth;
+    int cutHeight=0;
+    int cutWidth=0;
+    if (height >= reqHeight && width >= reqWidth) {
+      cutHeight=reqHeight;
+      cutWidth=reqWidth;
     }
- else {
+ else     if (height < reqHeight && width >= reqWidth) {
       cutHeight=height;
-      cutWidth=(useWidth * cutHeight) / reqHeight;
+      cutWidth=(reqWidth * cutHeight) / reqHeight;
     }
-  }
-  if (cutWidth > 0 && cutHeight > 0) {
-    Bitmap region=Bitmap.createBitmap(bitmap,0,0,cutWidth,cutHeight);
-    Bitmap scale=null;
-    if (region.getHeight() < reqHeight && region.getWidth() < reqWidth) {
-      scale=Bitmap.createScaledBitmap(region,reqWidth,reqHeight,true);
+ else     if (height >= reqHeight && width < reqWidth) {
+      cutWidth=width;
+      cutHeight=(reqHeight * cutWidth) / reqWidth;
     }
-    if (scale == null) {
-      Bitmap anotherValue=ImageEdit.getRoundedCornerBitmap(region);
-      region.recycle();
-      return anotherValue;
-    }
+ else     if (height < reqHeight && width < reqWidth) {
+      float betweenWidth=((float)reqWidth - (float)width) / (float)width;
+      float betweenHeight=((float)reqHeight - (float)height) / (float)height;
+      if (betweenWidth > betweenHeight) {
+        cutWidth=width;
+        cutHeight=(reqHeight * cutWidth) / reqWidth;
+      }
  else {
-      Bitmap anotherValue=ImageEdit.getRoundedCornerBitmap(scale);
-      region.recycle();
-      scale.recycle();
-      return anotherValue;
+        cutHeight=height;
+        cutWidth=(reqWidth * cutHeight) / reqHeight;
+      }
     }
+    if (cutWidth <= 0 || cutHeight <= 0) {
+      return null;
+    }
+    Bitmap region=Bitmap.createBitmap(bitmap,0,0,cutWidth,cutHeight);
+    if (region != bitmap) {
+      bitmap.recycle();
+      bitmap=region;
+    }
+    if (bitmap.getHeight() < reqHeight && bitmap.getWidth() < reqWidth) {
+      Bitmap scale=Bitmap.createScaledBitmap(bitmap,reqWidth,reqHeight,true);
+      if (scale != bitmap) {
+        bitmap.recycle();
+        bitmap=scale;
+      }
+    }
+    Bitmap cornerBitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
+    if (cornerBitmap != bitmap) {
+      bitmap.recycle();
+      bitmap=cornerBitmap;
+    }
+    return bitmap;
   }
-  return null;
+ catch (  OutOfMemoryError ignored) {
+    return null;
+  }
 }

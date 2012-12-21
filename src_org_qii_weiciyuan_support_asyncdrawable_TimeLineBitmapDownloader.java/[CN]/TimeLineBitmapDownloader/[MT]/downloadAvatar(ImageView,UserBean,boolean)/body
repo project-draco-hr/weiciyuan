@@ -1,0 +1,17 @@
+{
+  if (user == null) {
+    view.setImageDrawable(transPic);
+    return;
+  }
+  String url;
+  FileLocationMethod method;
+  if (SettingUtility.getEnableBigAvatar()) {
+    url=user.getAvatar_large();
+    method=FileLocationMethod.avatar_large;
+  }
+ else {
+    url=user.getProfile_image_url();
+    method=FileLocationMethod.avatar_small;
+  }
+  display(view,url,method,isFling);
+}

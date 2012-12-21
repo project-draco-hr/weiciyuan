@@ -1,6 +1,6 @@
 {
   super.onDetach();
-  Utility.cancelTasks(updateMsgTask,geoTask,avatarTask,picTask);
+  Utility.cancelTasks(updateMsgTask,geoTask,picTask);
   avatar.setImageDrawable(null);
   content_pic.setImageDrawable(null);
   repost_pic.setImageDrawable(null);

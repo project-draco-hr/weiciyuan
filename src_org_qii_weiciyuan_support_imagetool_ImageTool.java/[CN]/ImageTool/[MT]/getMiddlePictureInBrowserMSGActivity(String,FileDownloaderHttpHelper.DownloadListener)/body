@@ -1,17 +1,21 @@
 {
-  String absoluteFilePath=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_bmiddle);
-  File file=new File(absoluteFilePath);
-  if (!file.exists() && !SettingUtility.isEnablePic()) {
+  try {
+    String filePath=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_bmiddle);
+    File file=new File(filePath);
+    if (!file.exists() && !SettingUtility.isEnablePic()) {
+      return null;
+    }
+    if (!file.exists()) {
+      getBitmapFromNetWork(url,filePath,downloadListener);
+    }
+    file=new File(filePath);
+    if (file.exists()) {
+      DisplayMetrics displayMetrics=GlobalContext.getInstance().getDisplayMetrics();
+      return decodeBitmapFromSDCard(filePath,displayMetrics.widthPixels,900);
+    }
     return null;
   }
-  if (!file.exists()) {
-    getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
+ catch (  OutOfMemoryError ignored) {
+    return null;
   }
-  file=new File(absoluteFilePath);
-  if (file.exists()) {
-    DisplayMetrics displayMetrics=GlobalContext.getInstance().getDisplayMetrics();
-    Bitmap bitmap=decodeBitmapFromSDCard(absoluteFilePath,displayMetrics.widthPixels,900);
-    return bitmap;
-  }
-  return null;
 }

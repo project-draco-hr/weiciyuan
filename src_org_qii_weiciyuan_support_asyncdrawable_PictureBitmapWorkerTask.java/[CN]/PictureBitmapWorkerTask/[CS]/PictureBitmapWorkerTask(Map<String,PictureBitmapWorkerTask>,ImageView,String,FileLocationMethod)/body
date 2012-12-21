@@ -2,7 +2,7 @@
   this.globalContext=GlobalContext.getInstance();
   this.lruCache=globalContext.getAvatarCache();
   this.taskMap=taskMap;
-  viewList.add(new WeakReference<ImageView>(view));
+  this.viewList.add(new WeakReference<ImageView>(view));
   this.data=url;
   this.method=method;
 }

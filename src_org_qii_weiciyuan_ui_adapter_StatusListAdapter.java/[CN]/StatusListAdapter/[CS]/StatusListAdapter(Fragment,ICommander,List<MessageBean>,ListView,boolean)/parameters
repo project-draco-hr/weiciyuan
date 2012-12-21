@@ -1,5 +1,0 @@
-Fragment fragment
-ICommander commander
-List<MessageBean> bean
-ListView listView
-boolean showOriStatus

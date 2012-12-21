@@ -1,26 +1,7 @@
 {
   if (msg.getUser() != null) {
     username.setText(msg.getUser().getScreen_name());
-    String url;
-    FileLocationMethod method;
-    if (SettingUtility.getEnableBigAvatar()) {
-      url=msg.getUser().getAvatar_large();
-      method=FileLocationMethod.avatar_large;
-    }
- else {
-      url=msg.getUser().getProfile_image_url();
-      method=FileLocationMethod.avatar_small;
-    }
-    Bitmap bitmap=GlobalContext.getInstance().getAvatarCache().get(url);
-    if (bitmap != null) {
-      avatar.setImageBitmap(bitmap);
-    }
- else {
-      if (avatarTask == null || avatarTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-        avatarTask=new SimpleBitmapWorkerTask(avatar,method);
-        avatarTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getUser().getProfile_image_url());
-      }
-    }
+    ((AbstractAppActivity)getActivity()).getBitmapDownloader().downloadAvatar(avatar,msg.getUser());
   }
   content.setText(msg.getText());
   ListViewTool.addLinks(content);
@@ -36,13 +17,13 @@
   }
   if (!TextUtils.isEmpty(msg.getBmiddle_pic())) {
     if (picTask == null || picTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-      picTask=new SimpleBitmapWorkerTask(content_pic,FileLocationMethod.picture_bmiddle,content_pic_pb);
+      picTask=new ProfileAvatarAndDetailMsgPicTask(content_pic,FileLocationMethod.picture_bmiddle,content_pic_pb);
       picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getBmiddle_pic());
     }
   }
  else   if (!TextUtils.isEmpty(msg.getThumbnail_pic())) {
     if (picTask == null || picTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-      picTask=new SimpleBitmapWorkerTask(content_pic,FileLocationMethod.picture_thumbnail);
+      picTask=new ProfileAvatarAndDetailMsgPicTask(content_pic,FileLocationMethod.picture_thumbnail);
       picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getThumbnail_pic());
     }
   }
@@ -67,7 +48,7 @@
       repost_pic_layout.setVisibility(View.VISIBLE);
       repost_pic.setVisibility(View.VISIBLE);
       if (picTask == null || picTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-        picTask=new SimpleBitmapWorkerTask(repost_pic,FileLocationMethod.picture_bmiddle,repost_pic_pb);
+        picTask=new ProfileAvatarAndDetailMsgPicTask(repost_pic,FileLocationMethod.picture_bmiddle,repost_pic_pb);
         picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getRetweeted_status().getBmiddle_pic());
       }
     }
@@ -75,7 +56,7 @@
       repost_pic_layout.setVisibility(View.VISIBLE);
       repost_pic.setVisibility(View.VISIBLE);
       if (picTask == null || picTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-        picTask=new SimpleBitmapWorkerTask(repost_pic,FileLocationMethod.picture_thumbnail);
+        picTask=new ProfileAvatarAndDetailMsgPicTask(repost_pic,FileLocationMethod.picture_thumbnail);
         picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getRetweeted_status().getThumbnail_pic());
       }
     }

@@ -1,5 +1,0 @@
-ImageView view
-String urlKey
-int position
-ListView listView
-boolean isFling

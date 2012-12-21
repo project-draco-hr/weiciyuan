@@ -2,15 +2,7 @@
   String image_url=user.getProfile_image_url();
   if (!TextUtils.isEmpty(image_url)) {
     view.setVisibility(View.VISIBLE);
-    boolean isFling=((AbstractTimeLineFragment)fragment).isListViewFling();
-    String url;
-    if (SettingUtility.getEnableBigAvatar()) {
-      url=user.getAvatar_large();
-    }
- else {
-      url=user.getProfile_image_url();
-    }
-    commander.downloadAvatar(view,url,position,listView,isFling);
+    commander.downloadAvatar(view,user,(AbstractTimeLineFragment)fragment);
     view.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         Intent intent=new Intent(getActivity(),UserInfoActivity.class);

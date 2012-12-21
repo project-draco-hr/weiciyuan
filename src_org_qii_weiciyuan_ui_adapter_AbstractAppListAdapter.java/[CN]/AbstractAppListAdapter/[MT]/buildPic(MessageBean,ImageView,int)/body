@@ -1,15 +1,6 @@
 {
   view.setVisibility(View.VISIBLE);
-  String picUrl;
-  boolean isFling=((AbstractTimeLineFragment)fragment).isListViewFling();
-  if (SettingUtility.getEnableBigPic()) {
-    picUrl=msg.getBmiddle_pic();
-    commander.downContentPic(view,picUrl,position,listView,FileLocationMethod.picture_bmiddle,isFling);
-  }
- else {
-    picUrl=msg.getThumbnail_pic();
-    commander.downContentPic(view,picUrl,position,listView,FileLocationMethod.picture_thumbnail,isFling);
-  }
+  commander.downContentPic(view,msg,(AbstractTimeLineFragment)fragment);
   view.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),BrowserBigPicActivity.class);

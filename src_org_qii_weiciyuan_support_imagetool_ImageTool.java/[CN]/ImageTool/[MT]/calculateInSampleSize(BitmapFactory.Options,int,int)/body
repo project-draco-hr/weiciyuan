@@ -10,7 +10,7 @@
     if (width > reqWidth && reqWidth != 0) {
       tmp=Math.round((float)width / (float)reqWidth);
     }
-    if (tmp > inSampleSize)     inSampleSize=tmp;
+    inSampleSize=Math.max(inSampleSize,tmp);
   }
   return inSampleSize;
 }

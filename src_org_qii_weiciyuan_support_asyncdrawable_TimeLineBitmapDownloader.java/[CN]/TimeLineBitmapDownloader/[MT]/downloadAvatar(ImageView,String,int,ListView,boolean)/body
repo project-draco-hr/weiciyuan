@@ -1,8 +1,0 @@
-{
-  if (SettingUtility.getEnableBigAvatar()) {
-    downContentPic(view,urlKey,position,listView,FileLocationMethod.avatar_large,isFling);
-  }
- else {
-    downContentPic(view,urlKey,position,listView,FileLocationMethod.avatar_small,isFling);
-  }
-}

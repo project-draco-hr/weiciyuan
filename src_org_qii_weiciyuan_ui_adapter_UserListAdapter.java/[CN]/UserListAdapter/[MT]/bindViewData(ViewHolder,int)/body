@@ -6,7 +6,7 @@
   String image_url=user.getProfile_image_url();
   if (!TextUtils.isEmpty(image_url)) {
     boolean isFling=((AbstractUserListFragment)activity).isListViewFling();
-    commander.downloadAvatar(holder.avatar,user.getProfile_image_url(),position,listView,isFling);
+    commander.downloadAvatar(holder.avatar,user,isFling);
   }
   holder.content.setText(user.getDescription());
 }

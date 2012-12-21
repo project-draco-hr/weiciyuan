@@ -1,0 +1,4 @@
+{
+  boolean isFling=fragment.isListViewFling();
+  downloadAvatar(view,user,isFling);
+}

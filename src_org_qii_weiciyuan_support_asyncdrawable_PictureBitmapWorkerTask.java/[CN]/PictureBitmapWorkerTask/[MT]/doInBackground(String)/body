@@ -1,6 +1,8 @@
 {
   int avatarWidth=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_avatar_width);
   int avatarHeight=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_avatar_height);
+  int thumbnailWidth=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_thumbnail_width);
+  int thumbnailHeight=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_thumbnail_height);
   if (!isCancelled()) {
 switch (method) {
 case avatar_large:
@@ -8,7 +10,7 @@ case avatar_large:
 case avatar_small:
     return ImageTool.getRoundedCornerPic(this.data,avatarWidth,avatarHeight,FileLocationMethod.avatar_small);
 case picture_thumbnail:
-  return ImageTool.getThumbnailPictureWithRoundedCorner(data);
+  return ImageTool.getRoundedCornerPic(this.data,thumbnailWidth,thumbnailHeight,FileLocationMethod.picture_thumbnail);
 case picture_bmiddle:
 DisplayMetrics metrics=globalContext.getDisplayMetrics();
 float reSize=globalContext.getResources().getDisplayMetrics().density;

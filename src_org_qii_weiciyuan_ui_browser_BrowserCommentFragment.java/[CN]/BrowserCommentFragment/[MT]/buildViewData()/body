@@ -7,7 +7,7 @@
       avatar.setImageBitmap(bitmap);
     }
  else {
-      SimpleBitmapWorkerTask avatarTask=new SimpleBitmapWorkerTask(avatar,FileLocationMethod.avatar_small);
+      ProfileAvatarAndDetailMsgPicTask avatarTask=new ProfileAvatarAndDetailMsgPicTask(avatar,FileLocationMethod.avatar_small);
       avatarTask.execute(url);
     }
   }

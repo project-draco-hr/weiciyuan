@@ -12,5 +12,5 @@
   }
   forceShowActionBarOverflowMenu();
   initNFC();
-  commander=new TimeLineBitmapDownloader(this);
+  commander=new TimeLineBitmapDownloader();
 }
