@@ -4,7 +4,7 @@
   ActionBar actionBar=getActionBar();
   actionBar.setDisplayHomeAsUpEnabled(true);
   actionBar.setTitle(R.string.browser_picture);
-  pb=(ProgressBar)findViewById(R.id.pb);
+  pb=(CircleProgressView)findViewById(R.id.pb);
   webView=(WebView)findViewById(R.id.iv);
   webView.setBackgroundColor(getResources().getColor(R.color.transparent));
   webView.getSettings().setJavaScriptEnabled(true);

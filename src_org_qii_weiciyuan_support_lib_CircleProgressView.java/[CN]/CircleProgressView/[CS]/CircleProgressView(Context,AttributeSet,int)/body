@@ -1,0 +1,7 @@
+{
+  super(context,attrs,defStyle);
+  mPaint.setStrokeWidth(5);
+  mPaint.setColor(Color.parseColor("#33B5E5"));
+  mPaint.setAntiAlias(true);
+  mPaint.setShadowLayer(10.0f,0.0f,2.0f,0xFF000000);
+}
