@@ -1,6 +1,9 @@
 {
   long now=System.currentTimeMillis();
   long msg=time;
+  Calendar nowCalendar=Calendar.getInstance();
+  Calendar msgCalendar=Calendar.getInstance();
+  msgCalendar.setTimeInMillis(time);
   long calcMills=now - msg;
   long calSeconds=calcMills / 1000;
   if (calSeconds < 60) {
@@ -11,16 +14,36 @@
     return new StringBuilder().append(calMins).append(MIN).toString();
   }
   long calHours=calMins / 60;
-  if (calHours < 24) {
-    return new StringBuilder().append(calHours).append(HOUR).toString();
+  if (calHours < 24 && isSameDay(nowCalendar,msgCalendar)) {
+    java.text.SimpleDateFormat format=new java.text.SimpleDateFormat("HH:mm");
+    String result=format.format(msgCalendar.getTime());
+    return new StringBuilder().append(TODAY).append(" ").append(result).toString();
   }
   long calDay=calHours / 24;
   if (calDay < 31) {
-    return new StringBuilder().append(calDay).append(DAY).toString();
+    if (isYesterDay(nowCalendar,msgCalendar)) {
+      java.text.SimpleDateFormat format=new java.text.SimpleDateFormat("HH:mm");
+      String result=format.format(msgCalendar.getTime());
+      return new StringBuilder(YESTER_DAY).append(" ").append(result).toString();
+    }
+ else     if (isTheDayBeforeYesterDay(nowCalendar,msgCalendar)) {
+      java.text.SimpleDateFormat format=new java.text.SimpleDateFormat("HH:mm");
+      String result=format.format(msgCalendar.getTime());
+      return new StringBuilder(THE_DAY_BEFORE_YESTER_DAY).append(" ").append(result).toString();
+    }
+ else {
+      java.text.SimpleDateFormat format=new java.text.SimpleDateFormat("MM-dd HH:mm");
+      String result=format.format(msgCalendar.getTime());
+      return new StringBuilder(result).toString();
+    }
   }
   long calMonth=calDay / 31;
   if (calMonth < 12) {
-    return new StringBuilder().append(calMonth).append(MONTH).toString();
+    java.text.SimpleDateFormat format=new java.text.SimpleDateFormat("MM-dd HH:mm");
+    String result=format.format(msgCalendar.getTime());
+    return new StringBuilder().append(result).toString();
   }
-  return new StringBuilder().append(calMonth / 12).append(YEAR).toString();
+  java.text.SimpleDateFormat format=new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm");
+  String result=format.format(msgCalendar.getTime());
+  return new StringBuilder().append(result).toString();
 }

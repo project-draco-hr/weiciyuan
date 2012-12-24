@@ -1,0 +1,5 @@
+{
+  int nowDay=now.get(Calendar.DAY_OF_YEAR);
+  int msgDay=msg.get(Calendar.DAY_OF_YEAR);
+  return (nowDay - msgDay) == 1;
+}

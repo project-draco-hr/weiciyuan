@@ -1,0 +1,13 @@
+{
+  int nowHour=now.get(Calendar.HOUR_OF_DAY);
+  int msgHOur=msg.get(Calendar.HOUR_OF_DAY);
+  if (nowHour <= 12 & msgHOur <= 12) {
+    return true;
+  }
+ else   if (nowHour >= 12 & msgHOur >= 12) {
+    return true;
+  }
+ else {
+    return false;
+  }
+}
