@@ -16,7 +16,14 @@ DisplayMetrics metrics=globalContext.getDisplayMetrics();
 float reSize=globalContext.getResources().getDisplayMetrics().density;
 int height=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_high_thumbnail_height);
 int width=(int)(metrics.widthPixels - (8 + 8) * reSize);
+switch (SettingUtility.getHighPicMode()) {
+case 1:
 return ImageTool.getMiddlePictureInTimeLine(data,width,height,null);
+case 2:
+return ImageTool.getRoundedCornerPic(data,width,height,FileLocationMethod.picture_bmiddle);
+default :
+throw new IllegalArgumentException();
+}
 }
 }
 return null;

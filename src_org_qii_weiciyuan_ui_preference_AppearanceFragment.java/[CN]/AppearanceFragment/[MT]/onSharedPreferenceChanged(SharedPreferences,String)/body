@@ -10,10 +10,20 @@
   }
   if (key.equals(SettingActivity.LIST_PIC_MODE)) {
     String value=sharedPreferences.getString(key,"1");
-    if (value.equals("1"))     SettingUtility.setEnableBigPic(false);
-    if (value.equals("2"))     SettingUtility.setEnableBigPic(true);
+    if (value.equals("1")) {
+      SettingUtility.setEnableBigPic(false);
+      listHighPicMode.setEnabled(false);
+    }
+    if (value.equals("2")) {
+      SettingUtility.setEnableBigPic(true);
+      listHighPicMode.setEnabled(true);
+    }
     if (value.equals("3")) {
       SettingUtility.setEnableBigPic(Utility.isWifi(getActivity()));
+      listHighPicMode.setEnabled(true);
     }
+  }
+  if (key.equals(SettingActivity.LIST_HIGH_PIC_MODE)) {
+    GlobalContext.getInstance().getAvatarCache().evictAll();
   }
 }

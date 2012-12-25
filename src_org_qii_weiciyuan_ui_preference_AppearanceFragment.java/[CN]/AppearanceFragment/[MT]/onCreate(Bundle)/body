@@ -3,6 +3,7 @@
   addPreferencesFromResource(R.xml.appearance_pref);
   listAvatarMode=findPreference(SettingActivity.LIST_AVATAR_MODE);
   listPicMode=findPreference(SettingActivity.LIST_PIC_MODE);
+  listHighPicMode=findPreference(SettingActivity.LIST_HIGH_PIC_MODE);
   listFontSize=findPreference(SettingActivity.FONT_SIZE);
   theme=findPreference(SettingActivity.THEME);
   buildSummary();
