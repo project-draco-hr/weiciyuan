@@ -21,21 +21,23 @@
     options.inPurgeable=true;
     options.inInputShareable=true;
     Bitmap bitmap=BitmapFactory.decodeFile(filePath,options);
-    if (bitmap != null) {
-      if (bitmap.getHeight() < reqHeight || bitmap.getWidth() < reqWidth) {
-        int[] size=calcResize(bitmap.getWidth(),bitmap.getHeight(),reqWidth,reqHeight);
-        Bitmap scaledBitmap=Bitmap.createScaledBitmap(bitmap,size[0],size[1],true);
-        if (scaledBitmap != bitmap) {
-          bitmap.recycle();
-          bitmap=scaledBitmap;
-        }
-        Bitmap roundedBitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
-        if (roundedBitmap != bitmap) {
-          bitmap.recycle();
-          bitmap=roundedBitmap;
-        }
-        return bitmap;
+    if (bitmap == null) {
+      new File(filePath).delete();
+      return null;
+    }
+    if (bitmap.getHeight() < reqHeight || bitmap.getWidth() < reqWidth) {
+      int[] size=calcResize(bitmap.getWidth(),bitmap.getHeight(),reqWidth,reqHeight);
+      Bitmap scaledBitmap=Bitmap.createScaledBitmap(bitmap,size[0],size[1],true);
+      if (scaledBitmap != bitmap) {
+        bitmap.recycle();
+        bitmap=scaledBitmap;
       }
+      Bitmap roundedBitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
+      if (roundedBitmap != bitmap) {
+        bitmap.recycle();
+        bitmap=roundedBitmap;
+      }
+      return bitmap;
     }
     return bitmap;
   }
