@@ -13,6 +13,9 @@
         @Override public void onAnimationRepeat(        Animation animation){
         }
         @Override public void onAnimationEnd(        Animation animation){
+          if (view.getAnimation() != null && view.getAnimation().hasEnded()) {
+            view.clearAnimation();
+          }
         }
       }
 );
