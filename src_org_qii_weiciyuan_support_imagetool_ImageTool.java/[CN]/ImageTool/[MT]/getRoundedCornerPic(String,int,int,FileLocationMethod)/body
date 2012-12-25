@@ -42,6 +42,7 @@
     return bitmap;
   }
  catch (  OutOfMemoryError ignored) {
+    ignored.printStackTrace();
     return null;
   }
 }

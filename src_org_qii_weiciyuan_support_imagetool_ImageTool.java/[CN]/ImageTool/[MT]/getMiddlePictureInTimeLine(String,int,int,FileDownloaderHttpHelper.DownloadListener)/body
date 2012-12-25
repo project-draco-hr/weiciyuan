@@ -74,6 +74,7 @@
     return null;
   }
  catch (  OutOfMemoryError ignored) {
+    ignored.printStackTrace();
     return null;
   }
 }

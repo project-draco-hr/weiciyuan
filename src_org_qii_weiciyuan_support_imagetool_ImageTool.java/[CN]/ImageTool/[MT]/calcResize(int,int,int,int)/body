@@ -1,6 +1,6 @@
 {
-  int height=0;
-  int width=0;
+  int height=actualHeight;
+  int width=actualWidth;
   if (actualHeight < reqHeight && actualWidth < reqWidth) {
     float betweenWidth=((float)reqWidth) / (float)actualWidth;
     float betweenHeight=((float)reqHeight) / (float)actualHeight;
