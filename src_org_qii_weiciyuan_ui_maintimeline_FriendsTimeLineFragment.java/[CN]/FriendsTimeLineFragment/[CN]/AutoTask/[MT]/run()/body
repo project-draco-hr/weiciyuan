@@ -14,11 +14,7 @@
   if (middleTask != null && middleTask.getStatus() != MyAsyncTask.Status.FINISHED) {
     return;
   }
-  ConnectivityManager cm=(ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-  NetworkInfo networkInfo=cm.getActiveNetworkInfo();
-  boolean haveNetwork=(networkInfo != null) && (networkInfo.isConnected());
-  boolean haveWifi=haveNetwork && (networkInfo.getType() == ConnectivityManager.TYPE_WIFI);
-  if (!haveWifi) {
+  if (!Utility.isWifi(getActivity())) {
     return;
   }
   if (autoRefreshTask == null || autoRefreshTask.getStatus() == MyAsyncTask.Status.FINISHED) {
