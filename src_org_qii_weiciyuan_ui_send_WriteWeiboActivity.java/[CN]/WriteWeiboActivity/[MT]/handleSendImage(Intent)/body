@@ -2,7 +2,7 @@
   getAccountInfo();
   Uri imageUri=(Uri)intent.getParcelableExtra(Intent.EXTRA_STREAM);
   if (imageUri != null) {
-    picPath=getPicPathFromUri(imageUri);
+    picPath=Utility.getPicPathFromUri(imageUri,this);
     content.setText(getString(R.string.share_pic));
     content.setSelection(content.getText().toString().length());
     enablePicture();

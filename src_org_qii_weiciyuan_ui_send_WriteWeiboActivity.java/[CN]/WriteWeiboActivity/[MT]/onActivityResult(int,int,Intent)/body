@@ -7,7 +7,7 @@ case CAMERA_RESULT:
         content.setText(getString(R.string.share_pic));
         content.setSelection(content.getText().toString().length());
       }
-    picPath=getPicPathFromUri(imageFileUri);
+    picPath=Utility.getPicPathFromUri(imageFileUri,this);
   ((ImageButton)findViewById(R.id.menu_add_pic)).setImageLevel(1);
 break;
 case PIC_RESULT:
@@ -16,7 +16,7 @@ content.setText(getString(R.string.share_pic));
 content.setSelection(content.getText().toString().length());
 }
 Uri imageFileUri=intent.getData();
-picPath=getPicPathFromUri(imageFileUri);
+picPath=Utility.getPicPathFromUri(imageFileUri,this);
 enablePicture();
 break;
 case AT_USER:
