@@ -8,7 +8,7 @@
   }
   ArrayList<LinkSpec> links=new ArrayList<LinkSpec>();
   if ((mask & WEB_URLS) != 0) {
-    gatherLinks(links,text,Patterns.WEB_URL,new String[]{"http://","https://","rtsp://"},sUrlMatchFilter,null);
+    gatherLinks(links,text,MyPatterns.WEB_URL,new String[]{"http://","https://","rtsp://"},sUrlMatchFilter,null);
   }
   if ((mask & EMAIL_ADDRESSES) != 0) {
     gatherLinks(links,text,Patterns.EMAIL_ADDRESS,new String[]{"mailto:"},null,null);
