@@ -16,8 +16,4 @@
  else {
     handleNormalOperation(intent);
   }
-  if (getEmotionsTask == null || getEmotionsTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-    getEmotionsTask=new GetEmotionsTask();
-    getEmotionsTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
 }

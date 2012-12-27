@@ -1,8 +1,4 @@
 {
   super.onDestroy();
-  Utility.cancelTasks(string2PicTask,getEmotionsTask);
-  Set<String> keys=emotionsPic.keySet();
-  for (  String key : keys) {
-    emotionsPic.put(key,null);
-  }
+  Utility.cancelTasks(string2PicTask);
 }

@@ -15,8 +15,4 @@
   findViewById(R.id.menu_emoticon).setOnLongClickListener(onLongClickListener);
   findViewById(R.id.menu_topic).setOnLongClickListener(onLongClickListener);
   findViewById(R.id.menu_send).setOnLongClickListener(onLongClickListener);
-  if (getEmotionsTask == null || getEmotionsTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-    getEmotionsTask=new GetEmotionsTask();
-    getEmotionsTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
 }
