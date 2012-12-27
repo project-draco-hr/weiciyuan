@@ -15,5 +15,5 @@
   editor.putString("id",accountBean.getUid());
   editor.commit();
   buildPhoneInterface();
-  new Thread(new ClearCacheTask()).start();
+  Executors.newSingleThreadScheduledExecutor().schedule(new ClearCacheTask(),8000,TimeUnit.SECONDS);
 }

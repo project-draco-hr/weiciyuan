@@ -1,12 +1,4 @@
 {
-  if (emotionThread != null) {
-    try {
-      emotionThread.join();
-    }
- catch (    InterruptedException e) {
-      e.printStackTrace();
-    }
-  }
   if (emotionsPic != null && emotionsPic.size() > 0) {
     return emotionsPic;
   }

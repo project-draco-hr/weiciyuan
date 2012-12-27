@@ -3,7 +3,4 @@
   globalContext=this;
   sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
   buildCache();
-  getEmotions();
-  emotionThread=new Thread(new GetEmotionsThread());
-  emotionThread.start();
 }
