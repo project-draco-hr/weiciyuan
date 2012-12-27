@@ -26,8 +26,13 @@
     int byteread=0;
     out=new FileOutputStream(file);
     in=urlConnection.getInputStream();
+    final Thread thread=Thread.currentThread();
     byte[] buffer=new byte[1444];
     while ((byteread=in.read(buffer)) != -1) {
+      if (thread.isInterrupted()) {
+        file.delete();
+        throw new InterruptedIOException();
+      }
       bytesum+=byteread;
       out.write(buffer,0,byteread);
       if (downloadListener != null && bytetotal > 0) {
