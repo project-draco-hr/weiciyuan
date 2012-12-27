@@ -8,7 +8,9 @@
   HttpURLConnection urlConnection=null;
   try {
     URL url=new URL(urlStr);
-    urlConnection=(HttpURLConnection)url.openConnection();
+    Proxy proxy=getProxy();
+    if (proxy != null)     urlConnection=(HttpURLConnection)url.openConnection(proxy);
+ else     urlConnection=(HttpURLConnection)url.openConnection();
     urlConnection.setRequestMethod("GET");
     urlConnection.setDoOutput(false);
     urlConnection.setConnectTimeout(5000);

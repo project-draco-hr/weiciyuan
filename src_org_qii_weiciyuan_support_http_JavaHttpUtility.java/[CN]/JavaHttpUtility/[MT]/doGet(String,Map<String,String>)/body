@@ -7,7 +7,10 @@
     StringBuilder urlBuilder=new StringBuilder(urlStr);
     urlBuilder.append("?").append(Utility.encodeUrl(param));
     URL url=new URL(urlBuilder.toString());
-    HttpURLConnection urlConnection=(HttpURLConnection)url.openConnection();
+    Proxy proxy=getProxy();
+    HttpURLConnection urlConnection;
+    if (proxy != null)     urlConnection=(HttpURLConnection)url.openConnection(proxy);
+ else     urlConnection=(HttpURLConnection)url.openConnection();
     urlConnection.setRequestMethod("GET");
     urlConnection.setDoOutput(false);
     urlConnection.setConnectTimeout(5000);

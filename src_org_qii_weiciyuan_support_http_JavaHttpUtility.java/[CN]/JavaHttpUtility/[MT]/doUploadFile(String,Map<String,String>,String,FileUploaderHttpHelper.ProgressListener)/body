@@ -11,7 +11,9 @@
   try {
     URL url=null;
     url=new URL(urlStr);
-    urlConnection=(HttpURLConnection)url.openConnection();
+    Proxy proxy=getProxy();
+    if (proxy != null)     urlConnection=(HttpURLConnection)url.openConnection(proxy);
+ else     urlConnection=(HttpURLConnection)url.openConnection();
     urlConnection.setConnectTimeout(5000);
     urlConnection.setReadTimeout(8000);
     urlConnection.setRequestMethod("POST");

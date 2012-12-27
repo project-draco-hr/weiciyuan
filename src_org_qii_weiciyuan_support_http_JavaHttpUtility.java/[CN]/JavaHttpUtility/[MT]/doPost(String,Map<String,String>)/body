@@ -4,7 +4,10 @@
   globalContext=null;
   try {
     URL url=new URL(urlAddress);
-    HttpURLConnection uRLConnection=(HttpURLConnection)url.openConnection();
+    Proxy proxy=getProxy();
+    HttpURLConnection uRLConnection;
+    if (proxy != null)     uRLConnection=(HttpURLConnection)url.openConnection(proxy);
+ else     uRLConnection=(HttpURLConnection)url.openConnection();
     uRLConnection.setDoInput(true);
     uRLConnection.setDoOutput(true);
     uRLConnection.setRequestMethod("POST");
