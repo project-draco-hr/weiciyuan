@@ -18,6 +18,6 @@
     hashMap.put("1",new MessageListBean());
   }
   super.onActivityCreated(savedInstanceState);
-  groupTask=new GroupTask();
+  groupTask=new GroupTask(GlobalContext.getInstance().getSpecialToken());
   groupTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
