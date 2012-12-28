@@ -1,0 +1,4 @@
+{
+  ChangeLogDialog changeLogDialog=new ChangeLogDialog(this);
+  changeLogDialog.show();
+}

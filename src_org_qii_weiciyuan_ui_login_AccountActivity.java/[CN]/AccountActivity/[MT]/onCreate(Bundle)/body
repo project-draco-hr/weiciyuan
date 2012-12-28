@@ -11,5 +11,5 @@
   listView.setMultiChoiceModeListener(new AccountMultiChoiceModeListener());
   getTask=new GetAccountListDBTask();
   getTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  if (SettingUtility.firstStart())   showIntroDialog();
+  if (SettingUtility.firstStart())   showChangeLogDialog();
 }

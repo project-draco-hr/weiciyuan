@@ -1,0 +1,24 @@
+{
+  String _Result="<html><head>" + GetStyle() + "</head><body>";
+  XmlResourceParser _xml=aResource.getXml(aResourceId);
+  try {
+    int eventType=_xml.getEventType();
+    while (eventType != XmlPullParser.END_DOCUMENT) {
+      if ((eventType == XmlPullParser.START_TAG) && (_xml.getName().equals("release"))) {
+        _Result=_Result + ParseReleaseTag(_xml);
+      }
+      eventType=_xml.next();
+    }
+  }
+ catch (  XmlPullParserException e) {
+    Log.e(TAG,e.getMessage(),e);
+  }
+catch (  IOException e) {
+    Log.e(TAG,e.getMessage(),e);
+  }
+ finally {
+    _xml.close();
+  }
+  _Result=_Result + "</body></html>";
+  return _Result;
+}

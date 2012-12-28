@@ -1,4 +1,0 @@
-{
-  TipDialog dialog=new TipDialog();
-  dialog.show(getFragmentManager(),"");
-}

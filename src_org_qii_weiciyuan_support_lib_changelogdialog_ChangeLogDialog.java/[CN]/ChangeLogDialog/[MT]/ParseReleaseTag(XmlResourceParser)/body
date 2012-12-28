@@ -1,0 +1,13 @@
+{
+  String _Result="<h1>Release: " + aXml.getAttributeValue(null,"version") + "</h1><ul>";
+  int eventType=aXml.getEventType();
+  while ((eventType != XmlPullParser.END_TAG) || (aXml.getName().equals("change"))) {
+    if ((eventType == XmlPullParser.START_TAG) && (aXml.getName().equals("change"))) {
+      eventType=aXml.next();
+      _Result=_Result + "<li>" + aXml.getText()+ "</li>";
+    }
+    eventType=aXml.next();
+  }
+  _Result=_Result + "</ul>";
+  return _Result;
+}

@@ -1,0 +1,30 @@
+{
+  String _PackageName=fActivity.getPackageName();
+  Resources _Resource;
+  try {
+    _Resource=fActivity.getPackageManager().getResourcesForApplication(_PackageName);
+  }
+ catch (  PackageManager.NameNotFoundException e) {
+    e.printStackTrace();
+    return;
+  }
+  int _resID=_Resource.getIdentifier(TITLE_CHANGELOG,"string",_PackageName);
+  String _Title=_Resource.getString(_resID);
+  _Title=_Title + " v" + GetAppVersion();
+  _resID=_Resource.getIdentifier(CHANGELOG_XML,"xml",_PackageName);
+  String _HTML=GetHTMLChangelog(_resID,_Resource);
+  String _Close=_Resource.getString(R.string.changelog_close);
+  if (_HTML.equals("") == true) {
+    Toast.makeText(fActivity,"Could not load change log",Toast.LENGTH_SHORT).show();
+    return;
+  }
+  WebView _WebView=new WebView(fActivity);
+  _WebView.loadData(_HTML,"text/html; charset=UTF-8",null);
+  AlertDialog.Builder builder=new AlertDialog.Builder(fActivity).setTitle(_Title).setView(_WebView).setPositiveButton(_Close,new Dialog.OnClickListener(){
+    public void onClick(    DialogInterface dialogInterface,    int i){
+      dialogInterface.dismiss();
+    }
+  }
+);
+  builder.create().show();
+}
