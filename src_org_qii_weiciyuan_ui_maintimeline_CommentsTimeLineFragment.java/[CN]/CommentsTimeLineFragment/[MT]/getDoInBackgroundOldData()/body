@@ -1,7 +1,7 @@
 {
   CommentListBean result;
   ICommentsTimeLineDao dao;
-switch (selected) {
+switch (currentGroupId) {
 case TYPE_RECEIVED_COMMENT:
     dao=new MainCommentsTimeLineDao(token);
   break;

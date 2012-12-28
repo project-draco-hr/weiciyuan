@@ -4,9 +4,9 @@
   outState.putSerializable("bean",bean);
   outState.putSerializable("userBean",userBean);
   outState.putString("token",token);
-  outState.putStringArray("group",group);
-  outState.putInt("selected",selected);
-  outState.putSerializable("0",hashMap.get(0));
-  outState.putSerializable("1",hashMap.get(1));
-  outState.putSerializable("2",hashMap.get(2));
+  outState.putStringArray("groupNames",groupNames);
+  outState.putInt("currentGroupId",currentGroupId);
+  outState.putSerializable("0",groupDataCache.get(0));
+  outState.putSerializable("1",groupDataCache.get(1));
+  outState.putSerializable("2",groupDataCache.get(2));
 }

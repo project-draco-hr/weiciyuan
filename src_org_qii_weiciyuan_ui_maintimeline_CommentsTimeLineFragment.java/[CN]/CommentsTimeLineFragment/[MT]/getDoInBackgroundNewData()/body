@@ -1,7 +1,7 @@
 {
   CommentListBean result;
   ICommentsTimeLineDao dao;
-switch (selected) {
+switch (currentGroupId) {
 case TYPE_RECEIVED_COMMENT:
     dao=new MainCommentsTimeLineDao(token);
   break;
@@ -19,7 +19,7 @@ if (getList() != null && getList().getItemList().size() > 0) {
 dao.setSince_id(getList().getItemList().get(0).getId());
 }
 result=dao.getGSONMsgList();
-if (result != null && selected == TYPE_RECEIVED_COMMENT) {
+if (result != null && currentGroupId == TYPE_RECEIVED_COMMENT) {
 DatabaseManager.getInstance().addCommentLineMsg(result,accountBean.getUid());
 }
 return result;

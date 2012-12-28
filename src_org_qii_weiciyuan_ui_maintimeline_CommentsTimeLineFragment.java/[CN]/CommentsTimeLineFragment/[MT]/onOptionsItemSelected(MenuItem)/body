@@ -11,7 +11,7 @@ if (allowRefresh()) getPullToRefreshListView().startRefreshNow();
 break;
 case R.id.group_name:
 if (canSwitchGroup()) {
-CommentsGroupDialog dialog=new CommentsGroupDialog(group,selected);
+CommentsGroupDialog dialog=new CommentsGroupDialog(groupNames,currentGroupId);
 dialog.setTargetFragment(CommentsTimeLineFragment.this,0);
 dialog.show(getFragmentManager(),"");
 }
