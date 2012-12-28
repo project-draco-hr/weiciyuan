@@ -2,22 +2,14 @@
   if (!SettingUtility.getEnableAutoRefresh()) {
     return;
   }
-  if (dbTask == null || dbTask.getStatus() != MyAsyncTask.Status.FINISHED) {
-    return;
-  }
-  if (newTask != null && newTask.getStatus() != MyAsyncTask.Status.FINISHED) {
-    return;
-  }
-  if (oldTask != null && oldTask.getStatus() != MyAsyncTask.Status.FINISHED) {
-    return;
-  }
-  if (middleTask != null && middleTask.getStatus() != MyAsyncTask.Status.FINISHED) {
-    return;
-  }
+  if (!Utility.isTaskStopped(dbTask))   return;
+  if (!Utility.isTaskStopped(newTask))   return;
+  if (!Utility.isTaskStopped(oldTask))   return;
+  if (!Utility.isTaskStopped(middleTask))   return;
   if (!Utility.isWifi(getActivity())) {
     return;
   }
-  if (autoRefreshTask == null || autoRefreshTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+  if (Utility.isTaskStopped(autoRefreshTask)) {
     autoRefreshTask=new AutoRefreshTask();
     autoRefreshTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }

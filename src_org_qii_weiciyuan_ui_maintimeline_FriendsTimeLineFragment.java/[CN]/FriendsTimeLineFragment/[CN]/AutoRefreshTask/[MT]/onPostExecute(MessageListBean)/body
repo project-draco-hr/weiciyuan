@@ -1,14 +1,8 @@
 {
   super.onPostExecute(newValue);
-  if (newTask != null && newTask.getStatus() != MyAsyncTask.Status.FINISHED) {
-    return;
-  }
-  if (oldTask != null && oldTask.getStatus() != MyAsyncTask.Status.FINISHED) {
-    return;
-  }
-  if (middleTask != null && middleTask.getStatus() != MyAsyncTask.Status.FINISHED) {
-    return;
-  }
+  if (!Utility.isTaskStopped(newTask))   return;
+  if (!Utility.isTaskStopped(oldTask))   return;
+  if (!Utility.isTaskStopped(middleTask))   return;
   if (newValue == null || newValue.getSize() == 0 || getActivity() == null || isListViewFling())   return;
   int firstPosition=getListView().getFirstVisiblePosition();
   int size=newValue.getSize();
@@ -28,4 +22,7 @@
   timeLineAdapter.notifyDataSetChanged();
   int ss=index + size;
   getListView().setSelectionFromTop(ss + 1,top);
+  if (getList() != null && selectedId.equals("0")) {
+    SaveToDBService.save(getActivity(),SaveToDBService.TYPE_STATUS,getList(),accountBean.getUid());
+  }
 }

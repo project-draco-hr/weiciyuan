@@ -1,0 +1,3 @@
+{
+  return Utility.isTaskStopped(newTask) && getPullToRefreshListView().getVisibility() == View.VISIBLE && Utility.isTaskStopped(autoRefreshTask);
+}
