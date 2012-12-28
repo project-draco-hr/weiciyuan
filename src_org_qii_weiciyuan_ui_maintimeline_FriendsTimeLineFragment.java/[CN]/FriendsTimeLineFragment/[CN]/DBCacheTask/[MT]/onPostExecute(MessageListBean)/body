@@ -2,7 +2,7 @@
   super.onPostExecute(result);
   if (result != null) {
     getList().replaceData(result);
-    putToGroupDataMemoryCache("0",result);
+    putToGroupDataMemoryCache(ALL_GROUP_ID,result);
   }
   getPullToRefreshListView().setVisibility(View.VISIBLE);
   getAdapter().notifyDataSetChanged();

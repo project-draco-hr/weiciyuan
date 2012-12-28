@@ -1,9 +1,9 @@
 {
   MainFriendsTimeLineDao dao;
-  if (currentGroupId.equals("1")) {
+  if (currentGroupId.equals(BILATERAL_GROUP_ID)) {
     dao=new BilateralTimeLineDao(token);
   }
- else   if (currentGroupId.equals("0")) {
+ else   if (currentGroupId.equals(ALL_GROUP_ID)) {
     dao=new MainFriendsTimeLineDao(token);
   }
  else {

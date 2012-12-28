@@ -8,7 +8,7 @@
   int size=newValue.getSize();
   if (getActivity() != null && newValue.getSize() > 0) {
     getList().addNewData(newValue);
-    if (getList() != null && currentGroupId.equals("0")) {
+    if (getList() != null && currentGroupId.equals(ALL_GROUP_ID)) {
       SaveToDBService.save(getActivity(),SaveToDBService.TYPE_STATUS,getList(),accountBean.getUid());
     }
   }

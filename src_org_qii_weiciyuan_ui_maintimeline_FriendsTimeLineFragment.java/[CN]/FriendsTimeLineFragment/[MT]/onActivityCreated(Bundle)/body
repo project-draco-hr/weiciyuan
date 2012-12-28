@@ -16,8 +16,8 @@
     }
     GroupInfoTask groupInfoTask=new GroupInfoTask(GlobalContext.getInstance().getSpecialToken());
     groupInfoTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-    groupDataCache.put("0",new MessageListBean());
-    groupDataCache.put("1",new MessageListBean());
+    groupDataCache.put(ALL_GROUP_ID,new MessageListBean());
+    groupDataCache.put(BILATERAL_GROUP_ID,new MessageListBean());
   }
   super.onActivityCreated(savedInstanceState);
 }
