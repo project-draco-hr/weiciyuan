@@ -13,7 +13,7 @@
     }
   }
   getActivity().getActionBar().getTabAt(0).setText(getString(R.string.home));
-  clearAndReplaceValue(selectedId,getList());
+  putToGroupDataMemoryCache(selectedId,getList());
   int index=getListView().getFirstVisiblePosition();
   View v=getListView().getChildAt(1);
   int top=(v == null) ? 0 : v.getTop();
