@@ -6,23 +6,18 @@
   if (newValue == null || newValue.getSize() == 0 || getActivity() == null || isListViewFling())   return;
   int firstPosition=getListView().getFirstVisiblePosition();
   int size=newValue.getSize();
-  if (newValue.getItemList().size() < Integer.valueOf(SettingUtility.getMsgCount())) {
-    newValue.getItemList().addAll(getList().getItemList());
-  }
- else {
-    if (getList().getSize() > 0) {
-      newValue.getItemList().add(null);
+  if (getActivity() != null && newValue.getSize() > 0) {
+    getList().addNewData(newValue);
+    if (getList() != null && selectedId.equals("0")) {
+      SaveToDBService.save(getActivity(),SaveToDBService.TYPE_STATUS,getList(),accountBean.getUid());
     }
-    newValue.getItemList().addAll(getList().getItemList());
   }
+  getActivity().getActionBar().getTabAt(0).setText(getString(R.string.home));
+  clearAndReplaceValue(selectedId,getList());
   int index=getListView().getFirstVisiblePosition();
-  clearAndReplaceValue(newValue);
   View v=getListView().getChildAt(1);
   int top=(v == null) ? 0 : v.getTop();
-  timeLineAdapter.notifyDataSetChanged();
+  getAdapter().notifyDataSetChanged();
   int ss=index + size;
   getListView().setSelectionFromTop(ss + 1,top);
-  if (getList() != null && selectedId.equals("0")) {
-    SaveToDBService.save(getActivity(),SaveToDBService.TYPE_STATUS,getList(),accountBean.getUid());
-  }
 }
