@@ -1,6 +1,0 @@
-{
-  getActivity().getActionBar().getTabAt(1).setText(getString(R.string.mentions));
-  NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-  notificationManager.cancel(Long.valueOf(GlobalContext.getInstance().getCurrentAccountId()).intValue());
-  clearAndReplaceValue(selected,bean);
-}

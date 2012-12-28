@@ -1,11 +1,11 @@
 {
-  if (hashMap.get(selected).getSize() == 0) {
+  if (groupDataCache.get(currentGroupId).getSize() == 0) {
     bean.getItemList().clear();
     getAdapter().notifyDataSetChanged();
-    pullToRefreshListView.startRefreshNow();
+    getPullToRefreshListView().startRefreshNow();
   }
  else {
-    clearAndReplaceValue(hashMap.get(selected));
+    getList().replaceData(groupDataCache.get(currentGroupId));
     getAdapter().notifyDataSetChanged();
   }
   getActivity().invalidateOptionsMenu();

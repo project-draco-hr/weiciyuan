@@ -1,6 +1,6 @@
 {
-  group[0]=getString(R.string.all_people);
-  group[1]=getString(R.string.all_following);
-  group[2]=getString(R.string.original);
+  groupNames[0]=getString(R.string.all_people);
+  groupNames[1]=getString(R.string.all_following);
+  groupNames[2]=getString(R.string.original);
   super.onCreate(savedInstanceState);
 }

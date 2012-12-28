@@ -1,5 +1,0 @@
-{
-  hashMap.get(position).getItemList().clear();
-  hashMap.get(position).getItemList().addAll(newValue.getItemList());
-  hashMap.get(position).setTotal_number(newValue.getTotal_number());
-}
