@@ -1,13 +1,13 @@
 {
   MainFriendsTimeLineDao dao;
-  if (selectedId.equals("1")) {
+  if (currentGroupId.equals("1")) {
     dao=new BilateralTimeLineDao(token);
   }
- else   if (selectedId.equals("0")) {
+ else   if (currentGroupId.equals("0")) {
     dao=new MainFriendsTimeLineDao(token);
   }
  else {
-    dao=new FriendGroupTimeLineDao(token,selectedId);
+    dao=new FriendGroupTimeLineDao(token,currentGroupId);
   }
   if (getList().getItemList().size() > 0) {
     dao.setSince_id(getList().getItemList().get(0).getId());

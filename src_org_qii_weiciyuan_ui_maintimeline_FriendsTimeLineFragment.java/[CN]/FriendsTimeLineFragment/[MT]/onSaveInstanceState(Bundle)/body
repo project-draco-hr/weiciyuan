@@ -5,5 +5,5 @@
   outState.putSerializable("userBean",userBean);
   outState.putString("token",token);
   outState.putSerializable("hashmap",groupDataCache);
-  outState.putString("selectedId",selectedId);
+  outState.putString("currentGroupId",currentGroupId);
 }

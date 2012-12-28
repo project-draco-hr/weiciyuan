@@ -1,11 +1,11 @@
 {
-  if (groupDataCache.get(selectedId) == null || groupDataCache.get(selectedId).getSize() == 0) {
+  if (groupDataCache.get(currentGroupId) == null || groupDataCache.get(currentGroupId).getSize() == 0) {
     getList().getItemList().clear();
     getAdapter().notifyDataSetChanged();
     getPullToRefreshListView().startRefreshNow();
   }
  else {
-    getList().replaceData(groupDataCache.get(selectedId));
+    getList().replaceData(groupDataCache.get(currentGroupId));
     getAdapter().notifyDataSetChanged();
   }
   getActivity().invalidateOptionsMenu();

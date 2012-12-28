@@ -2,15 +2,15 @@
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.actionbar_menu_friendstimelinefragment,menu);
   name=menu.findItem(R.id.group_name);
-  if (selectedId.equals("0")) {
+  if (currentGroupId.equals("0")) {
     name.setTitle(userBean.getScreen_name());
   }
-  if (selectedId.equals("1")) {
+  if (currentGroupId.equals("1")) {
     name.setTitle(getString(R.string.bilateral));
   }
  else   if (GlobalContext.getInstance().getGroup() != null) {
     for (    GroupBean b : GlobalContext.getInstance().getGroup().getLists()) {
-      if (b.getIdstr().equals(selectedId)) {
+      if (b.getIdstr().equals(currentGroupId)) {
         name.setTitle(b.getName());
         return;
       }

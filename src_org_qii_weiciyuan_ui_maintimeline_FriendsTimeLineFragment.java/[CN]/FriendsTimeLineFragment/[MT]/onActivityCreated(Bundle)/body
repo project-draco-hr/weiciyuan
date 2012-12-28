@@ -4,7 +4,7 @@
     accountBean=(AccountBean)savedInstanceState.getSerializable("account");
     token=savedInstanceState.getString("token");
     groupDataCache=(HashMap)savedInstanceState.getSerializable("hashmap");
-    selectedId=savedInstanceState.getString("selectedId");
+    currentGroupId=savedInstanceState.getString("currentGroupId");
     getList().replaceData((MessageListBean)savedInstanceState.getSerializable("bean"));
     timeLineAdapter.notifyDataSetChanged();
     refreshLayout(getList());
@@ -14,10 +14,8 @@
       dbTask=new DBCacheTask();
       dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
-    if (Utility.isTaskStopped(groupTask)) {
-      groupTask=new GroupTask(GlobalContext.getInstance().getSpecialToken());
-      groupTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-    }
+    GroupInfoTask groupInfoTask=new GroupInfoTask(GlobalContext.getInstance().getSpecialToken());
+    groupInfoTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     groupDataCache.put("0",new MessageListBean());
     groupDataCache.put("1",new MessageListBean());
   }

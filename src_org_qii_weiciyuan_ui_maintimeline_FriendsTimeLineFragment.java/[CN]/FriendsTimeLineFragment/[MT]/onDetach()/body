@@ -1,4 +1,4 @@
 {
   super.onDetach();
-  Utility.cancelTasks(dbTask,groupTask);
+  Utility.cancelTasks(dbTask);
 }
