@@ -10,7 +10,6 @@
   }
   int _resID=_Resource.getIdentifier(TITLE_CHANGELOG,"string",_PackageName);
   String _Title=_Resource.getString(_resID);
-  _Title=_Title + " v" + GetAppVersion();
   _resID=_Resource.getIdentifier(CHANGELOG_XML,"xml",_PackageName);
   String _HTML=GetHTMLChangelog(_resID,_Resource);
   String _Close=_Resource.getString(R.string.changelog_close);
