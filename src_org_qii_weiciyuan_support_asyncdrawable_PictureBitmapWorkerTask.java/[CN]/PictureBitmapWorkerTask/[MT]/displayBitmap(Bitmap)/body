@@ -8,7 +8,7 @@
           lruCache.put(data,bitmap);
         }
  else {
-          imageView.setImageDrawable(new ColorDrawable(Color.BLUE));
+          imageView.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
       }
     }
