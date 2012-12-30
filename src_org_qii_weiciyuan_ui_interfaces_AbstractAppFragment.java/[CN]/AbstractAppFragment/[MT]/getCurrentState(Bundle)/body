@@ -1,11 +1,11 @@
 {
   if (savedInstanceState != null) {
-    isFirstStartFlag=false;
+    isFirstTimeStartFlag=false;
     return ACTIVITY_DESTROY_AND_CREATE;
   }
-  if (!isFirstStartFlag) {
+  if (!isFirstTimeStartFlag) {
     return SCREEN_ROTATE;
   }
-  isFirstStartFlag=false;
+  isFirstTimeStartFlag=false;
   return FIRST_TIME_START;
 }
