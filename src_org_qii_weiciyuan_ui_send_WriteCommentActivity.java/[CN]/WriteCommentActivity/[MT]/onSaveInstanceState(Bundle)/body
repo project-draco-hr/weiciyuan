@@ -1,0 +1,5 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putBoolean("commentOri",enableCommentOri.isChecked());
+  outState.putBoolean("repost",enableRepost.isChecked());
+}

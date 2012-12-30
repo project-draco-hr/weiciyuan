@@ -25,4 +25,8 @@
  else {
     getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
   }
+  if (savedInstanceState != null) {
+    savedEnableComment=savedInstanceState.getBoolean("comment");
+    savedEnableOriComment=savedInstanceState.getBoolean("oriComment");
+  }
 }

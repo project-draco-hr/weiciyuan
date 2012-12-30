@@ -1,0 +1,5 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putBoolean("comment",menuEnableComment.isChecked());
+  outState.putBoolean("oriComment",menuEnableOriComment.isChecked());
+}
