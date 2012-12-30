@@ -1,0 +1,3 @@
+{
+  haveGPS.setVisibility(View.GONE);
+}

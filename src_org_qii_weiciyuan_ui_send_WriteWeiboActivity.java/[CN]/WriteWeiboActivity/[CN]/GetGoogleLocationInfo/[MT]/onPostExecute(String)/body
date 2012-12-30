@@ -1,6 +1,6 @@
 {
   Toast.makeText(WriteWeiboActivity.this,s,Toast.LENGTH_SHORT).show();
   location=s;
-  haveGPS.setVisibility(View.VISIBLE);
+  enableGeo();
   super.onPostExecute(s);
 }

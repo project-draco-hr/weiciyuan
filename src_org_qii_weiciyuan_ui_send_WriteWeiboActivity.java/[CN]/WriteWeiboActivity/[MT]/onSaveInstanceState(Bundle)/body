@@ -1,0 +1,6 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putString("picPath",picPath);
+  outState.putSerializable("geoBean",geoBean);
+  outState.putString("location",location);
+}
