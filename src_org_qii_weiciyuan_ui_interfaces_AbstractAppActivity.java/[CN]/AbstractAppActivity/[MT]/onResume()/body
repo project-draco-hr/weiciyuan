@@ -1,9 +1,6 @@
 {
   super.onResume();
   GlobalContext.getInstance().setActivity(this);
-  if (getResources().getBoolean(R.bool.is_phone)) {
-    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-  }
   if (theme == SettingUtility.getAppTheme()) {
   }
  else {
