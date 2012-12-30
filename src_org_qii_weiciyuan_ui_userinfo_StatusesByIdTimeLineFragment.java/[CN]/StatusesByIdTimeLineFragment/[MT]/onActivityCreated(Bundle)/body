@@ -1,13 +1,18 @@
 {
-  if (savedInstanceState != null) {
-    clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
-    userBean=(UserBean)savedInstanceState.getSerializable("userBean");
-    token=savedInstanceState.getString("token");
-    getAdapter().notifyDataSetChanged();
-    refreshLayout(bean);
-  }
- else {
+switch (getCurrentState(savedInstanceState)) {
+case FIRST_TIME_START:
     getPullToRefreshListView().startRefreshNow();
-  }
-  super.onActivityCreated(savedInstanceState);
+  break;
+case SCREEN_ROTATE:
+refreshLayout(bean);
+break;
+case ACTIVITY_DESTROY_AND_CREATE:
+clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
+userBean=(UserBean)savedInstanceState.getSerializable("userBean");
+token=savedInstanceState.getString("token");
+getAdapter().notifyDataSetChanged();
+refreshLayout(bean);
+break;
+}
+super.onActivityCreated(savedInstanceState);
 }
