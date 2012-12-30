@@ -11,4 +11,7 @@
     bean=replyDraftBean.getCommentBean();
   }
   getEditTextView().setHint("@" + bean.getUser().getScreen_name() + "???"+ bean.getText());
+  if (savedInstanceState != null) {
+    savedEnableRepost=savedInstanceState.getBoolean("repost");
+  }
 }
