@@ -1,13 +1,17 @@
 {
   super.onActivityCreated(savedInstanceState);
-  if (savedInstanceState != null) {
-    topicList=savedInstanceState.getStringArrayList("topicList");
-    bean=(UserBean)savedInstanceState.getSerializable("bean");
-  }
- else {
+switch (getCurrentState(savedInstanceState)) {
+case FIRST_TIME_START:
     bean=((IUserInfo)getActivity()).getUser();
-  }
-  commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
-  setValue();
   refresh();
+break;
+case SCREEN_ROTATE:
+break;
+case ACTIVITY_DESTROY_AND_CREATE:
+topicList=savedInstanceState.getStringArrayList("topicList");
+bean=(UserBean)savedInstanceState.getSerializable("bean");
+break;
+}
+commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
+setValue();
 }
