@@ -1,4 +1,4 @@
 {
-  super.onDetach();
+  super.onDestroy();
   Utility.cancelTasks(newTask,oldTask,middleTask);
 }
