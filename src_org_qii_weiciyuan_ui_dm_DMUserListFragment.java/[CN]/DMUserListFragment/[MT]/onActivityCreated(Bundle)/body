@@ -2,14 +2,20 @@
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
   setRetainInstance(true);
-  if (savedInstanceState != null) {
-    bean.addNewData((DMUserListBean)savedInstanceState.getSerializable("bean"));
-    getAdapter().notifyDataSetChanged();
-  }
- else {
-    if (dbTask == null || dbTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+switch (getCurrentState(savedInstanceState)) {
+case FIRST_TIME_START:
+    if (Utility.isTaskStopped(dbTask)) {
       dbTask=new DBCacheTask();
       dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
-  }
+  break;
+case SCREEN_ROTATE:
+refreshLayout(getList());
+break;
+case ACTIVITY_DESTROY_AND_CREATE:
+bean.addNewData((DMUserListBean)savedInstanceState.getSerializable("bean"));
+getAdapter().notifyDataSetChanged();
+refreshLayout(getList());
+break;
+}
 }
