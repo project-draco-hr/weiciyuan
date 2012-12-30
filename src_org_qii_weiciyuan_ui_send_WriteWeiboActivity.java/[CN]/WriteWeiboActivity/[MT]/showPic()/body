@@ -1,3 +1,5 @@
 {
-  new BrowserPictureDialog(picPath).show(getFragmentManager(),"");
+  Intent intent=new Intent(WriteWeiboActivity.this,BrowserLocalPicActivity.class);
+  intent.putExtra("path",picPath);
+  startActivityForResult(intent,BROWSER_PIC);
 }

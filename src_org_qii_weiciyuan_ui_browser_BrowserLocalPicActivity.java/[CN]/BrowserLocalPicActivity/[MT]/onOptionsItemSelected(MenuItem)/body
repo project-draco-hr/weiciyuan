@@ -1,0 +1,16 @@
+{
+switch (item.getItemId()) {
+case android.R.id.home:
+    Intent intent=new Intent(this,MainTimeLineActivity.class);
+  intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+startActivity(intent);
+return true;
+case R.id.menu_delete:
+Intent deletedIntent=new Intent();
+deletedIntent.putExtra("deleted",true);
+setResult(RESULT_OK,deletedIntent);
+finish();
+break;
+}
+return super.onOptionsItemSelected(item);
+}

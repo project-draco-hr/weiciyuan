@@ -1,0 +1,4 @@
+{
+  getMenuInflater().inflate(R.menu.actionbar_menu_browserlocalpicactivity,menu);
+  return super.onCreateOptionsMenu(menu);
+}
