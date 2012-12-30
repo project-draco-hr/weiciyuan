@@ -2,11 +2,17 @@
   super.onActivityCreated(savedInstanceState);
   setHasOptionsMenu(true);
   setRetainInstance(true);
-  if (savedInstanceState != null) {
-    msg=(MessageBean)savedInstanceState.getSerializable("msg");
-  }
- else {
-    updateMsgTask=new UpdateMsgTask();
-    updateMsgTask.execute();
-  }
+switch (getCurrentState(savedInstanceState)) {
+case FIRST_TIME_START:
+    if (Utility.isTaskStopped(updateMsgTask)) {
+      updateMsgTask=new UpdateMsgTask();
+      updateMsgTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    }
+  break;
+case SCREEN_ROTATE:
+break;
+case ACTIVITY_DESTROY_AND_CREATE:
+msg=(MessageBean)savedInstanceState.getSerializable("msg");
+break;
+}
 }

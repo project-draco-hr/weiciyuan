@@ -1,5 +1,5 @@
 {
-  super.onDetach();
+  super.onDestroy();
   Utility.cancelTasks(updateMsgTask,geoTask,picTask);
   avatar.setImageDrawable(null);
   content_pic.setImageDrawable(null);
