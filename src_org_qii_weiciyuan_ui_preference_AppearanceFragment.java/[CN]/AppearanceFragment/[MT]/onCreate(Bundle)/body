@@ -7,6 +7,6 @@
   listFontSize=findPreference(SettingActivity.FONT_SIZE);
   theme=findPreference(SettingActivity.THEME);
   buildSummary();
-  setRetainInstance(true);
+  setRetainInstance(false);
   PreferenceManager.getDefaultSharedPreferences(getActivity()).registerOnSharedPreferenceChangeListener(this);
 }

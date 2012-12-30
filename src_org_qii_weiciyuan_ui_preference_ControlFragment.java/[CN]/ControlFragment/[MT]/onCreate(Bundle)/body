@@ -1,5 +1,6 @@
 {
   super.onCreate(savedInstanceState);
+  setRetainInstance(false);
   addPreferencesFromResource(R.xml.control_pref);
   msgCount=findPreference(SettingActivity.MSG_COUNT);
   commentRepostListAvatar=findPreference(SettingActivity.COMMENT_REPOST_AVATAR);

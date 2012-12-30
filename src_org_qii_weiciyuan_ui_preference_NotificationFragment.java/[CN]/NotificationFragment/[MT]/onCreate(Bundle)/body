@@ -1,5 +1,6 @@
 {
   super.onCreate(savedInstanceState);
+  setRetainInstance(false);
   addPreferencesFromResource(R.xml.notification_pref);
   preferenceList.add(findPreference(SettingActivity.DISABLE_FETCH_AT_NIGHT));
   preferenceList.add(findPreference(SettingActivity.FREQUENCY));
