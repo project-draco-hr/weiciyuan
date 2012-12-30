@@ -1,3 +1,4 @@
 {
-  return GlobalContext.getInstance().getAvatarCache().get(key);
+  if (TextUtils.isEmpty(key))   return null;
+ else   return GlobalContext.getInstance().getAvatarCache().get(key);
 }
