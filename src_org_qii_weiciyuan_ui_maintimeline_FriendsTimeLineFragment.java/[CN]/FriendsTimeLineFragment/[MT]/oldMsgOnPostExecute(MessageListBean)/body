@@ -1,5 +1,5 @@
 {
-  if (getActivity() != null && oldValue != null && oldValue.getSize() > 1) {
+  if (Utility.isAllNotNull(getActivity(),oldValue) && oldValue.getSize() > 1) {
     getList().addOldData(oldValue);
   }
  else {

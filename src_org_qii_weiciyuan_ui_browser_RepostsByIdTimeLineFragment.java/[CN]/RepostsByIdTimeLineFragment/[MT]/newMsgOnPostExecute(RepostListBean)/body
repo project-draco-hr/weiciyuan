@@ -1,5 +1,5 @@
 {
-  if (getActivity() != null && newValue.getSize() > 0) {
+  if (Utility.isAllNotNull(getActivity(),newValue) && newValue.getSize() > 0) {
     getList().replaceAll(newValue);
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
