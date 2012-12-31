@@ -7,7 +7,6 @@
     boolean lastStatus=SettingUtility.getEnableBigPic();
     if (currentStatus != lastStatus) {
       SettingUtility.setEnableBigPic(currentStatus);
-      GlobalContext.getInstance().getAvatarCache().evictAll();
     }
   }
 }
