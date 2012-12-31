@@ -3,10 +3,6 @@
     SettingUtility.setEnableBigAvatar(Utility.isWifi(context));
   }
   if (SettingUtility.getListPicMode() == 3) {
-    boolean currentStatus=Utility.isWifi(context);
-    boolean lastStatus=SettingUtility.getEnableBigPic();
-    if (currentStatus != lastStatus) {
-      SettingUtility.setEnableBigPic(currentStatus);
-    }
+    SettingUtility.setEnableBigPic(Utility.isWifi(context));
   }
 }
