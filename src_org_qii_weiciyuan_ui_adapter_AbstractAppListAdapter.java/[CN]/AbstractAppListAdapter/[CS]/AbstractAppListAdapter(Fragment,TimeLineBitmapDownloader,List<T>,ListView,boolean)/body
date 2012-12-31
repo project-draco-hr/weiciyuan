@@ -13,26 +13,21 @@
     @Override public void onMovedToScrapHeap(    View view){
       Integer index=(Integer)view.getTag(R.string.listview_index_tag);
       if (index == null)       return;
-      ViewHolder holder=(ViewHolder)view.getTag(index);
-      if (holder == null)       return;
-      holder.avatar.setImageBitmap(null);
-      holder.content_pic.setImageBitmap(null);
-      holder.repost_content_pic.setImageBitmap(null);
-      holder.avatar.getImageView().clearAnimation();
-      holder.content_pic.getImageView().clearAnimation();
-      holder.repost_content_pic.getImageView().clearAnimation();
       for (      Integer tag : tagIndexList) {
-        if (!tag.equals(index)) {
-          ViewHolder otherViewHolder=(ViewHolder)view.getTag(tag);
-          if (otherViewHolder != null) {
-            otherViewHolder.avatar.setImageBitmap(null);
-            otherViewHolder.content_pic.setImageBitmap(null);
-            otherViewHolder.repost_content_pic.setImageBitmap(null);
-            otherViewHolder.avatar.getImageView().clearAnimation();
-            otherViewHolder.content_pic.getImageView().clearAnimation();
-            otherViewHolder.repost_content_pic.getImageView().clearAnimation();
-            otherViewHolder.listview_root.removeAllViews();
-            otherViewHolder.listview_root=null;
+        ViewHolder holder=(ViewHolder)view.getTag(tag);
+        if (holder != null) {
+          holder.avatar.getImageView().getDrawable().setCallback(null);
+          holder.content_pic.getImageView().getDrawable().setCallback(null);
+          holder.repost_content_pic.getImageView().getDrawable().setCallback(null);
+          holder.avatar.setImageBitmap(null);
+          holder.content_pic.setImageBitmap(null);
+          holder.repost_content_pic.setImageBitmap(null);
+          holder.avatar.getImageView().clearAnimation();
+          holder.content_pic.getImageView().clearAnimation();
+          holder.repost_content_pic.getImageView().clearAnimation();
+          if (!tag.equals(index)) {
+            holder.listview_root.removeAllViewsInLayout();
+            holder.listview_root=null;
             view.setTag(tag,null);
           }
         }
