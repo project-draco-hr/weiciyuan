@@ -6,8 +6,7 @@
   }
  else {
     getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
-    file=new File(absoluteFilePath);
-    if (file.exists()) {
+    if (isThisBitmapCanRead(absoluteFilePath)) {
       return absoluteFilePath;
     }
  else {
