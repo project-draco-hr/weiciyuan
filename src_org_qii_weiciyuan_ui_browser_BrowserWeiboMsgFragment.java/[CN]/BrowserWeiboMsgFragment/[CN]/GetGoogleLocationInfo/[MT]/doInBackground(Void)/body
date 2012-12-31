@@ -2,6 +2,9 @@
   Geocoder geocoder=new Geocoder(getActivity(),Locale.getDefault());
   List<Address> addresses=null;
   try {
+    if (!Utility.isGPSLocationCorrect(geoBean)) {
+      return "";
+    }
     addresses=geocoder.getFromLocation(geoBean.getLat(),geoBean.getLon(),1);
   }
  catch (  IOException e) {

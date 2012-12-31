@@ -9,7 +9,7 @@
   if (msg.getGeo() != null) {
     if (geoTask == null || geoTask.getStatus() == MyAsyncTask.Status.FINISHED) {
       geoTask=new GetGoogleLocationInfo(msg.getGeo());
-      geoTask.execute();
+      geoTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
   }
   if (!TextUtils.isEmpty(msg.getSource())) {
