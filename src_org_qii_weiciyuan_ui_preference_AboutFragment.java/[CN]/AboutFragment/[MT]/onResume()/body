@@ -1,0 +1,14 @@
+{
+  super.onResume();
+  sdCardReceiver=new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      buildCacheSummary();
+    }
+  }
+;
+  IntentFilter filter=new IntentFilter();
+  filter.addAction(Intent.ACTION_MEDIA_MOUNTED);
+  filter.addAction(Intent.ACTION_MEDIA_UNMOUNTED);
+  filter.addDataScheme("file");
+  getActivity().registerReceiver(sdCardReceiver,filter);
+}

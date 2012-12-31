@@ -53,12 +53,6 @@
     }
   }
 );
-  File cachedDir=GlobalContext.getInstance().getExternalCacheDir();
-  if (cachedDir != null) {
-    findPreference(SettingActivity.CACHE_PATH).setSummary(cachedDir.getAbsolutePath());
-  }
- else {
-    findPreference(SettingActivity.CACHE_PATH).setSummary(getString(R.string.sd_card_in_not_mounted));
-  }
+  buildCacheSummary();
   findPreference(SettingActivity.SAVED_PIC_PATH).setSummary(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath());
 }
