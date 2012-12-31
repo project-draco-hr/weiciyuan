@@ -8,6 +8,7 @@
   HttpURLConnection urlConnection=null;
   try {
     URL url=new URL(urlStr);
+    AppLogger.d("download request=" + urlStr);
     Proxy proxy=getProxy();
     if (proxy != null)     urlConnection=(HttpURLConnection)url.openConnection(proxy);
  else     urlConnection=(HttpURLConnection)url.openConnection();

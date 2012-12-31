@@ -1,12 +1,10 @@
 {
   int height=actualHeight;
   int width=actualWidth;
-  if (actualHeight < reqHeight && actualWidth < reqWidth) {
-    float betweenWidth=((float)reqWidth) / (float)actualWidth;
-    float betweenHeight=((float)reqHeight) / (float)actualHeight;
-    float min=Math.min(betweenHeight,betweenWidth);
-    height=(int)(min * actualHeight);
-    width=(int)(min * actualWidth);
-  }
+  float betweenWidth=((float)reqWidth) / (float)actualWidth;
+  float betweenHeight=((float)reqHeight) / (float)actualHeight;
+  float min=Math.min(betweenHeight,betweenWidth);
+  height=(int)(min * actualHeight);
+  width=(int)(min * actualWidth);
   return new int[]{width,height};
 }
