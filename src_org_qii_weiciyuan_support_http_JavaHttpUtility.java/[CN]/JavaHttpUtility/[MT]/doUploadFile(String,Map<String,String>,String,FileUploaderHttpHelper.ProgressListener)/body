@@ -14,8 +14,8 @@
     Proxy proxy=getProxy();
     if (proxy != null)     urlConnection=(HttpURLConnection)url.openConnection(proxy);
  else     urlConnection=(HttpURLConnection)url.openConnection();
-    urlConnection.setConnectTimeout(5000);
-    urlConnection.setReadTimeout(8000);
+    urlConnection.setConnectTimeout(UPLOAD_CONNECT_TIMEOUT);
+    urlConnection.setReadTimeout(UPLOAD_READ_TIMEOUT);
     urlConnection.setRequestMethod("POST");
     urlConnection.setUseCaches(false);
     urlConnection.setRequestProperty("Content-type","multipart/form-data;boundary=" + BOUNDARYSTR);

@@ -12,8 +12,8 @@
     uRLConnection.setDoOutput(true);
     uRLConnection.setRequestMethod("POST");
     uRLConnection.setUseCaches(false);
-    uRLConnection.setConnectTimeout(5000);
-    uRLConnection.setReadTimeout(8000);
+    uRLConnection.setConnectTimeout(CONNECT_TIMEOUT);
+    uRLConnection.setReadTimeout(READ_TIMEOUT);
     uRLConnection.setInstanceFollowRedirects(false);
     uRLConnection.setRequestProperty("Connection","Keep-Alive");
     uRLConnection.setRequestProperty("Charset","UTF-8");

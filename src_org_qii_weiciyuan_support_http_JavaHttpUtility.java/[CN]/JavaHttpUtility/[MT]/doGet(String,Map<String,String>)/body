@@ -14,8 +14,8 @@
  else     urlConnection=(HttpURLConnection)url.openConnection();
     urlConnection.setRequestMethod("GET");
     urlConnection.setDoOutput(false);
-    urlConnection.setConnectTimeout(5000);
-    urlConnection.setReadTimeout(8000);
+    urlConnection.setConnectTimeout(CONNECT_TIMEOUT);
+    urlConnection.setReadTimeout(READ_TIMEOUT);
     urlConnection.setRequestProperty("Connection","Keep-Alive");
     urlConnection.setRequestProperty("Charset","UTF-8");
     urlConnection.setRequestProperty("Accept-Encoding","gzip, deflate");
