@@ -21,6 +21,20 @@
       holder.avatar.getImageView().clearAnimation();
       holder.content_pic.getImageView().clearAnimation();
       holder.repost_content_pic.getImageView().clearAnimation();
+      for (      Integer tag : tagIndexList) {
+        if (!tag.equals(index)) {
+          ViewHolder otherViewHolder=(ViewHolder)view.getTag(tag);
+          if (otherViewHolder != null) {
+            otherViewHolder.avatar.setImageBitmap(null);
+            otherViewHolder.content_pic.setImageBitmap(null);
+            otherViewHolder.repost_content_pic.setImageBitmap(null);
+            otherViewHolder.avatar.getImageView().clearAnimation();
+            otherViewHolder.content_pic.getImageView().clearAnimation();
+            otherViewHolder.repost_content_pic.getImageView().clearAnimation();
+            view.setTag(tag,null);
+          }
+        }
+      }
     }
   }
 );

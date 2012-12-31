@@ -28,6 +28,7 @@ if (getItemViewType(position) != TYPE_MIDDLE) {
 holder=buildHolder(convertView);
 convertView.setTag(R.drawable.ic_launcher + getItemViewType(position),holder);
 convertView.setTag(R.string.listview_index_tag,R.drawable.ic_launcher + getItemViewType(position));
+tagIndexList.add(R.drawable.ic_launcher + getItemViewType(position));
 }
 }
  else {
