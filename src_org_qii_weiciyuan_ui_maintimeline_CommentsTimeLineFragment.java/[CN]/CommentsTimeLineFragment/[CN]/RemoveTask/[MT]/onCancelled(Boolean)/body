@@ -1,6 +1,6 @@
 {
   super.onCancelled(aBoolean);
-  if (this.e != null) {
+  if (Utility.isAllNotNull(getActivity(),this.e)) {
     Toast.makeText(getActivity(),e.getError(),Toast.LENGTH_SHORT).show();
   }
 }
