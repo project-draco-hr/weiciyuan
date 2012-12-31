@@ -46,5 +46,4 @@
   if (!TextUtils.isEmpty(SettingUtility.getRingtone())) {
     uri=Uri.parse(path);
   }
-  buildSummary();
 }
