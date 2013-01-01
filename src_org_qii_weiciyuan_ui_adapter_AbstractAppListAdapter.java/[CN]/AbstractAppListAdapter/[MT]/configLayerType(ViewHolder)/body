@@ -1,0 +1,13 @@
+{
+  boolean hardAccelerated=SettingUtility.enableHardwareAccelerated();
+  int prefLayerType=hardAccelerated ? View.LAYER_TYPE_HARDWARE : View.LAYER_TYPE_SOFTWARE;
+  int currentWidgetLayerType=holder.username.getLayerType();
+  if (prefLayerType != currentWidgetLayerType) {
+    holder.username.setLayerType(prefLayerType,null);
+    holder.content.setLayerType(prefLayerType,null);
+    holder.repost_content.setLayerType(prefLayerType,null);
+    holder.time.setLayerType(prefLayerType,null);
+    holder.repost_count.setLayerType(prefLayerType,null);
+    holder.comment_count.setLayerType(prefLayerType,null);
+  }
+}
