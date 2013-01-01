@@ -1,0 +1,9 @@
+{
+  int prefFontSizeSp=SettingUtility.getFontSize();
+  float currentWidgetTextSizePx;
+  currentWidgetTextSizePx=holder.content.getTextSize();
+  if (Utility.sp2px(prefFontSizeSp) != currentWidgetTextSizePx) {
+    holder.content.setTextSize(prefFontSizeSp);
+    holder.username.setTextSize(prefFontSizeSp);
+  }
+}

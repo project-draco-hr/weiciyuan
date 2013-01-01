@@ -12,6 +12,8 @@
  else {
     holder=(ViewHolder)convertView.getTag();
   }
+  configViewFont(holder);
+  configLayerType(holder);
   bindViewData(holder,position);
   return convertView;
 }

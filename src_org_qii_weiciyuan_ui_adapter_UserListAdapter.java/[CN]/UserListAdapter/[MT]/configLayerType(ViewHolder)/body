@@ -1,0 +1,9 @@
+{
+  boolean hardAccelerated=SettingUtility.enableHardwareAccelerated();
+  int prefLayerType=hardAccelerated ? View.LAYER_TYPE_HARDWARE : View.LAYER_TYPE_SOFTWARE;
+  int currentWidgetLayerType=holder.username.getLayerType();
+  if (prefLayerType != currentWidgetLayerType) {
+    holder.username.setLayerType(prefLayerType,null);
+    if (holder.content != null)     holder.content.setLayerType(prefLayerType,null);
+  }
+}
