@@ -8,6 +8,9 @@
     builder.setProgress(0,100,true);
   }
   notification=builder.getNotification();
-  startForeground(NOTIFICATION_ID,notification);
+  int notificationId=new Random().nextInt(Integer.MAX_VALUE);
+  NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+  notificationManager.notify(notificationId,notification);
+  tasksNotifications.put(WeiboSendTask.this,notificationId);
   Toast.makeText(SendWeiboService.this,getString(R.string.background_sending),Toast.LENGTH_SHORT).show();
 }

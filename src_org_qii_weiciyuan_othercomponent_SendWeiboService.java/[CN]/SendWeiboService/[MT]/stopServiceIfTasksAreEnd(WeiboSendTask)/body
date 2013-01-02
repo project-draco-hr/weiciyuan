@@ -5,7 +5,10 @@
   for (  WeiboSendTask task : taskSet) {
     if (!tasksResult.get(task)) {
       isAllTaskEnd=false;
-      break;
+    }
+ else {
+      NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+      notificationManager.cancel(tasksNotifications.get(task));
     }
   }
   if (isAllTaskEnd) {
