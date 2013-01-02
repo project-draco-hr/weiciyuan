@@ -1,7 +1,7 @@
 {
   return new StatusNewMsgDao(token).setPic(uploadPicPath).setGeoBean(geoBean).sendNewMsg(content,new FileUploaderHttpHelper.ProgressListener(){
     @Override public void transferred(    long data){
-      publishProgress((long)(data * 0.9));
+      publishProgress((long)(data * 0.95));
     }
     @Override public void completed(){
       publishProgress(size);
