@@ -5,7 +5,7 @@
   content=intent.getStringExtra("content");
   geoBean=(GeoBean)intent.getSerializableExtra("geo");
   statusDraftBean=(StatusDraftBean)intent.getSerializableExtra("draft");
-  UploadTask task=new UploadTask();
+  WeiboSendTask task=new WeiboSendTask();
   task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   tasksResult.put(task,false);
   return super.onStartCommand(intent,flags,startId);
