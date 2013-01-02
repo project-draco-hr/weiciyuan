@@ -1,0 +1,13 @@
+{
+  boolean isAllTaskEnd=true;
+  for (  UploadTask task : taskList) {
+    if (!Utility.isTaskStopped(task)) {
+      isAllTaskEnd=false;
+      break;
+    }
+  }
+  if (isAllTaskEnd) {
+    stopForeground(true);
+    stopSelf();
+  }
+}
