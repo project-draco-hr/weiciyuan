@@ -1,6 +1,6 @@
 {
   super.onPreExecute();
-  Notification.Builder builder=new Notification.Builder(SendWeiboService.this).setTicker(getString(R.string.sending)).setContentTitle(getString(R.string.sending)).setContentText(content).setSmallIcon(R.drawable.upload_white);
+  Notification.Builder builder=new Notification.Builder(SendWeiboService.this).setTicker(getString(R.string.sending)).setContentTitle(getString(R.string.sending)).setContentText(content).setOnlyAlertOnce(true).setOngoing(true).setSmallIcon(R.drawable.upload_white);
   if (!TextUtils.isEmpty(picPath)) {
     builder.setProgress(0,100,false);
   }

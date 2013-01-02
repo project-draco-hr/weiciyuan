@@ -1,7 +1,12 @@
 {
   if (values.length > 0) {
     long data=values[0];
-    Notification.Builder builder=new Notification.Builder(SendWeiboService.this).setTicker(getString(R.string.send_photo)).setContentTitle(getString(R.string.background_sending)).setContentText(content).setProgress((int)size,(int)data,false).setSmallIcon(R.drawable.upload_white);
+    double r=data / (double)size;
+    if (Math.abs(r - lastStatus) < 0.01d) {
+      return;
+    }
+    lastStatus=r;
+    Notification.Builder builder=new Notification.Builder(SendWeiboService.this).setTicker(getString(R.string.send_photo)).setContentTitle(getString(R.string.background_sending)).setContentText(content).setProgress((int)size,(int)data,false).setOnlyAlertOnce(true).setOngoing(true).setSmallIcon(R.drawable.upload_white);
     notification=builder.getNotification();
     startForeground(NOTIFICATION_ID,notification);
   }
