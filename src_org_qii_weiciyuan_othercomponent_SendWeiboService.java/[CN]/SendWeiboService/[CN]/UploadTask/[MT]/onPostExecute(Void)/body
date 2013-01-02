@@ -2,6 +2,15 @@
   super.onPostExecute(aVoid);
   if (statusDraftBean != null)   DraftDBManager.getInstance().remove(statusDraftBean.getId());
   Toast.makeText(SendWeiboService.this,getString(R.string.send_successfully),Toast.LENGTH_SHORT).show();
-  stopForeground(true);
-  stopSelf();
+  boolean isAllTaskEnd=true;
+  for (  UploadTask task : taskList) {
+    if (!Utility.isTaskStopped(task)) {
+      isAllTaskEnd=false;
+      break;
+    }
+  }
+  if (isAllTaskEnd) {
+    stopForeground(true);
+    stopSelf();
+  }
 }
