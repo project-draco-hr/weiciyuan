@@ -1,0 +1,41 @@
+{
+  BitmapFactory.Options options=new BitmapFactory.Options();
+  options.inJustDecodeBounds=false;
+  options.inSampleSize=1;
+switch (SettingUtility.getUploadQuality()) {
+case 1:
+    return picPath;
+case 2:
+  options.inSampleSize=2;
+break;
+case 3:
+options.inSampleSize=4;
+break;
+case 4:
+options.inSampleSize=2;
+if (Utility.isWifi(context)) {
+return picPath;
+}
+break;
+}
+Bitmap bitmap=BitmapFactory.decodeFile(picPath,options);
+FileOutputStream stream=null;
+String tmp=FileManager.getUploadPicTempFile();
+try {
+new File(tmp).getParentFile().mkdirs();
+new File(tmp).createNewFile();
+stream=new FileOutputStream(new File(tmp));
+}
+ catch (IOException ignored) {
+}
+bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
+if (stream != null) {
+try {
+stream.close();
+bitmap.recycle();
+}
+ catch (IOException ignored) {
+}
+}
+return tmp;
+}
