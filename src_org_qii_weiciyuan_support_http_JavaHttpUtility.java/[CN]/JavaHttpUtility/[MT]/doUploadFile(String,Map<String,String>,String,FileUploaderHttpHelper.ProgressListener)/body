@@ -75,6 +75,9 @@
     out.flush();
     out.close();
     int status=urlConnection.getResponseCode();
+    if (listener != null) {
+      listener.completed();
+    }
     if (status != 200) {
       String error=handleError(urlConnection);
       throw new WeiboException(error);
