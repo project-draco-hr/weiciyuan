@@ -7,6 +7,6 @@
   statusDraftBean=(StatusDraftBean)intent.getSerializableExtra("draft");
   UploadTask task=new UploadTask();
   task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  taskList.add(task);
+  tasksResult.put(task,false);
   return super.onStartCommand(intent,flags,startId);
 }
