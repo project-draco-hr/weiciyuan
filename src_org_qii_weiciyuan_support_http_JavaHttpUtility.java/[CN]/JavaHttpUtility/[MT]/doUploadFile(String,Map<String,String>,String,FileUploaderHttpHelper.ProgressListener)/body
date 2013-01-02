@@ -66,6 +66,7 @@
       bufferSize=Math.min(bytesAvailable,maxBufferSize);
       bytesRead=fis.read(buffer,0,bufferSize);
       transferred+=bytesRead;
+      if (transferred % 50 == 0)       out.flush();
       if (listener != null)       listener.transferred(transferred);
     }
     out.write("\r\n\r\n".getBytes());
