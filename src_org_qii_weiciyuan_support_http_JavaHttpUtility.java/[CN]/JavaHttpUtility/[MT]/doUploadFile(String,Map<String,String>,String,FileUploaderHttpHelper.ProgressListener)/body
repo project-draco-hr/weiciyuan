@@ -16,6 +16,8 @@
  else     urlConnection=(HttpURLConnection)url.openConnection();
     urlConnection.setConnectTimeout(UPLOAD_CONNECT_TIMEOUT);
     urlConnection.setReadTimeout(UPLOAD_READ_TIMEOUT);
+    urlConnection.setDoInput(true);
+    urlConnection.setDoOutput(true);
     urlConnection.setRequestMethod("POST");
     urlConnection.setUseCaches(false);
     urlConnection.setRequestProperty("Connection","Keep-Alive");
@@ -80,7 +82,7 @@
     if (listener != null) {
       listener.completed();
     }
-    if (status != 200) {
+    if (status != HttpURLConnection.HTTP_OK) {
       String error=handleError(urlConnection);
       throw new WeiboException(error);
     }

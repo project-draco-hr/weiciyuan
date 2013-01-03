@@ -11,7 +11,7 @@
     httpURLConnection.disconnect();
     throw new WeiboException(errorStr,e);
   }
-  if (status != 200) {
+  if (status != HttpURLConnection.HTTP_OK) {
     return handleError(httpURLConnection);
   }
   return readResult(httpURLConnection);
