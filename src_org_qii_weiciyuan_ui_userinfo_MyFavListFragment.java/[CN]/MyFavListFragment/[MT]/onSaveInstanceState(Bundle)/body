@@ -1,4 +1,5 @@
 {
   super.onSaveInstanceState(outState);
   outState.putSerializable("bean",bean);
+  outState.putInt("page",page);
 }
