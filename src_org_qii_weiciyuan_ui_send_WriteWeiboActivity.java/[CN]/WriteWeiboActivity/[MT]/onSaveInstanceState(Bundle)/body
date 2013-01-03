@@ -3,4 +3,5 @@
   outState.putString("picPath",picPath);
   outState.putSerializable("geoBean",geoBean);
   outState.putString("location",location);
+  outState.putParcelable("imageFileUri",imageFileUri);
 }

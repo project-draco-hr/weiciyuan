@@ -23,5 +23,6 @@
     location=savedInstanceState.getString("location");
     if (geoBean != null && !TextUtils.isEmpty(location))     enableGeo();
  else     disableGeo();
+    imageFileUri=savedInstanceState.getParcelable("imageFileUri");
   }
 }
