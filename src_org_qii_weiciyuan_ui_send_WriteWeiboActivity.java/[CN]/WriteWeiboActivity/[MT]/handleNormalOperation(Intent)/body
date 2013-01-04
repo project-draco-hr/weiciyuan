@@ -13,6 +13,11 @@
     picPath=statusDraftBean.getPic();
     geoBean=statusDraftBean.getGps();
     if (!TextUtils.isEmpty(picPath))     enablePicture();
-    if (geoBean != null)     new GetGoogleLocationInfo(geoBean).execute();
+    if (geoBean != null) {
+      if (Utility.isTaskStopped(locationTask)) {
+        locationTask=new GetGoogleLocationInfo(geoBean);
+        locationTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      }
+    }
   }
 }

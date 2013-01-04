@@ -1,0 +1,6 @@
+{
+  Intent mapCall=new Intent(Intent.ACTION_VIEW,uri);
+  PackageManager packageManager=activity.getPackageManager();
+  List<ResolveInfo> activities=packageManager.queryIntentActivities(mapCall,0);
+  return activities.size() > 0;
+}

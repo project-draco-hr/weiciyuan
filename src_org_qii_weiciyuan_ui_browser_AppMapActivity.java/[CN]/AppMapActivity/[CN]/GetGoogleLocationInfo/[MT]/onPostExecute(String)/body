@@ -1,0 +1,7 @@
+{
+  if (!TextUtils.isEmpty(s) && melbourne != null) {
+    melbourne.setTitle(s);
+    melbourne.showInfoWindow();
+  }
+  super.onPostExecute(s);
+}

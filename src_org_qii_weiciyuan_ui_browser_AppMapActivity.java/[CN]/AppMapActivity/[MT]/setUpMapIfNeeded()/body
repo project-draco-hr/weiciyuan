@@ -4,7 +4,7 @@
     if (mMap != null) {
       mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
       final LatLng MELBOURNE=new LatLng(lat,lon);
-      Marker melbourne=mMap.addMarker(new MarkerOptions().position(MELBOURNE).title(locationStr));
+      melbourne=mMap.addMarker(new MarkerOptions().position(MELBOURNE).title(!TextUtils.isEmpty(locationStr) ? locationStr : String.format("[%f,%f]",lat,lon)).snippet(String.format("[%f,%f]",lat,lon)));
       melbourne.showInfoWindow();
       LatLng latLng=new LatLng(lat,lon);
       CameraUpdate update=CameraUpdateFactory.newLatLng(latLng);

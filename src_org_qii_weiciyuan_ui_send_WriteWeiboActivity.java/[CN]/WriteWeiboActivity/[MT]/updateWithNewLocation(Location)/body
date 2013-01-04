@@ -3,6 +3,9 @@
   geoBean=new GeoBean();
   geoBean.setLatitude(result.getLatitude());
   geoBean.setLongitude(result.getLongitude());
-  new GetGoogleLocationInfo(geoBean).execute();
+  if (Utility.isTaskStopped(locationTask)) {
+    locationTask=new GetGoogleLocationInfo(geoBean);
+    locationTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
   ((LocationManager)WriteWeiboActivity.this.getSystemService(Context.LOCATION_SERVICE)).removeUpdates(locationListener);
 }

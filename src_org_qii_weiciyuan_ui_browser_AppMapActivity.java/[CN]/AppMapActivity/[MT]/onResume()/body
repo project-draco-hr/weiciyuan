@@ -1,0 +1,12 @@
+{
+  super.onResume();
+  if (TextUtils.isEmpty(locationStr)) {
+    if (Utility.isTaskStopped(locationTask)) {
+      GeoBean geoBean=new GeoBean();
+      geoBean.setLatitude(lat);
+      geoBean.setLongitude(lon);
+      locationTask=new GetGoogleLocationInfo(geoBean);
+      locationTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    }
+  }
+}
