@@ -1,0 +1,8 @@
+{
+  super.onCreate(savedInstanceState);
+  try {
+    MapsInitializer.initialize(getActivity());
+  }
+ catch (  GooglePlayServicesNotAvailableException impossible) {
+  }
+}
