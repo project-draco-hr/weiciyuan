@@ -11,7 +11,7 @@ groupDataCache.put(ALL_GROUP_ID,new MessageListBean());
 groupDataCache.put(BILATERAL_GROUP_ID,new MessageListBean());
 break;
 case SCREEN_ROTATE:
-refreshLayout(bean);
+refreshLayout(getList());
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
 userBean=(UserBean)savedInstanceState.getSerializable("userBean");
