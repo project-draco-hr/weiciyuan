@@ -4,8 +4,8 @@
   index.addAll(emotions.keySet());
   for (  String str : index) {
     String url=emotions.get(str);
-    String path=FileManager.getFilePathFromUrl(url,FileLocationMethod.emotion);
-    String name=new File(path).getName();
+    int position=url.lastIndexOf("/");
+    String name=url.substring(position + 1);
     AssetManager assetManager=GlobalContext.getInstance().getAssets();
     InputStream inputStream;
     try {
