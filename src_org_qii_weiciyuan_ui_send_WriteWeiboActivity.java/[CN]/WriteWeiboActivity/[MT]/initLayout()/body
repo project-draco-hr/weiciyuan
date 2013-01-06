@@ -22,10 +22,7 @@
         }
         Uri geoUri=Uri.parse(geoUriString.toString());
         Intent mapCall=new Intent(Intent.ACTION_VIEW,geoUri);
-        PackageManager packageManager=getPackageManager();
-        List<ResolveInfo> activities=packageManager.queryIntentActivities(mapCall,0);
-        boolean isIntentSafe=activities.size() > 0;
-        if (isIntentSafe) {
+        if (Utility.isIntentSafe(WriteWeiboActivity.this,mapCall)) {
           startActivity(mapCall);
         }
       }

@@ -1,0 +1,5 @@
+{
+  PackageManager packageManager=activity.getPackageManager();
+  List<ResolveInfo> activities=packageManager.queryIntentActivities(intent,0);
+  return activities.size() > 0;
+}

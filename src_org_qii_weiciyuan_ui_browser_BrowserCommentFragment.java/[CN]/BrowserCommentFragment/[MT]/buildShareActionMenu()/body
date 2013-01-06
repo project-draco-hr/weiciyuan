@@ -3,10 +3,7 @@
   sharingIntent.setType("text/plain");
   if (msg != null) {
     sharingIntent.putExtra(Intent.EXTRA_TEXT,msg.getText());
-    PackageManager packageManager=getActivity().getPackageManager();
-    List<ResolveInfo> activities=packageManager.queryIntentActivities(sharingIntent,0);
-    boolean isIntentSafe=activities.size() > 0;
-    if (isIntentSafe && mShareActionProvider != null) {
+    if (Utility.isIntentSafe(getActivity(),sharingIntent) && mShareActionProvider != null) {
       mShareActionProvider.setShareIntent(sharingIntent);
     }
   }

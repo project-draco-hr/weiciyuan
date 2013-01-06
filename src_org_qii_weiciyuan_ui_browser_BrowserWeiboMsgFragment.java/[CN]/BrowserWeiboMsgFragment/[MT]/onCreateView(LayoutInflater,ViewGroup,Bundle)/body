@@ -26,10 +26,7 @@
         String geoUriString="geo:" + bean.getLat() + ","+ bean.getLon()+ "?q="+ location.getText();
         Uri geoUri=Uri.parse(geoUriString);
         Intent mapCall=new Intent(Intent.ACTION_VIEW,geoUri);
-        PackageManager packageManager=getActivity().getPackageManager();
-        List<ResolveInfo> activities=packageManager.queryIntentActivities(mapCall,0);
-        boolean isIntentSafe=activities.size() > 0;
-        if (isIntentSafe) {
+        if (Utility.isIntentSafe(getActivity(),mapCall)) {
           startActivity(mapCall);
         }
       }
