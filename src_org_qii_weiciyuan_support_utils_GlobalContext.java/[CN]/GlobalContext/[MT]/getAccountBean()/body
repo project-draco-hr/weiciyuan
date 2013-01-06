@@ -1,6 +1,6 @@
 {
   if (accountBean == null) {
-    String id=sharedPref.getString("id","");
+    String id=SettingUtility.getDefaultAccountId();
     if (!TextUtils.isEmpty(id)) {
       accountBean=DatabaseManager.getInstance().getAccount(id);
     }

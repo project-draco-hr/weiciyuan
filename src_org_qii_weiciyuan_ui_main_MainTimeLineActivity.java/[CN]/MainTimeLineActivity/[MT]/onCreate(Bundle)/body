@@ -10,10 +10,7 @@
   }
   if (accountBean == null)   accountBean=GlobalContext.getInstance().getAccountBean();
   GlobalContext.getInstance().setAccountBean(accountBean);
-  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
-  SharedPreferences.Editor editor=sharedPref.edit();
-  editor.putString("id",accountBean.getUid());
-  editor.commit();
+  SettingUtility.setDefaultAccountId(accountBean.getUid());
   buildPhoneInterface();
   Executors.newSingleThreadScheduledExecutor().schedule(new ClearCacheTask(),8000,TimeUnit.SECONDS);
 }
