@@ -17,6 +17,7 @@ case ACTIVITY_DESTROY_AND_CREATE:
 userBean=(UserBean)savedInstanceState.getSerializable("userBean");
 accountBean=(AccountBean)savedInstanceState.getSerializable("account");
 token=savedInstanceState.getString("token");
+unreadBean=(UnreadBean)savedInstanceState.getSerializable("unreadBean");
 groupNames=savedInstanceState.getStringArray("groupNames");
 currentGroupId=savedInstanceState.getInt("currentGroupId");
 filter_by_author=savedInstanceState.getString("filter_by_author");
@@ -29,4 +30,5 @@ timeLineAdapter.notifyDataSetChanged();
 refreshLayout(getList());
 break;
 }
+refreshUnread(this.unreadBean);
 }

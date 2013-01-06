@@ -1,0 +1,12 @@
+{
+  Activity activity=getActivity();
+  if (activity != null) {
+    if (unreadBean == null) {
+      activity.getActionBar().getTabAt(1).setText(getString(R.string.mentions));
+      return;
+    }
+    this.unreadBean=unreadBean;
+    String number=Utility.buildTabText(unreadBean.getMention_status());
+    if (!TextUtils.isEmpty(number))     activity.getActionBar().getTabAt(1).setText(getString(R.string.mentions) + number);
+  }
+}

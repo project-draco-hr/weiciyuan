@@ -11,7 +11,8 @@
       getListView().setSelectionAfterHeaderView();
     }
   }
-  getActivity().getActionBar().getTabAt(2).setText(getString(R.string.comments));
+  unreadBean=null;
+  refreshUnread(unreadBean);
   NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
   notificationManager.cancel(Long.valueOf(GlobalContext.getInstance().getCurrentAccountId()).intValue());
 }

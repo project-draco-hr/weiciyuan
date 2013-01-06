@@ -1,6 +1,6 @@
 {
   int unreadMentionsCount=unreadBean.getMention_status();
   int unreadCommentsCount=unreadBean.getMention_cmt() + unreadBean.getCmt();
-  if (unreadMentionsCount > 0)   buildTabText(1,unreadMentionsCount);
-  if (unreadCommentsCount > 0)   buildTabText(2,unreadCommentsCount);
+  if (unreadMentionsCount > 0 && getMentionFragment() != null)   getMentionFragment().refreshUnread(unreadBean);
+  if (unreadCommentsCount > 0 && getCommentFragment() != null)   getCommentFragment().refreshUnread(unreadBean);
 }

@@ -1,5 +1,5 @@
 {
-  if (getUnreadCountTask == null || getUnreadCountTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+  if (Utility.isTaskStopped(getUnreadCountTask)) {
     getUnreadCountTask=new GetUnreadCountTask();
     getUnreadCountTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }

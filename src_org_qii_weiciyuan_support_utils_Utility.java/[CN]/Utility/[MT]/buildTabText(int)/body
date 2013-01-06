@@ -1,0 +1,13 @@
+{
+  if (number == 0) {
+    return null;
+  }
+  String num;
+  if (number < 99) {
+    num="(" + number + ")";
+  }
+ else {
+    num="(99+)";
+  }
+  return num;
+}

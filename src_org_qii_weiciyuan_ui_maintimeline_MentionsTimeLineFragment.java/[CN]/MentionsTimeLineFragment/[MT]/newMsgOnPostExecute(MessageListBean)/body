@@ -5,7 +5,8 @@
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
   }
-  getActivity().getActionBar().getTabAt(1).setText(getString(R.string.mentions));
+  unreadBean=null;
+  refreshUnread(unreadBean);
   NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
   notificationManager.cancel(Long.valueOf(GlobalContext.getInstance().getCurrentAccountId()).intValue());
   putToGroupDataMemoryCache(currentGroupId,bean);
