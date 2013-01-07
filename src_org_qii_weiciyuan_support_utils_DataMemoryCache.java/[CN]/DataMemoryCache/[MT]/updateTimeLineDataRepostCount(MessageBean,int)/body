@@ -1,0 +1,13 @@
+{
+  if (msg == null) {
+    return friendTimeLineData;
+  }
+  List<MessageBean> msgList=friendTimeLineData.getItemList();
+  for (int i=0; i < msgList.size(); i++) {
+    if (msgList.get(i).getId().equals(msg.getId())) {
+      msgList.get(i).setReposts_count(repostCount);
+      break;
+    }
+  }
+  return friendTimeLineData;
+}

@@ -1,0 +1,5 @@
+{
+  updateTimeLineDataCommentCount(msg,msg.getComments_count());
+  updateTimeLineDataRepostCount(msg,msg.getReposts_count());
+  return friendTimeLineData;
+}
