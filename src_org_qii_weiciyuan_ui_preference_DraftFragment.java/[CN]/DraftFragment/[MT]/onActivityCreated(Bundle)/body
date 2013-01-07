@@ -10,7 +10,7 @@
       Intent intent;
 switch (item.getType()) {
 case DraftTable.TYPE_WEIBO:
-        AccountBean accountBean=DatabaseManager.getInstance().getAccount(item.getStatusDraftBean().getAccountId());
+        AccountBean accountBean=AccountDBTask.getAccount(item.getStatusDraftBean().getAccountId());
       intent=new Intent(getActivity(),WriteWeiboActivity.class);
     intent.putExtra("draft",item.getStatusDraftBean());
   intent.putExtra("account",accountBean);

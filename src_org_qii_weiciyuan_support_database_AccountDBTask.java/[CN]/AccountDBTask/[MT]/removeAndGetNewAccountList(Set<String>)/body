@@ -4,11 +4,11 @@
   asString=asString.replace("[","(");
   asString=asString.replace("]",")");
   String sql="delete from " + AccountTable.TABLE_NAME + " where "+ AccountTable.UID+ " in "+ asString;
-  wsd.execSQL(sql);
+  getWsd().execSQL(sql);
   for (  String id : args) {
-    deleteAllHomes(id);
-    deleteAllReposts(id);
-    deleteAllComments(id);
+    DatabaseManager.getInstance().deleteAllHomes(id);
+    DatabaseManager.getInstance().deleteAllReposts(id);
+    DatabaseManager.getInstance().deleteAllComments(id);
     MyStatusDBTask.clear(id);
   }
   return getAccountList();

@@ -2,10 +2,10 @@
   if (accountBean == null) {
     String id=SettingUtility.getDefaultAccountId();
     if (!TextUtils.isEmpty(id)) {
-      accountBean=DatabaseManager.getInstance().getAccount(id);
+      accountBean=AccountDBTask.getAccount(id);
     }
  else {
-      List<AccountBean> accountList=DatabaseManager.getInstance().getAccountList();
+      List<AccountBean> accountList=AccountDBTask.getAccountList();
       if (accountList != null && accountList.size() > 0) {
         accountBean=accountList.get(0);
       }

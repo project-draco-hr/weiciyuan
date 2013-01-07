@@ -1,5 +1,5 @@
 {
-  List<AccountBean> accountBeanList=DatabaseManager.getInstance().getAccountList();
+  List<AccountBean> accountBeanList=AccountDBTask.getAccountList();
   if (accountBeanList.size() > 0) {
     return accountBeanList;
   }

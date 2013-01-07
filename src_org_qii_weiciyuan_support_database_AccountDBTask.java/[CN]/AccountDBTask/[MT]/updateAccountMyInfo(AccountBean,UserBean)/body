@@ -4,5 +4,5 @@
   ContentValues cv=new ContentValues();
   cv.put(AccountTable.UID,uid);
   cv.put(AccountTable.INFOJSON,json);
-  int c=rsd.update(AccountTable.TABLE_NAME,cv,AccountTable.UID + "=?",new String[]{uid});
+  int c=getWsd().update(AccountTable.TABLE_NAME,cv,AccountTable.UID + "=?",new String[]{uid});
 }

@@ -6,7 +6,7 @@
       SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
       String id=sharedPref.getString("id","");
       if (!TextUtils.isEmpty(id)) {
-        AccountBean bean=DatabaseManager.getInstance().getAccount(id);
+        AccountBean bean=AccountDBTask.getAccount(id);
         if (bean != null) {
           Intent start=new Intent(AccountActivity.this,MainTimeLineActivity.class);
           start.putExtra("account",bean);

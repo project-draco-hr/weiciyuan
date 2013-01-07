@@ -1,7 +1,7 @@
 {
   List<AccountBean> accountList=new ArrayList<AccountBean>();
   String sql="select * from " + AccountTable.TABLE_NAME;
-  Cursor c=rsd.rawQuery(sql,null);
+  Cursor c=getWsd().rawQuery(sql,null);
   while (c.moveToNext()) {
     AccountBean account=new AccountBean();
     int colid=c.getColumnIndex(AccountTable.OAUTH_TOKEN);
