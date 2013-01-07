@@ -1,5 +1,6 @@
 {
   if (newValue != null && e == null) {
+    DataMemoryCache.update(newValue);
     if (isStatusDeleted(newValue)) {
       setTextViewDeleted(content);
       if (recontent.getVisibility() == View.VISIBLE) {

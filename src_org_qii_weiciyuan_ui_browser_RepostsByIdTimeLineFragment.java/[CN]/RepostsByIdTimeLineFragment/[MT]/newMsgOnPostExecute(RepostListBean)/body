@@ -4,5 +4,6 @@
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
     invlidateTabText();
+    DataMemoryCache.updateTimeLineDataRepostCount(newValue.getItem(0).getRetweeted_status(),newValue.getTotal_number());
   }
 }

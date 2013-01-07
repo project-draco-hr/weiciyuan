@@ -3,5 +3,6 @@
     getList().addOldData(newValue);
     getAdapter().notifyDataSetChanged();
     invlidateTabText();
+    DataMemoryCache.updateTimeLineDataCommentCount(newValue.getItem(0).getStatus(),newValue.getTotal_number());
   }
 }

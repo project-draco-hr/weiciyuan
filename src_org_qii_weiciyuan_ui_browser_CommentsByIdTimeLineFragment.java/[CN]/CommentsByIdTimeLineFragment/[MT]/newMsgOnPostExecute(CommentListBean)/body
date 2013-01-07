@@ -4,6 +4,7 @@
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
     invlidateTabText();
+    DataMemoryCache.updateTimeLineDataCommentCount(newValue.getItem(0).getStatus(),newValue.getTotal_number());
   }
  else   if (newValue != null && newValue.getSize() == 0) {
     getList().clear();
