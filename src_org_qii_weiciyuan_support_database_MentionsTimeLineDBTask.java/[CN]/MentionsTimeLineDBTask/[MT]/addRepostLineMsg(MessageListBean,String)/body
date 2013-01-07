@@ -9,7 +9,7 @@
     cv.put(RepostsTable.ACCOUNTID,accountId);
     String json=gson.toJson(msg);
     cv.put(RepostsTable.JSONDATA,json);
-    wsd.insert(RepostsTable.TABLE_NAME,RepostsTable.ID,cv);
+    getWsd().insert(RepostsTable.TABLE_NAME,RepostsTable.ID,cv);
   }
   reduceRepostTable(accountId);
 }

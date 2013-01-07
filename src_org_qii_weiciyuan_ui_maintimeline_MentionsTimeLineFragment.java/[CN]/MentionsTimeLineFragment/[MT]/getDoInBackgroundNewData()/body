@@ -7,7 +7,7 @@
   dao.setFilter_by_type(filter_by_type);
   MessageListBean result=dao.getGSONMsgList();
   if (result != null && currentGroupId == 0) {
-    DatabaseManager.getInstance().addRepostLineMsg(result,accountBean.getUid());
+    MentionsTimeLineDBTask.addRepostLineMsg(result,accountBean.getUid());
   }
   return result;
 }
