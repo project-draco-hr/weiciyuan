@@ -1,6 +1,6 @@
 {
   if (msg == null) {
-    return friendTimeLineData;
+    return;
   }
   List<MessageBean> msgList=friendTimeLineData.getItemList();
   for (int i=0; i < msgList.size(); i++) {
@@ -9,5 +9,11 @@
       break;
     }
   }
-  return friendTimeLineData;
+  msgList=statusByIdTimeLineData.getItemList();
+  for (int i=0; i < msgList.size(); i++) {
+    if (msgList.get(i).equals(msg)) {
+      msgList.get(i).setComments_count(commentCount);
+      break;
+    }
+  }
 }

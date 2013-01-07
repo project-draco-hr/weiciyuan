@@ -4,14 +4,14 @@ case FIRST_TIME_START:
     getPullToRefreshListView().startRefreshNow();
   break;
 case SCREEN_ROTATE:
-refreshLayout(bean);
+refreshLayout(getList());
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-clearAndReplaceValue((MessageListBean)savedInstanceState.getSerializable("bean"));
+getList().replaceData((MessageListBean)savedInstanceState.getSerializable("bean"));
 userBean=(UserBean)savedInstanceState.getSerializable("userBean");
 token=savedInstanceState.getString("token");
 getAdapter().notifyDataSetChanged();
-refreshLayout(bean);
+refreshLayout(getList());
 break;
 }
 super.onActivityCreated(savedInstanceState);
