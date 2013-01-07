@@ -1,4 +1,4 @@
 {
-  List<String> set=DatabaseManager.getInstance().getFilterList();
+  List<String> set=FilterDBTask.getFilterList();
   return set;
 }

@@ -12,7 +12,7 @@
   if (value != null && value.getItemList().size() > 0) {
     List<MessageBean> msgList=value.getItemList();
     Iterator<MessageBean> iterator=msgList.iterator();
-    List<String> filterWordList=DatabaseManager.getInstance().getFilterList();
+    List<String> filterWordList=FilterDBTask.getFilterList();
     while (iterator.hasNext()) {
       MessageBean msg=iterator.next();
       if (msg.getUser() == null) {

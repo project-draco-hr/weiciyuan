@@ -7,7 +7,7 @@
     @Override public void onClick(    DialogInterface dialog,    int which){
       String newValue=et.getText().toString().trim();
       if (!TextUtils.isEmpty(word)) {
-        DatabaseManager.getInstance().removeAndGetNewFilterList(word);
+        FilterDBTask.removeAndGetNewFilterList(word);
         FilterFragment filterFragment=(FilterFragment)getTargetFragment();
         filterFragment.addFilter(newValue);
       }
