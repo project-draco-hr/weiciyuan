@@ -1,0 +1,16 @@
+{
+  if (this == otherObject) {
+    return true;
+  }
+  if (otherObject == null) {
+    return false;
+  }
+  if (getClass() != otherObject.getClass()) {
+    return false;
+  }
+  if (!(otherObject instanceof MessageBean)) {
+    return false;
+  }
+  MessageBean other=(MessageBean)otherObject;
+  return getIdstr().equals(other.getIdstr());
+}
