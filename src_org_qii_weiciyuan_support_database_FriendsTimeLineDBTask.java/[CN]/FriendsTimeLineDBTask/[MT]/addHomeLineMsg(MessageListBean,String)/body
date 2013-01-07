@@ -12,14 +12,14 @@
       cv.put(HomeTable.ACCOUNTID,accountId);
       String json=gson.toJson(msg);
       cv.put(HomeTable.JSONDATA,json);
-      wsd.insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
+      getWsd().insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
     }
  else {
       ContentValues cv=new ContentValues();
       cv.put(HomeTable.MBLOGID,"-1");
       cv.put(HomeTable.ACCOUNTID,accountId);
       cv.put(HomeTable.JSONDATA,"");
-      wsd.insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
+      getWsd().insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
     }
   }
   reduceHomeTable(accountId);

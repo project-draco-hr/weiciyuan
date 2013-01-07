@@ -1,7 +1,7 @@
 {
   String searchCount="select count(" + HomeTable.ID + ") as total"+ " from "+ HomeTable.TABLE_NAME+ " where "+ HomeTable.ACCOUNTID+ " = "+ accountId;
   int total=0;
-  Cursor c=rsd.rawQuery(searchCount,null);
+  Cursor c=getWsd().rawQuery(searchCount,null);
   if (c.moveToNext()) {
     total=c.getInt(c.getColumnIndex("total"));
   }
@@ -11,6 +11,6 @@
   if (needDeletedNumber > 0) {
     AppLogger.e("" + needDeletedNumber);
     String sql=" delete from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ID+ " in "+ "( select "+ HomeTable.ID+ " from "+ HomeTable.TABLE_NAME+ " where "+ HomeTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ HomeTable.ID+ " desc limit "+ needDeletedNumber+ " ) ";
-    wsd.execSQL(sql);
+    getWsd().execSQL(sql);
   }
 }

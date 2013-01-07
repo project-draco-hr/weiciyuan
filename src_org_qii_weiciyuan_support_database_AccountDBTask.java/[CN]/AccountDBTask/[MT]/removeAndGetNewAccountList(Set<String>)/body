@@ -6,7 +6,7 @@
   String sql="delete from " + AccountTable.TABLE_NAME + " where "+ AccountTable.UID+ " in "+ asString;
   getWsd().execSQL(sql);
   for (  String id : args) {
-    DatabaseManager.getInstance().deleteAllHomes(id);
+    FriendsTimeLineDBTask.deleteAllHomes(id);
     DatabaseManager.getInstance().deleteAllReposts(id);
     DatabaseManager.getInstance().deleteAllComments(id);
     MyStatusDBTask.clear(id);

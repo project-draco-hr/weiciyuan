@@ -5,7 +5,7 @@ switch (type) {
 case TYPE_STATUS:
     AppLogger.e("start db");
   MessageListBean value=(MessageListBean)intent.getSerializableExtra("value");
-DatabaseManager.getInstance().replaceHomeLineMsg(value,accountId);
+FriendsTimeLineDBTask.replaceHomeLineMsg(value,accountId);
 AppLogger.e("end db");
 break;
 }
