@@ -7,7 +7,7 @@
     cv.put(CommentsTable.ACCOUNTID,accountId);
     String json=gson.toJson(msg);
     cv.put(CommentsTable.JSONDATA,json);
-    wsd.insert(CommentsTable.TABLE_NAME,CommentsTable.ID,cv);
+    getWsd().insert(CommentsTable.TABLE_NAME,CommentsTable.ID,cv);
   }
   reduceCommentTable(accountId);
 }

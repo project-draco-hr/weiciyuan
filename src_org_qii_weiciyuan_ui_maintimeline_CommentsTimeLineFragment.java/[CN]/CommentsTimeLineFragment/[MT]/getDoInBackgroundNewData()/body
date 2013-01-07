@@ -20,7 +20,7 @@ dao.setSince_id(getList().getItemList().get(0).getId());
 }
 result=dao.getGSONMsgList();
 if (result != null && currentGroupId == TYPE_RECEIVED_COMMENT) {
-DatabaseManager.getInstance().addCommentLineMsg(result,accountBean.getUid());
+CommentsTimeLineDBTask.addCommentLineMsg(result,accountBean.getUid());
 }
 return result;
 }
