@@ -1,5 +1,4 @@
 {
   super.onDestroy();
   Utility.cancelTasks(dbTask);
-  DataMemoryCache.clearFriendsTimeLineData();
 }

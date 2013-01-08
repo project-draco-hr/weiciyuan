@@ -1,0 +1,5 @@
+{
+  MessageListBean object=new MessageListBean();
+  object.replaceData(MessageListBean.this);
+  return object;
+}
