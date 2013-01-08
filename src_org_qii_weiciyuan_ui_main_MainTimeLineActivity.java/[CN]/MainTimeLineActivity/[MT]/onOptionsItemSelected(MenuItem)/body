@@ -13,8 +13,6 @@ intent=new Intent(this,AccountActivity.class);
 intent.putExtra("launcher",false);
 startActivity(intent);
 finish();
-DataMemoryCache.clearFriendsTimeLineData();
-DataMemoryCache.clearStatusByIdTimeLineData();
 return true;
 case R.id.menu_search:
 startActivity(new Intent(this,SearchMainActivity.class));
