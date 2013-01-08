@@ -9,5 +9,5 @@
     }
   }
 );
-  buildPic(msg,view.getImageView(),position);
+  buildPic(msg,view.getImageView());
 }
