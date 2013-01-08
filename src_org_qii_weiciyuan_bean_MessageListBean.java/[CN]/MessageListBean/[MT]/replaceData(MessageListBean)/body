@@ -1,4 +1,5 @@
 {
+  if (value == null)   return;
   getItemList().clear();
   getItemList().addAll(value.getItemList());
   setTotal_number(value.getTotal_number());
