@@ -8,5 +8,5 @@
   WeiboSendTask task=new WeiboSendTask();
   task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   tasksResult.put(task,false);
-  return super.onStartCommand(intent,flags,startId);
+  return START_REDELIVER_INTENT;
 }
