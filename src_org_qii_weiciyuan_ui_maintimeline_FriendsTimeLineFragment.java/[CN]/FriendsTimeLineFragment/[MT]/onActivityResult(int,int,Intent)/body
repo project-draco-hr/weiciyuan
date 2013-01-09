@@ -1,4 +1,5 @@
 {
+  if (data == null)   return;
   MessageBean msg=(MessageBean)data.getSerializableExtra("msg");
   if (msg != null) {
     for (int i=0; i < getList().getSize(); i++) {
