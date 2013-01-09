@@ -2,4 +2,7 @@
   super.onPostExecute(aVoid);
   if (statusDraftBean != null)   DraftDBManager.getInstance().remove(statusDraftBean.getId());
   showSuccessfulNotification(WeiboSendTask.this);
+  if (receiver != null) {
+    unregisterReceiver(receiver);
+  }
 }

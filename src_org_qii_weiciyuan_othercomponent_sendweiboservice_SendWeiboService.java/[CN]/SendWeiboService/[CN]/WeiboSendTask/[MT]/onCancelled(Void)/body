@@ -8,4 +8,7 @@
     DraftDBManager.getInstance().insertStatus(content,geoBean,picPath,accountId);
   }
   showFailedNotification(WeiboSendTask.this);
+  if (receiver != null) {
+    unregisterReceiver(receiver);
+  }
 }

@@ -1,0 +1,31 @@
+{
+  super.onPreExecute();
+  Notification.Builder builder=new Notification.Builder(SendWeiboService.this).setTicker(getString(R.string.sending)).setContentTitle(getString(R.string.sending)).setContentText(content).setOnlyAlertOnce(true).setOngoing(true).setSmallIcon(R.drawable.upload_white);
+  if (!TextUtils.isEmpty(picPath)) {
+    builder.setProgress(0,100,false);
+  }
+ else {
+    builder.setProgress(0,100,true);
+  }
+  int notificationId=new Random().nextInt(Integer.MAX_VALUE);
+  if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+    receiver=new BroadcastReceiver(){
+      @Override public void onReceive(      Context context,      Intent intent){
+        WeiboSendTask.this.cancel(true);
+      }
+    }
+;
+    IntentFilter intentFilter=new IntentFilter("org.qii.weiciyuan.SendWeiboService.stop." + String.valueOf(notificationId));
+    registerReceiver(receiver,intentFilter);
+    Intent broadcastIntent=new Intent("org.qii.weiciyuan.SendWeiboService.stop." + String.valueOf(notificationId));
+    pendingIntent=PendingIntent.getBroadcast(SendWeiboService.this,1,broadcastIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+    builder.addAction(R.drawable.send_failed,getString(R.string.cancel),pendingIntent);
+    notification=builder.build();
+  }
+ else {
+    notification=builder.getNotification();
+  }
+  NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+  notificationManager.notify(notificationId,notification);
+  tasksNotifications.put(WeiboSendTask.this,notificationId);
+}
