@@ -12,5 +12,4 @@
   NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
   notificationManager.notify(notificationId,notification);
   tasksNotifications.put(WeiboSendTask.this,notificationId);
-  Toast.makeText(SendWeiboService.this,getString(R.string.background_sending),Toast.LENGTH_SHORT).show();
 }

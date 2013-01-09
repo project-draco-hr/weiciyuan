@@ -1,0 +1,14 @@
+{
+  Notification.Builder builder=new Notification.Builder(SendWeiboService.this).setTicker(getString(R.string.send_successfully)).setOnlyAlertOnce(true).setAutoCancel(true).setSmallIcon(R.drawable.send_successfully).setOngoing(false);
+  Notification notification=builder.getNotification();
+  final NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+  final int id=tasksNotifications.get(task);
+  notificationManager.notify(id,notification);
+  handler.postDelayed(new Runnable(){
+    @Override public void run(){
+      notificationManager.cancel(id);
+      stopServiceIfTasksAreEnd(task);
+    }
+  }
+,3000);
+}

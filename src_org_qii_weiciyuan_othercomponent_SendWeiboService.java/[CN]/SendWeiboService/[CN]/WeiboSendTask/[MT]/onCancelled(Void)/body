@@ -7,6 +7,5 @@
  else {
     DraftDBManager.getInstance().insertStatus(content,geoBean,picPath,accountId);
   }
-  Toast.makeText(SendWeiboService.this,getString(R.string.send_failed_and_save_to_draft),Toast.LENGTH_SHORT).show();
-  stopServiceIfTasksAreEnd(WeiboSendTask.this);
+  showFailedNotification(WeiboSendTask.this);
 }
