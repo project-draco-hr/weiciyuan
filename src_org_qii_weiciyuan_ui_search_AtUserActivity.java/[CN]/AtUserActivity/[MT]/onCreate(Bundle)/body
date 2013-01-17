@@ -4,5 +4,7 @@
   actionBar.setDisplayHomeAsUpEnabled(true);
   actionBar.setTitle(R.string.at_other);
   String token=getIntent().getStringExtra("token");
-  getFragmentManager().beginTransaction().replace(android.R.id.content,new AtUserFragment(token)).commit();
+  if (savedInstanceState == null) {
+    getFragmentManager().beginTransaction().replace(android.R.id.content,new AtUserFragment(token)).commit();
+  }
 }
