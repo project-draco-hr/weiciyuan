@@ -1,8 +1,20 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.abstractwriteactivity_layout);
-  getActionBar().setDisplayShowCustomEnabled(true);
-  getActionBar().setDisplayHomeAsUpEnabled(true);
+  ActionBar actionBar=getActionBar();
+  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setDisplayShowHomeEnabled(true);
+  actionBar.setDisplayShowTitleEnabled(true);
+  actionBar.setDisplayShowCustomEnabled(true);
+  int avatarWidth=getResources().getDimensionPixelSize(R.dimen.timeline_avatar_width);
+  int avatarHeight=getResources().getDimensionPixelSize(R.dimen.timeline_avatar_height);
+  Bitmap bitmap=ImageTool.getWriteWeiboRoundedCornerPic(GlobalContext.getInstance().getAccountBean().getInfo().getAvatar_large(),avatarWidth,avatarHeight,FileLocationMethod.avatar_large);
+  if (bitmap == null) {
+    bitmap=ImageTool.getWriteWeiboRoundedCornerPic(GlobalContext.getInstance().getAccountBean().getInfo().getProfile_image_url(),avatarWidth,avatarHeight,FileLocationMethod.avatar_small);
+  }
+  if (bitmap != null) {
+    actionBar.setIcon(new BitmapDrawable(getResources(),bitmap));
+  }
   token=getIntent().getStringExtra("token");
   et=((EditText)findViewById(R.id.status_new_content));
   et.addTextChangedListener(new TextNumLimitWatcher((TextView)findViewById(R.id.menu_send),et,this));
