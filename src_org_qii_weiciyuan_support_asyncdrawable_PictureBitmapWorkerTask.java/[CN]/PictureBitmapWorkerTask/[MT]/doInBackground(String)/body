@@ -11,7 +11,7 @@ case avatar_small:
     return ImageTool.getRoundedCornerPic(this.data,avatarWidth,avatarHeight,FileLocationMethod.avatar_small);
 case picture_thumbnail:
   return ImageTool.getRoundedCornerPic(this.data,thumbnailWidth,thumbnailHeight,FileLocationMethod.picture_thumbnail);
-case picture_bmiddle:
+case picture_large:
 DisplayMetrics metrics=globalContext.getDisplayMetrics();
 float reSize=globalContext.getResources().getDisplayMetrics().density;
 int height=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_high_thumbnail_height);
