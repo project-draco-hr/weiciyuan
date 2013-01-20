@@ -27,6 +27,7 @@
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
   CommentBean reply=comment.getReply_comment();
+  if (holder.replyIV != null)   holder.replyIV.setVisibility(View.GONE);
   if (reply != null && showOriStatus) {
     holder.repost_layout.setVisibility(View.VISIBLE);
     holder.repost_flag.setVisibility(View.VISIBLE);
@@ -41,6 +42,18 @@
  else {
       holder.repost_layout.setVisibility(View.GONE);
       holder.repost_flag.setVisibility(View.GONE);
+      if (holder.replyIV != null) {
+        holder.replyIV.setVisibility(View.VISIBLE);
+        holder.replyIV.setOnClickListener(new View.OnClickListener(){
+          @Override public void onClick(          View v){
+            Intent intent=new Intent(getActivity(),WriteReplyToCommentActivity.class);
+            intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+            intent.putExtra("msg",comment);
+            getActivity().startActivity(intent);
+          }
+        }
+);
+      }
     }
   }
 }

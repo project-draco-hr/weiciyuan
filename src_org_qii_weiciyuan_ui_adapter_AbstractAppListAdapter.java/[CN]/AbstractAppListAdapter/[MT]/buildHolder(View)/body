@@ -15,5 +15,6 @@
   holder.count_layout=(LinearLayout)convertView.findViewById(R.id.count_layout);
   holder.repost_count=(TextView)convertView.findViewById(R.id.repost_count);
   holder.comment_count=(TextView)convertView.findViewById(R.id.comment_count);
+  holder.replyIV=(ImageView)convertView.findViewById(R.id.replyIV);
   return holder;
 }
