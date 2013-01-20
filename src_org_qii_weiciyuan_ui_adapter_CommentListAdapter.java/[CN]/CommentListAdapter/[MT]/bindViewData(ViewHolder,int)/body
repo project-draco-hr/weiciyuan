@@ -54,32 +54,7 @@
         }
 );
         holder.content.setMovementMethod(LinkMovementMethod.getInstance());
-        final BackgroundColorSpan backgroundColorSpan=new BackgroundColorSpan(Color.parseColor("#33B5E5"));
-        holder.content.setOnTouchListener(new View.OnTouchListener(){
-          @Override public boolean onTouch(          View v,          MotionEvent event){
-            final Spannable sps=(Spannable)holder.content.getText();
-            int start=holder.content.getSelectionStart();
-            int end=holder.content.getSelectionEnd();
-            boolean isLink=start != -1 && end != -1;
-            if (isLink) {
-              sps.setSpan(backgroundColorSpan,start,end,Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-            }
-switch (event.getActionMasked()) {
-case MotionEvent.ACTION_CANCEL:
-case MotionEvent.ACTION_UP:
-              new Handler().postDelayed(new Runnable(){
-                @Override public void run(){
-                  sps.removeSpan(backgroundColorSpan);
-                }
-              }
-,100L);
-            break;
-        }
-        return false;
       }
     }
-);
   }
-}
-}
 }

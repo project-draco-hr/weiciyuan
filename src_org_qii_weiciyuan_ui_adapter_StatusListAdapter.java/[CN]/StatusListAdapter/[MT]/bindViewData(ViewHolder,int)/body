@@ -1,5 +1,12 @@
 {
-  holder.listview_root.setBackgroundColor(defaultBG);
+  Drawable drawable=bg.get(holder);
+  if (drawable != null) {
+    holder.listview_root.setBackgroundDrawable(drawable);
+  }
+ else {
+    drawable=holder.listview_root.getBackground();
+    bg.put(holder,drawable);
+  }
   if (listView.getCheckedItemPosition() == position + 1)   holder.listview_root.setBackgroundColor(checkedBG);
   final MessageBean msg=bean.get(position);
   UserBean user=msg.getUser();
@@ -29,6 +36,49 @@
     ListViewTool.addJustHighLightLinks(msg);
     holder.content.setText(msg.getListViewSpannableString());
   }
+  holder.listview_root.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      if (!((AbstractTimeLineFragment)fragment).clearActionModeIfOpen()) {
+        Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
+        intent.putExtra("msg",msg);
+        intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+        getActivity().startActivityForResult(intent,0);
+      }
+    }
+  }
+);
+  holder.username.setOnTouchListener(new View.OnTouchListener(){
+    @Override public boolean onTouch(    View v,    MotionEvent event){
+      holder.listview_root.onTouchEvent(event);
+      return false;
+    }
+  }
+);
+  holder.time.setOnTouchListener(new View.OnTouchListener(){
+    @Override public boolean onTouch(    View v,    MotionEvent event){
+      holder.listview_root.onTouchEvent(event);
+      return false;
+    }
+  }
+);
+  holder.content.setMovementMethod(LinkMovementMethod.getInstance());
+  holder.repost_content.setMovementMethod(LinkMovementMethod.getInstance());
+  View.OnClickListener onClickListener=new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      TextView tv=(TextView)v;
+      int start=tv.getSelectionStart();
+      int end=tv.getSelectionEnd();
+      SpannableString completeText=(SpannableString)((TextView)v).getText();
+      boolean isNotLink=start == -1 || end == -1;
+      if (isNotLink && completeText.getSpanStart(this) == -1) {
+        holder.listview_root.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(),SystemClock.uptimeMillis(),MotionEvent.ACTION_DOWN,0,0,0));
+        holder.listview_root.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(),SystemClock.uptimeMillis(),MotionEvent.ACTION_UP,0,0,0));
+      }
+    }
+  }
+;
+  holder.content.setOnClickListener(onClickListener);
+  holder.repost_content.setOnClickListener(onClickListener);
   holder.time.setTime(msg.getMills());
   if (showOriStatus) {
     if (msg.getReposts_count() == 0 && msg.getComments_count() == 0) {
