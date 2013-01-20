@@ -1,0 +1,15 @@
+{
+  if (canSend()) {
+    String content=((EditText)findViewById(R.id.status_new_content)).getText().toString();
+    Intent intent=new Intent(WriteReplyToCommentActivity.this,SendReplyToCommentService.class);
+    intent.putExtra("oriMsg",bean);
+    intent.putExtra("content",content);
+    intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+    intent.putExtra("accountId",GlobalContext.getInstance().getCurrentAccountId());
+    if (enableRepost.isChecked()) {
+      intent.putExtra("repostContent",repost());
+    }
+    startService(intent);
+    finish();
+  }
+}

@@ -5,7 +5,5 @@
   if (total.length() < 140) {
     content=total;
   }
-  RepostNewMsgDao dao=new RepostNewMsgDao(token,bean.getStatus().getId());
-  dao.setStatus(content);
-  return dao.sendNewMsg();
+  return content;
 }

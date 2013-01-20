@@ -1,0 +1,16 @@
+{
+  Notification.Builder builder=new Notification.Builder(SendReplyToCommentService.this).setTicker(getString(R.string.send_failed_and_save_to_draft)).setContentTitle(getString(R.string.send_failed)).setContentText(getString(R.string.click_to_open_draft)).setOnlyAlertOnce(true).setAutoCancel(true).setSmallIcon(R.drawable.send_failed).setOngoing(false);
+  Intent notifyIntent=new Intent(SendReplyToCommentService.this,DraftActivity.class);
+  PendingIntent pendingIntent=PendingIntent.getActivity(this,0,notifyIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+  builder.setContentIntent(pendingIntent);
+  Notification notification=builder.getNotification();
+  final NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+  final int id=tasksNotifications.get(task);
+  notificationManager.notify(id,notification);
+  handler.postDelayed(new Runnable(){
+    @Override public void run(){
+      stopServiceIfTasksAreEnd(task);
+    }
+  }
+,3000);
+}

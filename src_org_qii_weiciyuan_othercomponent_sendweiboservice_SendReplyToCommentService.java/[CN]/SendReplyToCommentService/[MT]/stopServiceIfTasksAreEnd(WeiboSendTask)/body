@@ -1,0 +1,15 @@
+{
+  tasksResult.put(currentTask,true);
+  boolean isAllTaskEnd=true;
+  Set<WeiboSendTask> taskSet=tasksResult.keySet();
+  for (  WeiboSendTask task : taskSet) {
+    if (!tasksResult.get(task)) {
+      isAllTaskEnd=false;
+      break;
+    }
+  }
+  if (isAllTaskEnd) {
+    stopForeground(true);
+    stopSelf();
+  }
+}

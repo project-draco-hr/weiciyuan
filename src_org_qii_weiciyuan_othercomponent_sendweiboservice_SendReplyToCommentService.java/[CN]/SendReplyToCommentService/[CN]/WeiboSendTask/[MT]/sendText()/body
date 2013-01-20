@@ -1,0 +1,9 @@
+{
+  ReplyToCommentMsgDao dao=new ReplyToCommentMsgDao(token,oriMsg,content);
+  CommentBean commentBean=dao.reply();
+  if (!TextUtils.isEmpty(repostContent)) {
+    RepostNewMsgDao repostNewMsgDao=new RepostNewMsgDao(token,oriMsg.getStatus().getId());
+    repostNewMsgDao.setStatus(content);
+    repostNewMsgDao.sendNewMsg();
+  }
+}

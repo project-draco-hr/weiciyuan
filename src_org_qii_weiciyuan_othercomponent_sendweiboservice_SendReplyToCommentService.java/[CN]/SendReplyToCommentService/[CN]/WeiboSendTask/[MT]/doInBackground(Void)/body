@@ -1,0 +1,10 @@
+{
+  try {
+    sendText();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+  }
+  return null;
+}

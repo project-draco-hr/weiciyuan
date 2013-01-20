@@ -1,0 +1,12 @@
+{
+  token=intent.getStringExtra("token");
+  accountId=intent.getStringExtra("accountId");
+  content=intent.getStringExtra("content");
+  repostContent=intent.getStringExtra("repostContent");
+  oriMsg=(CommentBean)intent.getSerializableExtra("oriMsg");
+  replyDraftBean=(ReplyDraftBean)intent.getSerializableExtra("draft");
+  WeiboSendTask task=new WeiboSendTask();
+  task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  tasksResult.put(task,false);
+  return START_REDELIVER_INTENT;
+}
