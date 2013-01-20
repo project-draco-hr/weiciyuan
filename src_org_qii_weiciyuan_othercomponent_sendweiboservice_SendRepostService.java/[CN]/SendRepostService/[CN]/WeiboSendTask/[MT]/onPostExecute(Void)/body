@@ -1,0 +1,5 @@
+{
+  super.onPostExecute(aVoid);
+  if (repostDraftBean != null)   DraftDBManager.getInstance().remove(repostDraftBean.getId());
+  showSuccessfulNotification(WeiboSendTask.this);
+}

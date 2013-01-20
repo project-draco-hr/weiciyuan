@@ -1,0 +1,24 @@
+{
+  if (canSend()) {
+    boolean comment=menuEnableComment.isChecked();
+    boolean oriComment=(menuEnableOriComment != null && menuEnableOriComment.isChecked());
+    String is_comment="";
+    if (comment && oriComment) {
+      is_comment=RepostNewMsgDao.ENABLE_COMMENT_ALL;
+    }
+ else     if (comment) {
+      is_comment=RepostNewMsgDao.ENABLE_COMMENT;
+    }
+ else     if (oriComment) {
+      is_comment=RepostNewMsgDao.ENABLE_ORI_COMMENT;
+    }
+    Intent intent=new Intent(WriteRepostActivity.this,SendRepostService.class);
+    intent.putExtra("oriMsg",msg);
+    intent.putExtra("content",getEditTextView().getText().toString());
+    intent.putExtra("is_comment",is_comment);
+    intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+    intent.putExtra("accountId",GlobalContext.getInstance().getCurrentAccountId());
+    startService(intent);
+    finish();
+  }
+}

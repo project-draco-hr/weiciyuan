@@ -1,0 +1,8 @@
+{
+  RepostNewMsgDao dao=new RepostNewMsgDao(token,oriMsg.getId());
+  if (!TextUtils.isEmpty(is_comment)) {
+    dao.setIs_comment(is_comment);
+  }
+  dao.setStatus(content);
+  return dao.sendNewMsg();
+}
