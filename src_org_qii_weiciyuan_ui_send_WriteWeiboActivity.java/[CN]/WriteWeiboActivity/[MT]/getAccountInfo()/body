@@ -1,20 +1,8 @@
 {
-  SharedPreferences sharedPref=PreferenceManager.getDefaultSharedPreferences(this);
-  String id=sharedPref.getString("id","");
-  if (!TextUtils.isEmpty(id)) {
-    accountBean=AccountDBTask.getAccount(id);
-    if (accountBean != null) {
-      token=accountBean.getAccess_token();
-      getActionBar().setSubtitle(accountBean.getUsernick());
-    }
- else {
-      List<AccountBean> accountList=AccountDBTask.getAccountList();
-      if (accountList != null && accountList.size() > 0) {
-        AccountBean account=accountList.get(0);
-        accountBean=account;
-        token=account.getAccess_token();
-        getActionBar().setSubtitle(account.getUsernick());
-      }
-    }
+  AccountBean account=GlobalContext.getInstance().getAccountBean();
+  if (account != null) {
+    accountBean=account;
+    token=account.getAccess_token();
+    getActionBar().setSubtitle(account.getUsernick());
   }
 }
