@@ -7,18 +7,24 @@
       content=total;
     }
   }
-  RepostNewMsgDao dao=new RepostNewMsgDao(token,msg.getId());
   boolean comment=true;
   boolean oriComment=enableCommentOri.isChecked();
+  String is_comment="";
   if (comment && oriComment) {
-    dao.setIs_comment(RepostNewMsgDao.ENABLE_COMMENT_ALL);
+    is_comment=RepostNewMsgDao.ENABLE_COMMENT_ALL;
   }
  else   if (comment) {
-    dao.setIs_comment(RepostNewMsgDao.ENABLE_COMMENT);
+    is_comment=RepostNewMsgDao.ENABLE_COMMENT;
   }
  else   if (oriComment) {
-    dao.setIs_comment(RepostNewMsgDao.ENABLE_ORI_COMMENT);
+    is_comment=RepostNewMsgDao.ENABLE_ORI_COMMENT;
   }
-  dao.setStatus(content);
-  return dao.sendNewMsg();
+  Intent intent=new Intent(WriteCommentActivity.this,SendRepostService.class);
+  intent.putExtra("oriMsg",msg);
+  intent.putExtra("content",content);
+  intent.putExtra("is_comment",is_comment);
+  intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+  intent.putExtra("accountId",GlobalContext.getInstance().getCurrentAccountId());
+  startService(intent);
+  finish();
 }

@@ -1,0 +1,10 @@
+{
+  super.onPreExecute();
+  Notification.Builder builder=new Notification.Builder(SendCommentService.this).setTicker(getString(R.string.sending)).setContentTitle(getString(R.string.sending)).setContentText(content).setOnlyAlertOnce(true).setOngoing(true).setSmallIcon(R.drawable.upload_white);
+  builder.setProgress(0,100,true);
+  int notificationId=new Random().nextInt(Integer.MAX_VALUE);
+  notification=builder.getNotification();
+  NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+  notificationManager.notify(notificationId,notification);
+  tasksNotifications.put(WeiboSendTask.this,notificationId);
+}

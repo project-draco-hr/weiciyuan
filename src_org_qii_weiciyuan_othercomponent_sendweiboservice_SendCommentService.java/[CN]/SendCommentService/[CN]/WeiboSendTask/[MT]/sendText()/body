@@ -1,0 +1,5 @@
+{
+  CommentNewMsgDao dao=new CommentNewMsgDao(token,oriMsg.getId(),content);
+  dao.enableComment_ori(comment_ori);
+  return dao.sendNewMsg();
+}
