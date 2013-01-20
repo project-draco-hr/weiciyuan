@@ -1,8 +1,0 @@
-{
-  if (canSend()) {
-    if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
-      task=new SimpleTask();
-      task.execute();
-    }
-  }
-}
