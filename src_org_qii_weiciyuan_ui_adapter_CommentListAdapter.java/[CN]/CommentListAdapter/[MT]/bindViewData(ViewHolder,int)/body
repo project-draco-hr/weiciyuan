@@ -53,6 +53,7 @@
           }
         }
 );
+        holder.content.setMovementMethod(LinkMovementMethod.getInstance());
       }
     }
   }
