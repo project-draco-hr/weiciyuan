@@ -1,0 +1,14 @@
+{
+  super.onRestoreInstanceState(savedInstanceState);
+  if (savedInstanceState != null) {
+    picPath=savedInstanceState.getString("picPath");
+    if (!TextUtils.isEmpty(picPath))     enablePicture();
+    geoBean=(GeoBean)savedInstanceState.getSerializable("geoBean");
+    location=savedInstanceState.getString("location");
+    if (geoBean != null && !TextUtils.isEmpty(location))     enableGeo();
+ else     disableGeo();
+    imageFileUri=savedInstanceState.getParcelable("imageFileUri");
+    statusDraftBean=(StatusDraftBean)savedInstanceState.getSerializable("statusDraftBean");
+    accountBean=(AccountBean)savedInstanceState.getSerializable("accountBean");
+  }
+}

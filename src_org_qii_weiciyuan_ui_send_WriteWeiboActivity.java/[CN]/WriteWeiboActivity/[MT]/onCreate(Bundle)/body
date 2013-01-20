@@ -1,16 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   buildInterface();
-  if (savedInstanceState != null) {
-    picPath=savedInstanceState.getString("picPath");
-    if (!TextUtils.isEmpty(picPath))     enablePicture();
-    geoBean=(GeoBean)savedInstanceState.getSerializable("geoBean");
-    location=savedInstanceState.getString("location");
-    if (geoBean != null && !TextUtils.isEmpty(location))     enableGeo();
- else     disableGeo();
-    imageFileUri=savedInstanceState.getParcelable("imageFileUri");
-  }
- else {
+  if (savedInstanceState == null) {
     Intent intent=getIntent();
     String action=intent.getAction();
     String type=intent.getType();
