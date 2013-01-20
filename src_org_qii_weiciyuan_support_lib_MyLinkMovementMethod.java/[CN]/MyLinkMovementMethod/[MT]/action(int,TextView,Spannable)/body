@@ -1,0 +1,68 @@
+{
+  Layout layout=widget.getLayout();
+  int padding=widget.getTotalPaddingTop() + widget.getTotalPaddingBottom();
+  int areatop=widget.getScrollY();
+  int areabot=areatop + widget.getHeight() - padding;
+  int linetop=layout.getLineForVertical(areatop);
+  int linebot=layout.getLineForVertical(areabot);
+  int first=layout.getLineStart(linetop);
+  int last=layout.getLineEnd(linebot);
+  MyURLSpan[] candidates=buffer.getSpans(first,last,MyURLSpan.class);
+  int a=Selection.getSelectionStart(buffer);
+  int b=Selection.getSelectionEnd(buffer);
+  int selStart=Math.min(a,b);
+  int selEnd=Math.max(a,b);
+  if (selStart < 0) {
+    if (buffer.getSpanStart(FROM_BELOW) >= 0) {
+      selStart=selEnd=buffer.length();
+    }
+  }
+  if (selStart > last)   selStart=selEnd=Integer.MAX_VALUE;
+  if (selEnd < first)   selStart=selEnd=-1;
+switch (what) {
+case CLICK:
+    if (selStart == selEnd) {
+      return false;
+    }
+  MyURLSpan[] link=buffer.getSpans(selStart,selEnd,MyURLSpan.class);
+if (link.length != 1) return false;
+link[0].onClick(widget);
+break;
+case UP:
+int beststart, bestend;
+beststart=-1;
+bestend=-1;
+for (int i=0; i < candidates.length; i++) {
+int end=buffer.getSpanEnd(candidates[i]);
+if (end < selEnd || selStart == selEnd) {
+if (end > bestend) {
+beststart=buffer.getSpanStart(candidates[i]);
+bestend=end;
+}
+}
+}
+if (beststart >= 0) {
+Selection.setSelection(buffer,bestend,beststart);
+return true;
+}
+break;
+case DOWN:
+beststart=Integer.MAX_VALUE;
+bestend=Integer.MAX_VALUE;
+for (int i=0; i < candidates.length; i++) {
+int start=buffer.getSpanStart(candidates[i]);
+if (start > selStart || selStart == selEnd) {
+if (start < beststart) {
+beststart=start;
+bestend=buffer.getSpanEnd(candidates[i]);
+}
+}
+}
+if (bestend < Integer.MAX_VALUE) {
+Selection.setSelection(buffer,beststart,bestend);
+return true;
+}
+break;
+}
+return false;
+}

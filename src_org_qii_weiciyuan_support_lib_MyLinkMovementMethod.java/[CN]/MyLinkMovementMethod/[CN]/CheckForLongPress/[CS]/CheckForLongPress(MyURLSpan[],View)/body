@@ -1,0 +1,4 @@
+{
+  this.spans=spans;
+  this.widget=widget;
+}

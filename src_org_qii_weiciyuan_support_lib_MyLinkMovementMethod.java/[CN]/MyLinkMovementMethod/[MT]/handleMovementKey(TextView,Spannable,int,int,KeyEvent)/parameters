@@ -1,0 +1,5 @@
+TextView widget
+Spannable buffer
+int keyCode
+int movementMetaState
+KeyEvent event

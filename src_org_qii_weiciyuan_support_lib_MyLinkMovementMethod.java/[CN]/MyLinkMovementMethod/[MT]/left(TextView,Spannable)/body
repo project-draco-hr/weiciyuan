@@ -1,0 +1,6 @@
+{
+  if (action(UP,widget,buffer)) {
+    return true;
+  }
+  return super.left(widget,buffer);
+}

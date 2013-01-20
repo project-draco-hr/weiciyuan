@@ -1,0 +1,9 @@
+{
+  Uri data=Uri.parse(getURL());
+  if (data != null) {
+    String d=data.toString();
+    int index=d.lastIndexOf("/");
+    String newValue=d.substring(index + 1);
+    Toast.makeText(widget.getContext(),newValue,Toast.LENGTH_SHORT).show();
+  }
+}
