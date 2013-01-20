@@ -1,4 +1,5 @@
 {
+  setContentView(R.layout.writeweiboactivity_layout);
   ActionBar actionBar=getActionBar();
   actionBar.setDisplayHomeAsUpEnabled(true);
   actionBar.setTitle(R.string.write_weibo);
