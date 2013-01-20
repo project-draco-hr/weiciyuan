@@ -2,8 +2,18 @@
   Uri data=Uri.parse(getURL());
   if (data != null) {
     String d=data.toString();
-    int index=d.lastIndexOf("/");
-    String newValue=d.substring(index + 1);
-    Toast.makeText(widget.getContext(),newValue,Toast.LENGTH_SHORT).show();
+    String newValue="";
+    if (d.startsWith("org.qii.weiciyuan")) {
+      int index=d.lastIndexOf("/");
+      newValue=d.substring(index + 1);
+    }
+ else     if (d.startsWith("http")) {
+      newValue=d;
+    }
+    if (!TextUtils.isEmpty(newValue)) {
+      ClipboardManager cm=(ClipboardManager)widget.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+      cm.setPrimaryClip(ClipData.newPlainText("sinaweibo",newValue));
+      Toast.makeText(widget.getContext(),String.format(widget.getContext().getString(R.string.have_copied),newValue),Toast.LENGTH_SHORT).show();
+    }
   }
 }
