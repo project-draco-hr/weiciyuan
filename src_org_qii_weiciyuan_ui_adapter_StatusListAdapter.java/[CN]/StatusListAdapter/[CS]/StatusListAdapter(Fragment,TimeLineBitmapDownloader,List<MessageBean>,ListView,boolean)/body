@@ -1,4 +1,3 @@
 {
   super(fragment,commander,bean,listView,showOriStatus);
-  background=getActivity().getResources().getDrawable(R.drawable.listview_item_background_selector);
 }
