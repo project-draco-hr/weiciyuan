@@ -1,23 +1,6 @@
 {
   super.onCreate(savedInstanceState);
   buildInterface();
-  Intent intent=getIntent();
-  String action=intent.getAction();
-  String type=intent.getType();
-  if (Intent.ACTION_SEND.equals(action) && type != null) {
-    if ("text/plain".equals(type)) {
-      handleSendText(intent);
-    }
- else     if (type.startsWith("image/")) {
-      handleSendImage(intent);
-    }
-  }
- else   if (WriteWeiboActivity.ACTION_DRAFT.equals(action)) {
-    handleDraftOperation(intent);
-  }
- else {
-    handleNormalOperation(intent);
-  }
   if (savedInstanceState != null) {
     picPath=savedInstanceState.getString("picPath");
     if (!TextUtils.isEmpty(picPath))     enablePicture();
@@ -26,5 +9,26 @@
     if (geoBean != null && !TextUtils.isEmpty(location))     enableGeo();
  else     disableGeo();
     imageFileUri=savedInstanceState.getParcelable("imageFileUri");
+  }
+ else {
+    Intent intent=getIntent();
+    String action=intent.getAction();
+    String type=intent.getType();
+    if (!TextUtils.isEmpty(action)) {
+      if (action.equals(Intent.ACTION_SEND) && !TextUtils.isEmpty(type)) {
+        if ("text/plain".equals(type)) {
+          handleSendText(intent);
+        }
+ else         if (type.startsWith("image/")) {
+          handleSendImage(intent);
+        }
+      }
+ else       if (action.equals(WriteWeiboActivity.ACTION_DRAFT)) {
+        handleDraftOperation(intent);
+      }
+    }
+ else {
+      handleNormalOperation(intent);
+    }
   }
 }
