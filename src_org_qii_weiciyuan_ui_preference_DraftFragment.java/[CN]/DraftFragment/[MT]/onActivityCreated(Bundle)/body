@@ -12,8 +12,9 @@ switch (item.getType()) {
 case DraftTable.TYPE_WEIBO:
         AccountBean accountBean=AccountDBTask.getAccount(item.getStatusDraftBean().getAccountId());
       intent=new Intent(getActivity(),WriteWeiboActivity.class);
-    intent.putExtra("draft",item.getStatusDraftBean());
-  intent.putExtra("account",accountBean);
+    intent.setAction(WriteWeiboActivity.ACTION_DRAFT);
+  intent.putExtra("draft",item.getStatusDraftBean());
+intent.putExtra("account",accountBean);
 startActivity(intent);
 break;
 case DraftTable.TYPE_REPOST:

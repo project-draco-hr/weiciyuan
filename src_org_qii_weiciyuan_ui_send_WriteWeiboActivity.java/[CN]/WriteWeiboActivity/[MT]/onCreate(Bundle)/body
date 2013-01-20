@@ -12,6 +12,9 @@
       handleSendImage(intent);
     }
   }
+ else   if (WriteWeiboActivity.ACTION_DRAFT.equals(action)) {
+    handleDraftOperation(intent);
+  }
  else {
     handleNormalOperation(intent);
   }
