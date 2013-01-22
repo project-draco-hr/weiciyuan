@@ -2,4 +2,7 @@
   super.onSaveInstanceState(outState);
   outState.putBoolean("comment",menuEnableComment.isChecked());
   outState.putBoolean("oriComment",menuEnableOriComment.isChecked());
+  outState.putString("token",token);
+  outState.putSerializable("msg",msg);
+  outState.putSerializable("repostDraftBean",repostDraftBean);
 }
