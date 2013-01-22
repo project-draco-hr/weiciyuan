@@ -3,7 +3,18 @@
   Intent notifyIntent=WriteWeiboActivity.startBecauseSendFailed(SendWeiboService.this,account,content,picPath,geoBean,statusDraftBean,String.format(SendWeiboService.this.getString(R.string.failed_reason),e.getError()));
   PendingIntent pendingIntent=PendingIntent.getActivity(SendWeiboService.this,0,notifyIntent,PendingIntent.FLAG_UPDATE_CURRENT);
   builder.setContentIntent(pendingIntent);
-  Notification notification=builder.getNotification();
+  Notification notification;
+  if (Utility.isJB()) {
+    Notification.BigTextStyle bigTextStyle=new Notification.BigTextStyle(builder);
+    bigTextStyle.setBigContentTitle(getString(R.string.send_faile_click_to_open));
+    bigTextStyle.bigText(content);
+    bigTextStyle.setSummaryText(account.getUsernick());
+    builder.setStyle(bigTextStyle);
+    notification=builder.build();
+  }
+ else {
+    notification=builder.getNotification();
+  }
   final NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
   final int id=tasksNotifications.get(task);
   notificationManager.notify(id,notification);

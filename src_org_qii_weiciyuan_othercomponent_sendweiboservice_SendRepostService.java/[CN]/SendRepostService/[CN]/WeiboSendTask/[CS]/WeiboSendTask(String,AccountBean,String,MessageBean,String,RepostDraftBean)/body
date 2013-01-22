@@ -1,0 +1,8 @@
+{
+  this.token=token;
+  this.account=account;
+  this.content=content;
+  this.oriMsg=oriMsg;
+  this.is_comment=is_comment;
+  this.repostDraftBean=repostDraftBean;
+}

@@ -8,7 +8,7 @@
     builder.setProgress(0,100,true);
   }
   int notificationId=new Random().nextInt(Integer.MAX_VALUE);
-  if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+  if (Utility.isJB()) {
     receiver=new BroadcastReceiver(){
       @Override public void onReceive(      Context context,      Intent intent){
         WeiboSendTask.this.cancel(true);

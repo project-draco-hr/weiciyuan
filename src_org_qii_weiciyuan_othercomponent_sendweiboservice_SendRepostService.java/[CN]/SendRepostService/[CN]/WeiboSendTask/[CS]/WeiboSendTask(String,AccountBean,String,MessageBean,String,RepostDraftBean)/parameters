@@ -1,0 +1,6 @@
+String token
+AccountBean account
+String content
+MessageBean oriMsg
+String is_comment
+RepostDraftBean repostDraftBean
