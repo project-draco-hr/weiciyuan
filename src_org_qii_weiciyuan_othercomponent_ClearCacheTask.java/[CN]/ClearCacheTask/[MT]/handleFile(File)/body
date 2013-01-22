@@ -3,6 +3,7 @@
   long calcMills=now - time;
   long day=TimeUnit.MILLISECONDS.toDays(calcMills);
   if (day > AppConfig.SAVED_DAYS) {
+    AppLogger.d(file.getAbsolutePath());
     file.delete();
   }
 }

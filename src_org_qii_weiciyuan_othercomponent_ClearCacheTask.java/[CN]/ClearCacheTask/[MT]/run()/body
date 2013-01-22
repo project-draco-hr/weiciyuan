@@ -1,8 +1,6 @@
 {
   AppLogger.d("clear cache task start");
-  ConnectivityManager cm=(ConnectivityManager)GlobalContext.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
-  NetworkInfo networkInfo=cm.getActiveNetworkInfo();
-  if (networkInfo != null && networkInfo.isConnected() && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+  if (Utility.isWifi(GlobalContext.getInstance())) {
     List<String> pathList=FileManager.getCachePath();
     for (    String path : pathList) {
       if (!TextUtils.isEmpty(path))       handleDir(new File(path));

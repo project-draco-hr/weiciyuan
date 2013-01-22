@@ -61,8 +61,8 @@
     }
   }
 );
-  holder.content.setMovementMethod(MyLinkMovementMethod.getInstance());
-  holder.repost_content.setMovementMethod(MyLinkMovementMethod.getInstance());
+  if (holder.content.getMovementMethod() != MyLinkMovementMethod.getInstance())   holder.content.setMovementMethod(MyLinkMovementMethod.getInstance());
+  if (holder.repost_content.getMovementMethod() != MyLinkMovementMethod.getInstance())   holder.repost_content.setMovementMethod(MyLinkMovementMethod.getInstance());
   View.OnClickListener onClickListener=new View.OnClickListener(){
     @Override public void onClick(    View v){
       TextView tv=(TextView)v;

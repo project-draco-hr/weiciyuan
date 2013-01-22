@@ -12,5 +12,5 @@
   GlobalContext.getInstance().setAccountBean(accountBean);
   SettingUtility.setDefaultAccountId(accountBean.getUid());
   buildPhoneInterface();
-  Executors.newSingleThreadScheduledExecutor().schedule(new ClearCacheTask(),8000,TimeUnit.SECONDS);
+  Executors.newSingleThreadScheduledExecutor().schedule(new ClearCacheTask(),8,TimeUnit.SECONDS);
 }
