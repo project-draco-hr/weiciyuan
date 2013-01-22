@@ -1,3 +1,4 @@
+int lastNotificationId
 String token
 AccountBean account
 String picPath

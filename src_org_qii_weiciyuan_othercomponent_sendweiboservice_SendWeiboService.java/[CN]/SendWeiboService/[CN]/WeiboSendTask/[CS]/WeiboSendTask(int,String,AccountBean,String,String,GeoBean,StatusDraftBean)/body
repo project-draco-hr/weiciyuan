@@ -1,4 +1,5 @@
 {
+  this.lastNotificationId=lastNotificationId;
   this.token=token;
   this.account=account;
   this.content=content;

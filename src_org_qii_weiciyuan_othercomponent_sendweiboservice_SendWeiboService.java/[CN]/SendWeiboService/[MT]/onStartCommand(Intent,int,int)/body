@@ -1,11 +1,12 @@
 {
+  int lastNotificationId=intent.getIntExtra("lastNotificationId",-1);
   String token=intent.getStringExtra("token");
   AccountBean account=(AccountBean)intent.getSerializableExtra("account");
   String picPath=intent.getStringExtra("picPath");
   String content=intent.getStringExtra("content");
   GeoBean geoBean=(GeoBean)intent.getSerializableExtra("geo");
   StatusDraftBean statusDraftBean=(StatusDraftBean)intent.getSerializableExtra("draft");
-  WeiboSendTask task=new WeiboSendTask(token,account,picPath,content,geoBean,statusDraftBean);
+  WeiboSendTask task=new WeiboSendTask(lastNotificationId,token,account,picPath,content,geoBean,statusDraftBean);
   task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   tasksResult.put(task,false);
   return START_REDELIVER_INTENT;

@@ -7,7 +7,7 @@
  else {
     builder.setProgress(0,100,true);
   }
-  int notificationId=new Random().nextInt(Integer.MAX_VALUE);
+  int notificationId=(lastNotificationId != -1) ? lastNotificationId : new Random().nextInt(Integer.MAX_VALUE);
   if (Utility.isJB()) {
     receiver=new BroadcastReceiver(){
       @Override public void onReceive(      Context context,      Intent intent){
