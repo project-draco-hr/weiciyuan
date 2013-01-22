@@ -1,12 +1,5 @@
 {
   super.onCancelled(aVoid);
-  if (statusDraftBean != null) {
-    DraftDBManager.getInstance().remove(statusDraftBean.getId());
-    DraftDBManager.getInstance().insertStatus(content,geoBean,picPath,account.getUid());
-  }
- else {
-    DraftDBManager.getInstance().insertStatus(content,geoBean,picPath,account.getUid());
-  }
   showFailedNotification(WeiboSendTask.this);
   if (receiver != null) {
     unregisterReceiver(receiver);

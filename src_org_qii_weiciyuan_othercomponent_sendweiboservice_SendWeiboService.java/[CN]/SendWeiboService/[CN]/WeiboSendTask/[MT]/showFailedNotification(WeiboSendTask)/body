@@ -1,5 +1,5 @@
 {
-  Notification.Builder builder=new Notification.Builder(SendWeiboService.this).setTicker(getString(R.string.send_failed_and_save_to_draft)).setContentTitle(getString(R.string.send_failed)).setContentText(getString(R.string.click_to_open_draft)).setOnlyAlertOnce(true).setAutoCancel(true).setSmallIcon(R.drawable.send_failed).setOngoing(false);
+  Notification.Builder builder=new Notification.Builder(SendWeiboService.this).setTicker(getString(R.string.send_failed)).setContentTitle(getString(R.string.send_faile_click_to_open)).setContentText(content).setOnlyAlertOnce(true).setAutoCancel(true).setSmallIcon(R.drawable.send_failed).setOngoing(false);
   Intent notifyIntent=WriteWeiboActivity.startBecauseSendFailed(SendWeiboService.this,account,content,picPath,geoBean,statusDraftBean,String.format(SendWeiboService.this.getString(R.string.failed_reason),e.getError()));
   PendingIntent pendingIntent=PendingIntent.getActivity(SendWeiboService.this,0,notifyIntent,PendingIntent.FLAG_UPDATE_CURRENT);
   builder.setContentIntent(pendingIntent);
