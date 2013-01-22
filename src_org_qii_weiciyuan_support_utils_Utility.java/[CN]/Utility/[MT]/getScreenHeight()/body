@@ -1,0 +1,10 @@
+{
+  Activity activity=GlobalContext.getInstance().getActivity();
+  if (activity != null) {
+    Display display=activity.getWindowManager().getDefaultDisplay();
+    DisplayMetrics metrics=new DisplayMetrics();
+    display.getMetrics(metrics);
+    return metrics.heightPixels;
+  }
+  return 800;
+}
