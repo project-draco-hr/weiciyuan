@@ -1,21 +1,19 @@
 {
   Notification.Builder builder=new Notification.Builder(context).setTicker(NotificationUtility.getTicker(unreadBean)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
   builder.setContentTitle(NotificationUtility.getTicker(unreadBean));
-  if (NotificationUtility.getCount(unreadBean) > 1) {
-    builder.setNumber(NotificationUtility.getCount(unreadBean));
-  }
+  builder.setNumber(1);
   Notification.BigTextStyle bigTextStyle=new Notification.BigTextStyle(builder);
-  if (repost != null) {
-    for (    MessageBean m : repost.getItemList()) {
-      bigTextStyle.setBigContentTitle(m.getUser().getScreen_name() + "???");
-      bigTextStyle.bigText(m.getText());
-    }
+  if (unreadBean.getMention_status() == 1) {
+    bigTextStyle.setBigContentTitle(repost.getItem(0).getUser().getScreen_name() + "???");
+    bigTextStyle.bigText(repost.getItem(0).getText());
   }
-  if (mentionCommentsResult != null) {
-    for (    CommentBean m : mentionCommentsResult.getItemList()) {
-      bigTextStyle.setBigContentTitle(m.getUser().getScreen_name() + "???");
-      bigTextStyle.bigText(m.getText());
-    }
+  if (unreadBean.getCmt() == 1) {
+    bigTextStyle.setBigContentTitle(comment.getItem(0).getUser().getScreen_name() + "???");
+    bigTextStyle.bigText(comment.getItem(0).getText());
+  }
+  if (unreadBean.getMention_cmt() == 1) {
+    bigTextStyle.setBigContentTitle(mentionCommentsResult.getItem(0).getUser().getScreen_name() + "???");
+    bigTextStyle.bigText(mentionCommentsResult.getItem(0).getText());
   }
   bigTextStyle.setSummaryText(accountBean.getUsernick());
   builder.setStyle(bigTextStyle);

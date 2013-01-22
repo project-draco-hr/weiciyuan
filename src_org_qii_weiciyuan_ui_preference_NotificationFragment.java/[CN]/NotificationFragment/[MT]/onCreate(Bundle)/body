@@ -10,7 +10,6 @@
   preferenceList.add(findPreference(SettingActivity.ENABLE_VIBRATE));
   preferenceList.add(findPreference(SettingActivity.ENABLE_LED));
   preferenceList.add(findPreference(SettingActivity.ENABLE_RINGTONE));
-  preferenceList.add(findPreference(SettingActivity.JBNOTIFICATION_STYLE));
   View title=getActivity().getLayoutInflater().inflate(R.layout.filteractivity_title_layout,null);
   Switch switchBtn=(Switch)title.findViewById(R.id.switchBtn);
   getActivity().getActionBar().setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
@@ -26,7 +25,6 @@
   switchPre(SettingUtility.getEnableFetchMSG());
   getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
   frequency=findPreference(SettingActivity.FREQUENCY);
-  notification_style=findPreference(SettingActivity.JBNOTIFICATION_STYLE);
   ringtone=findPreference(SettingActivity.ENABLE_RINGTONE);
   ringtone.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
