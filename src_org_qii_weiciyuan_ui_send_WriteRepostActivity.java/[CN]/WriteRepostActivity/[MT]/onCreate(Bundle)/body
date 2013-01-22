@@ -3,26 +3,18 @@
   getActionBar().setTitle(getString(R.string.repost));
   getActionBar().setSubtitle(GlobalContext.getInstance().getCurrentAccountName());
   if (savedInstanceState == null) {
-    token=getIntent().getStringExtra("token");
-    if (TextUtils.isEmpty(token))     token=GlobalContext.getInstance().getSpecialToken();
-    msg=(MessageBean)getIntent().getSerializableExtra("msg");
-    if (msg != null) {
-      if (msg.getRetweeted_status() != null) {
-        getEditTextView().setText("//@" + msg.getUser().getScreen_name() + ": "+ msg.getText());
+    Intent intent=getIntent();
+    String action=intent.getAction();
+    if (!TextUtils.isEmpty(action)) {
+      if (action.equals(WriteRepostActivity.ACTION_DRAFT)) {
+        handleDraftOperation(intent);
+      }
+ else       if (action.equals(WriteRepostActivity.ACTION_SEND_FAILED)) {
+        handleFailedOperation(intent);
       }
     }
  else {
-      repostDraftBean=(RepostDraftBean)getIntent().getSerializableExtra("draft");
-      if (repostDraftBean != null) {
-        getEditTextView().setText(repostDraftBean.getContent());
-        msg=repostDraftBean.getMessageBean();
-      }
-    }
-    if (msg.getRetweeted_status() != null) {
-      getEditTextView().setHint("//@" + msg.getRetweeted_status().getUser().getScreen_name() + "???"+ msg.getRetweeted_status().getText());
-    }
- else {
-      getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
+      handleNormalOperation(intent);
     }
   }
 }
