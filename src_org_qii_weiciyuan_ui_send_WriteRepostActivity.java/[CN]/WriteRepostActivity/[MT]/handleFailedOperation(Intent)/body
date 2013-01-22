@@ -1,2 +1,13 @@
 {
+  token=((AccountBean)intent.getSerializableExtra("account")).getAccess_token();
+  msg=(MessageBean)intent.getSerializableExtra("oriMsg");
+  getEditTextView().setText(intent.getStringExtra("content"));
+  if (msg.getRetweeted_status() != null) {
+    getEditTextView().setHint("//@" + msg.getRetweeted_status().getUser().getScreen_name() + "???"+ msg.getRetweeted_status().getText());
+  }
+ else {
+    getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
+  }
+  getEditTextView().setError(intent.getStringExtra("failedReason"));
+  repostDraftBean=(RepostDraftBean)intent.getSerializableExtra("repostDraftBean");
 }

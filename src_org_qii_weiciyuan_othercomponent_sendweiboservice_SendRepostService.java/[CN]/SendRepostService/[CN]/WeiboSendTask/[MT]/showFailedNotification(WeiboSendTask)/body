@@ -1,6 +1,6 @@
 {
-  Notification.Builder builder=new Notification.Builder(SendRepostService.this).setTicker(getString(R.string.send_failed_and_save_to_draft)).setContentTitle(getString(R.string.send_faile_click_to_open)).setContentText(content).setOnlyAlertOnce(true).setAutoCancel(true).setSmallIcon(R.drawable.send_failed).setOngoing(false);
-  Intent notifyIntent=new Intent(SendRepostService.this,DraftActivity.class);
+  Notification.Builder builder=new Notification.Builder(SendRepostService.this).setTicker(getString(R.string.send_failed)).setContentTitle(getString(R.string.send_faile_click_to_open)).setContentText(content).setOnlyAlertOnce(true).setAutoCancel(true).setSmallIcon(R.drawable.send_failed).setOngoing(false);
+  Intent notifyIntent=WriteRepostActivity.startBecauseSendFailed(SendRepostService.this,account,content,oriMsg,repostDraftBean,e.getError());
   PendingIntent pendingIntent=PendingIntent.getActivity(SendRepostService.this,0,notifyIntent,PendingIntent.FLAG_UPDATE_CURRENT);
   builder.setContentIntent(pendingIntent);
   Notification notification;

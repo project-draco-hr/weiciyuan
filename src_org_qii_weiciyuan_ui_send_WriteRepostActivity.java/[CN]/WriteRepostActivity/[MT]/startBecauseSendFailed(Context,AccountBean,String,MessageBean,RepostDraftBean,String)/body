@@ -1,0 +1,10 @@
+{
+  Intent intent=new Intent(context,WriteRepostActivity.class);
+  intent.setAction(WriteRepostActivity.ACTION_SEND_FAILED);
+  intent.putExtra("account",accountBean);
+  intent.putExtra("content",content);
+  intent.putExtra("oriMsg",oriMsg);
+  intent.putExtra("failedReason",failedReason);
+  intent.putExtra("repostDraftBean",repostDraftBean);
+  return intent;
+}
