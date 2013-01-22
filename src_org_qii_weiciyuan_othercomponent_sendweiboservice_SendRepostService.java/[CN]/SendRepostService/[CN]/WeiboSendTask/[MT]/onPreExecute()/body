@@ -4,7 +4,6 @@
   builder.setProgress(0,100,true);
   int notificationId=new Random().nextInt(Integer.MAX_VALUE);
   notification=builder.getNotification();
-  NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
-  notificationManager.notify(notificationId,notification);
+  NotificationUtility.show(getApplicationContext(),notification,notificationId);
   tasksNotifications.put(WeiboSendTask.this,notificationId);
 }

@@ -24,9 +24,8 @@
  else {
     notification=builder.getNotification();
   }
-  final NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
   final int id=tasksNotifications.get(task);
-  notificationManager.notify(id,notification);
+  NotificationUtility.show(getApplicationContext(),notification,id);
   handler.postDelayed(new Runnable(){
     @Override public void run(){
       stopServiceIfTasksAreEnd(task);
