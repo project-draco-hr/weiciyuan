@@ -25,6 +25,6 @@
  else {
     notification=builder.getNotification();
   }
-  NotificationUtility.show(getApplicationContext(),notification,notificationId);
+  NotificationUtility.show(notification,notificationId);
   tasksNotifications.put(WeiboSendTask.this,notificationId);
 }

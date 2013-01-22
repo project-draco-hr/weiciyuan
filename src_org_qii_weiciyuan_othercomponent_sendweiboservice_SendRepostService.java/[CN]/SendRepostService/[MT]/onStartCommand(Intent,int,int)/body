@@ -1,7 +1,7 @@
 {
   int lastNotificationId=intent.getIntExtra("lastNotificationId",-1);
   if (lastNotificationId != -1) {
-    NotificationUtility.cancel(getApplicationContext(),lastNotificationId);
+    NotificationUtility.cancel(lastNotificationId);
   }
   String token=intent.getStringExtra("token");
   AccountBean account=(AccountBean)intent.getSerializableExtra("account");

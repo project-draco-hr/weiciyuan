@@ -25,7 +25,7 @@
     notification=builder.getNotification();
   }
   final int id=tasksNotifications.get(task);
-  NotificationUtility.show(getApplicationContext(),notification,id);
+  NotificationUtility.show(notification,id);
   handler.postDelayed(new Runnable(){
     @Override public void run(){
       stopServiceIfTasksAreEnd(task);

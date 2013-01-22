@@ -24,6 +24,6 @@
       Notification.Builder builder=new Notification.Builder(SendWeiboService.this).setTicker(getString(R.string.send_photo)).setContentTitle(getString(R.string.wait_server_response)).setContentText(content).setNumber(100).setProgress(100,100,false).setOnlyAlertOnce(true).setOngoing(true).setSmallIcon(R.drawable.upload_white);
       notification=builder.getNotification();
     }
-    NotificationUtility.show(getApplicationContext(),notification,tasksNotifications.get(WeiboSendTask.this));
+    NotificationUtility.show(notification,tasksNotifications.get(WeiboSendTask.this));
   }
 }

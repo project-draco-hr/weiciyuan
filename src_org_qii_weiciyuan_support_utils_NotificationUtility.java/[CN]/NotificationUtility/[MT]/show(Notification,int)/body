@@ -1,0 +1,4 @@
+{
+  NotificationManager notificationManager=(NotificationManager)GlobalContext.getInstance().getSystemService(Context.NOTIFICATION_SERVICE);
+  notificationManager.notify(id,notification);
+}
