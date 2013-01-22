@@ -1,0 +1,6 @@
+String token
+AccountBean account
+String picPath
+String content
+GeoBean geoBean
+StatusDraftBean statusDraftBean

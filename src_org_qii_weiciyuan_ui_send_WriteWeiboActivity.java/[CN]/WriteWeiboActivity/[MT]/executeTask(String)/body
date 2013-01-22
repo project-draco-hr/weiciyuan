@@ -2,7 +2,7 @@
   Intent intent=new Intent(WriteWeiboActivity.this,SendWeiboService.class);
   intent.putExtra("token",token);
   intent.putExtra("picPath",picPath);
-  intent.putExtra("accountId",accountBean.getUid());
+  intent.putExtra("account",accountBean);
   intent.putExtra("content",contentString);
   intent.putExtra("geo",geoBean);
   intent.putExtra("draft",statusDraftBean);

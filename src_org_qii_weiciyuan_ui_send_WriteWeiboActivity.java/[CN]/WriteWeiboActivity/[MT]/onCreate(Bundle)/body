@@ -17,6 +17,9 @@
  else       if (action.equals(WriteWeiboActivity.ACTION_DRAFT)) {
         handleDraftOperation(intent);
       }
+ else       if (action.equals(WriteWeiboActivity.ACTION_SEND_FAILED)) {
+        handleFailedOperation(intent);
+      }
     }
  else {
       handleNormalOperation(intent);

@@ -1,0 +1,8 @@
+{
+  this.token=token;
+  this.account=account;
+  this.content=content;
+  this.picPath=picPath;
+  this.geoBean=geoBean;
+  this.statusDraftBean=statusDraftBean;
+}

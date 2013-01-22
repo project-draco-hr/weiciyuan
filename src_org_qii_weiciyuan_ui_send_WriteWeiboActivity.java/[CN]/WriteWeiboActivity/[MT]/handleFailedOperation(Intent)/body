@@ -1,0 +1,14 @@
+{
+  accountBean=(AccountBean)intent.getSerializableExtra("account");
+  token=accountBean.getAccess_token();
+  getActionBar().setSubtitle(accountBean.getUsernick());
+  String stringExtra=intent.getStringExtra("content");
+  content.setText(stringExtra);
+  String failedReason=intent.getStringExtra("failedReason");
+  content.setError(failedReason);
+  picPath=intent.getStringExtra("picPath");
+  if (!TextUtils.isEmpty(picPath))   enablePicture();
+  geoBean=(GeoBean)intent.getSerializableExtra("geoBean");
+  if (geoBean != null)   enableGeo();
+  statusDraftBean=(StatusDraftBean)intent.getSerializableExtra("statusDraftBean");
+}

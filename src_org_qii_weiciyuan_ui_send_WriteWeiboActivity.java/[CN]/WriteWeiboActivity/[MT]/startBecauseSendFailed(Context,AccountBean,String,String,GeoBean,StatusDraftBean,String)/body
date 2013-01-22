@@ -1,0 +1,11 @@
+{
+  Intent intent=new Intent(context,WriteWeiboActivity.class);
+  intent.setAction(WriteWeiboActivity.ACTION_SEND_FAILED);
+  intent.putExtra("account",accountBean);
+  intent.putExtra("content",content);
+  intent.putExtra("failedReason",failedReason);
+  intent.putExtra("picPath",picPath);
+  intent.putExtra("geoBean",geoBean);
+  intent.putExtra("statusDraftBean",statusDraftBean);
+  return intent;
+}

@@ -1,0 +1,7 @@
+Context context
+AccountBean accountBean
+String content
+String picPath
+GeoBean geoBean
+StatusDraftBean statusDraftBean
+String failedReason
