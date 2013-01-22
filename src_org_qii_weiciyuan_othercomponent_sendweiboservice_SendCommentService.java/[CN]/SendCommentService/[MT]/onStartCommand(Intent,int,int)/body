@@ -1,6 +1,6 @@
 {
   token=intent.getStringExtra("token");
-  accountId=intent.getStringExtra("accountId");
+  account=(AccountBean)intent.getSerializableExtra("account");
   content=intent.getStringExtra("content");
   oriMsg=(MessageBean)intent.getSerializableExtra("oriMsg");
   comment_ori=intent.getBooleanExtra("comment_ori",false);
