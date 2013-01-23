@@ -1,0 +1,4 @@
+{
+  String sql="delete from " + CommentByMeTable.TABLE_NAME + " where "+ CommentByMeTable.ACCOUNTID+ " in "+ "("+ accountId+ ")";
+  getWsd().execSQL(sql);
+}

@@ -3,6 +3,8 @@
   db.execSQL("DROP TABLE IF EXISTS " + HomeTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + CommentsTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + RepostsTable.TABLE_NAME);
+  db.execSQL("DROP TABLE IF EXISTS " + MentionCommentsTable.TABLE_NAME);
+  db.execSQL("DROP TABLE IF EXISTS " + CommentByMeTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + FilterTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + EmotionsTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + DraftTable.TABLE_NAME);

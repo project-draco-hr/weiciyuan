@@ -1,0 +1,16 @@
+{
+  String searchCount="select count(" + MentionCommentsTable.ID + ") as total"+ " from "+ MentionCommentsTable.TABLE_NAME+ " where "+ MentionCommentsTable.ACCOUNTID+ " = "+ accountId;
+  int total=0;
+  Cursor c=getRsd().rawQuery(searchCount,null);
+  if (c.moveToNext()) {
+    total=c.getInt(c.getColumnIndex("total"));
+  }
+  c.close();
+  AppLogger.e("total=" + total);
+  int needDeletedNumber=total - Integer.valueOf(SettingUtility.getMsgCount());
+  if (needDeletedNumber > 0) {
+    AppLogger.e("" + needDeletedNumber);
+    String sql=" delete from " + MentionCommentsTable.TABLE_NAME + " where "+ MentionCommentsTable.ID+ " in "+ "( select "+ MentionCommentsTable.ID+ " from "+ MentionCommentsTable.TABLE_NAME+ " where "+ MentionCommentsTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ MentionCommentsTable.ID+ " asc limit "+ needDeletedNumber+ " ) ";
+    getWsd().execSQL(sql);
+  }
+}

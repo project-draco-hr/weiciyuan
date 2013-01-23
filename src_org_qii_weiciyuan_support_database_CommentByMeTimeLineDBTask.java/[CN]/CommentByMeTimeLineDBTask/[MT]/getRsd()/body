@@ -1,0 +1,4 @@
+{
+  DatabaseHelper databaseHelper=DatabaseHelper.getInstance();
+  return databaseHelper.getReadableDatabase();
+}

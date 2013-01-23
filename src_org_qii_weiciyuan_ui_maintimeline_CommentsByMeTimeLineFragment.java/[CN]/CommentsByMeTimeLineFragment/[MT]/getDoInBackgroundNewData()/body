@@ -6,5 +6,8 @@
     dao.setSince_id(getList().getItemList().get(0).getId());
   }
   result=dao.getGSONMsgList();
+  if (result != null) {
+    CommentByMeTimeLineDBTask.addCommentLineMsg(result,accountBean.getUid());
+  }
   return result;
 }
