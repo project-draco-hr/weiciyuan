@@ -1,6 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
-  setHasOptionsMenu(true);
   setRetainInstance(true);
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
