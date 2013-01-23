@@ -1,0 +1,4 @@
+{
+  if (getHomeFragment() == null)   return new FriendsTimeLineFragment(getAccount(),getUser(),getToken());
+ else   return getHomeFragment();
+}

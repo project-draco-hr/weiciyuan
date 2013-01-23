@@ -7,7 +7,6 @@
     if (getList() != null && currentGroupId.equals(ALL_GROUP_ID)) {
       SaveToDBService.save(getActivity(),SaveToDBService.TYPE_STATUS,getList(),accountBean.getUid());
     }
-    getActivity().getActionBar().getTabAt(0).setText(getString(R.string.home));
     putToGroupDataMemoryCache(currentGroupId,getList());
   }
 }

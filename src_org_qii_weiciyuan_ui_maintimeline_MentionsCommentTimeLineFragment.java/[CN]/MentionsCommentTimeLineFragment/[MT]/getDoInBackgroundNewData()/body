@@ -1,0 +1,10 @@
+{
+  CommentListBean result;
+  ICommentsTimeLineDao dao;
+  dao=new MentionsCommentTimeLineDao(token);
+  if (getList() != null && getList().getItemList().size() > 0) {
+    dao.setSince_id(getList().getItemList().get(0).getId());
+  }
+  result=dao.getGSONMsgList();
+  return result;
+}

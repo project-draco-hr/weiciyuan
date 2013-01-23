@@ -1,23 +1,9 @@
 {
   CommentListBean result;
-  ICommentsTimeLineDao dao;
-switch (currentGroupId) {
-case TYPE_RECEIVED_COMMENT:
-    dao=new MainCommentsTimeLineDao(token);
-  break;
-case TYPE_MENTIONED_COMMENT_TO_ME:
-dao=new MentionsCommentTimeLineDao(token);
-break;
-case TYPE_COMMENT_BY_ME:
-dao=new CommentsTimeLineByMeDao(token);
-break;
-default :
-dao=new MainCommentsTimeLineDao(token);
-break;
-}
-if (getList() != null && getList().getItemList().size() > 0) {
-dao.setMax_id(getList().getItemList().get(getList().getItemList().size() - 1).getId());
-}
-result=dao.getGSONMsgList();
-return result;
+  ICommentsTimeLineDao dao=new MainCommentsTimeLineDao(token);
+  if (getList() != null && getList().getItemList().size() > 0) {
+    dao.setMax_id(getList().getItemList().get(getList().getItemList().size() - 1).getId());
+  }
+  result=dao.getGSONMsgList();
+  return result;
 }

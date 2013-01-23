@@ -10,7 +10,4 @@
   if (getList().getSize() == 0) {
     getPullToRefreshListView().startRefreshNow();
   }
-  if (getActivity().getActionBar().getTabAt(2).getText().toString().contains(")")) {
-    getPullToRefreshListView().startRefreshNow();
-  }
 }

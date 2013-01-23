@@ -1,0 +1,4 @@
+{
+  if (getCommentFragment() == null)   return new CommentsTimeLineFragment(getAccount(),getUser(),getToken());
+ else   return getCommentFragment();
+}

@@ -1,4 +1,4 @@
 {
   super.onActivityCreated(savedInstanceState);
-  commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
+  commander=((ICommander)getActivity()).getBitmapDownloader();
 }

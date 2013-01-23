@@ -10,7 +10,4 @@
   if (bean.getSize() == 0) {
     pullToRefreshListView.startRefreshNow();
   }
-  if (getActivity() != null && getActivity().getActionBar().getTabAt(1).getText().toString().contains(")")) {
-    pullToRefreshListView.startRefreshNow();
-  }
 }

@@ -1,5 +1,0 @@
-{
-  super.onCreateOptionsMenu(menu,inflater);
-  inflater.inflate(R.menu.actionbar_menu_mentionstimelinefragment,menu);
-  menu.findItem(R.id.group_name).setTitle(groupNames[currentGroupId]);
-}

@@ -1,5 +1,4 @@
 {
-  buildViewPager();
   buildActionBarAndViewPagerTitles();
   buildTabTitle(getIntent());
 }
