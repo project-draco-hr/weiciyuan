@@ -5,6 +5,15 @@
   final ViewPager mentionVP=(ViewPager)getActivity().findViewById(R.id.menu_right_vp_mention);
   final ViewPager commentVP=(ViewPager)getActivity().findViewById(R.id.menu_right_vp_comment);
   final View fl=getActivity().findViewById(R.id.menu_right_fl);
+  mentionVP.setAdapter(new MentionsTimeLinePagerAdapter(getFragmentManager()));
+  commentVP.setAdapter(new CommentsTimeLinePagerAdapter(getFragmentManager()));
+  FragmentTransaction ft=getFragmentManager().beginTransaction();
+  for (  Fragment f : commentFragments) {
+    ft.hide(f);
+  }
+  for (  Fragment f : mentionFragments) {
+    ft.hide(f);
+  }
   findPreference("a").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
       if (index == 0) {
