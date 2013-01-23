@@ -5,10 +5,6 @@
   outState.putSerializable("userBean",userBean);
   outState.putString("token",token);
   outState.putSerializable("unreadBean",unreadBean);
-  outState.putStringArray("groupNames",groupNames);
-  outState.putInt("currentGroupId",currentGroupId);
-  outState.putString("filter_by_author",filter_by_author);
-  outState.putString("filter_by_type",filter_by_type);
   outState.putSerializable("0",groupDataCache.get(0));
   outState.putSerializable("1",groupDataCache.get(1));
   outState.putSerializable("2",groupDataCache.get(2));

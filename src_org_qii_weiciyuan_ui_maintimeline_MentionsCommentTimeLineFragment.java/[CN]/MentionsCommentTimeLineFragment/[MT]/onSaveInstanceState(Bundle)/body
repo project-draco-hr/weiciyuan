@@ -4,7 +4,5 @@
   outState.putSerializable("bean",bean);
   outState.putSerializable("userBean",userBean);
   outState.putString("token",token);
-  outState.putStringArray("groupNames",groupNames);
-  outState.putInt("currentGroupId",currentGroupId);
   outState.putSerializable("unreadBean",unreadBean);
 }

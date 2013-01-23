@@ -3,8 +3,6 @@
   if (getList().getItemList().size() > 0) {
     dao.setMax_id(getList().getItemList().get(getList().getItemList().size() - 1).getId());
   }
-  dao.setFilter_by_author(filter_by_author);
-  dao.setFilter_by_type(filter_by_type);
   MessageListBean result=dao.getGSONMsgList();
   return result;
 }

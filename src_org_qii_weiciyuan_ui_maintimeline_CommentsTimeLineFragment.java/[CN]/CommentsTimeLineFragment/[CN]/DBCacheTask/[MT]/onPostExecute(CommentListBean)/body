@@ -2,7 +2,6 @@
   super.onPostExecute(result);
   if (result != null) {
     clearAndReplaceValue(result);
-    clearAndReplaceValue(0,result);
   }
   getPullToRefreshListView().setVisibility(View.VISIBLE);
   getAdapter().notifyDataSetChanged();

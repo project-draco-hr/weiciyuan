@@ -3,10 +3,8 @@
   if (getList().getItemList().size() > 0) {
     dao.setSince_id(getList().getItemList().get(0).getId());
   }
-  dao.setFilter_by_author(filter_by_author);
-  dao.setFilter_by_type(filter_by_type);
   MessageListBean result=dao.getGSONMsgList();
-  if (result != null && currentGroupId == 0) {
+  if (result != null) {
     MentionsTimeLineDBTask.addRepostLineMsg(result,accountBean.getUid());
   }
   return result;
