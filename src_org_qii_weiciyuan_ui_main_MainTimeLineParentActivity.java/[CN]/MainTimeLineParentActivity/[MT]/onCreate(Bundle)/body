@@ -1,0 +1,13 @@
+{
+  if (savedInstanceState == null) {
+    theme=SettingUtility.getAppTheme();
+  }
+ else {
+    theme=savedInstanceState.getInt("theme");
+  }
+  setTheme(theme);
+  super.onCreate(savedInstanceState);
+  forceShowActionBarOverflowMenu();
+  initNFC();
+  commander=new TimeLineBitmapDownloader(new Handler());
+}
