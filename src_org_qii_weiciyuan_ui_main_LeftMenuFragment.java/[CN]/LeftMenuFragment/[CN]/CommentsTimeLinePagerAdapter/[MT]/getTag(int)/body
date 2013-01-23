@@ -1,6 +1,6 @@
 {
   List<String> tagList=new ArrayList<String>();
-  tagList.add(CommentsTimeLineFragment.class.getName());
+  tagList.add(CommentsToMeTimeLineFragment.class.getName());
   tagList.add(CommentsByMeTimeLineFragment.class.getName());
   return tagList.get(position);
 }

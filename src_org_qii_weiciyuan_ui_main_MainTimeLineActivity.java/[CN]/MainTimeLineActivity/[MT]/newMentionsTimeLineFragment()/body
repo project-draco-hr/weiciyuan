@@ -1,4 +1,4 @@
 {
-  if (getMentionFragment() == null)   return new MentionsTimeLineFragment(getAccount(),getUser(),getToken());
+  if (getMentionFragment() == null)   return new MentionsWeiboTimeLineFragment(getAccount(),getUser(),getToken());
  else   return getMentionFragment();
 }
