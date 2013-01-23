@@ -1,6 +1,0 @@
-{
-  super.onPostExecute(aBoolean);
-  if (aBoolean) {
-    ((CommentListAdapter)timeLineAdapter).removeItem(positon);
-  }
-}

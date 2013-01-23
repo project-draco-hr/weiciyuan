@@ -1,7 +1,0 @@
-{
-  clearActionMode();
-  if (removeTask == null || removeTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-    removeTask=new RemoveTask(GlobalContext.getInstance().getSpecialToken(),getList().getItemList().get(position).getId(),position);
-    removeTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
-}

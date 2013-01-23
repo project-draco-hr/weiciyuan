@@ -1,4 +1,0 @@
-{
-  getList().getItemList().clear();
-  getList().getItemList().addAll(value.getItemList());
-}
