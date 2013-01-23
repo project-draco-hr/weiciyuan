@@ -1,18 +1,5 @@
 {
   super.onCreate(savedInstanceState);
-  setContentView(R.layout.viewpager_layout);
-  setBehindContentView(R.layout.menu_frame);
-  FragmentTransaction t=getFragmentManager().beginTransaction();
-  MenuFragment mFrag=new MenuFragment();
-  t.replace(R.id.menu_frame,mFrag);
-  t.commit();
-  SlidingMenu slidingMenu=getSlidingMenu();
-  slidingMenu.setMode(SlidingMenu.LEFT);
-  slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
-  slidingMenu.setShadowWidthRes(R.dimen.shadow_width);
-  slidingMenu.setShadowDrawable(R.drawable.shadow);
-  slidingMenu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-  slidingMenu.setFadeDegree(0.35f);
   if (savedInstanceState != null) {
     accountBean=(AccountBean)savedInstanceState.getSerializable("account");
   }

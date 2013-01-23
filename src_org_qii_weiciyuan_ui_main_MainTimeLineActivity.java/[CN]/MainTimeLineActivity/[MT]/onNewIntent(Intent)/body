@@ -7,7 +7,6 @@
   if (newAccountBean.getUid().equals(accountBean.getUid())) {
     accountBean=newAccountBean;
     GlobalContext.getInstance().setAccountBean(accountBean);
-    buildTabTitle(intent);
   }
  else {
     overridePendingTransition(0,0);

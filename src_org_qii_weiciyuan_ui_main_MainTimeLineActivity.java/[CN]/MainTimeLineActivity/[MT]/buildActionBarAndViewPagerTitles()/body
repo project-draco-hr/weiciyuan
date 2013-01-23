@@ -1,7 +1,0 @@
-{
-  ActionBar actionBar=getActionBar();
-  actionBar.setDisplayHomeAsUpEnabled(true);
-  getActionBar().setTitle(GlobalContext.getInstance().getCurrentAccountName());
-  setContentView(R.layout.menu_right);
-  getFragmentManager().beginTransaction().replace(R.id.menu_right_fl,newFriendsTimeLineFragment(),FriendsTimeLineFragment.class.getName()).commit();
-}

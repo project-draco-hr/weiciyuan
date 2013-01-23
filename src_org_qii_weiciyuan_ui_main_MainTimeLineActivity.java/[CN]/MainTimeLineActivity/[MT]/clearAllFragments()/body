@@ -1,5 +1,0 @@
-{
-  getFragmentManager().beginTransaction().remove(getHomeFragment()).commit();
-  getFragmentManager().beginTransaction().remove(getMentionFragment()).commit();
-  getFragmentManager().beginTransaction().remove(getCommentFragment()).commit();
-}
