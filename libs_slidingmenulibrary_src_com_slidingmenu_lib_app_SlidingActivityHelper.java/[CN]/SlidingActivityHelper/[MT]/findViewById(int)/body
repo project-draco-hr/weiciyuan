@@ -1,0 +1,8 @@
+{
+  View v;
+  if (mSlidingMenu != null) {
+    v=mSlidingMenu.findViewById(id);
+    if (v != null)     return v;
+  }
+  return null;
+}

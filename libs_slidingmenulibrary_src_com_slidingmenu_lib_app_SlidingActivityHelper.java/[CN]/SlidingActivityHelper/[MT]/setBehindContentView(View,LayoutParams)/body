@@ -1,0 +1,4 @@
+{
+  mViewBehind=view;
+  mSlidingMenu.setMenu(mViewBehind);
+}

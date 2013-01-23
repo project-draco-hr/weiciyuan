@@ -1,0 +1,3 @@
+{
+  setBehindContentView(getLayoutInflater().inflate(id,null));
+}

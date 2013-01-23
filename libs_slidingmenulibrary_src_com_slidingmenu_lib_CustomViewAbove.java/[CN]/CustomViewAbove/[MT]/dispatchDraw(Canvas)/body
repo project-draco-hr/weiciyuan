@@ -1,0 +1,6 @@
+{
+  super.dispatchDraw(canvas);
+  mViewBehind.drawShadow(mContent,canvas);
+  mViewBehind.drawFade(mContent,canvas,getPercentOpen());
+  mViewBehind.drawSelector(mContent,canvas,getPercentOpen());
+}

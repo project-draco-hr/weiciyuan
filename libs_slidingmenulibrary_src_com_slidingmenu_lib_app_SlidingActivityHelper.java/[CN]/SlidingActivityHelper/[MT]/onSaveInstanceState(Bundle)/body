@@ -1,0 +1,4 @@
+{
+  outState.putBoolean("SlidingActivityHelper.open",mSlidingMenu.isMenuShowing());
+  outState.putBoolean("SlidingActivityHelper.secondary",mSlidingMenu.isSecondaryMenuShowing());
+}

@@ -1,0 +1,4 @@
+{
+  if (degree > 1.0f || degree < 0.0f)   throw new IllegalStateException("The BehindFadeDegree must be between 0.0f and 1.0f");
+  mFadeDegree=degree;
+}

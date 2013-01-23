@@ -1,0 +1,3 @@
+{
+  setSecondaryShadowDrawable(getContext().getResources().getDrawable(resId));
+}

@@ -1,0 +1,7 @@
+{
+  super.onSizeChanged(w,h,oldw,oldh);
+  if (w != oldw) {
+    completeScroll();
+    scrollTo(getDestScrollX(mCurItem),getScrollY());
+  }
+}

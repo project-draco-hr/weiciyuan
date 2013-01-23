@@ -1,0 +1,3 @@
+{
+  mViewBehind.setFadeEnabled(b);
+}

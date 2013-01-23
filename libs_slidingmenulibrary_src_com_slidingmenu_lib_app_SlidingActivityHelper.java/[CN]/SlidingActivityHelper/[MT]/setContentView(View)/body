@@ -1,0 +1,4 @@
+{
+  mBroadcasting=true;
+  mActivity.setContentView(v);
+}

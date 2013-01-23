@@ -1,0 +1,3 @@
+{
+  mSlidingMenu=(SlidingMenu)LayoutInflater.from(mActivity).inflate(R.layout.slidingmenumain,null);
+}

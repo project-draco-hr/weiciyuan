@@ -1,0 +1,3 @@
+{
+  mIgnoredViews.remove(v);
+}

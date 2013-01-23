@@ -1,0 +1,3 @@
+{
+  return zoom(openedX,closedX,openedY,closedY,px,py,lin);
+}

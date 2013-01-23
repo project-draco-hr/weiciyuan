@@ -1,0 +1,8 @@
+{
+  if (isMenuShowing()) {
+    showContent(animate);
+  }
+ else {
+    showMenu(animate);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  mShadowDrawable=shadow;
+  invalidate();
+}

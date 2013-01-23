@@ -1,0 +1,4 @@
+{
+  super(context,attrs);
+  mMarginThreshold=(int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,MARGIN_THRESHOLD,getResources().getDisplayMetrics());
+}

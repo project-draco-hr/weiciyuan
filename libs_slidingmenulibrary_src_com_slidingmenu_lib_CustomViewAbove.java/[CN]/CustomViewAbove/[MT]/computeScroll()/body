@@ -1,0 +1,17 @@
+{
+  if (!mScroller.isFinished()) {
+    if (mScroller.computeScrollOffset()) {
+      int oldX=getScrollX();
+      int oldY=getScrollY();
+      int x=mScroller.getCurrX();
+      int y=mScroller.getCurrY();
+      if (oldX != x || oldY != y) {
+        scrollTo(x,y);
+        pageScrolled(x);
+      }
+      invalidate();
+      return;
+    }
+  }
+  completeScroll();
+}

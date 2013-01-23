@@ -1,0 +1,5 @@
+int openedX
+int closedX
+int openedY
+int closedY
+Interpolator interp

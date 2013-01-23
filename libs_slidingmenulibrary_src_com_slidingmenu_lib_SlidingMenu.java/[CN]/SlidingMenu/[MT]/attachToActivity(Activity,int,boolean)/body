@@ -1,0 +1,27 @@
+{
+  if (slideStyle != SLIDING_WINDOW && slideStyle != SLIDING_CONTENT)   throw new IllegalArgumentException("slideStyle must be either SLIDING_WINDOW or SLIDING_CONTENT");
+  if (getParent() != null)   throw new IllegalStateException("This SlidingMenu appears to already be attached");
+  TypedArray a=activity.getTheme().obtainStyledAttributes(new int[]{android.R.attr.windowBackground});
+  int background=a.getResourceId(0,0);
+  a.recycle();
+switch (slideStyle) {
+case SLIDING_WINDOW:
+    mActionbarOverlay=false;
+  ViewGroup decor=(ViewGroup)activity.getWindow().getDecorView();
+ViewGroup decorChild=(ViewGroup)decor.getChildAt(0);
+decorChild.setBackgroundResource(background);
+decor.removeView(decorChild);
+decor.addView(this);
+setContent(decorChild);
+break;
+case SLIDING_CONTENT:
+mActionbarOverlay=actionbarOverlay;
+ViewGroup contentParent=(ViewGroup)activity.findViewById(android.R.id.content);
+View content=contentParent.getChildAt(0);
+contentParent.removeView(content);
+contentParent.addView(this);
+setContent(content);
+if (content.getBackground() == null) content.setBackgroundResource(background);
+break;
+}
+}
