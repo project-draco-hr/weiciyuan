@@ -2,6 +2,36 @@
   Notification.Builder builder=new Notification.Builder(context).setTicker(NotificationUtility.getTicker(unreadBean)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
   builder.setContentTitle(NotificationUtility.getTicker(unreadBean));
   builder.setNumber(1);
+  if (clearNotificationEventReceiver != null) {
+    GlobalContext.getInstance().unregisterReceiver(clearNotificationEventReceiver);
+    JBBigTextNotification.clearNotificationEventReceiver=null;
+  }
+  clearNotificationEventReceiver=new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      new Thread(new Runnable(){
+        @Override public void run(){
+          try {
+            new ClearUnreadDao(accountBean.getAccess_token()).clearMentionStatusUnread(unreadBean,accountBean.getUid());
+            new ClearUnreadDao(accountBean.getAccess_token()).clearMentionCommentUnread(unreadBean,accountBean.getUid());
+            new ClearUnreadDao(accountBean.getAccess_token()).clearCommentUnread(unreadBean,accountBean.getUid());
+          }
+ catch (          WeiboException ignored) {
+          }
+ finally {
+            GlobalContext.getInstance().unregisterReceiver(clearNotificationEventReceiver);
+            JBBigTextNotification.clearNotificationEventReceiver=null;
+          }
+        }
+      }
+).start();
+    }
+  }
+;
+  IntentFilter intentFilter=new IntentFilter("org.qii.weiciyuan.JBBigTextNotification.unread");
+  GlobalContext.getInstance().registerReceiver(clearNotificationEventReceiver,intentFilter);
+  Intent broadcastIntent=new Intent("org.qii.weiciyuan.JBBigTextNotification.unread");
+  PendingIntent deletedPendingIntent=PendingIntent.getBroadcast(GlobalContext.getInstance(),0,broadcastIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+  builder.setDeleteIntent(deletedPendingIntent);
   Notification.BigTextStyle bigTextStyle=new Notification.BigTextStyle(builder);
   if (unreadBean.getMention_status() == 1) {
     bigTextStyle.setBigContentTitle(repost.getItem(0).getUser().getScreen_name() + "???");
