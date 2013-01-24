@@ -26,4 +26,5 @@
     }
   }
 );
+  searchView.requestFocus();
 }
