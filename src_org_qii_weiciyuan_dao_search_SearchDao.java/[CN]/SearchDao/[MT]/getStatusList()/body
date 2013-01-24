@@ -16,6 +16,10 @@
   SearchStatusListBean value=null;
   try {
     value=gson.fromJson(jsonData,SearchStatusListBean.class);
+    List<MessageBean> list=value.getItemList();
+    for (    MessageBean msg : list) {
+      TimeTool.dealMills(msg);
+    }
   }
  catch (  JsonSyntaxException e) {
     AppLogger.e(e.getMessage());
