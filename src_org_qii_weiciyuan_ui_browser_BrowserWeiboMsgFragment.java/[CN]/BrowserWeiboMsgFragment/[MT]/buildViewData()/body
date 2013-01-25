@@ -17,14 +17,10 @@
   }
   if (!TextUtils.isEmpty(msg.getBmiddle_pic()) && msg.getRetweeted_status() == null) {
     if (Utility.isTaskStopped(picTask)) {
+      layout.pic_layout.setVisibility(View.VISIBLE);
       picTask=new ProfileAvatarAndDetailMsgPicTask(layout.content_pic,FileLocationMethod.picture_bmiddle,layout.content_pic_pb);
       picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getBmiddle_pic());
     }
-  }
- else {
-    layout.content_pic.setVisibility(View.GONE);
-    layout.content_pic_pb.setVisibility(View.GONE);
-    layout.pic_layout.setVisibility(View.GONE);
   }
   MessageBean repostMsg=msg.getRetweeted_status();
   if (repostMsg != null) {
@@ -50,9 +46,6 @@
         picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getRetweeted_status().getBmiddle_pic());
       }
     }
-  }
- else {
-    layout.repost_layout.setVisibility(View.GONE);
   }
   getActivity().getActionBar().getTabAt(1).setText(getString(R.string.comments) + "(" + msg.getComments_count()+ ")");
   getActivity().getActionBar().getTabAt(2).setText(getString(R.string.repost) + "(" + msg.getReposts_count()+ ")");
