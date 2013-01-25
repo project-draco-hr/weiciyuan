@@ -8,7 +8,7 @@
   layout.time.setText(msg.getTimeInFormat());
   if (msg.getGeo() != null) {
     if (Utility.isTaskStopped(geoTask)) {
-      geoTask=new GetGoogleLocationInfo(msg.getGeo());
+      geoTask=new GetGoogleLocationInfo(getActivity(),msg.getGeo(),layout.mapView,layout.location);
       geoTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
   }

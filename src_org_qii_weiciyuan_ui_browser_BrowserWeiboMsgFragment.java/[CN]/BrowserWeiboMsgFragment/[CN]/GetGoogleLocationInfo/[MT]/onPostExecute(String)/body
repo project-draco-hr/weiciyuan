@@ -1,7 +1,0 @@
-{
-  if (!TextUtils.isEmpty(s)) {
-    layout.location.setVisibility(View.VISIBLE);
-    layout.location.setText(s);
-  }
-  super.onPostExecute(s);
-}

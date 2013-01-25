@@ -1,0 +1,6 @@
+{
+  this.geoBean=geoBean;
+  this.activity=activity;
+  this.mapView=mapView;
+  this.location=location;
+}
