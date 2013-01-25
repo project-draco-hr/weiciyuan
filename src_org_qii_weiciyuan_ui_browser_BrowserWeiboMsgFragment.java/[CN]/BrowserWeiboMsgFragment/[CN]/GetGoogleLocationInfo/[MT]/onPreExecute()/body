@@ -1,10 +1,10 @@
 {
   super.onPreExecute();
-  location.setVisibility(View.VISIBLE);
-  location.setText(String.valueOf(geoBean.getLat() + "," + geoBean.getLon()));
+  layout.location.setVisibility(View.VISIBLE);
+  layout.location.setText(String.valueOf(geoBean.getLat() + "," + geoBean.getLon()));
   if (Utility.isGooglePlaySafe(getActivity())) {
-    mapView.setVisibility(View.VISIBLE);
-    GoogleMap mMap=mapView.getMap();
+    layout.mapView.setVisibility(View.VISIBLE);
+    GoogleMap mMap=layout.mapView.getMap();
     if (mMap != null) {
       final LatLng MELBOURNE=new LatLng(geoBean.getLat(),geoBean.getLon());
       Marker melbourne=mMap.addMarker(new MarkerOptions().position(MELBOURNE));
@@ -17,7 +17,7 @@
           Intent intent=new Intent(getActivity(),AppMapActivity.class);
           intent.putExtra("lat",bean.getLat());
           intent.putExtra("lon",bean.getLon());
-          if (!String.valueOf(bean.getLat() + "," + bean.getLon()).equals(location.getText()))           intent.putExtra("locationStr",location.getText());
+          if (!String.valueOf(bean.getLat() + "," + bean.getLon()).equals(layout.location.getText()))           intent.putExtra("locationStr",layout.location.getText());
           startActivity(intent);
         }
       }
@@ -25,6 +25,6 @@
     }
   }
  else {
-    mapView.setVisibility(View.GONE);
+    layout.mapView.setVisibility(View.GONE);
   }
 }

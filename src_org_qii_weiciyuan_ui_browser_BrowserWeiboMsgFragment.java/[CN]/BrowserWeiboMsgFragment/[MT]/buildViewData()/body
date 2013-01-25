@@ -1,11 +1,11 @@
 {
   if (msg.getUser() != null) {
-    username.setText(msg.getUser().getScreen_name());
-    ((AbstractAppActivity)getActivity()).getBitmapDownloader().downloadAvatar(avatar,msg.getUser());
+    layout.username.setText(msg.getUser().getScreen_name());
+    ((AbstractAppActivity)getActivity()).getBitmapDownloader().downloadAvatar(layout.avatar,msg.getUser());
   }
-  content.setText(msg.getText());
-  ListViewTool.addLinks(content);
-  time.setText(msg.getTimeInFormat());
+  layout.content.setText(msg.getText());
+  ListViewTool.addLinks(layout.content);
+  layout.time.setText(msg.getTimeInFormat());
   if (msg.getGeo() != null) {
     if (Utility.isTaskStopped(geoTask)) {
       geoTask=new GetGoogleLocationInfo(msg.getGeo());
@@ -13,46 +13,46 @@
     }
   }
   if (!TextUtils.isEmpty(msg.getSource())) {
-    source.setText(Html.fromHtml(msg.getSource()).toString());
+    layout.source.setText(Html.fromHtml(msg.getSource()).toString());
   }
   if (!TextUtils.isEmpty(msg.getBmiddle_pic()) && msg.getRetweeted_status() == null) {
     if (Utility.isTaskStopped(picTask)) {
-      picTask=new ProfileAvatarAndDetailMsgPicTask(content_pic,FileLocationMethod.picture_bmiddle,content_pic_pb);
+      picTask=new ProfileAvatarAndDetailMsgPicTask(layout.content_pic,FileLocationMethod.picture_bmiddle,layout.content_pic_pb);
       picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getBmiddle_pic());
     }
   }
  else {
-    content_pic.setVisibility(View.GONE);
-    content_pic_pb.setVisibility(View.GONE);
-    pic_layout.setVisibility(View.GONE);
+    layout.content_pic.setVisibility(View.GONE);
+    layout.content_pic_pb.setVisibility(View.GONE);
+    layout.pic_layout.setVisibility(View.GONE);
   }
   MessageBean repostMsg=msg.getRetweeted_status();
   if (repostMsg != null) {
-    content_pic.setVisibility(View.GONE);
-    content_pic_pb.setVisibility(View.GONE);
-    pic_layout.setVisibility(View.GONE);
-    repost_layout.setVisibility(View.VISIBLE);
-    recontent.setVisibility(View.VISIBLE);
+    layout.content_pic.setVisibility(View.GONE);
+    layout.content_pic_pb.setVisibility(View.GONE);
+    layout.pic_layout.setVisibility(View.GONE);
+    layout.repost_layout.setVisibility(View.VISIBLE);
+    layout.recontent.setVisibility(View.VISIBLE);
     if (repostMsg.getUser() != null) {
-      recontent.setText("@" + repostMsg.getUser().getScreen_name() + "???"+ repostMsg.getText());
-      ListViewTool.addLinks(recontent);
+      layout.recontent.setText("@" + repostMsg.getUser().getScreen_name() + "???"+ repostMsg.getText());
+      ListViewTool.addLinks(layout.recontent);
       buildRepostCount();
     }
  else {
-      recontent.setText(repostMsg.getText());
-      ListViewTool.addLinks(recontent);
+      layout.recontent.setText(repostMsg.getText());
+      ListViewTool.addLinks(layout.recontent);
     }
     if (!TextUtils.isEmpty(repostMsg.getBmiddle_pic())) {
-      repost_pic_layout.setVisibility(View.VISIBLE);
-      repost_pic.setVisibility(View.VISIBLE);
+      layout.repost_pic_layout.setVisibility(View.VISIBLE);
+      layout.repost_pic.setVisibility(View.VISIBLE);
       if (Utility.isTaskStopped(picTask)) {
-        picTask=new ProfileAvatarAndDetailMsgPicTask(repost_pic,FileLocationMethod.picture_bmiddle,repost_pic_pb);
+        picTask=new ProfileAvatarAndDetailMsgPicTask(layout.repost_pic,FileLocationMethod.picture_bmiddle,layout.repost_pic_pb);
         picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getRetweeted_status().getBmiddle_pic());
       }
     }
   }
  else {
-    repost_layout.setVisibility(View.GONE);
+    layout.repost_layout.setVisibility(View.GONE);
   }
   getActivity().getActionBar().getTabAt(1).setText(getString(R.string.comments) + "(" + msg.getComments_count()+ ")");
   getActivity().getActionBar().getTabAt(2).setText(getString(R.string.repost) + "(" + msg.getReposts_count()+ ")");

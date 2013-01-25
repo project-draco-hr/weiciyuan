@@ -1,5 +1,5 @@
 {
   super.onSaveInstanceState(outState);
-  mapView.onSaveInstanceState(outState);
+  layout.mapView.onSaveInstanceState(outState);
   outState.putSerializable("msg",msg);
 }

@@ -1,13 +1,13 @@
 {
   if (newValue != null && e == null) {
     if (isStatusDeleted(newValue)) {
-      setTextViewDeleted(content);
-      if (recontent.getVisibility() == View.VISIBLE) {
-        setTextViewDeleted(recontent);
+      setTextViewDeleted(layout.content);
+      if (layout.recontent.getVisibility() == View.VISIBLE) {
+        setTextViewDeleted(layout.recontent);
       }
     }
  else     if (isRepostDeleted(newValue)) {
-      setTextViewDeleted(recontent);
+      setTextViewDeleted(layout.recontent);
     }
  else {
       msg=newValue;

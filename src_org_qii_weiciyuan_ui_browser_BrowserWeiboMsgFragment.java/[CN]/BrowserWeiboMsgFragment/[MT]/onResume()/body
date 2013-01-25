@@ -1,5 +1,5 @@
 {
   super.onResume();
   buildViewData();
-  mapView.onResume();
+  layout.mapView.onResume();
 }
