@@ -5,7 +5,7 @@
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
     if (Utility.isTaskStopped(updateMsgTask)) {
-      updateMsgTask=new UpdateMsgTask();
+      updateMsgTask=new UpdateMessageTask(BrowserWeiboMsgFragment.this,layout.content,layout.recontent,msg);
       updateMsgTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
   break;

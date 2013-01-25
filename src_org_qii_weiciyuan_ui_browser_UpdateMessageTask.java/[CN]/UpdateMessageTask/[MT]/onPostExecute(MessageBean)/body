@@ -1,17 +1,17 @@
 {
   if (newValue != null && e == null) {
     if (isStatusDeleted(newValue)) {
-      setTextViewDeleted(layout.content);
-      if (layout.recontent.getVisibility() == View.VISIBLE) {
-        setTextViewDeleted(layout.recontent);
+      setTextViewDeleted(content);
+      if (recontent.getVisibility() == View.VISIBLE) {
+        setTextViewDeleted(recontent);
       }
     }
  else     if (isRepostDeleted(newValue)) {
-      setTextViewDeleted(layout.recontent);
+      setTextViewDeleted(recontent);
     }
  else {
       msg=newValue;
-      buildViewData();
+      fragment.buildViewData();
       Intent intent=new Intent();
       intent.putExtra("msg",msg);
       getActivity().setResult(0,intent);

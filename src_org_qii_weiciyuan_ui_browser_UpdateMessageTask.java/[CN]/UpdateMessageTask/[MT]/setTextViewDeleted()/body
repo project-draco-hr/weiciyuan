@@ -1,0 +1,5 @@
+{
+  SpannableString ss=SpannableString.valueOf(content.getText());
+  ss.setSpan(new StrikethroughSpan(),0,ss.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+  content.setText(ss);
+}
