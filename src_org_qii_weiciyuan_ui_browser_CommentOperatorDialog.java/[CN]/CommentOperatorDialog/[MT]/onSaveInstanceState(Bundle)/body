@@ -1,4 +1,0 @@
-{
-  super.onSaveInstanceState(outState);
-  outState.putSerializable("msg",bean);
-}
