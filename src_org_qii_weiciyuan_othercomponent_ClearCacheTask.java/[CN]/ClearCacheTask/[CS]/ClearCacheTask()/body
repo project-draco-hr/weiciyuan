@@ -1,3 +1,0 @@
-{
-  Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
-}
