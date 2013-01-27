@@ -1,0 +1,10 @@
+{
+  super.onRestoreInstanceState(savedInstanceState);
+  if (savedInstanceState != null) {
+    savedEnableCommentOri=savedInstanceState.getBoolean("commentOri");
+    savedEnableRepost=savedInstanceState.getBoolean("repost");
+    token=savedInstanceState.getString("token");
+    msg=(MessageBean)savedInstanceState.getSerializable("msg");
+    commentDraftBean=(CommentDraftBean)savedInstanceState.getSerializable("commentDraftBean");
+  }
+}
