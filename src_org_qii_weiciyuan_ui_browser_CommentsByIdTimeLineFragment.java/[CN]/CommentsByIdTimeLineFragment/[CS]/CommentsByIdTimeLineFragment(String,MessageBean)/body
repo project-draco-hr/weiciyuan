@@ -1,4 +1,4 @@
 {
   this.token=token;
-  this.id=id;
+  this.msg=msg;
 }

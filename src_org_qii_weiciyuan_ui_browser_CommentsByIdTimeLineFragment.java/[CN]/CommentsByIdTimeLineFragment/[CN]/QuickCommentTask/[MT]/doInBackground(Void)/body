@@ -1,5 +1,5 @@
 {
-  CommentNewMsgDao dao=new CommentNewMsgDao(token,id,et.getText().toString());
+  CommentNewMsgDao dao=new CommentNewMsgDao(token,msg.getId(),et.getText().toString());
   try {
     return dao.sendNewMsg();
   }

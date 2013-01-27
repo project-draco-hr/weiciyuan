@@ -1,4 +1,4 @@
 {
-  CommentsTimeLineByIdDao dao=new CommentsTimeLineByIdDao(token,id);
+  CommentsTimeLineByIdDao dao=new CommentsTimeLineByIdDao(token,msg.getId());
   return dao.getGSONMsgList();
 }
