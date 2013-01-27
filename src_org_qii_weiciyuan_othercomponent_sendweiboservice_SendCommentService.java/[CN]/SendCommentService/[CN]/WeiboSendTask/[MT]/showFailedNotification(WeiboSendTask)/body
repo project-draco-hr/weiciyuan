@@ -1,0 +1,35 @@
+{
+  Notification.Builder builder=new Notification.Builder(SendCommentService.this).setTicker(getString(R.string.send_failed)).setContentTitle(getString(R.string.send_faile_click_to_open)).setContentText(content).setOnlyAlertOnce(true).setAutoCancel(true).setSmallIcon(R.drawable.send_failed).setOngoing(false);
+  Intent notifyIntent=WriteCommentActivity.startBecauseSendFailed(SendCommentService.this,account,content,oriMsg,commentDraftBean,comment_ori,e.getError());
+  PendingIntent pendingIntent=PendingIntent.getActivity(SendCommentService.this,0,notifyIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+  builder.setContentIntent(pendingIntent);
+  Notification notification;
+  if (Utility.isJB()) {
+    Notification.BigTextStyle bigTextStyle=new Notification.BigTextStyle(builder);
+    bigTextStyle.setBigContentTitle(getString(R.string.send_faile_click_to_open));
+    bigTextStyle.bigText(content);
+    bigTextStyle.setSummaryText(account.getUsernick());
+    builder.setStyle(bigTextStyle);
+    Intent intent=new Intent(SendCommentService.this,SendCommentService.class);
+    intent.putExtra("oriMsg",oriMsg);
+    intent.putExtra("content",content);
+    intent.putExtra("comment_ori",comment_ori);
+    intent.putExtra("token",token);
+    intent.putExtra("account",account);
+    intent.putExtra("lastNotificationId",tasksNotifications.get(task));
+    PendingIntent retrySendIntent=PendingIntent.getService(SendCommentService.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+    builder.addAction(R.drawable.send_light,getString(R.string.retry_send),retrySendIntent);
+    notification=builder.build();
+  }
+ else {
+    notification=builder.getNotification();
+  }
+  final int id=tasksNotifications.get(task);
+  NotificationUtility.show(notification,id);
+  handler.postDelayed(new Runnable(){
+    @Override public void run(){
+      stopServiceIfTasksAreEnd(task);
+    }
+  }
+,3000);
+}

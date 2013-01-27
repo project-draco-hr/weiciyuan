@@ -1,0 +1,7 @@
+Context context
+AccountBean account
+String content
+MessageBean oriMsg
+CommentDraftBean draft
+boolean comment_ori
+String failedReason

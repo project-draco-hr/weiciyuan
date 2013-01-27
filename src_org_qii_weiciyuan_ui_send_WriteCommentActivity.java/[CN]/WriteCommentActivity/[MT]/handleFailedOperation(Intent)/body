@@ -1,0 +1,9 @@
+{
+  token=((AccountBean)intent.getSerializableExtra("account")).getAccess_token();
+  msg=(MessageBean)getIntent().getSerializableExtra("oriMsg");
+  getEditTextView().setError(intent.getStringExtra("failedReason"));
+  getEditTextView().setText(intent.getStringExtra("content"));
+  commentDraftBean=(CommentDraftBean)intent.getSerializableExtra("draft");
+  getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
+  savedEnableRepost=intent.getBooleanExtra("comment_ori",false);
+}
