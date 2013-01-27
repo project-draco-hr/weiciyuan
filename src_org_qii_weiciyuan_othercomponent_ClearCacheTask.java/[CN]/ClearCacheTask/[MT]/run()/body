@@ -1,4 +1,5 @@
 {
+  Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
   AppLogger.d("clear cache task start");
   if (Utility.isWifi(GlobalContext.getInstance())) {
     List<String> pathList=FileManager.getCachePath();
