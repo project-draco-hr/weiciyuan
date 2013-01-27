@@ -5,7 +5,7 @@
     intent.putExtra("oriMsg",bean);
     intent.putExtra("content",content);
     intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-    intent.putExtra("accountId",GlobalContext.getInstance().getCurrentAccountId());
+    intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
     if (enableRepost.isChecked()) {
       intent.putExtra("repostContent",repost());
     }

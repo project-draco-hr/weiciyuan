@@ -1,0 +1,11 @@
+{
+  Intent intent=new Intent(context,WriteReplyToCommentActivity.class);
+  intent.setAction(WriteRepostActivity.ACTION_SEND_FAILED);
+  intent.putExtra("account",account);
+  intent.putExtra("content",content);
+  intent.putExtra("oriMsg",oriMsg);
+  intent.putExtra("failedReason",failedReason);
+  intent.putExtra("repostContent",repostContent);
+  intent.putExtra("replyDraftBean",replyDraftBean);
+  return intent;
+}

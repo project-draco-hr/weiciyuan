@@ -1,11 +1,15 @@
 {
-  token=intent.getStringExtra("token");
-  accountId=intent.getStringExtra("accountId");
-  content=intent.getStringExtra("content");
-  repostContent=intent.getStringExtra("repostContent");
-  oriMsg=(CommentBean)intent.getSerializableExtra("oriMsg");
-  replyDraftBean=(ReplyDraftBean)intent.getSerializableExtra("draft");
-  WeiboSendTask task=new WeiboSendTask();
+  int lastNotificationId=intent.getIntExtra("lastNotificationId",-1);
+  if (lastNotificationId != -1) {
+    NotificationUtility.cancel(lastNotificationId);
+  }
+  String token=intent.getStringExtra("token");
+  AccountBean account=(AccountBean)intent.getSerializableExtra("account");
+  String content=intent.getStringExtra("content");
+  String repostContent=intent.getStringExtra("repostContent");
+  CommentBean oriMsg=(CommentBean)intent.getSerializableExtra("oriMsg");
+  ReplyDraftBean replyDraftBean=(ReplyDraftBean)intent.getSerializableExtra("draft");
+  WeiboSendTask task=new WeiboSendTask(account,token,content,repostContent,oriMsg,replyDraftBean);
   task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   tasksResult.put(task,false);
   return START_REDELIVER_INTENT;

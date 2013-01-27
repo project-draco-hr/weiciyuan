@@ -1,0 +1,7 @@
+Context context
+AccountBean account
+String content
+CommentBean oriMsg
+ReplyDraftBean replyDraftBean
+String repostContent
+String failedReason

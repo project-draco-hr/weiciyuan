@@ -1,0 +1,8 @@
+{
+  super.onRestoreInstanceState(savedInstanceState);
+  if (savedInstanceState != null) {
+    savedEnableRepost=savedInstanceState.getBoolean("repost",false);
+    bean=(CommentBean)savedInstanceState.getSerializable("bean");
+    replyDraftBean=(ReplyDraftBean)savedInstanceState.getSerializable("replyDraftBean");
+  }
+}
