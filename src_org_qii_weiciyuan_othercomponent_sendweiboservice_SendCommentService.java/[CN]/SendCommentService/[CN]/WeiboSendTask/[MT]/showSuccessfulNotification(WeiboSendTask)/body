@@ -11,4 +11,5 @@
     }
   }
 ,3000);
+  LocalBroadcastManager.getInstance(SendCommentService.this).sendBroadcast(new Intent("org.qii.weiciyuan.SEND.COMMENT.COMPLETED"));
 }
