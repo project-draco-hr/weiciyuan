@@ -1,4 +1,0 @@
-{
-  super.setUserVisibleHint(isVisibleToUser);
-  if (true)   refreshLayout(getList());
-}
