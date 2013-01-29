@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   getActionBar().setDisplayHomeAsUpEnabled(true);
-  getActionBar().setTitle(getString(R.string.appearance));
+  getActionBar().setTitle(getString(R.string.pref_appearance_title));
   if (savedInstanceState == null) {
     getFragmentManager().beginTransaction().replace(android.R.id.content,new AppearanceFragment()).commit();
   }
