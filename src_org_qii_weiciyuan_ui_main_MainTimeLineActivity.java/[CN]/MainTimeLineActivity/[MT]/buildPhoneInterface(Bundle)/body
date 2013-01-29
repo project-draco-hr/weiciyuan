@@ -5,11 +5,10 @@
   getWindow().setBackgroundDrawable(null);
   setContentView(R.layout.menu_right);
   setBehindContentView(R.layout.menu_frame);
-  FragmentTransaction t=getFragmentManager().beginTransaction();
-  LeftMenuFragment mFrag=new LeftMenuFragment();
-  t.replace(R.id.menu_frame,mFrag);
-  t.commit();
-  getFragmentManager().beginTransaction().replace(R.id.menu_right_fl,newFriendsTimeLineFragment(),FriendsTimeLineFragment.class.getName()).commit();
+  if (savedInstanceState == null) {
+    getFragmentManager().beginTransaction().replace(R.id.menu_frame,newMenuFragment(),LeftMenuFragment.class.getName()).commit();
+    getFragmentManager().beginTransaction().replace(R.id.menu_right_fl,newFriendsTimeLineFragment(),FriendsTimeLineFragment.class.getName()).commit();
+  }
   SlidingMenu slidingMenu=getSlidingMenu();
   slidingMenu.setMode(SlidingMenu.LEFT);
   slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);

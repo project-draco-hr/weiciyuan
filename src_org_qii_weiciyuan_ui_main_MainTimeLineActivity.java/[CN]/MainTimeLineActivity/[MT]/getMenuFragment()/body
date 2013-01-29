@@ -1,0 +1,3 @@
+{
+  return ((LeftMenuFragment)getFragmentManager().findFragmentByTag(LeftMenuFragment.class.getName()));
+}

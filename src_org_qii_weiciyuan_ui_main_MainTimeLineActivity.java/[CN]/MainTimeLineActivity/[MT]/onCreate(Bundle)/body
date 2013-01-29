@@ -10,6 +10,6 @@
   if (accountBean == null)   accountBean=GlobalContext.getInstance().getAccountBean();
   GlobalContext.getInstance().setAccountBean(accountBean);
   SettingUtility.setDefaultAccountId(accountBean.getUid());
-  buildPhoneInterface();
+  buildPhoneInterface(savedInstanceState);
   Executors.newSingleThreadScheduledExecutor().schedule(new ClearCacheTask(),8,TimeUnit.SECONDS);
 }
