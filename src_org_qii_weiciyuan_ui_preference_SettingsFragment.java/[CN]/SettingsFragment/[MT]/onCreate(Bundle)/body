@@ -1,5 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  addPreferencesFromResource(R.xml.pref);
-  getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
-}

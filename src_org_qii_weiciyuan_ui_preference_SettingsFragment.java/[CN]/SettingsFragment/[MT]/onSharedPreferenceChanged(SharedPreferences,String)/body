@@ -1,6 +1,0 @@
-{
-  if (key.equals(SettingActivity.SOUND)) {
-  }
-  if (key.equals(SettingActivity.AUTO_REFRESH)) {
-  }
-}
