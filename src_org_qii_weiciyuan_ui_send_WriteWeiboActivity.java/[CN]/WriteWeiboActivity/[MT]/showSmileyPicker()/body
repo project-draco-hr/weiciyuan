@@ -1,0 +1,4 @@
+{
+  this.smiley.show(WriteWeiboActivity.this);
+  lockContainerHeight(SmileyPickerUtility.getAppContentHeight(WriteWeiboActivity.this));
+}

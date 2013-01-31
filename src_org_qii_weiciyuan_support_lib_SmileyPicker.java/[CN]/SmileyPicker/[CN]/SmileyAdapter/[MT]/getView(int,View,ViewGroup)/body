@@ -1,0 +1,5 @@
+{
+  if (paramView == null)   paramView=this.mInflater.inflate(R.layout.writeweiboactivity_smileypicker_item,null);
+  bindView(paramInt,paramView);
+  return paramView;
+}

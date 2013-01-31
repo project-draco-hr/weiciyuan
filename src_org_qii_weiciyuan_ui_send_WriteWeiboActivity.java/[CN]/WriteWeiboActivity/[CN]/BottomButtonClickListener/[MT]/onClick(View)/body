@@ -9,11 +9,16 @@ if (imageButton.getDrawable().getLevel() == 0) addPic();
  else showPic();
 break;
 case R.id.menu_emoticon:
-EmotionsGridDialog dialog=new EmotionsGridDialog();
-dialog.show(getFragmentManager(),"");
+if (smiley.isShown()) {
+hideSmileyPicker(true);
+}
+ else {
+showSmileyPicker();
+}
 break;
 case R.id.menu_send:
-send();
+int dd=SmileyPickerUtility.getActionBarHeight(WriteWeiboActivity.this);
+AppLogger.e("actionbar=" + dd);
 break;
 case R.id.menu_at:
 Intent intent=new Intent(WriteWeiboActivity.this,AtUserActivity.class);

@@ -51,7 +51,7 @@
 );
   actionBar.setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
   actionBar.setDisplayShowCustomEnabled(true);
-  content=((EditText)findViewById(R.id.status_new_content));
+  content=((KeyboardControlEditText)findViewById(R.id.status_new_content));
   content.addTextChangedListener(new TextNumLimitWatcher((TextView)findViewById(R.id.menu_send),content,this));
   content.setDrawingCacheEnabled(true);
   View.OnClickListener onClickListener=new BottomButtonClickListener();
@@ -64,4 +64,13 @@
   findViewById(R.id.menu_emoticon).setOnLongClickListener(onLongClickListener);
   findViewById(R.id.menu_add_pic).setOnLongClickListener(onLongClickListener);
   findViewById(R.id.menu_send).setOnLongClickListener(onLongClickListener);
+  smiley=(SmileyPicker)findViewById(R.id.smiley_picker);
+  smiley.setEditText(content);
+  mContainer=(LinearLayout)findViewById(R.id.container);
+  content.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      hideSmileyPicker(true);
+    }
+  }
+);
 }

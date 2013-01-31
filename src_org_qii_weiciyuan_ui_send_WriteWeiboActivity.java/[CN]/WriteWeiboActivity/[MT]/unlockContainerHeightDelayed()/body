@@ -1,0 +1,3 @@
+{
+  ((LinearLayout.LayoutParams)WriteWeiboActivity.this.mContainer.getLayoutParams()).weight=1.0F;
+}

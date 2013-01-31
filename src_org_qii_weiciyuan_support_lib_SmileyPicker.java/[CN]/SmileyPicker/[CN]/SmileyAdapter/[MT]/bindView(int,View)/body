@@ -1,0 +1,3 @@
+{
+  ((ImageView)paramView.findViewById(R.id.smiley_item)).setImageBitmap(GlobalContext.getInstance().getEmotionsPics().get(keys.get(paramInt)));
+}

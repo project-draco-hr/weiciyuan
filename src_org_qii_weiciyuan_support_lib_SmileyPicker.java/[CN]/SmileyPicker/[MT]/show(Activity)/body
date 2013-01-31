@@ -1,0 +1,6 @@
+{
+  this.mPickerHeight=SmileyPickerUtility.getKeyboardHeight(paramActivity);
+  SmileyPickerUtility.hideSoftInput(this.mEditText);
+  getLayoutParams().height=this.mPickerHeight;
+  setVisibility(View.VISIBLE);
+}
