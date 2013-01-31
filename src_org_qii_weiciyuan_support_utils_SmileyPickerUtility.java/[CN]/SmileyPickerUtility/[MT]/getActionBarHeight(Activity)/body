@@ -1,0 +1,5 @@
+{
+  int contentViewTop=paramActivity.getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop();
+  AppLogger.e("contentViewTop=" + contentViewTop);
+  return contentViewTop - getStatusBarHeight(paramActivity);
+}

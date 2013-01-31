@@ -1,0 +1,5 @@
+{
+  Rect localRect=new Rect();
+  paramActivity.getWindow().getDecorView().getWindowVisibleDisplayFrame(localRect);
+  return localRect.height();
+}
