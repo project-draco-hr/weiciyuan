@@ -1,6 +1,6 @@
 {
-  ObjectAnimator animIn=ObjectAnimator.ofFloat(null,"translationY",SmileyPickerUtility.getScreenHeight(GlobalContext.getInstance().getActivity()),mPickerHeight).setDuration(transition.getDuration(LayoutTransition.APPEARING));
+  ObjectAnimator animIn=ObjectAnimator.ofFloat(null,"translationY",SmileyPickerUtility.getScreenHeight(this.activity),mPickerHeight).setDuration(transition.getDuration(LayoutTransition.APPEARING));
   transition.setAnimator(LayoutTransition.APPEARING,animIn);
-  ObjectAnimator animOut=ObjectAnimator.ofFloat(null,"translationY",mPickerHeight,SmileyPickerUtility.getScreenHeight(GlobalContext.getInstance().getActivity())).setDuration(transition.getDuration(LayoutTransition.DISAPPEARING));
+  ObjectAnimator animOut=ObjectAnimator.ofFloat(null,"translationY",mPickerHeight,SmileyPickerUtility.getScreenHeight(this.activity)).setDuration(transition.getDuration(LayoutTransition.DISAPPEARING));
   transition.setAnimator(LayoutTransition.DISAPPEARING,animOut);
 }

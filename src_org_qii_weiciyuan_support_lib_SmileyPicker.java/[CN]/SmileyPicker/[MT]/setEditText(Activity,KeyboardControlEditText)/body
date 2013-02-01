@@ -1,5 +1,6 @@
 {
   this.mEditText=paramEditText;
+  this.activity=activity;
   ((LinearLayout)activity.findViewById(R.id.root_layout)).setLayoutTransition(transitioner);
   setupAnimations(transitioner);
 }
