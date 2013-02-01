@@ -65,7 +65,7 @@
   findViewById(R.id.menu_add_pic).setOnLongClickListener(onLongClickListener);
   findViewById(R.id.menu_send).setOnLongClickListener(onLongClickListener);
   smiley=(SmileyPicker)findViewById(R.id.smiley_picker);
-  smiley.setEditText(content);
+  smiley.setEditText(WriteWeiboActivity.this,content);
   mContainer=(LinearLayout)findViewById(R.id.container);
   content.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
