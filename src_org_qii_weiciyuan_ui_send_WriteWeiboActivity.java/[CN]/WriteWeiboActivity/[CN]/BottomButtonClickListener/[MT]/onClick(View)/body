@@ -12,7 +12,7 @@ if (smiley.isShown()) {
 hideSmileyPicker(true);
 }
  else {
-showSmileyPicker();
+showSmileyPicker(SmileyPickerUtility.isKeyBoardShow(WriteWeiboActivity.this));
 }
 break;
 case R.id.menu_send:
