@@ -3,4 +3,5 @@
   SmileyPickerUtility.hideSoftInput(this.mEditText);
   getLayoutParams().height=this.mPickerHeight;
   setVisibility(View.VISIBLE);
+  paramActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 }

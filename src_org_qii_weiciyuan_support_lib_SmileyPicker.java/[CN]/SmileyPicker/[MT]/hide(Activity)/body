@@ -1,3 +1,4 @@
 {
   setVisibility(View.GONE);
+  paramActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 }
