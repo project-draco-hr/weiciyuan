@@ -1,0 +1,3 @@
+{
+  SettingHelper.setEditor(getContext(),"default_softkeyboard_height",height);
+}
