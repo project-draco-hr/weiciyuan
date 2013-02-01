@@ -4,8 +4,7 @@ case R.id.menu_add_gps:
     addLocation();
   break;
 case R.id.menu_add_pic:
-ImageButton imageButton=(ImageButton)findViewById(R.id.menu_add_pic);
-if (imageButton.getDrawable().getLevel() == 0) addPic();
+if (TextUtils.isEmpty(picPath)) addPic();
  else showPic();
 break;
 case R.id.menu_emoticon:
@@ -17,8 +16,7 @@ showSmileyPicker();
 }
 break;
 case R.id.menu_send:
-int dd=SmileyPickerUtility.getActionBarHeight(WriteWeiboActivity.this);
-AppLogger.e("actionbar=" + dd);
+send();
 break;
 case R.id.menu_at:
 Intent intent=new Intent(WriteWeiboActivity.this,AtUserActivity.class);

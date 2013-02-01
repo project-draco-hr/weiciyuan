@@ -5,7 +5,12 @@ case 0:
   if (imageFileUri != null) {
     Intent i=new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
     i.putExtra(android.provider.MediaStore.EXTRA_OUTPUT,imageFileUri);
-    startActivityForResult(i,CAMERA_RESULT);
+    if (Utility.isIntentSafe(WriteWeiboActivity.this,i)) {
+      startActivityForResult(i,CAMERA_RESULT);
+    }
+ else {
+      Toast.makeText(WriteWeiboActivity.this,getString(R.string.dont_have_camera_app),Toast.LENGTH_SHORT).show();
+    }
   }
  else {
     Toast.makeText(WriteWeiboActivity.this,getString(R.string.cant_insert_album),Toast.LENGTH_SHORT).show();

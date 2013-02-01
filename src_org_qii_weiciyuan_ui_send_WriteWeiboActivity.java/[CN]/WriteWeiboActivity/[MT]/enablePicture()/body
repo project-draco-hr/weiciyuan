@@ -1,3 +1,6 @@
 {
-  ((ImageButton)findViewById(R.id.menu_add_pic)).setImageLevel(1);
+  Bitmap bitmap=ImageTool.getWriteWeiboPictureThumblr(picPath);
+  if (bitmap != null) {
+    ((ImageButton)findViewById(R.id.menu_add_pic)).setImageBitmap(bitmap);
+  }
 }
