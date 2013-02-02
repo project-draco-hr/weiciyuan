@@ -1,0 +1,16 @@
+{
+  int[] location=new int[2];
+  if (v == null)   return null;
+  try {
+    v.getLocationOnScreen(location);
+  }
+ catch (  NullPointerException npe) {
+    return null;
+  }
+  Rect locationRect=new Rect();
+  locationRect.left=location[0];
+  locationRect.top=location[1];
+  locationRect.right=locationRect.left + v.getWidth();
+  locationRect.bottom=locationRect.top + v.getHeight();
+  return locationRect;
+}
