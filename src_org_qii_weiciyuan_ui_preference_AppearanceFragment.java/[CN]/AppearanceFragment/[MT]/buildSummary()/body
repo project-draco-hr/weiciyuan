@@ -3,8 +3,6 @@
   listAvatarMode.setSummary(getActivity().getResources().getStringArray(R.array.list_avatar_mode)[Integer.valueOf(value) - 1]);
   value=PreferenceManager.getDefaultSharedPreferences(getActivity()).getString(SettingActivity.LIST_PIC_MODE,"1");
   listPicMode.setSummary(getActivity().getResources().getStringArray(R.array.list_pic_mode)[Integer.valueOf(value) - 1]);
-  value=PreferenceManager.getDefaultSharedPreferences(getActivity()).getString(SettingActivity.LIST_HIGH_PIC_MODE,"1");
-  listHighPicMode.setSummary(getActivity().getResources().getStringArray(R.array.list_high_pic_mode)[Integer.valueOf(value) - 1]);
   value=PreferenceManager.getDefaultSharedPreferences(getActivity()).getString(SettingActivity.FONT_SIZE,"1");
   String[] values=getActivity().getResources().getStringArray(R.array.font_value);
   int index=-1;
