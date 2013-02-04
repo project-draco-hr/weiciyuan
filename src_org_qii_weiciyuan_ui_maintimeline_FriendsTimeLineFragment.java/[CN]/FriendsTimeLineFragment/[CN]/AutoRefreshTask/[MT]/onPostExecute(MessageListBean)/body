@@ -12,7 +12,6 @@
       SaveToDBService.save(getActivity(),SaveToDBService.TYPE_STATUS,getList(),accountBean.getUid());
     }
   }
-  getActivity().getActionBar().getTabAt(0).setText(getString(R.string.home));
   putToGroupDataMemoryCache(currentGroupId,getList());
   int index=getListView().getFirstVisiblePosition();
   View v=getListView().getChildAt(1);
