@@ -6,19 +6,22 @@
   map.put("page",page);
   map.put("q",q);
   String jsonData=null;
-  try {
-    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
-  }
- catch (  WeiboException e) {
-    e.printStackTrace();
-  }
+  jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
   Gson gson=new Gson();
   SearchStatusListBean value=null;
   try {
     value=gson.fromJson(jsonData,SearchStatusListBean.class);
     List<MessageBean> list=value.getItemList();
-    for (    MessageBean msg : list) {
-      TimeTool.dealMills(msg);
+    Iterator<MessageBean> iterator=list.iterator();
+    while (iterator.hasNext()) {
+      MessageBean msg=iterator.next();
+      if (msg.getUser() == null) {
+        iterator.remove();
+      }
+ else {
+        msg.getListViewSpannableString();
+        TimeTool.dealMills(msg);
+      }
     }
   }
  catch (  JsonSyntaxException e) {
