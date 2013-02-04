@@ -6,18 +6,6 @@
   searchView.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
   searchView.setIconifiedByDefault(false);
   searchView.setSubmitButtonEnabled(false);
-  searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
-    @Override public boolean onQueryTextSubmit(    String query){
-      search(query);
-      InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-      if (imm.isActive())       imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,InputMethodManager.HIDE_NOT_ALWAYS);
-      return true;
-    }
-    @Override public boolean onQueryTextChange(    String newText){
-      return false;
-    }
-  }
-);
   searchView.requestFocus();
   return super.onCreateOptionsMenu(menu);
 }
