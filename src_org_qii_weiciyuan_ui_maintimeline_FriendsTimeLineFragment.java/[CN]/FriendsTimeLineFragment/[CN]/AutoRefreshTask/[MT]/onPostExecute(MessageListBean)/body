@@ -16,7 +16,14 @@
   int index=getListView().getFirstVisiblePosition();
   View v=getListView().getChildAt(1);
   int top=(v == null) ? 0 : v.getTop();
+  getListView().setFastScrollEnabled(false);
   getAdapter().notifyDataSetChanged();
   int ss=index + size;
   getListView().setSelectionFromTop(ss + 1,top);
+  new Handler().postDelayed(new Runnable(){
+    @Override public void run(){
+      getListView().setFastScrollEnabled(SettingUtility.allowFastScroll());
+    }
+  }
+,2000);
 }
