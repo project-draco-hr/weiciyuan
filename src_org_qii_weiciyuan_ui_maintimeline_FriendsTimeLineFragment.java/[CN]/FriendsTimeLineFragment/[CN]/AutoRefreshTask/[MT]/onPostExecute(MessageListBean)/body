@@ -3,7 +3,7 @@
   if (!Utility.isTaskStopped(newTask))   return;
   if (!Utility.isTaskStopped(oldTask))   return;
   if (!Utility.isTaskStopped(middleTask))   return;
-  if (newValue == null || newValue.getSize() == 0 || getActivity() == null || isListViewFling())   return;
+  if (newValue == null || newValue.getSize() == 0 || getActivity() == null || isListViewFling() || !isVisible())   return;
   int firstPosition=getListView().getFirstVisiblePosition();
   int size=newValue.getSize();
   if (getActivity() != null && newValue.getSize() > 0) {
