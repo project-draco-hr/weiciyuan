@@ -12,7 +12,7 @@
       }
     }
  else {
-      file.delete();
+      clearEmptyDir(file);
     }
   }
 }

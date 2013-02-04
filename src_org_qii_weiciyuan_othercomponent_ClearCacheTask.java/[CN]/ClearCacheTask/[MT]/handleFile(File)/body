@@ -4,6 +4,6 @@
   long day=TimeUnit.MILLISECONDS.toDays(calcMills);
   if (day > AppConfig.SAVED_DAYS) {
     AppLogger.d(file.getAbsolutePath());
-    file.delete();
+    if (file.delete())     clearEmptyDir(file.getParentFile());
   }
 }
