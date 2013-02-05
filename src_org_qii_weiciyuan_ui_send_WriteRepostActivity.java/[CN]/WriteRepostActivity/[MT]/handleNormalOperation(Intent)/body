@@ -9,4 +9,5 @@
  else {
     getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
   }
+  getEditTextView().setSelection(0);
 }
