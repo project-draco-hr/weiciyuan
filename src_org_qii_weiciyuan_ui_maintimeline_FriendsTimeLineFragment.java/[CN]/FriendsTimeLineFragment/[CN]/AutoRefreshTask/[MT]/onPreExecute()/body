@@ -1,4 +1,4 @@
 {
   super.onPreExecute();
-  if (isListViewFling() || !isVisible())   cancel(true);
+  if (isListViewFling() || !isVisible() || ((MainTimeLineActivity)getActivity()).getSlidingMenu().isMenuShowing())   cancel(true);
 }
