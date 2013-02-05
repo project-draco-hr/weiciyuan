@@ -1,7 +1,4 @@
 {
-  if (msg != null && msg.getRetweeted_status() != null) {
-    enableCommentOri.setVisible(true);
-  }
   String contentStr=getEditTextView().getText().toString();
   if (!TextUtils.isEmpty(contentStr)) {
     menu.findItem(R.id.menu_clear).setVisible(true);
