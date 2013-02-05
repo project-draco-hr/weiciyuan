@@ -4,10 +4,5 @@
   menuEnableOriComment=menu.findItem(R.id.menu_enable_ori_comment);
   menuEnableComment.setChecked(savedEnableComment);
   menuEnableOriComment.setChecked(savedEnableOriComment);
-  String contentStr=getEditTextView().getText().toString();
-  if (Utility.countWord(contentStr,"//@",0) > 2) {
-    menu.findItem(R.id.menu_short_right).setVisible(true);
-    menu.findItem(R.id.menu_short_middle).setVisible(true);
-  }
   return true;
 }
