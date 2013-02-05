@@ -59,11 +59,10 @@
   findViewById(R.id.menu_emoticon).setOnClickListener(onClickListener);
   findViewById(R.id.menu_add_pic).setOnClickListener(onClickListener);
   findViewById(R.id.menu_send).setOnClickListener(onClickListener);
-  View.OnLongClickListener onLongClickListener=new BottomButtonLongClickListener();
-  findViewById(R.id.menu_at).setOnLongClickListener(onLongClickListener);
-  findViewById(R.id.menu_emoticon).setOnLongClickListener(onLongClickListener);
-  findViewById(R.id.menu_add_pic).setOnLongClickListener(onLongClickListener);
-  findViewById(R.id.menu_send).setOnLongClickListener(onLongClickListener);
+  CheatSheet.setup(WriteWeiboActivity.this,findViewById(R.id.menu_at),R.string.at_other);
+  CheatSheet.setup(WriteWeiboActivity.this,findViewById(R.id.menu_emoticon),R.string.add_emoticon);
+  CheatSheet.setup(WriteWeiboActivity.this,findViewById(R.id.menu_add_pic),R.string.add_pic);
+  CheatSheet.setup(WriteWeiboActivity.this,findViewById(R.id.menu_send),R.string.send);
   smiley=(SmileyPicker)findViewById(R.id.smiley_picker);
   smiley.setEditText(WriteWeiboActivity.this,content);
   mContainer=(LinearLayout)findViewById(R.id.container);

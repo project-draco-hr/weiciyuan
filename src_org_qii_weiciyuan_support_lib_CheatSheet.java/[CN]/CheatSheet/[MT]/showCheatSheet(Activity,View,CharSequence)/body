@@ -1,0 +1,26 @@
+{
+  if (TextUtils.isEmpty(text)) {
+    return false;
+  }
+  final int[] screenPos=new int[2];
+  final Rect displayFrame=new Rect();
+  view.getLocationOnScreen(screenPos);
+  view.getWindowVisibleDisplayFrame(displayFrame);
+  final Context context=view.getContext();
+  final int viewWidth=view.getWidth();
+  final int viewHeight=view.getHeight();
+  final int viewCenterX=screenPos[0] + viewWidth / 2;
+  final int screenWidth=context.getResources().getDisplayMetrics().widthPixels;
+  final int estimatedToastHeight=(int)(ESTIMATED_TOAST_HEIGHT_DIPS * context.getResources().getDisplayMetrics().density);
+  Toast cheatSheet=Toast.makeText(context,text,Toast.LENGTH_SHORT);
+  boolean showBelow=screenPos[1] < estimatedToastHeight;
+  if (showBelow) {
+    cheatSheet.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL,viewCenterX - screenWidth / 2,screenPos[1] - displayFrame.top + viewHeight);
+  }
+ else {
+    int height=SmileyPickerUtility.getScreenHeight(activity) - SmileyPickerUtility.getStatusBarHeight(activity) - SmileyPickerUtility.getAppHeight(activity);
+    cheatSheet.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL,viewCenterX - screenWidth / 2,displayFrame.bottom - screenPos[1] + height);
+  }
+  cheatSheet.show();
+  return true;
+}
