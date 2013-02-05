@@ -1,4 +1,7 @@
 {
+  if (listView.getCheckedItemCount() == 0) {
+    return true;
+  }
   Intent intent;
   MessageBean msg;
   long[] ids=listView.getCheckedItemIds();
