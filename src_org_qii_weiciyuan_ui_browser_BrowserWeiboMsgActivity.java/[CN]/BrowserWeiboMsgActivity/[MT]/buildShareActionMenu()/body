@@ -1,13 +1,29 @@
 {
-  Intent sharingIntent=new Intent(Intent.ACTION_SEND);
-  sharingIntent.setType("text/plain");
+  Intent shareIntent=new Intent(Intent.ACTION_SEND);
   if (msg != null) {
-    sharingIntent.putExtra(Intent.EXTRA_TEXT,msg.getText());
-    PackageManager packageManager=getPackageManager();
-    List<ResolveInfo> activities=packageManager.queryIntentActivities(sharingIntent,0);
-    boolean isIntentSafe=activities.size() > 0;
-    if (isIntentSafe && mShareActionProvider != null) {
-      mShareActionProvider.setShareIntent(sharingIntent);
+    shareIntent.setType("text/plain");
+    shareIntent.putExtra(Intent.EXTRA_TEXT,msg.getText());
+    if (!TextUtils.isEmpty(msg.getThumbnail_pic())) {
+      Uri picUrl=null;
+      String smallPath=FileManager.getFilePathFromUrl(msg.getThumbnail_pic(),FileLocationMethod.picture_thumbnail);
+      String middlePath=FileManager.getFilePathFromUrl(msg.getBmiddle_pic(),FileLocationMethod.picture_bmiddle);
+      String largePath=FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large);
+      if (new File(largePath).exists()) {
+        picUrl=Uri.fromFile(new File(largePath));
+      }
+ else       if (new File(middlePath).exists()) {
+        picUrl=Uri.fromFile(new File(middlePath));
+      }
+ else       if (new File(smallPath).exists()) {
+        picUrl=Uri.fromFile(new File(smallPath));
+      }
+      if (picUrl != null) {
+        shareIntent.putExtra(Intent.EXTRA_STREAM,picUrl);
+        shareIntent.setType("image/*");
+      }
+    }
+    if (Utility.isIntentSafe(BrowserWeiboMsgActivity.this,shareIntent) && mShareActionProvider != null) {
+      mShareActionProvider.setShareIntent(shareIntent);
     }
   }
 }
