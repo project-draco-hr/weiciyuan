@@ -1,11 +1,7 @@
 {
   MessageBean repostBean=msg.getRetweeted_status();
   if (repostBean.getComments_count() == 0 && repostBean.getReposts_count() == 0) {
-    layout.count_layout.setVisibility(View.GONE);
     return;
-  }
- else {
-    layout.count_layout.setVisibility(View.VISIBLE);
   }
   if (repostBean.getComments_count() > 0) {
     layout.comment_count.setVisibility(View.VISIBLE);
