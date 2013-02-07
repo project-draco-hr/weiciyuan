@@ -12,4 +12,5 @@
   SettingUtility.setDefaultAccountId(accountBean.getUid());
   buildPhoneInterface(savedInstanceState);
   Executors.newSingleThreadScheduledExecutor().schedule(new ClearCacheTask(),8,TimeUnit.SECONDS);
+  startListenMusicPlaying();
 }
