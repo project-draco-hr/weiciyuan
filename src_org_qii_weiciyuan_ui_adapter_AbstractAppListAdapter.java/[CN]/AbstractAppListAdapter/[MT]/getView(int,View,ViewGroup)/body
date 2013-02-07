@@ -8,12 +8,6 @@ case TYPE_SIMPLE:
 case TYPE_MIDDLE:
   convertView=initMiddleLayout(parent);
 break;
-case TYPE_MYSELF:
-convertView=initMylayout(parent);
-break;
-case TYPE_MYSELF_BIG_PIC:
-convertView=initMylayout(parent);
-break;
 case TYPE_NORMAL:
 convertView=initNormallayout(parent);
 break;
