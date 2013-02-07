@@ -1,5 +1,13 @@
 {
-  holder.time.setTextSize(SettingUtility.getFontSize() - 3);
-  holder.content.setTextSize(SettingUtility.getFontSize());
-  holder.username.setTextSize(SettingUtility.getFontSize());
+  int prefFontSizeSp=SettingUtility.getFontSize();
+  float currentWidgetTextSizePx;
+  currentWidgetTextSizePx=holder.time.getTextSize();
+  if (Utility.sp2px(prefFontSizeSp - 3) != currentWidgetTextSizePx) {
+    holder.time.setTextSize(prefFontSizeSp - 3);
+  }
+  currentWidgetTextSizePx=holder.content.getTextSize();
+  if (Utility.sp2px(prefFontSizeSp) != currentWidgetTextSizePx) {
+    holder.content.setTextSize(prefFontSizeSp);
+    holder.username.setTextSize(prefFontSizeSp);
+  }
 }
