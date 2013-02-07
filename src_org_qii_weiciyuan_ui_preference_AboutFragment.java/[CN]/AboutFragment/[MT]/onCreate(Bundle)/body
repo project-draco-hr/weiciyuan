@@ -53,6 +53,22 @@
     }
   }
 );
+  findPreference(SettingActivity.AUTHOR).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
+    @Override public boolean onPreferenceClick(    Preference preference){
+      if (mp != null && mp.isPlaying()) {
+        mp.stop();
+        playing=false;
+        return true;
+      }
+      if (mp == null || !playing) {
+        mp=MediaPlayer.create(getActivity(),R.raw.star);
+      }
+      mp.start();
+      playing=true;
+      return true;
+    }
+  }
+);
   buildCacheSummary();
   findPreference(SettingActivity.SAVED_PIC_PATH).setSummary(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath());
 }

@@ -3,4 +3,8 @@
   if (sdCardReceiver != null) {
     getActivity().unregisterReceiver(sdCardReceiver);
   }
+  if (mp != null && mp.isPlaying()) {
+    mp.stop();
+    playing=false;
+  }
 }
