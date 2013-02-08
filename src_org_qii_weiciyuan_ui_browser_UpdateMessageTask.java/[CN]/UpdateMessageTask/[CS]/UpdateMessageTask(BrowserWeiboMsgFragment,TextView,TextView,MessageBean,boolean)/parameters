@@ -2,3 +2,4 @@ BrowserWeiboMsgFragment fragment
 TextView content
 TextView recontent
 MessageBean msg
+boolean refreshPic

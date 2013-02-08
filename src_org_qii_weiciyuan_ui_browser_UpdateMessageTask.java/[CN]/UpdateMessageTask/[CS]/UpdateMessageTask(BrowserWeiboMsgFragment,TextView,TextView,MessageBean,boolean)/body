@@ -3,4 +3,5 @@
   this.content=content;
   this.recontent=recontent;
   this.msg=msg;
+  this.refreshPic=refreshPic;
 }

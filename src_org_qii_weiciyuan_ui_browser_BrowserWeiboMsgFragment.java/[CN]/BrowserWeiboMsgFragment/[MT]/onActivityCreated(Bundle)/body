@@ -7,7 +7,7 @@ case FIRST_TIME_START:
     if (Utility.isTaskStopped(updateMsgTask)) {
       handler.postDelayed(new Runnable(){
         @Override public void run(){
-          updateMsgTask=new UpdateMessageTask(BrowserWeiboMsgFragment.this,layout.content,layout.recontent,msg);
+          updateMsgTask=new UpdateMessageTask(BrowserWeiboMsgFragment.this,layout.content,layout.recontent,msg,false);
           updateMsgTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
         }
       }

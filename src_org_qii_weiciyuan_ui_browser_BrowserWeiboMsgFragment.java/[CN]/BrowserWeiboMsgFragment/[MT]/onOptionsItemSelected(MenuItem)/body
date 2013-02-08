@@ -2,7 +2,7 @@
 switch (item.getItemId()) {
 case R.id.menu_refresh:
     if (Utility.isTaskStopped(updateMsgTask)) {
-      updateMsgTask=new UpdateMessageTask(BrowserWeiboMsgFragment.this,layout.content,layout.recontent,msg);
+      updateMsgTask=new UpdateMessageTask(BrowserWeiboMsgFragment.this,layout.content,layout.recontent,msg,true);
       updateMsgTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
   break;
