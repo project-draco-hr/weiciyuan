@@ -3,6 +3,9 @@
     if (HttpUtility.getInstance().executeDownloadTask(url,path,downloadListener)) {
       return true;
     }
+    new File(path).delete();
   }
-  return false;
+  GlobalContext globalContext=GlobalContext.getInstance();
+  String errorStr=globalContext.getString(R.string.timeout);
+  throw new WeiboException(errorStr);
 }

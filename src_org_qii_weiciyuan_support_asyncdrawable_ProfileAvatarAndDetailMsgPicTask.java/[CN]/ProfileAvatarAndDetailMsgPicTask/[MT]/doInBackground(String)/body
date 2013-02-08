@@ -5,7 +5,11 @@ switch (method) {
 case avatar_large:
       int avatarWidth=globalContext.getResources().getDimensionPixelSize(R.dimen.profile_avatar_width);
     int avatarHeight=globalContext.getResources().getDimensionPixelSize(R.dimen.profile_avatar_height);
-  return ImageTool.getRoundedCornerPic(this.data,avatarWidth,avatarHeight,FileLocationMethod.avatar_large);
+  try {
+    return ImageTool.getRoundedCornerPic(this.data,avatarWidth,avatarHeight,FileLocationMethod.avatar_large);
+  }
+ catch (  WeiboException e) {
+  }
 }
 }
 return null;

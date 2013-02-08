@@ -6,7 +6,11 @@
       return null;
     }
     if (!isThisBitmapCanRead(filePath)) {
-      getBitmapFromNetWork(url,filePath,downloadListener);
+      try {
+        getBitmapFromNetWork(url,filePath,downloadListener);
+      }
+ catch (      WeiboException e) {
+      }
     }
     file=new File(filePath);
     if (file.exists()) {
