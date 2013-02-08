@@ -12,6 +12,7 @@ case FIRST_TIME_START:
         }
       }
 ,2000);
+      buildViewData(true);
     }
   break;
 case SCREEN_ROTATE:
