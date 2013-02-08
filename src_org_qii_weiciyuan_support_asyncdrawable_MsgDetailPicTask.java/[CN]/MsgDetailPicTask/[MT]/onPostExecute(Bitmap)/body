@@ -3,17 +3,9 @@
   if (bitmap != null) {
     view.setVisibility(View.VISIBLE);
     view.setImageBitmap(bitmap);
-switch (method) {
-case avatar_small:
-      lruCache.put(data,bitmap);
-    break;
-case avatar_large:
-  lruCache.put(data,bitmap);
-break;
-}
-}
+  }
  else {
-view.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
-}
-clean();
+    view.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+  }
+  clean();
 }
