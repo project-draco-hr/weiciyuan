@@ -1,19 +1,19 @@
 {
+  if (isCancelled())   return null;
   int avatarWidth=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_avatar_width);
   int avatarHeight=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_avatar_height);
   int thumbnailWidth=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_thumbnail_width);
   int thumbnailHeight=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_thumbnail_height);
-  if (!isCancelled()) {
-    try {
+  try {
 switch (method) {
 case avatar_large:
-        return ImageTool.getRoundedCornerPic(this.data,avatarWidth,avatarHeight,FileLocationMethod.avatar_large);
+      return ImageTool.getRoundedCornerPic(this.data,avatarWidth,avatarHeight,FileLocationMethod.avatar_large);
 case avatar_small:
-      return ImageTool.getRoundedCornerPic(this.data,avatarWidth,avatarHeight,FileLocationMethod.avatar_small);
+    return ImageTool.getRoundedCornerPic(this.data,avatarWidth,avatarHeight,FileLocationMethod.avatar_small);
 case picture_thumbnail:
-    return ImageTool.getRoundedCornerPic(this.data,thumbnailWidth,thumbnailHeight,FileLocationMethod.picture_thumbnail);
+  return ImageTool.getRoundedCornerPic(this.data,thumbnailWidth,thumbnailHeight,FileLocationMethod.picture_thumbnail);
 case picture_large:
-  DisplayMetrics metrics=globalContext.getDisplayMetrics();
+DisplayMetrics metrics=globalContext.getDisplayMetrics();
 float reSize=globalContext.getResources().getDisplayMetrics().density;
 int height=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_high_thumbnail_height);
 int width=(int)(metrics.widthPixels - (8 + 8) * reSize);
@@ -27,10 +27,9 @@ throw new IllegalArgumentException();
 }
 }
 }
- catch (WeiboException e) {
-this.e=e;
+ catch (WeiboException failedBecauseOfNetwork) {
+this.failedBecauseOfNetwork=failedBecauseOfNetwork;
 cancel(true);
-}
 }
 return null;
 }

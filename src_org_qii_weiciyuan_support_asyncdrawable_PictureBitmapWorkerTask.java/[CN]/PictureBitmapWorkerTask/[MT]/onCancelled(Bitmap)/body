@@ -3,7 +3,7 @@
     ImageView imageView=view.get();
     if (imageView != null) {
       if (canDisplay(imageView)) {
-        imageView.setImageDrawable(new ColorDrawable(this.e != null ? DebugColor.DOWNLOAD_FAILED : DebugColor.DOWNLOAD_CANCEL));
+        imageView.setImageDrawable(new ColorDrawable(this.failedBecauseOfNetwork != null ? DebugColor.DOWNLOAD_FAILED : DebugColor.DOWNLOAD_CANCEL));
       }
     }
   }
