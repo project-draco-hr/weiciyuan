@@ -5,7 +5,7 @@
     if (!file.exists() && !SettingUtility.isEnablePic()) {
       return null;
     }
-    if (!file.exists()) {
+    if (!isThisBitmapCanRead(filePath)) {
       getBitmapFromNetWork(url,filePath,downloadListener);
     }
     file=new File(filePath);
