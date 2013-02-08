@@ -14,10 +14,9 @@
   webView.getSettings().setDisplayZoomControls(false);
   webView.setVerticalScrollBarEnabled(false);
   webView.setHorizontalScrollBarEnabled(false);
-  url=getIntent().getStringExtra("url");
-  oriUrl=getIntent().getStringExtra("oriUrl");
+  msg=(MessageBean)getIntent().getSerializableExtra("msg");
   if (Utility.isTaskStopped(task)) {
-    task=new PicSimpleBitmapWorkerTask(url);
+    task=new PicSimpleBitmapWorkerTask();
     task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }
 }

@@ -9,7 +9,7 @@ case R.id.menu_switch:
 if (task != null) {
 task.cancel(true);
 }
-task=new PicSimpleBitmapWorkerTask(oriUrl);
+task=new PicSimpleBitmapWorkerTask();
 task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 path="";
 oriMenu.setVisible(false);
@@ -47,11 +47,11 @@ task.cancel(true);
 if (!TextUtils.isEmpty(path)) {
 new File(path).delete();
 }
-if (oriMenu.isVisible() || TextUtils.isEmpty(oriUrl)) {
-task=new PicSimpleBitmapWorkerTask(url);
+if (oriMenu.isVisible()) {
+task=new PicSimpleBitmapWorkerTask();
 }
  else {
-task=new PicSimpleBitmapWorkerTask(oriUrl);
+task=new PicSimpleBitmapWorkerTask();
 }
 task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 break;

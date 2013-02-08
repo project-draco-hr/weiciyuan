@@ -6,11 +6,18 @@
   }
 ;
   if (!isCancelled()) {
-    if (downloadUrl.equals(url)) {
-      return ImageTool.getLargePictureWithoutRoundedCorner(downloadUrl,downloadListener,FileLocationMethod.picture_bmiddle);
+    String middlePath=FileManager.getFilePathFromUrl(msg.getBmiddle_pic(),FileLocationMethod.picture_bmiddle);
+    String largePath=FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large);
+    if (new File(largePath).exists()) {
+      return largePath;
     }
- else     if (downloadUrl.equals(oriUrl)) {
-      return ImageTool.getLargePictureWithoutRoundedCorner(downloadUrl,downloadListener,FileLocationMethod.picture_large);
+ else     if (new File(middlePath).exists()) {
+      return middlePath;
+    }
+ else {
+      String data=msg.getBmiddle_pic();
+      FileLocationMethod method=FileLocationMethod.picture_bmiddle;
+      return ImageTool.getLargePictureWithoutRoundedCorner(data,downloadListener,method);
     }
   }
   return null;
