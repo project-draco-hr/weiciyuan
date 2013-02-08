@@ -1,6 +1,6 @@
 {
   try {
-    String filePath=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_bmiddle);
+    String filePath=FileManager.getFilePathFromUrl(url,method);
     File file=new File(filePath);
     if (!file.exists() && !SettingUtility.isEnablePic()) {
       return null;

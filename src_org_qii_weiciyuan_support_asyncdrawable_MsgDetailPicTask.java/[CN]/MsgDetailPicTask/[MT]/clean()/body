@@ -1,0 +1,4 @@
+{
+  lruCache=null;
+  globalContext=null;
+}

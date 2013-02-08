@@ -18,8 +18,14 @@
   if (!TextUtils.isEmpty(msg.getBmiddle_pic()) && msg.getRetweeted_status() == null) {
     if (Utility.isTaskStopped(picTask)) {
       layout.pic_layout.setVisibility(View.VISIBLE);
-      picTask=new ProfileAvatarAndDetailMsgPicTask(layout.content_pic,FileLocationMethod.picture_bmiddle,layout.content_pic_pb);
-      picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getBmiddle_pic());
+      layout.content_pic_pb.setVisibility(View.VISIBLE);
+      handler.postDelayed(new Runnable(){
+        @Override public void run(){
+          picTask=new MsgDetailPicTask(layout.content_pic,FileLocationMethod.picture_bmiddle,layout.content_pic_pb);
+          picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg);
+        }
+      }
+,1000);
     }
   }
   MessageBean repostMsg=msg.getRetweeted_status();
@@ -41,9 +47,15 @@
     if (!TextUtils.isEmpty(repostMsg.getBmiddle_pic())) {
       layout.repost_pic_layout.setVisibility(View.VISIBLE);
       layout.repost_pic.setVisibility(View.VISIBLE);
+      layout.repost_pic_pb.setVisibility(View.VISIBLE);
       if (Utility.isTaskStopped(picTask)) {
-        picTask=new ProfileAvatarAndDetailMsgPicTask(layout.repost_pic,FileLocationMethod.picture_bmiddle,layout.repost_pic_pb);
-        picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getRetweeted_status().getBmiddle_pic());
+        handler.postDelayed(new Runnable(){
+          @Override public void run(){
+            picTask=new MsgDetailPicTask(layout.repost_pic,FileLocationMethod.picture_bmiddle,layout.repost_pic_pb);
+            picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getRetweeted_status());
+          }
+        }
+,1000);
       }
     }
   }

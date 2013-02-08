@@ -1,0 +1,31 @@
+{
+  FileLocationMethod method;
+  String smallPath=FileManager.getFilePathFromUrl(msg[0].getThumbnail_pic(),FileLocationMethod.picture_thumbnail);
+  String middlePath=FileManager.getFilePathFromUrl(msg[0].getBmiddle_pic(),FileLocationMethod.picture_bmiddle);
+  String largePath=FileManager.getFilePathFromUrl(msg[0].getOriginal_pic(),FileLocationMethod.picture_large);
+  if (new File(largePath).exists()) {
+    data=largePath;
+    method=FileLocationMethod.picture_large;
+  }
+ else   if (new File(middlePath).exists()) {
+    data=middlePath;
+    method=FileLocationMethod.picture_bmiddle;
+  }
+ else   if (new File(smallPath).exists()) {
+    data=smallPath;
+    method=FileLocationMethod.picture_thumbnail;
+  }
+ else {
+    data=middlePath;
+    method=FileLocationMethod.picture_bmiddle;
+  }
+  if (!isCancelled()) {
+    return ImageTool.getMiddlePictureInBrowserMSGActivity(data,method,new FileDownloaderHttpHelper.DownloadListener(){
+      @Override public void pushProgress(      int progress,      int max){
+        publishProgress(progress,max);
+      }
+    }
+);
+  }
+  return null;
+}
