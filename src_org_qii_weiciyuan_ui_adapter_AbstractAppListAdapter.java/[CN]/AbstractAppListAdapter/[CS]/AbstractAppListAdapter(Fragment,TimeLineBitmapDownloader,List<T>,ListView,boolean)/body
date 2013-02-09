@@ -16,15 +16,24 @@
       for (      Integer tag : tagIndexList) {
         ViewHolder holder=(ViewHolder)view.getTag(tag);
         if (holder != null) {
-          holder.avatar.getImageView().getDrawable().setCallback(null);
-          holder.content_pic.getImageView().getDrawable().setCallback(null);
-          holder.repost_content_pic.getImageView().getDrawable().setCallback(null);
-          holder.avatar.setImageBitmap(null);
-          holder.content_pic.setImageBitmap(null);
-          holder.repost_content_pic.setImageBitmap(null);
-          holder.avatar.getImageView().clearAnimation();
-          holder.content_pic.getImageView().clearAnimation();
-          holder.repost_content_pic.getImageView().clearAnimation();
+          Drawable drawable=holder.avatar.getImageView().getDrawable();
+          if (!(drawable instanceof PictureBitmapDrawable)) {
+            drawable.setCallback(null);
+            holder.avatar.setImageBitmap(null);
+            holder.avatar.getImageView().clearAnimation();
+          }
+          drawable=holder.content_pic.getImageView().getDrawable();
+          if (!(drawable instanceof PictureBitmapDrawable)) {
+            drawable.setCallback(null);
+            holder.content_pic.setImageBitmap(null);
+            holder.content_pic.getImageView().clearAnimation();
+          }
+          drawable=holder.repost_content_pic.getImageView().getDrawable();
+          if (!(drawable instanceof PictureBitmapDrawable)) {
+            drawable.setCallback(null);
+            holder.repost_content_pic.setImageBitmap(null);
+            holder.repost_content_pic.getImageView().clearAnimation();
+          }
           if (!tag.equals(index)) {
             holder.listview_root.removeAllViewsInLayout();
             holder.listview_root=null;
