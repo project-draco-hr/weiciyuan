@@ -1,0 +1,10 @@
+{
+  if (bitmap != null) {
+    view.setVisibility(View.VISIBLE);
+    view.setImageBitmap(bitmap);
+    lruCache.put(data,bitmap);
+  }
+ else {
+    view.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+  }
+}

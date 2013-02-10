@@ -1,0 +1,4 @@
+{
+  super.onPostExecute(bitmap);
+  displayBitmap(bitmap);
+}

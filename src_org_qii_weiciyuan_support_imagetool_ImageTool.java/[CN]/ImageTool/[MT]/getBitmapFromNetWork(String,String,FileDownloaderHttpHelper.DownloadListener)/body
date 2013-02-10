@@ -5,7 +5,5 @@
     }
     new File(path).delete();
   }
-  GlobalContext globalContext=GlobalContext.getInstance();
-  String errorStr=globalContext.getString(R.string.timeout);
-  throw new WeiboException(errorStr);
+  return false;
 }

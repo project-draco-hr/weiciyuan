@@ -1,0 +1,37 @@
+{
+  while (true) {
+    DownloadWorker downloadWorker=TaskCache.downloadTasks.get(url);
+    boolean localFileExist=new File(savedPath).exists();
+    if (downloadWorker == null) {
+      if (!localFileExist) {
+        DownloadWorker newWorker=new DownloadWorker(url,method);
+        downloadWorker=TaskCache.downloadTasks.putIfAbsent(url,newWorker);
+        if (downloadWorker == null) {
+          downloadWorker=newWorker;
+          downloadWorker.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+        }
+      }
+ else {
+        return true;
+      }
+    }
+    try {
+      return downloadWorker.get(15,TimeUnit.SECONDS);
+    }
+ catch (    InterruptedException e) {
+      e.printStackTrace();
+      return false;
+    }
+catch (    ExecutionException e) {
+      e.printStackTrace();
+      return false;
+    }
+catch (    TimeoutException e) {
+      e.printStackTrace();
+      return false;
+    }
+catch (    CancellationException e) {
+      downloadTasks.remove(url,downloadWorker);
+    }
+  }
+}

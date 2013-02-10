@@ -22,8 +22,8 @@
       handler.postDelayed(new Runnable(){
         @Override public void run(){
           if (refreshPic) {
-            picTask=new MsgDetailPicTask(layout.content_pic,FileLocationMethod.picture_bmiddle,layout.content_pic_pb);
-            picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg);
+            picTask=new MsgDetailReadWorker(layout.content_pic,layout.content_pic_pb,msg);
+            picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
           }
         }
       }
@@ -53,8 +53,8 @@
         handler.postDelayed(new Runnable(){
           @Override public void run(){
             if (refreshPic) {
-              picTask=new MsgDetailPicTask(layout.repost_pic,FileLocationMethod.picture_bmiddle,layout.repost_pic_pb);
-              picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,msg.getRetweeted_status());
+              picTask=new MsgDetailReadWorker(layout.repost_pic,layout.repost_pic_pb,msg.getRetweeted_status());
+              picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
             }
           }
         }

@@ -1,24 +1,19 @@
 {
-  FileDownloaderHttpHelper.DownloadListener downloadListener=new FileDownloaderHttpHelper.DownloadListener(){
-    @Override public void pushProgress(    int progress,    int max){
-      publishProgress(progress,max);
-    }
+  if (isCancelled()) {
+    return null;
   }
-;
-  if (!isCancelled()) {
-    String middlePath=FileManager.getFilePathFromUrl(msg.getBmiddle_pic(),FileLocationMethod.picture_bmiddle);
-    String largePath=FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large);
-    if (new File(largePath).exists()) {
-      return largePath;
-    }
- else     if (new File(middlePath).exists()) {
-      return middlePath;
-    }
+  TaskCache.waitForMsgDetailPictureDownload(msg,downloadListener);
+  String middlePath=FileManager.getFilePathFromUrl(msg.getBmiddle_pic(),FileLocationMethod.picture_bmiddle);
+  String largePath=FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large);
+  if (new File(largePath).exists()) {
+    return largePath;
+  }
+ else   if (new File(middlePath).exists()) {
+    return middlePath;
+  }
  else {
-      String data=msg.getBmiddle_pic();
-      FileLocationMethod method=FileLocationMethod.picture_bmiddle;
-      return ImageTool.getLargePictureWithoutRoundedCorner(data,downloadListener,method);
-    }
+    String data=msg.getBmiddle_pic();
+    FileLocationMethod method=FileLocationMethod.picture_bmiddle;
+    return ImageTool.getLargePictureWithoutRoundedCorner(data,downloadListener,method);
   }
-  return null;
 }

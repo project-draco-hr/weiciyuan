@@ -1,7 +1,0 @@
-{
-  this.globalContext=GlobalContext.getInstance();
-  this.lruCache=GlobalContext.getInstance().getAvatarCache();
-  this.view=view;
-  this.method=method;
-  this.pb=pb;
-}

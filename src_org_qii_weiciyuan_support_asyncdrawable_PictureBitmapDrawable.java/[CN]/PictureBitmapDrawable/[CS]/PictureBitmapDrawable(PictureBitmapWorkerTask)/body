@@ -1,4 +1,0 @@
-{
-  super(DebugColor.DOWNLOAD_START);
-  bitmapDownloaderTaskReference=new WeakReference<PictureBitmapWorkerTask>(bitmapDownloaderTask);
-}

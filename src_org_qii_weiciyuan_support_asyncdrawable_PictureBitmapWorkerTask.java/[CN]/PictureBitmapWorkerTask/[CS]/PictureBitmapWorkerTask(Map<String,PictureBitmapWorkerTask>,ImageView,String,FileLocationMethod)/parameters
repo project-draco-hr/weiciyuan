@@ -1,4 +1,0 @@
-Map<String,PictureBitmapWorkerTask> taskMap
-ImageView view
-String url
-FileLocationMethod method

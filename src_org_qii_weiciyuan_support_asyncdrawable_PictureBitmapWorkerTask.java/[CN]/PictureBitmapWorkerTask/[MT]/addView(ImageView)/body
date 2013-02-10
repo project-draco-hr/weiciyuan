@@ -1,3 +1,0 @@
-{
-  viewList.add(new WeakReference<ImageView>(view));
-}

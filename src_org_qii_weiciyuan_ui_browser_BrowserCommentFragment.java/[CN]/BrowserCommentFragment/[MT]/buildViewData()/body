@@ -7,8 +7,6 @@
       avatar.setImageBitmap(bitmap);
     }
  else {
-      ProfileAvatarAndDetailMsgPicTask avatarTask=new ProfileAvatarAndDetailMsgPicTask(avatar,FileLocationMethod.avatar_small);
-      avatarTask.execute(url);
     }
   }
   content.setText(msg.getText());

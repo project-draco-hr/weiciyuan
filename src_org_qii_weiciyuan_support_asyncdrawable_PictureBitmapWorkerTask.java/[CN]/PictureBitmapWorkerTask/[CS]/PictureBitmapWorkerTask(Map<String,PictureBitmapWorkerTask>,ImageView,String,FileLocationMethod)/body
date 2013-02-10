@@ -1,8 +1,0 @@
-{
-  this.globalContext=GlobalContext.getInstance();
-  this.lruCache=globalContext.getAvatarCache();
-  this.taskMap=taskMap;
-  this.viewList.add(new WeakReference<ImageView>(view));
-  this.data=url;
-  this.method=method;
-}

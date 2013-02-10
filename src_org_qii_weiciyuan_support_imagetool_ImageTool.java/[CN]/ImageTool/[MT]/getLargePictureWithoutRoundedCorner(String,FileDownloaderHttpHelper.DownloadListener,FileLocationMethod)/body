@@ -5,11 +5,7 @@
     return absoluteFilePath;
   }
  else {
-    try {
-      getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
-    }
- catch (    WeiboException e) {
-    }
+    getBitmapFromNetWork(url,absoluteFilePath,downloadListener);
     if (isThisBitmapCanRead(absoluteFilePath)) {
       return absoluteFilePath;
     }

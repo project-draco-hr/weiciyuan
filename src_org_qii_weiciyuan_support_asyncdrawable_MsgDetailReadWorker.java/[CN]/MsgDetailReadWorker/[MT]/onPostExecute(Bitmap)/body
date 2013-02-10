@@ -1,0 +1,11 @@
+{
+  if (pb != null)   pb.setVisibility(View.INVISIBLE);
+  if (bitmap != null) {
+    view.setTag(true);
+    view.setVisibility(View.VISIBLE);
+    view.setImageBitmap(bitmap);
+  }
+ else {
+    view.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+  }
+}

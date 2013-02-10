@@ -1,0 +1,24 @@
+{
+  ImageView imageView=viewWeakReference.get();
+  if (imageView != null) {
+    if (canDisplay(imageView)) {
+      if (bitmap != null) {
+        playImageViewAnimation(imageView,bitmap);
+        lruCache.put(data,bitmap);
+      }
+ else       if (failedResult != null) {
+switch (failedResult) {
+case downloadFailed:
+          imageView.setImageDrawable(new ColorDrawable(DebugColor.DOWNLOAD_FAILED));
+        break;
+case readFailed:
+      imageView.setImageDrawable(new ColorDrawable(DebugColor.PICTURE_ERROR));
+    break;
+case taskCanceled:
+  imageView.setImageDrawable(new ColorDrawable(DebugColor.DOWNLOAD_CANCEL));
+break;
+}
+}
+}
+}
+}

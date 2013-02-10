@@ -1,5 +1,0 @@
-{
-  super.onPostExecute(bitmap);
-  displayBitmap(bitmap);
-  clean();
-}

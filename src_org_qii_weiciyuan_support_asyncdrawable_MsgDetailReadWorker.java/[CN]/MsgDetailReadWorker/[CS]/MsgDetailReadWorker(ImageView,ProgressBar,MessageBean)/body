@@ -1,0 +1,5 @@
+{
+  this.view=view;
+  this.pb=pb;
+  this.msg=msg;
+}

@@ -22,8 +22,8 @@
   }
   String avatarUrl=bean.getAvatar_large();
   if (!TextUtils.isEmpty(avatarUrl)) {
-    avatarTask=new ProfileAvatarAndDetailMsgPicTask(avatar,FileLocationMethod.avatar_large);
-    avatarTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR,avatarUrl);
+    avatarTask=new ProfileAvatarReadWorker(avatar,avatarUrl);
+    avatarTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }
   if (!TextUtils.isEmpty(bean.getUrl())) {
     blog_url.setText(bean.getUrl());

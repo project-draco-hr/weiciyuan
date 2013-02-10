@@ -25,5 +25,7 @@ String name=new File(oldRelativePath).getName();
 newRelativePath=File.separator + EMOTION + File.separator+ name;
 break;
 }
-return getSdCardPath() + File.separator + newRelativePath;
+String result=getSdCardPath() + File.separator + newRelativePath;
+if (!result.endsWith(".jpg") && !result.endsWith(".gif")) result=result + ".jpg";
+return result;
 }

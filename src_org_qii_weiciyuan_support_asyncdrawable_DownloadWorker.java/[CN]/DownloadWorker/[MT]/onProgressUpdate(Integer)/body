@@ -1,0 +1,6 @@
+{
+  super.onProgressUpdate(values);
+  for (  FileDownloaderHttpHelper.DownloadListener downloadListener : downloadListenerList) {
+    downloadListener.pushProgress(values[0],values[1]);
+  }
+}
