@@ -7,6 +7,6 @@
     }
   }
 );
-  TaskCache.removeDownloadTask(url);
+  TaskCache.removeDownloadTask(url,DownloadWorker.this);
   return result;
 }
