@@ -32,4 +32,5 @@ refreshLayout(getList());
 break;
 }
 super.onActivityCreated(savedInstanceState);
+buildActionBarNav();
 }

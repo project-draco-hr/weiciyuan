@@ -2,6 +2,7 @@
   super.onCreateOptionsMenu(menu,inflater);
   inflater.inflate(R.menu.actionbar_menu_friendstimelinefragment,menu);
   name=menu.findItem(R.id.group_name);
+  name.setVisible(false);
   if (currentGroupId.equals(ALL_GROUP_ID)) {
     name.setTitle(getString(R.string.all_people));
   }

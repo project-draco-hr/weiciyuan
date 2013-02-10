@@ -1,0 +1,41 @@
+{
+  getActivity().getActionBar().setDisplayShowTitleEnabled(false);
+  getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+  List<GroupBean> list=new ArrayList<GroupBean>();
+  if (GlobalContext.getInstance().getGroup() != null) {
+    list=GlobalContext.getInstance().getGroup().getLists();
+  }
+ else {
+    list=new ArrayList<GroupBean>();
+  }
+  List<String> name=new ArrayList<String>();
+  name.add(getString(R.string.all_people));
+  name.add(getString(R.string.bilateral));
+  for (  GroupBean b : list) {
+    name.add(b.getName());
+  }
+  String[] valueArray=name.toArray(new String[0]);
+  ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(),R.layout.spinner_selector_text_view,valueArray);
+  adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+  final List<GroupBean> finalList=list;
+  getActivity().getActionBar().setListNavigationCallbacks(adapter,new ActionBar.OnNavigationListener(){
+    @Override public boolean onNavigationItemSelected(    int which,    long itemId){
+      String selectedItemId;
+      if (which == 0) {
+        selectedItemId="0";
+      }
+ else       if (which == 1) {
+        selectedItemId="1";
+      }
+ else {
+        selectedItemId=finalList.get(which - 2).getIdstr();
+      }
+      if (!selectedItemId.equals(currentGroupId)) {
+        setSelected(selectedItemId);
+        switchGroup();
+      }
+      return false;
+    }
+  }
+);
+}
