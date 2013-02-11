@@ -12,6 +12,5 @@
   if (getList().getItemList().size() > 0) {
     dao.setSince_id(getList().getItemList().get(0).getId());
   }
-  MessageListBean result=dao.getGSONMsgList();
-  return result;
+  return dao.getGSONMsgList();
 }
