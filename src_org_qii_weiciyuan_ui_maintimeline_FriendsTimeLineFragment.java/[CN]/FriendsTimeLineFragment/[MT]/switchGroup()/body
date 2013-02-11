@@ -8,5 +8,4 @@
     getList().replaceData(groupDataCache.get(currentGroupId));
     getAdapter().notifyDataSetChanged();
   }
-  getActivity().invalidateOptionsMenu();
 }
