@@ -1,6 +1,14 @@
 {
-  LayoutInflater inflater=activity.getLayoutInflater();
-  View view=inflater.inflate(android.R.layout.simple_spinner_dropdown_item,parent,false);
-  ((CheckedTextView)view).setText(valueArray[position]);
-  return view;
+  ViewHolder holder;
+  if (convertView == null || convertView.getTag() == null) {
+    LayoutInflater inflater=activity.getLayoutInflater();
+    convertView=inflater.inflate(android.R.layout.simple_spinner_dropdown_item,parent,false);
+    holder=new ViewHolder();
+    holder.textView=(TextView)convertView;
+  }
+ else {
+    holder=(ViewHolder)convertView.getTag();
+  }
+  holder.textView.setText(valueArray[position]);
+  return convertView;
 }
