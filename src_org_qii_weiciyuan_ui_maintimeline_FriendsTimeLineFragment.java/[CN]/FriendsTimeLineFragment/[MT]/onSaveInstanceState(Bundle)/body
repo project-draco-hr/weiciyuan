@@ -4,6 +4,6 @@
   outState.putSerializable("bean",getList());
   outState.putSerializable("userBean",userBean);
   outState.putString("token",token);
-  outState.putSerializable("hashmap",groupDataCache);
+  outState.putSerializable("groupDataCache",groupDataCache);
   outState.putString("currentGroupId",currentGroupId);
 }

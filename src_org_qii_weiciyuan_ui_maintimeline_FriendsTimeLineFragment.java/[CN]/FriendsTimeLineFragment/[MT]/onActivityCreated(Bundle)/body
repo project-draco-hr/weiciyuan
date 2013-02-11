@@ -24,7 +24,7 @@ case ACTIVITY_DESTROY_AND_CREATE:
 userBean=(UserBean)savedInstanceState.getSerializable("userBean");
 accountBean=(AccountBean)savedInstanceState.getSerializable("account");
 token=savedInstanceState.getString("token");
-groupDataCache=(HashMap)savedInstanceState.getSerializable("hashmap");
+groupDataCache=(HashMap)savedInstanceState.getSerializable("groupDataCache");
 currentGroupId=savedInstanceState.getString("currentGroupId");
 getList().replaceData((MessageListBean)savedInstanceState.getSerializable("bean"));
 timeLineAdapter.notifyDataSetChanged();
