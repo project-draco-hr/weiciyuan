@@ -1,0 +1,8 @@
+{
+  view.setOnLongClickListener(new View.OnLongClickListener(){
+    @Override public boolean onLongClick(    View view){
+      return showCheatSheet(activity,view,text);
+    }
+  }
+);
+}
