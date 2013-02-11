@@ -26,7 +26,6 @@
     }
   }
 );
-  CheatSheet.setup(WriteWeiboActivity.this,haveGPS,location);
   popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
     @Override public boolean onMenuItemClick(    MenuItem item){
 switch (item.getItemId()) {
