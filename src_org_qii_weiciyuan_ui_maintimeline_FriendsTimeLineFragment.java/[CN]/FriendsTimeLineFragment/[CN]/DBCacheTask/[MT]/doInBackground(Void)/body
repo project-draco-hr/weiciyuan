@@ -1,7 +1,7 @@
 {
   MessageListBean allGroup=FriendsTimeLineDBTask.getHomeLineMsgList(accountBean.getUid());
+  publishProgress(allGroup);
   Map<String,MessageListBean> map=new HashMap<String,MessageListBean>();
-  map.put(ALL_GROUP_ID,allGroup);
   MessageListBean biGroup=HomeOtherGroupTimeLineDBTask.get(accountBean.getUid(),BILATERAL_GROUP_ID);
   map.put(BILATERAL_GROUP_ID,biGroup);
   GroupListBean groupListBean=GlobalContext.getInstance().getGroup();

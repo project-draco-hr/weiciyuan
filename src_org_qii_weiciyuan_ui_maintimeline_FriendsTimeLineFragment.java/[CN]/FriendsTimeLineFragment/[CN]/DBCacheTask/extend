@@ -1,1 +1,1 @@
-MyAsyncTask<Void,Map<String,MessageListBean>,Map<String,MessageListBean>>
+MyAsyncTask<Void,MessageListBean,Map<String,MessageListBean>>

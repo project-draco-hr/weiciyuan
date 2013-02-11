@@ -1,18 +1,10 @@
 {
   super.onPostExecute(result);
   if (result != null) {
-    getList().replaceData(result.get(ALL_GROUP_ID));
     putToGroupDataMemoryCache(BILATERAL_GROUP_ID,result.get(BILATERAL_GROUP_ID));
     Set<String> keys=result.keySet();
     for (    String key : keys) {
       putToGroupDataMemoryCache(key,result.get(key));
     }
-  }
-  getPullToRefreshListView().setVisibility(View.VISIBLE);
-  getAdapter().notifyDataSetChanged();
-  getListView().setSelectionAfterHeaderView();
-  refreshLayout(getList());
-  if (getList().getSize() == 0) {
-    getPullToRefreshListView().startRefreshNow();
   }
 }
