@@ -1,0 +1,4 @@
+{
+  super.onCancelled(favBean);
+  if (favBean == null && this.e != null)   Toast.makeText(GlobalContext.getInstance(),e.getError(),Toast.LENGTH_SHORT).show();
+}
