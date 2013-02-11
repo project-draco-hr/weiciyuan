@@ -1,0 +1,6 @@
+{
+  LayoutInflater inflater=activity.getLayoutInflater();
+  View view=inflater.inflate(android.R.layout.simple_spinner_dropdown_item,parent,false);
+  ((CheckedTextView)view).setText(valueArray[position]);
+  return view;
+}

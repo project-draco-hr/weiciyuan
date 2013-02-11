@@ -1,0 +1,11 @@
+{
+  LayoutInflater inflater=activity.getLayoutInflater();
+  View view=inflater.inflate(R.layout.spinner_selector_text_view,parent,false);
+  if (position != 0) {
+    ((TextView)view).setText(valueArray[position]);
+  }
+ else {
+    ((TextView)view).setText(GlobalContext.getInstance().getCurrentAccountName());
+  }
+  return view;
+}
