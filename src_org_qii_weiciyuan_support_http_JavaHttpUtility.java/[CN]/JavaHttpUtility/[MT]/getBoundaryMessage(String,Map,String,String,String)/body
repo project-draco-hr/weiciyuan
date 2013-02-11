@@ -1,0 +1,11 @@
+{
+  StringBuffer res=new StringBuffer("--").append(boundary).append("\r\n");
+  Iterator keys=params.keySet().iterator();
+  while (keys.hasNext()) {
+    String key=(String)keys.next();
+    String value=(String)params.get(key);
+    res.append("Content-Disposition: form-data; name=\"").append(key).append("\"\r\n").append("\r\n").append(value).append("\r\n").append("--").append(boundary).append("\r\n");
+  }
+  res.append("Content-Disposition: form-data; name=\"").append(fileField).append("\"; filename=\"").append(fileName).append("\"\r\n").append("Content-Type: ").append(fileType).append("\r\n\r\n");
+  return res.toString();
+}
