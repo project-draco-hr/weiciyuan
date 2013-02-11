@@ -1,0 +1,42 @@
+{
+  Gson gson=new Gson();
+  MessageListBean result=new MessageListBean();
+  List<MessageBean> msgList=new ArrayList<MessageBean>();
+  String sql="select * from " + HomeOtherGroupTable.TABLE_NAME + " where "+ HomeOtherGroupTable.ACCOUNTID+ "  = "+ accountId+ " and "+ HomeOtherGroupTable.GROUPID+ " =  "+ groupId+ " order by "+ HomeOtherGroupTable.ID+ " asc limit 50";
+  Cursor c=getRsd().rawQuery(sql,null);
+  while (c.moveToNext()) {
+    String json=c.getString(c.getColumnIndex(HomeOtherGroupTable.JSONDATA));
+    if (!TextUtils.isEmpty(json)) {
+      try {
+        MessageBean value=gson.fromJson(json,MessageBean.class);
+        value.getListViewSpannableString();
+        msgList.add(value);
+      }
+ catch (      JsonSyntaxException e) {
+        AppLogger.e(e.getMessage());
+      }
+    }
+ else {
+      msgList.add(null);
+    }
+  }
+  for (int i=msgList.size() - 1; i >= 0; i--) {
+    if (msgList.get(i) == null) {
+      msgList.remove(i);
+    }
+ else {
+      break;
+    }
+  }
+  for (int i=0; i < msgList.size(); i++) {
+    if (msgList.get(i) == null) {
+      msgList.remove(i);
+    }
+ else {
+      break;
+    }
+  }
+  result.setStatuses(msgList);
+  c.close();
+  return result;
+}

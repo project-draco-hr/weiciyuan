@@ -1,0 +1,4 @@
+{
+  deleteGroupTimeLine(accountId,groupId);
+  addHomeLineMsg(list,accountId,groupId);
+}

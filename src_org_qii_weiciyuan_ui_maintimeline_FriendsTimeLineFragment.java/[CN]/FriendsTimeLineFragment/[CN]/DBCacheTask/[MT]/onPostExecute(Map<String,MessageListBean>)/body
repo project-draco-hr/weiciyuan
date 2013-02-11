@@ -1,8 +1,12 @@
 {
   super.onPostExecute(result);
   if (result != null) {
-    getList().replaceData(result);
-    putToGroupDataMemoryCache(ALL_GROUP_ID,result);
+    getList().replaceData(result.get(ALL_GROUP_ID));
+    putToGroupDataMemoryCache(BILATERAL_GROUP_ID,result.get(BILATERAL_GROUP_ID));
+    Set<String> keys=result.keySet();
+    for (    String key : keys) {
+      putToGroupDataMemoryCache(key,result.get(key));
+    }
   }
   getPullToRefreshListView().setVisibility(View.VISIBLE);
   getAdapter().notifyDataSetChanged();
