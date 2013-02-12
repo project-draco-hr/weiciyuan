@@ -1,0 +1,13 @@
+{
+  String content=tab.getText().toString();
+  int value=0;
+  int start=content.indexOf("(");
+  int end=content.lastIndexOf(")");
+  if (start > 0) {
+    String result=content.substring(start + 1,end);
+    value=Integer.valueOf(result);
+  }
+  if (value < count) {
+    tab.setText(tabStrRes + "(" + count+ ")");
+  }
+}
