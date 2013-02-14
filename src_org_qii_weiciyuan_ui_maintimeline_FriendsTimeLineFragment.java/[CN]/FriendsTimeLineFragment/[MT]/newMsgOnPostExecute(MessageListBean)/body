@@ -9,7 +9,7 @@
     if (currentGroupId.equals(ALL_GROUP_ID)) {
       dbRunnable=new Runnable(){
         @Override public void run(){
-          FriendsTimeLineDBTask.replaceHomeLineMsg(getList(),accountBean.getUid());
+          FriendsTimeLineDBTask.replace(getList(),accountBean.getUid());
         }
       }
 ;

@@ -10,10 +10,20 @@
     }
   }
   getAdapter().notifyDataSetChanged();
-  new Thread(new Runnable(){
-    @Override public void run(){
-      FriendsTimeLineDBTask.replaceHomeLineMsg(getList(),GlobalContext.getInstance().getCurrentAccountId());
+  if (currentGroupId.equals(ALL_GROUP_ID)) {
+    new Thread(new Runnable(){
+      @Override public void run(){
+        FriendsTimeLineDBTask.replace(getList(),GlobalContext.getInstance().getCurrentAccountId());
+      }
     }
-  }
 ).start();
+  }
+ else {
+    new Thread(new Runnable(){
+      @Override public void run(){
+        HomeOtherGroupTimeLineDBTask.replace(getList(),GlobalContext.getInstance().getCurrentAccountId(),currentGroupId);
+      }
+    }
+).start();
+  }
 }
