@@ -1,0 +1,13 @@
+{
+  String json=getJson();
+  List<MessageReCmtCountBean> value=null;
+  try {
+    value=new Gson().fromJson(json,new TypeToken<List<MessageReCmtCountBean>>(){
+    }
+.getType());
+  }
+ catch (  JsonSyntaxException e) {
+    AppLogger.e(e.getMessage());
+  }
+  return value;
+}

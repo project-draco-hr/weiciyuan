@@ -12,4 +12,7 @@
   if (getList().getSize() == 0) {
     getPullToRefreshListView().startRefreshNow();
   }
+ else {
+    new RefreshReCmtCountTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
 }
