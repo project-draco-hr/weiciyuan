@@ -7,5 +7,6 @@
  else {
     getList().replaceData(groupDataCache.get(currentGroupId));
     getAdapter().notifyDataSetChanged();
+    new RefreshReCmtCountTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }
 }

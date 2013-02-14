@@ -10,7 +10,7 @@
   int needDeletedNumber=total - AppConfig.DEFAULT_DB_CACHE_COUNT;
   if (needDeletedNumber > 0) {
     AppLogger.e("" + needDeletedNumber);
-    String sql=" delete from " + HomeOtherGroupTable.TABLE_NAME + " where "+ HomeOtherGroupTable.ID+ " in "+ "( select "+ HomeOtherGroupTable.ID+ " from "+ HomeOtherGroupTable.TABLE_NAME+ " where "+ HomeOtherGroupTable.ACCOUNTID+ " in "+ "("+ accountId+ ") "+ " and "+ HomeOtherGroupTable.GROUPID+ " = "+ groupId+ "order by "+ HomeOtherGroupTable.ID+ " desc limit "+ needDeletedNumber+ " ) ";
+    String sql=" delete from " + HomeOtherGroupTable.TABLE_NAME + " where "+ HomeOtherGroupTable.ID+ " in "+ "( select "+ HomeOtherGroupTable.ID+ " from "+ HomeOtherGroupTable.TABLE_NAME+ " where "+ HomeOtherGroupTable.ACCOUNTID+ " in "+ "("+ accountId+ ") "+ " and "+ HomeOtherGroupTable.GROUPID+ " = "+ groupId+ " order by "+ HomeOtherGroupTable.ID+ " desc limit "+ needDeletedNumber+ " ) ";
     getWsd().execSQL(sql);
   }
 }
