@@ -17,6 +17,7 @@
       musicFilter.addAction("com.rdio.android.metachanged");
       musicFilter.addAction("com.samsung.sec.android.MusicPlayer.metachanged");
       musicFilter.addAction("com.andrew.apollo.metachanged");
+      musicReceiver=new MusicReceiver();
       registerReceiver(musicReceiver,musicFilter);
     }
   }
