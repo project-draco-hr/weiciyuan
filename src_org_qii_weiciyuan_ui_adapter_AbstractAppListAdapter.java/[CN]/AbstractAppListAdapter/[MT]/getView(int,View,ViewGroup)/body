@@ -29,6 +29,7 @@ tagIndexList.add(R.drawable.ic_launcher + getItemViewType(position));
 holder=(ViewHolder)convertView.getTag(R.drawable.ic_launcher + getItemViewType(position));
 }
 if (getItemViewType(position) != TYPE_MIDDLE) {
+configLayerType(holder);
 configViewFont(holder);
 bindViewData(holder,position);
 }

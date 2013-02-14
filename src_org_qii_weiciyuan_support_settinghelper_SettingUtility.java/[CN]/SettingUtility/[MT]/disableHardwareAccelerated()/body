@@ -1,0 +1,3 @@
+{
+  return SettingHelper.getSharedPreferences(getContext(),SettingActivity.DISABLE_HARDWARE_ACCELERATED,false);
+}
