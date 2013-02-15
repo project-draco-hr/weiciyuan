@@ -1,0 +1,15 @@
+{
+  super.applyTransformation(interpolatedTime,t);
+  if (interpolatedTime < 1.0f) {
+    mViewLayoutParams.bottomMargin=mMarginStart + (int)((mMarginEnd - mMarginStart) * interpolatedTime);
+    mAnimatedView.requestLayout();
+  }
+ else   if (!mWasEndedAlready) {
+    mViewLayoutParams.bottomMargin=mMarginEnd;
+    mAnimatedView.requestLayout();
+    if (mIsVisibleAfter) {
+      mAnimatedView.setVisibility(View.GONE);
+    }
+    mWasEndedAlready=true;
+  }
+}
