@@ -1,7 +1,7 @@
 {
 switch (item.getItemId()) {
 case R.id.menu_remove:
-    if (removeTask == null || removeTask.getStatus() == MyAsyncTask.Status.FINISHED) {
+    if (Utility.isTaskStopped(removeTask)) {
       removeTask=new RemoveFilterDBTask();
       removeTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
