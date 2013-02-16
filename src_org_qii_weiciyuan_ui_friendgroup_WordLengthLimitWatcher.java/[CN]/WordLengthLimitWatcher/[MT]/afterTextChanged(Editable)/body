@@ -1,0 +1,5 @@
+{
+  if (Utility.length(s.toString()) > AppConfig.CREATE_MODIFY_FRIEND_GROUP_NAME_LENGTH_LIMIT) {
+    editText.setError(editText.getContext().getString(R.string.group_name_must_less_than_ten_chinese_words));
+  }
+}
