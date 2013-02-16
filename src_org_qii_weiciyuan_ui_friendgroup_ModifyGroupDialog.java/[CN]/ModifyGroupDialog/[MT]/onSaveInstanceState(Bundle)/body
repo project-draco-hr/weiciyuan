@@ -1,0 +1,6 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putString("idstr",idstr);
+  outState.putString("oriName",oriName);
+  outState.putString("name",name.getText().toString());
+}

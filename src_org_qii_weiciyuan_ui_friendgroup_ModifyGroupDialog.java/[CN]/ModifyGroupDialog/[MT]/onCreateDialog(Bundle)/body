@@ -1,11 +1,18 @@
 {
+  if (savedInstanceState != null) {
+    idstr=savedInstanceState.getString("idstr");
+    oriName=savedInstanceState.getString("oriName");
+  }
   AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-  final EditText et=new EditText(getActivity());
-  et.setHint(oriName);
-  et.addTextChangedListener(new WordLengthLimitWatcher(et));
-  builder.setView(et).setTitle(getString(R.string.modify_group_name)).setPositiveButton(getString(R.string.modify),new DialogInterface.OnClickListener(){
+  name=new EditText(getActivity());
+  name.setHint(oriName);
+  name.addTextChangedListener(new WordLengthLimitWatcher(name));
+  if (savedInstanceState != null) {
+    name.append(savedInstanceState.getString("name"));
+  }
+  builder.setView(name).setTitle(getString(R.string.modify_group_name)).setPositiveButton(getString(R.string.modify),new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialog,    int which){
-      String name=et.getText().toString().trim();
+      String name=ModifyGroupDialog.this.name.getText().toString().trim();
       if (!TextUtils.isEmpty(name)) {
         ManageGroupActivity.ManageGroupFragment fragment=(ManageGroupActivity.ManageGroupFragment)getTargetFragment();
         fragment.modifyGroupName(idstr,name);
