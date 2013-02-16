@@ -1,0 +1,10 @@
+{
+  if (getListView().getCheckedItemCount() > 1) {
+    modify.setVisible(false);
+  }
+ else {
+    modify.setVisible(true);
+  }
+  mode.setTitle(String.format(getString(R.string.have_selected),String.valueOf(getListView().getCheckedItemCount())));
+  adapter.notifyDataSetChanged();
+}

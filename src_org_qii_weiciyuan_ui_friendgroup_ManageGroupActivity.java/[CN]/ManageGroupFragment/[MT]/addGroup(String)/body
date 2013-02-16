@@ -1,0 +1,3 @@
+{
+  new CreateGroupTask(GlobalContext.getInstance().getSpecialToken(),groupName).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}

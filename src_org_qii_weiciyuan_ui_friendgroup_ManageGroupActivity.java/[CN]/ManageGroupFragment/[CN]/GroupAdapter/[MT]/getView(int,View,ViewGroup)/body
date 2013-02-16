@@ -1,0 +1,10 @@
+{
+  View view=getActivity().getLayoutInflater().inflate(android.R.layout.simple_list_item_1,parent,false);
+  TextView tv=(TextView)view;
+  tv.setBackgroundColor(defaultBG);
+  if (getListView().getCheckedItemPositions().get(position)) {
+    tv.setBackgroundColor(checkedBG);
+  }
+  tv.setText(name.get(position));
+  return view;
+}

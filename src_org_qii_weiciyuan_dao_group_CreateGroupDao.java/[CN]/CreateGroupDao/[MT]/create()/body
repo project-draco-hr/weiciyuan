@@ -1,0 +1,16 @@
+{
+  String url=URLHelper.GROUP_CREATE;
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("name",name);
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
+  Gson gson=new Gson();
+  GroupBean value=null;
+  try {
+    value=gson.fromJson(jsonData,GroupBean.class);
+  }
+ catch (  JsonSyntaxException e) {
+    AppLogger.e(e.getMessage());
+  }
+  return value;
+}

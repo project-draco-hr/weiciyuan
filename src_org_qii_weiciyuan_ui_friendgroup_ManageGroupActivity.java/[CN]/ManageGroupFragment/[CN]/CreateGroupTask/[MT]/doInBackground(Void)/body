@@ -1,0 +1,10 @@
+{
+  try {
+    return new CreateGroupDao(token,name).create();
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+    cancel(true);
+  }
+  return null;
+}

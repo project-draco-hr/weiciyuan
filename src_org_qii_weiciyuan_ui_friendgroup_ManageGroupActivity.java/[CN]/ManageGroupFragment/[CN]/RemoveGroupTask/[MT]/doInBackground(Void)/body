@@ -1,0 +1,16 @@
+{
+  try {
+    boolean result=true;
+    for (    String groupName : groupNames) {
+      if (!new DestroyGroupDao(token,groupName).destroy()) {
+        result=false;
+      }
+    }
+    return result;
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+    cancel(true);
+  }
+  return null;
+}

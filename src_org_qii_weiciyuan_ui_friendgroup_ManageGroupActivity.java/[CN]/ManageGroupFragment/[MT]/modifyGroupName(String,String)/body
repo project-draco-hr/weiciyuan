@@ -1,0 +1,3 @@
+{
+  new ModifyGroupNameTask(GlobalContext.getInstance().getSpecialToken(),idstr,groupName).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
