@@ -1,4 +1,7 @@
 {
+  if (savedInstanceState != null) {
+    checkedNames=savedInstanceState.getStringArrayList("checkedNames");
+  }
   AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
   builder.setTitle(getString(R.string.remove_group)).setMessage(getString(R.string.remove_group_content)).setPositiveButton(getString(R.string.delete),new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialog,    int which){
