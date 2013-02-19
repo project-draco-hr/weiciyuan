@@ -1,0 +1,25 @@
+{
+  if (mWebView != null) {
+    mWebView.destroy();
+  }
+  mWebView=new WebView(getActivity());
+  mWebView.setOnKeyListener(new View.OnKeyListener(){
+    @Override public boolean onKey(    View v,    int keyCode,    KeyEvent event){
+      if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
+        mWebView.goBack();
+        return true;
+      }
+      return false;
+    }
+  }
+);
+  mWebView.setWebViewClient(new InnerWebViewClient());
+  mWebView.setWebChromeClient(new InnerWebChromeClient());
+  mWebView.loadUrl(mUrl);
+  mIsWebViewAvailable=true;
+  WebSettings settings=mWebView.getSettings();
+  settings.setJavaScriptEnabled(true);
+  settings.setBuiltInZoomControls(true);
+  settings.setDisplayZoomControls(false);
+  return mWebView;
+}
