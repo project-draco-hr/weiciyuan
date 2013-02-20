@@ -6,15 +6,4 @@
   if (savedInstanceState == null) {
     getFragmentManager().beginTransaction().replace(android.R.id.content,new BrowserWebFragment(url)).commit();
   }
-  ActionBar actionBar=getActionBar();
-  View title=getLayoutInflater().inflate(R.layout.browserwebactivity_title_layout,null);
-  CheatSheet.setup(BrowserWebActivity.this,title.findViewById(R.id.close),R.string.close);
-  title.findViewById(R.id.close).setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      finish();
-    }
-  }
-);
-  actionBar.setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
-  actionBar.setDisplayShowCustomEnabled(true);
 }
