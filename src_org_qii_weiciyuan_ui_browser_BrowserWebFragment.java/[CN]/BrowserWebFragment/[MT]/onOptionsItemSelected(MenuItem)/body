@@ -10,8 +10,13 @@ case R.id.menu_open_with_other_app:
 Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(mUrl));
 getActivity().startActivity(intent);
 break;
+case R.id.menu_copy:
+ClipboardManager cm=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+cm.setPrimaryClip(ClipData.newPlainText("sinaweibo",buildShareCopyContent()));
+Toast.makeText(getActivity(),getString(R.string.copy_successfully),Toast.LENGTH_SHORT).show();
+break;
 case R.id.menu_share:
-Utility.setShareIntent(getActivity(),mShareActionProvider,mUrl);
+Utility.setShareIntent(getActivity(),mShareActionProvider,buildShareCopyContent());
 break;
 }
 return super.onOptionsItemSelected(item);
