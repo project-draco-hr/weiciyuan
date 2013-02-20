@@ -1,0 +1,17 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_refresh:
+    getWebView().clearView();
+  getWebView().loadUrl("about:blank");
+getWebView().loadUrl(mUrl);
+break;
+case R.id.menu_open_with_other_app:
+Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse(mUrl));
+getActivity().startActivity(intent);
+break;
+case R.id.menu_share:
+Utility.setShareIntent(getActivity(),mShareActionProvider,mUrl);
+break;
+}
+return super.onOptionsItemSelected(item);
+}
