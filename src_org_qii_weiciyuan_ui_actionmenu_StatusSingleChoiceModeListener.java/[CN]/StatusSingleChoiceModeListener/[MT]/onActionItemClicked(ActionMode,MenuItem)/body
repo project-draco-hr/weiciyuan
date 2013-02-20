@@ -32,7 +32,6 @@ favTask=new FavAsyncTask(GlobalContext.getInstance().getSpecialToken(),bean.getI
 favTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
 listView.clearChoices();
-listView.clearChoices();
 mode.finish();
 break;
 case R.id.menu_unfav:
@@ -40,7 +39,6 @@ if (Utility.isTaskStopped(favTask) && Utility.isTaskStopped(unFavTask)) {
 unFavTask=new UnFavAsyncTask(GlobalContext.getInstance().getSpecialToken(),bean.getId());
 unFavTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
-listView.clearChoices();
 listView.clearChoices();
 mode.finish();
 break;
