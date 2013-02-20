@@ -1,8 +1,8 @@
 {
   super.onCreate(savedInstanceState);
   getActionBar().setDisplayHomeAsUpEnabled(true);
-  getActionBar().setTitle(getString(R.string.web));
   String url=getIntent().getStringExtra("url");
+  getActionBar().setTitle(url);
   if (savedInstanceState == null) {
     getFragmentManager().beginTransaction().replace(android.R.id.content,new BrowserWebFragment(url)).commit();
   }
