@@ -1,0 +1,11 @@
+{
+  if (!TextUtils.isEmpty(getSdCardPath())) {
+    String path=getSdCardPath() + File.separator + WEBVIEW_FAVICON+ File.separator;
+    File file=new File(path);
+    if (!file.exists()) {
+      file.mkdirs();
+    }
+    return path;
+  }
+  return "";
+}

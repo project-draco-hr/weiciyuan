@@ -15,7 +15,6 @@
 );
   mWebView.setWebViewClient(new InnerWebViewClient());
   mWebView.setWebChromeClient(new InnerWebChromeClient());
-  mWebView.loadUrl(mUrl);
   mIsWebViewAvailable=true;
   WebSettings settings=mWebView.getSettings();
   settings.setJavaScriptEnabled(true);
