@@ -1,0 +1,9 @@
+{
+  int result=0;
+  try {
+    result=new ShareShortUrlCountDao(GlobalContext.getInstance().getSpecialToken(),url).getCount();
+  }
+ catch (  WeiboException e) {
+  }
+  return result;
+}

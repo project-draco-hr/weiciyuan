@@ -1,0 +1,4 @@
+{
+  this.token=token;
+  this.shortUrl=shortUrl;
+}
