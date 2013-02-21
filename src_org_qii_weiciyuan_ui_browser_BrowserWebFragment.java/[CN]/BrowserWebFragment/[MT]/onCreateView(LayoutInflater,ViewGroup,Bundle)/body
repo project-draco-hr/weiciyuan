@@ -1,8 +1,10 @@
 {
+  View view=inflater.inflate(R.layout.browserwebfragment_layout,container,false);
   if (mWebView != null) {
     mWebView.destroy();
   }
-  mWebView=new WebView(getActivity());
+  mWebView=(WebView)view.findViewById(R.id.webView);
+  mProgressBar=(ProgressBar)view.findViewById(R.id.progressbar);
   mWebView.setOnKeyListener(new View.OnKeyListener(){
     @Override public boolean onKey(    View v,    int keyCode,    KeyEvent event){
       if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
@@ -20,5 +22,5 @@
   settings.setJavaScriptEnabled(true);
   settings.setBuiltInZoomControls(true);
   settings.setDisplayZoomControls(false);
-  return mWebView;
+  return view;
 }
