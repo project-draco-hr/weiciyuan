@@ -13,12 +13,13 @@ case FIRST_TIME_START:
       }
 ,2000);
     }
-  break;
+  buildViewData(true);
+break;
 case SCREEN_ROTATE:
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
 msg=(MessageBean)savedInstanceState.getSerializable("msg");
+buildViewData(true);
 break;
 }
-buildViewData(true);
 }
