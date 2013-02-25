@@ -12,7 +12,6 @@ case FIRST_TIME_START:
         }
       }
 ,2000);
-      buildViewData(true);
     }
   break;
 case SCREEN_ROTATE:
@@ -21,4 +20,5 @@ case ACTIVITY_DESTROY_AND_CREATE:
 msg=(MessageBean)savedInstanceState.getSerializable("msg");
 break;
 }
+buildViewData(true);
 }
