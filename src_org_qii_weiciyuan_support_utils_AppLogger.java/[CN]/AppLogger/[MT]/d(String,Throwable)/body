@@ -1,3 +1,3 @@
 {
-  android.util.Log.d(TAG,buildMessage(msg),thr);
+  if (BuildConfig.DEBUG)   android.util.Log.d(TAG,buildMessage(msg),thr);
 }
