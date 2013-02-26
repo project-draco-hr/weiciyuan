@@ -1,0 +1,4 @@
+{
+  if (this.gestureDetector != null)   this.gestureDetector.onTouchEvent(ev);
+  return super.dispatchTouchEvent(ev);
+}

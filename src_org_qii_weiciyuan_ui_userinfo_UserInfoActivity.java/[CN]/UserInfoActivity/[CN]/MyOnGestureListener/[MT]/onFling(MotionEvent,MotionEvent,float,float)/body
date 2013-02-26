@@ -1,7 +1,0 @@
-{
-  if (velocityX > AppConfig.SWIPE_MIN_DISTANCE && mViewPager.getCurrentItem() == 0) {
-    finish();
-    return true;
-  }
-  return false;
-}

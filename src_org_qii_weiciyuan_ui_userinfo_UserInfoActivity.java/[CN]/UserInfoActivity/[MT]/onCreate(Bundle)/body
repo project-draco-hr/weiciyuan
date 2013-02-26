@@ -32,19 +32,14 @@
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setTitle(getString(R.string.personal_info));
   setContentView(R.layout.viewpager_layout);
-  mViewPager=(ViewPager)findViewById(R.id.viewpager);
+  mViewPager=(MyViewPager)findViewById(R.id.viewpager);
   mViewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
   TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getFragmentManager());
   mViewPager.setOffscreenPageLimit(2);
   mViewPager.setAdapter(adapter);
   mViewPager.setOnPageChangeListener(onPageChangeListener);
-  gestureDetector=new GestureDetector(UserInfoActivity.this,new MyOnGestureListener());
-  mViewPager.setOnTouchListener(new View.OnTouchListener(){
-    @Override public boolean onTouch(    View v,    MotionEvent event){
-      return gestureDetector.onTouchEvent(event);
-    }
-  }
-);
+  gestureDetector=new GestureDetector(UserInfoActivity.this,new SwipeRightToCloseOnGestureListener(UserInfoActivity.this,mViewPager));
+  mViewPager.setGestureDetector(gestureDetector);
   ActionBar actionBar=getActionBar();
   actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
   actionBar.addTab(actionBar.newTab().setText(getString(R.string.info)).setTabListener(tabListener));
