@@ -1,4 +1,5 @@
 {
   this.activity=activity;
   this.viewPager=viewPager;
+  this.scaledMinimumFlingVelocity=ViewConfiguration.get(activity).getScaledMinimumFlingVelocity();
 }
