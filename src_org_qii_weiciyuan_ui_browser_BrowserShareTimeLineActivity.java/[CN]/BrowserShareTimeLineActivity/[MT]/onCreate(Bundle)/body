@@ -1,0 +1,14 @@
+{
+  super.onCreate(savedInstanceState);
+  String url=getIntent().getStringExtra("url");
+  getActionBar().setDisplayShowHomeEnabled(false);
+  getActionBar().setDisplayShowTitleEnabled(true);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setTitle(url);
+  if (savedInstanceState == null) {
+    getFragmentManager().beginTransaction().replace(android.R.id.content,new BrowserShareTimeLineFragment(url)).commit();
+  }
+  int count=getIntent().getIntExtra("count",0);
+  String subTitle=String.format(getString(R.string.total_share_count),String.valueOf(count));
+  getActionBar().setSubtitle(subTitle);
+}

@@ -1,0 +1,5 @@
+{
+  ShareShortUrlTimeLineDao dao=new ShareShortUrlTimeLineDao(GlobalContext.getInstance().getSpecialToken(),url);
+  dao.setMaxId(getList().getItemList().get(getList().getSize() - 1).getId());
+  return dao.getGSONMsgList();
+}
