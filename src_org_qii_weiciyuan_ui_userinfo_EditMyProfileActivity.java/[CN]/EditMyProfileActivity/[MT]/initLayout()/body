@@ -1,6 +1,13 @@
 {
   layout=new Layout();
   layout.avatar=(ImageView)findViewById(R.id.avatar);
+  layout.avatar.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      SelectProfilePictureDialog dialog=new SelectProfilePictureDialog();
+      dialog.show(getFragmentManager(),"");
+    }
+  }
+);
   layout.nickname=(EditText)findViewById(R.id.nickname);
   layout.website=(EditText)findViewById(R.id.website);
   layout.info=(EditText)findViewById(R.id.info);
