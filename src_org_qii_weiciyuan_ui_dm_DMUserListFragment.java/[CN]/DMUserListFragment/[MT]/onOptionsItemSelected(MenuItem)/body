@@ -1,0 +1,9 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_write_dm:
+    Intent intent=new Intent(getActivity(),DMSelectUserActivity.class);
+  startActivity(intent);
+break;
+}
+return super.onOptionsItemSelected(item);
+}

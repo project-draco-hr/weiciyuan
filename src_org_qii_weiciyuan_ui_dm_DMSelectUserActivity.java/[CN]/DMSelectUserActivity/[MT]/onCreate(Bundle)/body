@@ -1,0 +1,4 @@
+{
+  super.onCreate(savedInstanceState);
+  getActionBar().setTitle(R.string.select_dm_receiver);
+}

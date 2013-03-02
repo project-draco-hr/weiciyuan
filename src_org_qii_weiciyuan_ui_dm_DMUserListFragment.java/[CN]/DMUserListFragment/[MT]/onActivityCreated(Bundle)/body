@@ -1,6 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
   setRetainInstance(true);
+  setHasOptionsMenu(true);
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
     if (Utility.isTaskStopped(dbTask)) {
