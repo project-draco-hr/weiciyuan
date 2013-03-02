@@ -14,5 +14,9 @@
  catch (  JsonSyntaxException e) {
     AppLogger.e(e.getMessage());
   }
+  if (this.avatar != null) {
+    UploadAvatarDao uploadAvatarDao=new UploadAvatarDao(access_token,avatar);
+    uploadAvatarDao.upload();
+  }
   return value;
 }

@@ -6,7 +6,7 @@
   String sendStr="";
   try {
     barry=("--" + BOUNDARYSTR + "--\r\n").getBytes("UTF-8");
-    sendStr=getBoundaryMessage(BOUNDARYSTR,param,"pic",new File(path).getName(),"image/png");
+    sendStr=getBoundaryMessage(BOUNDARYSTR,param,imageParamName,new File(path).getName(),"image/png");
     contentLength=sendStr.getBytes("UTF-8").length + (int)targetFile.length() + 2 * barry.length;
   }
  catch (  UnsupportedEncodingException e) {
