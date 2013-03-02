@@ -1,5 +1,11 @@
 {
+  String avatarUrl=userBean.getAvatar_large();
+  if (!TextUtils.isEmpty(avatarUrl)) {
+    avatarTask=new ProfileAvatarReadWorker(layout.avatar,avatarUrl);
+    avatarTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
   layout.nickname.setText(userBean.getScreen_name());
+  layout.nickname.setSelection(layout.nickname.getText().toString().length());
   layout.website.setText(userBean.getUrl());
   layout.info.setText(userBean.getDescription());
 }
