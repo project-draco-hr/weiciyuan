@@ -7,5 +7,5 @@
   setContentView(R.layout.editmyprofileactivity_layout);
   initLayout();
   userBean=(UserBean)getIntent().getSerializableExtra("userBean");
-  initValue();
+  initValue(savedInstanceState);
 }
