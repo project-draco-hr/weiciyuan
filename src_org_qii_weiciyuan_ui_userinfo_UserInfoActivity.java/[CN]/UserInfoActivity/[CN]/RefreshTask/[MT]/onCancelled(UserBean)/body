@@ -1,16 +1,7 @@
 {
   super.onCancelled(userBean);
   if (this.e != null) {
-    int errorCode=this.e.getError_code();
-switch (errorCode) {
-case ErrorCode.USER_NOT_EXISTS:
-      UserNotExistsDialog userNotExistsDialog=new UserNotExistsDialog();
-    userNotExistsDialog.show(getFragmentManager(),"");
-  break;
-default :
-OtherErrorDialog otherErrorDialog=new OtherErrorDialog(this.e.getError());
-otherErrorDialog.show(getFragmentManager(),"");
-break;
-}
-}
+    UserInfoActivityErrorDialog userInfoActivityErrorDialog=new UserInfoActivityErrorDialog(this.e.getError());
+    userInfoActivityErrorDialog.show(getFragmentManager(),"");
+  }
 }
