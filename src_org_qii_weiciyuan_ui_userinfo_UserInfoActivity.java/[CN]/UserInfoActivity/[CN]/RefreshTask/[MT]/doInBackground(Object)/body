@@ -1,0 +1,35 @@
+{
+  if (!isCancelled()) {
+    ShowUserDao dao=new ShowUserDao(GlobalContext.getInstance().getSpecialToken());
+    boolean haveId=!TextUtils.isEmpty(bean.getId());
+    boolean haveName=!TextUtils.isEmpty(bean.getScreen_name());
+    if (haveId) {
+      dao.setUid(bean.getId());
+    }
+ else     if (haveName) {
+      dao.setScreen_name(bean.getScreen_name());
+    }
+ else {
+      cancel(true);
+      return null;
+    }
+    UserBean user=null;
+    try {
+      user=dao.getUserInfo();
+    }
+ catch (    WeiboException e) {
+      this.e=e;
+      cancel(true);
+    }
+    if (user != null) {
+      bean=user;
+    }
+ else {
+      cancel(true);
+    }
+    return user;
+  }
+ else {
+    return null;
+  }
+}

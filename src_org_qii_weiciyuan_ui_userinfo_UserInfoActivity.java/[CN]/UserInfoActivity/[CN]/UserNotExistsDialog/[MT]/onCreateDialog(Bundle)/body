@@ -1,0 +1,9 @@
+{
+  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity()).setTitle(getString(R.string.something_wrong)).setMessage(getString(R.string.user_not_exists)).setPositiveButton(R.string.confirm,new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      getActivity().finish();
+    }
+  }
+);
+  return builder.create();
+}

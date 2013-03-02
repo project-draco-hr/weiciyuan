@@ -1,0 +1,6 @@
+{
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setTitle(bean.getScreen_name());
+  refreshTask=new RefreshTask();
+  refreshTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
