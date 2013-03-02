@@ -7,6 +7,10 @@ case ErrorCode.USER_NOT_EXISTS:
       UserNotExistsDialog userNotExistsDialog=new UserNotExistsDialog();
     userNotExistsDialog.show(getFragmentManager(),"");
   break;
+default :
+OtherErrorDialog otherErrorDialog=new OtherErrorDialog(this.e.getError());
+otherErrorDialog.show(getFragmentManager(),"");
+break;
 }
 }
 }

@@ -1,0 +1,12 @@
+{
+  if (savedInstanceState != null) {
+    this.error=savedInstanceState.getString("error");
+  }
+  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity()).setTitle(getString(R.string.something_wrong)).setMessage(this.error).setPositiveButton(R.string.confirm,new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      getActivity().finish();
+    }
+  }
+);
+  return builder.create();
+}
