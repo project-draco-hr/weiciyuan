@@ -1,0 +1,5 @@
+{
+  layout.nickname.setText(userBean.getScreen_name());
+  layout.website.setText(userBean.getUrl());
+  layout.info.setText(userBean.getDescription());
+}

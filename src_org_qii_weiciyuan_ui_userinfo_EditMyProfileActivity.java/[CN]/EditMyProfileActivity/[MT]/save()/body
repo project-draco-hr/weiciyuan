@@ -1,0 +1,6 @@
+{
+  if (Utility.isTaskStopped(saveAsyncTask)) {
+    saveAsyncTask=new SaveAsyncTask();
+    saveAsyncTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

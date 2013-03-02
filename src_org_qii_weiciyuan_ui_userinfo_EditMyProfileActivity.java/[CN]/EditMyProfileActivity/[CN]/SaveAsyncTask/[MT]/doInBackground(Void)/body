@@ -1,0 +1,13 @@
+{
+  EditMyProfileDao dao=new EditMyProfileDao(GlobalContext.getInstance().getSpecialToken(),screenName);
+  if (!TextUtils.isEmpty(url) && !url.equals(userBean.getUrl()))   dao.setUrl(url);
+  if (!TextUtils.isEmpty(description) && !description.equals(userBean.getDescription()))   dao.setDescription(description);
+  try {
+    return dao.update();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    e.printStackTrace();
+  }
+  return null;
+}

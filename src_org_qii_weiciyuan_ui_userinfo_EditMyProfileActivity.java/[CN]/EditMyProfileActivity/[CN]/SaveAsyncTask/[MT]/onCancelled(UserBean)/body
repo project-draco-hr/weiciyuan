@@ -1,0 +1,4 @@
+{
+  super.onCancelled(userBean);
+  if (this.e != null)   Toast.makeText(EditMyProfileActivity.this,e.getError(),Toast.LENGTH_SHORT).show();
+}
