@@ -11,6 +11,16 @@
   }
   layout.nickname.setText(userBean.getScreen_name());
   layout.nickname.setSelection(layout.nickname.getText().toString().length());
+  layout.nickname.addTextChangedListener(new TextWatcher(){
+    @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
+    }
+    @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
+    }
+    @Override public void afterTextChanged(    Editable s){
+      isNicknameEmpty();
+    }
+  }
+);
   layout.website.setText(userBean.getUrl());
   layout.info.setText(userBean.getDescription());
 }

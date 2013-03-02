@@ -1,0 +1,7 @@
+{
+  int sum=Utility.length(layout.nickname.getText().toString());
+  if (sum == 0) {
+    layout.nickname.setError(getString(R.string.nickname_cant_be_empty));
+  }
+  return sum == 0;
+}
