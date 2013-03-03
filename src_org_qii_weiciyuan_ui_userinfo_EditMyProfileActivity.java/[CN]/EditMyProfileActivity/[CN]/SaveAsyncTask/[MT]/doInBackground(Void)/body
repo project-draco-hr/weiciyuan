@@ -9,6 +9,7 @@
  catch (  WeiboException e) {
     this.e=e;
     e.printStackTrace();
+    cancel(true);
   }
   return null;
 }
