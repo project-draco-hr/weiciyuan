@@ -3,4 +3,5 @@
   screenName=layout.nickname.getText().toString();
   url=layout.website.getText().toString();
   description=layout.info.getText().toString();
+  startSaveAnimation();
 }

@@ -1,0 +1,10 @@
+{
+  if (save.getActionView() != null) {
+    save.getActionView().clearAnimation();
+    save.setActionView(null);
+  }
+  layout.nickname.setEnabled(true);
+  layout.website.setEnabled(true);
+  layout.info.setEnabled(true);
+  layout.avatar.setOnClickListener(avatarOnClickListener);
+}

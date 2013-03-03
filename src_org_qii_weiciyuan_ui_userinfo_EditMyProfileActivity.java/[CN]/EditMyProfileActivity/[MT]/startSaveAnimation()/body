@@ -1,0 +1,9 @@
+{
+  LayoutInflater inflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  ProgressBar pb=(ProgressBar)inflater.inflate(R.layout.editmyprofileactivity_refresh_actionbar_view_layout,null);
+  save.setActionView(pb);
+  layout.nickname.setEnabled(false);
+  layout.website.setEnabled(false);
+  layout.info.setEnabled(false);
+  layout.avatar.setOnClickListener(null);
+}
