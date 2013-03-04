@@ -1,11 +1,9 @@
 {
-  Map<String,String> emotions=GlobalContext.getInstance().getEmotions();
+  Map<String,String> emotions=SmileyMap.getInstance().get();
   List<String> index=new ArrayList<String>();
   index.addAll(emotions.keySet());
   for (  String str : index) {
-    String url=emotions.get(str);
-    int position=url.lastIndexOf("/");
-    String name=url.substring(position + 1);
+    String name=emotions.get(str);
     AssetManager assetManager=GlobalContext.getInstance().getAssets();
     InputStream inputStream;
     try {
