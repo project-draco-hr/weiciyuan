@@ -1,0 +1,18 @@
+{
+  ContentValues cv=new ContentValues();
+  cv.put(AccountTable.UID,account.getUid());
+  cv.put(AccountTable.OAUTH_TOKEN,account.getAccess_token());
+  cv.put(AccountTable.BLACK_MAGIC,blackMagic);
+  String json=new Gson().toJson(account.getInfo());
+  cv.put(AccountTable.INFOJSON,json);
+  Cursor c=getWsd().query(AccountTable.TABLE_NAME,null,AccountTable.UID + "=?",new String[]{account.getUid()},null,null,null);
+  if (c != null && c.getCount() > 0) {
+    String[] args={account.getUid()};
+    getWsd().update(AccountTable.TABLE_NAME,cv,AccountTable.UID + "=?",args);
+    return OAuthActivity.DBResult.update_successfully;
+  }
+ else {
+    getWsd().insert(AccountTable.TABLE_NAME,AccountTable.UID,cv);
+    return OAuthActivity.DBResult.add_successfuly;
+  }
+}

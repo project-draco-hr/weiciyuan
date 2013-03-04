@@ -1,0 +1,6 @@
+{
+  super.onPostExecute(userBean);
+  stopSaveAnimation();
+  GlobalContext.getInstance().updateUserInfo(userBean);
+  finish();
+}

@@ -1,6 +1,7 @@
 {
+  super.onPostExecute(userBean);
   setValue();
+  GlobalContext.getInstance().updateUserInfo(userBean);
   topicListTask=new TopicListTask();
   topicListTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  super.onPostExecute(o);
 }

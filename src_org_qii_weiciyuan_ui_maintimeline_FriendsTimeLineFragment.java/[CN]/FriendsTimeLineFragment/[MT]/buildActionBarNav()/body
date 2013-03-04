@@ -15,9 +15,9 @@
     name.add(b.getName());
   }
   final String[] valueArray=name.toArray(new String[0]);
-  BaseAdapter adapter=new FriendsTimeLineListNavAdapter(getActivity(),valueArray);
+  navAdapter=new FriendsTimeLineListNavAdapter(getActivity(),valueArray);
   final List<GroupBean> finalList=list;
-  getActivity().getActionBar().setListNavigationCallbacks(adapter,new ActionBar.OnNavigationListener(){
+  getActivity().getActionBar().setListNavigationCallbacks(navAdapter,new ActionBar.OnNavigationListener(){
     @Override public boolean onNavigationItemSelected(    int which,    long itemId){
       String selectedItemId;
       if (which == 0) {

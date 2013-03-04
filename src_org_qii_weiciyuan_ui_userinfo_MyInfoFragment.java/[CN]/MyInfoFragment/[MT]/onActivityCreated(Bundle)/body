@@ -1,15 +1,18 @@
 {
   super.onActivityCreated(savedInstanceState);
+  AccountBean accountBean;
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
-    bean=((IUserInfo)getActivity()).getUser();
-  refresh();
+    accountBean=GlobalContext.getInstance().getAccountBean();
+  bean=accountBean.getInfo();
+refresh();
 break;
 case SCREEN_ROTATE:
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
 topicList=savedInstanceState.getStringArrayList("topicList");
-bean=(UserBean)savedInstanceState.getSerializable("bean");
+accountBean=GlobalContext.getInstance().getAccountBean();
+bean=accountBean.getInfo();
 break;
 }
 commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();

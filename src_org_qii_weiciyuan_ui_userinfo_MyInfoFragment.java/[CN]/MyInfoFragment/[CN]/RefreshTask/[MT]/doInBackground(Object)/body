@@ -12,7 +12,7 @@
   }
   if (user != null) {
     bean=user;
-    AccountDBTask.updateAccountMyInfo(GlobalContext.getInstance().getAccountBean(),bean);
+    AccountDBTask.updateMyProfile(GlobalContext.getInstance().getAccountBean(),bean);
   }
  else {
     cancel(true);

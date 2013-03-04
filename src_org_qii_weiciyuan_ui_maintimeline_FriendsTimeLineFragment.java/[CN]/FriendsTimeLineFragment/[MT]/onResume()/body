@@ -1,4 +1,5 @@
 {
   super.onResume();
   addRefresh();
+  GlobalContext.getInstance().registerForAccountChangeListener(this);
 }

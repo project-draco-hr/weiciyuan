@@ -1,7 +1,10 @@
 {
 switch (oldVersion) {
+case 19:
+    deleteAllTable(db);
+  onCreate(db);
 default :
-    deleteAllTableExceptAccount(db);
-  createOtherTable(db);
+deleteAllTableExceptAccount(db);
+createOtherTable(db);
 }
 }

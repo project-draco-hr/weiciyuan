@@ -1,4 +1,6 @@
 {
   getMenuInflater().inflate(R.menu.actionbar_menu_myinfoactivity,menu);
+  MenuItem edit=menu.findItem(R.id.menu_edit);
+  edit.setVisible(GlobalContext.getInstance().getAccountBean().isBlack_magic());
   return super.onCreateOptionsMenu(menu);
 }

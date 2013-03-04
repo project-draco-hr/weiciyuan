@@ -1,0 +1,11 @@
+{
+  this.accountBean.setInfo(userBean);
+  handler.post(new Runnable(){
+    @Override public void run(){
+      for (      MyProfileInfoChangeListener listener : profileListenerSet) {
+        listener.onChange(userBean);
+      }
+    }
+  }
+);
+}

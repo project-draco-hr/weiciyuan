@@ -1,0 +1,19 @@
+{
+  UserBean user=null;
+  try {
+    ShowUserDao dao=new ShowUserDao(GlobalContext.getInstance().getSpecialToken());
+    dao.setUid(GlobalContext.getInstance().getAccountBean().getUid());
+    user=dao.getUserInfo();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+  }
+  if (user != null) {
+    AccountDBTask.updateMyProfile(GlobalContext.getInstance().getAccountBean(),user);
+  }
+ else {
+    cancel(true);
+  }
+  return user;
+}

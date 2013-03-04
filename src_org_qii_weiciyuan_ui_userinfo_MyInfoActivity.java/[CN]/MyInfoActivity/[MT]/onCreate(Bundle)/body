@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
-  token=getIntent().getStringExtra("token");
+  String token=getIntent().getStringExtra("token");
   bean=(UserBean)getIntent().getSerializableExtra("user");
   account=(AccountBean)getIntent().getSerializableExtra("account");
   setContentView(R.layout.viewpager_layout);
@@ -12,7 +12,7 @@
   mViewPager.setOffscreenPageLimit(5);
   mViewPager.setAdapter(adapter);
   mViewPager.setOnPageChangeListener(onPageChangeListener);
-  gestureDetector=new GestureDetector(MyInfoActivity.this,new SwipeRightToCloseOnGestureListener(MyInfoActivity.this,mViewPager));
+  GestureDetector gestureDetector=new GestureDetector(MyInfoActivity.this,new SwipeRightToCloseOnGestureListener(MyInfoActivity.this,mViewPager));
   mViewPager.setGestureDetector(gestureDetector);
   ActionBar actionBar=getActionBar();
   actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

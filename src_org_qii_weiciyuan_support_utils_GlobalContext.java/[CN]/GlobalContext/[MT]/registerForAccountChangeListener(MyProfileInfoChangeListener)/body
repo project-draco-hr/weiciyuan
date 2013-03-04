@@ -1,0 +1,3 @@
+{
+  if (listener != null)   profileListenerSet.add(listener);
+}
