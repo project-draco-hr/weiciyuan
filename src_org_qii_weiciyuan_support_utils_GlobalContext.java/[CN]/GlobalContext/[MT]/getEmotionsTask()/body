@@ -10,7 +10,7 @@
       inputStream=assetManager.open(name);
       Bitmap bitmap=BitmapFactory.decodeStream(inputStream);
       if (bitmap != null) {
-        Bitmap scaledBitmap=Bitmap.createScaledBitmap(bitmap,Utility.dip2px(20),Utility.dip2px(20),true);
+        Bitmap scaledBitmap=Bitmap.createScaledBitmap(bitmap,Utility.dip2px(25),Utility.dip2px(25),true);
         if (bitmap != scaledBitmap) {
           bitmap.recycle();
           bitmap=scaledBitmap;
