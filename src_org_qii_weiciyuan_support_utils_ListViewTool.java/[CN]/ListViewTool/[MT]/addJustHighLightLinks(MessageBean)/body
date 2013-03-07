@@ -1,5 +1,5 @@
 {
-  bean.setListViewSpannableString(ListViewTool.getJustHighLightLinks(bean.getText()));
+  bean.setListViewSpannableString(ListViewTool.convertNormalStringToSpannableString(bean.getText()));
   if (bean.getRetweeted_status() != null) {
     String name="";
     UserBean reUser=bean.getRetweeted_status().getUser();
@@ -8,10 +8,10 @@
     }
     SpannableString value;
     if (!TextUtils.isEmpty(name)) {
-      value=ListViewTool.getJustHighLightLinks("@" + name + "???"+ bean.getRetweeted_status().getText());
+      value=ListViewTool.convertNormalStringToSpannableString("@" + name + "???"+ bean.getRetweeted_status().getText());
     }
  else {
-      value=ListViewTool.getJustHighLightLinks(bean.getRetweeted_status().getText());
+      value=ListViewTool.convertNormalStringToSpannableString(bean.getRetweeted_status().getText());
     }
     bean.getRetweeted_status().setListViewSpannableString(value);
   }

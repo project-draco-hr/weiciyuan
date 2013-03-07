@@ -1,8 +1,0 @@
-{
-  MovementMethod m=t.getMovementMethod();
-  if ((m == null) || !(m instanceof MyLinkMovementMethod)) {
-    if (t.getLinksClickable()) {
-      t.setMovementMethod(MyLinkMovementMethod.getInstance());
-    }
-  }
-}
