@@ -1,18 +1,6 @@
 {
   bean.setListViewSpannableString(ListViewTool.convertNormalStringToSpannableString(bean.getText()));
   if (bean.getStatus() != null) {
-    String name="";
-    UserBean reUser=bean.getStatus().getUser();
-    if (reUser != null) {
-      name=reUser.getScreen_name();
-    }
-    SpannableString value;
-    if (!TextUtils.isEmpty(name)) {
-      value=ListViewTool.convertNormalStringToSpannableString("@" + name + "???"+ bean.getStatus().getText());
-    }
- else {
-      value=ListViewTool.convertNormalStringToSpannableString(bean.getStatus().getText());
-    }
-    bean.getStatus().setListViewSpannableString(value);
+    bean.getStatus().setListViewSpannableString(buildOriWeiboSpannalString(bean.getStatus()));
   }
 }

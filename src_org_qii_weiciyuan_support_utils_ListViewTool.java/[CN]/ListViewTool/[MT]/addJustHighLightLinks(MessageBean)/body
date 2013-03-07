@@ -1,18 +1,6 @@
 {
-  bean.setListViewSpannableString(ListViewTool.convertNormalStringToSpannableString(bean.getText()));
+  bean.setListViewSpannableString(convertNormalStringToSpannableString(bean.getText()));
   if (bean.getRetweeted_status() != null) {
-    String name="";
-    UserBean reUser=bean.getRetweeted_status().getUser();
-    if (reUser != null) {
-      name=reUser.getScreen_name();
-    }
-    SpannableString value;
-    if (!TextUtils.isEmpty(name)) {
-      value=ListViewTool.convertNormalStringToSpannableString("@" + name + "???"+ bean.getRetweeted_status().getText());
-    }
- else {
-      value=ListViewTool.convertNormalStringToSpannableString(bean.getRetweeted_status().getText());
-    }
-    bean.getRetweeted_status().setListViewSpannableString(value);
+    bean.getRetweeted_status().setListViewSpannableString(buildOriWeiboSpannalString(bean.getRetweeted_status()));
   }
 }
