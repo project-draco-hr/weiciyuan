@@ -1,16 +1,16 @@
 {
   holder.repost_content.setVisibility(View.VISIBLE);
   if (!repost_msg.getId().equals((String)holder.repost_content.getTag())) {
-    boolean d=oriMsgHeights.containsKey(msg.getId());
+    boolean haveCachedHeight=oriMsgHeights.containsKey(msg.getId());
     ViewGroup.LayoutParams layoutParams=holder.repost_content.getLayoutParams();
-    if (d) {
+    if (haveCachedHeight) {
       layoutParams.height=oriMsgHeights.get(msg.getId());
     }
  else {
       layoutParams.height=ViewGroup.LayoutParams.WRAP_CONTENT;
     }
-    boolean c=oriMsgWidths.containsKey(msg.getId());
-    if (c) {
+    boolean haveCachedWidth=oriMsgWidths.containsKey(msg.getId());
+    if (haveCachedWidth) {
       layoutParams.width=oriMsgWidths.get(msg.getId());
     }
  else {
@@ -18,10 +18,10 @@
     }
     holder.repost_content.requestLayout();
     holder.repost_content.setText(repost_msg.getListViewSpannableString());
-    if (!d) {
+    if (!haveCachedHeight) {
       oriMsgHeights.put(msg.getId(),layoutParams.height);
     }
-    if (!c) {
+    if (!haveCachedWidth) {
       oriMsgWidths.put(msg.getId(),layoutParams.width);
     }
     holder.repost_content.setText(repost_msg.getListViewSpannableString());

@@ -30,16 +30,16 @@
     holder.avatar.setVisibility(View.INVISIBLE);
   }
   if (!TextUtils.isEmpty(msg.getListViewSpannableString())) {
-    boolean d=msgHeights.containsKey(msg.getId());
+    boolean haveCachedHeight=msgHeights.containsKey(msg.getId());
     ViewGroup.LayoutParams layoutParams=holder.content.getLayoutParams();
-    if (d) {
+    if (haveCachedHeight) {
       layoutParams.height=msgHeights.get(msg.getId());
     }
  else {
       layoutParams.height=ViewGroup.LayoutParams.WRAP_CONTENT;
     }
-    boolean c=msgWidths.containsKey(msg.getId());
-    if (c) {
+    boolean haveCachedWidth=msgWidths.containsKey(msg.getId());
+    if (haveCachedWidth) {
       layoutParams.width=msgWidths.get(msg.getId());
     }
  else {
@@ -47,10 +47,10 @@
     }
     holder.content.requestLayout();
     holder.content.setText(msg.getListViewSpannableString());
-    if (!d) {
+    if (!haveCachedHeight) {
       msgHeights.put(msg.getId(),layoutParams.height);
     }
-    if (!c) {
+    if (!haveCachedWidth) {
       msgWidths.put(msg.getId(),layoutParams.width);
     }
   }
