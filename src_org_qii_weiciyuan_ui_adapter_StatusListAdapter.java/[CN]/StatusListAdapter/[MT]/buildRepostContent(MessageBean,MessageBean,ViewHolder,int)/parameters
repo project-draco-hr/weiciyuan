@@ -1,0 +1,4 @@
+MessageBean msg
+MessageBean repost_msg
+ViewHolder holder
+int position

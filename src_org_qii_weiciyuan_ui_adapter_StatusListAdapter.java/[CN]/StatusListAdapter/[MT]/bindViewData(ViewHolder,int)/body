@@ -30,7 +30,29 @@
     holder.avatar.setVisibility(View.INVISIBLE);
   }
   if (!TextUtils.isEmpty(msg.getListViewSpannableString())) {
+    boolean d=msgHeights.containsKey(msg.getId());
+    ViewGroup.LayoutParams layoutParams=holder.content.getLayoutParams();
+    if (d) {
+      layoutParams.height=msgHeights.get(msg.getId());
+    }
+ else {
+      layoutParams.height=ViewGroup.LayoutParams.WRAP_CONTENT;
+    }
+    boolean c=msgWidths.containsKey(msg.getId());
+    if (c) {
+      layoutParams.width=msgWidths.get(msg.getId());
+    }
+ else {
+      layoutParams.width=ViewGroup.LayoutParams.WRAP_CONTENT;
+    }
+    holder.content.requestLayout();
     holder.content.setText(msg.getListViewSpannableString());
+    if (!d) {
+      msgHeights.put(msg.getId(),layoutParams.height);
+    }
+    if (!c) {
+      msgWidths.put(msg.getId(),layoutParams.width);
+    }
   }
  else {
     ListViewTool.addJustHighLightLinks(msg);
@@ -135,7 +157,7 @@ if (repost_msg != null && showOriStatus) {
 if (holder.repost_layout != null) holder.repost_layout.setVisibility(View.VISIBLE);
 holder.repost_flag.setVisibility(View.VISIBLE);
 if (holder.content_pic.getVisibility() != View.GONE) holder.content_pic.setVisibility(View.GONE);
-buildRepostContent(repost_msg,holder,position);
+buildRepostContent(msg,repost_msg,holder,position);
 }
  else {
 if (holder.repost_layout != null) holder.repost_layout.setVisibility(View.GONE);
