@@ -1,9 +1,7 @@
 {
-  MyLinkify.addLinks(view,WeiboPatterns.MENTION_URL,WeiboPatterns.MENTION_SCHEME);
-  MyLinkify.addLinks(view,WeiboPatterns.TOPIC_URL,WeiboPatterns.TOPIC_SCHEME);
-  MyLinkify.addLinks(view,WeiboPatterns.WEB_URL,WeiboPatterns.WEB_SCHEME);
   CharSequence content=view.getText();
-  SpannableString value=SpannableString.valueOf(content);
-  ListViewTool.addEmotions(value);
-  view.setText(value);
+  view.setText(getJustHighLightLinks(content.toString()));
+  if (view.getLinksClickable()) {
+    view.setMovementMethod(LinkMovementMethod.getInstance());
+  }
 }

@@ -8,7 +8,7 @@
   }
   SpannableString value;
   value=MyLinkify.getJustHighLightLinks(hackTxt,WeiboPatterns.MENTION_URL,WeiboPatterns.MENTION_SCHEME);
-  value=MyLinkify.addJUstHighLightLinks(value,MyLinkify.WEB_URLS);
+  value=MyLinkify.getJustHighLightLinks(value,WeiboPatterns.WEB_URL,WeiboPatterns.WEB_SCHEME);
   value=MyLinkify.getJustHighLightLinks(value,WeiboPatterns.TOPIC_URL,WeiboPatterns.TOPIC_SCHEME);
   ListViewTool.addEmotions(value);
   return value;
