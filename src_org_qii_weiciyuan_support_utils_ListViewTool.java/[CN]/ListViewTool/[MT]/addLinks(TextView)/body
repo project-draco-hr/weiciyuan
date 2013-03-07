@@ -1,15 +1,7 @@
 {
-  MyLinkify.TransformFilter mentionFilter=new MyLinkify.TransformFilter(){
-    public final String transformUrl(    final Matcher match,    String url){
-      return match.group(1);
-    }
-  }
-;
-  String scheme="org.qii.weiciyuan://";
-  MyLinkify.addLinks(view,WeiboPatterns.MENTION_URL,scheme,null,mentionFilter);
-  scheme="org.qii.weiciyuan.topic://";
-  MyLinkify.addLinks(view,WeiboPatterns.TOPIC_URL,scheme,null,mentionFilter);
-  MyLinkify.addLinks(view,MyLinkify.WEB_URLS);
+  MyLinkify.addLinks(view,WeiboPatterns.MENTION_URL,WeiboPatterns.MENTION_SCHEME);
+  MyLinkify.addLinks(view,WeiboPatterns.TOPIC_URL,WeiboPatterns.TOPIC_SCHEME);
+  MyLinkify.addLinks(view,WeiboPatterns.WEB_URL,WeiboPatterns.WEB_SCHEME);
   CharSequence content=view.getText();
   SpannableString value=SpannableString.valueOf(content);
   ListViewTool.addEmotions(value);

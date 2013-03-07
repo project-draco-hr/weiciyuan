@@ -7,17 +7,9 @@
     hackTxt=txt;
   }
   SpannableString value;
-  MyLinkify.TransformFilter mentionFilter=new MyLinkify.TransformFilter(){
-    public final String transformUrl(    final Matcher match,    String url){
-      return match.group(1);
-    }
-  }
-;
-  String scheme="org.qii.weiciyuan://";
-  value=MyLinkify.getJustHighLightLinks(hackTxt,WeiboPatterns.MENTION_URL,scheme,null,mentionFilter);
+  value=MyLinkify.getJustHighLightLinks(hackTxt,WeiboPatterns.MENTION_URL,WeiboPatterns.MENTION_SCHEME);
   value=MyLinkify.addJUstHighLightLinks(value,MyLinkify.WEB_URLS);
-  scheme="org.qii.weiciyuan.topic://";
-  value=MyLinkify.getJustHighLightLinks(value,WeiboPatterns.TOPIC_URL,scheme,null,mentionFilter);
+  value=MyLinkify.getJustHighLightLinks(value,WeiboPatterns.TOPIC_URL,WeiboPatterns.TOPIC_SCHEME);
   ListViewTool.addEmotions(value);
   return value;
 }
