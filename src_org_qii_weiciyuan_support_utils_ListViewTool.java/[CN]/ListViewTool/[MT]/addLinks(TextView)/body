@@ -2,6 +2,6 @@
   CharSequence content=view.getText();
   view.setText(convertNormalStringToSpannableString(content.toString()));
   if (view.getLinksClickable()) {
-    view.setMovementMethod(LinkMovementMethod.getInstance());
+    view.setMovementMethod(MyLinkMovementMethod.getInstance());
   }
 }
