@@ -19,6 +19,7 @@ convertView.setTag(R.string.listview_index_tag,R.drawable.ic_launcher + getItemV
 holder=(DMViewHolder)convertView.getTag(R.drawable.ic_launcher + getItemViewType(position));
 }
 configViewFont(holder);
+configLayerType(holder);
 bindViewData(holder,position);
 return convertView;
 }
