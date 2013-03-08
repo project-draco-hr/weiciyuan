@@ -1,0 +1,7 @@
+{
+  if (!TextUtils.isEmpty(s) && melbourne != null) {
+    melbourne.showInfoWindow();
+    getActionBar().setSubtitle(s);
+  }
+  super.onPostExecute(s);
+}

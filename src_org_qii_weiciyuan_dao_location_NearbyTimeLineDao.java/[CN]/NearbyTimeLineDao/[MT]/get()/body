@@ -1,0 +1,15 @@
+{
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("lat",lat);
+  map.put("long",long_fix);
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,URLHelper.NEARBY_STATUS,map);
+  try {
+    NearbyStatusListBean value=new Gson().fromJson(jsonData,NearbyStatusListBean.class);
+    if (value != null)     return value;
+  }
+ catch (  JsonSyntaxException e) {
+    AppLogger.e(e.getMessage());
+  }
+  return null;
+}

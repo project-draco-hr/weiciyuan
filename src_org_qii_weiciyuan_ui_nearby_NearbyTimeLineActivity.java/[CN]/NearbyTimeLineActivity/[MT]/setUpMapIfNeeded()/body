@@ -1,0 +1,26 @@
+{
+  if (mMap == null) {
+    mMap=((MapFragment)getFragmentManager().findFragmentById(R.id.map)).getMap();
+    if (mMap != null) {
+      mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+      mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener(){
+        public void onInfoWindowClick(        Marker marker){
+          MessageBean msg=bindEvent.get(marker);
+          if (msg != null) {
+            Intent intent=new Intent(NearbyTimeLineActivity.this,BrowserWeiboMsgActivity.class);
+            intent.putExtra("msg",msg);
+            intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+            startActivityForResult(intent,0);
+          }
+        }
+      }
+);
+      final LatLng MELBOURNE=new LatLng(lat,lon);
+      melbourne=mMap.addMarker(new MarkerOptions().position(MELBOURNE).title(GlobalContext.getInstance().getCurrentAccountName()).snippet(String.format("[%f,%f]",lat,lon)));
+      melbourne.showInfoWindow();
+      LatLng latLng=new LatLng(lat,lon);
+      CameraUpdate update=CameraUpdateFactory.newLatLng(latLng);
+      mMap.moveCamera(update);
+    }
+  }
+}
