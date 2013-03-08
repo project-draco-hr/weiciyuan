@@ -1,5 +1,4 @@
 {
   super.onReceivedIcon(view,icon);
   if (getActivity() == null)   return;
-  getActivity().getActionBar().setIcon(new BitmapDrawable(getActivity().getResources(),icon));
 }
