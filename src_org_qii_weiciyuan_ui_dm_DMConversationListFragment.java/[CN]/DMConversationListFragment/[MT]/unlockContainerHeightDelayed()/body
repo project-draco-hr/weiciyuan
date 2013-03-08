@@ -1,0 +1,3 @@
+{
+  ((LinearLayout.LayoutParams)mContainer.getLayoutParams()).weight=1.0F;
+}

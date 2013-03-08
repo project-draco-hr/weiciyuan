@@ -25,6 +25,21 @@
   ImageButton emoticon=(ImageButton)view.findViewById(R.id.emoticon);
   emoticon.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
+      if (smiley.isShown()) {
+        hideSmileyPicker(true);
+      }
+ else {
+        showSmileyPicker(SmileyPickerUtility.isKeyBoardShow(getActivity()));
+      }
+    }
+  }
+);
+  smiley=(SmileyPicker)view.findViewById(R.id.smiley_picker);
+  smiley.setEditText(getActivity(),(ViewGroup)view.findViewById(R.id.root_layout),et);
+  mContainer=(LinearLayout)view.findViewById(R.id.container);
+  et.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      hideSmileyPicker(true);
     }
   }
 );
