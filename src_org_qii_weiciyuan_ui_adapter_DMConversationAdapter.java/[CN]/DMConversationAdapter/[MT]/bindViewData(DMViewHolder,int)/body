@@ -2,12 +2,9 @@
   final DMBean msg=bean.get(position);
   UserBean user=msg.getUser();
   if (user != null) {
-    holder.username.setVisibility(View.VISIBLE);
-    buildUsername(holder,user);
     buildAvatar(holder.avatar,position,user);
   }
  else {
-    holder.username.setVisibility(View.INVISIBLE);
     holder.avatar.setVisibility(View.INVISIBLE);
   }
   if (!TextUtils.isEmpty(msg.getListViewSpannableString())) {

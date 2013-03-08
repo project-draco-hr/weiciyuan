@@ -1,0 +1,11 @@
+{
+  SendDMDao dao=new SendDMDao(GlobalContext.getInstance().getSpecialToken(),userBean.getId(),et.getText().toString());
+  try {
+    return dao.send();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    cancel(true);
+    return false;
+  }
+}
