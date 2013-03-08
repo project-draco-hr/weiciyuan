@@ -31,6 +31,7 @@
   }
   holder.content.setText(comment.getListViewSpannableString());
   holder.time.setTime(comment.getMills());
+  if (holder.source != null)   holder.source.setText(Html.fromHtml(comment.getSource()).toString());
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
   if (holder.content.getMovementMethod() != MyLinkMovementMethod.getInstance())   holder.content.setMovementMethod(MyLinkMovementMethod.getInstance());

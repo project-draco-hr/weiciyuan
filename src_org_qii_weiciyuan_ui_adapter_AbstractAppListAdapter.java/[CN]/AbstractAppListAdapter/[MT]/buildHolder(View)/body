@@ -18,5 +18,6 @@
   holder.timeline_gps=(ImageView)convertView.findViewById(R.id.timeline_gps_iv);
   holder.timeline_pic=(ImageView)convertView.findViewById(R.id.timeline_pic_iv);
   holder.replyIV=(ImageView)convertView.findViewById(R.id.replyIV);
+  holder.source=(TextView)convertView.findViewById(R.id.source);
   return holder;
 }
