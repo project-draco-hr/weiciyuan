@@ -1,0 +1,6 @@
+{
+  Intent intent=new Intent(getActivity(),WriteWeiboActivity.class);
+  intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+  intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
+  startActivity(intent);
+}

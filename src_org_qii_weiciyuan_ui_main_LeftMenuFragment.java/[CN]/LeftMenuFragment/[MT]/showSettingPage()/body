@@ -1,0 +1,3 @@
+{
+  startActivity(new Intent(getActivity(),SettingActivity.class));
+}

@@ -1,0 +1,7 @@
+{
+  Intent intent=new Intent(getActivity(),MyInfoActivity.class);
+  intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+  intent.putExtra("user",GlobalContext.getInstance().getAccountBean().getInfo());
+  intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
+  startActivity(intent);
+}

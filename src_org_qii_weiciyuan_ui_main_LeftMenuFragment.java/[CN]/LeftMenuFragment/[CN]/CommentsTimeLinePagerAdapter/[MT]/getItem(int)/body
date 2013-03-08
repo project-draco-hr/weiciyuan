@@ -1,3 +1,0 @@
-{
-  return commentFragments.get(position);
-}

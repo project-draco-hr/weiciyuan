@@ -1,5 +1,0 @@
-{
-  super(fm);
-  mentionFragments.add(0,((MainTimeLineActivity)getActivity()).newMentionsTimeLineFragment());
-  mentionFragments.add(1,((MainTimeLineActivity)getActivity()).newMentionsCommentTimeLineFragment());
-}

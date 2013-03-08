@@ -1,5 +1,0 @@
-{
-  super(fm);
-  commentFragments.add(0,((MainTimeLineActivity)getActivity()).newCommentsTimeLineFragment());
-  commentFragments.add(1,((MainTimeLineActivity)getActivity()).newCommentsByMeTimeLineFragment());
-}

@@ -1,0 +1,31 @@
+{
+  getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+  if (currentIndex == 0) {
+    ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
+    return true;
+  }
+  currentIndex=0;
+  getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+  getActivity().getActionBar().setTitle(GlobalContext.getInstance().getCurrentAccountName());
+  FragmentTransaction ft=getFragmentManager().beginTransaction();
+  for (  Fragment f : commentFragments) {
+    ft.hide(f);
+  }
+  for (  Fragment f : mentionFragments) {
+    ft.hide(f);
+  }
+  Fragment fragment=((MainTimeLineActivity)getActivity()).getOrNewFriendsTimeLineFragment();
+  if (fragment.isAdded() && fragment.isHidden()) {
+    ft.show(fragment);
+  }
+ else   if (!fragment.isAdded()) {
+    ft.add(R.id.menu_right_fl,fragment,FriendsTimeLineFragment.class.getName());
+  }
+  fragment.setUserVisibleHint(true);
+  fl.setVisibility(View.VISIBLE);
+  mentionVP.setVisibility(View.GONE);
+  commentVP.setVisibility(View.GONE);
+  ft.commit();
+  ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
+  return false;
+}

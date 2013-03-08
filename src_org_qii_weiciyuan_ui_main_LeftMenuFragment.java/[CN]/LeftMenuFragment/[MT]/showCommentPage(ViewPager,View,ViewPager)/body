@@ -1,0 +1,46 @@
+{
+  getActivity().getActionBar().setDisplayShowTitleEnabled(true);
+  if (currentIndex == 2) {
+    ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
+    return true;
+  }
+  currentIndex=2;
+  FragmentTransaction ft=getFragmentManager().beginTransaction();
+  Fragment fragment=((MainTimeLineActivity)getActivity()).getOrNewFriendsTimeLineFragment();
+  ft.hide(fragment);
+  for (  Fragment f : commentFragments) {
+    ft.show(f);
+  }
+  for (  Fragment f : mentionFragments) {
+    ft.hide(f);
+  }
+  ft.commit();
+  new Handler().postDelayed(new Runnable(){
+    @Override public void run(){
+      if (commentVP.getAdapter() == null)       commentVP.setAdapter(new CommentsTimeLinePagerAdapter(getFragmentManager(),(MainTimeLineActivity)getActivity(),commentFragments));
+    }
+  }
+,500);
+  ActionBar.TabListener tabListener=new ActionBar.TabListener(){
+    @Override public void onTabSelected(    ActionBar.Tab tab,    FragmentTransaction ft){
+      if (commentVP.getCurrentItem() != tab.getPosition())       commentVP.setCurrentItem(tab.getPosition());
+    }
+    @Override public void onTabUnselected(    ActionBar.Tab tab,    FragmentTransaction ft){
+    }
+    @Override public void onTabReselected(    ActionBar.Tab tab,    FragmentTransaction ft){
+    }
+  }
+;
+  ActionBar actionBar=getActivity().getActionBar();
+  getActivity().getActionBar().setTitle(getString(R.string.comments));
+  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+  actionBar.removeAllTabs();
+  actionBar.addTab(actionBar.newTab().setText("???????????????").setTabListener(tabListener));
+  actionBar.addTab(actionBar.newTab().setText("???????????????").setTabListener(tabListener));
+  commentVP.setOnPageChangeListener(onPageChangeListener);
+  ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
+  fl.setVisibility(View.GONE);
+  mentionVP.setVisibility(View.GONE);
+  commentVP.setVisibility(View.VISIBLE);
+  return false;
+}

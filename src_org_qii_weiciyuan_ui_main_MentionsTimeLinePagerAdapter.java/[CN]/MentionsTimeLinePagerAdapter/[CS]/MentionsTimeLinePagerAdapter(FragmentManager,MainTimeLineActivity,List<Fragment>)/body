@@ -1,0 +1,6 @@
+{
+  super(fm);
+  this.fragmentList=fragmentList;
+  fragmentList.add(0,activity.newMentionsTimeLineFragment());
+  fragmentList.add(1,activity.newMentionsCommentTimeLineFragment());
+}
