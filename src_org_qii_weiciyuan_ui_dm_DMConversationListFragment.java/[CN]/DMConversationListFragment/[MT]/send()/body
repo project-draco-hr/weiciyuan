@@ -1,4 +1,3 @@
 {
-  String content=et.getText().toString();
   new QuickCommentTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }

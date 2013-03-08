@@ -2,6 +2,6 @@
   if (newValue != null && newValue.getSize() > 0 && getActivity() != null) {
     getList().addNewData(newValue);
     getAdapter().notifyDataSetChanged();
-    getListView().setSelectionAfterHeaderView();
+    getListView().setSelection(bean.getSize() - 1);
   }
 }
