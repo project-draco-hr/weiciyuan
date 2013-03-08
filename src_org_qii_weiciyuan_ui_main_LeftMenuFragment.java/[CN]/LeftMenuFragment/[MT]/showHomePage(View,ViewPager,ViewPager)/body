@@ -1,9 +1,9 @@
 {
-  getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
   if (currentIndex == 0) {
     ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
     return true;
   }
+  getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
   currentIndex=0;
   getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
   getActivity().getActionBar().setTitle(GlobalContext.getInstance().getCurrentAccountName());

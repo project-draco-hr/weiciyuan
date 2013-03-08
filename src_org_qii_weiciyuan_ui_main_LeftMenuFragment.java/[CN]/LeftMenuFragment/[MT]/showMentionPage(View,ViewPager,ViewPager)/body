@@ -1,10 +1,10 @@
 {
-  getActivity().getActionBar().setDisplayShowTitleEnabled(true);
-  getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
   if (currentIndex == 1) {
     ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
     return true;
   }
+  getActivity().getActionBar().setDisplayShowTitleEnabled(true);
+  getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
   FragmentTransaction ft=getFragmentManager().beginTransaction();
   Fragment fragment=((MainTimeLineActivity)getActivity()).getOrNewFriendsTimeLineFragment();
   ft.hide(fragment);
