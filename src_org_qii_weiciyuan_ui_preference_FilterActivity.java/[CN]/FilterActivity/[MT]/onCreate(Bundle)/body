@@ -1,5 +1,7 @@
 {
   super.onCreate(savedInstanceState);
+  getActionBar().setDisplayShowHomeEnabled(false);
+  getActionBar().setDisplayShowTitleEnabled(true);
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setTitle(getString(R.string.filter));
   View title=getLayoutInflater().inflate(R.layout.filteractivity_title_layout,null);
