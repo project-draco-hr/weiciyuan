@@ -5,9 +5,9 @@
   try {
     URL url=new URL(urlAddress);
     Proxy proxy=getProxy();
-    HttpURLConnection uRLConnection;
-    if (proxy != null)     uRLConnection=(HttpURLConnection)url.openConnection(proxy);
- else     uRLConnection=(HttpURLConnection)url.openConnection();
+    HttpsURLConnection uRLConnection;
+    if (proxy != null)     uRLConnection=(HttpsURLConnection)url.openConnection(proxy);
+ else     uRLConnection=(HttpsURLConnection)url.openConnection();
     uRLConnection.setDoInput(true);
     uRLConnection.setDoOutput(true);
     uRLConnection.setRequestMethod("POST");
