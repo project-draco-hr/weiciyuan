@@ -9,6 +9,9 @@
   int[] attrs=new int[]{R.attr.listview_checked_color};
   TypedArray ta=fragment.getActivity().obtainStyledAttributes(attrs);
   checkedBG=ta.getColor(0,430);
+  for (int i=0; i < 5; i++) {
+    prefViews.add(initNormallayout(null));
+  }
   listView.setRecyclerListener(new AbsListView.RecyclerListener(){
     @Override public void onMovedToScrapHeap(    View view){
       Integer index=(Integer)view.getTag(R.string.listview_index_tag);

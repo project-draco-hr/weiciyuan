@@ -9,10 +9,16 @@ case TYPE_MIDDLE:
   convertView=initMiddleLayout(parent);
 break;
 case TYPE_NORMAL:
+convertView=prefViews.poll();
+if (convertView == null) {
 convertView=initNormallayout(parent);
+}
 break;
 case TYPE_NORMAL_BIG_PIC:
+convertView=prefViews.poll();
+if (convertView == null) {
 convertView=initNormallayout(parent);
+}
 break;
 default :
 convertView=initNormallayout(parent);
