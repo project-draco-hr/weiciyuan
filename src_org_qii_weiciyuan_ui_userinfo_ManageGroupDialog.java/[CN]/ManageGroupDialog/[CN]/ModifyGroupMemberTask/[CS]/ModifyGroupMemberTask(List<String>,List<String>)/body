@@ -1,0 +1,4 @@
+{
+  this.add=add;
+  this.remove=remove;
+}
