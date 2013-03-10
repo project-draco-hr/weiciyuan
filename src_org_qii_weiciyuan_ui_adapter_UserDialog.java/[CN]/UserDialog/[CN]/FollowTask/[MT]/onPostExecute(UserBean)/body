@@ -1,0 +1,5 @@
+{
+  super.onPostExecute(o);
+  Toast.makeText(GlobalContext.getInstance(),GlobalContext.getInstance().getString(R.string.follow_successfully),Toast.LENGTH_SHORT).show();
+  user.setFollowing(true);
+}
