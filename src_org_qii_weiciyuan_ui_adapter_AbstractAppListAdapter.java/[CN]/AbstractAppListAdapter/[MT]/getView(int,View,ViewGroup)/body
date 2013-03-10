@@ -1,5 +1,6 @@
 {
   ViewHolder holder=null;
+  PrefView prefView=null;
   if (convertView == null || convertView.getTag(R.drawable.ic_launcher + getItemViewType(position)) == null) {
 switch (getItemViewType(position)) {
 case TYPE_SIMPLE:
@@ -9,23 +10,34 @@ case TYPE_MIDDLE:
   convertView=initMiddleLayout(parent);
 break;
 case TYPE_NORMAL:
-convertView=prefViews.poll();
+prefView=prefNormalViews.poll();
+if (prefView != null) {
+convertView=prefView.view;
+}
 if (convertView == null) {
-convertView=initNormallayout(parent);
+convertView=initNormalLayout(parent);
 }
 break;
 case TYPE_NORMAL_BIG_PIC:
-convertView=prefViews.poll();
+prefView=prefBigPicViews.poll();
+if (prefView != null) {
+convertView=prefView.view;
+}
 if (convertView == null) {
-convertView=initNormallayout(parent);
+convertView=initBigPicLayout(parent);
 }
 break;
 default :
-convertView=initNormallayout(parent);
+convertView=initNormalLayout(parent);
 break;
 }
 if (getItemViewType(position) != TYPE_MIDDLE) {
+if (prefView == null) {
 holder=buildHolder(convertView);
+}
+ else {
+holder=prefView.holder;
+}
 convertView.setTag(R.drawable.ic_launcher + getItemViewType(position),holder);
 convertView.setTag(R.string.listview_index_tag,R.drawable.ic_launcher + getItemViewType(position));
 tagIndexList.add(R.drawable.ic_launcher + getItemViewType(position));
