@@ -1,0 +1,2 @@
+Loader<List<AccountBean>> loader
+List<AccountBean> data

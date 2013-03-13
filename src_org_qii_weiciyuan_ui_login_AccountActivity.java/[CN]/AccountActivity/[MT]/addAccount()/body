@@ -1,4 +1,0 @@
-{
-  Intent intent=new Intent(this,OAuthActivity.class);
-  startActivityForResult(intent,ADD_ACCOUNT_REQUEST_CODE);
-}

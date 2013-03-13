@@ -1,10 +1,7 @@
 {
 switch (item.getItemId()) {
 case R.id.menu_remove_account:
-    if (removeTask == null || removeTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-      removeTask=new RemoveAccountDBTask();
-      removeTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-    }
+    remove();
   mode.finish();
 return true;
 }

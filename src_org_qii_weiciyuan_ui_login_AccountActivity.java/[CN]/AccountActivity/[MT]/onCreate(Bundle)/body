@@ -10,7 +10,6 @@
   listView.setAdapter(listAdapter);
   listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
   listView.setMultiChoiceModeListener(new AccountMultiChoiceModeListener());
-  getTask=new GetAccountListDBTask();
-  getTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  getLoaderManager().initLoader(LOADER_ID,null,this);
   if (SettingUtility.firstStart())   showChangeLogDialog();
 }

@@ -1,0 +1,4 @@
+{
+  accountList=new ArrayList<AccountBean>();
+  listAdapter.notifyDataSetChanged();
+}

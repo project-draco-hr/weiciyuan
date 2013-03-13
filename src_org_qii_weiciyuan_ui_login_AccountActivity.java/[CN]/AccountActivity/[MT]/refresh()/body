@@ -1,6 +1,3 @@
 {
-  if (getTask == null || getTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-    getTask=new GetAccountListDBTask();
-    getTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
+  getLoaderManager().getLoader(LOADER_ID).forceLoad();
 }

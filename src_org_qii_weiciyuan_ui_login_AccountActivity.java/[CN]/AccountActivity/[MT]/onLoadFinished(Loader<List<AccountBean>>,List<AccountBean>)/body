@@ -1,4 +1,4 @@
 {
-  accountList=accounts;
+  accountList=data;
   listAdapter.notifyDataSetChanged();
 }

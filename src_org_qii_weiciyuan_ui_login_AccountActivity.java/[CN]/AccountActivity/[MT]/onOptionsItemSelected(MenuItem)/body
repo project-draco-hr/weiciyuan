@@ -1,10 +1,12 @@
 {
+  Intent intent;
 switch (item.getItemId()) {
 case R.id.menu_add_account:
-    addAccount();
-  break;
+    intent=new Intent(this,OAuthActivity.class);
+  startActivityForResult(intent,ADD_ACCOUNT_REQUEST_CODE);
+break;
 case R.id.menu_hack_login:
-Intent intent=new Intent(this,BlackMagicActivity.class);
+intent=new Intent(this,BlackMagicActivity.class);
 startActivityForResult(intent,ADD_ACCOUNT_REQUEST_CODE);
 break;
 }
