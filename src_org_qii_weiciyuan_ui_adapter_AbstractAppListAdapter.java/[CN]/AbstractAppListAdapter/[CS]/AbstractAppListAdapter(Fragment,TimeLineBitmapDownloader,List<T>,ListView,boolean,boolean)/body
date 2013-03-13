@@ -1,0 +1,61 @@
+{
+  this.bean=bean;
+  this.commander=commander;
+  this.inflater=fragment.getActivity().getLayoutInflater();
+  this.listView=listView;
+  this.showOriStatus=showOriStatus;
+  this.fragment=fragment;
+  defaultBG=fragment.getResources().getColor(R.color.transparent);
+  int[] attrs=new int[]{R.attr.listview_checked_color};
+  TypedArray ta=fragment.getActivity().obtainStyledAttributes(attrs);
+  checkedBG=ta.getColor(0,430);
+  if (pre) {
+    for (int i=0; i < 5; i++) {
+      PrefView prefView=new PrefView();
+      prefView.view=initNormalLayout(null);
+      prefView.holder=buildHolder(prefView.view);
+      prefNormalViews.add(prefView);
+    }
+    for (int i=0; i < 5; i++) {
+      PrefView prefView=new PrefView();
+      prefView.view=initBigPicLayout(null);
+      prefView.holder=buildHolder(prefView.view);
+      prefBigPicViews.add(prefView);
+    }
+  }
+  listView.setRecyclerListener(new AbsListView.RecyclerListener(){
+    @Override public void onMovedToScrapHeap(    View view){
+      Integer index=(Integer)view.getTag(R.string.listview_index_tag);
+      if (index == null)       return;
+      for (      Integer tag : tagIndexList) {
+        ViewHolder holder=(ViewHolder)view.getTag(tag);
+        if (holder != null) {
+          Drawable drawable=holder.avatar.getImageView().getDrawable();
+          if (!(drawable instanceof PictureBitmapDrawable)) {
+            drawable.setCallback(null);
+            holder.avatar.setImageBitmap(null);
+            holder.avatar.getImageView().clearAnimation();
+          }
+          drawable=holder.content_pic.getImageView().getDrawable();
+          if (!(drawable instanceof PictureBitmapDrawable)) {
+            drawable.setCallback(null);
+            holder.content_pic.setImageBitmap(null);
+            holder.content_pic.getImageView().clearAnimation();
+          }
+          drawable=holder.repost_content_pic.getImageView().getDrawable();
+          if (!(drawable instanceof PictureBitmapDrawable)) {
+            drawable.setCallback(null);
+            holder.repost_content_pic.setImageBitmap(null);
+            holder.repost_content_pic.getImageView().clearAnimation();
+          }
+          if (!tag.equals(index)) {
+            holder.listview_root.removeAllViewsInLayout();
+            holder.listview_root=null;
+            view.setTag(tag,null);
+          }
+        }
+      }
+    }
+  }
+);
+}
