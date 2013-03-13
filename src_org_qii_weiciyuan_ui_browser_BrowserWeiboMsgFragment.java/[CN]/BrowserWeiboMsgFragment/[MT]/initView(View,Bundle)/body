@@ -7,13 +7,13 @@
   layout.location=(TextView)view.findViewById(R.id.location);
   layout.source=(TextView)view.findViewById(R.id.source);
   layout.mapView=(MapView)view.findViewById(R.id.location_mv);
-  if (savedInstanceState != null) {
+  if (savedInstanceState != null && hasGpsInfo()) {
     MessageBean msg=(MessageBean)savedInstanceState.get("msg");
     savedInstanceState.remove("msg");
     layout.mapView.onCreate(savedInstanceState);
     savedInstanceState.putSerializable("msg",msg);
   }
- else {
+ else   if (hasGpsInfo()) {
     layout.mapView.onCreate(savedInstanceState);
   }
   layout.comment_count=(TextView)view.findViewById(R.id.comment_count);

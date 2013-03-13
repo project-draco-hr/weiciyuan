@@ -1,4 +1,4 @@
 {
   super.onResume();
-  layout.mapView.onResume();
+  if (hasGpsInfo())   layout.mapView.onResume();
 }
