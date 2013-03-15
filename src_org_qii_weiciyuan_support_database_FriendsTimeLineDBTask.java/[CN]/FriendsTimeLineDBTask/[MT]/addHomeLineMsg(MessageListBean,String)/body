@@ -4,23 +4,32 @@
   }
   Gson gson=new Gson();
   List<MessageBean> msgList=list.getItemList();
-  for (int i=0; i < msgList.size(); i++) {
-    MessageBean msg=msgList.get(i);
-    if (msg != null) {
-      ContentValues cv=new ContentValues();
-      cv.put(HomeTable.MBLOGID,msg.getId());
-      cv.put(HomeTable.ACCOUNTID,accountId);
-      String json=gson.toJson(msg);
-      cv.put(HomeTable.JSONDATA,json);
-      getWsd().insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
-    }
+  try {
+    getWsd().beginTransaction();
+    for (int i=0; i < msgList.size(); i++) {
+      MessageBean msg=msgList.get(i);
+      if (msg != null) {
+        ContentValues cv=new ContentValues();
+        cv.put(HomeTable.MBLOGID,msg.getId());
+        cv.put(HomeTable.ACCOUNTID,accountId);
+        String json=gson.toJson(msg);
+        cv.put(HomeTable.JSONDATA,json);
+        getWsd().insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
+      }
  else {
-      ContentValues cv=new ContentValues();
-      cv.put(HomeTable.MBLOGID,"-1");
-      cv.put(HomeTable.ACCOUNTID,accountId);
-      cv.put(HomeTable.JSONDATA,"");
-      getWsd().insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
+        ContentValues cv=new ContentValues();
+        cv.put(HomeTable.MBLOGID,"-1");
+        cv.put(HomeTable.ACCOUNTID,accountId);
+        cv.put(HomeTable.JSONDATA,"");
+        getWsd().insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
+      }
     }
+    getWsd().setTransactionSuccessful();
+  }
+ catch (  SQLException e) {
+  }
+ finally {
+    getWsd().endTransaction();
   }
   reduceHomeTable(accountId);
 }
