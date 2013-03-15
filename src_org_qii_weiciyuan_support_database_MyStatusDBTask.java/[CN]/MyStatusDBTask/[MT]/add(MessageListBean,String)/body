@@ -4,13 +4,22 @@
   }
   Gson gson=new Gson();
   List<MessageBean> msgList=list.getItemList();
-  for (  MessageBean msg : msgList) {
-    ContentValues cv=new ContentValues();
-    cv.put(MyStatusTable.MBLOGID,msg.getId());
-    cv.put(MyStatusTable.ACCOUNTID,accountId);
-    String json=gson.toJson(msg);
-    cv.put(MyStatusTable.JSONDATA,json);
-    getWsd().insert(MyStatusTable.TABLE_NAME,MyStatusTable.ID,cv);
+  try {
+    getWsd().beginTransaction();
+    for (    MessageBean msg : msgList) {
+      ContentValues cv=new ContentValues();
+      cv.put(MyStatusTable.MBLOGID,msg.getId());
+      cv.put(MyStatusTable.ACCOUNTID,accountId);
+      String json=gson.toJson(msg);
+      cv.put(MyStatusTable.JSONDATA,json);
+      getWsd().insert(MyStatusTable.TABLE_NAME,MyStatusTable.ID,cv);
+    }
+    getWsd().setTransactionSuccessful();
+  }
+ catch (  SQLException e) {
+  }
+ finally {
+    getWsd().endTransaction();
   }
   reduceTableSize(accountId);
 }
