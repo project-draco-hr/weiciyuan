@@ -11,5 +11,5 @@
  else {
     value=ListViewTool.convertNormalStringToSpannableString(bean.getText());
   }
-  bean.setListViewReplySpannableString(value);
+  bean.setListViewSpannableString(value);
 }

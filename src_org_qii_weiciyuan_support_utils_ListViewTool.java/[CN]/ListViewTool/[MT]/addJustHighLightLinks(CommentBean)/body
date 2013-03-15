@@ -3,4 +3,7 @@
   if (bean.getStatus() != null) {
     bean.getStatus().setListViewSpannableString(buildOriWeiboSpannalString(bean.getStatus()));
   }
+  if (bean.getReply_comment() != null) {
+    addJustHighLightLinksOnlyReplyComment(bean.getReply_comment());
+  }
 }
