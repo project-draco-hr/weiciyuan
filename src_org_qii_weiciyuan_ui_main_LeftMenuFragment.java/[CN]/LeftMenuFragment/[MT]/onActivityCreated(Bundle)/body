@@ -52,13 +52,6 @@
     }
   }
 );
-  findPreference("h").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
-      openWriteWeibo();
-      return true;
-    }
-  }
-);
   findPreference("i").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
       openMyProfile();
