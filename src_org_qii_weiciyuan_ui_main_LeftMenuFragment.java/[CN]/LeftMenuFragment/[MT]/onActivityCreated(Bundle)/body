@@ -3,66 +3,57 @@
   final ViewPager mentionVP=(ViewPager)getActivity().findViewById(R.id.menu_right_vp_mention);
   final ViewPager commentVP=(ViewPager)getActivity().findViewById(R.id.menu_right_vp_comment);
   final View fl=getActivity().findViewById(R.id.menu_right_fl);
-  findPreference("a").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
-      if (showHomePage(fl,mentionVP,commentVP))       return true;
-      return true;
+  layout.home.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showHomePage(fl,mentionVP,commentVP);
     }
   }
 );
-  findPreference("b").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
-      if (showMentionPage(fl,mentionVP,commentVP))       return true;
-      return true;
+  layout.mention.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showMentionPage(fl,mentionVP,commentVP);
     }
   }
 );
-  findPreference("c").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
-      if (showCommentPage(commentVP,fl,mentionVP))       return true;
-      return true;
+  layout.comment.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showCommentPage(commentVP,fl,mentionVP);
     }
   }
 );
-  findPreference("d").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
+  layout.dm.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
       showDMPage();
-      return true;
     }
   }
 );
-  findPreference("e").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
+  layout.search.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
       showSearchPage();
-      return true;
     }
   }
 );
-  findPreference("f").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
+  layout.setting.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
       showSettingPage();
-      return true;
     }
   }
 );
-  findPreference("g").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
+  layout.logout.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
       showAccountSwitchPage();
-      return true;
     }
   }
 );
-  findPreference("i").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
+  layout.profile.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
       openMyProfile();
-      return true;
     }
   }
 );
-  findPreference("j").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
-    @Override public boolean onPreferenceClick(    Preference preference){
+  layout.location.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
       startActivity(new Intent(getActivity(),NearbyTimeLineActivity.class));
-      return true;
     }
   }
 );

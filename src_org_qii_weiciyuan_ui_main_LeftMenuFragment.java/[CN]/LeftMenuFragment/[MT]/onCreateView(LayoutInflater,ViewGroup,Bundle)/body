@@ -1,0 +1,14 @@
+{
+  View view=inflater.inflate(R.layout.slidingdrawer_contents,container,false);
+  layout=new Layout();
+  layout.home=(Button)view.findViewById(R.id.btn_home);
+  layout.mention=(Button)view.findViewById(R.id.btn_mention);
+  layout.comment=(Button)view.findViewById(R.id.btn_comment);
+  layout.search=(Button)view.findViewById(R.id.btn_search);
+  layout.profile=(Button)view.findViewById(R.id.btn_profile);
+  layout.location=(Button)view.findViewById(R.id.btn_location);
+  layout.setting=(Button)view.findViewById(R.id.btn_setting);
+  layout.dm=(Button)view.findViewById(R.id.btn_dm);
+  layout.logout=(Button)view.findViewById(R.id.btn_logout);
+  return view;
+}
