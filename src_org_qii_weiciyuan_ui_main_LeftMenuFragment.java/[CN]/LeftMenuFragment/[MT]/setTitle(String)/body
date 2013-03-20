@@ -1,0 +1,3 @@
+{
+  ((MainTimeLineActivity)getActivity()).setTitle(title);
+}

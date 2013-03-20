@@ -1,0 +1,9 @@
+{
+  if (TextUtils.isEmpty(title)) {
+    titleText.setVisibility(View.GONE);
+  }
+ else {
+    titleText.setText(title);
+    titleText.setVisibility(View.VISIBLE);
+  }
+}

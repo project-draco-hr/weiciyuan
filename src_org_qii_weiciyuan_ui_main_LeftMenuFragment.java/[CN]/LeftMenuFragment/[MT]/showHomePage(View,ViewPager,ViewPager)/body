@@ -26,6 +26,7 @@
   fl.setVisibility(View.VISIBLE);
   mentionVP.setVisibility(View.GONE);
   commentVP.setVisibility(View.GONE);
+  setTitle("");
   ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
   return false;
 }
