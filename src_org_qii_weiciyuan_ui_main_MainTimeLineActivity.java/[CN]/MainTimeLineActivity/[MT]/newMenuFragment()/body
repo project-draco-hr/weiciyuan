@@ -1,4 +1,0 @@
-{
-  if (getHomeFragment() == null)   return new LeftMenuFragment();
- else   return getMenuFragment();
-}

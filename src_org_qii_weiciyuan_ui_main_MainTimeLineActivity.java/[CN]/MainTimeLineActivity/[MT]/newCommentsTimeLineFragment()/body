@@ -1,4 +1,0 @@
-{
-  if (getCommentFragment() == null)   return new CommentsToMeTimeLineFragment(getAccount(),getUser(),getToken());
- else   return getCommentFragment();
-}

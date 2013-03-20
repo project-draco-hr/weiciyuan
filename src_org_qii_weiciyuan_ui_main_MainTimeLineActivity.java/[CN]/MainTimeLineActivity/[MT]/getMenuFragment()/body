@@ -1,3 +1,7 @@
 {
-  return ((LeftMenuFragment)getFragmentManager().findFragmentByTag(LeftMenuFragment.class.getName()));
+  LeftMenuFragment fragment=((LeftMenuFragment)getFragmentManager().findFragmentByTag(LeftMenuFragment.class.getName()));
+  if (fragment == null) {
+    fragment=new LeftMenuFragment();
+  }
+  return fragment;
 }

@@ -6,7 +6,7 @@
   getActivity().getActionBar().setDisplayShowTitleEnabled(true);
   getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
   FragmentTransaction ft=getFragmentManager().beginTransaction();
-  Fragment fragment=((MainTimeLineActivity)getActivity()).getOrNewFriendsTimeLineFragment();
+  Fragment fragment=((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment();
   ft.hide(fragment);
   for (  Fragment f : commentFragments) {
     ft.hide(f);

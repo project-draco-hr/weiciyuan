@@ -6,7 +6,7 @@
   }
   currentIndex=2;
   FragmentTransaction ft=getFragmentManager().beginTransaction();
-  Fragment fragment=((MainTimeLineActivity)getActivity()).getOrNewFriendsTimeLineFragment();
+  Fragment fragment=((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment();
   ft.hide(fragment);
   for (  Fragment f : commentFragments) {
     ft.show(f);

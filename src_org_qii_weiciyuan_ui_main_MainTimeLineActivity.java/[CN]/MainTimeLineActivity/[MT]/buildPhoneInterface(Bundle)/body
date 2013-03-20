@@ -9,7 +9,7 @@
   View clickToTop=title.findViewById(R.id.tv_click_to_top);
   clickToTop.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      getOrNewFriendsTimeLineFragment().getListView().smoothScrollToPositionFromTop(0,0);
+      getFriendsTimeLineFragment().getListView().smoothScrollToPositionFromTop(0,0);
     }
   }
 );
@@ -27,8 +27,18 @@
   actionBar.setCustomView(title,layoutParams);
   actionBar.setDisplayShowCustomEnabled(true);
   if (savedInstanceState == null) {
-    getFragmentManager().beginTransaction().replace(R.id.menu_frame,newMenuFragment(),LeftMenuFragment.class.getName()).commit();
-    getFragmentManager().beginTransaction().replace(R.id.menu_right_fl,newFriendsTimeLineFragment(),FriendsTimeLineFragment.class.getName()).commit();
+    FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+    fragmentTransaction.replace(R.id.menu_frame,getMenuFragment(),LeftMenuFragment.class.getName());
+    fragmentTransaction.replace(R.id.menu_right_fl,getFriendsTimeLineFragment(),FriendsTimeLineFragment.class.getName());
+    fragmentTransaction.commit();
+  }
+ else {
+    FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+    fragmentTransaction.remove(getMentionsTimeLineFragment());
+    fragmentTransaction.remove(getMentionsCommentTimeLineFragment());
+    fragmentTransaction.remove(getCommentsTimeLineFragment());
+    fragmentTransaction.remove(getCommentsByMeTimeLineFragment());
+    fragmentTransaction.commit();
   }
   SlidingMenu slidingMenu=getSlidingMenu();
   slidingMenu.setMode(SlidingMenu.LEFT);

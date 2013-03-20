@@ -1,3 +1,0 @@
-{
-  return ((MentionsWeiboTimeLineFragment)getFragmentManager().findFragmentByTag(MentionsWeiboTimeLineFragment.class.getName()));
-}
