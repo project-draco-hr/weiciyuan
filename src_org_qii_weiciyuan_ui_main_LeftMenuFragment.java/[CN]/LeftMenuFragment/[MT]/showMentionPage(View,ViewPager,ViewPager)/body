@@ -34,8 +34,8 @@
   getActivity().getActionBar().setTitle(getString(R.string.mentions));
   actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
   actionBar.removeAllTabs();
-  actionBar.addTab(actionBar.newTab().setText("@?????????").setTabListener(tabListener));
-  actionBar.addTab(actionBar.newTab().setText("@?????????").setTabListener(tabListener));
+  actionBar.addTab(actionBar.newTab().setText(R.string.mentions_weibo).setTabListener(tabListener));
+  actionBar.addTab(actionBar.newTab().setText(R.string.mentions_to_me).setTabListener(tabListener));
   mentionVP.setOnPageChangeListener(onPageChangeListener);
   new Handler().postDelayed(new Runnable(){
     @Override public void run(){
