@@ -2,5 +2,6 @@
   super.setUserVisibleHint(isVisibleToUser);
   if (isVisibleToUser) {
     buildActionBarNav();
+    ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
   }
 }

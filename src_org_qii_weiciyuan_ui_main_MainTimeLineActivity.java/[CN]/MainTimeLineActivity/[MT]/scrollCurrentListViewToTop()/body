@@ -1,0 +1,10 @@
+{
+  ListView listView;
+  if (currentFragment == null) {
+    listView=getFriendsTimeLineFragment().getListView();
+  }
+ else {
+    listView=currentFragment.getListView();
+  }
+  listView.smoothScrollToPositionFromTop(0,0);
+}

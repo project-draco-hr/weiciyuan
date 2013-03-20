@@ -9,7 +9,7 @@
   View clickToTop=title.findViewById(R.id.tv_click_to_top);
   clickToTop.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      getFriendsTimeLineFragment().getListView().smoothScrollToPositionFromTop(0,0);
+      scrollCurrentListViewToTop();
     }
   }
 );

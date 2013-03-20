@@ -1,6 +1,7 @@
 {
   super.setUserVisibleHint(isVisibleToUser);
   if (isVisible() && isVisibleToUser) {
+    ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
     if (getActivity().getActionBar().getTabAt(1).getText().toString().contains(")")) {
       getPullToRefreshListView().startRefreshNow();
     }

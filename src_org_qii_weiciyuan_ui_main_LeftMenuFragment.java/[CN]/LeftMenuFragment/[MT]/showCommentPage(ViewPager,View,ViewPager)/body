@@ -17,7 +17,18 @@
   ft.commit();
   new Handler().postDelayed(new Runnable(){
     @Override public void run(){
-      if (commentVP.getAdapter() == null)       commentVP.setAdapter(new CommentsTimeLinePagerAdapter(getFragmentManager(),(MainTimeLineActivity)getActivity(),commentFragments));
+      if (commentVP.getAdapter() == null) {
+        commentVP.setAdapter(new CommentsTimeLinePagerAdapter(getFragmentManager(),(MainTimeLineActivity)getActivity(),commentFragments));
+      }
+      int index=commentVP.getCurrentItem();
+      AbstractTimeLineFragment currentFragment;
+      if (index == 0) {
+        currentFragment=((MainTimeLineActivity)getActivity()).getCommentsTimeLineFragment();
+      }
+ else {
+        currentFragment=((MainTimeLineActivity)getActivity()).getCommentsByMeTimeLineFragment();
+      }
+      ((MainTimeLineActivity)getActivity()).setCurrentFragment(currentFragment);
     }
   }
 ,500);
