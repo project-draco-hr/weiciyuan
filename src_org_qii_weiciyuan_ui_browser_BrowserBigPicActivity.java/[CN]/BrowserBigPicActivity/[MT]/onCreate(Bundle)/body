@@ -1,20 +1,27 @@
 {
   super.onCreate(savedInstanceState);
+  getWindow().setBackgroundDrawable(new ColorDrawable(0));
   setContentView(R.layout.browserbigpicactivity_layout);
-  ActionBar actionBar=getActionBar();
-  actionBar.setDisplayHomeAsUpEnabled(true);
-  actionBar.setTitle(R.string.browser_picture);
-  pb=(CircleProgressView)findViewById(R.id.pb);
-  webView=(WebView)findViewById(R.id.iv);
-  webView.setBackgroundColor(getResources().getColor(R.color.transparent));
-  webView.getSettings().setJavaScriptEnabled(true);
-  webView.getSettings().setUseWideViewPort(true);
-  webView.getSettings().setLoadWithOverviewMode(true);
-  webView.getSettings().setBuiltInZoomControls(true);
-  webView.getSettings().setDisplayZoomControls(false);
-  webView.setVerticalScrollBarEnabled(false);
-  webView.setHorizontalScrollBarEnabled(false);
-  webView.setOnTouchListener(new View.OnTouchListener(){
+  WindowManager.LayoutParams params=getWindow().getAttributes();
+  params.width=ViewGroup.LayoutParams.MATCH_PARENT;
+  getWindow().setAttributes((android.view.WindowManager.LayoutParams)params);
+  layout=new Layout();
+  layout.refresh=(ImageButton)findViewById(R.id.ib_refresh);
+  layout.copy=(ImageButton)findViewById(R.id.ib_copy);
+  layout.share=(ImageButton)findViewById(R.id.ib_share);
+  layout.save=(ImageButton)findViewById(R.id.ib_save);
+  layout.hd=(ImageButton)findViewById(R.id.ib_hd);
+  layout.pb=(CircleProgressView)findViewById(R.id.pb);
+  layout.webView=(WebView)findViewById(R.id.iv);
+  layout.webView.setBackgroundColor(getResources().getColor(R.color.transparent));
+  layout.webView.getSettings().setJavaScriptEnabled(true);
+  layout.webView.getSettings().setUseWideViewPort(true);
+  layout.webView.getSettings().setLoadWithOverviewMode(true);
+  layout.webView.getSettings().setBuiltInZoomControls(true);
+  layout.webView.getSettings().setDisplayZoomControls(false);
+  layout.webView.setVerticalScrollBarEnabled(false);
+  layout.webView.setHorizontalScrollBarEnabled(false);
+  layout.webView.setOnTouchListener(new View.OnTouchListener(){
     boolean mPressed;
     boolean mClose;
     CheckForSinglePress mPendingCheckForSinglePress=new CheckForSinglePress();
@@ -62,5 +69,10 @@ msg=(MessageBean)getIntent().getSerializableExtra("msg");
 if (Utility.isTaskStopped(task)) {
 task=new PicSimpleBitmapWorkerTask();
 task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
+initOnClickListener();
+String largePath=FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large);
+if (new File(largePath).exists()) {
+hd=true;
 }
 }

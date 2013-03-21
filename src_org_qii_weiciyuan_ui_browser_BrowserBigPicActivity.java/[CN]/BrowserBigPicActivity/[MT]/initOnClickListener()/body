@@ -1,0 +1,12 @@
+{
+  layout.refresh.setOnClickListener(onClickListener);
+  layout.copy.setOnClickListener(onClickListener);
+  layout.share.setOnClickListener(onClickListener);
+  layout.save.setOnClickListener(onClickListener);
+  layout.hd.setOnClickListener(onClickListener);
+  CheatSheet.setup(this,layout.refresh,R.string.refresh);
+  CheatSheet.setup(this,layout.copy,R.string.copy_link_to_clipboard);
+  CheatSheet.setup(this,layout.share,R.string.share);
+  CheatSheet.setup(this,layout.save,R.string.save_pic_album);
+  CheatSheet.setup(this,layout.hd,R.string.switch_to_ori_pic);
+}
