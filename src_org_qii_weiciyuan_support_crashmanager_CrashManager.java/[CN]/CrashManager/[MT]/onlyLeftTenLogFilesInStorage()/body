@@ -1,0 +1,12 @@
+{
+  String[] files=searchForStackTraces();
+  if (files == null) {
+    return;
+  }
+  int length=files.length;
+  if (length > MAX_LOG_FILES) {
+    for (int i=MAX_LOG_FILES; i < length; i++) {
+      new File(files[i]).delete();
+    }
+  }
+}

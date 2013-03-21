@@ -1,0 +1,8 @@
+{
+  Thread.UncaughtExceptionHandler currentHandler=Thread.getDefaultUncaughtExceptionHandler();
+  if (!(currentHandler instanceof ExceptionHandler)) {
+    Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(currentHandler));
+  }
+  ScheduledExecutorService scheduledExecutorService=Executors.newSingleThreadScheduledExecutor();
+  scheduledExecutorService.schedule(new ClearLogTask(),5,TimeUnit.SECONDS);
+}

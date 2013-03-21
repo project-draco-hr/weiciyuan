@@ -1,0 +1,10 @@
+{
+  if (!isExternalStorageMounted())   return "";
+ else {
+    String path=getSdCardPath() + File.separator + LOG;
+    if (!new File(path).exists()) {
+      new File(path).mkdirs();
+    }
+    return path;
+  }
+}
