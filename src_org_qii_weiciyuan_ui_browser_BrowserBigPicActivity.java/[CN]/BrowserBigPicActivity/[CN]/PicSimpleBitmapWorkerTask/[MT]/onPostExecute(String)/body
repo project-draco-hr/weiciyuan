@@ -7,7 +7,6 @@
     layout.webView.loadDataWithBaseURL("file:///android_asset/",str2,"text/html","utf-8",null);
     layout.webView.setVisibility(View.VISIBLE);
     layout.pb.setVisibility(View.INVISIBLE);
-    hd=true;
   }
  else {
     layout.pb.setVisibility(View.GONE);

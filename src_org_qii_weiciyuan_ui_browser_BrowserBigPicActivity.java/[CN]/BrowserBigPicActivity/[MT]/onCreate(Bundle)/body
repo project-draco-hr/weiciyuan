@@ -67,12 +67,12 @@ if (!mPressed && mClose) finish();
 );
 msg=(MessageBean)getIntent().getSerializableExtra("msg");
 if (Utility.isTaskStopped(task)) {
-task=new PicSimpleBitmapWorkerTask();
+task=new PicSimpleBitmapWorkerTask(hd);
 task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
 initOnClickListener();
 String largePath=FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large);
 if (new File(largePath).exists()) {
-hd=true;
+layout.hd.setVisibility(View.GONE);
 }
 }
