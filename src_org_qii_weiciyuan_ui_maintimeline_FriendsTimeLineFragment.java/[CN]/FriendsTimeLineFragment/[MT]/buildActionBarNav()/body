@@ -19,6 +19,9 @@
   final List<GroupBean> finalList=list;
   getActivity().getActionBar().setListNavigationCallbacks(navAdapter,new ActionBar.OnNavigationListener(){
     @Override public boolean onNavigationItemSelected(    int which,    long itemId){
+      if (dbTask.getStatus() != MyAsyncTask.Status.FINISHED) {
+        return true;
+      }
       String selectedItemId;
       if (which == 0) {
         selectedItemId="0";
