@@ -33,7 +33,7 @@
         setSelected(selectedItemId);
         switchGroup();
       }
-      return false;
+      return true;
     }
   }
 );
