@@ -2,10 +2,10 @@
   Gson gson=new Gson();
   MessageListBean result=new MessageListBean();
   List<MessageBean> msgList=new ArrayList<MessageBean>();
-  String sql="select * from " + HomeOtherGroupTable.TABLE_NAME + " where "+ HomeOtherGroupTable.ACCOUNTID+ "  = "+ accountId+ " and "+ HomeOtherGroupTable.GROUPID+ " =  "+ groupId+ " order by "+ HomeOtherGroupTable.ID+ " asc limit 50";
+  String sql="select * from " + HomeOtherGroupTable.HomeOtherGroupDataTable.TABLE_NAME + " where "+ HomeOtherGroupTable.HomeOtherGroupDataTable.ACCOUNTID+ "  = "+ accountId+ " and "+ HomeOtherGroupTable.HomeOtherGroupDataTable.GROUPID+ " =  "+ groupId+ " order by "+ HomeOtherGroupTable.HomeOtherGroupDataTable.ID+ " asc limit 50";
   Cursor c=getRsd().rawQuery(sql,null);
   while (c.moveToNext()) {
-    String json=c.getString(c.getColumnIndex(HomeOtherGroupTable.JSONDATA));
+    String json=c.getString(c.getColumnIndex(HomeOtherGroupTable.HomeOtherGroupDataTable.JSONDATA));
     if (!TextUtils.isEmpty(json)) {
       try {
         MessageBean value=gson.fromJson(json,MessageBean.class);

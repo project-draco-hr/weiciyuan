@@ -1,7 +1,8 @@
 {
   final TimeLinePosition position=timelinePositionsMap.get(currentGroupId);
+  final String groupId=currentGroupId;
   Runnable runnable;
-  if (currentGroupId.equals(ALL_GROUP_ID)) {
+  if (groupId.equals(ALL_GROUP_ID)) {
     runnable=new Runnable(){
       @Override public void run(){
         FriendsTimeLineDBTask.updatePosition(position,GlobalContext.getInstance().getCurrentAccountId());
@@ -12,6 +13,7 @@
  else {
     runnable=new Runnable(){
       @Override public void run(){
+        HomeOtherGroupTimeLineDBTask.updatePosition(position,GlobalContext.getInstance().getCurrentAccountId(),groupId);
       }
     }
 ;

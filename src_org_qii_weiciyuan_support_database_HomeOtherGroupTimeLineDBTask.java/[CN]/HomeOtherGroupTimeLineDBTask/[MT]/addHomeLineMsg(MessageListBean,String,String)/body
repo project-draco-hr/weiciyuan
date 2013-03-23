@@ -10,20 +10,20 @@
       MessageBean msg=msgList.get(i);
       if (msg != null) {
         ContentValues cv=new ContentValues();
-        cv.put(HomeOtherGroupTable.MBLOGID,msg.getId());
-        cv.put(HomeOtherGroupTable.ACCOUNTID,accountId);
+        cv.put(HomeOtherGroupTable.HomeOtherGroupDataTable.MBLOGID,msg.getId());
+        cv.put(HomeOtherGroupTable.HomeOtherGroupDataTable.ACCOUNTID,accountId);
         String json=gson.toJson(msg);
-        cv.put(HomeOtherGroupTable.JSONDATA,json);
-        cv.put(HomeOtherGroupTable.GROUPID,groupId);
-        getWsd().insert(HomeOtherGroupTable.TABLE_NAME,HomeOtherGroupTable.ID,cv);
+        cv.put(HomeOtherGroupTable.HomeOtherGroupDataTable.JSONDATA,json);
+        cv.put(HomeOtherGroupTable.HomeOtherGroupDataTable.GROUPID,groupId);
+        getWsd().insert(HomeOtherGroupTable.HomeOtherGroupDataTable.TABLE_NAME,HomeOtherGroupTable.HomeOtherGroupDataTable.ID,cv);
       }
  else {
         ContentValues cv=new ContentValues();
-        cv.put(HomeOtherGroupTable.MBLOGID,"-1");
-        cv.put(HomeOtherGroupTable.ACCOUNTID,accountId);
-        cv.put(HomeOtherGroupTable.JSONDATA,"");
-        cv.put(HomeOtherGroupTable.GROUPID,groupId);
-        getWsd().insert(HomeOtherGroupTable.TABLE_NAME,HomeOtherGroupTable.ID,cv);
+        cv.put(HomeOtherGroupTable.HomeOtherGroupDataTable.MBLOGID,"-1");
+        cv.put(HomeOtherGroupTable.HomeOtherGroupDataTable.ACCOUNTID,accountId);
+        cv.put(HomeOtherGroupTable.HomeOtherGroupDataTable.JSONDATA,"");
+        cv.put(HomeOtherGroupTable.HomeOtherGroupDataTable.GROUPID,groupId);
+        getWsd().insert(HomeOtherGroupTable.HomeOtherGroupDataTable.TABLE_NAME,HomeOtherGroupTable.HomeOtherGroupDataTable.ID,cv);
       }
     }
     getWsd().setTransactionSuccessful();
