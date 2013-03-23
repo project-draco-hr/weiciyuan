@@ -1,0 +1,5 @@
+{
+  TimeLinePosition p=timelinePositionsMap.get(currentGroupId);
+  if (p != null)   getListView().setSelectionFromTop(p.position + 1,p.top);
+ else   getListView().setSelectionFromTop(0,0);
+}

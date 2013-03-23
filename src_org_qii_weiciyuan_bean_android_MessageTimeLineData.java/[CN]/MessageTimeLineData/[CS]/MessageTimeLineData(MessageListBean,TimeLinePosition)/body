@@ -1,0 +1,4 @@
+{
+  this.msgList=msgList;
+  this.position=position;
+}

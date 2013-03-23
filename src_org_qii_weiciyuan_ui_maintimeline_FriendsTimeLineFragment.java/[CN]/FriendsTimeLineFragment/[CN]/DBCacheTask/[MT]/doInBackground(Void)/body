@@ -1,5 +1,5 @@
 {
-  MessageListBean allGroup=FriendsTimeLineDBTask.getHomeLineMsgList(accountBean.getUid());
+  MessageTimeLineData allGroup=FriendsTimeLineDBTask.get(accountBean.getUid());
   publishProgress(allGroup);
   Map<String,MessageListBean> map=new HashMap<String,MessageListBean>();
   MessageListBean biGroup=HomeOtherGroupTimeLineDBTask.get(accountBean.getUid(),BILATERAL_GROUP_ID);

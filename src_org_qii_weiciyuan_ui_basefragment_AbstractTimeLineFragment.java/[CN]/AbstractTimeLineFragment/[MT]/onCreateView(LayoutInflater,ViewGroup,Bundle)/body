@@ -28,10 +28,11 @@ case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
           enableRefreshTime=true;
           getAdapter().notifyDataSetChanged();
         }
-      break;
+      onListViewScrollStop();
+    break;
 case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
-    enableRefreshTime=false;
-  break;
+  enableRefreshTime=false;
+break;
 case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
 enableRefreshTime=true;
 break;

@@ -1,0 +1,3 @@
+{
+  timelinePositionsMap.put(currentGroupId,Utility.getCurrentPositionFromListView(getListView()));
+}

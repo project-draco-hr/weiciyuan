@@ -1,5 +1,5 @@
 {
-  String searchCount="select count(" + HomeTable.ID + ") as total"+ " from "+ HomeTable.TABLE_NAME+ " where "+ HomeTable.ACCOUNTID+ " = "+ accountId;
+  String searchCount="select count(" + HomeTable.HomeDataTable.ID + ") as total"+ " from "+ HomeTable.HomeDataTable.TABLE_NAME+ " where "+ HomeTable.HomeDataTable.ACCOUNTID+ " = "+ accountId;
   int total=0;
   Cursor c=getWsd().rawQuery(searchCount,null);
   if (c.moveToNext()) {
@@ -10,7 +10,7 @@
   int needDeletedNumber=total - AppConfig.DEFAULT_DB_CACHE_COUNT;
   if (needDeletedNumber > 0) {
     AppLogger.e("" + needDeletedNumber);
-    String sql=" delete from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ID+ " in "+ "( select "+ HomeTable.ID+ " from "+ HomeTable.TABLE_NAME+ " where "+ HomeTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ HomeTable.ID+ " desc limit "+ needDeletedNumber+ " ) ";
+    String sql=" delete from " + HomeTable.HomeDataTable.TABLE_NAME + " where "+ HomeTable.HomeDataTable.ID+ " in "+ "( select "+ HomeTable.HomeDataTable.ID+ " from "+ HomeTable.HomeDataTable.TABLE_NAME+ " where "+ HomeTable.HomeDataTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ HomeTable.HomeDataTable.ID+ " desc limit "+ needDeletedNumber+ " ) ";
     getWsd().execSQL(sql);
   }
 }
