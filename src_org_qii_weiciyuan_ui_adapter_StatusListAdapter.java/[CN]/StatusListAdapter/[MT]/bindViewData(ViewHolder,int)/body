@@ -58,17 +58,7 @@
     ListViewTool.addJustHighLightLinks(msg);
     holder.content.setText(msg.getListViewSpannableString());
   }
-  holder.listview_root.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      if (!((AbstractTimeLineFragment)fragment).clearActionModeIfOpen()) {
-        Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
-        intent.putExtra("msg",msg);
-        intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-        fragment.startActivityForResult(intent,0);
-      }
-    }
-  }
-);
+  holder.listview_root.setOnClickListener(onClickListener);
   holder.username.setOnTouchListener(new View.OnTouchListener(){
     @Override public boolean onTouch(    View v,    MotionEvent event){
       holder.listview_root.onTouchEvent(event);
