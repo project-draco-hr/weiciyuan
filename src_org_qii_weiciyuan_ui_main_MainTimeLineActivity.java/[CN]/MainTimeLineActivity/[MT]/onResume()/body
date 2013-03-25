@@ -11,4 +11,17 @@
     }
   }
 ,10,50,TimeUnit.SECONDS);
+  ClipboardManager cm=(ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+  ClipData cmContent=cm.getPrimaryClip();
+  ClipData.Item item=cmContent.getItemAt(0);
+  if (item != null) {
+    String url=item.coerceToText(this).toString();
+    boolean a=!TextUtils.isEmpty(url) && !url.equals(SettingUtility.getLastFoundWeiboAccountLink());
+    boolean b=Utility.isWeiboAccountIdLink(url) || Utility.isWeiboAccountDomainLink(url);
+    if (a && b) {
+      OpenWeiboAccountLinkDialog dialog=new OpenWeiboAccountLinkDialog(url);
+      dialog.show(getFragmentManager(),"");
+      SettingUtility.setLastFoundWeiboAccountLink(url);
+    }
+  }
 }

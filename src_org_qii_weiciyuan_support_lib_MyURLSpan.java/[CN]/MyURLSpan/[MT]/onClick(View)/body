@@ -3,18 +3,14 @@
   Context context=widget.getContext();
   if (uri.getScheme().startsWith("http")) {
     String url=uri.toString();
-    if (url.startsWith("http://weibo.com/u/")) {
-      String id=url.substring(19);
-      id=id.replace("/","");
+    if (Utility.isWeiboAccountIdLink(url)) {
       Intent intent=new Intent(context,UserInfoActivity.class);
-      intent.putExtra("id",id);
+      intent.putExtra("id",Utility.getIdFromWeiboAccountLink(url));
       context.startActivity(intent);
     }
- else     if (isWeiboAccountLink(url)) {
-      String domain=url.substring(17);
-      domain=domain.replace("/","");
+ else     if (Utility.isWeiboAccountDomainLink(url)) {
       Intent intent=new Intent(context,UserInfoActivity.class);
-      intent.putExtra("domain",domain);
+      intent.putExtra("domain",Utility.getDomainFromWeiboAccountLink(url));
       context.startActivity(intent);
     }
  else {

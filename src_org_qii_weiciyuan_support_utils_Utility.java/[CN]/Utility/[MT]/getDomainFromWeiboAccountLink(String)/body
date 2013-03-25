@@ -1,0 +1,5 @@
+{
+  String domain=url.substring(17);
+  domain=domain.replace("/","");
+  return domain;
+}
