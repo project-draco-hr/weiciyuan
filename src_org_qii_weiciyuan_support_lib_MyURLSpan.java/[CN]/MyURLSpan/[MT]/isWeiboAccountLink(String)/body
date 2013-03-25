@@ -1,0 +1,5 @@
+{
+  boolean a=url.startsWith("http://weibo.com/");
+  boolean b=!url.contains("?");
+  return a && b;
+}

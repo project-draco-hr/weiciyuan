@@ -2,9 +2,26 @@
   Uri uri=Uri.parse(getURL());
   Context context=widget.getContext();
   if (uri.getScheme().startsWith("http")) {
-    Intent intent=new Intent(context,BrowserWebActivity.class);
-    intent.putExtra("url",uri.toString());
-    context.startActivity(intent);
+    String url=uri.toString();
+    if (url.startsWith("http://weibo.com/u/")) {
+      String id=url.substring(19);
+      id=id.replace("/","");
+      Intent intent=new Intent(context,UserInfoActivity.class);
+      intent.putExtra("id",id);
+      context.startActivity(intent);
+    }
+ else     if (isWeiboAccountLink(url)) {
+      String domain=url.substring(17);
+      domain=domain.replace("/","");
+      Intent intent=new Intent(context,UserInfoActivity.class);
+      intent.putExtra("domain",domain);
+      context.startActivity(intent);
+    }
+ else {
+      Intent intent=new Intent(context,BrowserWebActivity.class);
+      intent.putExtra("url",uri.toString());
+      context.startActivity(intent);
+    }
   }
  else {
     Intent intent=new Intent(Intent.ACTION_VIEW,uri);

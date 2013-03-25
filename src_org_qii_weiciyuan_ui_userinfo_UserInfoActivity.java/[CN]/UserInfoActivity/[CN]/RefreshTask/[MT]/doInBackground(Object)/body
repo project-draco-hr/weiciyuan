@@ -3,11 +3,15 @@
     ShowUserDao dao=new ShowUserDao(GlobalContext.getInstance().getSpecialToken());
     boolean haveId=!TextUtils.isEmpty(bean.getId());
     boolean haveName=!TextUtils.isEmpty(bean.getScreen_name());
+    boolean haveDomain=!TextUtils.isEmpty(bean.getDomain());
     if (haveId) {
       dao.setUid(bean.getId());
     }
  else     if (haveName) {
       dao.setScreen_name(bean.getScreen_name());
+    }
+ else     if (haveDomain) {
+      dao.setDomain(bean.getDomain());
     }
  else {
       cancel(true);
