@@ -1,0 +1,5 @@
+{
+  UserBean userBean=msg.getUser();
+  String username=(userBean != null ? userBean.getScreen_name() : "user is null");
+  return String.format("%s @%s:%s",TimeTool.getListTime(msg.getMills()),username,msg.getText());
+}
