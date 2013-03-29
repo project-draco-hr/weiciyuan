@@ -2,11 +2,11 @@
   super.onPostExecute(result);
   if (result != null) {
     putToGroupDataMemoryCache(BILATERAL_GROUP_ID,result.get(BILATERAL_GROUP_ID).msgList);
-    timelinePositionsMap.put(BILATERAL_GROUP_ID,result.get(BILATERAL_GROUP_ID).position);
+    positionCache.put(BILATERAL_GROUP_ID,result.get(BILATERAL_GROUP_ID).position);
     Set<String> keys=result.keySet();
     for (    String key : keys) {
       putToGroupDataMemoryCache(key,result.get(key).msgList);
-      timelinePositionsMap.put(key,result.get(key).position);
+      positionCache.put(key,result.get(key).position);
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  final TimeLinePosition position=timelinePositionsMap.get(currentGroupId);
+  final TimeLinePosition position=positionCache.get(currentGroupId);
   final String groupId=currentGroupId;
   Runnable runnable;
   if (groupId.equals(ALL_GROUP_ID)) {

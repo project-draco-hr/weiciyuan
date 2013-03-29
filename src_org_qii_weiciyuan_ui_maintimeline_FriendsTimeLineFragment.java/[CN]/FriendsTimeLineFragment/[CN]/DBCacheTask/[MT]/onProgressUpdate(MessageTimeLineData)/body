@@ -4,7 +4,7 @@
     MessageTimeLineData homeMsg=result[0];
     getList().replaceData(homeMsg.msgList);
     putToGroupDataMemoryCache(ALL_GROUP_ID,homeMsg.msgList);
-    timelinePositionsMap.put(ALL_GROUP_ID,homeMsg.position);
+    positionCache.put(ALL_GROUP_ID,homeMsg.position);
   }
   getPullToRefreshListView().setVisibility(View.VISIBLE);
   getAdapter().notifyDataSetChanged();

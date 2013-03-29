@@ -33,7 +33,7 @@
         selectedItemId=finalList.get(which - 2).getIdstr();
       }
       if (!selectedItemId.equals(currentGroupId)) {
-        timelinePositionsMap.put(currentGroupId,Utility.getCurrentPositionFromListView(getListView()));
+        positionCache.put(currentGroupId,Utility.getCurrentPositionFromListView(getListView()));
         setSelected(selectedItemId);
         switchGroup();
       }
