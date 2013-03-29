@@ -1,0 +1,8 @@
+{
+  removeLongClick();
+  removeClick();
+  int state=((AbstractTimeLineFragment)fragment).getListViewScrollState();
+  if (state != AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+    LongClickableLinkMovementMethod.getInstance().removeLongClickCallback();
+  }
+}

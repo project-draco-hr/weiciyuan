@@ -1,0 +1,10 @@
+{
+  if (mActionMode != null) {
+    mActionMode.finish();
+    mActionMode=null;
+  }
+  if (listView.getCheckedItemCount() > 0) {
+    listView.clearChoices();
+    notifyDataSetChanged();
+  }
+}

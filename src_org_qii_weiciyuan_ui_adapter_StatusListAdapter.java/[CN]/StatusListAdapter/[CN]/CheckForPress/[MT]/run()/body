@@ -1,0 +1,8 @@
+{
+  if (isPressed()) {
+    checkForLongClick(view,ViewConfiguration.getTapTimeout());
+  }
+ else {
+    click(view);
+  }
+}

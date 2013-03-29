@@ -1,4 +1,0 @@
-{
-  if (sInstance == null)   sInstance=new MyLinkMovementMethod();
-  return sInstance;
-}

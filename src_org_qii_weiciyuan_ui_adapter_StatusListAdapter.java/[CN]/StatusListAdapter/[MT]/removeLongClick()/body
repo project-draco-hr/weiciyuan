@@ -1,0 +1,3 @@
+{
+  if (mPendingCheckForLongPress != null)   handler.removeCallbacks(mPendingCheckForLongPress);
+}

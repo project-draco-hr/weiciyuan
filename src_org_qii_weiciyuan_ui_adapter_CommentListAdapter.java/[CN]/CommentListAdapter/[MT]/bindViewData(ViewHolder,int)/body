@@ -34,8 +34,8 @@
   if (holder.source != null)   holder.source.setText(Html.fromHtml(comment.getSource()).toString());
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
-  if (holder.content.getMovementMethod() != MyLinkMovementMethod.getInstance())   holder.content.setMovementMethod(MyLinkMovementMethod.getInstance());
-  if (holder.repost_content.getMovementMethod() != MyLinkMovementMethod.getInstance())   holder.repost_content.setMovementMethod(MyLinkMovementMethod.getInstance());
+  if (holder.content.getMovementMethod() != LongClickableLinkMovementMethod.getInstance())   holder.content.setMovementMethod(LongClickableLinkMovementMethod.getInstance());
+  if (holder.repost_content.getMovementMethod() != LongClickableLinkMovementMethod.getInstance())   holder.repost_content.setMovementMethod(LongClickableLinkMovementMethod.getInstance());
   CommentBean reply=comment.getReply_comment();
   if (holder.replyIV != null)   holder.replyIV.setVisibility(View.GONE);
   if (reply != null && showOriStatus) {
@@ -90,8 +90,8 @@
       }
     }
 );
-    holder.content.setMovementMethod(MyLinkMovementMethod.getInstance());
-    holder.repost_content.setMovementMethod(MyLinkMovementMethod.getInstance());
+    holder.content.setMovementMethod(LongClickableLinkMovementMethod.getInstance());
+    holder.repost_content.setMovementMethod(LongClickableLinkMovementMethod.getInstance());
     View.OnTouchListener onTouchListener=new View.OnTouchListener(){
       @Override public boolean onTouch(      View v,      MotionEvent event){
         TextView tv=(TextView)v;

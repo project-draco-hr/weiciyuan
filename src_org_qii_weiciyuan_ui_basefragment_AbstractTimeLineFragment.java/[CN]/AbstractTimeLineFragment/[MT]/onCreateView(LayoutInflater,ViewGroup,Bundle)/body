@@ -22,6 +22,7 @@
   dismissFooterView();
   pullToRefreshListView.setOnScrollListener(new AbsListView.OnScrollListener(){
     @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
+      listViewScrollState=scrollState;
 switch (scrollState) {
 case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
         if (!enableRefreshTime) {
@@ -39,6 +40,7 @@ break;
 }
 }
 @Override public void onScroll(AbsListView view,int firstVisibleItem,int visibleItemCount,int totalItemCount){
+onListViewScroll();
 }
 }
 );

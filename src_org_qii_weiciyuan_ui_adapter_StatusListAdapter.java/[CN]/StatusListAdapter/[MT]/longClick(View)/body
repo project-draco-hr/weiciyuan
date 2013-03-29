@@ -1,0 +1,20 @@
+{
+  final int position=listView.getPositionForView(v);
+  if (position == ListView.INVALID_POSITION) {
+    return false;
+  }
+  int state=((AbstractTimeLineFragment)fragment).getListViewScrollState();
+  if (state != AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+    return false;
+  }
+  MessageBean msg=getList().get(position - 1);
+  StatusSingleChoiceModeListener choiceModeListener=new StatusSingleChoiceModeListener(listView,StatusListAdapter.this,fragment,msg);
+  if (mActionMode != null) {
+    mActionMode.finish();
+    mActionMode=null;
+  }
+  listView.setItemChecked(position,true);
+  notifyDataSetChanged();
+  mActionMode=getActivity().startActionMode(choiceModeListener);
+  return true;
+}

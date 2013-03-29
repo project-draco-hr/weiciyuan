@@ -1,0 +1,5 @@
+{
+  mHasPerformedLongPress=false;
+  mPendingCheckForLongPress=new CheckForLongPress(spans,widget);
+  handler.postDelayed(mPendingCheckForLongPress,ViewConfiguration.getLongPressTimeout());
+}
