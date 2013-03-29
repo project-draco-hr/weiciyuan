@@ -1,4 +1,4 @@
 {
   super.onCreate(savedInstanceState);
-  this.uri=savedInstanceState.getParcelable("uri");
+  if (savedInstanceState != null)   this.uri=savedInstanceState.getParcelable("uri");
 }
