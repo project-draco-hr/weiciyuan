@@ -1,7 +1,7 @@
 {
   if (isPressed()) {
-    longClick(view);
+    longClick(position);
     mHasPerformedLongPress=true;
-    Utility.vibrate(view.getContext());
+    Utility.vibrate(fragment.getActivity());
   }
 }

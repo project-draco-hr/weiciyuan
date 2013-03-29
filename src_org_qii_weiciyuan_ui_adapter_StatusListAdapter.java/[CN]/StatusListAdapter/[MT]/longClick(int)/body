@@ -1,5 +1,4 @@
 {
-  final int position=listView.getPositionForView(v);
   if (position == ListView.INVALID_POSITION) {
     return false;
   }

@@ -58,6 +58,7 @@
     ListViewTool.addJustHighLightLinks(msg);
     holder.content.setText(msg.getListViewSpannableString());
   }
+  holder.listview_root.setOnTouchListener(simpleOnTouchListener);
   holder.username.setOnTouchListener(simpleOnTouchListener);
   holder.time.setOnTouchListener(simpleOnTouchListener);
   holder.content.setOnTouchListener(onTouchListener);
