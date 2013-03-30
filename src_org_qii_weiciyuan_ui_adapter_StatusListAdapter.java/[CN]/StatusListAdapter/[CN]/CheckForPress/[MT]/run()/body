@@ -1,4 +1,6 @@
 {
+  ViewHolder holder=getViewHolderByView(position);
+  holder.listview_root.setPressed(true);
   if (isPressed()) {
     checkForLongClick(position,ViewConfiguration.getTapTimeout());
   }
