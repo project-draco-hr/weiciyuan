@@ -12,6 +12,9 @@
     public static final int POSITION_OPEN=0;
     public static final int POSITION_CLOSE=1;
     public void onPageScrolled(    int position,    float positionOffset,    int positionOffsetPixels){
+      if (mPageScrollListener != null) {
+        mPageScrollListener.onPageScroll();
+      }
     }
     public void onPageSelected(    int position){
       if (position == POSITION_OPEN && mOpenListener != null) {

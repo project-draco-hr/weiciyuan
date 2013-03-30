@@ -8,29 +8,14 @@
   }
 switch (action) {
 case MotionEvent.ACTION_MOVE:
-    final int activePointerId=mActivePointerId;
-  if (activePointerId == INVALID_POINTER)   break;
-final int pointerIndex=this.getPointerIndex(ev,activePointerId);
-final float x=MotionEventCompat.getX(ev,pointerIndex);
-final float dx=x - mLastMotionX;
-final float xDiff=Math.abs(dx);
-final float y=MotionEventCompat.getY(ev,pointerIndex);
-final float yDiff=Math.abs(y - mLastMotionY);
-if (DEBUG) Log.v(TAG,"onInterceptTouch moved to:(" + x + ", "+ y+ "), diff:("+ xDiff+ ", "+ yDiff+ "), mLastMotionX:"+ mLastMotionX);
-if (xDiff > mTouchSlop && xDiff > yDiff && thisSlideAllowed(dx)) {
-if (DEBUG) Log.v(TAG,"Starting drag! from onInterceptTouch");
-startDrag();
-mLastMotionX=x;
-setScrollingCacheEnabled(true);
-}
- else if (yDiff > mTouchSlop) {
-mIsUnableToDrag=true;
-}
-break;
+    determineDrag(ev);
+  break;
 case MotionEvent.ACTION_DOWN:
-mActivePointerId=ev.getAction() & ((Build.VERSION.SDK_INT >= 8) ? MotionEvent.ACTION_POINTER_INDEX_MASK : MotionEvent.ACTION_POINTER_INDEX_MASK);
-mLastMotionX=mInitialMotionX=MotionEventCompat.getX(ev,mActivePointerId);
-mLastMotionY=MotionEventCompat.getY(ev,mActivePointerId);
+int index=MotionEventCompat.getActionIndex(ev);
+mActivePointerId=MotionEventCompat.getPointerId(ev,index);
+if (mActivePointerId == INVALID_POINTER) break;
+mLastMotionX=mInitialMotionX=MotionEventCompat.getX(ev,index);
+mLastMotionY=MotionEventCompat.getY(ev,index);
 if (thisTouchAllowed(ev)) {
 mIsBeingDragged=false;
 mIsUnableToDrag=false;
