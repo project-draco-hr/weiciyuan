@@ -48,4 +48,16 @@
   slidingMenu.setShadowDrawable(R.drawable.shadow);
   slidingMenu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
   slidingMenu.setFadeDegree(0.35f);
+  slidingMenu.setOnPageScrollListener(new SlidingMenu.OnPageScrollListener(){
+    @Override public void onPageScroll(){
+      LongClickableLinkMovementMethod.getInstance().setLongClickable(false);
+    }
+  }
+);
+  slidingMenu.setOnClosedListener(new SlidingMenu.OnClosedListener(){
+    @Override public void onClosed(){
+      LongClickableLinkMovementMethod.getInstance().setLongClickable(true);
+    }
+  }
+);
 }
