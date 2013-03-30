@@ -6,6 +6,7 @@
     clearActionMode();
     return;
   }
+  Utility.getListViewItemViewFromPosition(listView,position).playSoundEffect(SoundEffectConstants.CLICK);
   MessageBean msg=getList().get(position - 1);
   if (!((AbstractTimeLineFragment)fragment).clearActionModeIfOpen()) {
     Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
