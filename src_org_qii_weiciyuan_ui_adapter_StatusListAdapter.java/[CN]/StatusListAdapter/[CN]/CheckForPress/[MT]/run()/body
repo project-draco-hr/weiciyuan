@@ -4,7 +4,4 @@
   if (isPressed()) {
     checkForLongClick(position,ViewConfiguration.getTapTimeout());
   }
- else {
-    onItemClick(position);
-  }
 }
