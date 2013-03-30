@@ -2,7 +2,7 @@
   if (isPressed()) {
     if (onItemLongClick(position)) {
       mHasPerformedLongPress=true;
-      Utility.vibrate(fragment.getActivity());
+      Utility.vibrate(fragment.getActivity(),Utility.getListViewItemViewFromPosition(listView,position));
     }
   }
 }
