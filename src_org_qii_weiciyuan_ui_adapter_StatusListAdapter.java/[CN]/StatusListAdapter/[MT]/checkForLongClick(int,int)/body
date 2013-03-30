@@ -1,5 +1,4 @@
 {
-  mHasPerformedLongPress=false;
   if (mPendingCheckForLongPress == null) {
     mPendingCheckForLongPress=new CheckForLongPress(position);
   }
