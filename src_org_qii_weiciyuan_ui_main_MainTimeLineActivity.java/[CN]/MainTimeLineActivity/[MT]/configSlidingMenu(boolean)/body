@@ -1,0 +1,20 @@
+{
+  SlidingMenu slidingMenu=getSlidingMenu();
+  slidingMenu.setShadowWidthRes(R.dimen.shadow_width);
+  slidingMenu.setShadowDrawable(R.drawable.shadow);
+  if (phone)   slidingMenu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+ else   slidingMenu.setBehindOffset(Utility.getScreenWidth());
+  slidingMenu.setFadeDegree(0.35f);
+  slidingMenu.setOnPageScrollListener(new SlidingMenu.OnPageScrollListener(){
+    @Override public void onPageScroll(){
+      LongClickableLinkMovementMethod.getInstance().setLongClickable(false);
+    }
+  }
+);
+  slidingMenu.setOnClosedListener(new SlidingMenu.OnClosedListener(){
+    @Override public void onClosed(){
+      LongClickableLinkMovementMethod.getInstance().setLongClickable(true);
+    }
+  }
+);
+}

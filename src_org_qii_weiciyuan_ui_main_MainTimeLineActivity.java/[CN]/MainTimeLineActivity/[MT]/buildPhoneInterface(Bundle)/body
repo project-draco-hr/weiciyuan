@@ -1,63 +1,8 @@
 {
-  ActionBar actionBar=getActionBar();
-  actionBar.setDisplayHomeAsUpEnabled(true);
-  getActionBar().setTitle(GlobalContext.getInstance().getCurrentAccountName());
-  getWindow().setBackgroundDrawable(null);
-  setContentView(R.layout.menu_right);
   setBehindContentView(R.layout.menu_frame);
-  View title=getLayoutInflater().inflate(R.layout.maintimelineactivity_title_layout,null);
-  titleText=(TextView)title.findViewById(R.id.tv_title);
-  View clickToTop=title.findViewById(R.id.tv_click_to_top);
-  clickToTop.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      scrollCurrentListViewToTop();
-    }
-  }
-);
-  View write=title.findViewById(R.id.btn_write);
-  write.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      Intent intent=new Intent(MainTimeLineActivity.this,WriteWeiboActivity.class);
-      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-      intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
-      startActivity(intent);
-    }
-  }
-);
-  ActionBar.LayoutParams layoutParams=new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT,Gravity.RIGHT);
-  actionBar.setCustomView(title,layoutParams);
-  actionBar.setDisplayShowCustomEnabled(true);
-  if (savedInstanceState == null) {
-    FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
-    fragmentTransaction.replace(R.id.menu_frame,getMenuFragment(),LeftMenuFragment.class.getName());
-    fragmentTransaction.replace(R.id.menu_right_fl,getFriendsTimeLineFragment(),FriendsTimeLineFragment.class.getName());
-    fragmentTransaction.commit();
-  }
- else {
-    FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
-    fragmentTransaction.remove(getMentionsTimeLineFragment());
-    fragmentTransaction.remove(getMentionsCommentTimeLineFragment());
-    fragmentTransaction.remove(getCommentsTimeLineFragment());
-    fragmentTransaction.remove(getCommentsByMeTimeLineFragment());
-    fragmentTransaction.commit();
-  }
-  SlidingMenu slidingMenu=getSlidingMenu();
-  slidingMenu.setMode(SlidingMenu.LEFT);
-  slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
-  slidingMenu.setShadowWidthRes(R.dimen.shadow_width);
-  slidingMenu.setShadowDrawable(R.drawable.shadow);
-  slidingMenu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-  slidingMenu.setFadeDegree(0.35f);
-  slidingMenu.setOnPageScrollListener(new SlidingMenu.OnPageScrollListener(){
-    @Override public void onPageScroll(){
-      LongClickableLinkMovementMethod.getInstance().setLongClickable(false);
-    }
-  }
-);
-  slidingMenu.setOnClosedListener(new SlidingMenu.OnClosedListener(){
-    @Override public void onClosed(){
-      LongClickableLinkMovementMethod.getInstance().setLongClickable(true);
-    }
-  }
-);
+  getSlidingMenu().setSlidingEnabled(true);
+  getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getSlidingMenu().setMode(SlidingMenu.LEFT);
+  getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
 }

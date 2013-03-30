@@ -1,0 +1,6 @@
+{
+  View v=new View(this);
+  setBehindContentView(v);
+  getSlidingMenu().setSlidingEnabled(false);
+  getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+}
