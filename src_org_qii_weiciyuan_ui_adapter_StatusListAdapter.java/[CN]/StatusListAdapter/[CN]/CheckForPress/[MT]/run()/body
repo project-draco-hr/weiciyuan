@@ -3,6 +3,6 @@
     checkForLongClick(position,ViewConfiguration.getTapTimeout());
   }
  else {
-    click(position);
+    onItemClick(position);
   }
 }

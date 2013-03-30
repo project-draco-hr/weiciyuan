@@ -1,6 +1,6 @@
 {
   if (isPressed()) {
-    longClick(position);
+    onItemLongClick(position);
     mHasPerformedLongPress=true;
     Utility.vibrate(fragment.getActivity());
   }
