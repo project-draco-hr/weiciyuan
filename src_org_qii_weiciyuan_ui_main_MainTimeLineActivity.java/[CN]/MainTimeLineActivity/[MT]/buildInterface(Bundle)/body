@@ -11,14 +11,14 @@
   }
   buildCustomActionBarTitle(savedInstanceState);
   if (savedInstanceState == null) {
-    FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+    FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
     fragmentTransaction.replace(R.id.menu_frame,getMenuFragment(),LeftMenuFragment.class.getName());
     fragmentTransaction.replace(R.id.menu_right_fl,getFriendsTimeLineFragment(),FriendsTimeLineFragment.class.getName());
     getSlidingMenu().showContent();
     fragmentTransaction.commit();
   }
  else {
-    FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+    FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
     fragmentTransaction.remove(getMentionsTimeLineFragment());
     fragmentTransaction.remove(getMentionsCommentTimeLineFragment());
     fragmentTransaction.remove(getCommentsTimeLineFragment());

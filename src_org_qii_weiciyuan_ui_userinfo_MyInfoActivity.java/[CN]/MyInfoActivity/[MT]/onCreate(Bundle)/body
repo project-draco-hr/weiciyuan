@@ -8,7 +8,7 @@
   getActionBar().setTitle(getString(R.string.my_info));
   mViewPager=(MyViewPager)findViewById(R.id.viewpager);
   mViewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
-  TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getFragmentManager());
+  TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getSupportFragmentManager());
   mViewPager.setOffscreenPageLimit(5);
   mViewPager.setAdapter(adapter);
   mViewPager.setOnPageChangeListener(onPageChangeListener);

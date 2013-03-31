@@ -9,7 +9,7 @@
     boolean b=Utility.isWeiboAccountIdLink(url) || Utility.isWeiboAccountDomainLink(url);
     if (a && b) {
       OpenWeiboAccountLinkDialog dialog=new OpenWeiboAccountLinkDialog(url);
-      dialog.show(getFragmentManager(),"");
+      dialog.show(getSupportFragmentManager(),"");
       SettingUtility.setLastFoundWeiboAccountLink(url);
     }
   }

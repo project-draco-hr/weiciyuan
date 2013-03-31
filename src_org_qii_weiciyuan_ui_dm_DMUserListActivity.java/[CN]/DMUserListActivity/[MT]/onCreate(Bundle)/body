@@ -5,6 +5,6 @@
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setTitle(getString(R.string.dm));
   if (savedInstanceState == null) {
-    getFragmentManager().beginTransaction().replace(android.R.id.content,new DMUserListFragment()).commit();
+    getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new DMUserListFragment()).commit();
   }
 }

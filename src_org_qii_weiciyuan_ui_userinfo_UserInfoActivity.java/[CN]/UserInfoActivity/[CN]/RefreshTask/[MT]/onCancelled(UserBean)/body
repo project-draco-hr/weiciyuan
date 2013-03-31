@@ -2,6 +2,6 @@
   super.onCancelled(userBean);
   if (this.e != null) {
     UserInfoActivityErrorDialog userInfoActivityErrorDialog=new UserInfoActivityErrorDialog(this.e.getError());
-    userInfoActivityErrorDialog.show(getFragmentManager(),"");
+    userInfoActivityErrorDialog.show(getSupportFragmentManager(),"");
   }
 }

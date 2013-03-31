@@ -6,7 +6,7 @@
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setTitle(url);
   if (savedInstanceState == null) {
-    getFragmentManager().beginTransaction().replace(android.R.id.content,new BrowserShareTimeLineFragment(url)).commit();
+    getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new BrowserShareTimeLineFragment(url)).commit();
   }
   int count=getIntent().getIntExtra("count",0);
   String subTitle=String.format(getString(R.string.total_share_count),String.valueOf(count));
