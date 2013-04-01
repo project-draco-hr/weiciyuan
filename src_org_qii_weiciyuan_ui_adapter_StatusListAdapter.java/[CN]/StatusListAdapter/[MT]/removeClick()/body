@@ -1,3 +1,0 @@
-{
-  if (mPendingCheckForPress != null)   handler.removeCallbacks(mPendingCheckForPress);
-}

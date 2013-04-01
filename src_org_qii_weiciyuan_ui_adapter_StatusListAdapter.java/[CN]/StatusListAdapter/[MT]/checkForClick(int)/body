@@ -1,5 +1,0 @@
-{
-  if (mPendingCheckForPress == null)   mPendingCheckForPress=new CheckForPress(position);
- else   mPendingCheckForPress.setPosition(position);
-  handler.postDelayed(mPendingCheckForPress,ViewConfiguration.getTapTimeout());
-}

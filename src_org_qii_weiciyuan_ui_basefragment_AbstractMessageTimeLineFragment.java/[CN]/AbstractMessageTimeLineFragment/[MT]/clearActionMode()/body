@@ -1,3 +1,10 @@
 {
-  ((StatusListAdapter)timeLineAdapter).clearActionMode();
+  if (mActionMode != null) {
+    mActionMode.finish();
+    mActionMode=null;
+  }
+  if (getListView().getCheckedItemCount() > 0) {
+    getListView().clearChoices();
+    getAdapter().notifyDataSetChanged();
+  }
 }

@@ -1,3 +1,12 @@
 {
-  ((StatusListAdapter)timeLineAdapter).onListViewScroll();
+  int state=getListViewScrollState();
+  if (state != AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+    LongClickableLinkMovementMethod.getInstance().removeLongClickCallback();
+  }
+  if (hasActionMode()) {
+    int position=getListView().getCheckedItemPosition();
+    if (getListView().getFirstVisiblePosition() > position || getListView().getLastVisiblePosition() < position) {
+      clearActionMode();
+    }
+  }
 }

@@ -58,18 +58,13 @@
     ListViewTool.addJustHighLightLinks(msg);
     holder.content.setText(msg.getListViewSpannableString());
   }
-  holder.listview_root.setOnTouchListener(simpleOnTouchListener);
-  holder.username.setOnTouchListener(simpleOnTouchListener);
-  holder.time.setOnTouchListener(simpleOnTouchListener);
-  holder.content.setOnTouchListener(onTouchListener);
-  holder.repost_content.setOnTouchListener(onTouchListener);
   holder.listview_root.setClickable(false);
   holder.username.setClickable(false);
   holder.time.setClickable(false);
   holder.content.setClickable(false);
   holder.repost_content.setClickable(false);
-  if (holder.content.getMovementMethod() != LongClickableLinkMovementMethod.getInstance())   holder.content.setMovementMethod(LongClickableLinkMovementMethod.getInstance());
-  if (holder.repost_content.getMovementMethod() != LongClickableLinkMovementMethod.getInstance())   holder.repost_content.setMovementMethod(LongClickableLinkMovementMethod.getInstance());
+  holder.content.setOnTouchListener(onTouchListener);
+  holder.repost_content.setOnTouchListener(onTouchListener);
   holder.time.setTime(msg.getMills());
   if (holder.source != null)   holder.source.setText(Html.fromHtml(msg.getSource()).toString());
   if (showOriStatus) {
