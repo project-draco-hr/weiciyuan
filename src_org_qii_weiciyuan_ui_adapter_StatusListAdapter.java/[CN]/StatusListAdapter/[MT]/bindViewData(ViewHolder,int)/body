@@ -58,13 +58,6 @@
     ListViewTool.addJustHighLightLinks(msg);
     holder.content.setText(msg.getListViewSpannableString());
   }
-  holder.listview_root.setClickable(false);
-  holder.username.setClickable(false);
-  holder.time.setClickable(false);
-  holder.content.setClickable(false);
-  holder.repost_content.setClickable(false);
-  holder.content.setOnTouchListener(onTouchListener);
-  holder.repost_content.setOnTouchListener(onTouchListener);
   holder.time.setTime(msg.getMills());
   if (holder.source != null)   holder.source.setText(Html.fromHtml(msg.getSource()).toString());
   if (showOriStatus) {

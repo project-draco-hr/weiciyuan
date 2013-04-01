@@ -50,6 +50,7 @@ if (getItemViewType(position) != TYPE_MIDDLE) {
 configLayerType(holder);
 configViewFont(holder);
 bindViewData(holder,position);
+bindOnTouchListener(holder);
 }
 return convertView;
 }

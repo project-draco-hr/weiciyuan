@@ -1,4 +1,6 @@
 {
-  CommentFloatingMenu menu=new CommentFloatingMenu(getList().getItem(position));
-  menu.show(getFragmentManager(),"");
+  if (!clearActionModeIfOpen()) {
+    CommentFloatingMenu menu=new CommentFloatingMenu(getList().getItem(position));
+    menu.show(getFragmentManager(),"");
+  }
 }
