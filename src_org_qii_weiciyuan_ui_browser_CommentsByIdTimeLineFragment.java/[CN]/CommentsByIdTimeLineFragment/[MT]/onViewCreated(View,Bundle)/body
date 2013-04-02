@@ -1,0 +1,9 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  view.findViewById(R.id.send).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      sendComment();
+    }
+  }
+);
+}
