@@ -1,0 +1,8 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  pullToRefreshListView.setOnRefreshListener(listViewOnRefreshListener);
+  pullToRefreshListView.setOnLastItemVisibleListener(listViewOnLastItemVisibleListener);
+  pullToRefreshListView.setOnScrollListener(listViewOnScrollListener);
+  pullToRefreshListView.setOnItemClickListener(listViewOnItemClickListener);
+  buildListAdapter();
+}
