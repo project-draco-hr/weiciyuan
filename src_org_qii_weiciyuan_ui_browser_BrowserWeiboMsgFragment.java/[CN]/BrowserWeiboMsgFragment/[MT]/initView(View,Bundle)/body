@@ -23,61 +23,12 @@
   layout.comment_count=(TextView)view.findViewById(R.id.comment_count);
   layout.repost_count=(TextView)view.findViewById(R.id.repost_count);
   layout.count_layout=view.findViewById(R.id.count_layout);
-  layout.location.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      if (Utility.isGooglePlaySafe(getActivity())) {
-        GeoBean bean=msg.getGeo();
-        Intent intent=new Intent(getActivity(),AppMapActivity.class);
-        intent.putExtra("lat",bean.getLat());
-        intent.putExtra("lon",bean.getLon());
-        if (!String.valueOf(bean.getLat() + "," + bean.getLon()).equals(layout.location.getText()))         intent.putExtra("locationStr",layout.location.getText());
-        startActivity(intent);
-      }
- else {
-        GeoBean bean=msg.getGeo();
-        String geoUriString="geo:" + bean.getLat() + ","+ bean.getLon()+ "?q="+ layout.location.getText();
-        Uri geoUri=Uri.parse(geoUriString);
-        Intent mapCall=new Intent(Intent.ACTION_VIEW,geoUri);
-        if (Utility.isIntentSafe(getActivity(),mapCall)) {
-          startActivity(mapCall);
-        }
-      }
-    }
-  }
-);
   layout.avatar=(ImageView)view.findViewById(R.id.avatar);
   layout.content_pic=(ImageView)view.findViewById(R.id.content_pic);
   layout.repost_pic=(ImageView)view.findViewById(R.id.repost_content_pic);
   layout.content_pic_pb=(ProgressBar)view.findViewById(R.id.content_pic_pb);
   layout.repost_pic_pb=(ProgressBar)view.findViewById(R.id.repost_content_pic_pb);
-  view.findViewById(R.id.first).setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      Intent intent=new Intent(getActivity(),UserInfoActivity.class);
-      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-      intent.putExtra("user",msg.getUser());
-      startActivity(intent);
-    }
-  }
-);
-  layout.content_pic.setOnClickListener(picOnClickListener);
-  layout.repost_pic.setOnClickListener(picOnClickListener);
   layout.repost_layout=(RelativeLayout)view.findViewById(R.id.repost_layout);
   layout.pic_layout=(FrameLayout)view.findViewById(R.id.pic_layout);
-  layout.recontent.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      boolean isNotLink=layout.recontent.getSelectionStart() == -1 && layout.recontent.getSelectionEnd() == -1;
-      boolean isDeleted=msg.getRetweeted_status() == null || msg.getRetweeted_status().getUser() == null;
-      if (isNotLink && !isDeleted) {
-        Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
-        intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-        intent.putExtra("msg",msg.getRetweeted_status());
-        startActivity(intent);
-      }
- else       if (isNotLink && isDeleted) {
-        Toast.makeText(getActivity(),getString(R.string.cant_open_deleted_weibo),Toast.LENGTH_SHORT).show();
-      }
-    }
-  }
-);
   layout.repost_pic_layout=(FrameLayout)view.findViewById(R.id.repost_pic_layout);
 }

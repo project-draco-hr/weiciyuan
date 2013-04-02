@@ -1,0 +1,52 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  layout.content_pic.setOnClickListener(picOnClickListener);
+  layout.repost_pic.setOnClickListener(picOnClickListener);
+  layout.location.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      if (Utility.isGooglePlaySafe(getActivity())) {
+        GeoBean bean=msg.getGeo();
+        Intent intent=new Intent(getActivity(),AppMapActivity.class);
+        intent.putExtra("lat",bean.getLat());
+        intent.putExtra("lon",bean.getLon());
+        if (!String.valueOf(bean.getLat() + "," + bean.getLon()).equals(layout.location.getText()))         intent.putExtra("locationStr",layout.location.getText());
+        startActivity(intent);
+      }
+ else {
+        GeoBean bean=msg.getGeo();
+        String geoUriString="geo:" + bean.getLat() + ","+ bean.getLon()+ "?q="+ layout.location.getText();
+        Uri geoUri=Uri.parse(geoUriString);
+        Intent mapCall=new Intent(Intent.ACTION_VIEW,geoUri);
+        if (Utility.isIntentSafe(getActivity(),mapCall)) {
+          startActivity(mapCall);
+        }
+      }
+    }
+  }
+);
+  view.findViewById(R.id.first).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent(getActivity(),UserInfoActivity.class);
+      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+      intent.putExtra("user",msg.getUser());
+      startActivity(intent);
+    }
+  }
+);
+  layout.recontent.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      boolean isNotLink=layout.recontent.getSelectionStart() == -1 && layout.recontent.getSelectionEnd() == -1;
+      boolean isDeleted=msg.getRetweeted_status() == null || msg.getRetweeted_status().getUser() == null;
+      if (isNotLink && !isDeleted) {
+        Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
+        intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+        intent.putExtra("msg",msg.getRetweeted_status());
+        startActivity(intent);
+      }
+ else       if (isNotLink && isDeleted) {
+        Toast.makeText(getActivity(),getString(R.string.cant_open_deleted_weibo),Toast.LENGTH_SHORT).show();
+      }
+    }
+  }
+);
+}
