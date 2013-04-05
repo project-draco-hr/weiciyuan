@@ -1,0 +1,10 @@
+{
+  List<String> name=new ArrayList<String>();
+  name.add(getString(R.string.all_people));
+  name.add(getString(R.string.bilateral));
+  for (  GroupBean b : list) {
+    name.add(b.getName());
+  }
+  String[] valueArray=name.toArray(new String[0]);
+  return valueArray;
+}
