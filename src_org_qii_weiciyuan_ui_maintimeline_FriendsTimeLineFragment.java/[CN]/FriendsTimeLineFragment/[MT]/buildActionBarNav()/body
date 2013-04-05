@@ -25,5 +25,5 @@
     }
   }
 );
-  getActivity().getActionBar().setSelectedNavigationItem(getIndexFromCurrentGroupId(currentGroupId,list));
+  getActivity().getActionBar().setSelectedNavigationItem(getIndexFromGroupId(currentGroupId,list));
 }
