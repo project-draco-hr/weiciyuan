@@ -1,6 +1,4 @@
 {
-  getActivity().getActionBar().removeAllTabs();
-  getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
   getActivity().getActionBar().setDisplayShowTitleEnabled(false);
   getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
   List<GroupBean> list=new ArrayList<GroupBean>();
