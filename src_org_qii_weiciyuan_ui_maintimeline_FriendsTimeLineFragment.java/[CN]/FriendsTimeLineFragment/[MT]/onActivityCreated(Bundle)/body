@@ -16,6 +16,7 @@ groupDataCache.put(BILATERAL_GROUP_ID,new MessageListBean());
 if (getList().getSize() > 0) {
 groupDataCache.put(ALL_GROUP_ID,getList().copy());
 }
+buildActionBarNav();
 break;
 case SCREEN_ROTATE:
 refreshLayout(getList());
@@ -29,8 +30,8 @@ currentGroupId=savedInstanceState.getString("currentGroupId");
 getList().replaceData((MessageListBean)savedInstanceState.getSerializable("bean"));
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(getList());
+buildActionBarNav();
 break;
 }
 super.onActivityCreated(savedInstanceState);
-buildActionBarNav();
 }

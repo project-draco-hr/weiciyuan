@@ -1,0 +1,5 @@
+{
+  CommentsTimeLine fragment=((CommentsTimeLine)getSupportFragmentManager().findFragmentByTag(CommentsTimeLine.class.getName()));
+  if (fragment == null)   fragment=new CommentsTimeLine();
+  return fragment;
+}

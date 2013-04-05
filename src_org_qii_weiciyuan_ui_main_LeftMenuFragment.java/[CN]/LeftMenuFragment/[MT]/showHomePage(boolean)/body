@@ -1,0 +1,22 @@
+{
+  if (currentIndex == 0 && !reset) {
+    ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
+    return true;
+  }
+  getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+  currentIndex=0;
+  FragmentTransaction ft=getFragmentManager().beginTransaction();
+  ft.hide(((MainTimeLineActivity)getActivity()).getMentionsAllTimeLineFragment());
+  ft.hide(((MainTimeLineActivity)getActivity()).getCommentsAllTimeLineFragment());
+  FriendsTimeLineFragment fragment=((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment();
+  if (fragment.isAdded() && fragment.isHidden()) {
+    ft.show(fragment);
+  }
+ else   if (!fragment.isAdded()) {
+    ft.add(R.id.menu_right_fl,fragment,FriendsTimeLineFragment.class.getName());
+  }
+  ft.commit();
+  ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
+  setTitle("");
+  return false;
+}

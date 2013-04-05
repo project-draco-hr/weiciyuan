@@ -1,4 +1,4 @@
 {
   super.onCreate(savedInstanceState);
-  setRetainInstance(true);
+  setRetainInstance(false);
 }

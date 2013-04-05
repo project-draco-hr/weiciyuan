@@ -1,60 +1,14 @@
 {
   super.onActivityCreated(savedInstanceState);
-  final ViewPager mentionVP=(ViewPager)getActivity().findViewById(R.id.menu_right_vp_mention);
-  final ViewPager commentVP=(ViewPager)getActivity().findViewById(R.id.menu_right_vp_comment);
-  final View fl=getActivity().findViewById(R.id.menu_right_fl);
-  layout.home.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      showHomePage(fl,mentionVP,commentVP);
-    }
-  }
-);
-  layout.mention.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      showMentionPage(fl,mentionVP,commentVP);
-    }
-  }
-);
-  layout.comment.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      showCommentPage(commentVP,fl,mentionVP);
-    }
-  }
-);
-  layout.dm.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      showDMPage();
-    }
-  }
-);
-  layout.search.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      showSearchPage();
-    }
-  }
-);
-  layout.setting.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      showSettingPage();
-    }
-  }
-);
-  layout.logout.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      showAccountSwitchPage();
-    }
-  }
-);
-  layout.profile.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      openMyProfile();
-    }
-  }
-);
-  layout.location.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      startActivity(new Intent(getActivity(),NearbyTimeLineActivity.class));
-    }
-  }
-);
+switch (currentIndex) {
+case 0:
+    showHomePage(true);
+  break;
+case 1:
+showMentionPage(true);
+break;
+case 2:
+showCommentPage(true);
+break;
+}
 }

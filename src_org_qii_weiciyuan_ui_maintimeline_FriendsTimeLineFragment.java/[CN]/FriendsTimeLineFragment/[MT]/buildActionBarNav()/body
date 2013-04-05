@@ -1,4 +1,6 @@
 {
+  getActivity().getActionBar().removeAllTabs();
+  getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
   getActivity().getActionBar().setDisplayShowTitleEnabled(false);
   getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
   List<GroupBean> list=new ArrayList<GroupBean>();
@@ -9,10 +11,23 @@
     list=new ArrayList<GroupBean>();
   }
   List<String> name=new ArrayList<String>();
+  int index=0;
+  if (currentGroupId.equals("0")) {
+    index=0;
+  }
+ else   if (currentGroupId.equals("1")) {
+    index=1;
+  }
   name.add(getString(R.string.all_people));
   name.add(getString(R.string.bilateral));
   for (  GroupBean b : list) {
     name.add(b.getName());
+  }
+  for (int i=0; i < list.size(); i++) {
+    if (list.get(i).getIdstr().equals(currentGroupId)) {
+      index=i + 2;
+      break;
+    }
   }
   final String[] valueArray=name.toArray(new String[0]);
   navAdapter=new FriendsTimeLineListNavAdapter(getActivity(),valueArray);
@@ -41,4 +56,5 @@
     }
   }
 );
+  getActivity().getActionBar().setSelectedNavigationItem(index);
 }

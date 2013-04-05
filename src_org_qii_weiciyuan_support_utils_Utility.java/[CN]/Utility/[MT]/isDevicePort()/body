@@ -1,0 +1,3 @@
+{
+  return GlobalContext.getInstance().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
+}

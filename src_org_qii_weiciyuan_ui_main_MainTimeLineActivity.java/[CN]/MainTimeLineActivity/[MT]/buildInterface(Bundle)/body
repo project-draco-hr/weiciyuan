@@ -13,17 +13,10 @@
   if (savedInstanceState == null) {
     FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
     fragmentTransaction.replace(R.id.menu_frame,getMenuFragment(),LeftMenuFragment.class.getName());
-    fragmentTransaction.replace(R.id.menu_right_fl,getFriendsTimeLineFragment(),FriendsTimeLineFragment.class.getName());
     getSlidingMenu().showContent();
     fragmentTransaction.commit();
   }
  else {
-    FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-    fragmentTransaction.remove(getMentionsTimeLineFragment());
-    fragmentTransaction.remove(getMentionsCommentTimeLineFragment());
-    fragmentTransaction.remove(getCommentsTimeLineFragment());
-    fragmentTransaction.remove(getCommentsByMeTimeLineFragment());
-    fragmentTransaction.commit();
   }
   configSlidingMenu(phone);
 }

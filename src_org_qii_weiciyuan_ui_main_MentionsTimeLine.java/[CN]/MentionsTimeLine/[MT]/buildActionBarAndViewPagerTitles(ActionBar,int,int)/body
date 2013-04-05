@@ -1,0 +1,8 @@
+{
+  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+  actionBar.removeAllTabs();
+  SimpleTwoTabsListener tabListener=new SimpleTwoTabsListener(viewPager);
+  actionBar.addTab(actionBar.newTab().setText(firstTab).setTabListener(tabListener));
+  actionBar.addTab(actionBar.newTab().setText(secondTab).setTabListener(tabListener));
+}

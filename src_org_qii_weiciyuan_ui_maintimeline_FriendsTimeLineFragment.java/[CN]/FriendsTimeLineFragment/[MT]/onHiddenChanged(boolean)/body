@@ -1,0 +1,7 @@
+{
+  super.onHiddenChanged(hidden);
+  if (!hidden) {
+    buildActionBarNav();
+    ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
+  }
+}

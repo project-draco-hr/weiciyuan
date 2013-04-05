@@ -1,0 +1,3 @@
+{
+  if (viewPager != null && viewPager.getCurrentItem() != tab.getPosition())   viewPager.setCurrentItem(tab.getPosition());
+}
