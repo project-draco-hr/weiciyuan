@@ -1,0 +1,20 @@
+{
+  String sql="select * from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ACCOUNTID+ "  = "+ accountId;
+  Cursor c=getRsd().rawQuery(sql,null);
+  if (c.moveToNext()) {
+    try {
+      String[] args={accountId};
+      ContentValues cv=new ContentValues();
+      cv.put(HomeTable.RECENT_GROUP_ID,groupId);
+      getWsd().update(HomeTable.TABLE_NAME,cv,HomeTable.ACCOUNTID + "=?",args);
+    }
+ catch (    JsonSyntaxException e) {
+    }
+  }
+ else {
+    ContentValues cv=new ContentValues();
+    cv.put(HomeTable.ACCOUNTID,accountId);
+    cv.put(HomeTable.RECENT_GROUP_ID,groupId);
+    getWsd().insert(HomeTable.TABLE_NAME,HomeTable.ID,cv);
+  }
+}

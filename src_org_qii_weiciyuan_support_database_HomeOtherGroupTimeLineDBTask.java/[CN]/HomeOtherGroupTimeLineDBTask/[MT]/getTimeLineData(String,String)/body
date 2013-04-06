@@ -1,5 +1,5 @@
 {
   MessageListBean msgList=get(accountId,groupId);
   TimeLinePosition position=getPosition(accountId,groupId);
-  return new MessageTimeLineData(msgList,position);
+  return new MessageTimeLineData(groupId,msgList,position);
 }

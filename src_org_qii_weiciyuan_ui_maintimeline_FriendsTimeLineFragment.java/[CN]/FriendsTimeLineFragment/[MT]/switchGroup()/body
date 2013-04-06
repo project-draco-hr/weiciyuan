@@ -8,6 +8,7 @@
     getList().replaceData(groupDataCache.get(currentGroupId));
     getAdapter().notifyDataSetChanged();
     setListViewPositionFromPositionsCache();
+    saveGroupIdToDB();
     new RefreshReCmtCountTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }
 }

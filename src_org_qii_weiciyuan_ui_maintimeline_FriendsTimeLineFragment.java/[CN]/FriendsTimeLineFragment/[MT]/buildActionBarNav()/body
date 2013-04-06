@@ -25,5 +25,6 @@
     }
   }
 );
-  getActivity().getActionBar().setSelectedNavigationItem(getIndexFromGroupId(currentGroupId,list));
+  currentGroupId=FriendsTimeLineDBTask.getRecentGroupId(GlobalContext.getInstance().getCurrentAccountId());
+  getActivity().getActionBar().setSelectedNavigationItem(getRecentNavIndex());
 }

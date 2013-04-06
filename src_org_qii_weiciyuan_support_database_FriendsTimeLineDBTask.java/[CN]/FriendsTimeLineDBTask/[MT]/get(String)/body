@@ -1,5 +1,0 @@
-{
-  MessageListBean msgList=getHomeLineMsgList(accountId);
-  TimeLinePosition position=getPosition(accountId);
-  return new MessageTimeLineData(msgList,position);
-}

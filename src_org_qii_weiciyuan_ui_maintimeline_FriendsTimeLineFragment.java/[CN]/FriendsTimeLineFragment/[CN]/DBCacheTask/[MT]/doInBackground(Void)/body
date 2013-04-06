@@ -1,16 +1,5 @@
 {
-  MessageTimeLineData allGroup=FriendsTimeLineDBTask.get(accountBean.getUid());
-  publishProgress(allGroup);
-  Map<String,MessageTimeLineData> map=new HashMap<String,MessageTimeLineData>();
-  MessageTimeLineData biGroup=HomeOtherGroupTimeLineDBTask.getTimeLineData(accountBean.getUid(),BILATERAL_GROUP_ID);
-  map.put(BILATERAL_GROUP_ID,biGroup);
-  GroupListBean groupListBean=GlobalContext.getInstance().getGroup();
-  if (groupListBean != null) {
-    List<GroupBean> lists=groupListBean.getLists();
-    for (    GroupBean groupBean : lists) {
-      MessageTimeLineData dbMsg=HomeOtherGroupTimeLineDBTask.getTimeLineData(accountBean.getUid(),groupBean.getId());
-      map.put(groupBean.getId(),dbMsg);
-    }
-  }
-  return map;
+  MessageTimeLineData recentGroupData=FriendsTimeLineDBTask.getRecentGroupData(accountBean.getUid());
+  publishProgress(recentGroupData);
+  return FriendsTimeLineDBTask.getOtherGroupData(accountBean.getUid(),recentGroupData.groupId);
 }

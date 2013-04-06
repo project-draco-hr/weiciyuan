@@ -1,0 +1,14 @@
+{
+  String groupId=getRecentGroupId(accountId);
+  MessageListBean msgList;
+  TimeLinePosition position;
+  if (groupId.equals("0")) {
+    msgList=getHomeLineMsgList(accountId);
+    position=getPosition(accountId);
+  }
+ else {
+    msgList=HomeOtherGroupTimeLineDBTask.get(accountId,groupId);
+    position=HomeOtherGroupTimeLineDBTask.getPosition(accountId,groupId);
+  }
+  return new MessageTimeLineData(groupId,msgList,position);
+}

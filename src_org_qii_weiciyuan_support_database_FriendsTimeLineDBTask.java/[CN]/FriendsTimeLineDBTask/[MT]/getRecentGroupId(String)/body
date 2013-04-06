@@ -1,0 +1,13 @@
+{
+  String sql="select * from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ACCOUNTID+ "  = "+ accountId;
+  Cursor c=getRsd().rawQuery(sql,null);
+  Gson gson=new Gson();
+  while (c.moveToNext()) {
+    String id=c.getString(c.getColumnIndex(HomeTable.RECENT_GROUP_ID));
+    if (!TextUtils.isEmpty(id)) {
+      return id;
+    }
+  }
+  c.close();
+  return "0";
+}

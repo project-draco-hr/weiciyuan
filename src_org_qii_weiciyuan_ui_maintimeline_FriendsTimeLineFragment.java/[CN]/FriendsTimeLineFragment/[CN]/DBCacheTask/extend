@@ -1,1 +1,1 @@
-MyAsyncTask<Void,MessageTimeLineData,Map<String,MessageTimeLineData>>
+MyAsyncTask<Void,MessageTimeLineData,List<MessageTimeLineData>>

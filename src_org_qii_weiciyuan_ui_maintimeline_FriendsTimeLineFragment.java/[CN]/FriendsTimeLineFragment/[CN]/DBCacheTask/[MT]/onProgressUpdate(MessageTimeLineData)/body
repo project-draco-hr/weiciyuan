@@ -1,14 +1,16 @@
 {
   super.onProgressUpdate(result);
   if (result != null && result.length > 0) {
-    MessageTimeLineData homeMsg=result[0];
-    getList().replaceData(homeMsg.msgList);
-    putToGroupDataMemoryCache(ALL_GROUP_ID,homeMsg.msgList);
-    positionCache.put(ALL_GROUP_ID,homeMsg.position);
+    MessageTimeLineData recentData=result[0];
+    getList().replaceData(recentData.msgList);
+    putToGroupDataMemoryCache(recentData.groupId,recentData.msgList);
+    positionCache.put(recentData.groupId,recentData.position);
+    currentGroupId=recentData.groupId;
   }
   getPullToRefreshListView().setVisibility(View.VISIBLE);
   getAdapter().notifyDataSetChanged();
   setListViewPositionFromPositionsCache();
+  getActivity().getActionBar().setSelectedNavigationItem(getRecentNavIndex());
   refreshLayout(getList());
   if (getList().getSize() == 0) {
     getPullToRefreshListView().startRefreshNow();

@@ -1,6 +1,7 @@
 {
   super.onPause();
   savePositionToDB();
+  saveGroupIdToDB();
   removeRefresh();
   Utility.cancelTasks(autoRefreshTask);
 }

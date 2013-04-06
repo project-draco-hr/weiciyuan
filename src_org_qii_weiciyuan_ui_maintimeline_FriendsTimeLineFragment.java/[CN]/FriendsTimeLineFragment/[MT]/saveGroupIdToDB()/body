@@ -1,0 +1,10 @@
+{
+  final String groupId=currentGroupId;
+  Runnable runnable=new Runnable(){
+    @Override public void run(){
+      FriendsTimeLineDBTask.updateRecentGroupId(GlobalContext.getInstance().getCurrentAccountId(),groupId);
+    }
+  }
+;
+  new Thread(runnable).start();
+}

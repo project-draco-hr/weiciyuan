@@ -1,0 +1,10 @@
+{
+  List<GroupBean> list=new ArrayList<GroupBean>();
+  if (GlobalContext.getInstance().getGroup() != null) {
+    list=GlobalContext.getInstance().getGroup().getLists();
+  }
+ else {
+    list=new ArrayList<GroupBean>();
+  }
+  return getIndexFromGroupId(currentGroupId,list);
+}
