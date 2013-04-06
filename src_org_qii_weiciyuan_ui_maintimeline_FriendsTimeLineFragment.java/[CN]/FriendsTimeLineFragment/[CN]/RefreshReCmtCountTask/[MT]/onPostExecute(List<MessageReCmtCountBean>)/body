@@ -10,20 +10,12 @@
     }
   }
   getAdapter().notifyDataSetChanged();
-  if (currentGroupId.equals(ALL_GROUP_ID)) {
-    new Thread(new Runnable(){
-      @Override public void run(){
-        FriendsTimeLineDBTask.replace(getList(),GlobalContext.getInstance().getCurrentAccountId());
-      }
+  final String groupId=currentGroupId;
+  Runnable dbRunnable=new Runnable(){
+    @Override public void run(){
+      FriendsTimeLineDBTask.replace(getList(),accountBean.getUid(),groupId);
     }
-).start();
   }
- else {
-    new Thread(new Runnable(){
-      @Override public void run(){
-        HomeOtherGroupTimeLineDBTask.replace(getList(),GlobalContext.getInstance().getCurrentAccountId(),currentGroupId);
-      }
-    }
-).start();
-  }
+;
+  new Thread(dbRunnable).start();
 }

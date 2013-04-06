@@ -9,7 +9,14 @@
   if (getActivity() != null && newValue.getSize() > 0) {
     getList().addNewData(newValue);
     if (getList() != null && currentGroupId.equals(ALL_GROUP_ID)) {
-      SaveToDBService.save(getActivity(),SaveToDBService.TYPE_STATUS,getList(),accountBean.getUid());
+      final String groupId=currentGroupId;
+      Runnable dbRunnable=new Runnable(){
+        @Override public void run(){
+          FriendsTimeLineDBTask.replace(getList(),accountBean.getUid(),groupId);
+        }
+      }
+;
+      new Thread(dbRunnable).start();
     }
   }
   putToGroupDataMemoryCache(currentGroupId,getList());

@@ -1,2 +1,3 @@
 MessageListBean list
 String accountId
+String groupId

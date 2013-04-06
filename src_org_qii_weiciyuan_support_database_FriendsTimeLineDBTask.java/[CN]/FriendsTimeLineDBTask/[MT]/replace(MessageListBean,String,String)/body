@@ -1,0 +1,9 @@
+{
+  if (groupId.equals("0")) {
+    deleteAllHomes(accountId);
+    addHomeLineMsg(list,accountId);
+  }
+ else {
+    HomeOtherGroupTimeLineDBTask.replace(list,accountId,groupId);
+  }
+}

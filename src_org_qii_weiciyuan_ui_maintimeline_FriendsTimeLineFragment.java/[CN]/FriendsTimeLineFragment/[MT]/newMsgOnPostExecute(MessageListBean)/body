@@ -5,23 +5,13 @@
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
     putToGroupDataMemoryCache(currentGroupId,getList());
-    Runnable dbRunnable;
-    if (currentGroupId.equals(ALL_GROUP_ID)) {
-      dbRunnable=new Runnable(){
-        @Override public void run(){
-          FriendsTimeLineDBTask.replace(getList(),accountBean.getUid());
-        }
+    final String groupId=currentGroupId;
+    Runnable dbRunnable=new Runnable(){
+      @Override public void run(){
+        FriendsTimeLineDBTask.replace(getList(),accountBean.getUid(),groupId);
       }
-;
     }
- else {
-      dbRunnable=new Runnable(){
-        @Override public void run(){
-          HomeOtherGroupTimeLineDBTask.replace(getList(),accountBean.getUid(),currentGroupId);
-        }
-      }
 ;
-    }
     new Thread(dbRunnable).start();
   }
 }
