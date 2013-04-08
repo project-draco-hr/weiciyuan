@@ -1,11 +1,13 @@
 {
   super.onPostExecute(result);
   if (result != null) {
-    getList().replaceData(result);
-    putToGroupDataMemoryCache(0,result);
+    getList().replaceData(result.msgList);
+    putToGroupDataMemoryCache(0,result.msgList);
+    timeLinePosition=result.position;
   }
   getPullToRefreshListView().setVisibility(View.VISIBLE);
   getAdapter().notifyDataSetChanged();
+  setListViewPositionFromPositionsCache();
   refreshLayout(bean);
   if (bean.getSize() == 0) {
     pullToRefreshListView.startRefreshNow();

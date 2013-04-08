@@ -1,5 +1,5 @@
 {
-  String searchCount="select count(" + RepostsTable.ID + ") as total"+ " from "+ RepostsTable.TABLE_NAME+ " where "+ RepostsTable.ACCOUNTID+ " = "+ accountId;
+  String searchCount="select count(" + RepostsTable.RepostDataTable.ID + ") as total"+ " from "+ RepostsTable.RepostDataTable.TABLE_NAME+ " where "+ RepostsTable.RepostDataTable.ACCOUNTID+ " = "+ accountId;
   int total=0;
   Cursor c=getWsd().rawQuery(searchCount,null);
   if (c.moveToNext()) {
@@ -10,7 +10,7 @@
   int needDeletedNumber=total - Integer.valueOf(SettingUtility.getMsgCount());
   if (needDeletedNumber > 0) {
     AppLogger.e("" + needDeletedNumber);
-    String sql=" delete from " + RepostsTable.TABLE_NAME + " where "+ RepostsTable.ID+ " in "+ "( select "+ RepostsTable.ID+ " from "+ RepostsTable.TABLE_NAME+ " where "+ RepostsTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ RepostsTable.ID+ " asc limit "+ needDeletedNumber+ " ) ";
+    String sql=" delete from " + RepostsTable.RepostDataTable.TABLE_NAME + " where "+ RepostsTable.RepostDataTable.ID+ " in "+ "( select "+ RepostsTable.RepostDataTable.ID+ " from "+ RepostsTable.RepostDataTable.TABLE_NAME+ " where "+ RepostsTable.RepostDataTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ RepostsTable.RepostDataTable.ID+ " asc limit "+ needDeletedNumber+ " ) ";
     getWsd().execSQL(sql);
   }
 }

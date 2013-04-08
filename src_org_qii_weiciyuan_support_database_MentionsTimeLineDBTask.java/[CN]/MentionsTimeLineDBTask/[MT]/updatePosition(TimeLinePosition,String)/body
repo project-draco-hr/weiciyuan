@@ -1,0 +1,21 @@
+{
+  String sql="select * from " + RepostsTable.TABLE_NAME + " where "+ RepostsTable.ACCOUNTID+ "  = "+ accountId;
+  Cursor c=getRsd().rawQuery(sql,null);
+  Gson gson=new Gson();
+  if (c.moveToNext()) {
+    try {
+      String[] args={accountId};
+      ContentValues cv=new ContentValues();
+      cv.put(RepostsTable.TIMELINEDATA,gson.toJson(position));
+      getWsd().update(RepostsTable.TABLE_NAME,cv,RepostsTable.ACCOUNTID + "=?",args);
+    }
+ catch (    JsonSyntaxException e) {
+    }
+  }
+ else {
+    ContentValues cv=new ContentValues();
+    cv.put(RepostsTable.ACCOUNTID,accountId);
+    cv.put(RepostsTable.TIMELINEDATA,gson.toJson(position));
+    getWsd().insert(RepostsTable.TABLE_NAME,RepostsTable.ID,cv);
+  }
+}
