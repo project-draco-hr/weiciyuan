@@ -1,7 +1,0 @@
-{
-  MentionsCommentTimeLineFragment fragment=((MentionsCommentTimeLineFragment)getSupportFragmentManager().findFragmentByTag(MentionsCommentTimeLineFragment.class.getName()));
-  if (fragment == null) {
-    fragment=new MentionsCommentTimeLineFragment(getAccount(),getUser(),getToken());
-  }
-  return fragment;
-}
