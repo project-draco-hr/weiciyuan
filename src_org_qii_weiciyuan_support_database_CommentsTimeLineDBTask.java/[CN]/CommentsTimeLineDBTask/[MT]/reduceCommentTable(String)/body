@@ -1,5 +1,5 @@
 {
-  String searchCount="select count(" + CommentsTable.ID + ") as total"+ " from "+ CommentsTable.TABLE_NAME+ " where "+ CommentsTable.ACCOUNTID+ " = "+ accountId;
+  String searchCount="select count(" + CommentsTable.CommentsDataTable.ID + ") as total"+ " from "+ CommentsTable.CommentsDataTable.TABLE_NAME+ " where "+ CommentsTable.CommentsDataTable.ACCOUNTID+ " = "+ accountId;
   int total=0;
   Cursor c=getRsd().rawQuery(searchCount,null);
   if (c.moveToNext()) {
@@ -10,7 +10,7 @@
   int needDeletedNumber=total - Integer.valueOf(SettingUtility.getMsgCount());
   if (needDeletedNumber > 0) {
     AppLogger.e("" + needDeletedNumber);
-    String sql=" delete from " + CommentsTable.TABLE_NAME + " where "+ CommentsTable.ID+ " in "+ "( select "+ CommentsTable.ID+ " from "+ CommentsTable.TABLE_NAME+ " where "+ CommentsTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ CommentsTable.ID+ " asc limit "+ needDeletedNumber+ " ) ";
+    String sql=" delete from " + CommentsTable.CommentsDataTable.TABLE_NAME + " where "+ CommentsTable.CommentsDataTable.ID+ " in "+ "( select "+ CommentsTable.CommentsDataTable.ID+ " from "+ CommentsTable.CommentsDataTable.TABLE_NAME+ " where "+ CommentsTable.CommentsDataTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ CommentsTable.CommentsDataTable.ID+ " asc limit "+ needDeletedNumber+ " ) ";
     getWsd().execSQL(sql);
   }
 }

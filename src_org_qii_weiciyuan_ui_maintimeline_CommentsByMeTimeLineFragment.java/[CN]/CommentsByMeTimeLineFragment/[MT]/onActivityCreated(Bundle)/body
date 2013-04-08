@@ -15,6 +15,7 @@ case ACTIVITY_DESTROY_AND_CREATE:
 userBean=(UserBean)savedInstanceState.getSerializable("userBean");
 accountBean=(AccountBean)savedInstanceState.getSerializable("account");
 token=savedInstanceState.getString("token");
+timeLinePosition=(TimeLinePosition)savedInstanceState.getSerializable("timeLinePosition");
 clearAndReplaceValue((CommentListBean)savedInstanceState.getSerializable("bean"));
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(getList());

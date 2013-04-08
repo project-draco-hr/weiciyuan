@@ -5,6 +5,7 @@
   db.execSQL("DROP TABLE IF EXISTS " + HomeOtherGroupTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + HomeOtherGroupTable.HomeOtherGroupDataTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + CommentsTable.TABLE_NAME);
+  db.execSQL("DROP TABLE IF EXISTS " + CommentsTable.CommentsDataTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + RepostsTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + RepostsTable.RepostDataTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + MentionCommentsTable.TABLE_NAME);

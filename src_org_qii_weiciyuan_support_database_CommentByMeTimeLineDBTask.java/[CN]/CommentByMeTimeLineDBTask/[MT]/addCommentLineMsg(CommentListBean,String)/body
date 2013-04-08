@@ -5,11 +5,11 @@
     getWsd().beginTransaction();
     for (    CommentBean msg : msgList) {
       ContentValues cv=new ContentValues();
-      cv.put(CommentByMeTable.MBLOGID,msg.getId());
-      cv.put(CommentByMeTable.ACCOUNTID,accountId);
+      cv.put(CommentByMeTable.CommentByMeDataTable.MBLOGID,msg.getId());
+      cv.put(CommentByMeTable.CommentByMeDataTable.ACCOUNTID,accountId);
       String json=gson.toJson(msg);
-      cv.put(CommentByMeTable.JSONDATA,json);
-      getWsd().insert(CommentByMeTable.TABLE_NAME,CommentByMeTable.ID,cv);
+      cv.put(CommentByMeTable.CommentByMeDataTable.JSONDATA,json);
+      getWsd().insert(CommentByMeTable.CommentByMeDataTable.TABLE_NAME,CommentByMeTable.CommentByMeDataTable.ID,cv);
     }
     getWsd().setTransactionSuccessful();
   }

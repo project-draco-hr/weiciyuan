@@ -1,0 +1,4 @@
+{
+  super.onPause();
+  CommentsTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
+}

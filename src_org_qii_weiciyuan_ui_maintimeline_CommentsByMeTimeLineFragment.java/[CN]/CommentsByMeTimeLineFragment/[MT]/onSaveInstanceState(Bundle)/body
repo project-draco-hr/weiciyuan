@@ -4,4 +4,5 @@
   outState.putSerializable("bean",bean);
   outState.putSerializable("userBean",userBean);
   outState.putString("token",token);
+  outState.putSerializable("timeLinePosition",timeLinePosition);
 }
