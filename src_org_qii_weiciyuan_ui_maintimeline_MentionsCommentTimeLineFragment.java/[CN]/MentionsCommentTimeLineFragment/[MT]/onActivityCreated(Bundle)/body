@@ -16,6 +16,7 @@ userBean=(UserBean)savedInstanceState.getSerializable("userBean");
 accountBean=(AccountBean)savedInstanceState.getSerializable("account");
 token=savedInstanceState.getString("token");
 unreadBean=(UnreadBean)savedInstanceState.getSerializable("unreadBean");
+timeLinePosition=(TimeLinePosition)savedInstanceState.getSerializable("timeLinePosition");
 clearAndReplaceValue((CommentListBean)savedInstanceState.getSerializable("bean"));
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(getList());

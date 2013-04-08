@@ -1,10 +1,12 @@
 {
   super.onPostExecute(result);
   if (result != null) {
-    clearAndReplaceValue(result);
+    clearAndReplaceValue(result.cmtList);
+    timeLinePosition=result.position;
   }
   getPullToRefreshListView().setVisibility(View.VISIBLE);
   getAdapter().notifyDataSetChanged();
+  setListViewPositionFromPositionsCache();
   refreshLayout(getList());
   if (getList().getSize() == 0) {
     getPullToRefreshListView().startRefreshNow();

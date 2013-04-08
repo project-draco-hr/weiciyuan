@@ -5,11 +5,11 @@
     getWsd().beginTransaction();
     for (    CommentBean msg : msgList) {
       ContentValues cv=new ContentValues();
-      cv.put(MentionCommentsTable.MBLOGID,msg.getId());
-      cv.put(MentionCommentsTable.ACCOUNTID,accountId);
+      cv.put(MentionCommentsTable.MentionCommentsDataTable.MBLOGID,msg.getId());
+      cv.put(MentionCommentsTable.MentionCommentsDataTable.ACCOUNTID,accountId);
       String json=gson.toJson(msg);
-      cv.put(MentionCommentsTable.JSONDATA,json);
-      getWsd().insert(MentionCommentsTable.TABLE_NAME,MentionCommentsTable.ID,cv);
+      cv.put(MentionCommentsTable.MentionCommentsDataTable.JSONDATA,json);
+      getWsd().insert(MentionCommentsTable.MentionCommentsDataTable.TABLE_NAME,MentionCommentsTable.MentionCommentsDataTable.ID,cv);
     }
     getWsd().setTransactionSuccessful();
   }
