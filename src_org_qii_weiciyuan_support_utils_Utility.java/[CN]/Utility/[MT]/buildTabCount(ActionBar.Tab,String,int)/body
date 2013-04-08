@@ -1,4 +1,5 @@
 {
+  if (tab == null)   return;
   String content=tab.getText().toString();
   int value=0;
   int start=content.indexOf("(");
