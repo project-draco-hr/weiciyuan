@@ -7,9 +7,9 @@
   FragmentTransaction ft=getFragmentManager().beginTransaction();
   Fragment fragment=((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment();
   ft.hide(fragment);
-  ft.hide(((MainTimeLineActivity)getActivity()).getCommentsAllTimeLineFragment());
+  ft.hide(((MainTimeLineActivity)getActivity()).getCommentsTimeLineFragment());
   currentIndex=1;
-  MentionsTimeLine m=((MainTimeLineActivity)getActivity()).getMentionsAllTimeLineFragment();
+  MentionsTimeLine m=((MainTimeLineActivity)getActivity()).getMentionsTimeLineFragment();
   if (m.isAdded() && m.isHidden()) {
     ft.show(m);
   }

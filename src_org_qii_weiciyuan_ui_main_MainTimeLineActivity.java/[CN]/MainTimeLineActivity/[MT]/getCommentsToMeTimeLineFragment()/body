@@ -1,5 +1,0 @@
-{
-  CommentsToMeTimeLineFragment fragment=((CommentsToMeTimeLineFragment)getSupportFragmentManager().findFragmentByTag(CommentsToMeTimeLineFragment.class.getName()));
-  if (fragment == null)   fragment=new CommentsToMeTimeLineFragment(getAccount(),getUser(),getToken());
-  return fragment;
-}

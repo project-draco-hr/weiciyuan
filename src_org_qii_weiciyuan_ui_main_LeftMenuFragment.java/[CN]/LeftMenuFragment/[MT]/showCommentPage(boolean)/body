@@ -8,8 +8,8 @@
   FragmentTransaction ft=getFragmentManager().beginTransaction();
   Fragment friendsTimeLineFragment=((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment();
   ft.hide(friendsTimeLineFragment);
-  ft.hide(((MainTimeLineActivity)getActivity()).getMentionsAllTimeLineFragment());
-  CommentsTimeLine fragment=((MainTimeLineActivity)getActivity()).getCommentsAllTimeLineFragment();
+  ft.hide(((MainTimeLineActivity)getActivity()).getMentionsTimeLineFragment());
+  CommentsTimeLine fragment=((MainTimeLineActivity)getActivity()).getCommentsTimeLineFragment();
   if (fragment.isAdded() && fragment.isHidden()) {
     ft.show(fragment);
   }
