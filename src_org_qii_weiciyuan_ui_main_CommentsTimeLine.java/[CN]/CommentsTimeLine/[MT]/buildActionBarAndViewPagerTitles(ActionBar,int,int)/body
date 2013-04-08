@@ -1,5 +1,5 @@
 {
-  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setDisplayHomeAsUpEnabled(Utility.isDevicePort());
   actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
   actionBar.removeAllTabs();
   SimpleTwoTabsListener tabListener=new SimpleTwoTabsListener(viewPager);
