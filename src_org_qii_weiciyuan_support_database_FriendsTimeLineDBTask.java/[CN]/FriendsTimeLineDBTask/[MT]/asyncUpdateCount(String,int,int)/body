@@ -1,0 +1,9 @@
+{
+  new Thread(new Runnable(){
+    @Override public void run(){
+      FriendsTimeLineDBTask.updateCount(msgId,commentCount,repostCount);
+      HomeOtherGroupTimeLineDBTask.updateCount(msgId,commentCount,repostCount);
+    }
+  }
+).start();
+}
