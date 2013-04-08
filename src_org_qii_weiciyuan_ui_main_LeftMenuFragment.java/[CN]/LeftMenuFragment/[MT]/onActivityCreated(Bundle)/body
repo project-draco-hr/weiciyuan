@@ -1,5 +1,8 @@
 {
   super.onActivityCreated(savedInstanceState);
+  if (savedInstanceState != null) {
+    currentIndex=savedInstanceState.getInt("currentIndex");
+  }
 switch (currentIndex) {
 case 0:
     showHomePage(true);
