@@ -1,6 +1,0 @@
-{
-  super(fm);
-  this.fragmentList=fragmentList;
-  fragmentList.add(0,fragment.getMentionsWeiboTimeLineFragment());
-  fragmentList.add(1,fragment.getMentionsCommentTimeLineFragment());
-}

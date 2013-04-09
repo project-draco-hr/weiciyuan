@@ -1,9 +1,3 @@
 {
-  super(fragment,commander,bean,listView,showOriStatus);
-  int[] attrs=new int[]{R.attr.timeline_reply_flag};
-  TypedArray ta=fragment.getActivity().obtainStyledAttributes(attrs);
-  replyPic=ta.getDrawable(0);
-  attrs=new int[]{R.attr.timeline_comment_flag};
-  ta=fragment.getActivity().obtainStyledAttributes(attrs);
-  commentPic=ta.getDrawable(0);
+  this(fragment,commander,bean,listView,showOriStatus,false);
 }

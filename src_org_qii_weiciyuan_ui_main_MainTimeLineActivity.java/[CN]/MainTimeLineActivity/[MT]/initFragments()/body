@@ -1,7 +1,12 @@
 {
+  Fragment friend=getFriendsTimeLineFragment();
   Fragment mentions=getMentionsTimeLineFragment();
   Fragment comments=getCommentsTimeLineFragment();
   FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+  if (!friend.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,friend,FriendsTimeLineFragment.class.getName());
+    fragmentTransaction.hide(friend);
+  }
   if (!mentions.isAdded()) {
     fragmentTransaction.add(R.id.menu_right_fl,mentions,MentionsTimeLine.class.getName());
     fragmentTransaction.hide(mentions);

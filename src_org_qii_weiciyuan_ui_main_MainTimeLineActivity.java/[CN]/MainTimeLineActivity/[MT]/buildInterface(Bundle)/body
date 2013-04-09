@@ -11,12 +11,7 @@
   }
   buildCustomActionBarTitle(savedInstanceState);
   if (savedInstanceState == null) {
-    new Handler().postDelayed(new Runnable(){
-      @Override public void run(){
-        initFragments();
-      }
-    }
-,3000);
+    initFragments();
     FragmentTransaction secondFragmentTransaction=getSupportFragmentManager().beginTransaction();
     secondFragmentTransaction.replace(R.id.menu_frame,getMenuFragment(),LeftMenuFragment.class.getName());
     getSlidingMenu().showContent();

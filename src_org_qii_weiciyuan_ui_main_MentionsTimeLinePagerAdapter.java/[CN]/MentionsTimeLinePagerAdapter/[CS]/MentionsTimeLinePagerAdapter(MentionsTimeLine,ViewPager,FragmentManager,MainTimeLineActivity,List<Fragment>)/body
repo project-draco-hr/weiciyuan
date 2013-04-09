@@ -1,0 +1,13 @@
+{
+  super(fm);
+  this.fragmentList=fragmentList;
+  fragmentList.add(0,fragment.getMentionsWeiboTimeLineFragment());
+  fragmentList.add(1,fragment.getMentionsCommentTimeLineFragment());
+  FragmentTransaction transaction=fragment.getChildFragmentManager().beginTransaction();
+  if (!fragmentList.get(0).isAdded())   transaction.add(viewPager.getId(),fragmentList.get(0),MentionsWeiboTimeLineFragment.class.getName());
+  if (!fragmentList.get(1).isAdded())   transaction.add(viewPager.getId(),fragmentList.get(1),MentionsCommentTimeLineFragment.class.getName());
+  if (!transaction.isEmpty()) {
+    transaction.commit();
+    fragment.getChildFragmentManager().executePendingTransactions();
+  }
+}
