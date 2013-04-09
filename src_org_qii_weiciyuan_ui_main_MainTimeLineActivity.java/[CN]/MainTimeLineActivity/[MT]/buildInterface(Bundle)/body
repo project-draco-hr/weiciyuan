@@ -11,32 +11,16 @@
   }
   buildCustomActionBarTitle(savedInstanceState);
   if (savedInstanceState == null) {
-    Fragment friend=getFriendsTimeLineFragment();
-    Fragment mentions=getMentionsTimeLineFragment();
-    Fragment comments=getCommentsTimeLineFragment();
-    FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-    if (!friend.isAdded()) {
-      fragmentTransaction.add(R.id.menu_right_fl,friend,FriendsTimeLineFragment.class.getName());
-      fragmentTransaction.hide(friend);
+    new Handler().postDelayed(new Runnable(){
+      @Override public void run(){
+        initFragments();
+      }
     }
-    if (!mentions.isAdded()) {
-      fragmentTransaction.add(R.id.menu_right_fl,mentions,MentionsTimeLine.class.getName());
-      fragmentTransaction.hide(mentions);
-    }
-    if (!comments.isAdded()) {
-      fragmentTransaction.add(R.id.menu_right_fl,comments,CommentsTimeLine.class.getName());
-      fragmentTransaction.hide(comments);
-    }
-    if (!fragmentTransaction.isEmpty()) {
-      fragmentTransaction.commit();
-      getSupportFragmentManager().executePendingTransactions();
-    }
+,3000);
     FragmentTransaction secondFragmentTransaction=getSupportFragmentManager().beginTransaction();
     secondFragmentTransaction.replace(R.id.menu_frame,getMenuFragment(),LeftMenuFragment.class.getName());
     getSlidingMenu().showContent();
     secondFragmentTransaction.commit();
-  }
- else {
   }
   configSlidingMenu(phone);
 }

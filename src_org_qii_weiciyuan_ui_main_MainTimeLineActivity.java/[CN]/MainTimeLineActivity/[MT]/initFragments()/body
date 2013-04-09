@@ -1,0 +1,17 @@
+{
+  Fragment mentions=getMentionsTimeLineFragment();
+  Fragment comments=getCommentsTimeLineFragment();
+  FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+  if (!mentions.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,mentions,MentionsTimeLine.class.getName());
+    fragmentTransaction.hide(mentions);
+  }
+  if (!comments.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,comments,CommentsTimeLine.class.getName());
+    fragmentTransaction.hide(comments);
+  }
+  if (!fragmentTransaction.isEmpty()) {
+    fragmentTransaction.commit();
+    getSupportFragmentManager().executePendingTransactions();
+  }
+}
