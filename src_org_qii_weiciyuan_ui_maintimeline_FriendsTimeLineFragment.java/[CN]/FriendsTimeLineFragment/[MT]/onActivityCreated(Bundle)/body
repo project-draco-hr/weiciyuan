@@ -21,6 +21,7 @@ break;
 case SCREEN_ROTATE:
 refreshLayout(getList());
 buildActionBarNav();
+setListViewPositionFromPositionsCache();
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
 userBean=(UserBean)savedInstanceState.getSerializable("userBean");
