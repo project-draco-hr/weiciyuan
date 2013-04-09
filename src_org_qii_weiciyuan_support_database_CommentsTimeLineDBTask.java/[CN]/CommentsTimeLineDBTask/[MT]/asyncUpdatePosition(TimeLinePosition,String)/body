@@ -1,4 +1,5 @@
 {
+  if (position == null)   return;
   Runnable runnable=new Runnable(){
     @Override public void run(){
       updatePosition(position,accountId);
