@@ -5,8 +5,5 @@
   outState.putSerializable("userBean",userBean);
   outState.putString("token",token);
   outState.putSerializable("unreadBean",unreadBean);
-  outState.putSerializable("0",groupDataCache.get(0));
-  outState.putSerializable("1",groupDataCache.get(1));
-  outState.putSerializable("2",groupDataCache.get(2));
   outState.putSerializable("timeLinePosition",timeLinePosition);
 }
