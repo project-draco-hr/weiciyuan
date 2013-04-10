@@ -1,3 +1,0 @@
-{
-  return CommentByMeTimeLineDBTask.getCommentLineMsgList(GlobalContext.getInstance().getCurrentAccountId());
-}

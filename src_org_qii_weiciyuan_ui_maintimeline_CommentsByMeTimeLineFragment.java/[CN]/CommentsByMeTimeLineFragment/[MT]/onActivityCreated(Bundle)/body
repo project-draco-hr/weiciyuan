@@ -3,22 +3,24 @@
   commander=((MainTimeLineActivity)getActivity()).getBitmapDownloader();
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
-    if (Utility.isTaskStopped(dbTask)) {
-      dbTask=new DBCacheTask();
-      dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-    }
+    getLoaderManager().initLoader(0,null,dbCallback);
   break;
-case SCREEN_ROTATE:
-refreshLayout(bean);
-break;
 case ACTIVITY_DESTROY_AND_CREATE:
 userBean=(UserBean)savedInstanceState.getSerializable("userBean");
 accountBean=(AccountBean)savedInstanceState.getSerializable("account");
 token=savedInstanceState.getString("token");
 timeLinePosition=(TimeLinePosition)savedInstanceState.getSerializable("timeLinePosition");
-clearAndReplaceValue((CommentListBean)savedInstanceState.getSerializable("bean"));
+CommentListBean savedBean=(CommentListBean)savedInstanceState.getSerializable("bean");
+if (savedBean != null && savedBean.getSize() > 0) {
+clearAndReplaceValue(savedBean);
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(getList());
+setListViewPositionFromPositionsCache();
+getLoaderManager().destroyLoader(0);
+}
+ else {
+getLoaderManager().initLoader(0,null,dbCallback);
+}
 break;
 }
 }
