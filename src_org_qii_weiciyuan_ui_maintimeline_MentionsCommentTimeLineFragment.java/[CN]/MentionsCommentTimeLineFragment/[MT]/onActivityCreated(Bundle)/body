@@ -17,6 +17,7 @@ clearAndReplaceValue(savedBean);
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(getList());
 setListViewPositionFromPositionsCache();
+getLoaderManager().destroyLoader(0);
 }
  else {
 getLoaderManager().initLoader(0,null,dbCallback);

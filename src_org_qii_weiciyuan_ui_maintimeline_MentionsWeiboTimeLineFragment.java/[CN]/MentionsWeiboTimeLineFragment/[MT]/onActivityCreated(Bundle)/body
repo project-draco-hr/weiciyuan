@@ -15,6 +15,7 @@ if (savedBean != null && savedBean.getSize() > 0) {
 getList().replaceData(savedBean);
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(getList());
+getLoaderManager().destroyLoader(0);
 }
  else {
 getLoaderManager().initLoader(0,null,dbCallback);
