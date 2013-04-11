@@ -1,6 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
   if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == 1) {
-    buildActionBarAndViewPagerTitles(getActivity().getActionBar(),R.string.mentions_weibo,R.string.mentions_to_me);
+    buildActionBarAndViewPagerTitles(getActivity().getActionBar(),R.string.mentions_weibo,R.string.mentions_to_me,0);
   }
 }

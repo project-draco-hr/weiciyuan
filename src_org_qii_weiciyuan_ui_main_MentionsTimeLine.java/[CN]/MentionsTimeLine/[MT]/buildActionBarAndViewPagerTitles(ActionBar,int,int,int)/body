@@ -5,4 +5,5 @@
   SimpleTwoTabsListener tabListener=new SimpleTwoTabsListener(viewPager);
   actionBar.addTab(actionBar.newTab().setText(firstTab).setTabListener(tabListener));
   actionBar.addTab(actionBar.newTab().setText(secondTab).setTabListener(tabListener));
+  actionBar.setSelectedNavigationItem(nav);
 }

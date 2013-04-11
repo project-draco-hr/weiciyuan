@@ -7,6 +7,8 @@
     account.setAccess_token(c.getString(colid));
     colid=c.getColumnIndex(AccountTable.BLACK_MAGIC);
     account.setBlack_magic(c.getInt(colid) == 1);
+    colid=c.getColumnIndex(AccountTable.NAVIGATION_POSITION);
+    account.setNavigationPosition(c.getInt(colid));
     Gson gson=new Gson();
     String json=c.getString(c.getColumnIndex(AccountTable.INFOJSON));
     try {

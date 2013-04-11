@@ -3,6 +3,9 @@
   if (savedInstanceState != null) {
     currentIndex=savedInstanceState.getInt("currentIndex");
   }
+  if (currentIndex == -1) {
+    currentIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
+  }
 switch (currentIndex) {
 case 0:
     showHomePage(true);

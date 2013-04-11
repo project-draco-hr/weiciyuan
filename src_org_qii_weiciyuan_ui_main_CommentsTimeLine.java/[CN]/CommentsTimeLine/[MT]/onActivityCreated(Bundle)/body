@@ -1,6 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
   if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == 2) {
-    buildActionBarAndViewPagerTitles(getActivity().getActionBar(),R.string.all_people_send_to_me,R.string.my_comment);
+    buildActionBarAndViewPagerTitles(getActivity().getActionBar(),R.string.all_people_send_to_me,R.string.my_comment,0);
   }
 }

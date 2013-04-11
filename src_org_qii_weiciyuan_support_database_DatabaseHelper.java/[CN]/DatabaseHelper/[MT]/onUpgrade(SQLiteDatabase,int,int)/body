@@ -1,6 +1,7 @@
 {
 switch (oldVersion) {
 case 19:
+case 26:
     deleteAllTable(db);
   onCreate(db);
 default :
