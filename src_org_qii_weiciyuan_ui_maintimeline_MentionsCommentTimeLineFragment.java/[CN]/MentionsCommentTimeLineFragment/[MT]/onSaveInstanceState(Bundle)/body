@@ -4,6 +4,7 @@
   outState.putSerializable("bean",bean);
   outState.putSerializable("userBean",userBean);
   outState.putString("token",token);
+  outState.putBoolean("dbCacheLoaded",dbCacheLoaded);
   outState.putSerializable("unreadBean",unreadBean);
   outState.putSerializable("timeLinePosition",timeLinePosition);
 }
