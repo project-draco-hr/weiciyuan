@@ -1,0 +1,16 @@
+{
+  MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(token);
+  dao.setSince_id(sinceId);
+  dao.setMax_id(maxId);
+  MessageListBean result=null;
+  try {
+    result=dao.getGSONMsgList();
+  }
+ catch (  WeiboException e) {
+    exception=e;
+  }
+  AsyncTaskLoaderResult<MessageListBean> data=new AsyncTaskLoaderResult<MessageListBean>();
+  data.data=result;
+  data.exception=exception;
+  return data;
+}

@@ -1,0 +1,7 @@
+{
+  super(context);
+  this.token=token;
+  this.sinceId=sinceId;
+  this.maxId=maxId;
+  this.accountId=accountId;
+}

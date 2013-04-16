@@ -1,8 +1,3 @@
 {
-  MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(token);
-  if (getList().getItemList().size() > 0) {
-    dao.setMax_id(getList().getItemList().get(getList().getItemList().size() - 1).getId());
-  }
-  MessageListBean result=dao.getGSONMsgList();
-  return result;
+  return null;
 }

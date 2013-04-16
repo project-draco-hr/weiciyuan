@@ -1,4 +1,27 @@
 {
   super.onActivityCreated(savedInstanceState);
   commander=((ICommander)getActivity()).getBitmapDownloader();
+  if (savedInstanceState != null) {
+    newMsgLoaderIsLoading=savedInstanceState.getBoolean("newMsgLoaderIsLoading");
+    middleMsgLoaderIsLoading=savedInstanceState.getBoolean("middleMsgLoaderIsLoading");
+    oldMsgLoaderIsLoading=savedInstanceState.getBoolean("oldMsgLoaderIsLoading");
+  }
+  if (newMsgLoaderIsLoading) {
+    getLoaderManager().initLoader(NEW_MSG_LOADER_ID,null,msgCallback);
+  }
+ else {
+    getLoaderManager().destroyLoader(NEW_MSG_LOADER_ID);
+  }
+  if (middleMsgLoaderIsLoading) {
+    getLoaderManager().initLoader(MIDDLE_MSG_LOADER_ID,null,msgCallback);
+  }
+ else {
+    getLoaderManager().destroyLoader(MIDDLE_MSG_LOADER_ID);
+  }
+  if (oldMsgLoaderIsLoading) {
+    getLoaderManager().initLoader(OLD_MSG_LOADER_ID,null,msgCallback);
+  }
+ else {
+    getLoaderManager().destroyLoader(OLD_MSG_LOADER_ID);
+  }
 }
