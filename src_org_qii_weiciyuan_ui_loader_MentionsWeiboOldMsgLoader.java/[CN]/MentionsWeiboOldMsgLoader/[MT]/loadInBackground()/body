@@ -2,6 +2,7 @@
   MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(token);
   dao.setMax_id(id);
   MessageListBean result=null;
+  WeiboException exception=null;
   try {
     result=dao.getGSONMsgList();
   }

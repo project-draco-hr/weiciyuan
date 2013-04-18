@@ -3,6 +3,7 @@
   dao.setSince_id(sinceId);
   dao.setMax_id(maxId);
   MessageListBean result=null;
+  WeiboException exception=null;
   try {
     result=dao.getGSONMsgList();
   }
