@@ -9,9 +9,6 @@
  catch (  WeiboException e) {
     exception=e;
   }
-  if (result != null) {
-    MentionsTimeLineDBTask.addRepostLineMsg(result,accountId);
-  }
   AsyncTaskLoaderResult<MessageListBean> data=new AsyncTaskLoaderResult<MessageListBean>();
   data.data=result;
   data.exception=exception;
