@@ -1,0 +1,8 @@
+{
+  if (allowRefresh()) {
+    getLoaderManager().restartLoader(NEW_MSG_LOADER_ID,null,msgCallback);
+    Activity activity=getActivity();
+    if (activity == null)     return;
+    ((ICommander)activity).getBitmapDownloader().totalStopLoadPicture();
+  }
+}

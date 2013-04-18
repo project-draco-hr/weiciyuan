@@ -1,0 +1,9 @@
+{
+  String accountId=accountBean.getUid();
+  String token=accountBean.getAccess_token();
+  String maxId=null;
+  if (getList().getItemList().size() > 0) {
+    maxId=getList().getItemList().get(getList().getItemList().size() - 1).getId();
+  }
+  return new CommentsByMeMsgLoader(getActivity(),accountId,token,null,maxId);
+}

@@ -1,0 +1,3 @@
+{
+  getLoaderManager().restartLoader(OLD_MSG_LOADER_ID,null,msgCallback);
+}
