@@ -4,6 +4,7 @@
     getList().addNewData(newValue);
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
+    MentionCommentsTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
   }
   unreadBean=null;
 }

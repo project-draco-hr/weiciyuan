@@ -1,4 +1,0 @@
-{
-  deleteAllComments(accountId);
-  addCommentLineMsg(list,accountId);
-}
