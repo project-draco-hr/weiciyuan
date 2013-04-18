@@ -1,0 +1,10 @@
+{
+  super.onCreate(savedInstanceState);
+  getActionBar().setDisplayShowHomeEnabled(false);
+  getActionBar().setDisplayShowTitleEnabled(true);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setTitle(getString(R.string.pref_open_source_license_title));
+  webView=new WebView(this);
+  setContentView(webView);
+  webView.loadUrl("file:///android_asset/licenses.html");
+}
