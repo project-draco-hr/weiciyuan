@@ -5,5 +5,5 @@
   if (getList().getItemList().size() > 0) {
     sinceId=getList().getItemList().get(0).getId();
   }
-  return new MentionsWeiboNewMsgLoader(getActivity(),accountId,token,sinceId);
+  return new MentionsWeiboMsgLoader(getActivity(),accountId,token,sinceId,null);
 }
