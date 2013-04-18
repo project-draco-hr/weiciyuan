@@ -1,0 +1,4 @@
+String beginId
+String endId
+String endTag
+int position

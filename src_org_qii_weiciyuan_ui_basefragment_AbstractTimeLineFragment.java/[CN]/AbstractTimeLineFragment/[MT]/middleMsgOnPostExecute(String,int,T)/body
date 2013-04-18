@@ -1,6 +1,6 @@
 {
   if (newValue == null)   return;
-  if (newValue.getSize() == 1) {
+  if (newValue.getSize() == 0 || newValue.getSize() == 1) {
     getList().getItemList().remove(position);
     getAdapter().notifyDataSetChanged();
     return;

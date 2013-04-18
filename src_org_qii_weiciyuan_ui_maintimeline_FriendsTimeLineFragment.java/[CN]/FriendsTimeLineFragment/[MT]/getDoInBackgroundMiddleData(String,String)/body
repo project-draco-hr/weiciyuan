@@ -1,6 +1,3 @@
 {
-  MainFriendsTimeLineDao dao=new MainFriendsTimeLineDao(token);
-  dao.setMax_id(beginId);
-  dao.setSince_id(endId);
-  return dao.getGSONMsgList();
+  return null;
 }

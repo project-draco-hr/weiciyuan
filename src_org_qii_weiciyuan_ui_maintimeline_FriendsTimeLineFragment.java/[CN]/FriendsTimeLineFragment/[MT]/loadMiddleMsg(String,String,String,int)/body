@@ -1,0 +1,8 @@
+{
+  Bundle bundle=new Bundle();
+  bundle.putString("beginId",beginId);
+  bundle.putString("endId",endId);
+  bundle.putString("endTag",endTag);
+  bundle.putInt("position",position);
+  getLoaderManager().restartLoader(MIDDLE_MSG_LOADER_ID,bundle,msgCallback);
+}
