@@ -31,7 +31,7 @@ case R.id.menu_add_gps:
 addLocation();
 break;
 case R.id.menu_add_now_playing:
-MainTimeLineActivity.MusicInfo musicInfo=GlobalContext.getInstance().getMusicInfo();
+MusicInfo musicInfo=GlobalContext.getInstance().getMusicInfo();
 if (!musicInfo.isEmpty()) content.append(musicInfo.toString());
 break;
 }

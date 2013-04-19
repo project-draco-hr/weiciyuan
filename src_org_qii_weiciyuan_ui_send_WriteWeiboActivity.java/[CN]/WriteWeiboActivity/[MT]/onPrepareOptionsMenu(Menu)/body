@@ -8,7 +8,7 @@
     menu.findItem(R.id.menu_txt_to_pic).setVisible(false);
     menu.findItem(R.id.menu_clear).setVisible(false);
   }
-  MainTimeLineActivity.MusicInfo musicInfo=GlobalContext.getInstance().getMusicInfo();
+  MusicInfo musicInfo=GlobalContext.getInstance().getMusicInfo();
   if (!musicInfo.isEmpty()) {
     MenuItem musicMenu=menu.findItem(R.id.menu_add_now_playing);
     musicMenu.setVisible(true);
