@@ -1,0 +1,9 @@
+{
+  if (count > 0) {
+    layout.commentCount.setVisibility(View.VISIBLE);
+    layout.commentCount.setText(String.valueOf(count));
+  }
+ else {
+    layout.commentCount.setVisibility(View.GONE);
+  }
+}

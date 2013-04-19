@@ -1,2 +1,8 @@
 {
+  LeftMenuFragment fragment=getMenuFragment();
+  if (fragment != null && unreadBean != null) {
+    fragment.setHomeUnreadCount(unreadBean.getStatus());
+    fragment.setMentionUnreadCount(unreadBean.getMention_status() + unreadBean.getMention_cmt());
+    fragment.setCommentUnreadCount(unreadBean.getCmt());
+  }
 }

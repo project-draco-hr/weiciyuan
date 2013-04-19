@@ -1,0 +1,9 @@
+{
+  if (count > 0) {
+    layout.mentionCount.setVisibility(View.VISIBLE);
+    layout.mentionCount.setText(String.valueOf(count));
+  }
+ else {
+    layout.mentionCount.setVisibility(View.GONE);
+  }
+}
