@@ -1,4 +1,9 @@
 {
+  getLoaderManager().destroyLoader(NEW_MSG_LOADER_ID);
+  getLoaderManager().destroyLoader(MIDDLE_MSG_LOADER_ID);
+  getLoaderManager().destroyLoader(OLD_MSG_LOADER_ID);
+  getPullToRefreshListView().onRefreshComplete();
+  dismissFooterView();
   positionCache.put(currentGroupId,Utility.getCurrentPositionFromListView(getListView()));
   saveNewMsgCountToPositionsCache();
   setSelected(groupId);
