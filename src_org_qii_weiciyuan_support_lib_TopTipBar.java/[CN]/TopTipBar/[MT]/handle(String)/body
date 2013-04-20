@@ -1,0 +1,10 @@
+{
+  if (disappear) {
+    return;
+  }
+  boolean has=ids.contains(id);
+  if (has) {
+    ids.remove(id);
+    setCount();
+  }
+}

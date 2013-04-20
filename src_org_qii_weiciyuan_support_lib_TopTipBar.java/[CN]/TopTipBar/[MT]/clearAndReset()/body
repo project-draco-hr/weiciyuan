@@ -1,0 +1,7 @@
+{
+  if (disappear) {
+    return;
+  }
+  ids.clear();
+  disappear(0);
+}

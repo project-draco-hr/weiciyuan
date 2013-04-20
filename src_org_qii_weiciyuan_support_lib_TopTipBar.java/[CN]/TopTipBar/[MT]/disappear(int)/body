@@ -1,0 +1,19 @@
+{
+  if (lastRunnable != null) {
+    getHandler().removeCallbacks(lastRunnable);
+  }
+  lastRunnable=new Runnable(){
+    @Override public void run(){
+      animate().alpha(0).setDuration(300).setListener(new AnimatorListenerAdapter(){
+        @Override public void onAnimationEnd(        Animator animation){
+          super.onAnimationEnd(animation);
+          setVisibility(View.INVISIBLE);
+          animate().alpha(1.0f).setListener(null);
+        }
+      }
+);
+    }
+  }
+;
+  getHandler().postDelayed(lastRunnable,duration);
+}
