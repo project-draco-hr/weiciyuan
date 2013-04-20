@@ -3,7 +3,7 @@
   if ((bean == null || bean.getItemList().size() == 0) && newTask == null) {
     if (pullToRefreshListView != null) {
       pullToRefreshListView.startRefreshNow();
-      refresh();
+      loadNewMsg();
     }
   }
 }

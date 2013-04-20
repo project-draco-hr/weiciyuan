@@ -2,7 +2,7 @@
 switch (item.getItemId()) {
 case R.id.menu_refresh:
     pullToRefreshListView.startRefreshNow();
-  refresh();
+  loadNewMsg();
 return true;
 }
 return super.onOptionsItemSelected(item);
