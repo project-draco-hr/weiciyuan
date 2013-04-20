@@ -1,5 +1,6 @@
 {
   final TimeLinePosition position=positionCache.get(currentGroupId);
+  position.newMsgIds=newMsgTipBar.getValues();
   final String groupId=currentGroupId;
   FriendsTimeLineDBTask.asyncUpdatePosition(position,GlobalContext.getInstance().getCurrentAccountId(),groupId);
 }

@@ -1,4 +1,8 @@
 {
+  positionCache.put(currentGroupId,Utility.getCurrentPositionFromListView(getListView()));
+  saveNewMsgCountToPositionsCache();
+  setSelected(groupId);
+  newMsgTipBar.clearAndReset();
   if (groupDataCache.get(currentGroupId) == null || groupDataCache.get(currentGroupId).getSize() == 0) {
     getList().getItemList().clear();
     getAdapter().notifyDataSetChanged();
