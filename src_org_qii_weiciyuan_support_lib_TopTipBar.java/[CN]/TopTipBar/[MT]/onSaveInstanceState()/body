@@ -1,0 +1,8 @@
+{
+  Parcelable superState=super.onSaveInstanceState();
+  SavedState ss=new SavedState(superState);
+  ss.ids=this.ids;
+  ss.disappear=this.disappear;
+  ss.visible=this.isShown();
+  return ss;
+}

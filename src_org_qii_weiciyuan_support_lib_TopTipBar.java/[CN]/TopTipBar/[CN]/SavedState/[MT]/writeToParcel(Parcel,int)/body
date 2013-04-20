@@ -1,0 +1,5 @@
+{
+  super.writeToParcel(out,flags);
+  out.writeSerializable(ids);
+  out.writeBooleanArray(new boolean[]{this.disappear,this.visible});
+}

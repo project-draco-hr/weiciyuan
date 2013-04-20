@@ -1,0 +1,13 @@
+{
+  if (!(state instanceof SavedState)) {
+    super.onRestoreInstanceState(state);
+    return;
+  }
+  SavedState ss=(SavedState)state;
+  super.onRestoreInstanceState(ss.getSuperState());
+  this.ids=ss.ids;
+  this.disappear=ss.disappear;
+  if (ss.visible) {
+    setVisibility(View.VISIBLE);
+  }
+}
