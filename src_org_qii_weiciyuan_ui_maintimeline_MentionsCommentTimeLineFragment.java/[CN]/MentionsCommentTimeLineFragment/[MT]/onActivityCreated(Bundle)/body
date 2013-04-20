@@ -9,23 +9,18 @@ case ACTIVITY_DESTROY_AND_CREATE:
 userBean=(UserBean)savedInstanceState.getSerializable("userBean");
 accountBean=(AccountBean)savedInstanceState.getSerializable("account");
 token=savedInstanceState.getString("token");
-dbCacheLoaded=savedInstanceState.getBoolean("dbCacheLoaded");
 unreadBean=(UnreadBean)savedInstanceState.getSerializable("unreadBean");
 timeLinePosition=(TimeLinePosition)savedInstanceState.getSerializable("timeLinePosition");
 CommentListBean savedBean=(CommentListBean)savedInstanceState.getSerializable("bean");
+Loader<CommentTimeLineData> loader=getLoaderManager().getLoader(0);
+if (loader != null) {
+getLoaderManager().initLoader(0,null,dbCallback);
+}
 if (savedBean != null && savedBean.getSize() > 0) {
 clearAndReplaceValue(savedBean);
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(getList());
 setListViewPositionFromPositionsCache();
-getLoaderManager().destroyLoader(0);
-}
- else if (dbCacheLoaded) {
-refreshLayout(getList());
-getLoaderManager().destroyLoader(0);
-}
- else {
-getLoaderManager().initLoader(0,null,dbCallback);
 }
 break;
 }

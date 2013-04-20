@@ -1,6 +1,0 @@
-{
-  super.onSaveInstanceState(outState);
-  outState.putBoolean("newMsgLoaderIsLoading",newMsgLoaderIsLoading);
-  outState.putBoolean("middleMsgLoaderIsLoading",middleMsgLoaderIsLoading);
-  outState.putBoolean("oldMsgLoaderIsLoading",oldMsgLoaderIsLoading);
-}

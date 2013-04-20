@@ -4,5 +4,5 @@
   if (musicReceiver != null)   unregisterReceiver(musicReceiver);
   newMsgScheduledExecutorService.shutdownNow();
   if (getUnreadCountTask != null)   getUnreadCountTask.cancel(true);
-  saveNavigationPositionToDB();
+  if (isFinishing())   saveNavigationPositionToDB();
 }
