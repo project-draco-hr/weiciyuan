@@ -1,4 +1,8 @@
 {
+  getLoaderManager().destroyLoader(NEW_MSG_LOADER_ID);
+  getLoaderManager().destroyLoader(OLD_MSG_LOADER_ID);
+  getPullToRefreshListView().onRefreshComplete();
+  dismissFooterView();
   Bundle bundle=new Bundle();
   bundle.putString("beginId",beginId);
   bundle.putString("endId",endId);
