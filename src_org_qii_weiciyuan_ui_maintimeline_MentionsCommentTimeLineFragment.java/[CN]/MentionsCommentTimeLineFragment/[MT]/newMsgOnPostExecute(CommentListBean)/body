@@ -1,7 +1,6 @@
 {
   if (newValue != null && newValue.getItemList().size() > 0) {
     addNewDataAndRememberPosition(newValue);
-    MentionCommentsTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
   }
   unreadBean=null;
 }

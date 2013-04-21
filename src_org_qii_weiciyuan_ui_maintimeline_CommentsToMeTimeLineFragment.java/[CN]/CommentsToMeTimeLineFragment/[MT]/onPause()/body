@@ -3,4 +3,5 @@
   timeLinePosition=Utility.getCurrentPositionFromListView(getListView());
   timeLinePosition.newMsgIds=newMsgTipBar.getValues();
   CommentsTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
+  LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(newBroadcastReceiver);
 }
