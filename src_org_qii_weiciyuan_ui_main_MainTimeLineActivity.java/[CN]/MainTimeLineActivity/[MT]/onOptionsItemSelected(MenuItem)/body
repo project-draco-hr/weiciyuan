@@ -1,5 +1,4 @@
 {
-  Intent intent;
 switch (item.getItemId()) {
 case android.R.id.home:
     getSlidingMenu().showMenu();
