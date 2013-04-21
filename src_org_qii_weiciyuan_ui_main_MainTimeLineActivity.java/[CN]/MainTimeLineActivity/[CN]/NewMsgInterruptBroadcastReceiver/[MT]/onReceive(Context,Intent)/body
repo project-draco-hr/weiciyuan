@@ -1,5 +1,5 @@
 {
-  AccountBean newMsgAccountBean=(AccountBean)intent.getSerializableExtra("account");
+  AccountBean newMsgAccountBean=(AccountBean)intent.getSerializableExtra(BundleArgsConstants.ACCOUNT_EXTRA);
   if (newMsgAccountBean.getUid().equals(MainTimeLineActivity.this.accountBean.getUid())) {
     abortBroadcast();
   }

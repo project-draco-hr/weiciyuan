@@ -1,7 +1,6 @@
 {
   if (getActivity() != null && newValue.getSize() > 0) {
     addNewDataAndRememberPosition(newValue);
-    MentionsTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
   }
   unreadBean=null;
   refreshUnread(unreadBean);
