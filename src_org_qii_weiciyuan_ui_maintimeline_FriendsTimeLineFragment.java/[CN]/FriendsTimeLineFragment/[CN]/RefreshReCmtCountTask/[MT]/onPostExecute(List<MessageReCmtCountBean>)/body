@@ -10,12 +10,5 @@
     }
   }
   getAdapter().notifyDataSetChanged();
-  final String groupId=currentGroupId;
-  Runnable dbRunnable=new Runnable(){
-    @Override public void run(){
-      FriendsTimeLineDBTask.replace(getList(),accountBean.getUid(),groupId);
-    }
-  }
-;
-  new Thread(dbRunnable).start();
+  FriendsTimeLineDBTask.asyncReplace(getList(),accountBean.getUid(),currentGroupId);
 }
