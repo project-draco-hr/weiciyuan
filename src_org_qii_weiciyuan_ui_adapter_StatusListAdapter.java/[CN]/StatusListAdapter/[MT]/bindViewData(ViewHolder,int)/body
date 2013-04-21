@@ -9,20 +9,6 @@
   }
   if (listView.getCheckedItemPosition() == position + 1)   holder.listview_root.setBackgroundColor(checkedBG);
   final MessageBean msg=bean.get(position);
-  if (this.topTipBar != null && (position + 1) < bean.size()) {
-    MessageBean next=bean.get(position + 1);
-    if (next != null) {
-      this.topTipBar.handle(next.getId());
-    }
-    if (position == 0) {
-      handler.postDelayed(new Runnable(){
-        @Override public void run(){
-          topTipBar.clearAndReset();
-        }
-      }
-,300);
-    }
-  }
   UserBean user=msg.getUser();
   if (user != null) {
     holder.username.setVisibility(View.VISIBLE);
