@@ -9,6 +9,20 @@
   }
   if (listView.getCheckedItemPosition() == position + 1)   holder.listview_root.setBackgroundColor(checkedBG);
   final CommentBean comment=getList().get(position);
+  if (this.topTipBar != null && (position + 1) < bean.size()) {
+    CommentBean next=bean.get(position + 1);
+    if (next != null) {
+      this.topTipBar.handle(next.getId());
+    }
+    if (position == 0) {
+      handler.postDelayed(new Runnable(){
+        @Override public void run(){
+          topTipBar.clearAndReset();
+        }
+      }
+,300);
+    }
+  }
   UserBean user=comment.getUser();
   if (user != null) {
     holder.username.setVisibility(View.VISIBLE);
