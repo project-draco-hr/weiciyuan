@@ -1,4 +1,0 @@
-{
-  MessageListBean copy=new MessageListBean();
-  copy.addNewData(value);
-}
