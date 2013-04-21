@@ -2,7 +2,5 @@
   AccountBean newMsgAccountBean=(AccountBean)intent.getSerializableExtra("account");
   if (newMsgAccountBean.getUid().equals(MainTimeLineActivity.this.accountBean.getUid())) {
     abortBroadcast();
-    UnreadBean unreadBean=(UnreadBean)intent.getSerializableExtra("unread");
-    buildUnreadTabTxt(unreadBean);
   }
 }

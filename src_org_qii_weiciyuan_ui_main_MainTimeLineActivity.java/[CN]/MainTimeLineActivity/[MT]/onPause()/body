@@ -1,6 +1,6 @@
 {
   super.onPause();
-  unregisterReceiver(newMsgBroadcastReceiver);
+  unregisterReceiver(newMsgInterruptBroadcastReceiver);
   if (musicReceiver != null)   unregisterReceiver(musicReceiver);
   newMsgScheduledExecutorService.shutdownNow();
   if (getUnreadCountTask != null)   getUnreadCountTask.cancel(true);
