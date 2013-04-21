@@ -18,5 +18,6 @@
     }
   }
 ;
-  getHandler().postDelayed(lastRunnable,duration);
+  Handler handler=getHandler();
+  if (handler != null)   handler.postDelayed(lastRunnable,duration);
 }
