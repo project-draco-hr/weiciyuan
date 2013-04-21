@@ -16,7 +16,7 @@
       holder.username.setText(new StringBuilder(user.getScreen_name()).append("(").append(user.getRemark()).append(")").toString());
     }
  else {
-      holder.username.setText(user.getScreen_name());
+      holder.username.setText(user.getScreen_name() + position);
     }
     if (!showOriStatus && !SettingUtility.getEnableCommentRepostListAvatar()) {
       holder.avatar.setLayoutParams(new RelativeLayout.LayoutParams(0,0));
