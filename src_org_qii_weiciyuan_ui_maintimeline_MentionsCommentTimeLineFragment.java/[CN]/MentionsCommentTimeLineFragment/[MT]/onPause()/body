@@ -1,4 +1,6 @@
 {
   super.onPause();
+  timeLinePosition=Utility.getCurrentPositionFromListView(getListView());
+  timeLinePosition.newMsgIds=newMsgTipBar.getValues();
   MentionCommentsTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
 }
