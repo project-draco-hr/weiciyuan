@@ -1,9 +1,6 @@
 {
   if (getActivity() != null && newValue.getSize() > 0) {
-    showNewMsgToastMessage(newValue);
-    getList().addNewData(newValue);
-    getAdapter().notifyDataSetChanged();
-    getListView().setSelectionAfterHeaderView();
+    addNewDataAndRememberPosition(newValue);
     MentionsTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
   }
   unreadBean=null;
