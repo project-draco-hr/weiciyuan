@@ -1,5 +1,6 @@
 {
   super.onPause();
+  timeLinePosition.newMsgIds=newMsgTipBar.getValues();
   MentionsTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
   LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(newBroadcastReceiver);
 }

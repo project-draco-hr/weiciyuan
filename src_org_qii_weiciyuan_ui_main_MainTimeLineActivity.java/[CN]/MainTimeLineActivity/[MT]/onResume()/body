@@ -5,12 +5,5 @@
   newMsgInterruptBroadcastReceiver=new NewMsgInterruptBroadcastReceiver();
   registerReceiver(newMsgInterruptBroadcastReceiver,filter);
   startListenMusicPlaying();
-  newMsgScheduledExecutorService=Executors.newSingleThreadScheduledExecutor();
-  newMsgScheduledExecutorService.scheduleAtFixedRate(new Runnable(){
-    @Override public void run(){
-      getUnreadCount();
-    }
-  }
-,10,50,TimeUnit.SECONDS);
   readClipboard();
 }

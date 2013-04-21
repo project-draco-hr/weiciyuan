@@ -1,6 +1,0 @@
-{
-  super.onPostExecute(unreadBean);
-  if (unreadBean != null) {
-    buildUnreadTabTxt(unreadBean);
-  }
-}
