@@ -3,5 +3,4 @@
   savePositionToDB();
   saveGroupIdToDB();
   removeRefresh();
-  Utility.cancelTasks(autoRefreshTask);
 }

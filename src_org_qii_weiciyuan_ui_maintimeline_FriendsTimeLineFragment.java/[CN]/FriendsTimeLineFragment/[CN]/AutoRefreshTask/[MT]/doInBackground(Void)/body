@@ -1,9 +1,0 @@
-{
-  try {
-    return getDoInBackgroundNewData();
-  }
- catch (  WeiboException e) {
-    cancel(true);
-  }
-  return null;
-}
