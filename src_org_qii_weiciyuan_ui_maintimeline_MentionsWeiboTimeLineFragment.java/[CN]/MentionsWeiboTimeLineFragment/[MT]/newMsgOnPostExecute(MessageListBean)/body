@@ -3,7 +3,7 @@
     addNewDataAndRememberPosition(newValue);
   }
   unreadBean=null;
-  refreshUnread(unreadBean);
+  refreshUnread(newMsgTipBar);
   NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
   notificationManager.cancel(Long.valueOf(GlobalContext.getInstance().getCurrentAccountId()).intValue());
 }

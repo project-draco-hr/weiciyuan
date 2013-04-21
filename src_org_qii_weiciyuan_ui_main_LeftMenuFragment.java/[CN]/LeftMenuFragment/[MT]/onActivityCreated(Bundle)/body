@@ -18,4 +18,9 @@ showCommentPage(true);
 break;
 }
 drawButtonsBackground(currentIndex);
+TimeLinePosition s=MentionsTimeLineDBTask.getPosition(GlobalContext.getInstance().getCurrentAccountId());
+HashSet<String> f=s.newMsgIds;
+if (f != null) {
+setMentionWeiboUnreadCount(f.size());
+}
 }

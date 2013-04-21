@@ -22,5 +22,5 @@ refreshLayout(getList());
 }
 break;
 }
-refreshUnread(this.unreadBean);
+refreshUnread(this.newMsgTipBar);
 }
