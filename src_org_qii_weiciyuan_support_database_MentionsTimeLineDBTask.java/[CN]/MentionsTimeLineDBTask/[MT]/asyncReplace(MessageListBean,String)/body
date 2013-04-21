@@ -1,8 +1,10 @@
 {
+  final MessageListBean data=new MessageListBean();
+  data.replaceData(list);
   new Thread(new Runnable(){
     @Override public void run(){
       deleteAllReposts(accountId);
-      addRepostLineMsg(list,accountId);
+      addRepostLineMsg(data,accountId);
     }
   }
 ).start();
