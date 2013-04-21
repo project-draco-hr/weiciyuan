@@ -6,4 +6,11 @@
   intent.putExtra("mention_comment",mentionCommentsResult);
   intent.putExtra("unread",unreadBean);
   sendOrderedBroadcast(intent,null);
+  intent=new Intent(AppEventAction.NEW_MSG_BROADCAST);
+  intent.putExtra("account",accountBean);
+  intent.putExtra("comment",commentResult);
+  intent.putExtra("repost",mentionStatusesResult);
+  intent.putExtra("mention_comment",mentionCommentsResult);
+  intent.putExtra("unread",unreadBean);
+  LocalBroadcastManager.getInstance(getBaseContext()).sendBroadcast(intent);
 }

@@ -1,4 +1,5 @@
 {
   super.onPause();
   MentionsTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
+  LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(newBroadcastReceiver);
 }
