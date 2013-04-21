@@ -1,5 +1,5 @@
 {
-  Intent intent=new Intent(UnreadMsgReceiver.ACTION);
+  Intent intent=new Intent(AppEventAction.NEW_MSG_PRIORITY_BROADCAST);
   intent.putExtra("account",accountBean);
   intent.putExtra("comment",commentResult);
   intent.putExtra("repost",mentionStatusesResult);
