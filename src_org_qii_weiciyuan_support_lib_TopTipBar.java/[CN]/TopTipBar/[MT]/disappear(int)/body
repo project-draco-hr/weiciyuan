@@ -12,6 +12,9 @@
           super.onAnimationEnd(animation);
           setVisibility(View.INVISIBLE);
           animate().alpha(1.0f).setListener(null);
+          if (ids.size() > 0) {
+            setCount();
+          }
         }
       }
 );

@@ -3,6 +3,6 @@
   setVisibility(View.VISIBLE);
   animate().alpha(1.0f);
   setText(error);
-  disappear(5000);
+  disappear(3000);
   setBackgroundResource(R.color.top_tip_bar_error);
 }
