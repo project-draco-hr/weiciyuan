@@ -1,4 +1,5 @@
 {
+  this.error=false;
   int count=ids.size();
   if (count > 0) {
     setVisibility(View.VISIBLE);

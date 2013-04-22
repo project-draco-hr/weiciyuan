@@ -1,5 +1,6 @@
 {
   this.disappear=true;
+  this.error=true;
   setVisibility(View.VISIBLE);
   animate().alpha(1.0f);
   setText(error);

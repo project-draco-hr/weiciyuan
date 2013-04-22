@@ -7,4 +7,7 @@
     ids.remove(id);
     setCount();
   }
+  if (ids.contains(helperId)) {
+    setCount();
+  }
 }
