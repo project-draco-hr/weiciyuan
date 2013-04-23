@@ -1,4 +1,5 @@
 {
+  if (showOriStatus && SettingUtility.getAppTheme() == R.style.AppTheme_Four)   listView.setDivider(null);
   this.bean=bean;
   this.commander=commander;
   this.inflater=fragment.getActivity().getLayoutInflater();
