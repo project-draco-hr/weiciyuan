@@ -1,7 +1,7 @@
 {
-  layout.home.setBackgroundResource(R.color.transparent);
-  layout.mention.setBackgroundResource(R.color.transparent);
-  layout.comment.setBackgroundResource(R.color.transparent);
+  layout.home.setBackgroundResource(R.drawable.btn_drawer_menu);
+  layout.mention.setBackgroundResource(R.drawable.btn_drawer_menu);
+  layout.comment.setBackgroundResource(R.drawable.btn_drawer_menu);
 switch (position) {
 case 0:
     layout.home.setBackgroundResource(R.color.ics_blue_semi);
