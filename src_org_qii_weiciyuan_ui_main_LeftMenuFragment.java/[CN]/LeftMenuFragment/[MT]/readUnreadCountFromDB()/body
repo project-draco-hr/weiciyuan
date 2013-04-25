@@ -1,0 +1,17 @@
+{
+  TimeLinePosition position=MentionsTimeLineDBTask.getPosition(GlobalContext.getInstance().getCurrentAccountId());
+  HashSet<String> hashSet=position.newMsgIds;
+  if (hashSet != null) {
+    mentionsWeiboUnreadCount=hashSet.size();
+  }
+  position=MentionCommentsTimeLineDBTask.getPosition(GlobalContext.getInstance().getCurrentAccountId());
+  hashSet=position.newMsgIds;
+  if (hashSet != null) {
+    mentionsCommentUnreadCount=hashSet.size();
+  }
+  position=CommentsTimeLineDBTask.getPosition(GlobalContext.getInstance().getCurrentAccountId());
+  hashSet=position.newMsgIds;
+  if (hashSet != null) {
+    commentsToMeUnreadCount=hashSet.size();
+  }
+}

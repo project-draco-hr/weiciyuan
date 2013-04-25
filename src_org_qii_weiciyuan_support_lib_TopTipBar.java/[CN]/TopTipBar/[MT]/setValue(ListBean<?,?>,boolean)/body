@@ -8,4 +8,7 @@
   if (disappear) {
     disappear(3000);
   }
+  if (this.onChangeListener != null) {
+    this.onChangeListener.onChange(ids.size());
+  }
 }

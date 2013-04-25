@@ -2,6 +2,12 @@
   super.onActivityCreated(savedInstanceState);
   if (savedInstanceState != null) {
     currentIndex=savedInstanceState.getInt("currentIndex");
+    mentionsWeiboUnreadCount=savedInstanceState.getInt("mentionsWeiboUnreadCount");
+    mentionsCommentUnreadCount=savedInstanceState.getInt("mentionsCommentUnreadCount");
+    commentsToMeUnreadCount=savedInstanceState.getInt("commentsToMeUnreadCount");
+  }
+ else {
+    readUnreadCountFromDB();
   }
   if (currentIndex == -1) {
     currentIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;

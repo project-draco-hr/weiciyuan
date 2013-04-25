@@ -1,5 +1,5 @@
 {
-  this.mentionsWeiboUnreadCount=count;
+  this.mentionsCommentUnreadCount=count;
   int totalCount=this.mentionsWeiboUnreadCount + this.mentionsCommentUnreadCount;
   if (totalCount > 0) {
     layout.mentionCount.setVisibility(View.VISIBLE);
