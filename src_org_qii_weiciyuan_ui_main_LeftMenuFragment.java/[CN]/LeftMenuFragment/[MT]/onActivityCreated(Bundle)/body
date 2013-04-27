@@ -5,6 +5,9 @@
     mentionsWeiboUnreadCount=savedInstanceState.getInt("mentionsWeiboUnreadCount");
     mentionsCommentUnreadCount=savedInstanceState.getInt("mentionsCommentUnreadCount");
     commentsToMeUnreadCount=savedInstanceState.getInt("commentsToMeUnreadCount");
+    commentsTabIndex=savedInstanceState.getInt("commentsTabIndex");
+    mentionsTabIndex=savedInstanceState.getInt("mentionsTabIndex");
+    firstStart=savedInstanceState.getBoolean("firstStart");
   }
  else {
     readUnreadCountFromDB();

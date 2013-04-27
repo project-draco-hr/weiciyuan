@@ -17,7 +17,6 @@
     ft.add(R.id.menu_right_fl,fragment,CommentsTimeLine.class.getName());
   }
   ft.commit();
-  int commentsTabIndex=-1;
   if (firstStart) {
     int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
     if (navPosition == 2) {

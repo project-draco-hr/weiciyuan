@@ -18,7 +18,6 @@
     ft.add(R.id.menu_right_fl,m,MentionsTimeLine.class.getName());
   }
   ft.commit();
-  int mentionsTabIndex=-1;
   if (firstStart) {
     int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
     if (navPosition == 1) {

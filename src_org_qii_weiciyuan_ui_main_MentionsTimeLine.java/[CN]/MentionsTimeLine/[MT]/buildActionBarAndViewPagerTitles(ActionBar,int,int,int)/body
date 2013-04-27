@@ -20,7 +20,6 @@
   }
   actionBar.addTab(mentionsCommentTab);
   if (actionBar.getNavigationMode() == ActionBar.NAVIGATION_MODE_TABS && nav > -1) {
-    actionBar.setSelectedNavigationItem(nav);
     viewPager.setCurrentItem(nav,false);
   }
 }

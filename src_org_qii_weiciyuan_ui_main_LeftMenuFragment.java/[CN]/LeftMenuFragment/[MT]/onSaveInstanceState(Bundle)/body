@@ -4,5 +4,7 @@
   outState.putInt("mentionsWeiboUnreadCount",mentionsWeiboUnreadCount);
   outState.putInt("mentionsCommentUnreadCount",mentionsCommentUnreadCount);
   outState.putInt("commentsToMeUnreadCount",commentsToMeUnreadCount);
+  outState.putInt("commentsTabIndex",commentsTabIndex);
+  outState.putInt("mentionsTabIndex",mentionsTabIndex);
   outState.putBoolean("firstStart",firstStart);
 }
