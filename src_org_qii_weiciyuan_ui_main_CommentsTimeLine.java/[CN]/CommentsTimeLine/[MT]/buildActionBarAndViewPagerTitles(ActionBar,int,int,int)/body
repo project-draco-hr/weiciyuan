@@ -5,14 +5,14 @@
   SimpleTwoTabsListener tabListener=new SimpleTwoTabsListener(viewPager);
   ActionBar.Tab commentsToMeTab=getCommentsToMeTab();
   if (commentsToMeTab == null) {
-    View customView=getActivity().getLayoutInflater().inflate(R.layout.test,null);
+    View customView=getActivity().getLayoutInflater().inflate(R.layout.ab_tab_custom_view_layout,null);
     ((TextView)customView.findViewById(R.id.title)).setText(firstTab);
     commentsToMeTab=actionBar.newTab().setCustomView(customView).setTag(CommentsToMeTimeLineFragment.class.getName()).setTabListener(tabListener);
     tabMap.put(0,commentsToMeTab);
   }
   ActionBar.Tab commentsByMeTab=getCommentsByMeTab();
   if (commentsToMeTab == null) {
-    View customView=getActivity().getLayoutInflater().inflate(R.layout.test,null);
+    View customView=getActivity().getLayoutInflater().inflate(R.layout.ab_tab_custom_view_layout,null);
     ((TextView)customView.findViewById(R.id.title)).setText(secondTab);
     commentsByMeTab=actionBar.newTab().setCustomView(customView).setTag(CommentsByMeTimeLineFragment.class.getName()).setTabListener(tabListener);
     tabMap.put(1,commentsByMeTab);
