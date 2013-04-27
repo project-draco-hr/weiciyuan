@@ -1,6 +1,7 @@
 {
   super.onResume();
   LocalBroadcastManager.getInstance(getActivity()).registerReceiver(newBroadcastReceiver,new IntentFilter(AppEventAction.NEW_MSG_BROADCAST));
+  setActionBarTabCount(newMsgTipBar.getValues().size());
   newMsgTipBar.setOnChangeListener(new TopTipBar.OnChangeListener(){
     @Override public void onChange(    int count){
       ((MainTimeLineActivity)getActivity()).setCommentsToMeCount(count);

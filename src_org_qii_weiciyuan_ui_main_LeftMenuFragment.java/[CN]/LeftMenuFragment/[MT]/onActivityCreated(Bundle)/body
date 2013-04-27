@@ -25,4 +25,5 @@ break;
 }
 drawButtonsBackground(currentIndex);
 buildUnreadCount();
+firstStart=false;
 }

@@ -1,8 +1,10 @@
 {
   super.onResume();
-  newMsgTipBar.setOnChangeListener(new TopTipBar.OnChangeListener(){
+  setActionBarTabCount(newMsgTipBar.getValues().size());
+  getNewMsgTipBar().setOnChangeListener(new TopTipBar.OnChangeListener(){
     @Override public void onChange(    int count){
       ((MainTimeLineActivity)getActivity()).setMentionsCommentCount(count);
+      setActionBarTabCount(count);
     }
   }
 );

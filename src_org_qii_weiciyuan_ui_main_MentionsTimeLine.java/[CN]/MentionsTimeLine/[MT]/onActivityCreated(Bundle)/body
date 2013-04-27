@@ -1,5 +1,20 @@
 {
   super.onActivityCreated(savedInstanceState);
+  SimpleTwoTabsListener tabListener=new SimpleTwoTabsListener(viewPager);
+  ActionBar.Tab mentionsWeiboTab=getWeiboTab();
+  if (mentionsWeiboTab == null) {
+    View customView=getActivity().getLayoutInflater().inflate(R.layout.test,null);
+    ((TextView)customView.findViewById(R.id.title)).setText(R.string.mentions_weibo);
+    mentionsWeiboTab=getActivity().getActionBar().newTab().setCustomView(customView).setTag(MentionsWeiboTimeLineFragment.class.getName()).setTabListener(tabListener);
+    tabMap.put(0,mentionsWeiboTab);
+  }
+  ActionBar.Tab mentionsCommentTab=getCommentTab();
+  if (mentionsCommentTab == null) {
+    View customView=getActivity().getLayoutInflater().inflate(R.layout.test,null);
+    ((TextView)customView.findViewById(R.id.title)).setText(R.string.mentions_to_me);
+    mentionsCommentTab=getActivity().getActionBar().newTab().setCustomView(customView).setTag(MentionsCommentTimeLineFragment.class.getName()).setTabListener(tabListener);
+    tabMap.put(1,mentionsCommentTab);
+  }
   if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == 1) {
     buildActionBarAndViewPagerTitles(getActivity().getActionBar(),R.string.mentions_weibo,R.string.mentions_to_me,0);
   }

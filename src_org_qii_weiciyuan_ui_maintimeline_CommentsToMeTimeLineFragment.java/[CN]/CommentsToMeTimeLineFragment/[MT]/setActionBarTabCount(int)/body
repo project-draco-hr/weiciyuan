@@ -1,0 +1,19 @@
+{
+  CommentsTimeLine parent=(CommentsTimeLine)getParentFragment();
+  ActionBar.Tab tab=parent.getCommentsToMeTab();
+  if (tab == null) {
+    return;
+  }
+  String tabTag=(String)tab.getTag();
+  if (CommentsToMeTimeLineFragment.class.getName().equals(tabTag)) {
+    View customView=tab.getCustomView();
+    TextView countTV=(TextView)customView.findViewById(R.id.tv_home_count);
+    countTV.setText(String.valueOf(count));
+    if (count > 0) {
+      countTV.setVisibility(View.VISIBLE);
+    }
+ else {
+      countTV.setVisibility(View.GONE);
+    }
+  }
+}

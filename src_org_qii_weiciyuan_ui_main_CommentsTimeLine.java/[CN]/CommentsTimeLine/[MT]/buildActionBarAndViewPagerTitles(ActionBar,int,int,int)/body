@@ -3,7 +3,24 @@
   actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
   actionBar.removeAllTabs();
   SimpleTwoTabsListener tabListener=new SimpleTwoTabsListener(viewPager);
-  actionBar.addTab(actionBar.newTab().setText(firstTab).setTabListener(tabListener));
-  actionBar.addTab(actionBar.newTab().setText(secondTab).setTabListener(tabListener));
-  if (actionBar.getNavigationMode() == ActionBar.NAVIGATION_MODE_TABS)   actionBar.setSelectedNavigationItem(nav);
+  ActionBar.Tab commentsToMeTab=getCommentsToMeTab();
+  if (commentsToMeTab == null) {
+    View customView=getActivity().getLayoutInflater().inflate(R.layout.test,null);
+    ((TextView)customView.findViewById(R.id.title)).setText(firstTab);
+    commentsToMeTab=actionBar.newTab().setCustomView(customView).setTag(CommentsToMeTimeLineFragment.class.getName()).setTabListener(tabListener);
+    tabMap.put(0,commentsToMeTab);
+  }
+  ActionBar.Tab commentsByMeTab=getCommentsByMeTab();
+  if (commentsToMeTab == null) {
+    View customView=getActivity().getLayoutInflater().inflate(R.layout.test,null);
+    ((TextView)customView.findViewById(R.id.title)).setText(secondTab);
+    commentsByMeTab=actionBar.newTab().setCustomView(customView).setTag(CommentsByMeTimeLineFragment.class.getName()).setTabListener(tabListener);
+    tabMap.put(1,commentsByMeTab);
+  }
+  actionBar.addTab(commentsToMeTab);
+  actionBar.addTab(commentsByMeTab);
+  if (actionBar.getNavigationMode() == ActionBar.NAVIGATION_MODE_TABS && nav > -1) {
+    actionBar.setSelectedNavigationItem(nav);
+    viewPager.setCurrentItem(nav,false);
+  }
 }

@@ -17,12 +17,14 @@
     ft.add(R.id.menu_right_fl,fragment,CommentsTimeLine.class.getName());
   }
   ft.commit();
-  int tabIndex=0;
-  int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
-  if (navPosition == 2) {
-    tabIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() % 10;
+  int commentsTabIndex=-1;
+  if (firstStart) {
+    int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
+    if (navPosition == 2) {
+      commentsTabIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() % 10;
+    }
   }
-  fragment.buildActionBarAndViewPagerTitles(getActivity().getActionBar(),R.string.all_people_send_to_me,R.string.my_comment,tabIndex);
+  fragment.buildActionBarAndViewPagerTitles(getActivity().getActionBar(),R.string.all_people_send_to_me,R.string.my_comment,commentsTabIndex);
   ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
   if (Utility.isDevicePort()) {
     setTitle(R.string.comments);
