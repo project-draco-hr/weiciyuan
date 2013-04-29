@@ -5,18 +5,11 @@
   }
   getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
   FragmentTransaction ft=getFragmentManager().beginTransaction();
-  Fragment fragment=((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment();
-  ft.hide(fragment);
-  ft.hide(((MainTimeLineActivity)getActivity()).getCommentsTimeLineFragment());
+  ft.hide(rightFragments.get(HOME_INDEX));
+  ft.hide(rightFragments.get(COMMENTS_INDEX));
   currentIndex=1;
-  MentionsTimeLine m=((MainTimeLineActivity)getActivity()).getMentionsTimeLineFragment();
-  if (m.isAdded() && m.isHidden()) {
-    ft.show(m);
-  }
- else   if (!m.isAdded()) {
-    ft.attach(m);
-    ft.add(R.id.menu_right_fl,m,MentionsTimeLine.class.getName());
-  }
+  MentionsTimeLine m=(MentionsTimeLine)rightFragments.get(MENTIONS_INDEX);
+  ft.show(m);
   ft.commit();
   if (firstStart) {
     int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;

@@ -6,16 +6,10 @@
   }
   currentIndex=2;
   FragmentTransaction ft=getFragmentManager().beginTransaction();
-  Fragment friendsTimeLineFragment=((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment();
-  ft.hide(friendsTimeLineFragment);
-  ft.hide(((MainTimeLineActivity)getActivity()).getMentionsTimeLineFragment());
-  CommentsTimeLine fragment=((MainTimeLineActivity)getActivity()).getCommentsTimeLineFragment();
-  if (fragment.isAdded() && fragment.isHidden()) {
-    ft.show(fragment);
-  }
- else   if (!fragment.isAdded()) {
-    ft.add(R.id.menu_right_fl,fragment,CommentsTimeLine.class.getName());
-  }
+  ft.hide(rightFragments.get(HOME_INDEX));
+  ft.hide(rightFragments.get(MENTIONS_INDEX));
+  CommentsTimeLine fragment=(CommentsTimeLine)rightFragments.get(COMMENTS_INDEX);
+  ft.show(fragment);
   ft.commit();
   if (firstStart) {
     int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
