@@ -13,5 +13,6 @@
   ft.commit();
   ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
   setTitle("");
+  ((MainTimeLineActivity)getActivity()).setCurrentFragment(fragment);
   return false;
 }

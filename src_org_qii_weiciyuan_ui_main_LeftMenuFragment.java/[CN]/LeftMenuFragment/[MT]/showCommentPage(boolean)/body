@@ -19,6 +19,7 @@
   }
   fragment.buildActionBarAndViewPagerTitles(getActivity().getActionBar(),R.string.all_people_send_to_me,R.string.my_comment,commentsTabIndex);
   ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
+  ((MainTimeLineActivity)getActivity()).setCurrentFragment(fragment);
   if (Utility.isDevicePort()) {
     setTitle(R.string.comments);
   }

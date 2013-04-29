@@ -1,6 +1,5 @@
 {
   super.setUserVisibleHint(isVisibleToUser);
   if (isVisible() && isVisibleToUser) {
-    ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
   }
 }
