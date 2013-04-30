@@ -7,5 +7,11 @@
     if (onVelocityEqualZeroListener != null && (mTime == INVALID_TIME)) {
       onVelocityEqualZeroListener.onZero();
     }
+    if (velocity < 0) {
+      towardsOrientation=TOWARDS_BOTTOM;
+    }
+ else     if (velocity > 0) {
+      towardsOrientation=TOWARDS_TOP;
+    }
   }
 }
