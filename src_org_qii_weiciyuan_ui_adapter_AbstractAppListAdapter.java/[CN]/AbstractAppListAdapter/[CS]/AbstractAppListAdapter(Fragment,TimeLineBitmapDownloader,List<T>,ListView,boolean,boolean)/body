@@ -11,13 +11,13 @@
   TypedArray ta=fragment.getActivity().obtainStyledAttributes(attrs);
   checkedBG=ta.getColor(0,430);
   if (pre) {
-    for (int i=0; i < 6; i++) {
+    for (int i=0; i < PREF_LISTVIEW_ITEM_VIEW_COUNT; i++) {
       PrefView prefView=new PrefView();
       prefView.view=initNormalLayout(null);
       prefView.holder=buildHolder(prefView.view);
       prefNormalViews.add(prefView);
     }
-    for (int i=0; i < 6; i++) {
+    for (int i=0; i < PREF_LISTVIEW_ITEM_VIEW_COUNT; i++) {
       PrefView prefView=new PrefView();
       prefView.view=initBigPicLayout(null);
       prefView.holder=buildHolder(prefView.view);
