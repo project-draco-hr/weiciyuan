@@ -1,0 +1,8 @@
+{
+  super(context,attrs,defStyle);
+  LayoutInflater inflate=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  View v=inflate.inflate(R.layout.widget_listviewmiddlemsgloadingview,this,true);
+  word=(TextView)v.findViewById(R.id.tv_load_middle_msg);
+  progressBar=(ProgressBar)v.findViewById(R.id.pb_loading_middle_msg);
+  progressBar.setVisibility(View.INVISIBLE);
+}

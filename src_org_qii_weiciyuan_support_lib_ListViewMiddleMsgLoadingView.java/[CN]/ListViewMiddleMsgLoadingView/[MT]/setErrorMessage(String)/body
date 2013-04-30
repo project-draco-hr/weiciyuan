@@ -1,0 +1,5 @@
+{
+  complete();
+  this.word.setText(errorMessage);
+  this.word.setTextColor(getContext().getResources().getColor(R.color.red));
+}

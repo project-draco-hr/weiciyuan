@@ -1,0 +1,4 @@
+{
+  word.setVisibility(View.INVISIBLE);
+  progressBar.setVisibility(View.VISIBLE);
+}

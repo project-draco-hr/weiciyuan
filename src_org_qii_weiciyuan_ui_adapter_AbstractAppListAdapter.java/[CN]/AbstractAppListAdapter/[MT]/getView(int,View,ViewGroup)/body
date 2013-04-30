@@ -52,5 +52,11 @@ configViewFont(holder);
 bindViewData(holder,position);
 bindOnTouchListener(holder);
 }
+ else {
+if (savedCurrentMiddleLoadingViewPosition == position + listView.getHeaderViewsCount()) {
+ListViewMiddleMsgLoadingView loadingView=(ListViewMiddleMsgLoadingView)convertView;
+loadingView.load();
+}
+}
 return convertView;
 }

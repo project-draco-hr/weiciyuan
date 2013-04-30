@@ -4,6 +4,10 @@
   getLoaderManager().destroyLoader(OLD_MSG_LOADER_ID);
   getPullToRefreshListView().onRefreshComplete();
   dismissFooterView();
+  savedCurrentLoadingMsgViewPositon=-1;
+  if (timeLineAdapter instanceof AbstractAppListAdapter) {
+    ((AbstractAppListAdapter)timeLineAdapter).setSavedMiddleLoadingViewPosition(savedCurrentLoadingMsgViewPositon);
+  }
   positionCache.put(currentGroupId,Utility.getCurrentPositionFromListView(getListView()));
   saveNewMsgCountToPositionsCache();
   setSelected(groupId);
