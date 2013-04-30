@@ -7,6 +7,7 @@
   setCount();
   if (disappear) {
     disappear(3000);
+    ids.clear();
   }
   if (this.onChangeListener != null) {
     this.onChangeListener.onChange(ids.size());

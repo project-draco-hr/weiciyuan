@@ -1,0 +1,10 @@
+{
+  super.onCreate(savedInstanceState);
+  getActionBar().setDisplayShowHomeEnabled(false);
+  getActionBar().setDisplayShowTitleEnabled(true);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setTitle(getString(R.string.pref_read_title));
+  if (savedInstanceState == null) {
+    getFragmentManager().beginTransaction().replace(android.R.id.content,new ReadFragment()).commit();
+  }
+}
