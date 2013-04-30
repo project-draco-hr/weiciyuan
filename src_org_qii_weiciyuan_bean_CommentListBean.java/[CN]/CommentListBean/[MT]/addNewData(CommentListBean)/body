@@ -1,12 +1,12 @@
 {
-  if (newValue != null && newValue.getSize() > 0) {
-    setTotal_number(newValue.getTotal_number());
-    if (newValue.getSize() == Integer.valueOf(SettingUtility.getMsgCount())) {
-      getItemList().clear();
-      getItemList().addAll(newValue.getItemList());
-    }
- else {
-      getItemList().addAll(0,newValue.getItemList());
-    }
+  if (newValue == null || newValue.getSize() == 0) {
+    return;
   }
+  boolean receivedCountBelowRequestCount=newValue.getSize() < Integer.valueOf(SettingUtility.getMsgCount());
+  boolean receivedCountEqualRequestCount=newValue.getSize() == Integer.valueOf(SettingUtility.getMsgCount());
+  if (receivedCountEqualRequestCount && this.getSize() > 0) {
+    newValue.getItemList().add(null);
+  }
+  this.getItemList().addAll(0,newValue.getItemList());
+  this.setTotal_number(newValue.getTotal_number());
 }
