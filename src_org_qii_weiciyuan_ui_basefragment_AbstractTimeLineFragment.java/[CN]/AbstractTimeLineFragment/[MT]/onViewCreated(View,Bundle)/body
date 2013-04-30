@@ -5,8 +5,8 @@
   pullToRefreshListView.setOnScrollListener(listViewOnScrollListener);
   pullToRefreshListView.setOnItemClickListener(listViewOnItemClickListener);
   buildListAdapter();
-  if (savedInstanceState != null)   savedCurrentLoadingMsgViewPositon=savedInstanceState.getInt("savedCurrentLoadingMsgViewPositon",-1);
-  if (savedCurrentLoadingMsgViewPositon != -1 && timeLineAdapter instanceof AbstractAppListAdapter) {
+  if (savedInstanceState != null)   savedCurrentLoadingMsgViewPositon=savedInstanceState.getInt("savedCurrentLoadingMsgViewPositon",NO_SAVED_CURRENT_LOADING_MSG_VIEW_POSITION);
+  if (savedCurrentLoadingMsgViewPositon != NO_SAVED_CURRENT_LOADING_MSG_VIEW_POSITION && timeLineAdapter instanceof AbstractAppListAdapter) {
     ((AbstractAppListAdapter)timeLineAdapter).setSavedMiddleLoadingViewPosition(savedCurrentLoadingMsgViewPositon);
   }
 }
