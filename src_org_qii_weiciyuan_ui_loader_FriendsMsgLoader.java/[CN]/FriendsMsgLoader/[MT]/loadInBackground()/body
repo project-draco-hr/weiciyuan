@@ -13,11 +13,15 @@
   dao.setMax_id(maxId);
   MessageListBean result=null;
   WeiboException exception=null;
+  lock.lock();
   try {
     result=dao.getGSONMsgList();
   }
  catch (  WeiboException e) {
     exception=e;
+  }
+ finally {
+    lock.unlock();
   }
   AsyncTaskLoaderResult<MessageListBean> data=new AsyncTaskLoaderResult<MessageListBean>();
   data.data=result;
