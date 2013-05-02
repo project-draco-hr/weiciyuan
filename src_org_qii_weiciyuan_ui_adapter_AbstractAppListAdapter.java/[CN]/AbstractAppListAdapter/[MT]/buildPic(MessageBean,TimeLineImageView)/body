@@ -1,0 +1,4 @@
+{
+  view.setVisibility(View.VISIBLE);
+  commander.downContentPic(view,msg,(AbstractTimeLineFragment)fragment);
+}

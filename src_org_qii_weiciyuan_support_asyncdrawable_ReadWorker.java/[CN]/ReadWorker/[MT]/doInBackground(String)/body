@@ -10,7 +10,7 @@ synchronized (TimeLineBitmapDownloader.pauseWorkLock) {
     }
   }
   String path=FileManager.getFilePathFromUrl(data,method);
-  boolean downloaded=TaskCache.waitForPictureDownload(data,path,method);
+  boolean downloaded=TaskCache.waitForPictureDownload(data,(SettingUtility.getEnableBigPic() ? downloadListener : null),path,method);
   if (!downloaded) {
     failedResult=FailedResult.downloadFailed;
     return null;

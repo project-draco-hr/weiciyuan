@@ -9,7 +9,7 @@
       }
     }
 );
-    buildPic(msg,view.getImageView());
+    buildPic(msg,view);
   }
  else {
     view.setVisibility(View.GONE);

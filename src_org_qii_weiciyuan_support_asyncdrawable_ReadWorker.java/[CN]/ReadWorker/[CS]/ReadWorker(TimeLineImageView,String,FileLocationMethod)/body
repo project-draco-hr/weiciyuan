@@ -1,0 +1,4 @@
+{
+  this(view.getImageView(),url,method);
+  this.pbWeakReference=new WeakReference<ProgressBar>(view.getProgressBar());
+}

@@ -13,6 +13,7 @@
     }
   }
 );
+  pb=(ProgressBar)v.findViewById(R.id.imageview_pb);
   v.setBackgroundColor(Color.TRANSPARENT);
   addView(v,new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
 }

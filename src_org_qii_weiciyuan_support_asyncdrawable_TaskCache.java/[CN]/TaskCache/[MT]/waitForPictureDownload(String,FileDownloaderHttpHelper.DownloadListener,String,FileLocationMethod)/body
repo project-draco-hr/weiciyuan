@@ -15,6 +15,7 @@
         return true;
       }
     }
+    downloadWorker.addDownloadListener(downloadListener);
     try {
       return downloadWorker.get(30,TimeUnit.SECONDS);
     }
