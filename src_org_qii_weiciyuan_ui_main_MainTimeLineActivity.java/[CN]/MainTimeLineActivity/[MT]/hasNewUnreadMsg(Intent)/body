@@ -1,0 +1,12 @@
+{
+  CommentListBean commentsToMe=(CommentListBean)intent.getSerializableExtra("comment");
+  CommentListBean mentionComments=(CommentListBean)intent.getSerializableExtra("mentionsComment");
+  MessageListBean mentionWeibos=(MessageListBean)intent.getSerializableExtra("repost");
+  if (commentsToMe != null || mentionComments != null || mentionWeibos != null) {
+    getSlidingMenu().showMenu();
+    if (mentionWeibos != null) {
+    }
+ else     if (commentsToMe != null) {
+    }
+  }
+}
