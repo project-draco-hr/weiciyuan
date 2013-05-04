@@ -5,6 +5,7 @@
   newMsgTipBar.setOnChangeListener(new TopTipBar.OnChangeListener(){
     @Override public void onChange(    int count){
       ((MainTimeLineActivity)getActivity()).setCommentsToMeCount(count);
+      setActionBarTabCount(count);
     }
   }
 );
