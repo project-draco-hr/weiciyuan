@@ -1,0 +1,3 @@
+{
+  return Integer.valueOf(accountBean.getUid()) + COMMENTS_TO_ME_NOTIFICATION_ID;
+}

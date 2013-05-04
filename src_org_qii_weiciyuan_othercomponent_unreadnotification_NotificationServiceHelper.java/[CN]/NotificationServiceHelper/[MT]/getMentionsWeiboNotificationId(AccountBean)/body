@@ -1,0 +1,3 @@
+{
+  return Integer.valueOf(accountBean.getUid()) + MENTIONS_WEIBO_NOTIFICATION_ID;
+}
