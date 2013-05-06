@@ -1,0 +1,7 @@
+{
+  tasks.remove(FetchMsgTask.this);
+  if (tasks.size() == 0) {
+    stopSelf();
+    AppLogger.d("stop fetchnewmsgservice");
+  }
+}

@@ -1,4 +1,4 @@
 {
-  stopSelf();
+  checkForFinish();
   super.onCancelled(stringIntegerMap);
 }

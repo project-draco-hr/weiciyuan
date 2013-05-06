@@ -1,5 +1,9 @@
 {
   for (  AccountBean account : accountBeans) {
-    new FetchMsgTask(account).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    FetchMsgTask task=new FetchMsgTask(account);
+    tasks.add(task);
+  }
+  for (  FetchMsgTask task : tasks) {
+    task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }
 }

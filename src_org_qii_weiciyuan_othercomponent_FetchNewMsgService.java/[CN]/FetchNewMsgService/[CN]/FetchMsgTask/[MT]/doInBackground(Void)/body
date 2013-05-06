@@ -17,10 +17,9 @@
       if (commentTimeLineData != null) {
         oldData=commentTimeLineData.cmtList;
       }
-      if (oldData != null) {
+      if (oldData != null && oldData.getSize() > 0) {
         dao.setSince_id(oldData.getItem(0).getId());
       }
-      dao.setCount(String.valueOf(unreadCommentCount));
       commentResult=dao.getGSONMsgListWithoutClearUnread();
     }
     if (unreadMentionStatusCount > 0 && SettingUtility.allowMentionToMe()) {
@@ -30,10 +29,9 @@
       if (commentTimeLineData != null) {
         oldData=commentTimeLineData.msgList;
       }
-      if (oldData != null) {
+      if (oldData != null && oldData.getSize() > 0) {
         dao.setSince_id(oldData.getItem(0).getId());
       }
-      dao.setCount(String.valueOf(unreadMentionStatusCount));
       mentionStatusesResult=dao.getGSONMsgListWithoutClearUnread();
     }
     if (unreadMentionCommentCount > 0 && SettingUtility.allowMentionCommentToMe()) {
@@ -43,10 +41,9 @@
       if (commentTimeLineData != null) {
         oldData=commentTimeLineData.cmtList;
       }
-      if (oldData != null) {
+      if (oldData != null && oldData.getSize() > 0) {
         dao.setSince_id(oldData.getItem(0).getId());
       }
-      dao.setCount(String.valueOf(unreadMentionCommentCount));
       mentionCommentsResult=dao.getGSONMsgListWithoutClearUnread();
     }
   }

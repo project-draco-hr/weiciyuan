@@ -5,6 +5,6 @@
   if (mentionsWeibo || menttinosComment || commentsToMe) {
     sendNewMsgBroadcast();
   }
-  stopSelf();
+  checkForFinish();
   super.onPostExecute(sum);
 }
