@@ -1,3 +1,6 @@
 {
-  if (tasks.size() == 0)   new GetAccountDBTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  if (Utility.isTaskStopped(dbTask)) {
+    dbTask=new GetAccountDBTask();
+    dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
 }
