@@ -1,0 +1,16 @@
+{
+switch (position) {
+case 0:
+    showHomePage(true);
+  break;
+case 1:
+showMentionPage(true);
+break;
+case 2:
+showCommentPage(true);
+break;
+}
+drawButtonsBackground(position);
+buildUnreadCount();
+firstStart=false;
+}

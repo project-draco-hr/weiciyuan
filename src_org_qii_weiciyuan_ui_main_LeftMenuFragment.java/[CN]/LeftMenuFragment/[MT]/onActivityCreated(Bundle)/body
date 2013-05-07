@@ -18,18 +18,5 @@
   rightFragments.add(HOME_INDEX,((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment());
   rightFragments.add(MENTIONS_INDEX,((MainTimeLineActivity)getActivity()).getMentionsTimeLineFragment());
   rightFragments.add(COMMENTS_INDEX,((MainTimeLineActivity)getActivity()).getCommentsTimeLineFragment());
-switch (currentIndex) {
-case 0:
-    showHomePage(true);
-  break;
-case 1:
-showMentionPage(true);
-break;
-case 2:
-showCommentPage(true);
-break;
-}
-drawButtonsBackground(currentIndex);
-buildUnreadCount();
-firstStart=false;
+  switchCategory(currentIndex);
 }
