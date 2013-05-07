@@ -1,6 +1,5 @@
 {
   FragmentTransaction ft=getFragmentManager().beginTransaction();
-  ft.setCustomAnimations(R.anim.alphain,R.anim.fragment_alphaout);
   ft.hide(rightFragments.get(HOME_INDEX));
   ft.hide(rightFragments.get(MENTIONS_INDEX));
   CommentsTimeLine fragment=(CommentsTimeLine)rightFragments.get(COMMENTS_INDEX);
