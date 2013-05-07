@@ -15,6 +15,7 @@
   slidingMenu.setOnClosedListener(new SlidingMenu.OnClosedListener(){
     @Override public void onClosed(){
       LongClickableLinkMovementMethod.getInstance().setLongClickable(true);
+      LocalBroadcastManager.getInstance(MainTimeLineActivity.this).sendBroadcast(new Intent(AppEventAction.SLIDING_MENU_CLOSED_BROADCAST));
     }
   }
 );

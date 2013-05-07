@@ -1,0 +1,20 @@
+{
+  FragmentTransaction ft=getFragmentManager().beginTransaction();
+  ft.setCustomAnimations(R.anim.alphain,R.anim.fragment_alphaout);
+  ft.hide(rightFragments.get(HOME_INDEX));
+  ft.hide(rightFragments.get(MENTIONS_INDEX));
+  CommentsTimeLine fragment=(CommentsTimeLine)rightFragments.get(COMMENTS_INDEX);
+  ft.show(fragment);
+  ft.commit();
+  if (firstStart) {
+    int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
+    if (navPosition == 2) {
+      commentsTabIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() % 10;
+    }
+  }
+  fragment.buildActionBarAndViewPagerTitles(getActivity().getActionBar(),R.string.all_people_send_to_me,R.string.my_comment,commentsTabIndex);
+  ((MainTimeLineActivity)getActivity()).setCurrentFragment(fragment);
+  if (Utility.isDevicePort()) {
+    setTitle(R.string.comments);
+  }
+}

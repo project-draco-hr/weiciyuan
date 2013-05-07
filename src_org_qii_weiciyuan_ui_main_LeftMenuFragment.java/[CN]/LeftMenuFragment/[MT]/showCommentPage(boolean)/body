@@ -5,23 +5,19 @@
     return true;
   }
   currentIndex=2;
-  FragmentTransaction ft=getFragmentManager().beginTransaction();
-  ft.hide(rightFragments.get(HOME_INDEX));
-  ft.hide(rightFragments.get(MENTIONS_INDEX));
-  CommentsTimeLine fragment=(CommentsTimeLine)rightFragments.get(COMMENTS_INDEX);
-  ft.show(fragment);
-  ft.commit();
-  if (firstStart) {
-    int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
-    if (navPosition == 2) {
-      commentsTabIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() % 10;
+  if (Utility.isDevicePort() && !reset) {
+    BroadcastReceiver receiver=new BroadcastReceiver(){
+      @Override public void onReceive(      Context context,      Intent intent){
+        LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(this);
+        if (currentIndex == 2)         showCommentPageImp();
+      }
     }
+;
+    LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,new IntentFilter(AppEventAction.SLIDING_MENU_CLOSED_BROADCAST));
   }
-  fragment.buildActionBarAndViewPagerTitles(getActivity().getActionBar(),R.string.all_people_send_to_me,R.string.my_comment,commentsTabIndex);
+ else {
+    showCommentPageImp();
+  }
   ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
-  ((MainTimeLineActivity)getActivity()).setCurrentFragment(fragment);
-  if (Utility.isDevicePort()) {
-    setTitle(R.string.comments);
-  }
   return false;
 }
