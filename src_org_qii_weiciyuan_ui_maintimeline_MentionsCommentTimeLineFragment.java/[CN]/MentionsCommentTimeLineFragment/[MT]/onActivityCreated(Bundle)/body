@@ -20,9 +20,7 @@ if (savedBean != null && savedBean.getSize() > 0) {
 clearAndReplaceValue(savedBean);
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(getList());
-setListViewPositionFromPositionsCache();
 }
 break;
 }
-refreshUnread(unreadBean);
 }

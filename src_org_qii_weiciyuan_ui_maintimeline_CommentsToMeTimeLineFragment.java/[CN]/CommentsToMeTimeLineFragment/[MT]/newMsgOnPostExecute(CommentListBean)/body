@@ -3,7 +3,6 @@
     addNewDataAndRememberPosition(newValue);
   }
   unreadBean=null;
-  refreshUnread(unreadBean);
   NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
   notificationManager.cancel(Long.valueOf(GlobalContext.getInstance().getCurrentAccountId()).intValue());
 }

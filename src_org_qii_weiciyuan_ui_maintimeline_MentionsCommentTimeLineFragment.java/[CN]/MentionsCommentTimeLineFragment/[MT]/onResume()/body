@@ -1,5 +1,6 @@
 {
   super.onResume();
+  setListViewPositionFromPositionsCache();
   setActionBarTabCount(newMsgTipBar.getValues().size());
   getNewMsgTipBar().setOnChangeListener(new TopTipBar.OnChangeListener(){
     @Override public void onChange(    int count){
@@ -8,4 +9,5 @@
     }
   }
 );
+  checkUnreadInfo();
 }

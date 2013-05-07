@@ -22,5 +22,4 @@ refreshLayout(getList());
 }
 break;
 }
-refreshUnread(this.newMsgTipBar);
 }
