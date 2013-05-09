@@ -6,7 +6,7 @@
   Intent intent=getActivity().getIntent();
   CommentListBean mentionsWeibo=(CommentListBean)intent.getSerializableExtra("mentionsComment");
   if (mentionsWeibo != null) {
-    loadNewMsg();
+    addUnreadMessage(mentionsWeibo);
     CommentListBean nullObject=null;
     intent.putExtra("mentionsComment",nullObject);
     getActivity().setIntent(intent);

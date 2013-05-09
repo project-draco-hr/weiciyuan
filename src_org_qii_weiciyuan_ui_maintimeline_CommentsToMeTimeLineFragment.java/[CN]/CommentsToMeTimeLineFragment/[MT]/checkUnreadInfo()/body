@@ -6,7 +6,7 @@
   Intent intent=getActivity().getIntent();
   CommentListBean commentsToMe=(CommentListBean)intent.getSerializableExtra("comment");
   if (commentsToMe != null) {
-    addNewDataAndRememberPosition(commentsToMe);
+    addUnreadMessage(commentsToMe);
     CommentListBean nullObject=null;
     intent.putExtra("comment",nullObject);
     getActivity().setIntent(intent);
