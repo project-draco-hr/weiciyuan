@@ -7,10 +7,9 @@
   if (newAccountBean.getUid().equals(accountBean.getUid())) {
     accountBean=newAccountBean;
     GlobalContext.getInstance().setAccountBean(accountBean);
-    hasNewUnreadMsg(intent);
+    setIntent(intent);
   }
  else {
-    overridePendingTransition(0,0);
     finish();
     overridePendingTransition(0,0);
     startActivity(intent);

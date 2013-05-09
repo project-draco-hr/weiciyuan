@@ -1,0 +1,19 @@
+{
+  super.onResume();
+  Intent intent=getActivity().getIntent();
+  if (intent == null)   return;
+  UnreadTabIndex unreadTabIndex=(UnreadTabIndex)intent.getSerializableExtra("unreadTabIndex");
+  if (unreadTabIndex == null)   return;
+switch (unreadTabIndex) {
+case MENTION_WEIBO:
+    ((MainTimeLineActivity)getActivity()).getMenuFragment().switchCategory(1);
+  viewPager.setCurrentItem(0);
+intent.putExtra("unreadTabIndex",UnreadTabIndex.NONE);
+break;
+case MENTION_COMMENT:
+((MainTimeLineActivity)getActivity()).getMenuFragment().switchCategory(1);
+viewPager.setCurrentItem(1);
+intent.putExtra("unreadTabIndex",UnreadTabIndex.NONE);
+break;
+}
+}
