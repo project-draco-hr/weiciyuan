@@ -1,4 +1,0 @@
-{
-  checkForFinish();
-  super.onCancelled(stringIntegerMap);
-}

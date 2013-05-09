@@ -1,6 +1,0 @@
-{
-  if (Utility.isTaskStopped(dbTask)) {
-    dbTask=new GetAccountDBTask();
-    dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
-}
