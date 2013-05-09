@@ -1,6 +1,8 @@
 {
   super(in);
-  this.ids=(HashSet<String>)in.readSerializable();
+  Bundle bundle=in.readBundle();
+  this.ids=(HashSet<String>)bundle.getSerializable("ids");
+  this.type=(Type)bundle.getSerializable("type");
   boolean[] disappearArray=new boolean[2];
   in.readBooleanArray(disappearArray);
   this.disappear=disappearArray[0];

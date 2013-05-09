@@ -19,6 +19,9 @@
       this.onChangeListener.onChange(ids.size());
     }
   }
+  if (type == Type.ALWAYS) {
+    return;
+  }
   if (ids.contains(helperId)) {
     setCount();
   }

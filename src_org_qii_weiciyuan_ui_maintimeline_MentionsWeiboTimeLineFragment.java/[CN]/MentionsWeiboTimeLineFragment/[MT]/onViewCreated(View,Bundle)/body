@@ -1,0 +1,4 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  newMsgTipBar.setType(TopTipBar.Type.ALWAYS);
+}
