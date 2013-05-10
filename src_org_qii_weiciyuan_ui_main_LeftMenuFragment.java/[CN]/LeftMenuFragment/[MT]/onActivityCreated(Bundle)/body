@@ -15,8 +15,8 @@
   if (currentIndex == -1) {
     currentIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
   }
-  rightFragments.add(HOME_INDEX,((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment());
-  rightFragments.add(MENTIONS_INDEX,((MainTimeLineActivity)getActivity()).getMentionsTimeLineFragment());
-  rightFragments.add(COMMENTS_INDEX,((MainTimeLineActivity)getActivity()).getCommentsTimeLineFragment());
+  rightFragments.append(HOME_INDEX,((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment());
+  rightFragments.append(MENTIONS_INDEX,((MainTimeLineActivity)getActivity()).getMentionsTimeLineFragment());
+  rightFragments.append(COMMENTS_INDEX,((MainTimeLineActivity)getActivity()).getCommentsTimeLineFragment());
   switchCategory(currentIndex);
 }
