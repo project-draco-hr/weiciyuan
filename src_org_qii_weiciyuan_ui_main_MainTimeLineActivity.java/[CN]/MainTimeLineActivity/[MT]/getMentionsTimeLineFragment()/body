@@ -1,5 +1,8 @@
 {
   MentionsTimeLine fragment=((MentionsTimeLine)getSupportFragmentManager().findFragmentByTag(MentionsTimeLine.class.getName()));
-  if (fragment == null)   fragment=new MentionsTimeLine();
+  if (fragment == null) {
+    fragment=new MentionsTimeLine();
+    fragment.setArguments(new Bundle());
+  }
   return fragment;
 }

@@ -1,15 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
-  SimpleTwoTabsListener tabListener=new SimpleTwoTabsListener(viewPager);
-  View customView=getActivity().getLayoutInflater().inflate(R.layout.ab_tab_custom_view_layout,null);
-  ((TextView)customView.findViewById(R.id.title)).setText(R.string.all_people_send_to_me);
-  ActionBar.Tab commentsToMeTab=getActivity().getActionBar().newTab().setCustomView(customView).setTag(CommentsToMeTimeLineFragment.class.getName()).setTabListener(tabListener);
-  tabMap.put(0,commentsToMeTab);
-  customView=getActivity().getLayoutInflater().inflate(R.layout.ab_tab_custom_view_layout,null);
-  ((TextView)customView.findViewById(R.id.title)).setText(R.string.my_comment);
-  ActionBar.Tab commentsByMeTab=getActivity().getActionBar().newTab().setCustomView(customView).setTag(CommentsByMeTimeLineFragment.class.getName()).setTabListener(tabListener);
-  tabMap.put(1,commentsByMeTab);
   if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == 2) {
-    buildActionBarAndViewPagerTitles(getActivity().getActionBar(),R.string.all_people_send_to_me,R.string.my_comment,0);
+    buildActionBarAndViewPagerTitles(((MainTimeLineActivity)getActivity()).getMenuFragment().commentsTabIndex);
   }
 }

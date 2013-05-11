@@ -1,8 +1,8 @@
 {
   super.onHiddenChanged(hidden);
   if (!hidden) {
-    int mentionsTabIndex=getArguments().getInt("mentionsTabIndex");
-    buildActionBarAndViewPagerTitles(mentionsTabIndex);
+    int commentsTabIndex=getArguments().getInt("commentsTabIndex");
+    buildActionBarAndViewPagerTitles(commentsTabIndex);
     ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
   }
 }

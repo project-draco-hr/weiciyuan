@@ -1,0 +1,7 @@
+{
+  View customView=getActivity().getLayoutInflater().inflate(R.layout.ab_tab_custom_view_layout,null);
+  ((TextView)customView.findViewById(R.id.title)).setText(R.string.all_people_send_to_me);
+  ActionBar.Tab commentsToMeTab=getActivity().getActionBar().newTab().setCustomView(customView).setTag(CommentsToMeTimeLineFragment.class.getName()).setTabListener(tabListener);
+  tabMap.append(COMMENTS_TO_ME_CHILD_POSITION,commentsToMeTab);
+  return commentsToMeTab;
+}
