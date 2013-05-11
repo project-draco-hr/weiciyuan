@@ -20,5 +20,6 @@
   rightFragments.append(MENTIONS_INDEX,((MainTimeLineActivity)getActivity()).getMentionsTimeLineFragment());
   rightFragments.append(COMMENTS_INDEX,((MainTimeLineActivity)getActivity()).getCommentsTimeLineFragment());
   rightFragments.append(SEARCH_INDEX,((MainTimeLineActivity)getActivity()).getSearchFragment());
+  rightFragments.append(DM_INDEX,((MainTimeLineActivity)getActivity()).getDMFragment());
   switchCategory(currentIndex);
 }

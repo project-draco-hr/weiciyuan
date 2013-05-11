@@ -3,6 +3,7 @@
   Fragment mentions=getMentionsTimeLineFragment();
   Fragment comments=getCommentsTimeLineFragment();
   Fragment search=getSearchFragment();
+  Fragment dm=getDMFragment();
   FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
   if (!friend.isAdded()) {
     fragmentTransaction.add(R.id.menu_right_fl,friend,FriendsTimeLineFragment.class.getName());
@@ -19,6 +20,10 @@
   if (!search.isAdded()) {
     fragmentTransaction.add(R.id.menu_right_fl,search,SearchMainParentFragment.class.getName());
     fragmentTransaction.hide(search);
+  }
+  if (!dm.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,dm,DMUserListFragment.class.getName());
+    fragmentTransaction.hide(dm);
   }
   if (!fragmentTransaction.isEmpty()) {
     fragmentTransaction.commit();

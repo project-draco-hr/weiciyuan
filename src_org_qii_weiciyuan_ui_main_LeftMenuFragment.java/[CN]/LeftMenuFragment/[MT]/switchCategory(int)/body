@@ -11,6 +11,8 @@ showCommentPage(true);
 break;
 case 3:
 showSearchPage(true);
+case 4:
+showDMPage(true);
 break;
 }
 drawButtonsBackground(position);

@@ -1,0 +1,23 @@
+{
+  getActivity().getActionBar().setDisplayShowTitleEnabled(true);
+  if (currentIndex == 4 && !reset) {
+    ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
+    return true;
+  }
+  currentIndex=4;
+  if (Utility.isDevicePort() && !reset) {
+    BroadcastReceiver receiver=new BroadcastReceiver(){
+      @Override public void onReceive(      Context context,      Intent intent){
+        LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(this);
+        if (currentIndex == 4)         showDMPageImp();
+      }
+    }
+;
+    LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,new IntentFilter(AppEventAction.SLIDING_MENU_CLOSED_BROADCAST));
+  }
+ else {
+    showDMPageImp();
+  }
+  ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
+  return false;
+}

@@ -18,4 +18,7 @@ getAdapter().notifyDataSetChanged();
 refreshLayout(getList());
 break;
 }
+if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == 4) {
+buildActionBarAndViewPagerTitles();
+}
 }
