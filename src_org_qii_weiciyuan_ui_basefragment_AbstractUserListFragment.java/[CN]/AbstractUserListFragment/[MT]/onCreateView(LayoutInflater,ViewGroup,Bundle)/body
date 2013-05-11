@@ -18,7 +18,7 @@
   footerView=inflater.inflate(R.layout.listview_footer_layout,null);
   getListView().addFooterView(footerView);
   dismissFooterView();
-  userListAdapter=new UserListAdapter(AbstractUserListFragment.this,((AbstractAppActivity)getActivity()).getBitmapDownloader(),bean.getUsers(),getListView());
+  userListAdapter=new UserListAdapter(AbstractUserListFragment.this,((ICommander)getActivity()).getBitmapDownloader(),bean.getUsers(),getListView());
   pullToRefreshListView.setAdapter(userListAdapter);
   pullToRefreshListView.setOnScrollListener(new AbsListView.OnScrollListener(){
     @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){

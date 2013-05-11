@@ -1,0 +1,12 @@
+{
+  super.onHiddenChanged(hidden);
+  if (!hidden) {
+    int searchTabIndex=getArguments().getInt("searchTabIndex");
+    buildActionBarAndViewPagerTitles(searchTabIndex);
+    ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
+    if (searchView != null)     SmileyPickerUtility.showKeyBoard(searchView);
+  }
+ else {
+    if (searchView != null)     SmileyPickerUtility.hideSoftInput(searchView);
+  }
+}

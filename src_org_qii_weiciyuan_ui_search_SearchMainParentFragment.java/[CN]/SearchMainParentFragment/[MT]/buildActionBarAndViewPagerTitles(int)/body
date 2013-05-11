@@ -1,0 +1,23 @@
+{
+  if (Utility.isDevicePort()) {
+    ((MainTimeLineActivity)getActivity()).setTitle(R.string.search);
+  }
+  ActionBar actionBar=getActivity().getActionBar();
+  actionBar.setDisplayHomeAsUpEnabled(Utility.isDevicePort());
+  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+  actionBar.removeAllTabs();
+  SimpleTwoTabsListener tabListener=new SimpleTwoTabsListener(viewPager);
+  ActionBar.Tab weiboTab=getWeiboTab();
+  if (weiboTab == null) {
+    weiboTab=buildSearchWeiboTab(tabListener);
+  }
+  actionBar.addTab(weiboTab);
+  ActionBar.Tab userTab=getUserTab();
+  if (userTab == null) {
+    userTab=buildSearchUserTab(tabListener);
+  }
+  actionBar.addTab(userTab);
+  if (actionBar.getNavigationMode() == ActionBar.NAVIGATION_MODE_TABS && nav > -1) {
+    viewPager.setCurrentItem(nav,false);
+  }
+}

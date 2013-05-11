@@ -1,6 +1,6 @@
 {
   if (newTask == null || newTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-    ((AbstractAppActivity)getActivity()).getBitmapDownloader().totalStopLoadPicture();
+    ((ICommander)getActivity()).getBitmapDownloader().totalStopLoadPicture();
     newTask=new UserListGetNewDataTask();
     newTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }

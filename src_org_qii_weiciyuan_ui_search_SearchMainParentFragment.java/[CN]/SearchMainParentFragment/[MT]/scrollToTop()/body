@@ -1,0 +1,4 @@
+{
+  AbstractTimeLineFragment fragment=(AbstractTimeLineFragment)(searchFragments.get(viewPager.getCurrentItem()));
+  Utility.stopListViewScrollingAndScrollToTop(fragment.getListView());
+}

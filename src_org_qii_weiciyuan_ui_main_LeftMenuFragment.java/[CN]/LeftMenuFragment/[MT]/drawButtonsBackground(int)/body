@@ -2,6 +2,7 @@
   layout.home.setBackgroundResource(R.drawable.btn_drawer_menu);
   layout.mention.setBackgroundResource(R.drawable.btn_drawer_menu);
   layout.comment.setBackgroundResource(R.drawable.btn_drawer_menu);
+  layout.search.setBackgroundResource(R.drawable.btn_drawer_menu);
 switch (position) {
 case 0:
     layout.home.setBackgroundResource(R.color.ics_blue_semi);

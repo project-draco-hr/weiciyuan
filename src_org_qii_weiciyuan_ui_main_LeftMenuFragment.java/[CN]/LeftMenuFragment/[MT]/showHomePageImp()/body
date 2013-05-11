@@ -2,6 +2,7 @@
   FragmentTransaction ft=getFragmentManager().beginTransaction();
   ft.hide(rightFragments.get(MENTIONS_INDEX));
   ft.hide(rightFragments.get(COMMENTS_INDEX));
+  ft.hide(rightFragments.get(SEARCH_INDEX));
   FriendsTimeLineFragment fragment=(FriendsTimeLineFragment)rightFragments.get(HOME_INDEX);
   ft.show(fragment);
   ft.commit();

@@ -1,0 +1,3 @@
+{
+  return tabMap.get(SEARCH_WEIBO_CHILD_POSITION);
+}

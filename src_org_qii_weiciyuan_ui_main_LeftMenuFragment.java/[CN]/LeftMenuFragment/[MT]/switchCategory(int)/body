@@ -9,6 +9,9 @@ break;
 case 2:
 showCommentPage(true);
 break;
+case 3:
+showSearchPage(true);
+break;
 }
 drawButtonsBackground(position);
 buildUnreadCount();

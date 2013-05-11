@@ -7,6 +7,7 @@
     commentsToMeUnreadCount=savedInstanceState.getInt("commentsToMeUnreadCount");
     commentsTabIndex=savedInstanceState.getInt("commentsTabIndex");
     mentionsTabIndex=savedInstanceState.getInt("mentionsTabIndex");
+    searchTabIndex=savedInstanceState.getInt("searchTabIndex");
     firstStart=savedInstanceState.getBoolean("firstStart");
   }
  else {
@@ -18,5 +19,6 @@
   rightFragments.append(HOME_INDEX,((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment());
   rightFragments.append(MENTIONS_INDEX,((MainTimeLineActivity)getActivity()).getMentionsTimeLineFragment());
   rightFragments.append(COMMENTS_INDEX,((MainTimeLineActivity)getActivity()).getCommentsTimeLineFragment());
+  rightFragments.append(SEARCH_INDEX,((MainTimeLineActivity)getActivity()).getSearchFragment());
   switchCategory(currentIndex);
 }

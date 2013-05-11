@@ -1,0 +1,16 @@
+{
+  FragmentTransaction ft=getFragmentManager().beginTransaction();
+  ft.hide(rightFragments.get(HOME_INDEX));
+  ft.hide(rightFragments.get(MENTIONS_INDEX));
+  ft.hide(rightFragments.get(COMMENTS_INDEX));
+  Fragment fragment=rightFragments.get(SEARCH_INDEX);
+  if (firstStart) {
+    int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
+    if (navPosition == 3) {
+      searchTabIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() % 10;
+    }
+  }
+  fragment.getArguments().putInt("searchTabIndex",searchTabIndex);
+  ft.show(fragment);
+  ft.commit();
+}

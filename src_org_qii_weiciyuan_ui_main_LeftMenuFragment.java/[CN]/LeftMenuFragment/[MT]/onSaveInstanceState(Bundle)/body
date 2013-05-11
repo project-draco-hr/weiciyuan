@@ -6,5 +6,6 @@
   outState.putInt("commentsToMeUnreadCount",commentsToMeUnreadCount);
   outState.putInt("commentsTabIndex",commentsTabIndex);
   outState.putInt("mentionsTabIndex",mentionsTabIndex);
+  outState.putInt("searchTabIndex",searchTabIndex);
   outState.putBoolean("firstStart",firstStart);
 }
