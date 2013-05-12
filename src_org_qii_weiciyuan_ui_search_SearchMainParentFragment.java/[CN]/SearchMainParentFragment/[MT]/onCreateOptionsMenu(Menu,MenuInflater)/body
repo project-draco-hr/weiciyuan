@@ -25,4 +25,7 @@
     }
   }
 );
+  if (!TextUtils.isEmpty(this.q)) {
+    searchView.setQuery(this.q,false);
+  }
 }

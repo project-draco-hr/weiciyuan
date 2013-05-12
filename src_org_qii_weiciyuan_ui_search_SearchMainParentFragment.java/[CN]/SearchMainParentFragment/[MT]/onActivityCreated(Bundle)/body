@@ -1,5 +1,8 @@
 {
   super.onActivityCreated(savedInstanceState);
+  if (savedInstanceState != null) {
+    this.q=savedInstanceState.getString("q");
+  }
   if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == 3) {
     buildActionBarAndViewPagerTitles(((MainTimeLineActivity)getActivity()).getMenuFragment().searchTabIndex);
   }
