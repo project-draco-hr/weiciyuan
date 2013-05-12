@@ -1,7 +1,0 @@
-{
-  MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(token);
-  dao.setMax_id(beginId);
-  dao.setSince_id(endId);
-  MessageListBean result=dao.getGSONMsgList();
-  return result;
-}
