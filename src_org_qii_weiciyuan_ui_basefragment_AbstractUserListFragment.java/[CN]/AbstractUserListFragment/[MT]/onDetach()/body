@@ -1,4 +1,0 @@
-{
-  super.onDetach();
-  Utility.cancelTasks(newTask,oldTask);
-}

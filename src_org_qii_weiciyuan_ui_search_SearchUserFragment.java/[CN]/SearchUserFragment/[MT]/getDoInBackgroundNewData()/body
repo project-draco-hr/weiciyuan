@@ -1,6 +1,0 @@
-{
-  page=1;
-  SearchDao dao=new SearchDao(GlobalContext.getInstance().getSpecialToken(),((SearchMainParentFragment)getParentFragment()).getSearchWord());
-  UserListBean result=dao.getUserList();
-  return result;
-}

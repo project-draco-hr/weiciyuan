@@ -1,0 +1,5 @@
+{
+  getLoaderManager().destroyLoader(OLD_USER_LOADER_ID);
+  dismissFooterView();
+  getLoaderManager().restartLoader(NEW_USER_LOADER_ID,null,msgCallback);
+}

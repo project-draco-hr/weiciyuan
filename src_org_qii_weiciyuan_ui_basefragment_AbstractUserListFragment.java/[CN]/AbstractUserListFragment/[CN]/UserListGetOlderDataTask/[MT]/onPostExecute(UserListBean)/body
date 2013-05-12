@@ -1,6 +1,0 @@
-{
-  oldUserOnPostExecute(newValue);
-  getAdapter().notifyDataSetChanged();
-  dismissFooterView();
-  super.onPostExecute(newValue);
-}

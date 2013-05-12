@@ -1,5 +1,0 @@
-{
-  FanListDao dao=new FanListDao(GlobalContext.getInstance().getSpecialToken(),uid);
-  dao.setCursor(String.valueOf(0));
-  return dao.getGSONMsgList();
-}
