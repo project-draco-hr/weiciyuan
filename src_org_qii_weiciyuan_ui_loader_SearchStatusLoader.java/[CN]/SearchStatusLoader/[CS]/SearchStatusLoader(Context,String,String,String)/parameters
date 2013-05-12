@@ -1,0 +1,4 @@
+Context context
+String token
+String searchWord
+String page
