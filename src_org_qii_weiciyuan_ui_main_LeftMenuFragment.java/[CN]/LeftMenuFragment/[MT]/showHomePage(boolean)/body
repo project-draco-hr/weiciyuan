@@ -1,15 +1,15 @@
 {
-  if (currentIndex == 0 && !reset) {
+  if (currentIndex == HOME_INDEX && !reset) {
     ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
     return true;
   }
   getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-  currentIndex=0;
+  currentIndex=HOME_INDEX;
   if (Utility.isDevicePort() && !reset) {
     BroadcastReceiver receiver=new BroadcastReceiver(){
       @Override public void onReceive(      Context context,      Intent intent){
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(this);
-        if (currentIndex == 0)         showHomePageImp();
+        if (currentIndex == HOME_INDEX)         showHomePageImp();
       }
     }
 ;

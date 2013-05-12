@@ -7,7 +7,7 @@
   Fragment fragment=rightFragments.get(SEARCH_INDEX);
   if (firstStart) {
     int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
-    if (navPosition == 3) {
+    if (navPosition == SEARCH_INDEX) {
       searchTabIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() % 10;
     }
   }

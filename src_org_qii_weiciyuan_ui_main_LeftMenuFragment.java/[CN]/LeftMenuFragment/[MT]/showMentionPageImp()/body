@@ -7,7 +7,7 @@
   Fragment m=rightFragments.get(MENTIONS_INDEX);
   if (firstStart) {
     int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
-    if (navPosition == 1) {
+    if (navPosition == MENTIONS_INDEX) {
       mentionsTabIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() % 10;
     }
   }

@@ -1,15 +1,15 @@
 {
   getActivity().getActionBar().setDisplayShowTitleEnabled(true);
-  if (currentIndex == 2 && !reset) {
+  if (currentIndex == COMMENTS_INDEX && !reset) {
     ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
     return true;
   }
-  currentIndex=2;
+  currentIndex=COMMENTS_INDEX;
   if (Utility.isDevicePort() && !reset) {
     BroadcastReceiver receiver=new BroadcastReceiver(){
       @Override public void onReceive(      Context context,      Intent intent){
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(this);
-        if (currentIndex == 2)         showCommentPageImp();
+        if (currentIndex == COMMENTS_INDEX)         showCommentPageImp();
       }
     }
 ;

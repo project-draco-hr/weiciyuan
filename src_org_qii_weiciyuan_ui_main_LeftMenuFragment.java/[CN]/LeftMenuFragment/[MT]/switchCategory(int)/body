@@ -1,18 +1,18 @@
 {
 switch (position) {
-case 0:
+case HOME_INDEX:
     showHomePage(true);
   break;
-case 1:
+case MENTIONS_INDEX:
 showMentionPage(true);
 break;
-case 2:
+case COMMENTS_INDEX:
 showCommentPage(true);
 break;
-case 3:
+case SEARCH_INDEX:
 showSearchPage(true);
 break;
-case 4:
+case DM_INDEX:
 showDMPage(true);
 break;
 }

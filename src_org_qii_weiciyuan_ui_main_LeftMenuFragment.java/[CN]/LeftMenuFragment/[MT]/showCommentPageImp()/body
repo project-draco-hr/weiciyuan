@@ -7,7 +7,7 @@
   Fragment fragment=rightFragments.get(COMMENTS_INDEX);
   if (firstStart) {
     int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
-    if (navPosition == 2) {
+    if (navPosition == COMMENTS_INDEX) {
       commentsTabIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() % 10;
     }
   }

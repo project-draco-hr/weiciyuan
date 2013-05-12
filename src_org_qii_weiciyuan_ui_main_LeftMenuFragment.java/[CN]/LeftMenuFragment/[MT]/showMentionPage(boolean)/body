@@ -1,15 +1,15 @@
 {
-  if (currentIndex == 1 && !reset) {
+  if (currentIndex == MENTIONS_INDEX && !reset) {
     ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
     return true;
   }
   getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
-  currentIndex=1;
+  currentIndex=MENTIONS_INDEX;
   if (Utility.isDevicePort() && !reset) {
     BroadcastReceiver receiver=new BroadcastReceiver(){
       @Override public void onReceive(      Context context,      Intent intent){
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(this);
-        if (currentIndex == 1)         showMentionPageImp();
+        if (currentIndex == MENTIONS_INDEX)         showMentionPageImp();
       }
     }
 ;

@@ -1,15 +1,15 @@
 {
   getActivity().getActionBar().setDisplayShowTitleEnabled(true);
-  if (currentIndex == 3 && !reset) {
+  if (currentIndex == SEARCH_INDEX && !reset) {
     ((MainTimeLineActivity)getActivity()).getSlidingMenu().showContent();
     return true;
   }
-  currentIndex=3;
+  currentIndex=SEARCH_INDEX;
   if (Utility.isDevicePort() && !reset) {
     BroadcastReceiver receiver=new BroadcastReceiver(){
       @Override public void onReceive(      Context context,      Intent intent){
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(this);
-        if (currentIndex == 3)         showSearchPageImp();
+        if (currentIndex == SEARCH_INDEX)         showSearchPageImp();
       }
     }
 ;
