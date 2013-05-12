@@ -1,0 +1,6 @@
+{
+  super(context);
+  this.token=token;
+  this.searchWord=searchWord;
+  this.page=page;
+}

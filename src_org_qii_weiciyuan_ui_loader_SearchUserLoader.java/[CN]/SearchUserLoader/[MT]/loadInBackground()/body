@@ -1,0 +1,20 @@
+{
+  SearchDao dao=new SearchDao(token,searchWord);
+  dao.setPage(page);
+  UserListBean result=null;
+  WeiboException exception=null;
+  lock.lock();
+  try {
+    result=dao.getUserList();
+  }
+ catch (  WeiboException e) {
+    exception=e;
+  }
+ finally {
+    lock.unlock();
+  }
+  AsyncTaskLoaderResult<UserListBean> data=new AsyncTaskLoaderResult<UserListBean>();
+  data.data=result;
+  data.exception=exception;
+  return data;
+}
