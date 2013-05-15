@@ -1,5 +1,0 @@
-{
-  DMConversationDao dao=new DMConversationDao(GlobalContext.getInstance().getSpecialToken()).setUid(userBean.getId()).setPage(page + 1);
-  DMListBean result=dao.getConversationList();
-  return result;
-}
