@@ -1,6 +1,0 @@
-{
-  this.beginId=beginId;
-  this.endId=endId;
-  this.endTag=endTag;
-  this.position=position;
-}

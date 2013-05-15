@@ -1,5 +1,0 @@
-{
-  middleMsgOnPostExecute(position,newValue,false);
-  getAdapter().notifyDataSetChanged();
-  super.onPostExecute(newValue);
-}

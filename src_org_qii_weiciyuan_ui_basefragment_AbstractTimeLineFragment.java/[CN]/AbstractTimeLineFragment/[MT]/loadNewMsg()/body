@@ -1,9 +1,6 @@
 {
-  if (allowRefresh()) {
-    newTask=new TimeLineGetNewMsgListTask();
-    newTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-    Activity activity=getActivity();
-    if (activity == null)     return;
-    ((ICommander)activity).getBitmapDownloader().totalStopLoadPicture();
-  }
+  getLoaderManager().destroyLoader(MIDDLE_MSG_LOADER_ID);
+  getLoaderManager().destroyLoader(OLD_MSG_LOADER_ID);
+  dismissFooterView();
+  getLoaderManager().restartLoader(NEW_MSG_LOADER_ID,null,msgCallback);
 }
