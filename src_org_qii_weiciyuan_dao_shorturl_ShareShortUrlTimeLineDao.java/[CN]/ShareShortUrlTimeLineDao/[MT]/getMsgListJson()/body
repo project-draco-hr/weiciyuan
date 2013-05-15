@@ -6,11 +6,6 @@
   map.put("max_id",max_id);
   map.put("url_short",url_short);
   String jsonData=null;
-  try {
-    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
-  }
- catch (  WeiboException e) {
-    e.printStackTrace();
-  }
+  jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
   return jsonData;
 }

@@ -1,3 +1,0 @@
-{
-  return new ShareShortUrlTimeLineDao(GlobalContext.getInstance().getSpecialToken(),url).getGSONMsgList();
-}
