@@ -1,0 +1,7 @@
+{
+  Loader<AsyncTaskLoaderResult<T>> loader=onCreateOldMsgLoader(id,args);
+  if (loader == null) {
+    loader=new DummyLoader(getActivity());
+  }
+  return loader;
+}

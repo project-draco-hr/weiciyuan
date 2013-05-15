@@ -3,5 +3,6 @@
     getList().addNewData(newValue);
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
+    DMDBTask.asyncReplace(getList(),GlobalContext.getInstance().getCurrentAccountId());
   }
 }
