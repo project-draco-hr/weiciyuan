@@ -1,0 +1,21 @@
+{
+  CommentsTimeLineByIdDao dao=new CommentsTimeLineByIdDao(token,id);
+  dao.setSince_id(sinceId);
+  dao.setMax_id(maxId);
+  CommentListBean result=null;
+  WeiboException exception=null;
+  lock.lock();
+  try {
+    result=dao.getGSONMsgList();
+  }
+ catch (  WeiboException e) {
+    exception=e;
+  }
+ finally {
+    lock.unlock();
+  }
+  AsyncTaskLoaderResult<CommentListBean> data=new AsyncTaskLoaderResult<CommentListBean>();
+  data.data=result;
+  data.exception=exception;
+  return data;
+}
