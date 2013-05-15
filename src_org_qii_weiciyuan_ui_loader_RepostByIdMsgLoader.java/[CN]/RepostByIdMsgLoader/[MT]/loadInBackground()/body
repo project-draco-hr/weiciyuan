@@ -1,0 +1,21 @@
+{
+  RepostsTimeLineByIdDao dao=new RepostsTimeLineByIdDao(token,id);
+  dao.setSince_id(sinceId);
+  dao.setMax_id(maxId);
+  RepostListBean result=null;
+  WeiboException exception=null;
+  lock.lock();
+  try {
+    result=dao.getGSONMsgList();
+  }
+ catch (  WeiboException e) {
+    exception=e;
+  }
+ finally {
+    lock.unlock();
+  }
+  AsyncTaskLoaderResult<RepostListBean> data=new AsyncTaskLoaderResult<RepostListBean>();
+  data.data=result;
+  data.exception=exception;
+  return data;
+}

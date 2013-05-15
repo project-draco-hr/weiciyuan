@@ -1,0 +1,7 @@
+{
+  String maxId=null;
+  if (getList().getSize() > 0) {
+    maxId=getList().getItemList().get(getList().getSize() - 1).getId();
+  }
+  return new RepostByIdMsgLoader(getActivity(),id,token,null,maxId);
+}
