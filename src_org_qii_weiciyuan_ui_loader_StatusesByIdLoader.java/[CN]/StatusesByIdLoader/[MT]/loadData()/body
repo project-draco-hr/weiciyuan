@@ -1,0 +1,17 @@
+{
+  StatusesTimeLineDao dao=new StatusesTimeLineDao(token,uid);
+  if (TextUtils.isEmpty(uid)) {
+    dao.setScreen_name(screenName);
+  }
+  dao.setSince_id(sinceId);
+  dao.setMax_id(maxId);
+  MessageListBean result=null;
+  lock.lock();
+  try {
+    result=dao.getGSONMsgList();
+  }
+  finally {
+    lock.unlock();
+  }
+  return result;
+}

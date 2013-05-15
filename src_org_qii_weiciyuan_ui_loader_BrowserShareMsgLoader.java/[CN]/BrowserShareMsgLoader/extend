@@ -1,1 +1,1 @@
-AsyncTaskLoader<AsyncTaskLoaderResult<ShareListBean>>
+AbstractAsyncNetRequestTaskLoader<ShareListBean>

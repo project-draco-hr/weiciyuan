@@ -1,1 +1,1 @@
-AsyncTaskLoader<AsyncTaskLoaderResult<MessageListBean>>
+AbstractAsyncNetRequestTaskLoader<MessageListBean>

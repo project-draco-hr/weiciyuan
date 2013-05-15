@@ -1,3 +1,4 @@
 {
-  return MentionCommentsTimeLineDBTask.getCommentLineMsgList(accountId);
+  result=MentionCommentsTimeLineDBTask.getCommentLineMsgList(accountId);
+  return result;
 }

@@ -1,0 +1,13 @@
+{
+  SearchTopicDao dao=new SearchTopicDao(token,searchWord);
+  dao.setPage(page);
+  TopicResultListBean result=null;
+  lock.lock();
+  try {
+    result=dao.getGSONMsgList();
+  }
+  finally {
+    lock.unlock();
+  }
+  return result;
+}

@@ -1,0 +1,14 @@
+{
+  DMConversationDao dao=new DMConversationDao(token);
+  dao.setPage(Integer.valueOf(page));
+  dao.setUid(uid);
+  DMListBean result=null;
+  lock.lock();
+  try {
+    result=dao.getConversationList();
+  }
+  finally {
+    lock.unlock();
+  }
+  return result;
+}

@@ -1,3 +1,4 @@
 {
-  return MentionsTimeLineDBTask.getRepostLineMsgList(accountId);
+  result=MentionsTimeLineDBTask.getRepostLineMsgList(accountId);
+  return result;
 }

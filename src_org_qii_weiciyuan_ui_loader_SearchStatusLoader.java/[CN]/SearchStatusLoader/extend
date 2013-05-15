@@ -1,1 +1,1 @@
-AsyncTaskLoader<AsyncTaskLoaderResult<SearchStatusListBean>>
+AbstractAsyncNetRequestTaskLoader<SearchStatusListBean>

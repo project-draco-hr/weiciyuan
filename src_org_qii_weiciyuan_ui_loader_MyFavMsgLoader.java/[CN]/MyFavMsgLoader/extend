@@ -1,1 +1,1 @@
-AsyncTaskLoader<AsyncTaskLoaderResult<FavListBean>>
+AbstractAsyncNetRequestTaskLoader<FavListBean>
