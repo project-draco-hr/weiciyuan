@@ -1,0 +1,5 @@
+{
+  String token=GlobalContext.getInstance().getSpecialToken();
+  page=1;
+  return new MyFavMsgLoader(getActivity(),token,String.valueOf(page));
+}
