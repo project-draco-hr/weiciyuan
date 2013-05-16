@@ -1,23 +1,21 @@
 {
-  MainFriendsTimeLineDao dao;
-  if (currentGroupId.equals(FriendsTimeLineFragment.BILATERAL_GROUP_ID)) {
-    dao=new BilateralTimeLineDao(token);
-  }
- else   if (currentGroupId.equals(FriendsTimeLineFragment.ALL_GROUP_ID)) {
-    dao=new MainFriendsTimeLineDao(token);
+  MessageListBean result=null;
+  MessageListBean tmp=get(token,currentGroupId,sinceId,maxId);
+  result=tmp;
+  if (isLoadNewData() && Utility.isWifi(getContext()) && SettingUtility.isWifiUnlimitedMsgCount()) {
+    int retryCount=0;
+    while (tmp.getReceivedNumber() == Integer.valueOf(SettingUtility.getMsgCount()) && retryCount < MAX_RETRY_COUNT) {
+      String tmpMaxId=tmp.getItemList().get(tmp.getItemList().size() - 1).getId();
+      tmp=get(token,currentGroupId,sinceId,tmpMaxId);
+      result.addOldData(tmp);
+      retryCount++;
+    }
+    if (tmp.getReceivedNumber() == Integer.valueOf(SettingUtility.getMsgCount())) {
+      result.getItemList().add(null);
+    }
   }
  else {
-    dao=new FriendGroupTimeLineDao(token,currentGroupId);
-  }
-  dao.setSince_id(sinceId);
-  dao.setMax_id(maxId);
-  MessageListBean result=null;
-  lock.lock();
-  try {
-    result=dao.getGSONMsgList();
-  }
-  finally {
-    lock.unlock();
+    return result;
   }
   return result;
 }

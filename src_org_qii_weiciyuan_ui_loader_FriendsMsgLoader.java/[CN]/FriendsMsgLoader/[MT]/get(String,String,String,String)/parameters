@@ -1,0 +1,4 @@
+String token
+String groupId
+String sinceId
+String maxId

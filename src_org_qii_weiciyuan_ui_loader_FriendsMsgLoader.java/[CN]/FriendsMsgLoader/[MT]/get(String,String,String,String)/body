@@ -1,0 +1,23 @@
+{
+  MainFriendsTimeLineDao dao;
+  if (currentGroupId.equals(FriendsTimeLineFragment.BILATERAL_GROUP_ID)) {
+    dao=new BilateralTimeLineDao(token);
+  }
+ else   if (currentGroupId.equals(FriendsTimeLineFragment.ALL_GROUP_ID)) {
+    dao=new MainFriendsTimeLineDao(token);
+  }
+ else {
+    dao=new FriendGroupTimeLineDao(token,currentGroupId);
+  }
+  dao.setSince_id(sinceId);
+  dao.setMax_id(maxId);
+  MessageListBean result=null;
+  lock.lock();
+  try {
+    result=dao.getGSONMsgList();
+  }
+  finally {
+    lock.unlock();
+  }
+  return result;
+}
