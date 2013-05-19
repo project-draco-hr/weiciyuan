@@ -6,9 +6,6 @@
     if (canDisplay(imageView) && pbWeakReference != null) {
       ProgressBar pb=pbWeakReference.get();
       if (pb != null) {
-        if (pb.getVisibility() != View.VISIBLE) {
-          pb.setVisibility(View.VISIBLE);
-        }
         Integer progress=values[0];
         Integer max=values[1];
         pb.setMax(max);
