@@ -1,0 +1,8 @@
+{
+synchronized (pauseDownloadWorkLock) {
+    TimeLineBitmapDownloader.pauseDownloadWork=pauseWork;
+    if (!TimeLineBitmapDownloader.pauseDownloadWork) {
+      pauseDownloadWorkLock.notifyAll();
+    }
+  }
+}

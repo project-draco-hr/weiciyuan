@@ -1,6 +1,6 @@
 {
   super.onProgressUpdate(values);
-  if (TimeLineBitmapDownloader.pauseWork)   return;
+  if (TimeLineBitmapDownloader.pauseReadWork)   return;
   ImageView imageView=viewWeakReference.get();
   if (imageView != null) {
     if (canDisplay(imageView) && pbWeakReference != null) {

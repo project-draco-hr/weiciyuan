@@ -1,9 +1,9 @@
 {
   if (isCancelled())   return null;
-synchronized (TimeLineBitmapDownloader.pauseWorkLock) {
-    while (TimeLineBitmapDownloader.pauseWork && !isCancelled()) {
+synchronized (TimeLineBitmapDownloader.pauseReadWorkLock) {
+    while (TimeLineBitmapDownloader.pauseReadWork && !isCancelled()) {
       try {
-        TimeLineBitmapDownloader.pauseWorkLock.wait();
+        TimeLineBitmapDownloader.pauseReadWorkLock.wait();
       }
  catch (      InterruptedException e) {
       }
@@ -36,10 +36,10 @@ float reSize=globalContext.getResources().getDisplayMetrics().density;
 height=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_high_thumbnail_height);
 width=(int)(metrics.widthPixels - (14 + 14) * reSize);
 }
-synchronized (TimeLineBitmapDownloader.pauseWorkLock) {
-while (TimeLineBitmapDownloader.pauseWork && !isCancelled()) {
+synchronized (TimeLineBitmapDownloader.pauseReadWorkLock) {
+while (TimeLineBitmapDownloader.pauseReadWork && !isCancelled()) {
 try {
-TimeLineBitmapDownloader.pauseWorkLock.wait();
+TimeLineBitmapDownloader.pauseReadWorkLock.wait();
 }
  catch (InterruptedException e) {
 }
