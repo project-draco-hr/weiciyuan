@@ -5,6 +5,7 @@ synchronized (TimeLineBitmapDownloader.pauseReadWorkLock) {
         TimeLineBitmapDownloader.pauseReadWorkLock.wait();
       }
  catch (      InterruptedException e) {
+        Thread.currentThread().interrupt();
       }
     }
   }
@@ -42,9 +43,11 @@ try {
 TimeLineBitmapDownloader.pauseReadWorkLock.wait();
 }
  catch (InterruptedException e) {
+Thread.currentThread().interrupt();
 }
 }
 }
+if (isCancelled()) return null;
 Bitmap bitmap=ImageTool.getRoundedCornerPic(path,width,height);
 if (bitmap == null) {
 this.failedResult=FailedResult.readFailed;

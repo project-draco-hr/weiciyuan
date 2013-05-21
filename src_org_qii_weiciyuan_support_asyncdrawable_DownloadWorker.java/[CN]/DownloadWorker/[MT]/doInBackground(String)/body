@@ -5,6 +5,7 @@ synchronized (TimeLineBitmapDownloader.pauseDownloadWorkLock) {
         TimeLineBitmapDownloader.pauseDownloadWorkLock.wait();
       }
  catch (      InterruptedException e) {
+        Thread.currentThread().interrupt();
       }
     }
   }
