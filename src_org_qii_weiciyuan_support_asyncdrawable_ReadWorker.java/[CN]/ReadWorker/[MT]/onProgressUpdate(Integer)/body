@@ -12,7 +12,8 @@
         pb.setProgress(progress);
       }
     }
- else {
+ else     if (isImageViewDrawableBitmap(imageView)) {
+      resetProgressBarStatues();
       pbWeakReference=null;
     }
   }

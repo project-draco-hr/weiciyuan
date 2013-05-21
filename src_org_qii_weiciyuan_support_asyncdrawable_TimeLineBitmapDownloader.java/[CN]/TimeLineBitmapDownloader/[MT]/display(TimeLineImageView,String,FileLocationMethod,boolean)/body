@@ -3,11 +3,16 @@
   final Bitmap bitmap=getBitmapFromMemCache(urlKey);
   if (bitmap != null) {
     view.setImageBitmap(bitmap);
+    view.getProgressBar().setVisibility(View.GONE);
+    if (view.getAlpha() != 1.0f) {
+      view.setAlpha(1.0f);
+    }
     cancelPotentialDownload(urlKey,view.getImageView());
   }
  else {
     if (isFling) {
       view.setImageDrawable(transPic);
+      view.getProgressBar().setVisibility(View.GONE);
       return;
     }
     if (!cancelPotentialDownload(urlKey,view.getImageView())) {

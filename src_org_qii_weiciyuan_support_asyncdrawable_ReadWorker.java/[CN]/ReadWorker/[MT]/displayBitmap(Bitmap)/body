@@ -26,5 +26,8 @@ break;
 }
 }
 }
+ else if (isImageViewDrawableBitmap(imageView)) {
+resetProgressBarStatues();
+}
 }
 }

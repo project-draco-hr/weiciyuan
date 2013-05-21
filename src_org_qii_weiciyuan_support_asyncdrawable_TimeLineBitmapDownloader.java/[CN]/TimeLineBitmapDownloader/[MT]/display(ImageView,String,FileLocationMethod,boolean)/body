@@ -3,6 +3,9 @@
   final Bitmap bitmap=getBitmapFromMemCache(urlKey);
   if (bitmap != null) {
     view.setImageBitmap(bitmap);
+    if (view.getAlpha() != 1.0f) {
+      view.setAlpha(1.0f);
+    }
     cancelPotentialDownload(urlKey,view);
   }
  else {
