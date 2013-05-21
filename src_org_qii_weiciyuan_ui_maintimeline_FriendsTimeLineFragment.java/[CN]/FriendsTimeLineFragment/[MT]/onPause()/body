@@ -3,4 +3,5 @@
   savePositionToDB();
   saveGroupIdToDB();
   removeRefresh();
+  stopDownloadingOtherPicturesOnWifiNetworkEnvironment();
 }

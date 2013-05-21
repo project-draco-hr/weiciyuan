@@ -22,7 +22,9 @@
         }
       }
       DownloadWorker newWorker=new DownloadWorker(middleUrl,FileLocationMethod.picture_bmiddle);
-      downloadWorker=TaskCache.downloadTasks.putIfAbsent(middleUrl,newWorker);
+synchronized (backgroundWifiDownloadPicturesWorkLock) {
+        downloadWorker=TaskCache.downloadTasks.putIfAbsent(middleUrl,newWorker);
+      }
       if (downloadWorker == null) {
         downloadWorker=newWorker;
         downloadWorker.executeOnExecutor(MyAsyncTask.DOWNLOAD_THREAD_POOL_EXECUTOR);
@@ -34,6 +36,7 @@
       return;
     }
  catch (    InterruptedException e) {
+      Thread.currentThread().interrupt();
       e.printStackTrace();
       return;
     }
@@ -46,7 +49,7 @@ catch (    TimeoutException e) {
       return;
     }
 catch (    CancellationException e) {
-      downloadTasks.remove(middleUrl,downloadWorker);
+      removeDownloadTask(middleUrl,downloadWorker);
     }
   }
 }
