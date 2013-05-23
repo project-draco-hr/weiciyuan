@@ -1,4 +1,8 @@
 {
   super.onCreate(savedInstanceState);
   addPreferencesFromResource(R.xml.read_pref);
+  style=findPreference(SettingActivity.READ_STYLE);
+  buildSummary();
+  setRetainInstance(false);
+  PreferenceManager.getDefaultSharedPreferences(getActivity()).registerOnSharedPreferenceChangeListener(this);
 }

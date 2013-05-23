@@ -1,7 +1,0 @@
-{
-  if (Utility.isAllNotNull(getActivity(),newValue) && newValue.getSize() > 0) {
-    addNewDataAndRememberPosition(newValue);
-    putToGroupDataMemoryCache(currentGroupId,getList());
-    FriendsTimeLineDBTask.asyncReplace(getList(),accountBean.getUid(),currentGroupId);
-  }
-}

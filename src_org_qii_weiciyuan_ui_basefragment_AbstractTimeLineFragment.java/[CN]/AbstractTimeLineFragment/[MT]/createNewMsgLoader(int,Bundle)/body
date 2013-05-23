@@ -3,5 +3,8 @@
   if (loader == null) {
     loader=new DummyLoader<T>(getActivity());
   }
+  if (loader instanceof AbstractAsyncNetRequestTaskLoader) {
+    ((AbstractAsyncNetRequestTaskLoader)loader).setArgs(args);
+  }
   return loader;
 }

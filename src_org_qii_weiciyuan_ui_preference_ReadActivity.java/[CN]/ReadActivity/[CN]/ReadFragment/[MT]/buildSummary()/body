@@ -1,0 +1,4 @@
+{
+  String value=PreferenceManager.getDefaultSharedPreferences(getActivity()).getString(SettingActivity.READ_STYLE,"1");
+  style.setSummary(getActivity().getResources().getStringArray(R.array.read_style_mode)[Integer.valueOf(value) - 1]);
+}

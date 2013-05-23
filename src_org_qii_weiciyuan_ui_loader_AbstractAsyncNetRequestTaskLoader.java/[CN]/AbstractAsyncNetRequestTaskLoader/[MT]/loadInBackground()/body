@@ -10,5 +10,6 @@
   result=new AsyncTaskLoaderResult<T>();
   result.data=data;
   result.exception=exception;
+  result.args=this.args;
   return result;
 }
