@@ -1,19 +1,10 @@
 {
-  if (disappear) {
+  if (disappear || TextUtils.isEmpty(id)) {
     return;
   }
-  boolean has=ids.contains(id);
-  if (has) {
-    ids.remove(id);
-    long d=Long.valueOf(id);
-    Iterator<String> iterator=ids.iterator();
-    while (iterator.hasNext()) {
-      String v=iterator.next();
-      long t=Long.valueOf(v);
-      if (t < d) {
-        iterator.remove();
-      }
-    }
+  SortedSet tmp=ids.headSet(id,true);
+  if (tmp.size() > 0) {
+    tmp.clear();
     setCount();
     if (this.onChangeListener != null) {
       this.onChangeListener.onChange(ids.size());
