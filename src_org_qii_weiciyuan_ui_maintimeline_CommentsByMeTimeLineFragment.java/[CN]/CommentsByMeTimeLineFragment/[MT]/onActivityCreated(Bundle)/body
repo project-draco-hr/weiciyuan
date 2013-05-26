@@ -21,6 +21,9 @@ timeLineAdapter.notifyDataSetChanged();
 refreshLayout(getList());
 setListViewPositionFromPositionsCache();
 }
+ else {
+getLoaderManager().initLoader(DB_CACHE_LOADER_ID,null,dbCallback);
+}
 break;
 }
 }

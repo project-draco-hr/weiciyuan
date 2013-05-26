@@ -21,6 +21,9 @@ clearAndReplaceValue(savedBean);
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(getList());
 }
+ else {
+getLoaderManager().initLoader(DB_CACHE_LOADER_ID,null,dbCallback);
+}
 break;
 }
 }

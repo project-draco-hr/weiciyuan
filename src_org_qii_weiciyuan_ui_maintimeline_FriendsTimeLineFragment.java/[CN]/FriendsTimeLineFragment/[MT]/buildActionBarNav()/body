@@ -2,6 +2,7 @@
   if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() != LeftMenuFragment.HOME_INDEX) {
     return;
   }
+  ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
   getActivity().getActionBar().setDisplayShowTitleEnabled(false);
   getActivity().getActionBar().setDisplayHomeAsUpEnabled(Utility.isDevicePort());
   getActivity().getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);

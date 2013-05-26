@@ -1,9 +1,6 @@
 {
   super.onSaveInstanceState(outState);
   outState.putSerializable("account",accountBean);
-  outState.putSerializable("bean",getList());
   outState.putSerializable("userBean",userBean);
   outState.putString("token",token);
-  outState.putSerializable("groupDataCache",groupDataCache);
-  outState.putString("currentGroupId",currentGroupId);
 }

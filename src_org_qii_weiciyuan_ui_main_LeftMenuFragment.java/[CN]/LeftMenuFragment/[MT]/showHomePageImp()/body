@@ -8,5 +8,5 @@
   ft.show(fragment);
   ft.commit();
   setTitle("");
-  ((MainTimeLineActivity)getActivity()).setCurrentFragment(fragment);
+  fragment.buildActionBarNav();
 }
