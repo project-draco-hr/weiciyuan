@@ -3,6 +3,5 @@
   if (!hidden) {
     int mentionsTabIndex=getArguments().getInt("mentionsTabIndex");
     buildActionBarAndViewPagerTitles(mentionsTabIndex);
-    ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
   }
 }

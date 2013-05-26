@@ -3,6 +3,5 @@
   if (!hidden) {
     int commentsTabIndex=getArguments().getInt("commentsTabIndex");
     buildActionBarAndViewPagerTitles(commentsTabIndex);
-    ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
   }
 }

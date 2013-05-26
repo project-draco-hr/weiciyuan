@@ -3,7 +3,6 @@
   if (!hidden) {
     int searchTabIndex=getArguments().getInt("searchTabIndex");
     buildActionBarAndViewPagerTitles(searchTabIndex);
-    ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
     if (searchView != null)     SmileyPickerUtility.showKeyBoard(searchView);
   }
  else {

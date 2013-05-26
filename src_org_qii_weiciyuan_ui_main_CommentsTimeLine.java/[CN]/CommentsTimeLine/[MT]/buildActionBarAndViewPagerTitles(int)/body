@@ -1,4 +1,5 @@
 {
+  ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
   if (Utility.isDevicePort()) {
     ((MainTimeLineActivity)getActivity()).setTitle(R.string.comments);
     getActivity().getActionBar().setIcon(R.drawable.comment_light);
