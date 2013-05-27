@@ -19,5 +19,11 @@ setTitle(getString(R.string.pref_open_source_license_title));
 }
 webView=new WebView(this);
 setContentView(webView);
+if (getWindow().isFloating()) {
+WindowManager.LayoutParams layout=new WindowManager.LayoutParams();
+layout.copyFrom(getWindow().getAttributes());
+layout.height=WindowManager.LayoutParams.MATCH_PARENT;
+getWindow().setAttributes(layout);
+}
 webView.loadUrl("file:///android_asset/licenses.html");
 }
