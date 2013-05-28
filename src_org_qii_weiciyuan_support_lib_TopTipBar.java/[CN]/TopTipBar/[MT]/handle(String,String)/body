@@ -13,6 +13,9 @@
   if (type == Type.ALWAYS) {
     return;
   }
+  if (TextUtils.isEmpty(helperId)) {
+    return;
+  }
   if (ids.contains(helperId)) {
     setCount();
   }
