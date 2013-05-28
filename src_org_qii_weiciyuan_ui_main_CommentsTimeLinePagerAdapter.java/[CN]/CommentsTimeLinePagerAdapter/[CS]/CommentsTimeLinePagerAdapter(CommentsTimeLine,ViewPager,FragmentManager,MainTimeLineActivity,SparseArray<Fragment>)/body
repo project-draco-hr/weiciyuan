@@ -1,8 +1,8 @@
 {
   super(fm);
   this.fragmentList=fragmentList;
-  fragmentList.add(0,fragment.getCommentsToMeTimeLineFragment());
-  fragmentList.add(1,fragment.getCommentsByMeTimeLineFragment());
+  fragmentList.append(0,fragment.getCommentsToMeTimeLineFragment());
+  fragmentList.append(1,fragment.getCommentsByMeTimeLineFragment());
   FragmentTransaction transaction=fragment.getChildFragmentManager().beginTransaction();
   if (!fragmentList.get(0).isAdded())   transaction.add(viewPager.getId(),fragmentList.get(0),CommentsToMeTimeLineFragment.class.getName());
   if (!fragmentList.get(1).isAdded())   transaction.add(viewPager.getId(),fragmentList.get(1),CommentsByMeTimeLineFragment.class.getName());

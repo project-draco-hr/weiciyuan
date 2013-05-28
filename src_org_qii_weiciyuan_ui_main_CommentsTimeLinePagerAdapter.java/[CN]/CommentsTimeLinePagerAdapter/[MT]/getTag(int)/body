@@ -1,6 +1,6 @@
 {
-  List<String> tagList=new ArrayList<String>();
-  tagList.add(CommentsToMeTimeLineFragment.class.getName());
-  tagList.add(CommentsByMeTimeLineFragment.class.getName());
+  SparseArray<String> tagList=new SparseArray<String>();
+  tagList.append(0,CommentsToMeTimeLineFragment.class.getName());
+  tagList.append(1,CommentsByMeTimeLineFragment.class.getName());
   return tagList.get(position);
 }
