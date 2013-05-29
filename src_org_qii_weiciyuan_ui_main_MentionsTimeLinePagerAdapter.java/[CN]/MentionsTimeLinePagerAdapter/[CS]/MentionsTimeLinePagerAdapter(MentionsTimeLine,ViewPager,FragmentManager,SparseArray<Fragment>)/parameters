@@ -1,5 +1,4 @@
 MentionsTimeLine fragment
 ViewPager viewPager
 FragmentManager fm
-MainTimeLineActivity activity
 SparseArray<Fragment> fragmentList
