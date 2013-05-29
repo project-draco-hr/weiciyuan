@@ -1,5 +1,5 @@
 {
   super(context,attrs,defStyle);
   type=Type.AUTO;
-  ids=new TreeSet<String>(new TopTipBarComparator());
+  ids=new TreeSet<Long>(new TopTipBarComparator());
 }

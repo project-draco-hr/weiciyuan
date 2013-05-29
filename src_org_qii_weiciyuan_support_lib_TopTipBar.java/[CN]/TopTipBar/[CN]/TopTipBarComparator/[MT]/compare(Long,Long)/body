@@ -1,6 +1,6 @@
 {
-  Long aL=Long.valueOf(a);
-  Long bL=Long.valueOf(b);
+  Long aL=a;
+  Long bL=b;
   Long resultL=aL - bL;
   int result=0;
   if (resultL > 0L) {

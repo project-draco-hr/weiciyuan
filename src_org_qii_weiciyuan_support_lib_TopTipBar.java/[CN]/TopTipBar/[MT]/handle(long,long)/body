@@ -1,5 +1,5 @@
 {
-  if (disappear || TextUtils.isEmpty(id)) {
+  if (disappear || id == 0L) {
     return;
   }
   SortedSet tmp=ids.headSet(id,true);
@@ -13,7 +13,7 @@
   if (type == Type.ALWAYS) {
     return;
   }
-  if (TextUtils.isEmpty(helperId)) {
+  if (helperId == 0L) {
     return;
   }
   if (ids.contains(helperId)) {

@@ -1,5 +1,5 @@
 {
-  HashSet<String> copy=new HashSet<String>();
+  HashSet<Long> copy=new HashSet<Long>();
   copy.addAll(this.ids);
   return copy;
 }
