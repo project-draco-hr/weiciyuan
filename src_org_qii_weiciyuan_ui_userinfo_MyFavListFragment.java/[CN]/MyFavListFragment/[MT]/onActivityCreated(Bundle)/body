@@ -1,6 +1,8 @@
 {
   super.onActivityCreated(savedInstanceState);
-  commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
+  setRetainInstance(true);
+  setHasOptionsMenu(true);
+  commander=((ICommander)getActivity()).getBitmapDownloader();
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
     getPullToRefreshListView().startRefreshNow();
@@ -14,5 +16,8 @@ page=savedInstanceState.getInt("page");
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(bean);
 break;
+}
+if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == LeftMenuFragment.FAV_INDEX) {
+buildActionBarAndViewPagerTitles();
 }
 }

@@ -15,6 +15,9 @@ break;
 case DM_INDEX:
 showDMPage(true);
 break;
+case FAV_INDEX:
+showFavPage(true);
+break;
 }
 drawButtonsBackground(position);
 buildUnreadCount();

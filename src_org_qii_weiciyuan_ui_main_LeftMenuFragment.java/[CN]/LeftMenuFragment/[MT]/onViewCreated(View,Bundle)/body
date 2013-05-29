@@ -5,8 +5,8 @@
   layout.comment.setOnClickListener(onClickListener);
   layout.search.setOnClickListener(onClickListener);
   layout.profile.setOnClickListener(onClickListener);
-  layout.location.setOnClickListener(onClickListener);
   layout.setting.setOnClickListener(onClickListener);
   layout.dm.setOnClickListener(onClickListener);
   layout.logout.setOnClickListener(onClickListener);
+  layout.fav.setOnClickListener(onClickListener);
 }

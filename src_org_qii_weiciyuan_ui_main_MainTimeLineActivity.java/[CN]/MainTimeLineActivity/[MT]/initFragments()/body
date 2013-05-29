@@ -4,6 +4,7 @@
   Fragment comments=getCommentsTimeLineFragment();
   Fragment search=getSearchFragment();
   Fragment dm=getDMFragment();
+  Fragment fav=getFavFragment();
   FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
   if (!friend.isAdded()) {
     fragmentTransaction.add(R.id.menu_right_fl,friend,FriendsTimeLineFragment.class.getName());
@@ -24,6 +25,10 @@
   if (!dm.isAdded()) {
     fragmentTransaction.add(R.id.menu_right_fl,dm,DMUserListFragment.class.getName());
     fragmentTransaction.hide(dm);
+  }
+  if (!fav.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,fav,MyFavListFragment.class.getName());
+    fragmentTransaction.hide(fav);
   }
   if (!fragmentTransaction.isEmpty()) {
     fragmentTransaction.commit();

@@ -1,0 +1,8 @@
+{
+  MyFavListFragment fragment=((MyFavListFragment)getSupportFragmentManager().findFragmentByTag(MyFavListFragment.class.getName()));
+  if (fragment == null) {
+    fragment=new MyFavListFragment();
+    fragment.setArguments(new Bundle());
+  }
+  return fragment;
+}

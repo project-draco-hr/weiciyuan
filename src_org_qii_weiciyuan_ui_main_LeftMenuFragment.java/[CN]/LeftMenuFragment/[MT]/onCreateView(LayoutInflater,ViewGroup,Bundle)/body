@@ -6,10 +6,10 @@
   layout.comment=(LinearLayout)view.findViewById(R.id.btn_comment);
   layout.search=(Button)view.findViewById(R.id.btn_search);
   layout.profile=(Button)view.findViewById(R.id.btn_profile);
-  layout.location=(Button)view.findViewById(R.id.btn_location);
   layout.setting=(Button)view.findViewById(R.id.btn_setting);
   layout.dm=(Button)view.findViewById(R.id.btn_dm);
   layout.logout=(Button)view.findViewById(R.id.btn_logout);
+  layout.fav=(Button)view.findViewById(R.id.btn_favourite);
   layout.homeCount=(TextView)view.findViewById(R.id.tv_home_count);
   layout.mentionCount=(TextView)view.findViewById(R.id.tv_mention_count);
   layout.commentCount=(TextView)view.findViewById(R.id.tv_comment_count);

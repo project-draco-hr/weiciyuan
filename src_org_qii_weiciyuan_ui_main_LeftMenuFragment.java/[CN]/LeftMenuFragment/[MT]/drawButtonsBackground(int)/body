@@ -4,6 +4,7 @@
   layout.comment.setBackgroundResource(R.drawable.btn_drawer_menu);
   layout.search.setBackgroundResource(R.drawable.btn_drawer_menu);
   layout.dm.setBackgroundResource(R.drawable.btn_drawer_menu);
+  layout.fav.setBackgroundResource(R.drawable.btn_drawer_menu);
 switch (position) {
 case HOME_INDEX:
     layout.home.setBackgroundResource(R.color.ics_blue_semi);
@@ -20,16 +21,16 @@ break;
 case DM_INDEX:
 layout.dm.setBackgroundResource(R.color.ics_blue_semi);
 break;
-case 5:
-layout.location.setBackgroundResource(R.color.ics_blue_semi);
+case FAV_INDEX:
+layout.fav.setBackgroundResource(R.color.ics_blue_semi);
 break;
-case 6:
+case PROFILE_INDEX:
 layout.profile.setBackgroundResource(R.color.ics_blue_semi);
 break;
-case 7:
+case LOGOUT_INDEX:
 layout.logout.setBackgroundResource(R.color.ics_blue_semi);
 break;
-case 8:
+case SETTING_INDEX:
 layout.setting.setBackgroundResource(R.color.ics_blue_semi);
 break;
 }
