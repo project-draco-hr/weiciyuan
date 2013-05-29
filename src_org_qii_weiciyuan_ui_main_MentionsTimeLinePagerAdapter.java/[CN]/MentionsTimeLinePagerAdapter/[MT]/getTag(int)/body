@@ -1,6 +1,6 @@
 {
   SparseArray<String> tagList=new SparseArray<String>();
-  tagList.append(0,MentionsWeiboTimeLineFragment.class.getName());
-  tagList.append(0,MentionsCommentTimeLineFragment.class.getName());
+  tagList.append(MentionsTimeLine.MENTIONS_WEIBO_CHILD_POSITION,MentionsWeiboTimeLineFragment.class.getName());
+  tagList.append(MentionsTimeLine.MENTIONS_COMMENT_CHILD_POSITION,MentionsCommentTimeLineFragment.class.getName());
   return tagList.get(position);
 }
