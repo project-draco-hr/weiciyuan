@@ -1,0 +1,6 @@
+{
+  String sql="delete from " + FavouriteTable.FavouriteDataTable.TABLE_NAME + " where "+ FavouriteTable.FavouriteDataTable.ACCOUNTID+ " in "+ "("+ accountId+ ")";
+  getWsd().execSQL(sql);
+  sql="delete from " + FavouriteTable.TABLE_NAME + " where "+ FavouriteTable.ACCOUNTID+ " in "+ "("+ accountId+ ")";
+  getWsd().execSQL(sql);
+}

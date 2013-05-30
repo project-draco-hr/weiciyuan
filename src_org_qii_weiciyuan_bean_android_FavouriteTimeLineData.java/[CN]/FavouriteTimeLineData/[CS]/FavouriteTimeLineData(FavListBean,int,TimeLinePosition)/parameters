@@ -1,0 +1,3 @@
+FavListBean favList
+int page
+TimeLinePosition position

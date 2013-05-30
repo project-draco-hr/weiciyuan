@@ -4,5 +4,6 @@
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
     buildActionBarSubtitle();
+    FavouriteDBTask.asyncReplace(getList(),page,account.getUid());
   }
 }

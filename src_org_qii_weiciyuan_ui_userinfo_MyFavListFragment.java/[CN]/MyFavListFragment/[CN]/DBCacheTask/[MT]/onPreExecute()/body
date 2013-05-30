@@ -1,0 +1,4 @@
+{
+  super.onPreExecute();
+  getPullToRefreshListView().setVisibility(View.INVISIBLE);
+}

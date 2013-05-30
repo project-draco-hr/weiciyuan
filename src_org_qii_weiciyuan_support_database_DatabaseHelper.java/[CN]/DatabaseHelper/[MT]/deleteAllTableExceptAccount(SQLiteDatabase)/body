@@ -12,6 +12,8 @@
   db.execSQL("DROP TABLE IF EXISTS " + MentionCommentsTable.MentionCommentsDataTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + CommentByMeTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + CommentByMeTable.CommentByMeDataTable.TABLE_NAME);
+  db.execSQL("DROP TABLE IF EXISTS " + FavouriteTable.TABLE_NAME);
+  db.execSQL("DROP TABLE IF EXISTS " + FavouriteTable.FavouriteDataTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + FilterTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + EmotionsTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + DraftTable.TABLE_NAME);

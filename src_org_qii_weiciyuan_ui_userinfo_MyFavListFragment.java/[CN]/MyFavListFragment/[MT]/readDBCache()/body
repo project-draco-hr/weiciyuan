@@ -1,0 +1,6 @@
+{
+  if (Utility.isTaskStopped(dbTask) && getList().getSize() == 0) {
+    dbTask=new DBCacheTask();
+    dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}
