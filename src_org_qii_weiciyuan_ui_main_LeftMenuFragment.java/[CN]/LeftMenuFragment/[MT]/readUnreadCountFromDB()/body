@@ -1,6 +1,6 @@
 {
   TimeLinePosition position=MentionsTimeLineDBTask.getPosition(GlobalContext.getInstance().getCurrentAccountId());
-  HashSet<Long> hashSet=position.newMsgIds;
+  TreeSet<Long> hashSet=position.newMsgIds;
   if (hashSet != null) {
     mentionsWeiboUnreadCount=hashSet.size();
   }

@@ -1,8 +1,6 @@
 {
   if (newValue != null && getActivity() != null && newValue.getSize() > 0) {
-    getList().replaceData(newValue);
-    getAdapter().notifyDataSetChanged();
-    getListView().setSelectionAfterHeaderView();
+    addNewDataWithoutRememberPosition(newValue);
     buildActionBarSubtitle();
     FavouriteDBTask.asyncReplace(getList(),page,account.getUid());
   }
