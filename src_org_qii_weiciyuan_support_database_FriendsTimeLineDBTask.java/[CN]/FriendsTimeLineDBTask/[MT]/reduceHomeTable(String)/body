@@ -7,10 +7,4 @@
   }
   c.close();
   AppLogger.e("total=" + total);
-  int needDeletedNumber=total - AppConfig.DEFAULT_HOME_DB_CACHE_COUNT;
-  if (needDeletedNumber > 0) {
-    AppLogger.e("" + needDeletedNumber);
-    String sql=" delete from " + HomeTable.HomeDataTable.TABLE_NAME + " where "+ HomeTable.HomeDataTable.ID+ " in "+ "( select "+ HomeTable.HomeDataTable.ID+ " from "+ HomeTable.HomeDataTable.TABLE_NAME+ " where "+ HomeTable.HomeDataTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ HomeTable.HomeDataTable.ID+ " desc limit "+ needDeletedNumber+ " ) ";
-    getWsd().execSQL(sql);
-  }
 }

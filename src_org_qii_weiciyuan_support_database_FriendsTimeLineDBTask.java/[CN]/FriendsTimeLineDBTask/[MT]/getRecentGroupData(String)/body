@@ -3,8 +3,8 @@
   MessageListBean msgList;
   TimeLinePosition position;
   if (groupId.equals("0")) {
-    msgList=getHomeLineMsgList(accountId);
     position=getPosition(accountId);
+    msgList=getHomeLineMsgList(accountId,position.position + DB_CACHE_COUNT_OFFSET);
   }
  else {
     msgList=HomeOtherGroupTimeLineDBTask.get(accountId,groupId);
