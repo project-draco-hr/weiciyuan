@@ -1,0 +1,3 @@
+{
+  return "user id=" + bean.getUid() + ","+ "name="+ bean.getScreen_name();
+}

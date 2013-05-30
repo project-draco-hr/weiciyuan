@@ -1,0 +1,3 @@
+{
+  return "message id=" + bean.getId() + ","+ "reposts="+ bean.getReposts()+ ","+ "comments="+ bean.getComments();
+}

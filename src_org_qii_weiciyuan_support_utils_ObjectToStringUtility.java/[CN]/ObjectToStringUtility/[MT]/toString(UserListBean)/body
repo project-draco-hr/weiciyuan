@@ -1,0 +1,7 @@
+{
+  StringBuilder builder=new StringBuilder();
+  for (  UserBean data : listBean.getUsers()) {
+    builder.append(data.toString());
+  }
+  return builder.toString();
+}
