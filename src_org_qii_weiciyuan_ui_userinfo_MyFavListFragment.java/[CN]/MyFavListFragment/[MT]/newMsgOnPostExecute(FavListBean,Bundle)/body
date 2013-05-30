@@ -1,6 +1,6 @@
 {
   if (newValue != null && getActivity() != null && newValue.getSize() > 0) {
-    getList().addNewData(newValue);
+    getList().replaceData(newValue);
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
     buildActionBarSubtitle();
