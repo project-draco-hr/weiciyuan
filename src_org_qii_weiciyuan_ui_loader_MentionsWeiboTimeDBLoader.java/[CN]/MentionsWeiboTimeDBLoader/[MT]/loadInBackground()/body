@@ -1,4 +1,4 @@
 {
-  result=MentionsTimeLineDBTask.getRepostLineMsgList(accountId);
+  result=MentionWeiboTimeLineDBTask.getRepostLineMsgList(accountId);
   return result;
 }

@@ -9,7 +9,7 @@
     getAdapter().notifyDataSetChanged();
     int ss=index + size;
     getListView().setSelectionFromTop(ss + 1,top);
-    CommentsTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
+    CommentToMeTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
     saveTimeLinePositionToDB();
   }
 }

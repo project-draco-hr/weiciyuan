@@ -9,7 +9,7 @@
     getAdapter().notifyDataSetChanged();
     int ss=index + size;
     getListView().setSelectionFromTop(ss + 1,top);
-    MentionsTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
+    MentionWeiboTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
     saveTimeLinePositionToDB();
   }
 }

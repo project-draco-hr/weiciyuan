@@ -1,5 +1,5 @@
 {
   timeLinePosition=Utility.getCurrentPositionFromListView(getListView());
   timeLinePosition.newMsgIds=newMsgTipBar.getValues();
-  MentionsTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
+  MentionWeiboTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
 }

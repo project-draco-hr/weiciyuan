@@ -15,7 +15,7 @@
   if (unreadCommentCount > 0 && SettingUtility.allowCommentToMe()) {
     MainCommentsTimeLineDao dao=new MainCommentsTimeLineDao(token);
     CommentListBean oldData=null;
-    CommentTimeLineData commentTimeLineData=CommentsTimeLineDBTask.getCommentLineMsgList(accountBean.getUid());
+    CommentTimeLineData commentTimeLineData=CommentToMeTimeLineDBTask.getCommentLineMsgList(accountBean.getUid());
     if (commentTimeLineData != null) {
       oldData=commentTimeLineData.cmtList;
     }
@@ -27,7 +27,7 @@
   if (unreadMentionStatusCount > 0 && SettingUtility.allowMentionToMe()) {
     MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(token);
     MessageListBean oldData=null;
-    MentionTimeLineData commentTimeLineData=MentionsTimeLineDBTask.getRepostLineMsgList(accountBean.getUid());
+    MentionTimeLineData commentTimeLineData=MentionWeiboTimeLineDBTask.getRepostLineMsgList(accountBean.getUid());
     if (commentTimeLineData != null) {
       oldData=commentTimeLineData.msgList;
     }
