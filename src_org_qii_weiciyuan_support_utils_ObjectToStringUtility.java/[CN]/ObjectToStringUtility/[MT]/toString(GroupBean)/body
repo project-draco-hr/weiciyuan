@@ -1,0 +1,3 @@
+{
+  return "group id=" + bean.getIdstr() + ","+ "name="+ bean.getName();
+}
