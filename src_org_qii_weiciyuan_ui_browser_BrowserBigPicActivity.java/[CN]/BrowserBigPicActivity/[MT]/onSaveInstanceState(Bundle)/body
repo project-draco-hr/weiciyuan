@@ -1,4 +1,4 @@
 {
   super.onSaveInstanceState(outState);
-  outState.putSerializable("msg",msg);
+  outState.putParcelable("msg",msg);
 }

@@ -1,5 +1,5 @@
 {
   super.onSaveInstanceState(outState);
   if (hasGpsInfo())   layout.mapView.onSaveInstanceState(outState);
-  outState.putSerializable("msg",msg);
+  outState.putParcelable("msg",msg);
 }

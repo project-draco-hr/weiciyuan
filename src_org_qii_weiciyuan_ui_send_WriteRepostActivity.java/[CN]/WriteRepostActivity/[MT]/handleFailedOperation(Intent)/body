@@ -1,6 +1,6 @@
 {
   token=((AccountBean)intent.getParcelableExtra("account")).getAccess_token();
-  msg=(MessageBean)intent.getSerializableExtra("oriMsg");
+  msg=(MessageBean)intent.getParcelableExtra("oriMsg");
   getEditTextView().setText(intent.getStringExtra("content"));
   if (msg.getRetweeted_status() != null) {
     getEditTextView().setHint("//@" + msg.getRetweeted_status().getUser().getScreen_name() + "???"+ msg.getRetweeted_status().getText());

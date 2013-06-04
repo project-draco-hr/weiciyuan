@@ -11,7 +11,7 @@ case ACTIVITY_DESTROY_AND_CREATE:
 clearAndReplaceValue((RepostListBean)savedInstanceState.getSerializable("bean"));
 token=savedInstanceState.getString("token");
 id=savedInstanceState.getString("id");
-msg=(MessageBean)savedInstanceState.getSerializable("msg");
+msg=(MessageBean)savedInstanceState.getParcelable("msg");
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(bean);
 break;

@@ -4,7 +4,7 @@
     savedEnableComment=savedInstanceState.getBoolean("comment");
     savedEnableOriComment=savedInstanceState.getBoolean("oriComment");
     token=savedInstanceState.getString("token");
-    msg=(MessageBean)savedInstanceState.getSerializable("msg");
+    msg=(MessageBean)savedInstanceState.getParcelable("msg");
     repostDraftBean=(RepostDraftBean)savedInstanceState.getSerializable("repostDraftBean");
   }
 }

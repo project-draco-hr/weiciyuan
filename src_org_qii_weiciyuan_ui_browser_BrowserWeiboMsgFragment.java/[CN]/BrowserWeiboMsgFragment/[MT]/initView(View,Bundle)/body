@@ -12,10 +12,10 @@
     layout.mapView=(MapView)inflated.findViewById(R.id.location_mv);
   }
   if (savedInstanceState != null && hasGpsInfo()) {
-    MessageBean msg=(MessageBean)savedInstanceState.get("msg");
+    MessageBean msg=(MessageBean)savedInstanceState.getParcelable("msg");
     savedInstanceState.remove("msg");
     layout.mapView.onCreate(savedInstanceState);
-    savedInstanceState.putSerializable("msg",msg);
+    savedInstanceState.putParcelable("msg",msg);
   }
  else   if (hasGpsInfo()) {
     layout.mapView.onCreate(savedInstanceState);

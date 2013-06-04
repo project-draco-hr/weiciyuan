@@ -45,7 +45,7 @@
     }
   }
  else   if (savedInstanceState != null) {
-    msg=(MessageBean)savedInstanceState.getSerializable("msg");
+    msg=(MessageBean)savedInstanceState.getParcelable("msg");
     if (msg.getRetweeted_status() == null) {
       quick_repost.setVisibility(View.VISIBLE);
     }

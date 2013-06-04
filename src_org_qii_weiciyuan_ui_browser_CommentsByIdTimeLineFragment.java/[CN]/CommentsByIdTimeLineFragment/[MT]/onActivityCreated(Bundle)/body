@@ -16,7 +16,7 @@ break;
 case ACTIVITY_DESTROY_AND_CREATE:
 getList().replaceAll((CommentListBean)savedInstanceState.getSerializable("bean"));
 token=savedInstanceState.getString("token");
-msg=(MessageBean)savedInstanceState.get("msg");
+msg=(MessageBean)savedInstanceState.getParcelable("msg");
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(bean);
 break;

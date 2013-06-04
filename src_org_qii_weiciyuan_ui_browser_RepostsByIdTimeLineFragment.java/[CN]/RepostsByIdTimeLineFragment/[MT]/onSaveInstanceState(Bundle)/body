@@ -3,5 +3,5 @@
   outState.putSerializable("bean",bean);
   outState.putString("id",id);
   outState.putString("token",token);
-  outState.putSerializable("msg",msg);
+  outState.putParcelable("msg",msg);
 }

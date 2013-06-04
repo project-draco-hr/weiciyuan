@@ -65,7 +65,7 @@ if (!mPressed && mClose) finish();
 }
 }
 );
-msg=(MessageBean)getIntent().getSerializableExtra("msg");
+msg=(MessageBean)getIntent().getParcelableExtra("msg");
 if (Utility.isTaskStopped(task)) {
 task=new PicSimpleBitmapWorkerTask(hd);
 task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
