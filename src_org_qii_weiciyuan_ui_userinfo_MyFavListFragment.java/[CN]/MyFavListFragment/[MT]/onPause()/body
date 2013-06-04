@@ -1,4 +1,6 @@
 {
   super.onPause();
-  savePositionToDB();
+  if (!getActivity().isChangingConfigurations()) {
+    savePositionToDB();
+  }
 }

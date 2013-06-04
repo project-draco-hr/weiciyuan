@@ -1,5 +1,5 @@
 {
-  StatusListAdapter adapter=new StatusListAdapter(this,((ICommander)getActivity()).getBitmapDownloader(),getList().getItemList(),getListView(),true,true);
+  StatusListAdapter adapter=new StatusListAdapter(this,((ICommander)getActivity()).getBitmapDownloader(),getList().getItemList(),getListView(),true,false);
   adapter.setTopTipBar(newMsgTipBar);
   timeLineAdapter=adapter;
   getListView().setAdapter(timeLineAdapter);
