@@ -14,7 +14,7 @@ case SCREEN_ROTATE:
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
 topicList=savedInstanceState.getStringArrayList("topicList");
-bean=(UserBean)savedInstanceState.getSerializable("bean");
+bean=(UserBean)savedInstanceState.getParcelable("bean");
 break;
 }
 commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();

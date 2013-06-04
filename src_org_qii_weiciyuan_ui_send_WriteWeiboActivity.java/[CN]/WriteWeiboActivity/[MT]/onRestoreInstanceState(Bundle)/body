@@ -9,7 +9,7 @@
  else     disableGeo();
     imageFileUri=savedInstanceState.getParcelable("imageFileUri");
     statusDraftBean=(StatusDraftBean)savedInstanceState.getSerializable("statusDraftBean");
-    accountBean=(AccountBean)savedInstanceState.getSerializable("accountBean");
+    accountBean=(AccountBean)savedInstanceState.getParcelable("accountBean");
     token=accountBean.getAccess_token();
   }
 }

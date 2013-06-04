@@ -1,11 +1,11 @@
 {
   super.onCreate(savedInstanceState);
   if (savedInstanceState != null) {
-    accountBean=(AccountBean)savedInstanceState.getSerializable("account");
+    accountBean=(AccountBean)savedInstanceState.getParcelable("account");
   }
  else {
     Intent intent=getIntent();
-    accountBean=(AccountBean)intent.getSerializableExtra("account");
+    accountBean=(AccountBean)intent.getParcelableExtra("account");
   }
   if (accountBean == null)   accountBean=GlobalContext.getInstance().getAccountBean();
   GlobalContext.getInstance().setAccountBean(accountBean);

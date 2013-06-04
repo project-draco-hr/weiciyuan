@@ -1,0 +1,6 @@
+{
+  dest.writeString(access_token);
+  dest.writeInt(navigationPosition);
+  dest.writeBooleanArray(new boolean[]{this.black_magic});
+  dest.writeParcelable(info,flags);
+}

@@ -1,0 +1,27 @@
+{
+  dest.writeString(id);
+  dest.writeString(screen_name);
+  dest.writeString(name);
+  dest.writeString(province);
+  dest.writeString(city);
+  dest.writeString(location);
+  dest.writeString(description);
+  dest.writeString(url);
+  dest.writeString(profile_image_url);
+  dest.writeString(domain);
+  dest.writeString(gender);
+  dest.writeString(statuses_count);
+  dest.writeString(favourites_count);
+  dest.writeString(created_at);
+  dest.writeString(allow_all_act_msg);
+  dest.writeString(remark);
+  dest.writeString(geo_enabled);
+  dest.writeString(allow_all_comment);
+  dest.writeString(avatar_large);
+  dest.writeString(verified_reason);
+  dest.writeString(online_status);
+  dest.writeString(bi_followers_count);
+  dest.writeString(followers_count);
+  dest.writeString(friends_count);
+  dest.writeBooleanArray(new boolean[]{this.following,this.follow_me,this.verified});
+}

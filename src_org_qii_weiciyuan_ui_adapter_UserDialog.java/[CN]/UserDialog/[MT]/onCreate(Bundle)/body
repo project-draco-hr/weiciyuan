@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
   if (savedInstanceState != null) {
-    user=(UserBean)savedInstanceState.getSerializable("user");
+    user=savedInstanceState.getParcelable("user");
   }
 }

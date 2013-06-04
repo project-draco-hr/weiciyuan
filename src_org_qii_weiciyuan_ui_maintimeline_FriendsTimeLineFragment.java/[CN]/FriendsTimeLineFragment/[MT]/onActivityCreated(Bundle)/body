@@ -24,8 +24,8 @@ buildActionBarNav();
 setListViewPositionFromPositionsCache();
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-userBean=(UserBean)savedInstanceState.getSerializable("userBean");
-accountBean=(AccountBean)savedInstanceState.getSerializable("account");
+userBean=(UserBean)savedInstanceState.getParcelable("userBean");
+accountBean=(AccountBean)savedInstanceState.getParcelable("account");
 token=savedInstanceState.getString("token");
 if (Utility.isTaskStopped(dbTask) && getList().getSize() == 0) {
 dbTask=new DBCacheTask();

@@ -3,7 +3,7 @@
   getActionBar().setDisplayShowHomeEnabled(false);
   getActionBar().setDisplayShowTitleEnabled(true);
   getActionBar().setDisplayHomeAsUpEnabled(true);
-  UserBean bean=(UserBean)getIntent().getSerializableExtra("user");
+  UserBean bean=(UserBean)getIntent().getParcelableExtra("user");
   setTitle(bean.getScreen_name());
   if (savedInstanceState == null) {
     getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new DMConversationListFragment(bean)).commit();

@@ -1,5 +1,5 @@
 {
-  AccountBean account=(AccountBean)intent.getSerializableExtra("account");
+  AccountBean account=(AccountBean)intent.getParcelableExtra("account");
   token=account.getAccess_token();
   repostDraftBean=(RepostDraftBean)intent.getSerializableExtra("draft");
   getEditTextView().setText(repostDraftBean.getContent());

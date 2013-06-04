@@ -5,5 +5,5 @@
   outState.putString("location",location);
   outState.putParcelable("imageFileUri",imageFileUri);
   outState.putSerializable("statusDraftBean",statusDraftBean);
-  outState.putSerializable("accountBean",accountBean);
+  outState.putParcelable("accountBean",accountBean);
 }
