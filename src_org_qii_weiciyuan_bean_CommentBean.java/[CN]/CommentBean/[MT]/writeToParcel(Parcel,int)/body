@@ -1,0 +1,12 @@
+{
+  dest.writeString(created_at);
+  dest.writeLong(id);
+  dest.writeString(idstr);
+  dest.writeString(text);
+  dest.writeString(source);
+  dest.writeString(mid);
+  dest.writeLong(mills);
+  dest.writeParcelable(user,flags);
+  dest.writeParcelable(status,flags);
+  dest.writeParcelable(reply_comment,flags);
+}

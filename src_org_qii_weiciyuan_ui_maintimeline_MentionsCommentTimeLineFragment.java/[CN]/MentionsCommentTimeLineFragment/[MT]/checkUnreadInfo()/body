@@ -4,7 +4,7 @@
     return;
   }
   Intent intent=getActivity().getIntent();
-  CommentListBean mentionsWeibo=(CommentListBean)intent.getSerializableExtra("mentionsComment");
+  CommentListBean mentionsWeibo=(CommentListBean)intent.getParcelableExtra("mentionsComment");
   if (mentionsWeibo != null) {
     addUnreadMessage(mentionsWeibo);
     CommentListBean nullObject=null;

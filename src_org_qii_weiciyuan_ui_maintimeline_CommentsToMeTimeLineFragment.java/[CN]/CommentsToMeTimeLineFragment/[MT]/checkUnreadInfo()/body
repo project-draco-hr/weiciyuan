@@ -4,7 +4,7 @@
     return;
   }
   Intent intent=getActivity().getIntent();
-  CommentListBean commentsToMe=(CommentListBean)intent.getSerializableExtra("comment");
+  CommentListBean commentsToMe=(CommentListBean)intent.getParcelableExtra("comment");
   if (commentsToMe != null) {
     addUnreadMessage(commentsToMe);
     CommentListBean nullObject=null;

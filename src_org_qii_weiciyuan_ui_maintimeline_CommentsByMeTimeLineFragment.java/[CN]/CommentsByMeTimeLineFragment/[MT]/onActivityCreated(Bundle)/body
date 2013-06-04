@@ -14,7 +14,7 @@ Loader<CommentTimeLineData> loader=getLoaderManager().getLoader(DB_CACHE_LOADER_
 if (loader != null) {
 getLoaderManager().initLoader(DB_CACHE_LOADER_ID,null,dbCallback);
 }
-CommentListBean savedBean=(CommentListBean)savedInstanceState.getSerializable("bean");
+CommentListBean savedBean=(CommentListBean)savedInstanceState.getParcelable("bean");
 if (savedBean != null && savedBean.getSize() > 0) {
 clearAndReplaceValue(savedBean);
 timeLineAdapter.notifyDataSetChanged();

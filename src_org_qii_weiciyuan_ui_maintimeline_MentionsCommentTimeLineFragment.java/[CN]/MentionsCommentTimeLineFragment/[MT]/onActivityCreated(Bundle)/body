@@ -11,7 +11,7 @@ accountBean=(AccountBean)savedInstanceState.getParcelable("account");
 token=savedInstanceState.getString("token");
 unreadBean=(UnreadBean)savedInstanceState.getSerializable("unreadBean");
 timeLinePosition=(TimeLinePosition)savedInstanceState.getSerializable("timeLinePosition");
-CommentListBean savedBean=(CommentListBean)savedInstanceState.getSerializable("bean");
+CommentListBean savedBean=(CommentListBean)savedInstanceState.getParcelable("bean");
 Loader<CommentTimeLineData> loader=getLoaderManager().getLoader(DB_CACHE_LOADER_ID);
 if (loader != null) {
 getLoaderManager().initLoader(DB_CACHE_LOADER_ID,null,dbCallback);

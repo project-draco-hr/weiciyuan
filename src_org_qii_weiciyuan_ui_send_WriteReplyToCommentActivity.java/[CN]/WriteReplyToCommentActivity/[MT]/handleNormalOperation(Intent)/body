@@ -1,6 +1,6 @@
 {
   token=intent.getStringExtra("token");
   if (TextUtils.isEmpty(token))   token=GlobalContext.getInstance().getSpecialToken();
-  bean=(CommentBean)intent.getSerializableExtra("msg");
+  bean=(CommentBean)intent.getParcelableExtra("msg");
   getEditTextView().setHint("@" + bean.getUser().getScreen_name() + "???"+ bean.getText());
 }
