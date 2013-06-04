@@ -4,7 +4,7 @@
 switch (type) {
 case TYPE_STATUS:
     AppLogger.e("start db");
-  MessageListBean value=(MessageListBean)intent.getSerializableExtra("value");
+  MessageListBean value=(MessageListBean)intent.getParcelableExtra("value");
 AppLogger.e("end db");
 break;
 }

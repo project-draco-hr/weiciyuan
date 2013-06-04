@@ -4,7 +4,7 @@
   outState.putParcelable("userBean",userBean);
   outState.putString("token",token);
   if (getActivity().isChangingConfigurations()) {
-    outState.putSerializable("bean",bean);
+    outState.putParcelable("bean",bean);
     outState.putSerializable("unreadBean",unreadBean);
     outState.putSerializable("timeLinePosition",timeLinePosition);
   }

@@ -14,7 +14,7 @@ Loader<MentionTimeLineData> loader=getLoaderManager().getLoader(DB_CACHE_LOADER_
 if (loader != null) {
 getLoaderManager().initLoader(DB_CACHE_LOADER_ID,null,dbCallback);
 }
-MessageListBean savedBean=(MessageListBean)savedInstanceState.getSerializable("bean");
+MessageListBean savedBean=(MessageListBean)savedInstanceState.getParcelable("bean");
 if (savedBean != null && savedBean.getSize() > 0) {
 getList().replaceData(savedBean);
 timeLineAdapter.notifyDataSetChanged();

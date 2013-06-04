@@ -12,7 +12,7 @@ case SCREEN_ROTATE:
 refreshLayout(getList());
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-getList().replaceData((MessageListBean)savedInstanceState.getSerializable("bean"));
+getList().replaceData((MessageListBean)savedInstanceState.getParcelable("bean"));
 userBean=(UserBean)savedInstanceState.getParcelable("userBean");
 token=savedInstanceState.getString("token");
 getAdapter().notifyDataSetChanged();
