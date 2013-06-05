@@ -2,7 +2,7 @@
 switch (item.getItemId()) {
 case R.id.menu_write_dm:
     Intent intent=new Intent(getActivity(),DMSelectUserActivity.class);
-  startActivity(intent);
+  startActivityForResult(intent,0);
 break;
 }
 return super.onOptionsItemSelected(item);

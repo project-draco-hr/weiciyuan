@@ -1,4 +1,11 @@
 {
   super.onCreate(savedInstanceState);
+  setContentView(R.layout.dmselectuseractivity_layout);
   getActionBar().setTitle(R.string.select_dm_receiver);
+  getActionBar().setDisplayShowHomeEnabled(false);
+  getActionBar().setDisplayShowTitleEnabled(true);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  if (savedInstanceState == null) {
+    getSupportFragmentManager().beginTransaction().replace(R.id.list_content,new SelectFriendsListFragment(GlobalContext.getInstance().getCurrentAccountId())).commit();
+  }
 }
