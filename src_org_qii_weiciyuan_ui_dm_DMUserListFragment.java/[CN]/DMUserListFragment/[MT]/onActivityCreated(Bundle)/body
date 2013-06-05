@@ -18,7 +18,7 @@ getAdapter().notifyDataSetChanged();
 refreshLayout(getList());
 break;
 }
-if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == LeftMenuFragment.SEARCH_INDEX) {
+if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == LeftMenuFragment.DM_INDEX) {
 buildActionBarAndViewPagerTitles();
 }
 }
