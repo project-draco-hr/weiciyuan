@@ -1,0 +1,11 @@
+{
+  int wantedPosition=position - 1;
+  int firstPosition=listView.getFirstVisiblePosition() - listView.getHeaderViewsCount();
+  int wantedChild=wantedPosition - firstPosition;
+  if (wantedChild < 0 || wantedChild >= listView.getChildCount()) {
+    return null;
+  }
+  View wantedView=listView.getChildAt(wantedChild);
+  DMViewHolder holder=(DMViewHolder)wantedView.getTag(R.drawable.ic_launcher + getItemViewType(position));
+  return holder;
+}

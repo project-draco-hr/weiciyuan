@@ -1,0 +1,6 @@
+{
+  holder.username.setClickable(false);
+  holder.time.setClickable(false);
+  holder.content.setClickable(false);
+  if (holder.content != null)   holder.content.setOnTouchListener(onTouchListener);
+}
