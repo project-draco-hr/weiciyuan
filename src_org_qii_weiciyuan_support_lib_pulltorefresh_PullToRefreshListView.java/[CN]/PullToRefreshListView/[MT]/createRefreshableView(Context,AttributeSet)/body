@@ -6,6 +6,10 @@
   frame.addView(mHeaderLoadingView,FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
   mHeaderLoadingView.setVisibility(View.GONE);
   lv.addHeaderView(frame,null,false);
+  FrameLayout mLvFooterLoadingFrame=new FrameLayout(context);
+  mFooterLoadingView=createLoadingLayout(context,Mode.PULL_UP_TO_REFRESH,a);
+  mLvFooterLoadingFrame.addView(mFooterLoadingView,FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT);
+  mFooterLoadingView.setVisibility(View.GONE);
   a.recycle();
   lv.setId(android.R.id.list);
   return lv;
