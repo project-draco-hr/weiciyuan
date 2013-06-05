@@ -2,7 +2,7 @@
   String image_url=user.getProfile_image_url();
   if (!TextUtils.isEmpty(image_url)) {
     view.setVisibility(View.VISIBLE);
-    commander.downloadAvatar(view,user,(AbstractTimeLineFragment)fragment);
+    commander.downloadAvatar(view.getImageView(),user,(AbstractTimeLineFragment)fragment);
     view.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         Intent intent=new Intent(getActivity(),UserInfoActivity.class);
