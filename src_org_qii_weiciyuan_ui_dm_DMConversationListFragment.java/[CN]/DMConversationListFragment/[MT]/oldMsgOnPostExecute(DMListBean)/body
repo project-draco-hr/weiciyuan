@@ -1,6 +1,7 @@
 {
   if (newValue != null && newValue.getSize() > 0) {
     getList().addOldData(newValue);
+    Collections.sort(getList().getItemList(),comparator);
     getAdapter().notifyDataSetChanged();
     page++;
   }

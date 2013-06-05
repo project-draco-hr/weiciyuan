@@ -3,8 +3,12 @@
   empty=(TextView)view.findViewById(R.id.empty);
   progressBar=(ProgressBar)view.findViewById(R.id.progressbar);
   pullToRefreshListView=(PullToRefreshListView)view.findViewById(R.id.listView);
-  pullToRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>(){
-    @Override public void onRefresh(    PullToRefreshBase<ListView> refreshView){
+  pullToRefreshListView.setMode(PullToRefreshBase.Mode.BOTH);
+  pullToRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>(){
+    @Override public void onPullDownToRefresh(    PullToRefreshBase<ListView> refreshView){
+      loadOldMsg(null);
+    }
+    @Override public void onPullUpToRefresh(    PullToRefreshBase<ListView> refreshView){
       loadNewMsg();
     }
   }

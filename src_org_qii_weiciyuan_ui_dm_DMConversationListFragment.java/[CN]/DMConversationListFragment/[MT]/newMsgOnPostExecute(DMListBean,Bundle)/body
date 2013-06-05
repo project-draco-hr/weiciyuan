@@ -1,6 +1,7 @@
 {
   if (newValue != null && newValue.getSize() > 0 && getActivity() != null) {
     getList().addNewData(newValue);
+    Collections.sort(getList().getItemList(),comparator);
     getAdapter().notifyDataSetChanged();
     getListView().setSelection(bean.getSize() - 1);
   }
