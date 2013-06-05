@@ -6,6 +6,6 @@
   UserBean bean=(UserBean)getIntent().getParcelableExtra("user");
   setTitle(bean.getScreen_name());
   if (savedInstanceState == null) {
-    getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new DMConversationListFragment(bean)).commit();
+    getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new DMConversationListFragment(bean),DMConversationListFragment.class.getName()).commit();
   }
 }
