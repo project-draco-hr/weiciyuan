@@ -1,0 +1,8 @@
+{
+  convertView=activity.getLayoutInflater().inflate(R.layout.dm_search_user_dropdown_item_layout,parent,false);
+  PerformanceImageView avatar=(PerformanceImageView)convertView.findViewById(R.id.avatar);
+  TextView username=(TextView)convertView.findViewById(R.id.username);
+  activity.getBitmapDownloader().downloadAvatar(avatar,getItem(position));
+  username.setText(getItem(position).getScreen_name());
+  return convertView;
+}

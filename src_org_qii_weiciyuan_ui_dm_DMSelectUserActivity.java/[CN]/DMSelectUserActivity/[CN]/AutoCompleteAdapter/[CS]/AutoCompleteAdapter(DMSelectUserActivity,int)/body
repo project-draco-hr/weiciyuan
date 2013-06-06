@@ -1,0 +1,5 @@
+{
+  super(context,textViewResourceId);
+  data=new ArrayList<UserBean>();
+  this.activity=context;
+}

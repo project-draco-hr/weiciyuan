@@ -1,0 +1,31 @@
+{
+  Filter myFilter=new Filter(){
+    @Override protected FilterResults performFiltering(    CharSequence constraint){
+      FilterResults filterResults=new FilterResults();
+      if (constraint != null) {
+        SearchDao dao=new SearchDao(GlobalContext.getInstance().getSpecialToken(),constraint.toString());
+        try {
+          data=dao.getUserList().getUsers();
+        }
+ catch (        Exception e) {
+        }
+        filterResults.values=data;
+        filterResults.count=data.size();
+      }
+      return filterResults;
+    }
+    @Override public CharSequence convertResultToString(    Object resultValue){
+      return ((UserBean)resultValue).getScreen_name();
+    }
+    @Override protected void publishResults(    CharSequence contraint,    FilterResults results){
+      if (results != null && results.count > 0) {
+        notifyDataSetChanged();
+      }
+ else {
+        notifyDataSetInvalidated();
+      }
+    }
+  }
+;
+  return myFilter;
+}
