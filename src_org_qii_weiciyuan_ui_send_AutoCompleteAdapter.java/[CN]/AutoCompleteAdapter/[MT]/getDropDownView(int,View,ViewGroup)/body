@@ -8,6 +8,6 @@
     view=convertView;
   }
   text=(TextView)view;
-  text.setText(getItem(position).getScreen_name());
+  text.setText(getItem(position).getNickname());
   return view;
 }
