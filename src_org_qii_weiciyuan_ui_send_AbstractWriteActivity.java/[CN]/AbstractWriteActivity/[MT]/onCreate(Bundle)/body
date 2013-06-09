@@ -32,7 +32,7 @@
   CheatSheet.setup(AbstractWriteActivity.this,findViewById(R.id.menu_send),R.string.send);
   smiley=(SmileyPicker)findViewById(R.id.smiley_picker);
   smiley.setEditText(AbstractWriteActivity.this,((LinearLayout)findViewById(R.id.root_layout)),et);
-  mContainer=(LinearLayout)findViewById(R.id.container);
+  container=(RelativeLayout)findViewById(R.id.container);
   et.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       hideSmileyPicker(true);
