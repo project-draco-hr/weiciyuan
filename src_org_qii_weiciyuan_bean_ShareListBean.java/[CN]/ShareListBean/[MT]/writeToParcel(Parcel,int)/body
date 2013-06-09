@@ -1,0 +1,8 @@
+{
+  dest.writeInt(total_number);
+  dest.writeString(previous_cursor);
+  dest.writeString(next_cursor);
+  dest.writeString(url_long);
+  dest.writeString(url_short);
+  dest.writeTypedList(share_statuses);
+}

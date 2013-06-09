@@ -9,7 +9,7 @@ case ACTIVITY_DESTROY_AND_CREATE:
 userBean=(UserBean)savedInstanceState.getParcelable("userBean");
 accountBean=(AccountBean)savedInstanceState.getParcelable("account");
 token=savedInstanceState.getString("token");
-unreadBean=(UnreadBean)savedInstanceState.getSerializable("unreadBean");
+unreadBean=(UnreadBean)savedInstanceState.getParcelable("unreadBean");
 timeLinePosition=(TimeLinePosition)savedInstanceState.getSerializable("timeLinePosition");
 CommentListBean savedBean=(CommentListBean)savedInstanceState.getParcelable("bean");
 Loader<CommentTimeLineData> loader=getLoaderManager().getLoader(DB_CACHE_LOADER_ID);

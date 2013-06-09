@@ -1,0 +1,13 @@
+{
+  dest.writeInt(status);
+  dest.writeInt(follower);
+  dest.writeInt(cmt);
+  dest.writeInt(dm);
+  dest.writeInt(mention_status);
+  dest.writeInt(mention_cmt);
+  dest.writeInt(group);
+  dest.writeInt(notice);
+  dest.writeInt(invite);
+  dest.writeInt(badge);
+  dest.writeInt(photo);
+}

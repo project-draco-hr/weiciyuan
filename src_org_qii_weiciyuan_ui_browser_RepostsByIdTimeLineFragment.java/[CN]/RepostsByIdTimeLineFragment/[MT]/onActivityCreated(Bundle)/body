@@ -8,7 +8,7 @@ case SCREEN_ROTATE:
   refreshLayout(bean);
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-clearAndReplaceValue((RepostListBean)savedInstanceState.getSerializable("bean"));
+clearAndReplaceValue((RepostListBean)savedInstanceState.getParcelable("bean"));
 token=savedInstanceState.getString("token");
 id=savedInstanceState.getString("id");
 msg=(MessageBean)savedInstanceState.getParcelable("msg");

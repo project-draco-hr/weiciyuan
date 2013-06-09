@@ -1,6 +1,6 @@
 {
   super.onSaveInstanceState(outState);
-  outState.putSerializable("bean",bean);
+  outState.putParcelable("bean",bean);
   outState.putString("id",id);
   outState.putString("token",token);
   outState.putParcelable("msg",msg);

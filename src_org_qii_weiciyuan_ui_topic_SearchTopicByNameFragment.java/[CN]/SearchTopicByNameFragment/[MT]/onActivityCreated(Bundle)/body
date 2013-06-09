@@ -10,7 +10,7 @@ break;
 case ACTIVITY_DESTROY_AND_CREATE:
 q=savedInstanceState.getString("q");
 page=savedInstanceState.getInt("page");
-getList().addNewData((TopicResultListBean)savedInstanceState.getSerializable("bean"));
+getList().addNewData((TopicResultListBean)savedInstanceState.getParcelable("bean"));
 getAdapter().notifyDataSetChanged();
 refreshLayout(getList());
 break;

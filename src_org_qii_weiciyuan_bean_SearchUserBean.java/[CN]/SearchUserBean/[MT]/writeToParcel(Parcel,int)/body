@@ -1,0 +1,5 @@
+{
+  dest.writeString(screen_name);
+  dest.writeString(followers_count);
+  dest.writeString(uid);
+}

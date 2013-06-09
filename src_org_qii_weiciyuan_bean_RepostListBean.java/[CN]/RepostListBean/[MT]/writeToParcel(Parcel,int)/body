@@ -1,0 +1,6 @@
+{
+  dest.writeInt(total_number);
+  dest.writeString(previous_cursor);
+  dest.writeString(next_cursor);
+  dest.writeTypedList(reposts);
+}

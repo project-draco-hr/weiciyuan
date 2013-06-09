@@ -1,6 +1,6 @@
 {
   if (savedInstanceState != null) {
-    group=(GroupListBean)savedInstanceState.getSerializable("group");
+    group=(GroupListBean)savedInstanceState.getParcelable("group");
     uid=savedInstanceState.getString("uid");
     valueArray=savedInstanceState.getStringArray("valueArray");
     selectedArray=savedInstanceState.getBooleanArray("selectedArray");
