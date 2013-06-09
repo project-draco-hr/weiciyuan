@@ -1,0 +1,4 @@
+{
+  dest.writeParcelable(status,flags);
+  dest.writeString(favorited_time);
+}
