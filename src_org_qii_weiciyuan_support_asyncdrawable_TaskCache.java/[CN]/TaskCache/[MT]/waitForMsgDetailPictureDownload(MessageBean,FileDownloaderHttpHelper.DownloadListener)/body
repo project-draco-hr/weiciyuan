@@ -37,15 +37,15 @@ synchronized (backgroundWifiDownloadPicturesWorkLock) {
     }
  catch (    InterruptedException e) {
       Thread.currentThread().interrupt();
-      e.printStackTrace();
+      Utility.printStackTrace(e);
       return;
     }
 catch (    ExecutionException e) {
-      e.printStackTrace();
+      Utility.printStackTrace(e);
       return;
     }
 catch (    TimeoutException e) {
-      e.printStackTrace();
+      Utility.printStackTrace(e);
       return;
     }
 catch (    CancellationException e) {
