@@ -2,7 +2,7 @@
   if (isDragging) {
     return true;
   }
-  if (getCurrentItem() == 0) {
+  if (operationItemPosition == 0) {
 switch (ev.getActionMasked()) {
 case MotionEvent.ACTION_MOVE:
       float x=ev.getRawX();
