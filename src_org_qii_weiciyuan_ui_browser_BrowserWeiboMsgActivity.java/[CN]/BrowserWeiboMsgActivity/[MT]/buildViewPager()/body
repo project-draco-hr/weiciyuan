@@ -6,5 +6,6 @@
   mViewPager.setAdapter(adapter);
   mViewPager.setOnPageChangeListener(onPageChangeListener);
   gestureDetector=new GestureDetector(BrowserWeiboMsgActivity.this,new SwipeRightToCloseOnGestureListener(BrowserWeiboMsgActivity.this,mViewPager));
-  mViewPager.setGestureDetector(gestureDetector);
+  mViewPager.setGestureDetector(this,gestureDetector);
+  getWindow().setBackgroundDrawable(getResources().getDrawable(R.color.transparent));
 }

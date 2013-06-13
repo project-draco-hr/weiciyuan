@@ -9,7 +9,7 @@
     token=intent.getStringExtra("token");
     msg=(MessageBean)intent.getParcelableExtra("msg");
   }
-  setContentView(R.layout.viewpager_layout);
+  setContentView(R.layout.viewpager_with_bg_layout);
   buildViewPager();
   buildActionBarAndViewPagerTitles();
 }

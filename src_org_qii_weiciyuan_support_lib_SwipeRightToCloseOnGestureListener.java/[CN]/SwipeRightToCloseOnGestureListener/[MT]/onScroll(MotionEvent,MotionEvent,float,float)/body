@@ -1,0 +1,20 @@
+{
+  if (e2.getRawX() < firstPosition[0]) {
+    float y=this.topView.getTranslationX();
+    if (y != 0f) {
+      this.topView.setTranslationX(0);
+      return super.onScroll(e1,e2,distanceX,distanceY);
+    }
+ else {
+      return false;
+    }
+  }
+  float s=e2.getRawX() - firstPosition[0];
+  if ((this.viewPager == null || this.viewPager.getCurrentItem() == 0)) {
+    this.topView.setTranslationX(s);
+    return super.onScroll(e1,e2,distanceX,distanceY);
+  }
+ else {
+    return false;
+  }
+}

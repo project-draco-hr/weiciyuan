@@ -1,0 +1,16 @@
+{
+  if (isDragging) {
+    return true;
+  }
+  if (getCurrentItem() == 0) {
+switch (ev.getActionMasked()) {
+case MotionEvent.ACTION_MOVE:
+      float x=ev.getRawX();
+    if (x > firstPosition[0]) {
+      return true;
+    }
+  break;
+}
+}
+return super.onInterceptTouchEvent(ev);
+}

@@ -1,4 +1,10 @@
 {
-  if (this.gestureDetector != null && ev.getActionMasked() == MotionEvent.ACTION_DOWN)   this.gestureDetector.onTouchEvent(ev);
-  return super.dispatchTouchEvent(ev);
+switch (ev.getActionMasked()) {
+case MotionEvent.ACTION_DOWN:
+    firstPosition[0]=ev.getRawX();
+  firstPosition[1]=ev.getRawY();
+break;
+}
+if (this.gestureDetector != null && ev.getActionMasked() == MotionEvent.ACTION_DOWN) this.gestureDetector.onTouchEvent(ev);
+return super.dispatchTouchEvent(ev);
 }
