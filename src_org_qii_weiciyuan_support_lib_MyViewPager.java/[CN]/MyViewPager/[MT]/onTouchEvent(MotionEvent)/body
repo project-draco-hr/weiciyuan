@@ -2,6 +2,9 @@
   if (operationItemPosition != 0) {
     return super.onTouchEvent(ev);
   }
+  if (this.gestureDetector == null) {
+    return super.onTouchEvent(ev);
+  }
   if (this.gestureDetector != null)   this.gestureDetector.onTouchEvent(ev);
   if (ev.getActionMasked() == MotionEvent.ACTION_UP || ev.getActionMasked() == MotionEvent.ACTION_CANCEL) {
     int x=(int)(ev.getRawX() - firstPosition[0]);
