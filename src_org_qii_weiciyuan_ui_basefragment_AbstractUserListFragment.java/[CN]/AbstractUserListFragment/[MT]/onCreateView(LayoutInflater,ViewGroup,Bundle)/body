@@ -20,6 +20,7 @@
   dismissFooterView();
   userListAdapter=new UserListAdapter(AbstractUserListFragment.this,((ICommander)getActivity()).getBitmapDownloader(),bean.getUsers(),getListView());
   pullToRefreshListView.setAdapter(userListAdapter);
+  pullToRefreshListView.setOnPullEventListener(getPullEventListener());
   pullToRefreshListView.setOnScrollListener(new AbsListView.OnScrollListener(){
     @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
 switch (scrollState) {
