@@ -1,4 +1,7 @@
 {
+  if (this.gestureDetector == null) {
+    return super.onTouchEvent(ev);
+  }
 switch (ev.getActionMasked()) {
 case MotionEvent.ACTION_DOWN:
     firstPosition[0]=ev.getRawX();

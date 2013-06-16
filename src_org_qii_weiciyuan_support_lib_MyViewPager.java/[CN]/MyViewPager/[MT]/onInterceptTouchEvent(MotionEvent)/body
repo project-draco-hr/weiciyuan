@@ -1,4 +1,7 @@
 {
+  if (this.gestureDetector == null) {
+    return super.onTouchEvent(ev);
+  }
   if (isDragging) {
     return true;
   }
