@@ -1,0 +1,11 @@
+{
+  if (mMode.showHeaderLoadingLayout() && isReadyForPullStart()) {
+    smoothScrollToAndBack(-getHeaderSize() * 2);
+    return true;
+  }
+ else   if (mMode.showFooterLoadingLayout() && isReadyForPullEnd()) {
+    smoothScrollToAndBack(getFooterSize() * 2);
+    return true;
+  }
+  return false;
+}

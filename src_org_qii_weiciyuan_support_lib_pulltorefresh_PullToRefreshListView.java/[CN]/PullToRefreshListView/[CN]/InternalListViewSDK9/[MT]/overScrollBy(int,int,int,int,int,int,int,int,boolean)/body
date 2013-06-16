@@ -1,5 +1,5 @@
 {
   final boolean returnValue=super.overScrollBy(deltaX,deltaY,scrollX,scrollY,scrollRangeX,scrollRangeY,maxOverScrollX,maxOverScrollY,isTouchEvent);
-  OverscrollHelper.overScrollBy(PullToRefreshListView.this,deltaY,scrollY,isTouchEvent);
+  OverscrollHelper.overScrollBy(PullToRefreshListView.this,deltaX,scrollX,deltaY,scrollY,isTouchEvent);
   return returnValue;
 }

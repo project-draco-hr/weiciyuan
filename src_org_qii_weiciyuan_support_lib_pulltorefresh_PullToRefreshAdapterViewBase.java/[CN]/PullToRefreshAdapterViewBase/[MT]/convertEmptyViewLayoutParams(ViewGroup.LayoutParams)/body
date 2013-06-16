@@ -1,0 +1,13 @@
+{
+  FrameLayout.LayoutParams newLp=null;
+  if (null != lp) {
+    newLp=new FrameLayout.LayoutParams(lp);
+    if (lp instanceof LinearLayout.LayoutParams) {
+      newLp.gravity=((LinearLayout.LayoutParams)lp).gravity;
+    }
+ else {
+      newLp.gravity=Gravity.CENTER;
+    }
+  }
+  return newLp;
+}

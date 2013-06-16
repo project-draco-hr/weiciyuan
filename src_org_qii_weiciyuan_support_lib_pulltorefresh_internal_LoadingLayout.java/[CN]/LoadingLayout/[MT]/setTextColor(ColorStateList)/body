@@ -1,0 +1,8 @@
+{
+  if (null != mHeaderText) {
+    mHeaderText.setTextColor(color);
+  }
+  if (null != mSubHeaderText) {
+    mSubHeaderText.setTextColor(color);
+  }
+}

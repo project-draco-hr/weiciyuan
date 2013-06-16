@@ -1,0 +1,3 @@
+{
+  mHeaderImage.startAnimation(mRotateAnimation);
+}

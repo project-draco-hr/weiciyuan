@@ -1,0 +1,6 @@
+{
+  super.onRefreshing(doScroll);
+  if (getShowIndicatorInternal()) {
+    updateIndicatorViewsVisibility();
+  }
+}

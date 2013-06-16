@@ -1,0 +1,10 @@
+{
+  LoadingLayoutProxy proxy=new LoadingLayoutProxy();
+  if (includeStart && mMode.showHeaderLoadingLayout()) {
+    proxy.addLayout(mHeaderLayout);
+  }
+  if (includeEnd && mMode.showFooterLoadingLayout()) {
+    proxy.addLayout(mFooterLayout);
+  }
+  return proxy;
+}

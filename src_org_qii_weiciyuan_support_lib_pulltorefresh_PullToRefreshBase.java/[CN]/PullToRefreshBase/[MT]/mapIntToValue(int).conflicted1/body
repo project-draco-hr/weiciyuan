@@ -1,0 +1,8 @@
+{
+  for (  Mode value : Mode.values()) {
+    if (modeInt == value.getIntValue()) {
+      return value;
+    }
+  }
+  return getDefault();
+}

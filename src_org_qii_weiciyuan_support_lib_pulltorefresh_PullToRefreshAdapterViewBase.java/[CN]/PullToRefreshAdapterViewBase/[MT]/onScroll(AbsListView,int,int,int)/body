@@ -1,15 +1,9 @@
 {
   if (DEBUG) {
-    Log.d(LOG_TAG,"First Visible: " + firstVisibleItem + ". Visible Count: "+ visibleItemCount+ ". Total Items: "+ totalItemCount);
+    Log.d(LOG_TAG,"First Visible: " + firstVisibleItem + ". Visible Count: "+ visibleItemCount+ ". Total Items:"+ totalItemCount);
   }
   if (null != mOnLastItemVisibleListener) {
-    final int lastVisibleItemIndex=firstVisibleItem + visibleItemCount;
-    if (visibleItemCount > 0 && (lastVisibleItemIndex + 1) == totalItemCount) {
-      if (lastVisibleItemIndex != mSavedLastVisibleIndex) {
-        mSavedLastVisibleIndex=lastVisibleItemIndex;
-        mOnLastItemVisibleListener.onLastItemVisible();
-      }
-    }
+    mLastItemVisible=(totalItemCount > 0) && (firstVisibleItem + visibleItemCount >= totalItemCount - 1);
   }
   if (getShowIndicatorInternal()) {
     updateIndicatorViewsVisibility();

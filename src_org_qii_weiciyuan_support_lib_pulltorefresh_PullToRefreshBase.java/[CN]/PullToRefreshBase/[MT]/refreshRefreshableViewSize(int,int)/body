@@ -1,0 +1,17 @@
+{
+  LinearLayout.LayoutParams lp=(LinearLayout.LayoutParams)mRefreshableViewWrapper.getLayoutParams();
+switch (getPullToRefreshScrollDirection()) {
+case HORIZONTAL:
+    if (lp.width != width) {
+      lp.width=width;
+      mRefreshableViewWrapper.requestLayout();
+    }
+  break;
+case VERTICAL:
+if (lp.height != height) {
+  lp.height=height;
+  mRefreshableViewWrapper.requestLayout();
+}
+break;
+}
+}

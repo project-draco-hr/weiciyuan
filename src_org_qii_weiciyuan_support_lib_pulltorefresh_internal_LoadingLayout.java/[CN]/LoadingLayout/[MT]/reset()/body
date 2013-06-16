@@ -1,0 +1,20 @@
+{
+  if (null != mHeaderText) {
+    mHeaderText.setText(mPullLabel);
+  }
+  mHeaderImage.setVisibility(View.VISIBLE);
+  if (mUseIntrinsicAnimation) {
+    ((AnimationDrawable)mHeaderImage.getDrawable()).stop();
+  }
+ else {
+    resetImpl();
+  }
+  if (null != mSubHeaderText) {
+    if (TextUtils.isEmpty(mSubHeaderText.getText())) {
+      mSubHeaderText.setVisibility(View.GONE);
+    }
+ else {
+      mSubHeaderText.setVisibility(View.VISIBLE);
+    }
+  }
+}

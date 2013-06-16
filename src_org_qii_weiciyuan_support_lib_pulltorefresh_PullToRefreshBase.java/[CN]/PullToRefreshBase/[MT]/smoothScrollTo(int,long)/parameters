@@ -1,2 +1,2 @@
-int y
+int scrollValue
 long duration

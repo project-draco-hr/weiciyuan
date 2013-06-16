@@ -1,3 +1,0 @@
-{
-  return mCurrentMode == Mode.PULL_DOWN_TO_REFRESH;
-}

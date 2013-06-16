@@ -1,0 +1,5 @@
+{
+  for (  LoadingLayout layout : mLoadingLayouts) {
+    layout.setLastUpdatedLabel(label);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (null != mHeaderText) {
+    mHeaderText.setText(mReleaseLabel);
+  }
+  releaseToRefreshImpl();
+}

@@ -1,7 +1,0 @@
-PullToRefreshBase<?> view
-int deltaY
-int scrollY
-int scrollRange
-int fuzzyThreshold
-float scaleFactor
-boolean isTouchEvent

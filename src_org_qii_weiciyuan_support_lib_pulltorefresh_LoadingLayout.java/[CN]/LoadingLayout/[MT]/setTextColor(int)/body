@@ -1,3 +1,0 @@
-{
-  setTextColor(ColorStateList.valueOf(color));
-}

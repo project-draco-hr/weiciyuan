@@ -1,0 +1,6 @@
+{
+  super(context);
+  mMode=mode;
+  mLoadingAnimationStyle=animStyle;
+  init(context,null);
+}

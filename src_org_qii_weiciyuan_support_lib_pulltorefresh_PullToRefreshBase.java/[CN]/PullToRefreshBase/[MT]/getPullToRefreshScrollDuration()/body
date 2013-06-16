@@ -1,0 +1,3 @@
+{
+  return SMOOTH_SCROLL_DURATION_MS;
+}

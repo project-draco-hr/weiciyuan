@@ -1,0 +1,5 @@
+{
+  ViewGroup.LayoutParams lp=(ViewGroup.LayoutParams)getLayoutParams();
+  lp.width=width;
+  requestLayout();
+}

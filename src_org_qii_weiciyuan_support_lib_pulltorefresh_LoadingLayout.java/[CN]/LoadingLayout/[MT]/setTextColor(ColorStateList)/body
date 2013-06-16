@@ -1,4 +1,0 @@
-{
-  mHeaderText.setTextColor(color);
-  mSubHeaderText.setTextColor(color);
-}

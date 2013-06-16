@@ -13,42 +13,54 @@
 switch (action) {
 case MotionEvent.ACTION_MOVE:
 {
-      if (mDisableScrollingWhileRefreshing && isRefreshing()) {
+      if (!mScrollingWhileRefreshingEnabled && isRefreshing()) {
         return true;
       }
       if (isReadyForPull()) {
-        final float y=event.getY();
-        final float dy=y - mLastMotionY;
-        final float yDiff=Math.abs(dy);
-        final float xDiff=Math.abs(event.getX() - mLastMotionX);
-        if (yDiff > mTouchSlop && (!mFilterTouchEvents || yDiff > xDiff)) {
-          if (mMode.canPullDown() && dy >= 1f && isReadyForPullDown()) {
-            mLastMotionY=y;
-            mIsBeingDragged=true;
-            if (mMode == Mode.BOTH) {
-              mCurrentMode=Mode.PULL_DOWN_TO_REFRESH;
-            }
-          }
- else           if (mMode.canPullUp() && dy <= -1f && isReadyForPullUp()) {
-            mLastMotionY=y;
-            mIsBeingDragged=true;
-            if (mMode == Mode.BOTH) {
-              mCurrentMode=Mode.PULL_UP_TO_REFRESH;
-            }
-          }
-        }
-      }
+        final float y=event.getY(), x=event.getX();
+        final float diff, oppositeDiff, absDiff;
+switch (getPullToRefreshScrollDirection()) {
+case HORIZONTAL:
+          diff=x - mLastMotionX;
+        oppositeDiff=y - mLastMotionY;
       break;
-    }
+case VERTICAL:
+default :
+    diff=y - mLastMotionY;
+  oppositeDiff=x - mLastMotionX;
+break;
+}
+absDiff=Math.abs(diff);
+if (absDiff > mTouchSlop && (!mFilterTouchEvents || absDiff > Math.abs(oppositeDiff))) {
+if (mMode.showHeaderLoadingLayout() && diff >= 1f && isReadyForPullStart()) {
+mLastMotionY=y;
+mLastMotionX=x;
+mIsBeingDragged=true;
+if (mMode == Mode.BOTH) {
+  mCurrentMode=Mode.PULL_FROM_START;
+}
+}
+ else if (mMode.showFooterLoadingLayout() && diff <= -1f && isReadyForPullEnd()) {
+mLastMotionY=y;
+mLastMotionX=x;
+mIsBeingDragged=true;
+if (mMode == Mode.BOTH) {
+  mCurrentMode=Mode.PULL_FROM_END;
+}
+}
+}
+}
+break;
+}
 case MotionEvent.ACTION_DOWN:
 {
-    if (isReadyForPull()) {
-      mLastMotionY=mInitialMotionY=event.getY();
-      mLastMotionX=event.getX();
-      mIsBeingDragged=false;
-    }
-    break;
-  }
+if (isReadyForPull()) {
+mLastMotionY=mInitialMotionY=event.getY();
+mLastMotionX=mInitialMotionX=event.getX();
+mIsBeingDragged=false;
+}
+break;
+}
 }
 return mIsBeingDragged;
 }

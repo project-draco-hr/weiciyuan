@@ -1,0 +1,3 @@
+{
+  return this == PULL_FROM_END || this == BOTH || this == MANUAL_REFRESH_ONLY;
+}

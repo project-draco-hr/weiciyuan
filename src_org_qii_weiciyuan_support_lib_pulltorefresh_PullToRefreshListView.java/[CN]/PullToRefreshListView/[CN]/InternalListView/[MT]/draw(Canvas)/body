@@ -1,8 +1,0 @@
-{
-  try {
-    super.draw(canvas);
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

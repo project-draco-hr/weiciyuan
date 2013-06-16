@@ -1,0 +1,9 @@
+{
+switch (getPullToRefreshScrollDirection()) {
+case HORIZONTAL:
+    return new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.MATCH_PARENT);
+case VERTICAL:
+default :
+  return new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+}
+}

@@ -1,0 +1,3 @@
+{
+  return !(this == DISABLED || this == MANUAL_REFRESH_ONLY);
+}

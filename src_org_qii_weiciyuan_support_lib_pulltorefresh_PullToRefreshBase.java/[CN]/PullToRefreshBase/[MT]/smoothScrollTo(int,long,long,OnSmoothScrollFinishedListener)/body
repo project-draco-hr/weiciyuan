@@ -1,0 +1,27 @@
+{
+  if (null != mCurrentSmoothScrollRunnable) {
+    mCurrentSmoothScrollRunnable.stop();
+  }
+  final int oldScrollValue;
+switch (getPullToRefreshScrollDirection()) {
+case HORIZONTAL:
+    oldScrollValue=getScrollX();
+  break;
+case VERTICAL:
+default :
+oldScrollValue=getScrollY();
+break;
+}
+if (oldScrollValue != newScrollValue) {
+if (null == mScrollAnimationInterpolator) {
+mScrollAnimationInterpolator=new DecelerateInterpolator();
+}
+mCurrentSmoothScrollRunnable=new SmoothScrollRunnable(oldScrollValue,newScrollValue,duration,listener);
+if (delayMillis > 0) {
+postDelayed(mCurrentSmoothScrollRunnable,delayMillis);
+}
+ else {
+post(mCurrentSmoothScrollRunnable);
+}
+}
+}

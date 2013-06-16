@@ -1,3 +1,30 @@
 {
-  scrollTo(0,y);
+  if (DEBUG) {
+    Log.d(LOG_TAG,"setHeaderScroll: " + value);
+  }
+  final int maximumPullScroll=getMaximumPullScroll();
+  value=Math.min(maximumPullScroll,Math.max(-maximumPullScroll,value));
+  if (mLayoutVisibilityChangesEnabled) {
+    if (value < 0) {
+      mHeaderLayout.setVisibility(View.VISIBLE);
+    }
+ else     if (value > 0) {
+      mFooterLayout.setVisibility(View.VISIBLE);
+    }
+ else {
+      mHeaderLayout.setVisibility(View.INVISIBLE);
+      mFooterLayout.setVisibility(View.INVISIBLE);
+    }
+  }
+  if (USE_HW_LAYERS) {
+    ViewCompat.setLayerType(mRefreshableViewWrapper,value != 0 ? View.LAYER_TYPE_HARDWARE : View.LAYER_TYPE_NONE);
+  }
+switch (getPullToRefreshScrollDirection()) {
+case VERTICAL:
+    scrollTo(0,value);
+  break;
+case HORIZONTAL:
+scrollTo(value,0);
+break;
+}
 }

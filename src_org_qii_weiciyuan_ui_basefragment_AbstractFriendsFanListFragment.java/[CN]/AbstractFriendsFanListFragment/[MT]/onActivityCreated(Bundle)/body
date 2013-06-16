@@ -2,8 +2,9 @@
   super.onActivityCreated(savedInstanceState);
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
-    pullToRefreshListView.startRefreshNow();
-  break;
+    pullToRefreshListView.setRefreshing();
+  loadNewMsg();
+break;
 case SCREEN_ROTATE:
 refreshLayout(bean);
 break;

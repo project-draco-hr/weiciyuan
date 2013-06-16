@@ -1,0 +1,4 @@
+{
+  mHeaderImage.clearAnimation();
+  resetImageRotation();
+}

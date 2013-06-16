@@ -1,0 +1,14 @@
+{
+  if (View.VISIBLE == mHeaderText.getVisibility()) {
+    mHeaderText.setVisibility(View.INVISIBLE);
+  }
+  if (View.VISIBLE == mHeaderProgress.getVisibility()) {
+    mHeaderProgress.setVisibility(View.INVISIBLE);
+  }
+  if (View.VISIBLE == mHeaderImage.getVisibility()) {
+    mHeaderImage.setVisibility(View.INVISIBLE);
+  }
+  if (View.VISIBLE == mSubHeaderText.getVisibility()) {
+    mSubHeaderText.setVisibility(View.INVISIBLE);
+  }
+}

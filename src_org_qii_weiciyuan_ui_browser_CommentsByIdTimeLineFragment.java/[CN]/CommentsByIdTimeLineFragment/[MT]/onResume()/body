@@ -2,7 +2,8 @@
   super.onResume();
   sendCompletedReceiver=new BroadcastReceiver(){
     @Override public void onReceive(    Context context,    Intent intent){
-      getPullToRefreshListView().startRefreshNow();
+      getPullToRefreshListView().setRefreshing();
+      loadNewMsg();
     }
   }
 ;

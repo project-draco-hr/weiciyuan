@@ -1,3 +1,5 @@
 {
-  return new LoadingLayout(context,mode,attrs);
+  LoadingLayout layout=mLoadingAnimationStyle.createLoadingLayout(context,mode,getPullToRefreshScrollDirection(),attrs);
+  layout.setVisibility(View.INVISIBLE);
+  return layout;
 }

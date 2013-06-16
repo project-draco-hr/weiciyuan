@@ -1,0 +1,3 @@
+{
+  mHeaderText.setTypeface(tf);
+}

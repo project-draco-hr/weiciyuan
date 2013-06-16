@@ -1,0 +1,10 @@
+{
+  if (null != currentMediaPlayer) {
+    currentMediaPlayer.stop();
+    currentMediaPlayer.release();
+  }
+  currentMediaPlayer=MediaPlayer.create(getContext(),resId);
+  if (null != currentMediaPlayer) {
+    currentMediaPlayer.start();
+  }
+}

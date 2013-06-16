@@ -1,36 +1,46 @@
 {
-  final int newHeight;
-  final int oldHeight=getScrollY();
-switch (mCurrentMode) {
-case PULL_UP_TO_REFRESH:
-    newHeight=Math.round(Math.max(mInitialMotionY - mLastMotionY,0) / FRICTION);
-  break;
-case PULL_DOWN_TO_REFRESH:
+  final int newScrollValue;
+  final int itemDimension;
+  final float initialMotionValue, lastMotionValue;
+switch (getPullToRefreshScrollDirection()) {
+case HORIZONTAL:
+    initialMotionValue=mInitialMotionX;
+  lastMotionValue=mLastMotionX;
+break;
+case VERTICAL:
 default :
-newHeight=Math.round(Math.min(mInitialMotionY - mLastMotionY,0) / FRICTION);
+initialMotionValue=mInitialMotionY;
+lastMotionValue=mLastMotionY;
 break;
 }
-setHeaderScroll(newHeight);
-if (newHeight != 0) {
-float scale=Math.abs(newHeight) / (float)mHeaderHeight;
 switch (mCurrentMode) {
-case PULL_UP_TO_REFRESH:
-mFooterLayout.onPullY(scale);
+case PULL_FROM_END:
+newScrollValue=Math.round(Math.max(initialMotionValue - lastMotionValue,0) / FRICTION);
+itemDimension=getFooterSize();
 break;
-case PULL_DOWN_TO_REFRESH:
-mHeaderLayout.onPullY(scale);
+case PULL_FROM_START:
+default :
+newScrollValue=Math.round(Math.min(initialMotionValue - lastMotionValue,0) / FRICTION);
+itemDimension=getHeaderSize();
 break;
 }
-if (mState == PULL_TO_REFRESH && mHeaderHeight < Math.abs(newHeight)) {
-mState=RELEASE_TO_REFRESH;
-onReleaseToRefresh();
-return true;
+setHeaderScroll(newScrollValue);
+if (newScrollValue != 0 && !isRefreshing()) {
+float scale=Math.abs(newScrollValue) / (float)itemDimension;
+switch (mCurrentMode) {
+case PULL_FROM_END:
+mFooterLayout.onPull(scale);
+break;
+case PULL_FROM_START:
+default :
+mHeaderLayout.onPull(scale);
+break;
 }
- else if (mState == RELEASE_TO_REFRESH && mHeaderHeight >= Math.abs(newHeight)) {
-mState=PULL_TO_REFRESH;
-onPullToRefresh();
-return true;
+if (mState != State.PULL_TO_REFRESH && itemDimension >= Math.abs(newScrollValue)) {
+setState(State.PULL_TO_REFRESH);
+}
+ else if (mState == State.PULL_TO_REFRESH && itemDimension < Math.abs(newScrollValue)) {
+setState(State.RELEASE_TO_REFRESH);
 }
 }
-return oldHeight != newHeight;
 }

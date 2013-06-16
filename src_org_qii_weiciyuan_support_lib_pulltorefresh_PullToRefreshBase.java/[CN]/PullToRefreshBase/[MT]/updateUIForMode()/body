@@ -1,16 +1,17 @@
 {
+  final LinearLayout.LayoutParams lp=getLoadingLayoutLayoutParams();
   if (this == mHeaderLayout.getParent()) {
     removeView(mHeaderLayout);
   }
-  if (mMode.canPullDown()) {
-    addViewInternal(mHeaderLayout,0,new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  if (mMode.showHeaderLoadingLayout()) {
+    addViewInternal(mHeaderLayout,0,lp);
   }
   if (this == mFooterLayout.getParent()) {
     removeView(mFooterLayout);
   }
-  if (mMode.canPullUp()) {
-    addViewInternal(mFooterLayout,new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  if (mMode.showFooterLoadingLayout()) {
+    addViewInternal(mFooterLayout,lp);
   }
-  refreshLoadingViewsHeight();
-  mCurrentMode=(mMode != Mode.BOTH) ? mMode : Mode.PULL_DOWN_TO_REFRESH;
+  refreshLoadingViewsSize();
+  mCurrentMode=(mMode != Mode.BOTH) ? mMode : Mode.PULL_FROM_START;
 }

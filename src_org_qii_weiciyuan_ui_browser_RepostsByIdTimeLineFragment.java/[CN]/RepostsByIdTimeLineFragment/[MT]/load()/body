@@ -1,7 +1,7 @@
 {
   if ((bean == null || bean.getSize() == 0)) {
     if (pullToRefreshListView != null) {
-      pullToRefreshListView.startRefreshNow();
+      pullToRefreshListView.setRefreshing();
       loadNewMsg();
     }
   }

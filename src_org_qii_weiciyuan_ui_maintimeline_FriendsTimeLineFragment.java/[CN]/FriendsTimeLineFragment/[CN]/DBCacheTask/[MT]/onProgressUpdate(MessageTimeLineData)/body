@@ -13,7 +13,8 @@
   if (getActivity().getActionBar().getNavigationMode() == ActionBar.NAVIGATION_MODE_LIST)   getActivity().getActionBar().setSelectedNavigationItem(getRecentNavIndex());
   refreshLayout(getList());
   if (getList().getSize() == 0) {
-    getPullToRefreshListView().startRefreshNow();
+    getPullToRefreshListView().setRefreshing();
+    loadNewMsg();
   }
  else {
     new RefreshReCmtCountTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);

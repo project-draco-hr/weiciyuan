@@ -1,0 +1,3 @@
+{
+  getLoadingLayoutProxy(mode.showHeaderLoadingLayout(),mode.showFooterLoadingLayout()).setReleaseLabel(releaseLabel);
+}

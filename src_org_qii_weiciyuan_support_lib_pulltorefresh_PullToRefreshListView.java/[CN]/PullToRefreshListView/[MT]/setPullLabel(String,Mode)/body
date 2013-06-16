@@ -1,9 +1,0 @@
-{
-  super.setPullLabel(pullLabel,mode);
-  if (null != mHeaderLoadingView && mode.canPullDown()) {
-    mHeaderLoadingView.setPullLabel(pullLabel);
-  }
-  if (null != mFooterLoadingView && mode.canPullUp()) {
-    mFooterLoadingView.setPullLabel(pullLabel);
-  }
-}

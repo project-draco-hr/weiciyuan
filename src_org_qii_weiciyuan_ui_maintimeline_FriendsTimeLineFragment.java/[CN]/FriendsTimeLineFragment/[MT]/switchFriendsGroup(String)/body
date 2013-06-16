@@ -15,7 +15,8 @@
   if (groupDataCache.get(currentGroupId) == null || groupDataCache.get(currentGroupId).getSize() == 0) {
     getList().getItemList().clear();
     getAdapter().notifyDataSetChanged();
-    getPullToRefreshListView().startRefreshNow();
+    getPullToRefreshListView().setRefreshing();
+    loadNewMsg();
   }
  else {
     getList().replaceData(groupDataCache.get(currentGroupId));

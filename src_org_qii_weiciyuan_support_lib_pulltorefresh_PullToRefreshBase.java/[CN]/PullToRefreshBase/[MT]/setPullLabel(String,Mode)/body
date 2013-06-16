@@ -1,8 +1,0 @@
-{
-  if (null != mHeaderLayout && mode.canPullDown()) {
-    mHeaderLayout.setPullLabel(pullLabel);
-  }
-  if (null != mFooterLayout && mode.canPullUp()) {
-    mFooterLayout.setPullLabel(pullLabel);
-  }
-}

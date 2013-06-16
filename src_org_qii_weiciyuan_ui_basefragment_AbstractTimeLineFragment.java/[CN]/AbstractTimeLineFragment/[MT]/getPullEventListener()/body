@@ -1,0 +1,8 @@
+{
+  SoundPullEventListener<ListView> listener=new SoundPullEventListener<ListView>(getActivity());
+  if (SettingUtility.getEnableSound()) {
+    listener.addSoundEvent(PullToRefreshBase.State.RELEASE_TO_REFRESH,R.raw.psst1);
+    listener.addSoundEvent(PullToRefreshBase.State.RESET,R.raw.pop);
+  }
+  return listener;
+}

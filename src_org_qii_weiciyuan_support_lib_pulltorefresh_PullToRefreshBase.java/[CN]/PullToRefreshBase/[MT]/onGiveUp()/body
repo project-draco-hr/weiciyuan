@@ -1,0 +1,7 @@
+{
+  mIsBeingDragged=false;
+  mLayoutVisibilityChangesEnabled=true;
+  mHeaderLayout.reset();
+  mFooterLayout.reset();
+  smoothScrollTo(0);
+}

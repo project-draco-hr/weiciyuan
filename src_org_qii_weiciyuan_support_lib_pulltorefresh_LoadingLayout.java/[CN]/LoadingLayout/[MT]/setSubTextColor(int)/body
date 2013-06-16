@@ -1,3 +1,0 @@
-{
-  setSubTextColor(ColorStateList.valueOf(color));
-}

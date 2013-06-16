@@ -2,7 +2,6 @@
   final ListView lv;
   if (VERSION.SDK_INT >= VERSION_CODES.GINGERBREAD) {
     lv=new InternalListViewSDK9(context,attrs);
-    lv.setLayoutAnimation(AnimationUtils.loadLayoutAnimation(GlobalContext.getInstance(),R.anim.list_layout_controller));
   }
  else {
     lv=new InternalListView(context,attrs);

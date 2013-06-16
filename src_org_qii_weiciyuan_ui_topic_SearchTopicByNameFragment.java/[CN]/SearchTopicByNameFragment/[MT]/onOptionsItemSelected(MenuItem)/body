@@ -8,7 +8,8 @@ intent.putExtra("content","#" + q + "#");
 startActivity(intent);
 break;
 case R.id.menu_refresh:
-pullToRefreshListView.startRefreshNow();
+pullToRefreshListView.setRefreshing();
+loadNewMsg();
 break;
 case R.id.menu_follow_topic:
 if (Utility.isTaskStopped(followTopicTask)) {
