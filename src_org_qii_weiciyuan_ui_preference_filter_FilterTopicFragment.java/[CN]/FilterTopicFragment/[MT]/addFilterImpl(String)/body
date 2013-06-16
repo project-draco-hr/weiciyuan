@@ -1,0 +1,3 @@
+{
+  FilterDBTask.addFilterKeyword(FilterDBTask.TYPE_TOPIC,value);
+}

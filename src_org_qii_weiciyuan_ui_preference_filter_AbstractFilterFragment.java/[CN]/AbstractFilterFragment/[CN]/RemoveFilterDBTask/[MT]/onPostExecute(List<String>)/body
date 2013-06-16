@@ -1,0 +1,5 @@
+{
+  list.clear();
+  list.addAll(result);
+  adapter.notifyDataSetChanged();
+}

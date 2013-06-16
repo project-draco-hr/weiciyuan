@@ -1,0 +1,27 @@
+{
+  super(fm);
+  if (getFilterFragment() == null) {
+    list.add(new FilterKeywordFragment());
+  }
+ else {
+    list.add(getFilterFragment());
+  }
+  if (getFilterUserFragment() == null) {
+    list.add(new FilterUserFragment());
+  }
+ else {
+    list.add(getFilterUserFragment());
+  }
+  if (getFilterTopicFragment() == null) {
+    list.add(new FilterTopicFragment());
+  }
+ else {
+    list.add(getFilterTopicFragment());
+  }
+  if (getFilterSourceFragment() == null) {
+    list.add(new FilterSourceFragment());
+  }
+ else {
+    list.add(getFilterSourceFragment());
+  }
+}

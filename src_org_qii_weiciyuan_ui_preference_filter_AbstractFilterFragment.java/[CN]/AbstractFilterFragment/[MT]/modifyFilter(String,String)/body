@@ -1,0 +1,6 @@
+{
+  Set<String> set=new HashSet<String>();
+  set.add(oldWord);
+  removeAndGetFilterListImpl(set);
+  addFilter(newWord);
+}

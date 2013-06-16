@@ -1,0 +1,3 @@
+Activity activity
+ListView listView
+List<String> list

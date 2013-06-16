@@ -1,0 +1,56 @@
+{
+  if (content.getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+    return false;
+  }
+  boolean hasOriMessage=content.getRetweeted_status() != null;
+  MessageBean oriMessage=content.getRetweeted_status();
+  for (  String filterWord : keywordFilter) {
+    if (content.getText().contains(filterWord)) {
+      return true;
+    }
+    if (hasOriMessage && oriMessage.getText().contains(filterWord)) {
+      return true;
+    }
+  }
+  for (  String filterWord : userFilter) {
+    if (content.getUser() != null && content.getUser().getScreen_name().equals(filterWord)) {
+      return true;
+    }
+    if (hasOriMessage && oriMessage.getUser() != null && oriMessage.getUser().getScreen_name().equals(filterWord)) {
+      return true;
+    }
+  }
+  for (  String filterWord : topicFilter) {
+    Matcher localMatcher=WeiboPatterns.TOPIC_URL.matcher(content.getText());
+    while (localMatcher.find()) {
+      String str2=localMatcher.group(0);
+      if (TextUtils.isEmpty(str2) || str2.length() < 3) {
+        continue;
+      }
+      if (filterWord.equals(str2.substring(1,str2.length() - 1))) {
+        return true;
+      }
+    }
+    if (content.getRetweeted_status() != null) {
+      localMatcher=WeiboPatterns.TOPIC_URL.matcher(content.getRetweeted_status().getText());
+      while (localMatcher.find()) {
+        String str2=localMatcher.group(0);
+        if (TextUtils.isEmpty(str2) || str2.length() < 3) {
+          continue;
+        }
+        if (filterWord.equals(str2.substring(1,str2.length() - 1))) {
+          return true;
+        }
+      }
+    }
+  }
+  for (  String filterWord : sourceFilter) {
+    if (filterWord.equals(content.getSourceString())) {
+      return true;
+    }
+    if (hasOriMessage && filterWord.equals(content.getRetweeted_status().getSourceString())) {
+      return true;
+    }
+  }
+  return false;
+}

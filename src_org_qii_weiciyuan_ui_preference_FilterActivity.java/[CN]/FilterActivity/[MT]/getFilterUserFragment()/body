@@ -1,0 +1,3 @@
+{
+  return ((FilterUserFragment)getSupportFragmentManager().findFragmentByTag(FilterUserFragment.class.getName()));
+}

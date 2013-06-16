@@ -1,4 +1,0 @@
-{
-  for (  String word : words)   removeAndGetNewFilterList(word);
-  return getFilterList();
-}
