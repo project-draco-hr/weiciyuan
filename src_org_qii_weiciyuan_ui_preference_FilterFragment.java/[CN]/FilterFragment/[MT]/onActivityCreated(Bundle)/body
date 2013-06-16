@@ -1,6 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
-  adapter=new DraftAdapter();
+  adapter=new FilterAdapter();
   setListAdapter(adapter);
   if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
     task=new DBTask();
