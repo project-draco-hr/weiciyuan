@@ -6,23 +6,7 @@ case R.id.menu_add:
 dialog.show(getFragmentManager(),"");
 break;
 case R.id.filter_clear:
-new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.ask_clear)).setPositiveButton(getString(R.string.clear),new DialogInterface.OnClickListener(){
-@Override public void onClick(DialogInterface dialog,int which){
-ArrayList<String> deletedList=new ArrayList<String>();
-deletedList.addAll(list);
-list.clear();
-adapter.notifyDataSetChanged();
-if (Utility.isTaskStopped(removeTask)) {
-  removeTask=new RemoveFilterDBTask(deletedList);
-  removeTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-}
-}
-}
-).setNegativeButton(getString(R.string.cancel),new DialogInterface.OnClickListener(){
-@Override public void onClick(DialogInterface dialog,int which){
-}
-}
-).show();
+new ClearFilterDialog().show(getFragmentManager(),"");
 return true;
 }
 return true;

@@ -7,11 +7,7 @@ case android.R.id.home:
 startActivity(intent);
 return true;
 case R.id.filter_rule:
-new AlertDialog.Builder(this).setMessage(getString(R.string.filter_rule_content)).setPositiveButton(R.string.ok,new DialogInterface.OnClickListener(){
-@Override public void onClick(DialogInterface dialog,int which){
-}
-}
-).show();
+new FilterRuleDialog().show(getSupportFragmentManager(),"");
 break;
 }
 return false;

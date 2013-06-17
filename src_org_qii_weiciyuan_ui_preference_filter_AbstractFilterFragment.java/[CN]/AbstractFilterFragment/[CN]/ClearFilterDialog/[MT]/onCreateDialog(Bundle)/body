@@ -1,0 +1,13 @@
+{
+  return new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.ask_clear_filter_list)).setPositiveButton(getString(R.string.clear),new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      AbstractFilterFragment fragment=(AbstractFilterFragment)getTargetFragment();
+      fragment.clear();
+    }
+  }
+).setNegativeButton(getString(R.string.cancel),new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+    }
+  }
+).create();
+}
