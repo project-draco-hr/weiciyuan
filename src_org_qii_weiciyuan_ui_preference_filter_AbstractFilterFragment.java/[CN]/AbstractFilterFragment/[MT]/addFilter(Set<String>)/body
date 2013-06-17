@@ -6,7 +6,7 @@
     }
     @Override protected void onPostExecute(    Void aVoid){
       super.onPostExecute(aVoid);
-      if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
+      if (Utility.isTaskStopped(task)) {
         task=new DBTask();
         task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
       }

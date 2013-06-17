@@ -1,7 +1,7 @@
 {
 switch (item.getItemId()) {
 case R.id.menu_add_common:
-    Set<String> words=CommonAppDefinedFilterList.getDefinedFilterKeywordAndUserList();
+    Set<String> words=CommonAppDefinedFilterList.getDefinedFilterSourceList();
   words.removeAll(list);
 addFilter(words);
 return true;

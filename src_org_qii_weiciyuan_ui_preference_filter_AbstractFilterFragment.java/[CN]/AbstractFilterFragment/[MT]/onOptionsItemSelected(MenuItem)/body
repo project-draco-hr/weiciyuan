@@ -5,6 +5,21 @@ case R.id.menu_add:
   dialog.setTargetFragment(AbstractFilterFragment.this,0);
 dialog.show(getFragmentManager(),"");
 break;
+case R.id.filter_clear:
+new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.ask_clear)).setPositiveButton(getString(R.string.clear),new DialogInterface.OnClickListener(){
+@Override public void onClick(DialogInterface dialog,int which){
+if (Utility.isTaskStopped(removeTask)) {
+  removeTask=new RemoveFilterDBTask(list);
+  removeTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
+}
+}
+).setNegativeButton(getString(R.string.cancel),new DialogInterface.OnClickListener(){
+@Override public void onClick(DialogInterface dialog,int which){
+}
+}
+).show();
+return true;
 }
 return true;
 }
