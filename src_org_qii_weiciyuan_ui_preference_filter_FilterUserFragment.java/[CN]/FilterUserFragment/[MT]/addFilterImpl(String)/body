@@ -1,3 +1,0 @@
-{
-  FilterDBTask.addFilterKeyword(FilterDBTask.TYPE_USER,value);
-}

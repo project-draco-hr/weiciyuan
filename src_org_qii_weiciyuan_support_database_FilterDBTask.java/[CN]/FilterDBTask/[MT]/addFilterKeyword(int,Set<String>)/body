@@ -1,0 +1,23 @@
+{
+  DatabaseUtils.InsertHelper ih=new DatabaseUtils.InsertHelper(getWsd(),FilterTable.TABLE_NAME);
+  final int nameColumn=ih.getColumnIndex(FilterTable.NAME);
+  final int activeColumn=ih.getColumnIndex(FilterTable.ACTIVE);
+  final int typeColumn=ih.getColumnIndex(FilterTable.TYPE);
+  try {
+    getWsd().beginTransaction();
+    for (    String word : words) {
+      ih.prepareForInsert();
+      ih.bind(nameColumn,word);
+      ih.bind(activeColumn,true);
+      ih.bind(typeColumn,type);
+      ih.execute();
+    }
+    getWsd().setTransactionSuccessful();
+  }
+ catch (  SQLException e) {
+  }
+ finally {
+    getWsd().endTransaction();
+    ih.close();
+  }
+}

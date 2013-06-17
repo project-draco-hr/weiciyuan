@@ -1,0 +1,16 @@
+{
+  new MyAsyncTask<Void,Void,Void>(){
+    @Override protected Void doInBackground(    Void... params){
+      addFilterImpl(words);
+      return null;
+    }
+    @Override protected void onPostExecute(    Void aVoid){
+      super.onPostExecute(aVoid);
+      if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
+        task=new DBTask();
+        task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      }
+    }
+  }
+.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}

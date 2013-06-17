@@ -1,7 +1,5 @@
 {
-  addFilterImpl(word);
-  if (task == null || task.getStatus() == MyAsyncTask.Status.FINISHED) {
-    task=new DBTask();
-    task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
+  Set<String> words=new HashSet<String>();
+  words.add(word);
+  addFilter(words);
 }
