@@ -6,7 +6,9 @@ case R.id.menu_add:
 dialog.show(getFragmentManager(),"");
 break;
 case R.id.filter_clear:
-new ClearFilterDialog().show(getFragmentManager(),"");
+ClearFilterDialog clearFilterDialog=new ClearFilterDialog();
+clearFilterDialog.setTargetFragment(this,0);
+clearFilterDialog.show(getFragmentManager(),"");
 return true;
 }
 return true;
