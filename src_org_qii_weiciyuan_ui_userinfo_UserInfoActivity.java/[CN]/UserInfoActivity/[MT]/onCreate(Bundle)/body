@@ -1,5 +1,6 @@
 {
   super.onCreate(savedInstanceState);
+  initLayout();
   token=getIntent().getStringExtra("token");
   bean=getIntent().getParcelableExtra("user");
   if (bean == null) {
@@ -31,7 +32,7 @@
     fetchUserInfoFromServer();
   }
  else {
-    initLayout();
+    buildContent();
   }
   boolean screenNameEqualCurrentAccount=bean.getScreen_name() != null && bean.getScreen_name().equals(GlobalContext.getInstance().getCurrentAccountName());
   boolean idEqualCurrentAccount=bean.getId() != null && bean.getId().equals(GlobalContext.getInstance().getCurrentAccountId());

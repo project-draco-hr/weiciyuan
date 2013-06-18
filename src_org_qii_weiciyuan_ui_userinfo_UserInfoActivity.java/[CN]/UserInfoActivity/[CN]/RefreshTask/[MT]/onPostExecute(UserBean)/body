@@ -1,7 +1,7 @@
 {
   if (o != null) {
     bean=o;
-    initLayout();
+    buildContent();
   }
   super.onPostExecute(o);
 }
