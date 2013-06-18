@@ -1,0 +1,4 @@
+{
+  long days=TimeUnit.MICROSECONDS.toDays(account.getExpires_time() - System.currentTimeMillis());
+  return days > 0 && days <= 3;
+}

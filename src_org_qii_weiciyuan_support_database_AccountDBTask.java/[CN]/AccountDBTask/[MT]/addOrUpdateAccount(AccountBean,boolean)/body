@@ -2,6 +2,7 @@
   ContentValues cv=new ContentValues();
   cv.put(AccountTable.UID,account.getUid());
   cv.put(AccountTable.OAUTH_TOKEN,account.getAccess_token());
+  cv.put(AccountTable.OAUTH_TOKEN_EXPIRES_TIME,String.valueOf(account.getExpires_time()));
   cv.put(AccountTable.BLACK_MAGIC,blackMagic);
   String json=new Gson().toJson(account.getInfo());
   cv.put(AccountTable.INFOJSON,json);

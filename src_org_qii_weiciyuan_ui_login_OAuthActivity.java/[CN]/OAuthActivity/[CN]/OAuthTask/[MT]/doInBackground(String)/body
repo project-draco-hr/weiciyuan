@@ -1,9 +1,11 @@
 {
   String token=params[0];
+  long expiresTime=Long.valueOf(params[1]);
   try {
     UserBean user=new OAuthDao(token).getOAuthUserInfo();
     AccountBean account=new AccountBean();
     account.setAccess_token(token);
+    account.setExpires_time(expiresTime);
     account.setInfo(user);
     return AccountDBTask.addOrUpdateAccount(account,false);
   }
