@@ -1,11 +1,5 @@
 {
   super.onPreExecute();
-  if (username.getText().toString().length() == 0) {
-    username.setError("?????????????????????");
-    cancel(true);
-  }
-  if (password.getText().toString().length() == 0) {
-    password.setError("??????????????????");
-    cancel(true);
-  }
+  progressFragment.setAsyncTask(LoginTask.this);
+  progressFragment.show(getSupportFragmentManager(),"");
 }

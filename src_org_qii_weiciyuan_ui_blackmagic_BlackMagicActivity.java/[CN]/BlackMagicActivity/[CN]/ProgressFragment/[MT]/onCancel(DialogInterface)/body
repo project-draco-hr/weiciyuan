@@ -1,0 +1,6 @@
+{
+  if (asyncTask != null) {
+    asyncTask.cancel(true);
+  }
+  super.onCancel(dialog);
+}

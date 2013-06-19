@@ -7,6 +7,14 @@ intent.putExtra("launcher",false);
 startActivity(intent);
 return true;
 case R.id.menu_login:
+if (username.getText().toString().length() == 0) {
+username.setError(getString(R.string.email_cant_be_empty));
+return true;
+}
+if (password.getText().toString().length() == 0) {
+password.setError(getString(R.string.password_cant_be_empty));
+return true;
+}
 if (Utility.isTaskStopped(loginTask)) {
 loginTask=new LoginTask();
 loginTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);

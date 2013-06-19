@@ -1,5 +1,8 @@
 {
   super.onPostExecute(s);
+  if (progressFragment != null) {
+    progressFragment.dismissAllowingStateLoss();
+  }
   Bundle values=new Bundle();
   values.putString("expires_in",s[1]);
   Intent intent=new Intent();
