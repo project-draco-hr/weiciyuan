@@ -8,11 +8,11 @@
     account.setExpires_time(System.currentTimeMillis() + Long.valueOf(result[1]) * 1000);
     AccountDBTask.addOrUpdateAccount(account,true);
     AppLogger.e("token expires in " + Utility.calcTokenExpiresInDays(account) + " days");
-    return result[0];
+    return result;
   }
  catch (  WeiboException e) {
     this.e=e;
     cancel(true);
   }
-  return "";
+  return null;
 }
