@@ -1,4 +1,5 @@
 {
   getMenuInflater().inflate(R.menu.actionbar_menu_accountactivity,menu);
+  menu.findItem(R.id.menu_hack_login).setVisible(false);
   return true;
 }
