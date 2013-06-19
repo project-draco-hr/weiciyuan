@@ -1,0 +1,21 @@
+{
+  boolean didSucceed=true;
+  Intent intent=new Intent();
+  intent.setClassName(ssoPackageName,ssoActivityName);
+  intent.putExtra("appKey",URLHelper.APP_KEY);
+  intent.putExtra("redirectUri",URLHelper.DIRECT_URL);
+  if (permissions.length > 0) {
+    intent.putExtra("scope",TextUtils.join(",",permissions));
+  }
+  if (!validateAppSignatureForIntent(activity,intent)) {
+    return false;
+  }
+  try {
+    activity.startActivityForResult(intent,activityCode);
+  }
+ catch (  ActivityNotFoundException e) {
+    didSucceed=false;
+  }
+  activity.getApplication().unbindService(conn);
+  return didSucceed;
+}

@@ -1,0 +1,5 @@
+{
+  mAuthActivityCode=activityCode;
+  boolean bindSucced=false;
+  bindSucced=bindRemoteSSOService(mAuthActivity);
+}

@@ -1,0 +1,4 @@
+{
+  progressFragment.setAsyncTask(this);
+  progressFragment.show(getSupportFragmentManager(),"");
+}

@@ -1,1 +1,1 @@
-AsyncTask<String,UserBean,DBResult>
+MyAsyncTask<String,UserBean,DBResult>

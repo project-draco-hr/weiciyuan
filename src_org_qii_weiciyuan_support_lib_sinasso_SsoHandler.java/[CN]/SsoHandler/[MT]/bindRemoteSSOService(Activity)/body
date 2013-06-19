@@ -1,0 +1,5 @@
+{
+  Context context=activity.getApplicationContext();
+  Intent intent=new Intent("com.sina.weibo.remotessoservice");
+  return context.bindService(intent,conn,Context.BIND_AUTO_CREATE);
+}
