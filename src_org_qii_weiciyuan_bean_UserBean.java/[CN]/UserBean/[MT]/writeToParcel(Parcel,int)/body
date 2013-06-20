@@ -8,6 +8,7 @@
   dest.writeString(description);
   dest.writeString(url);
   dest.writeString(profile_image_url);
+  dest.writeString(cover_image);
   dest.writeString(domain);
   dest.writeString(gender);
   dest.writeString(statuses_count);
