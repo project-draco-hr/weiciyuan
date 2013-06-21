@@ -1,6 +1,4 @@
 {
-  getWindow().setBackgroundDrawable(getResources().getDrawable(R.color.transparent));
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setTitle(getString(R.string.personal_info));
-  setContentView(R.layout.viewpager_with_bg_layout);
 }

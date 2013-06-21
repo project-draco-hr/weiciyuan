@@ -1,0 +1,66 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  getPullToRefreshListView().setMode(PullToRefreshBase.Mode.DISABLED);
+  getPullToRefreshListView().setOnLastItemVisibleListener(null);
+  getPullToRefreshListView().getRefreshableView().setOverScrollMode(View.OVER_SCROLL_ALWAYS);
+  viewPager.setOnTouchListener(new View.OnTouchListener(){
+    @Override public boolean onTouch(    View v,    MotionEvent event){
+switch (event.getActionMasked()) {
+case MotionEvent.ACTION_DOWN:
+        viewPager.getParent().requestDisallowInterceptTouchEvent(true);
+      return false;
+case MotionEvent.ACTION_CANCEL:
+case MotionEvent.ACTION_UP:
+    viewPager.getParent().requestDisallowInterceptTouchEvent(false);
+  return false;
+}
+return false;
+}
+}
+);
+viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+@Override public void onPageSelected(int position){
+super.onPageSelected(position);
+switch (position) {
+case 0:
+leftPoint.getDrawable().setLevel(1);
+centerPoint.getDrawable().setLevel(0);
+rightPoint.getDrawable().setLevel(0);
+break;
+case 1:
+leftPoint.getDrawable().setLevel(0);
+centerPoint.getDrawable().setLevel(1);
+rightPoint.getDrawable().setLevel(0);
+break;
+case 2:
+leftPoint.getDrawable().setLevel(0);
+centerPoint.getDrawable().setLevel(0);
+rightPoint.getDrawable().setLevel(1);
+break;
+}
+}
+}
+);
+friendsCount.setText(String.valueOf(userBean.getFriends_count()));
+fansCount.setText(userBean.getFollowers_count());
+weiboCount.setText(userBean.getStatuses_count());
+nickname.setText(userBean.getScreen_name());
+((ICommander)getActivity()).getBitmapDownloader().downloadAvatar(avatar,userBean,(AbstractTimeLineFragment)this);
+if (!TextUtils.isEmpty(userBean.getDescription())) {
+bio.setText(userBean.getDescription());
+bio.setVisibility(View.VISIBLE);
+}
+ else {
+bio.setVisibility(View.GONE);
+}
+if (!TextUtils.isEmpty(userBean.getLocation())) {
+location.setText(userBean.getLocation());
+}
+if (!TextUtils.isEmpty(userBean.getUrl())) {
+url.setText(userBean.getUrl());
+ListViewTool.addLinks(url);
+url.setVisibility(View.VISIBLE);
+}
+HeaderPagerAdapter adapter=new HeaderPagerAdapter();
+viewPager.setAdapter(adapter);
+}

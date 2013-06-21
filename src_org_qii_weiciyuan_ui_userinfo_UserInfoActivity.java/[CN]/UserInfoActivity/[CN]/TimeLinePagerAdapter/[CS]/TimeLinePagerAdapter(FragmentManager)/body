@@ -1,7 +1,7 @@
 {
   super(fm);
   if (getInfoFragment() == null) {
-    list.add(new UserInfoFragment());
+    list.add(new NewUserInfoFragment(getUser(),getToken()));
   }
  else {
     list.add(getInfoFragment());

@@ -1,0 +1,13 @@
+{
+  View view=null;
+switch (position) {
+case 0:
+    view=headerLeft;
+  break;
+case 1:
+view=headerRight;
+break;
+}
+container.addView(view,0);
+return view;
+}
