@@ -1,15 +1,10 @@
 {
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
-    new Handler().postDelayed(new Runnable(){
-      @Override public void run(){
-        if (getActivity() != null) {
-          loadNewMsg();
-        }
-      }
-    }
-,AppConfig.REFRESH_DELAYED_MILL_SECOND_TIME);
-  break;
+    loadNewMsg();
+  topicListTask=new TopicListTask();
+topicListTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+break;
 case SCREEN_ROTATE:
 refreshLayout(getList());
 break;

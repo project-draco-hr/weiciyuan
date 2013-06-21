@@ -1,0 +1,9 @@
+{
+  super.onPostExecute(result);
+  if (isCancelled())   return;
+  if (result == null || result.size() == 0) {
+    return;
+  }
+  topicList=result;
+  topicsCount.setText(String.valueOf(result.size()));
+}

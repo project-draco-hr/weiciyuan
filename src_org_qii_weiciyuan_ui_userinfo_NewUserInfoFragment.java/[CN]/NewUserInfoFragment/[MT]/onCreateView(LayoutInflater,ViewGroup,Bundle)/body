@@ -18,5 +18,36 @@
   centerPoint=(ImageView)header.findViewById(R.id.center_point);
   rightPoint=(ImageView)header.findViewById(R.id.right_point);
   leftPoint.getDrawable().setLevel(1);
+  View weiboCountLayout=header.findViewById(R.id.weibo_count_layout);
+  View friendsCountLayout=header.findViewById(R.id.friends_count_layout);
+  View fansCountLayout=header.findViewById(R.id.fans_count_layout);
+  View topicCountLayout=header.findViewById(R.id.topics_count_layout);
+  friendsCountLayout.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent(getActivity(),FriendListActivity.class);
+      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+      intent.putExtra("user",userBean);
+      startActivity(intent);
+    }
+  }
+);
+  fansCountLayout.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent(getActivity(),FanListActivity.class);
+      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+      intent.putExtra("user",userBean);
+      startActivity(intent);
+    }
+  }
+);
+  topicCountLayout.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent(getActivity(),UserTopicListActivity.class);
+      intent.putExtra("userBean",userBean);
+      intent.putStringArrayListExtra("topicList",topicList);
+      startActivity(intent);
+    }
+  }
+);
   return view;
 }
