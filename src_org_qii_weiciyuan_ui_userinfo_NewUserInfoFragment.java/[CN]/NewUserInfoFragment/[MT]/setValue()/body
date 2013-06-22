@@ -7,6 +7,16 @@
   if (TextUtils.isEmpty(userBean.getRemark()))   nickname.setText(userBean.getScreen_name());
  else   nickname.setText(userBean.getScreen_name() + "(" + userBean.getRemark()+ ")");
   ((ICommander)getActivity()).getBitmapDownloader().downloadAvatar(avatar,userBean,(AbstractTimeLineFragment)this);
+  avatar.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      String path=FileManager.getFilePathFromUrl(userBean.getAvatar_large(),FileLocationMethod.avatar_large);
+      if (new File(path).exists()) {
+        UserAvatarDialog dialog=new UserAvatarDialog(path);
+        dialog.show(getFragmentManager(),"");
+      }
+    }
+  }
+);
   if (!TextUtils.isEmpty(userBean.getDescription())) {
     bio.setText(userBean.getDescription());
     bio.setVisibility(View.VISIBLE);
