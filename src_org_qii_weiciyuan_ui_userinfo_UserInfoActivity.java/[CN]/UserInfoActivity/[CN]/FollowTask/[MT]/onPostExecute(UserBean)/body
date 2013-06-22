@@ -2,6 +2,7 @@
   super.onPostExecute(o);
   Toast.makeText(UserInfoActivity.this,getString(R.string.follow_successfully),Toast.LENGTH_SHORT).show();
   bean=o;
-  getInfoFragment().forceReloadData(o);
+  bean.setFollowing(true);
+  invalidateOptionsMenu();
   manageGroup();
 }
