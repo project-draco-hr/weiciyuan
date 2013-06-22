@@ -1,4 +1,5 @@
 {
+  progressFooter.setVisibility(View.GONE);
   if (getActivity() != null && newValue.getSize() > 0) {
     getList().addNewData(newValue);
     getAdapter().notifyDataSetChanged();

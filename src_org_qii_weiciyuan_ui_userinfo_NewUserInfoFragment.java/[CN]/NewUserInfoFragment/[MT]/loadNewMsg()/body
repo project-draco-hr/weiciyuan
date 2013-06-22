@@ -1,4 +1,5 @@
 {
+  progressFooter.setVisibility(View.VISIBLE);
   getLoaderManager().destroyLoader(MIDDLE_MSG_LOADER_ID);
   getLoaderManager().destroyLoader(OLD_MSG_LOADER_ID);
   dismissFooterView();
