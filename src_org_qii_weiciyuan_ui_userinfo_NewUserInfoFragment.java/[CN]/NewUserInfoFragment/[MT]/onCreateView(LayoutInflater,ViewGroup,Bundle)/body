@@ -16,15 +16,23 @@
   weiboCount=(TextView)header.findViewById(R.id.weibo_count);
   headerLeft=inflater.inflate(R.layout.newuserinfofragment_header_viewpager_left_layout,null,false);
   headerRight=inflater.inflate(R.layout.newuserinfofragment_header_viewpager_right_layout,null,false);
+  headerThird=inflater.inflate(R.layout.newuserinfofragment_header_viewpager_third_layout,null,false);
   avatar=(ImageView)headerLeft.findViewById(R.id.avatar);
   nickname=(TextView)headerLeft.findViewById(R.id.nickname);
   location=(TextView)headerLeft.findViewById(R.id.location);
   bio=(TextView)headerRight.findViewById(R.id.bio);
   url=(TextView)headerRight.findViewById(R.id.url);
+  verifiedReason=(TextView)headerThird.findViewById(R.id.verified_reason);
   leftPoint=(ImageView)header.findViewById(R.id.left_point);
   centerPoint=(ImageView)header.findViewById(R.id.center_point);
   rightPoint=(ImageView)header.findViewById(R.id.right_point);
   leftPoint.getDrawable().setLevel(1);
+  if (!userBean.isVerified()) {
+    rightPoint.setVisibility(View.GONE);
+  }
+ else {
+    rightPoint.setVisibility(View.VISIBLE);
+  }
   View weiboCountLayout=header.findViewById(R.id.weibo_count_layout);
   View friendsCountLayout=header.findViewById(R.id.friends_count_layout);
   View fansCountLayout=header.findViewById(R.id.fans_count_layout);

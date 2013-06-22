@@ -7,6 +7,9 @@ case 0:
 case 1:
 view=headerRight;
 break;
+case 2:
+view=headerThird;
+break;
 }
 container.addView(view,0);
 return view;
