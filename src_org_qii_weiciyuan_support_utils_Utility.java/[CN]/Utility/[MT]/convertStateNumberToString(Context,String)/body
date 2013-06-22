@@ -1,0 +1,11 @@
+{
+  int number=Integer.valueOf(numberStr);
+  if (number > 10000) {
+    return String.valueOf((number / 10000) + context.getString(R.string.ten_thousand));
+  }
+  if (number > 1000) {
+    NumberFormat nf=NumberFormat.getNumberInstance();
+    return nf.format(Long.valueOf(number));
+  }
+  return String.valueOf(number);
+}

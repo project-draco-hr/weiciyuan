@@ -41,40 +41,7 @@ break;
 }
 }
 );
-friendsCount.setText(String.valueOf(userBean.getFriends_count()));
-fansCount.setText(userBean.getFollowers_count());
-weiboCount.setText(userBean.getStatuses_count());
-nickname.setText(userBean.getScreen_name());
-((ICommander)getActivity()).getBitmapDownloader().downloadAvatar(avatar,userBean,(AbstractTimeLineFragment)this);
-if (!TextUtils.isEmpty(userBean.getDescription())) {
-bio.setText(userBean.getDescription());
-bio.setVisibility(View.VISIBLE);
-}
- else {
-bio.setVisibility(View.GONE);
-}
-if (!TextUtils.isEmpty(userBean.getLocation())) {
-location.setText(userBean.getLocation());
-location.setVisibility(View.VISIBLE);
-}
- else {
-location.setVisibility(View.GONE);
-}
-if (!TextUtils.isEmpty(userBean.getUrl())) {
-url.setText(userBean.getUrl());
-ListViewTool.addLinks(url);
-url.setVisibility(View.VISIBLE);
-}
- else {
-url.setVisibility(View.GONE);
-}
-if (userBean.isVerified()) {
-verifiedReason.setVisibility(View.VISIBLE);
-verifiedReason.setText(userBean.getVerified_reason());
-}
- else {
-verifiedReason.setVisibility(View.GONE);
-}
 HeaderPagerAdapter adapter=new HeaderPagerAdapter();
 viewPager.setAdapter(adapter);
+setValue();
 }

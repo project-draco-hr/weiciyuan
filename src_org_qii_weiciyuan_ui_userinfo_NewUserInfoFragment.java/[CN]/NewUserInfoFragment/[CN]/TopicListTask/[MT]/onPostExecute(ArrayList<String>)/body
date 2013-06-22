@@ -5,5 +5,5 @@
     return;
   }
   topicList=result;
-  topicsCount.setText(String.valueOf(result.size()));
+  topicsCount.setText(Utility.convertStateNumberToString(getActivity(),String.valueOf(result.size())));
 }
