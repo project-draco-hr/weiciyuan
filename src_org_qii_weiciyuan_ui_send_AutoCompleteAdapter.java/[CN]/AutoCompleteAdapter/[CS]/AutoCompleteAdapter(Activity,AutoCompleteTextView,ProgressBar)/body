@@ -1,8 +1,8 @@
 {
-  super(context,android.R.layout.simple_dropdown_item_1line);
+  super(context,android.R.layout.simple_list_item_1);
   data=new ArrayList<AtUserBean>();
   this.activity=context;
-  this.res=android.R.layout.simple_dropdown_item_1line;
+  this.res=R.layout.simple_list_item_1;
   this.pb=pb;
   this.content=content;
   this.content.setOnItemClickListener(new AdapterView.OnItemClickListener(){
