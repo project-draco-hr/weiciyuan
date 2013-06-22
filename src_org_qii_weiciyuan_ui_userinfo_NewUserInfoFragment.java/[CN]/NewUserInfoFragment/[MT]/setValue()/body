@@ -2,7 +2,8 @@
   friendsCount.setText(Utility.convertStateNumberToString(getActivity(),userBean.getFriends_count()));
   fansCount.setText(Utility.convertStateNumberToString(getActivity(),userBean.getFollowers_count()));
   weiboCount.setText(Utility.convertStateNumberToString(getActivity(),userBean.getStatuses_count()));
-  nickname.setText(userBean.getScreen_name());
+  if (TextUtils.isEmpty(userBean.getRemark()))   nickname.setText(userBean.getScreen_name());
+ else   nickname.setText(userBean.getScreen_name() + "(" + userBean.getRemark()+ ")");
   ((ICommander)getActivity()).getBitmapDownloader().downloadAvatar(avatar,userBean,(AbstractTimeLineFragment)this);
   if (!TextUtils.isEmpty(userBean.getDescription())) {
     bio.setText(userBean.getDescription());

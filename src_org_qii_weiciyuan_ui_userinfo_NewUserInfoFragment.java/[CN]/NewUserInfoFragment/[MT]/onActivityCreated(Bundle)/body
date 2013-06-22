@@ -4,6 +4,7 @@ case FIRST_TIME_START:
     loadNewMsg();
   topicListTask=new TopicListTask();
 topicListTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+refresh();
 break;
 case SCREEN_ROTATE:
 refreshLayout(getList());
