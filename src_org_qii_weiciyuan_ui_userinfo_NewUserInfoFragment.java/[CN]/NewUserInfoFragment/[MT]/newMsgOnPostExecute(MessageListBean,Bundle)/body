@@ -1,9 +1,10 @@
 {
-  progressFooter.setVisibility(View.GONE);
+  getListView().removeFooterView(progressFooter);
   if (getActivity() != null && newValue.getSize() > 0) {
     getList().addNewData(newValue);
     getAdapter().notifyDataSetChanged();
     getListView().setSelectionAfterHeaderView();
     getActivity().invalidateOptionsMenu();
+    moreFooter.setVisibility(View.VISIBLE);
   }
 }

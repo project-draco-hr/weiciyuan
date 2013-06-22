@@ -1,6 +1,0 @@
-int id
-Bundle args
-String middleBeginId
-String middleEndId
-String middleEndTag
-int middlePosition

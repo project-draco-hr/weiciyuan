@@ -1,9 +1,0 @@
-{
-  String uid=userBean.getId();
-  String screenName=userBean.getScreen_name();
-  String maxId=null;
-  if (getList().getSize() > 0) {
-    maxId=getList().getItemList().get(getList().getSize() - 1).getId();
-  }
-  return new StatusesByIdLoader(getActivity(),uid,screenName,token,null,maxId);
-}

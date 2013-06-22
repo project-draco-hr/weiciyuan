@@ -1,6 +1,6 @@
 {
-  getLoaderManager().destroyLoader(NEW_MSG_LOADER_ID);
-  getPullToRefreshListView().onRefreshComplete();
-  getLoaderManager().destroyLoader(MIDDLE_MSG_LOADER_ID);
-  getLoaderManager().restartLoader(OLD_MSG_LOADER_ID,null,msgCallback);
+  Intent intent=new Intent(getActivity(),UserTimeLineActivity.class);
+  intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+  intent.putExtra("user",userBean);
+  startActivity(intent);
 }

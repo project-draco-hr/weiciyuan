@@ -2,9 +2,13 @@
   View view=super.onCreateView(inflater,container,savedInstanceState);
   View header=inflater.inflate(R.layout.newuserinfofragment_header_layout,getListView(),false);
   getListView().addHeaderView(header);
+  footerView.setVisibility(View.GONE);
   progressFooter=inflater.inflate(R.layout.newuserinfofragment_progress_footer,getListView(),false);
   progressFooter.setVisibility(View.GONE);
   getListView().addFooterView(progressFooter);
+  moreFooter=inflater.inflate(R.layout.newuserinfofragment_more_footer,getListView(),false);
+  moreFooter.setVisibility(View.GONE);
+  getListView().addFooterView(moreFooter);
   viewPager=(ViewPager)header.findViewById(R.id.viewpager);
   friendsCount=(TextView)header.findViewById(R.id.friends_count);
   fansCount=(TextView)header.findViewById(R.id.fans_count);
