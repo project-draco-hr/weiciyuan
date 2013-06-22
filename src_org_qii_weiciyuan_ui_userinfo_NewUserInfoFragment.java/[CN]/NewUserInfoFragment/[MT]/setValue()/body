@@ -2,6 +2,8 @@
   friendsCount.setText(Utility.convertStateNumberToString(getActivity(),userBean.getFriends_count()));
   fansCount.setText(Utility.convertStateNumberToString(getActivity(),userBean.getFollowers_count()));
   weiboCount.setText(Utility.convertStateNumberToString(getActivity(),userBean.getStatuses_count()));
+  TextPaint tp=nickname.getPaint();
+  tp.setFakeBoldText(true);
   if (TextUtils.isEmpty(userBean.getRemark()))   nickname.setText(userBean.getScreen_name());
  else   nickname.setText(userBean.getScreen_name() + "(" + userBean.getRemark()+ ")");
   ((ICommander)getActivity()).getBitmapDownloader().downloadAvatar(avatar,userBean,(AbstractTimeLineFragment)this);
@@ -33,5 +35,12 @@
   }
  else {
     verifiedReason.setVisibility(View.GONE);
+  }
+  if (userBean.isFollow_me()) {
+    followsYou.setVisibility(View.VISIBLE);
+    followsYou.setText(getString(R.string.is_following_me) + "@" + GlobalContext.getInstance().getCurrentAccountName());
+  }
+ else {
+    followsYou.setVisibility(View.GONE);
   }
 }

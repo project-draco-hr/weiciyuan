@@ -20,6 +20,7 @@
   avatar=(ImageView)headerLeft.findViewById(R.id.avatar);
   nickname=(TextView)headerLeft.findViewById(R.id.nickname);
   location=(TextView)headerLeft.findViewById(R.id.location);
+  followsYou=(TextView)headerLeft.findViewById(R.id.follows_you);
   bio=(TextView)headerRight.findViewById(R.id.bio);
   url=(TextView)headerRight.findViewById(R.id.url);
   verifiedReason=(TextView)headerThird.findViewById(R.id.verified_reason);
