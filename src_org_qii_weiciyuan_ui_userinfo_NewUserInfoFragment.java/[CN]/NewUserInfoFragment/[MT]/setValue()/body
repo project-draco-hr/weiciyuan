@@ -12,7 +12,7 @@
  else {
     avatar.reset();
   }
-  ((ICommander)getActivity()).getBitmapDownloader().downloadAvatar(avatar.getImageView(),userBean,(AbstractTimeLineFragment)this);
+  TimeLineBitmapDownloader.getInstance().downloadAvatar(avatar.getImageView(),userBean,(AbstractTimeLineFragment)this);
   avatar.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       String path=FileManager.getFilePathFromUrl(userBean.getAvatar_large(),FileLocationMethod.avatar_large);
