@@ -4,5 +4,5 @@
   outState.putBoolean("oriComment",menuEnableOriComment.isChecked());
   outState.putString("token",token);
   outState.putParcelable("msg",msg);
-  outState.putSerializable("repostDraftBean",repostDraftBean);
+  outState.putParcelable("repostDraftBean",repostDraftBean);
 }

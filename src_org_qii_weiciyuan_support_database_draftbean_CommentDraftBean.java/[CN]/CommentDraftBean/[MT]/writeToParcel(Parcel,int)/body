@@ -1,0 +1,6 @@
+{
+  dest.writeString(content);
+  dest.writeString(accountId);
+  dest.writeParcelable(messageBean,flags);
+  dest.writeString(id);
+}

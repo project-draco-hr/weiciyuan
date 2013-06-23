@@ -3,7 +3,7 @@
   msg=(MessageBean)getIntent().getParcelableExtra("oriMsg");
   getEditTextView().setError(intent.getStringExtra("failedReason"));
   getEditTextView().setText(intent.getStringExtra("content"));
-  commentDraftBean=(CommentDraftBean)intent.getSerializableExtra("draft");
+  commentDraftBean=(CommentDraftBean)intent.getParcelableExtra("draft");
   getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
   savedEnableRepost=intent.getBooleanExtra("comment_ori",false);
 }

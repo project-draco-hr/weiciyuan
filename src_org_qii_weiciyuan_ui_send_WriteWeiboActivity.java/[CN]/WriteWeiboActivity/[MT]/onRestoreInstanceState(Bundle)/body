@@ -8,7 +8,7 @@
     if (geoBean != null && !TextUtils.isEmpty(location))     enableGeo();
  else     disableGeo();
     imageFileUri=savedInstanceState.getParcelable("imageFileUri");
-    statusDraftBean=(StatusDraftBean)savedInstanceState.getSerializable("statusDraftBean");
+    statusDraftBean=(StatusDraftBean)savedInstanceState.getParcelable("statusDraftBean");
     accountBean=(AccountBean)savedInstanceState.getParcelable("accountBean");
     token=accountBean.getAccess_token();
   }

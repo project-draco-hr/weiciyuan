@@ -4,7 +4,7 @@
   getEditTextView().setHint("@" + bean.getUser().getScreen_name() + "???"+ bean.getText());
   getEditTextView().setError(intent.getStringExtra("failedReason"));
   getEditTextView().setText(intent.getStringExtra("content"));
-  replyDraftBean=(ReplyDraftBean)intent.getSerializableExtra("replyDraftBean");
+  replyDraftBean=(ReplyDraftBean)intent.getParcelableExtra("replyDraftBean");
   if (!TextUtils.isEmpty(intent.getStringExtra("repostContent"))) {
     savedEnableRepost=true;
   }

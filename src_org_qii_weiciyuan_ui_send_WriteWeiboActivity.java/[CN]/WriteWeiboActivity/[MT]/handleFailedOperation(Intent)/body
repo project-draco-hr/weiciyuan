@@ -10,5 +10,5 @@
   if (!TextUtils.isEmpty(picPath))   enablePicture();
   geoBean=(GeoBean)intent.getSerializableExtra("geoBean");
   if (geoBean != null)   enableGeo();
-  statusDraftBean=(StatusDraftBean)intent.getSerializableExtra("statusDraftBean");
+  statusDraftBean=(StatusDraftBean)intent.getParcelableExtra("statusDraftBean");
 }

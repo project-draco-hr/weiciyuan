@@ -9,5 +9,5 @@
     getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
   }
   getEditTextView().setError(intent.getStringExtra("failedReason"));
-  repostDraftBean=(RepostDraftBean)intent.getSerializableExtra("repostDraftBean");
+  repostDraftBean=(RepostDraftBean)intent.getParcelableExtra("repostDraftBean");
 }

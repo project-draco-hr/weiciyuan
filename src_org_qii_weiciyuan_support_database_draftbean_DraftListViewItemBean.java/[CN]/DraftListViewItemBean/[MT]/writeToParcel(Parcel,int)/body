@@ -1,0 +1,8 @@
+{
+  dest.writeParcelable(commentDraftBean,flags);
+  dest.writeParcelable(replyDraftBean,flags);
+  dest.writeParcelable(repostDraftBean,flags);
+  dest.writeParcelable(statusDraftBean,flags);
+  dest.writeInt(type);
+  dest.writeString(id);
+}

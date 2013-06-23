@@ -4,5 +4,5 @@
   outState.putBoolean("repost",enableRepost.isChecked());
   outState.putString("token",token);
   outState.putParcelable("msg",msg);
-  outState.putSerializable("commentDraftBean",commentDraftBean);
+  outState.putParcelable("commentDraftBean",commentDraftBean);
 }

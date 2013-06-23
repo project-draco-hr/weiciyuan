@@ -5,6 +5,6 @@
     savedEnableRepost=savedInstanceState.getBoolean("repost");
     token=savedInstanceState.getString("token");
     msg=(MessageBean)savedInstanceState.getParcelable("msg");
-    commentDraftBean=(CommentDraftBean)savedInstanceState.getSerializable("commentDraftBean");
+    commentDraftBean=(CommentDraftBean)savedInstanceState.getParcelable("commentDraftBean");
   }
 }

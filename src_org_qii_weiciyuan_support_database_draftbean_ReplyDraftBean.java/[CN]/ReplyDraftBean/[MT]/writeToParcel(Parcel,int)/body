@@ -1,0 +1,6 @@
+{
+  dest.writeString(content);
+  dest.writeString(accountId);
+  dest.writeParcelable(commentBean,flags);
+  dest.writeString(id);
+}

@@ -1,7 +1,7 @@
 {
   token=intent.getStringExtra("token");
   if (TextUtils.isEmpty(token))   token=GlobalContext.getInstance().getSpecialToken();
-  replyDraftBean=(ReplyDraftBean)intent.getSerializableExtra("draft");
+  replyDraftBean=(ReplyDraftBean)intent.getParcelableExtra("draft");
   getEditTextView().setText(replyDraftBean.getContent());
   bean=replyDraftBean.getCommentBean();
   getEditTextView().setHint("@" + bean.getUser().getScreen_name() + "???"+ bean.getText());
