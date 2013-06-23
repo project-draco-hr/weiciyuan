@@ -1,4 +1,0 @@
-{
-  super.onDestroyView();
-  Utility.cancelTasks(topicListTask);
-}

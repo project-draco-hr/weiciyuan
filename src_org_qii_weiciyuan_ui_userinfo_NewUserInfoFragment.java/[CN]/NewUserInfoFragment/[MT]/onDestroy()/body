@@ -1,4 +1,5 @@
 {
   super.onDestroy();
+  Utility.cancelTasks(refreshTask,topicListTask);
   GlobalContext.getInstance().unRegisterForAccountChangeListener(myProfileInfoChangeListener);
 }

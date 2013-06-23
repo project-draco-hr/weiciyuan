@@ -1,4 +1,0 @@
-{
-  super.onPause();
-  Utility.cancelTasks(refreshTask);
-}

@@ -1,4 +1,4 @@
 {
   super.onDestroy();
-  Utility.cancelTasks(refreshTask);
+  Utility.cancelTasks(refreshTask,followOrUnfollowTask,modifyGroupMemberTask);
 }
