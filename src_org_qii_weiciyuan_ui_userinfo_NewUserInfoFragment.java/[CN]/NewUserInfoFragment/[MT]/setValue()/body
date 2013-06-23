@@ -12,6 +12,12 @@
  else {
     avatar.reset();
   }
+  if (!userBean.isVerified()) {
+    rightPoint.setVisibility(View.GONE);
+  }
+ else {
+    rightPoint.setVisibility(View.VISIBLE);
+  }
   TimeLineBitmapDownloader.getInstance().downloadAvatar(avatar.getImageView(),userBean,(AbstractTimeLineFragment)this);
   avatar.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){

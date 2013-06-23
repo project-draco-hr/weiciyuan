@@ -43,5 +43,4 @@ break;
 );
 HeaderPagerAdapter adapter=new HeaderPagerAdapter();
 viewPager.setAdapter(adapter);
-setValue();
 }

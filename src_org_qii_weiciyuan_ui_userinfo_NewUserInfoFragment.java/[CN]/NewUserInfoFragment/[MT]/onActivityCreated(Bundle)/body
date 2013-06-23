@@ -5,9 +5,11 @@ case FIRST_TIME_START:
   topicListTask=new TopicListTask();
 topicListTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 refresh();
+setValue();
 break;
 case SCREEN_ROTATE:
 refreshLayout(getList());
+setValue();
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
 getList().replaceData((MessageListBean)savedInstanceState.getParcelable("bean"));
@@ -15,6 +17,7 @@ userBean=(UserBean)savedInstanceState.getParcelable("userBean");
 token=savedInstanceState.getString("token");
 getAdapter().notifyDataSetChanged();
 refreshLayout(getList());
+setValue();
 break;
 }
 super.onActivityCreated(savedInstanceState);

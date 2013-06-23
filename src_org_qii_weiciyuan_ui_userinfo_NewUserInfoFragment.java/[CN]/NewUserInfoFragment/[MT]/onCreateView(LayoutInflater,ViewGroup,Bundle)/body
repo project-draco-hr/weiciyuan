@@ -28,12 +28,6 @@
   centerPoint=(ImageView)header.findViewById(R.id.center_point);
   rightPoint=(ImageView)header.findViewById(R.id.right_point);
   leftPoint.getDrawable().setLevel(1);
-  if (!userBean.isVerified()) {
-    rightPoint.setVisibility(View.GONE);
-  }
- else {
-    rightPoint.setVisibility(View.VISIBLE);
-  }
   View weiboCountLayout=header.findViewById(R.id.weibo_count_layout);
   View friendsCountLayout=header.findViewById(R.id.friends_count_layout);
   View fansCountLayout=header.findViewById(R.id.fans_count_layout);
