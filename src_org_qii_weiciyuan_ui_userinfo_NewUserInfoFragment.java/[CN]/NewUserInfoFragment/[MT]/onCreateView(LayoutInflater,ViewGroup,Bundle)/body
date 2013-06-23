@@ -17,7 +17,7 @@
   headerLeft=inflater.inflate(R.layout.newuserinfofragment_header_viewpager_left_layout,null,false);
   headerRight=inflater.inflate(R.layout.newuserinfofragment_header_viewpager_right_layout,null,false);
   headerThird=inflater.inflate(R.layout.newuserinfofragment_header_viewpager_third_layout,null,false);
-  avatar=(ImageView)headerLeft.findViewById(R.id.avatar);
+  avatar=(TimeLineAvatarImageView)headerLeft.findViewById(R.id.avatar);
   nickname=(TextView)headerLeft.findViewById(R.id.nickname);
   location=(TextView)headerLeft.findViewById(R.id.location);
   followsYou=(TextView)headerLeft.findViewById(R.id.follows_you);

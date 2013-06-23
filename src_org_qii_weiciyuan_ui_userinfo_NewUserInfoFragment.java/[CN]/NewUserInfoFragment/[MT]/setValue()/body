@@ -6,14 +6,24 @@
   tp.setFakeBoldText(true);
   if (TextUtils.isEmpty(userBean.getRemark()))   nickname.setText(userBean.getScreen_name());
  else   nickname.setText(userBean.getScreen_name() + "(" + userBean.getRemark()+ ")");
-  ((ICommander)getActivity()).getBitmapDownloader().downloadAvatar(avatar,userBean,(AbstractTimeLineFragment)this);
+  if (userBean.isVerified()) {
+    avatar.isVerified();
+  }
+ else {
+    avatar.reset();
+  }
+  ((ICommander)getActivity()).getBitmapDownloader().downloadAvatar(avatar.getImageView(),userBean,(AbstractTimeLineFragment)this);
   avatar.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       String path=FileManager.getFilePathFromUrl(userBean.getAvatar_large(),FileLocationMethod.avatar_large);
-      if (new File(path).exists()) {
-        UserAvatarDialog dialog=new UserAvatarDialog(path);
-        dialog.show(getFragmentManager(),"");
+      if (!new File(path).exists()) {
+        path=FileManager.getFilePathFromUrl(userBean.getProfile_image_url(),FileLocationMethod.avatar_small);
+        if (!new File(path).exists()) {
+          return;
+        }
       }
+      UserAvatarDialog dialog=new UserAvatarDialog(path);
+      dialog.show(getFragmentManager(),"");
     }
   }
 );
