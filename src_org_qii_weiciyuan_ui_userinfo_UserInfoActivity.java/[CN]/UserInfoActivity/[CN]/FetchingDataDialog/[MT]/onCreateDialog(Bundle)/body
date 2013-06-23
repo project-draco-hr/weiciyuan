@@ -1,0 +1,5 @@
+{
+  ProgressDialog dialog=new ProgressDialog(getActivity());
+  dialog.setMessage(getString(R.string.fetching_user_info));
+  return dialog;
+}
