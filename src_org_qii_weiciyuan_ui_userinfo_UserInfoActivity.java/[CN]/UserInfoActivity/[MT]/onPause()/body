@@ -1,4 +1,4 @@
 {
   super.onPause();
-  Utility.cancelTasks(followOrUnfollowTask);
+  Utility.cancelTasks(followOrUnfollowTask,modifyGroupMemberTask);
 }
