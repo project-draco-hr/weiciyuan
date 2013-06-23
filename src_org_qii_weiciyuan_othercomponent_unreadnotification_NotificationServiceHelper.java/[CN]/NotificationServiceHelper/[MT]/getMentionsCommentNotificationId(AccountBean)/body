@@ -1,3 +1,3 @@
 {
-  return Integer.valueOf(accountBean.getUid()) + MENTIONS_COMMENT_NOTIFICATION_ID;
+  return accountBean.getUid().hashCode() + MENTIONS_COMMENT_NOTIFICATION_ID;
 }
