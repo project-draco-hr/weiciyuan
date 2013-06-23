@@ -1,3 +1,8 @@
 {
-  getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new NewUserInfoFragment(getUser(),getToken()),NewUserInfoFragment.class.getName()).commit();
+  new Handler(Looper.getMainLooper()).post(new Runnable(){
+    @Override public void run(){
+      getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new NewUserInfoFragment(getUser(),getToken()),NewUserInfoFragment.class.getName()).commit();
+    }
+  }
+);
 }
