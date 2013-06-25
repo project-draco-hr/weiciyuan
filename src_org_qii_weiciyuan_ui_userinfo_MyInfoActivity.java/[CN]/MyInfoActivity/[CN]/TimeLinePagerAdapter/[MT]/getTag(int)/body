@@ -1,6 +1,0 @@
-{
-  List<String> tagList=new ArrayList<String>();
-  tagList.add(MyInfoFragment.class.getName());
-  tagList.add(StatusesByIdTimeLineFragment.class.getName());
-  return tagList.get(position);
-}

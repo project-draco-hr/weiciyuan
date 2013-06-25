@@ -1,8 +1,0 @@
-{
-switch (item.getItemId()) {
-case R.id.menu_refresh:
-    refresh();
-  break;
-}
-return true;
-}

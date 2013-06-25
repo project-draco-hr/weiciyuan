@@ -34,9 +34,10 @@
  else {
     buildContent();
   }
-  boolean screenNameEqualCurrentAccount=bean.getScreen_name() != null && bean.getScreen_name().equals(GlobalContext.getInstance().getCurrentAccountName());
-  boolean idEqualCurrentAccount=bean.getId() != null && bean.getId().equals(GlobalContext.getInstance().getCurrentAccountId());
-  if (screenNameEqualCurrentAccount || idEqualCurrentAccount) {
+  if (isMyselfProfile()) {
+    if (getClass() == MyInfoActivity.class) {
+      return;
+    }
     Intent intent=new Intent(this,MyInfoActivity.class);
     intent.putExtra("token",getToken());
     UserBean userBean=new UserBean();

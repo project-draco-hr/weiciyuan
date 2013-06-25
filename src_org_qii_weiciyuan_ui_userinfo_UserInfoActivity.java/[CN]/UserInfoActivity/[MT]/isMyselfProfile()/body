@@ -1,0 +1,5 @@
+{
+  boolean screenNameEqualCurrentAccount=bean.getScreen_name() != null && bean.getScreen_name().equals(GlobalContext.getInstance().getCurrentAccountName());
+  boolean idEqualCurrentAccount=bean.getId() != null && bean.getId().equals(GlobalContext.getInstance().getCurrentAccountId());
+  return screenNameEqualCurrentAccount || idEqualCurrentAccount;
+}

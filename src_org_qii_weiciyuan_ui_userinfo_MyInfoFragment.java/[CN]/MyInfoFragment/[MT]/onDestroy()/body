@@ -1,5 +1,0 @@
-{
-  super.onDestroy();
-  Utility.cancelTasks(refreshTask,avatarTask,topicListTask);
-  GlobalContext.getInstance().unRegisterForAccountChangeListener(listener);
-}

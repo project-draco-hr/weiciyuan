@@ -1,3 +1,0 @@
-{
-  return getSupportFragmentManager().findFragmentByTag(MyInfoFragment.class.getName());
-}
