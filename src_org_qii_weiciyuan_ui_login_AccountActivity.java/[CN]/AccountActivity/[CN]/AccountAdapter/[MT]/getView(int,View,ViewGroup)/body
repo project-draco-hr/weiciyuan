@@ -12,5 +12,12 @@
   if (!TextUtils.isEmpty(accountList.get(i).getAvatar_url())) {
     commander.downloadAvatar(imageView,accountList.get(i).getInfo(),false);
   }
+  TextView token=(TextView)mView.findViewById(R.id.token_expired);
+  if (!Utility.isTokenValid(accountList.get(i))) {
+    token.setVisibility(View.VISIBLE);
+  }
+ else {
+    token.setVisibility(View.GONE);
+  }
   return mView;
 }
