@@ -1,5 +1,5 @@
 {
-  final Activity activity=GlobalContext.getInstance().getActivity();
+  final Activity activity=GlobalContext.getInstance().getCurrentRunningActivity();
   if (activity != null && !GlobalContext.getInstance().tokenExpiredDialogIsShowing) {
     activity.runOnUiThread(new Runnable(){
       @Override public void run(){
@@ -21,5 +21,18 @@
       }
     }
 );
+  }
+ else   if (activity == null) {
+    Intent i=new Intent(GlobalContext.getInstance(),AccountActivity.class);
+    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+    i.putExtra("launcher",false);
+    PendingIntent pendingIntent=PendingIntent.getActivity(GlobalContext.getInstance(),0,i,PendingIntent.FLAG_UPDATE_CURRENT);
+    Notification.Builder builder=new Notification.Builder(GlobalContext.getInstance()).setContentTitle(GlobalContext.getInstance().getString(R.string.login_again)).setContentText(GlobalContext.getInstance().getString(R.string.have_account_whose_token_is_expired)).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(pendingIntent).setOnlyAlertOnce(true);
+    NotificationManager notificationManager=(NotificationManager)GlobalContext.getInstance().getSystemService(Context.NOTIFICATION_SERVICE);
+    notificationManager.notify(NotificationServiceHelper.getTokenExpiredNotificationId(),builder.build());
+  }
+ else   if (GlobalContext.getInstance().tokenExpiredDialogIsShowing) {
+    NotificationManager notificationManager=(NotificationManager)GlobalContext.getInstance().getSystemService(Context.NOTIFICATION_SERVICE);
+    notificationManager.cancel(NotificationServiceHelper.getTokenExpiredNotificationId());
   }
 }

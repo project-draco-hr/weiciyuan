@@ -1,0 +1,6 @@
+{
+  super.onPause();
+  if (GlobalContext.getInstance().getCurrentRunningActivity() == this) {
+    GlobalContext.getInstance().setCurrentRunningActivity(null);
+  }
+}

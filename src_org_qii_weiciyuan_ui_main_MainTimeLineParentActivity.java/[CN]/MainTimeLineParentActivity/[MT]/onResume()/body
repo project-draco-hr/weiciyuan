@@ -1,6 +1,7 @@
 {
   super.onResume();
   GlobalContext.getInstance().setActivity(this);
+  GlobalContext.getInstance().setCurrentRunningActivity(this);
   if (theme == SettingUtility.getAppTheme()) {
   }
  else {
