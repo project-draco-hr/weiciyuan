@@ -1,6 +1,18 @@
 {
   final Activity activity=GlobalContext.getInstance().getCurrentRunningActivity();
   if (activity != null && !GlobalContext.getInstance().tokenExpiredDialogIsShowing) {
+    if (activity.getClass() == AccountActivity.class) {
+      return;
+    }
+    if (activity.getClass() == OAuthActivity.class) {
+      return;
+    }
+    if (activity.getClass() == BlackMagicActivity.class) {
+      return;
+    }
+    if (activity.getClass() == SSOActivity.class) {
+      return;
+    }
     activity.runOnUiThread(new Runnable(){
       @Override public void run(){
         new AlertDialog.Builder(activity).setTitle(R.string.dialog_title_error).setMessage(R.string.your_token_is_expired).setPositiveButton(R.string.logout_to_login_again,new DialogInterface.OnClickListener(){
