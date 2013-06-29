@@ -1,6 +1,6 @@
 {
   final Activity activity=GlobalContext.getInstance().getActivity();
-  if (activity != null) {
+  if (activity != null && !GlobalContext.getInstance().tokenExpiredDialogIsShowing) {
     activity.runOnUiThread(new Runnable(){
       @Override public void run(){
         new AlertDialog.Builder(activity).setTitle(R.string.dialog_title_error).setMessage(R.string.your_token_is_expired).setPositiveButton(R.string.logout_to_login_again,new DialogInterface.OnClickListener(){
@@ -9,9 +9,11 @@
             intent.putExtra("launcher",false);
             activity.startActivity(intent);
             activity.finish();
+            GlobalContext.getInstance().tokenExpiredDialogIsShowing=false;
           }
         }
 ).show();
+        GlobalContext.getInstance().tokenExpiredDialogIsShowing=true;
       }
     }
 );
