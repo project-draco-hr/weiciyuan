@@ -69,4 +69,10 @@
  else {
     followsYou.setVisibility(View.GONE);
   }
+  cover.post(new Runnable(){
+    @Override public void run(){
+      displayCoverPicture();
+    }
+  }
+);
 }

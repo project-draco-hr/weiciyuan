@@ -10,6 +10,7 @@
   moreFooter.setVisibility(View.GONE);
   getListView().addFooterView(moreFooter);
   viewPager=(ViewPager)header.findViewById(R.id.viewpager);
+  cover=(ImageView)header.findViewById(R.id.cover);
   friendsCount=(TextView)header.findViewById(R.id.friends_count);
   fansCount=(TextView)header.findViewById(R.id.fans_count);
   topicsCount=(TextView)header.findViewById(R.id.topics_count);
