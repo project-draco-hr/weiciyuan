@@ -21,4 +21,7 @@ setValue();
 break;
 }
 super.onActivityCreated(savedInstanceState);
+if ((getActivity() instanceof MainTimeLineActivity) && (((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == LeftMenuFragment.PROFILE_INDEX) {
+buildActionBarAndViewPagerTitles();
+}
 }

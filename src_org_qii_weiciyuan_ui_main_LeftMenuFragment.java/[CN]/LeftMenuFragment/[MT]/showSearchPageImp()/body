@@ -5,6 +5,7 @@
   ft.hide(rightFragments.get(COMMENTS_INDEX));
   ft.hide(rightFragments.get(DM_INDEX));
   ft.hide(rightFragments.get(FAV_INDEX));
+  ft.hide(rightFragments.get(PROFILE_INDEX));
   Fragment fragment=rightFragments.get(SEARCH_INDEX);
   if (firstStart) {
     int navPosition=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;

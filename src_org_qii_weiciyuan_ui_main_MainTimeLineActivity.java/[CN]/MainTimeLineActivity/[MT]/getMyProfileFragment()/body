@@ -1,0 +1,8 @@
+{
+  NewUserInfoFragment fragment=((NewUserInfoFragment)getSupportFragmentManager().findFragmentByTag(NewUserInfoFragment.class.getName()));
+  if (fragment == null) {
+    fragment=new NewUserInfoFragment(GlobalContext.getInstance().getAccountBean().getInfo(),GlobalContext.getInstance().getSpecialToken());
+    fragment.setArguments(new Bundle());
+  }
+  return fragment;
+}

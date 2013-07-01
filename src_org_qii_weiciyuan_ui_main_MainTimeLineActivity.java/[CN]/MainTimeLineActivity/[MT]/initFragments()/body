@@ -5,6 +5,7 @@
   Fragment search=getSearchFragment();
   Fragment dm=getDMFragment();
   Fragment fav=getFavFragment();
+  Fragment myself=getMyProfileFragment();
   FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
   if (!friend.isAdded()) {
     fragmentTransaction.add(R.id.menu_right_fl,friend,FriendsTimeLineFragment.class.getName());
@@ -29,6 +30,10 @@
   if (!fav.isAdded()) {
     fragmentTransaction.add(R.id.menu_right_fl,fav,MyFavListFragment.class.getName());
     fragmentTransaction.hide(fav);
+  }
+  if (!myself.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,myself,NewUserInfoFragment.class.getName());
+    fragmentTransaction.hide(myself);
   }
   if (!fragmentTransaction.isEmpty()) {
     fragmentTransaction.commit();

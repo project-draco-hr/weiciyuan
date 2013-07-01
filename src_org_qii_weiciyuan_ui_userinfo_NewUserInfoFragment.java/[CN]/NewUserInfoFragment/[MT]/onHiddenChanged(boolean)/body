@@ -1,0 +1,6 @@
+{
+  super.onHiddenChanged(hidden);
+  if ((getActivity() instanceof MainTimeLineActivity) && !hidden) {
+    buildActionBarAndViewPagerTitles();
+  }
+}

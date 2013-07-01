@@ -22,5 +22,6 @@
   rightFragments.append(SEARCH_INDEX,((MainTimeLineActivity)getActivity()).getSearchFragment());
   rightFragments.append(DM_INDEX,((MainTimeLineActivity)getActivity()).getDMFragment());
   rightFragments.append(FAV_INDEX,((MainTimeLineActivity)getActivity()).getFavFragment());
+  rightFragments.append(PROFILE_INDEX,((MainTimeLineActivity)getActivity()).getMyProfileFragment());
   switchCategory(currentIndex);
 }

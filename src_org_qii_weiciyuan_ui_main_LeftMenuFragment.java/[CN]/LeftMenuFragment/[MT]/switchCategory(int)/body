@@ -18,6 +18,9 @@ break;
 case FAV_INDEX:
 showFavPage(true);
 break;
+case PROFILE_INDEX:
+showProfilePage(true);
+break;
 }
 drawButtonsBackground(position);
 buildUnreadCount();
