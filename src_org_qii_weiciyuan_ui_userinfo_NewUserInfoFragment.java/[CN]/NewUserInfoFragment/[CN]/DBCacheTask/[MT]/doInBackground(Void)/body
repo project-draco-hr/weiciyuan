@@ -1,0 +1,4 @@
+{
+  progressFooter.setVisibility(View.VISIBLE);
+  return MyStatusDBTask.get(userBean.getId());
+}

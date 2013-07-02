@@ -14,10 +14,11 @@
   db.execSQL("DROP TABLE IF EXISTS " + CommentByMeTable.CommentByMeDataTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + FavouriteTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + FavouriteTable.FavouriteDataTable.TABLE_NAME);
+  db.execSQL("DROP TABLE IF EXISTS " + MyStatusTable.TABLE_NAME);
+  db.execSQL("DROP TABLE IF EXISTS " + MyStatusTable.StatusDataTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + FilterTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + EmotionsTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + DraftTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + DMTable.TABLE_NAME);
-  db.execSQL("DROP TABLE IF EXISTS " + MyStatusTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + AtUsersTable.TABLE_NAME);
 }

@@ -1,0 +1,15 @@
+{
+  super.onPostExecute(result);
+  if (result != null) {
+    getListView().removeFooterView(progressFooter);
+    getList().addNewData(result);
+    getAdapter().notifyDataSetChanged();
+    getListView().setSelectionAfterHeaderView();
+    getActivity().invalidateOptionsMenu();
+    moreFooter.setVisibility(View.VISIBLE);
+  }
+  refreshLayout(getList());
+  if (getList().getSize() == 0) {
+    loadNewMsg();
+  }
+}

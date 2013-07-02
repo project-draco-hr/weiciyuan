@@ -6,5 +6,8 @@
     getListView().setSelectionAfterHeaderView();
     getActivity().invalidateOptionsMenu();
     moreFooter.setVisibility(View.VISIBLE);
+    if (isMyself()) {
+      MyStatusDBTask.asyncReplace(getList(),userBean.getId());
+    }
   }
 }

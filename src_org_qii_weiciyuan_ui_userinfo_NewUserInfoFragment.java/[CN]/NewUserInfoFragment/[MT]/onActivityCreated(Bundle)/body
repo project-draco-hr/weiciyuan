@@ -1,11 +1,16 @@
 {
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
-    loadNewMsg();
+    refresh();
+  setValue();
+if (isMyself() && isOpenedFromMainPage()) {
+  readDBCache();
+}
+ else {
+  loadNewMsg();
   topicListTask=new TopicListTask();
-topicListTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-refresh();
-setValue();
+  topicListTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}
 break;
 case SCREEN_ROTATE:
 refreshLayout(getList());
