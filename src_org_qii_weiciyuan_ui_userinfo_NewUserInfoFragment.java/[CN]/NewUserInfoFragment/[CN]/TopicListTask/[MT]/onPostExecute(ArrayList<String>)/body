@@ -9,4 +9,5 @@
   ArrayList<String> dbCache=new ArrayList<String>();
   dbCache.addAll(topicList);
   TopicDBTask.asyncReplace(userBean.getId(),dbCache);
+  stopRefreshMenuAnimationIfPossible();
 }

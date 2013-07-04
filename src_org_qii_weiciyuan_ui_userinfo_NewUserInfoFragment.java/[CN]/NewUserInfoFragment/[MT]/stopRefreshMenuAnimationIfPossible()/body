@@ -1,0 +1,9 @@
+{
+  if (!isMyself() || !isOpenedFromMainPage()) {
+    return;
+  }
+  finishedWatcher.getAndDecrement();
+  if (finishedWatcher.get() == 0) {
+    stopRefreshMenuAnimation();
+  }
+}

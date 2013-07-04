@@ -1,4 +1,5 @@
 {
+  stopRefreshMenuAnimationIfPossible();
   getListView().removeFooterView(progressFooter);
   if (getActivity() != null && newValue.getSize() > 0) {
     getList().addNewData(newValue);

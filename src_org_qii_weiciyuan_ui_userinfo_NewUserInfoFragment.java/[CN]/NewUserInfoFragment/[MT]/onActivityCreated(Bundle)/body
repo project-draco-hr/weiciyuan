@@ -1,16 +1,15 @@
 {
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
-    refresh();
-  setValue();
-if (isMyself() && isOpenedFromMainPage()) {
-  readDBCache();
-}
+    setValue();
+  if (isMyself() && isOpenedFromMainPage()) {
+    readDBCache();
+  }
  else {
-  loadNewMsg();
-  topicListTask=new TopicListTask();
-  topicListTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-}
+    fetchLastestUserInfoFromServer();
+    loadNewMsg();
+    fetchTopicInfoFromServer();
+  }
 break;
 case SCREEN_ROTATE:
 refreshLayout(getList());
