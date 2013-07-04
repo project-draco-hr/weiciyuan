@@ -1,0 +1,9 @@
+{
+  super.onProgressUpdate(values);
+  ArrayList<String> result=values[0];
+  if (result == null || result.size() == 0) {
+    return;
+  }
+  topicList=result;
+  topicsCount.setText(Utility.convertStateNumberToString(getActivity(),String.valueOf(result.size())));
+}

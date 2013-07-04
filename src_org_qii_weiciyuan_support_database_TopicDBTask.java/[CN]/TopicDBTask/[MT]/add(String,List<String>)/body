@@ -1,0 +1,25 @@
+{
+  if (list == null || list.size() == 0) {
+    return;
+  }
+  DatabaseUtils.InsertHelper ih=new DatabaseUtils.InsertHelper(getWsd(),TopicTable.TABLE_NAME);
+  final int accountidColumn=ih.getColumnIndex(TopicTable.ACCOUNTID);
+  final int nameColumn=ih.getColumnIndex(TopicTable.TOPIC_NAME);
+  try {
+    getWsd().beginTransaction();
+    for (int i=0; i < list.size(); i++) {
+      String name=list.get(i);
+      ih.prepareForInsert();
+      ih.bind(accountidColumn,accountId);
+      ih.bind(nameColumn,name);
+      ih.execute();
+    }
+    getWsd().setTransactionSuccessful();
+  }
+ catch (  SQLException e) {
+  }
+ finally {
+    getWsd().endTransaction();
+    ih.close();
+  }
+}

@@ -21,4 +21,5 @@
   db.execSQL("DROP TABLE IF EXISTS " + DraftTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + DMTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + AtUsersTable.TABLE_NAME);
+  db.execSQL("DROP TABLE IF EXISTS " + TopicTable.TABLE_NAME);
 }
