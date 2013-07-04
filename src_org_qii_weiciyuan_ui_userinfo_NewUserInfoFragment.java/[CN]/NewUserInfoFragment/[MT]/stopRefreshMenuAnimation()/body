@@ -1,0 +1,5 @@
+{
+  if (refreshItem.getActionView() != null) {
+    refreshItem.setActionView(null);
+  }
+}

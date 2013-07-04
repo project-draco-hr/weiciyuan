@@ -1,0 +1,9 @@
+{
+  super.onCreateOptionsMenu(menu,inflater);
+  if (isMyself() && isOpenedFromMainPage()) {
+    inflater.inflate(R.menu.actionbar_menu_newuserinfofragment_main_page,menu);
+    MenuItem edit=menu.findItem(R.id.menu_edit);
+    edit.setVisible(GlobalContext.getInstance().getAccountBean().isBlack_magic());
+    refreshItem=menu.findItem(R.id.menu_refresh_my_profile);
+  }
+}
