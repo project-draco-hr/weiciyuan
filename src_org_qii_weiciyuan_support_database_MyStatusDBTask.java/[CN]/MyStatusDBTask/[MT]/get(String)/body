@@ -16,5 +16,5 @@
   }
   result.setStatuses(msgList);
   c.close();
-  return result;
+  return new MyStatusTimeLineData(result,getPosition(accountId));
 }

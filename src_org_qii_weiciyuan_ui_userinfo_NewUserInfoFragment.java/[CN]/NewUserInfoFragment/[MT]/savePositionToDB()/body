@@ -1,0 +1,6 @@
+{
+  if (position == null) {
+    savePositionToPositionsCache();
+  }
+  MyStatusDBTask.asyncUpdatePosition(position,GlobalContext.getInstance().getCurrentAccountId());
+}

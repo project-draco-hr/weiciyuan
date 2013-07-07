@@ -2,9 +2,10 @@
   super.onPostExecute(result);
   if (result != null) {
     getListView().removeFooterView(progressFooter);
-    getList().addNewData(result);
+    getList().addNewData(result.msgList);
     getAdapter().notifyDataSetChanged();
-    getListView().setSelectionAfterHeaderView();
+    position=result.position;
+    setListViewPositionFromPositionsCache();
     getActivity().invalidateOptionsMenu();
     moreFooter.setVisibility(View.VISIBLE);
   }

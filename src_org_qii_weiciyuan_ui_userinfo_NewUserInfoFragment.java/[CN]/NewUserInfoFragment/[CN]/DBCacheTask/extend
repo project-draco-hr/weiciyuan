@@ -1,1 +1,1 @@
-MyAsyncTask<Void,ArrayList<String>,MessageListBean>
+MyAsyncTask<Void,ArrayList<String>,MyStatusTimeLineData>

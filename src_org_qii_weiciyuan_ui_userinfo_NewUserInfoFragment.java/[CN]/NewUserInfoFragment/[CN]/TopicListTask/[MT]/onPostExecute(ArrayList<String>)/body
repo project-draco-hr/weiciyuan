@@ -1,5 +1,6 @@
 {
   super.onPostExecute(result);
+  stopRefreshMenuAnimationIfPossible();
   if (isCancelled())   return;
   if (result == null || result.size() == 0) {
     return;
@@ -9,5 +10,4 @@
   ArrayList<String> dbCache=new ArrayList<String>();
   dbCache.addAll(topicList);
   TopicDBTask.asyncReplace(userBean.getId(),dbCache);
-  stopRefreshMenuAnimationIfPossible();
 }
