@@ -9,4 +9,5 @@
   Fragment fragment=rightFragments.get(DM_INDEX);
   ft.show(fragment);
   ft.commit();
+  ((DMUserListFragment)fragment).buildActionBarAndViewPagerTitles();
 }

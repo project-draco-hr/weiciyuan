@@ -9,4 +9,5 @@
   Fragment fragment=rightFragments.get(FAV_INDEX);
   ft.show(fragment);
   ft.commit();
+  ((MyFavListFragment)fragment).buildActionBarAndViewPagerTitles();
 }
