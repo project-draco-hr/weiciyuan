@@ -24,11 +24,7 @@
   layout.repost_count=(TextView)view.findViewById(R.id.repost_count);
   layout.count_layout=view.findViewById(R.id.count_layout);
   layout.avatar=(ImageView)view.findViewById(R.id.avatar);
-  layout.content_pic=(ImageView)view.findViewById(R.id.content_pic);
-  layout.repost_pic=(ImageView)view.findViewById(R.id.repost_content_pic);
-  layout.content_pic_pb=(ProgressBar)view.findViewById(R.id.content_pic_pb);
-  layout.repost_pic_pb=(ProgressBar)view.findViewById(R.id.repost_content_pic_pb);
-  layout.repost_layout=(RelativeLayout)view.findViewById(R.id.repost_layout);
-  layout.pic_layout=(FrameLayout)view.findViewById(R.id.pic_layout);
-  layout.repost_pic_layout=(FrameLayout)view.findViewById(R.id.repost_pic_layout);
+  layout.content_pic=(TimeLineImageView)view.findViewById(R.id.content_pic);
+  layout.repost_pic=(TimeLineImageView)view.findViewById(R.id.repost_content_pic);
+  layout.repost_layout=(LinearLayout)view.findViewById(R.id.repost_layout);
 }

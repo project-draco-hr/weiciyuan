@@ -1,6 +1,7 @@
 {
   if (bitmap != null) {
     view.setTag(true);
+    view.getImageView().setTag(true);
     view.setVisibility(View.VISIBLE);
     view.setImageBitmap(bitmap);
     view.setAlpha(0.0f);
