@@ -1,4 +1,5 @@
 {
+  if (pb != null)   pb.setVisibility(View.INVISIBLE);
   if (bitmap != null) {
     view.setTag(true);
     view.getImageView().setTag(true);
@@ -9,12 +10,11 @@
   }
  else {
     view.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
-  }
-  if (pb != null) {
-    pb.animate().alpha(0f).setDuration(200).setListener(new AnimatorListenerAdapter(){
-      @Override public void onAnimationEnd(      Animator animation){
-        super.onAnimationEnd(animation);
-        pb.setVisibility(View.INVISIBLE);
+    retry.setVisibility(View.VISIBLE);
+    retry.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        MsgDetailReadWorker picTask=new MsgDetailReadWorker(view,msg);
+        picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
       }
     }
 );
