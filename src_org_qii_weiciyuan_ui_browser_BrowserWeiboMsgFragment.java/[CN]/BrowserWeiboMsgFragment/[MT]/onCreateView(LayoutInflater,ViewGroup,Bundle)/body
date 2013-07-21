@@ -35,6 +35,7 @@
   repostTab.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       listView.setOnItemClickListener(repostOnItemClickListener);
+      dismissFooterView();
       if (isCommentList) {
         isCommentList=false;
         adapter.switchToRepostType();
@@ -62,6 +63,7 @@
   commentTab.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       listView.setOnItemClickListener(commentOnItemClickListener);
+      dismissFooterView();
       if (!isCommentList) {
         isCommentList=true;
         adapter.switchToCommentType();
