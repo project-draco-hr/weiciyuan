@@ -38,6 +38,7 @@
       listView.setOnItemLongClickListener(repostOnItemLongClickListener);
       if (hasActionMode()) {
         mActionMode.finish();
+        mActionMode=null;
       }
       dismissFooterView();
       if (isCommentList) {
@@ -70,6 +71,7 @@
       listView.setOnItemLongClickListener(commentOnItemLongClickListener);
       if (hasActionMode()) {
         mActionMode.finish();
+        mActionMode=null;
       }
       dismissFooterView();
       if (!isCommentList) {
