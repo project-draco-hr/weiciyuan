@@ -36,10 +36,7 @@
     @Override public void onClick(    View v){
       listView.setOnItemClickListener(repostOnItemClickListener);
       listView.setOnItemLongClickListener(repostOnItemLongClickListener);
-      if (hasActionMode()) {
-        mActionMode.finish();
-        mActionMode=null;
-      }
+      resetActionMode();
       dismissFooterView();
       if (isCommentList) {
         isCommentList=false;
@@ -69,10 +66,7 @@
     @Override public void onClick(    View v){
       listView.setOnItemClickListener(commentOnItemClickListener);
       listView.setOnItemLongClickListener(commentOnItemLongClickListener);
-      if (hasActionMode()) {
-        mActionMode.finish();
-        mActionMode=null;
-      }
+      resetActionMode();
       dismissFooterView();
       if (!isCommentList) {
         isCommentList=true;

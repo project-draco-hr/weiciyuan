@@ -1,0 +1,11 @@
+{
+  if (mActionMode != null) {
+    getListView().clearChoices();
+    mActionMode.finish();
+    mActionMode=null;
+    return true;
+  }
+ else {
+    return false;
+  }
+}
