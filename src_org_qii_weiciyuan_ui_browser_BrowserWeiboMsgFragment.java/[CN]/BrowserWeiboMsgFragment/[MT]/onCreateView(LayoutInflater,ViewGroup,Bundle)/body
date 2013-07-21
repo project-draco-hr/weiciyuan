@@ -22,6 +22,10 @@
     }
   }
 );
+  View progressHeaderLayout=inflater.inflate(R.layout.browserweibomsgfragment_progress_header,listView,false);
+  progressHeader=progressHeaderLayout.findViewById(R.id.progressbar);
+  progressHeader.setVisibility(View.GONE);
+  listView.addHeaderView(progressHeaderLayout);
   repostTab=(TextView)switchView.findViewById(R.id.repost);
   commentTab=(TextView)switchView.findViewById(R.id.comment);
   repostTab.setOnClickListener(new View.OnClickListener(){
@@ -50,6 +54,6 @@
   adapter=new BrowserWeiboMsgCommentAndRepostAdapter(this,listView,commentList.getItemList(),repostList.getItemList());
   listView.setAdapter(adapter);
   adapter.notifyDataSetChanged();
-  listView.setHeaderDividersEnabled(true);
+  listView.setHeaderDividersEnabled(false);
   return pullToRefreshListView;
 }
