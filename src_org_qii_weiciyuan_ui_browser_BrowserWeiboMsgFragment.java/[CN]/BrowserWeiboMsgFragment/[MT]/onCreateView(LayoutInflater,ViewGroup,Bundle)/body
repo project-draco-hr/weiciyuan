@@ -12,6 +12,7 @@
     }
   }
 );
+  pullToRefreshListView.setOnScrollListener(listViewOnScrollListener);
   listView=pullToRefreshListView.getRefreshableView();
   View header=inflater.inflate(R.layout.browserweibomsgactivity_layout,listView,false);
   listView.addHeaderView(header);
