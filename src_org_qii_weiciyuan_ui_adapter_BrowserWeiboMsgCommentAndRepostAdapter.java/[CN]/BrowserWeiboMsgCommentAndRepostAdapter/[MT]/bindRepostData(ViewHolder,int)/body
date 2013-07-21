@@ -37,4 +37,5 @@
     holder.content.setText(msg.getListViewSpannableString());
   }
   holder.time.setTime(msg.getMills());
+  holder.reply.setVisibility(View.GONE);
 }

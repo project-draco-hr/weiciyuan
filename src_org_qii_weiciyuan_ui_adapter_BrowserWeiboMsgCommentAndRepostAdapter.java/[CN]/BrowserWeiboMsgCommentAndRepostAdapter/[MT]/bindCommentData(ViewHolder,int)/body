@@ -31,4 +31,14 @@
   }
   holder.content.setText(comment.getListViewSpannableString());
   holder.time.setTime(comment.getMills());
+  holder.reply.setVisibility(View.VISIBLE);
+  holder.reply.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent(getActivity(),WriteReplyToCommentActivity.class);
+      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+      intent.putExtra("msg",comment);
+      getActivity().startActivity(intent);
+    }
+  }
+);
 }

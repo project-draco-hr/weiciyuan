@@ -31,6 +31,7 @@
   commentTab=(TextView)switchView.findViewById(R.id.comment);
   repostTab.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
+      listView.setOnItemClickListener(repostOnItemClickListener);
       if (isCommentList) {
         isCommentList=false;
         adapter.switchToRepostType();
