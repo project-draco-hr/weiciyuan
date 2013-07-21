@@ -11,5 +11,5 @@
     }
   }
 ,3000);
-  LocalBroadcastManager.getInstance(SendCommentService.this).sendBroadcast(new Intent("org.qii.weiciyuan.SEND.COMMENT.COMPLETED"));
+  LocalBroadcastManager.getInstance(SendCommentService.this).sendBroadcast(new Intent(AppEventAction.SEND_COMMENT_OR_REPLY_SUCCESSFULLY));
 }
