@@ -1,0 +1,8 @@
+{
+  if (isCommentList) {
+    return commentListBean.get(position).getIdLong();
+  }
+ else {
+    return repostListBean.get(position).getIdLong();
+  }
+}

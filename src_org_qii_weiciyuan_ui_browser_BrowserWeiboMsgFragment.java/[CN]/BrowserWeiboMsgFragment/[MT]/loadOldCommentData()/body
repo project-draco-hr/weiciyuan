@@ -1,0 +1,4 @@
+{
+  getLoaderManager().destroyLoader(NEW_COMMENT_LOADER_ID);
+  getLoaderManager().restartLoader(OLD_COMMENT_LOADER_ID,null,commentMsgCallback);
+}

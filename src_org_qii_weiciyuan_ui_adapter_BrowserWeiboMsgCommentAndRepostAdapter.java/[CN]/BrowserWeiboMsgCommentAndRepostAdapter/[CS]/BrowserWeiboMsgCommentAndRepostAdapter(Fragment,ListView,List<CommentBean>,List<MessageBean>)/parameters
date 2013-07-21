@@ -1,0 +1,4 @@
+Fragment fragment
+ListView listView
+List<CommentBean> commentListBean
+List<MessageBean> repostListBean

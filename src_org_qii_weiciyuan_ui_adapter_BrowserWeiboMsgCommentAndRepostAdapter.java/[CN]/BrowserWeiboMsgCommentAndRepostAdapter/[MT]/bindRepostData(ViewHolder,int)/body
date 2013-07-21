@@ -1,0 +1,40 @@
+{
+  Drawable drawable=bg.get(holder);
+  if (drawable != null) {
+    holder.listview_root.setBackgroundDrawable(drawable);
+  }
+ else {
+    drawable=holder.listview_root.getBackground();
+    bg.put(holder,drawable);
+  }
+  if (listView.getCheckedItemPosition() == position + listView.getHeaderViewsCount())   holder.listview_root.setBackgroundColor(checkedBG);
+  final MessageBean msg=(MessageBean)getItem(position);
+  UserBean user=msg.getUser();
+  if (user != null) {
+    holder.username.setVisibility(View.VISIBLE);
+    if (!TextUtils.isEmpty(user.getRemark())) {
+      holder.username.setText(new StringBuilder(user.getScreen_name()).append("(").append(user.getRemark()).append(")").toString());
+    }
+ else {
+      holder.username.setText(user.getScreen_name());
+    }
+    if (!SettingUtility.getEnableCommentRepostListAvatar()) {
+      holder.avatar.setLayoutParams(new RelativeLayout.LayoutParams(0,0));
+    }
+ else {
+      buildAvatar(holder.avatar,position,user);
+    }
+  }
+ else {
+    holder.username.setVisibility(View.INVISIBLE);
+    holder.avatar.setVisibility(View.INVISIBLE);
+  }
+  if (!TextUtils.isEmpty(msg.getListViewSpannableString())) {
+    holder.content.setText(msg.getListViewSpannableString());
+  }
+ else {
+    ListViewTool.addJustHighLightLinks(msg);
+    holder.content.setText(msg.getListViewSpannableString());
+  }
+  holder.time.setTime(msg.getMills());
+}

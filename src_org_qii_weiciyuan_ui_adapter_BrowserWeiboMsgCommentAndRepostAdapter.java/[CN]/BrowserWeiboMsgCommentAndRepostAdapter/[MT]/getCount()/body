@@ -1,0 +1,8 @@
+{
+  if (isCommentList) {
+    return commentListBean.size();
+  }
+ else {
+    return repostListBean.size();
+  }
+}

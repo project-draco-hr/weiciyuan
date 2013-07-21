@@ -1,3 +1,0 @@
-{
-  return isCommentFlag ? commentList.getItem(position).getIdLong() : repostList.getItem(position).getIdLong();
-}

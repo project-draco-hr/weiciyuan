@@ -5,7 +5,8 @@ case R.id.menu_refresh:
       updateMsgTask=new UpdateMessageTask(BrowserWeiboMsgFragment.this,layout.content,layout.recontent,msg,true);
       updateMsgTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
-  break;
+  loadNewCommentData();
+break;
 }
 return true;
 }

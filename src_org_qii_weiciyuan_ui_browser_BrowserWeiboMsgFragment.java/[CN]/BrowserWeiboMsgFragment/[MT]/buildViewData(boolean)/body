@@ -48,5 +48,10 @@
         }
       }
     }
+ else {
+      layout.repost_pic.setVisibility(View.GONE);
+    }
   }
+  Utility.buildTabCount(commentTab,getString(R.string.comments),msg.getComments_count());
+  Utility.buildTabCount(repostTab,getString(R.string.repost),msg.getReposts_count());
 }

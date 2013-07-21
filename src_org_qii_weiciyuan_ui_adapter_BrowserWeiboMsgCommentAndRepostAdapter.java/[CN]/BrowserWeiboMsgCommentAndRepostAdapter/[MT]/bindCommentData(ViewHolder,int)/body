@@ -1,0 +1,34 @@
+{
+  Drawable drawable=bg.get(holder);
+  if (drawable != null) {
+    holder.listview_root.setBackgroundDrawable(drawable);
+  }
+ else {
+    drawable=holder.listview_root.getBackground();
+    bg.put(holder,drawable);
+  }
+  if (listView.getCheckedItemPosition() == position + 1)   holder.listview_root.setBackgroundColor(checkedBG);
+  final CommentBean comment=(CommentBean)getItem(position);
+  UserBean user=comment.getUser();
+  if (user != null) {
+    holder.username.setVisibility(View.VISIBLE);
+    if (!TextUtils.isEmpty(user.getRemark())) {
+      holder.username.setText(new StringBuilder(user.getScreen_name()).append("(").append(user.getRemark()).append(")").toString());
+    }
+ else {
+      holder.username.setText(user.getScreen_name());
+    }
+    if (!SettingUtility.getEnableCommentRepostListAvatar()) {
+      holder.avatar.setLayoutParams(new RelativeLayout.LayoutParams(0,0));
+    }
+ else {
+      buildAvatar(holder.avatar,position,user);
+    }
+  }
+ else {
+    holder.username.setVisibility(View.INVISIBLE);
+    holder.avatar.setVisibility(View.INVISIBLE);
+  }
+  holder.content.setText(comment.getListViewSpannableString());
+  holder.time.setTime(comment.getMills());
+}

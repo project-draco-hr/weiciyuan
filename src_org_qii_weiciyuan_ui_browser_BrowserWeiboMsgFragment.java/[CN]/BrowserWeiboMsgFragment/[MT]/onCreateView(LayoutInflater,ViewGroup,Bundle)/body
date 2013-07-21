@@ -1,10 +1,55 @@
 {
-  listView=new ListView(getActivity());
+  PullToRefreshListView pullToRefreshListView=new PullToRefreshListView(getActivity());
+  pullToRefreshListView.setMode(PullToRefreshBase.Mode.DISABLED);
+  pullToRefreshListView.setOnLastItemVisibleListener(new PullToRefreshBase.OnLastItemVisibleListener(){
+    @Override public void onLastItemVisible(){
+      if (isCommentList) {
+        loadOldCommentData();
+      }
+ else {
+        loadOldRepostData();
+      }
+    }
+  }
+);
+  listView=pullToRefreshListView.getRefreshableView();
   View header=inflater.inflate(R.layout.browserweibomsgactivity_layout,listView,false);
   listView.addHeaderView(header);
+  View switchView=inflater.inflate(R.layout.browserweibomsgfragment_switch_list_type_header,listView,false);
+  listView.addHeaderView(switchView);
+  switchView.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+    }
+  }
+);
+  repostTab=(TextView)switchView.findViewById(R.id.repost);
+  commentTab=(TextView)switchView.findViewById(R.id.comment);
+  repostTab.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      isCommentList=false;
+      adapter.switchToRepostType();
+      repostTab.setTextColor(getResources().getColor(R.color.orange));
+      commentTab.setTextColor(getResources().getColor(R.color.black));
+      if (repostList.getSize() == 0) {
+        loadNewRepostData();
+      }
+    }
+  }
+);
+  commentTab.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      isCommentList=true;
+      adapter.switchToCommentType();
+      commentTab.setTextColor(getResources().getColor(R.color.orange));
+      repostTab.setTextColor(getResources().getColor(R.color.black));
+    }
+  }
+);
+  commentTab.setTextColor(getResources().getColor(R.color.orange));
   initView(header,savedInstanceState);
-  adapter=new DataAdapter();
+  adapter=new BrowserWeiboMsgCommentAndRepostAdapter(this,listView,commentList.getItemList(),repostList.getItemList());
   listView.setAdapter(adapter);
   adapter.notifyDataSetChanged();
-  return listView;
+  listView.setHeaderDividersEnabled(true);
+  return pullToRefreshListView;
 }

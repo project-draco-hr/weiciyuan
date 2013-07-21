@@ -1,0 +1,27 @@
+{
+  view.setVisibility(View.VISIBLE);
+  view.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent(getActivity(),UserInfoActivity.class);
+      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+      intent.putExtra("user",user);
+      getActivity().startActivity(intent);
+    }
+  }
+);
+  view.setOnLongClickListener(new View.OnLongClickListener(){
+    @Override public boolean onLongClick(    View v){
+      UserDialog dialog=new UserDialog(user);
+      dialog.show(fragment.getFragmentManager(),"");
+      return true;
+    }
+  }
+);
+  if (user.isVerified()) {
+    view.isVerified();
+  }
+ else {
+    view.reset();
+  }
+  buildAvatar(view.getImageView(),position,user);
+}
