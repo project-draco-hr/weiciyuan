@@ -1,0 +1,8 @@
+{
+  TextView tv=((TextView)footerView.findViewById(R.id.listview_footer));
+  tv.setVisibility(View.VISIBLE);
+  tv.setText(getString(R.string.click_to_load_older_message));
+  View view=footerView.findViewById(R.id.refresh);
+  view.clearAnimation();
+  view.setVisibility(View.GONE);
+}

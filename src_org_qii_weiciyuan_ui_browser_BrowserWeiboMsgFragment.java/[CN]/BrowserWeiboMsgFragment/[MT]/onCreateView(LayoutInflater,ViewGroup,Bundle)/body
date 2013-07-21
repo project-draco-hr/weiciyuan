@@ -27,6 +27,9 @@
   progressHeader=progressHeaderLayout.findViewById(R.id.progressbar);
   progressHeader.setVisibility(View.GONE);
   listView.addHeaderView(progressHeaderLayout);
+  footerView=inflater.inflate(R.layout.listview_footer_layout,null);
+  listView.addFooterView(footerView);
+  dismissFooterView();
   repostTab=(TextView)switchView.findViewById(R.id.repost);
   commentTab=(TextView)switchView.findViewById(R.id.comment);
   repostTab.setOnClickListener(new View.OnClickListener(){
@@ -58,6 +61,7 @@
 );
   commentTab.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
+      listView.setOnItemClickListener(commentOnItemClickListener);
       if (!isCommentList) {
         isCommentList=true;
         adapter.switchToCommentType();
