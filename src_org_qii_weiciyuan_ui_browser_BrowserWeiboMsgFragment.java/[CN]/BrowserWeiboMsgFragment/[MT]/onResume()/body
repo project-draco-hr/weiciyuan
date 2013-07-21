@@ -1,12 +1,18 @@
 {
   super.onResume();
   if (hasGpsInfo())   layout.mapView.onResume();
-  sendCompletedReceiver=new BroadcastReceiver(){
+  sendCommentCompletedReceiver=new BroadcastReceiver(){
     @Override public void onReceive(    Context context,    Intent intent){
       if (isCommentList)       loadNewCommentData();
- else       loadNewRepostData();
     }
   }
 ;
-  LocalBroadcastManager.getInstance(getActivity()).registerReceiver(sendCompletedReceiver,new IntentFilter(AppEventAction.SEND_COMMENT_OR_REPLY_SUCCESSFULLY));
+  LocalBroadcastManager.getInstance(getActivity()).registerReceiver(sendCommentCompletedReceiver,new IntentFilter(AppEventAction.SEND_COMMENT_OR_REPLY_SUCCESSFULLY));
+  sendRepostCompletedReceiver=new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      if (!isCommentList)       loadNewRepostData();
+    }
+  }
+;
+  LocalBroadcastManager.getInstance(getActivity()).registerReceiver(sendRepostCompletedReceiver,new IntentFilter(AppEventAction.SEND_REPOST_SUCCESSFULLY));
 }
