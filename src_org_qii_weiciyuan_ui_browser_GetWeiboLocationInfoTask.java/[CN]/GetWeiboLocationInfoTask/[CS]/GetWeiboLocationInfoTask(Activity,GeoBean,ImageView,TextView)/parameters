@@ -1,4 +1,4 @@
 Activity activity
 GeoBean geoBean
-MapView mapView
+ImageView mapView
 TextView location

@@ -1,6 +1,5 @@
 {
   super.onResume();
-  if (hasGpsInfo())   layout.mapView.onResume();
   sendCommentCompletedReceiver=new BroadcastReceiver(){
     @Override public void onReceive(    Context context,    Intent intent){
       if (isCommentList)       loadNewCommentData();

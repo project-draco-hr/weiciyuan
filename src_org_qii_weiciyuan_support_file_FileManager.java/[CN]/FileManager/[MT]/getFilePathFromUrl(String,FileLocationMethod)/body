@@ -28,8 +28,11 @@ break;
 case cover:
 newRelativePath=COVER + oldRelativePath;
 break;
+case map:
+newRelativePath=MAP + oldRelativePath;
+break;
 }
 String result=getSdCardPath() + File.separator + newRelativePath;
-if (!result.endsWith(".jpg") && !result.endsWith(".gif")) result=result + ".jpg";
+if (!result.endsWith(".jpg") && !result.endsWith(".gif") && !result.endsWith(".png")) result=result + ".jpg";
 return result;
 }

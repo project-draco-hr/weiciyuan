@@ -3,12 +3,11 @@
   List<Address> addresses=null;
   try {
     if (!Utility.isGPSLocationCorrect(geoBean)) {
-      return "";
+      publishProgress("");
     }
     addresses=geocoder.getFromLocation(geoBean.getLat(),geoBean.getLon(),1);
   }
  catch (  IOException e) {
-    cancel(true);
   }
   if (addresses != null && addresses.size() > 0) {
     Address address=addresses.get(0);
@@ -17,7 +16,13 @@
     for (int i=0; i < size; i++) {
       builder.append(address.getAddressLine(i));
     }
-    return builder.toString();
+    publishProgress(builder.toString());
   }
-  return "";
+  MapDao dao=new MapDao(GlobalContext.getInstance().getSpecialToken(),geoBean.getLat(),geoBean.getLon());
+  try {
+    return dao.getMap();
+  }
+ catch (  WeiboException e) {
+    return null;
+  }
 }

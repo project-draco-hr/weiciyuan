@@ -6,20 +6,7 @@
   layout.time=(TextView)view.findViewById(R.id.time);
   layout.location=(TextView)view.findViewById(R.id.location);
   layout.source=(TextView)view.findViewById(R.id.source);
-  if (hasGpsInfo()) {
-    ViewStub stub=(ViewStub)view.findViewById(R.id.stub);
-    View inflated=stub.inflate();
-    layout.mapView=(MapView)inflated.findViewById(R.id.location_mv);
-  }
-  if (savedInstanceState != null && hasGpsInfo()) {
-    MessageBean msg=(MessageBean)savedInstanceState.getParcelable("msg");
-    savedInstanceState.remove("msg");
-    layout.mapView.onCreate(savedInstanceState);
-    savedInstanceState.putParcelable("msg",msg);
-  }
- else   if (hasGpsInfo()) {
-    layout.mapView.onCreate(savedInstanceState);
-  }
+  layout.mapView=(ImageView)view.findViewById(R.id.map);
   layout.comment_count=(TextView)view.findViewById(R.id.comment_count);
   layout.repost_count=(TextView)view.findViewById(R.id.repost_count);
   layout.count_layout=view.findViewById(R.id.count_layout);
