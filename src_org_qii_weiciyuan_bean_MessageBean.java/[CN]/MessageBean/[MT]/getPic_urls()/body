@@ -1,0 +1,7 @@
+{
+  ArrayList<String> urls=new ArrayList<String>();
+  for (  PicUrls url : pic_urls) {
+    urls.add(url.thumbnail_pic);
+  }
+  return urls;
+}
