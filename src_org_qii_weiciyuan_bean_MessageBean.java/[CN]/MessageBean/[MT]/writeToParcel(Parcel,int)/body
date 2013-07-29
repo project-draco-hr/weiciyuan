@@ -20,4 +20,5 @@
   dest.writeParcelable(retweeted_status,flags);
   dest.writeParcelable(user,flags);
   dest.writeParcelable(geo,flags);
+  dest.writeStringList(pic_urls);
 }
