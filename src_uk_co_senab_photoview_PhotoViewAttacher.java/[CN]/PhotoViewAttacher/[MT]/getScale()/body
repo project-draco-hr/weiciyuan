@@ -1,0 +1,3 @@
+{
+  return getValue(mSuppMatrix,Matrix.MSCALE_X);
+}

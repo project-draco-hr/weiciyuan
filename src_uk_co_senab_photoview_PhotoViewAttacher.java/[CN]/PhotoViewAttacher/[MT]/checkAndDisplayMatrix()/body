@@ -1,0 +1,4 @@
+{
+  checkMatrixBounds();
+  setImageViewMatrix(getDisplayMatrix());
+}

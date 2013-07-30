@@ -1,0 +1,4 @@
+ImageView iv
+CircleProgressView spinner
+String url
+HashMap<String,PicSimpleBitmapWorkerTask> taskMap

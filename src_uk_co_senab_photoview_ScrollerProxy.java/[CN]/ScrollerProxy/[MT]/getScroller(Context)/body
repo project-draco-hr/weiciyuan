@@ -1,0 +1,8 @@
+{
+  if (VERSION.SDK_INT < VERSION_CODES.GINGERBREAD) {
+    return new PreGingerScroller(context);
+  }
+ else {
+    return new GingerScroller(context);
+  }
+}

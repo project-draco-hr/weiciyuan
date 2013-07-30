@@ -1,0 +1,16 @@
+{
+  ImageView imageView=getImageView();
+  if (null != imageView) {
+    mSuppMatrix.postScale(mDeltaScale,mDeltaScale,mFocalX,mFocalY);
+    checkAndDisplayMatrix();
+    final float currentScale=getScale();
+    if ((mDeltaScale > 1f && currentScale < mTargetZoom) || (mDeltaScale < 1f && mTargetZoom < currentScale)) {
+      Compat.postOnAnimation(imageView,this);
+    }
+ else {
+      final float delta=mTargetZoom / currentScale;
+      mSuppMatrix.postScale(delta,delta,mFocalX,mFocalY);
+      checkAndDisplayMatrix();
+    }
+  }
+}

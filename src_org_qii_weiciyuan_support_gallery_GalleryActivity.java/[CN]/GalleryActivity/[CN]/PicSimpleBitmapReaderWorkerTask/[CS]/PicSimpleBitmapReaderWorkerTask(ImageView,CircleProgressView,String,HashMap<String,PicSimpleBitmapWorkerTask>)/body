@@ -1,0 +1,6 @@
+{
+  this.iv=iv;
+  this.url=url;
+  this.spinner=spinner;
+  this.taskMap=taskMap;
+}

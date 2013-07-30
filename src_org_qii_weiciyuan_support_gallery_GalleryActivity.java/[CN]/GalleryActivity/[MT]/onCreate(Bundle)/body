@@ -1,0 +1,24 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.galleryactivity_layout);
+  ActionBar actionBar=getActionBar();
+  actionBar.hide();
+  position=(TextView)findViewById(R.id.position);
+  TextView sum=(TextView)findViewById(R.id.sum);
+  MessageBean msg=getIntent().getParcelableExtra("msg");
+  ArrayList<String> tmp=msg.getPicUrls();
+  for (int i=0; i < tmp.size(); i++) {
+    urls.add(tmp.get(i).replace("thumbnail","large"));
+  }
+  sum.setText(String.valueOf(urls.size()));
+  ViewPager pager=(ViewPager)findViewById(R.id.pager);
+  pager.setAdapter(new ImagePagerAdapter());
+  pager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+    @Override public void onPageSelected(    int position){
+      super.onPageSelected(position);
+      GalleryActivity.this.position.setText(String.valueOf(position + 1));
+    }
+  }
+);
+  pager.setCurrentItem(0);
+}

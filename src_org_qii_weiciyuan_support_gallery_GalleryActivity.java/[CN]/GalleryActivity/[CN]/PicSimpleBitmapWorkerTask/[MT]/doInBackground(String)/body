@@ -1,0 +1,8 @@
+{
+  if (isCancelled()) {
+    return null;
+  }
+  TaskCache.waitForMsgDetailPictureDownload(url,downloadListener);
+  String path=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_large);
+  return path;
+}

@@ -1,0 +1,11 @@
+{
+  View imageLayout=inflater.inflate(R.layout.galleryactivity_item,view,false);
+  String path=FileManager.getFilePathFromUrl(urls.get(position),FileLocationMethod.picture_large);
+  if (ImageTool.isThisBitmapCanRead(path)) {
+    ImageView imageView=(ImageView)imageLayout.findViewById(R.id.image);
+    Bitmap bitmap=ImageTool.decodeBitmapFromSDCard(path,-1,-1);
+    imageView.setImageBitmap(bitmap);
+  }
+  ((ViewPager)view).addView(imageLayout,0);
+  return imageLayout;
+}
