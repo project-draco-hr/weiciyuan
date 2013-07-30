@@ -1,8 +1,6 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.galleryactivity_layout);
-  ActionBar actionBar=getActionBar();
-  actionBar.hide();
   position=(TextView)findViewById(R.id.position);
   TextView sum=(TextView)findViewById(R.id.sum);
   MessageBean msg=getIntent().getParcelableExtra("msg");
