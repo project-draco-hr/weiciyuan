@@ -1,0 +1,3 @@
+ImageView imageView
+int position
+String filePath

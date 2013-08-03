@@ -3,4 +3,5 @@
   this.url=url;
   this.spinner=spinner;
   this.taskMap=taskMap;
+  this.position=position;
 }
