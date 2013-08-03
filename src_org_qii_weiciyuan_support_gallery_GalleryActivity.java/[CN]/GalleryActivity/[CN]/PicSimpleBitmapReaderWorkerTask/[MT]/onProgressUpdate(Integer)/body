@@ -1,7 +1,0 @@
-{
-  super.onProgressUpdate(values);
-  int progress=values[0];
-  int max=values[1];
-  spinner.setMax(max);
-  spinner.setProgress(progress);
-}

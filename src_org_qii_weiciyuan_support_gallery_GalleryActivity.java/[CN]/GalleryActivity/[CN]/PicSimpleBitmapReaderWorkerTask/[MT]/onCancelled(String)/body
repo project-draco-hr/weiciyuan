@@ -1,4 +1,0 @@
-{
-  super.onCancelled(s);
-  taskMap.remove(url);
-}

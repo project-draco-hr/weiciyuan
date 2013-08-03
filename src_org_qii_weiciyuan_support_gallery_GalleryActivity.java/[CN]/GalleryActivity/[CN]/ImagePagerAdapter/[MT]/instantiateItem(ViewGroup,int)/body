@@ -5,7 +5,7 @@
     ImageView imageView=(ImageView)imageLayout.findViewById(R.id.image);
     Bitmap bitmap=ImageTool.decodeBitmapFromSDCard(path,-1,-1);
     imageView.setImageBitmap(bitmap);
-    bindImageViewLongClickListener(imageView,position,path);
+    bindImageViewLongClickListener(imageView,urls.get(position),path);
   }
   ((ViewPager)view).addView(imageLayout,0);
   return imageLayout;

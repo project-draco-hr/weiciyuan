@@ -1,5 +1,4 @@
 {
-  final String url=urls.get(position);
   imageView.setOnLongClickListener(new View.OnLongClickListener(){
     @Override public boolean onLongClick(    View v){
       String[] values={getString(R.string.copy_link_to_clipboard),getString(R.string.share),getString(R.string.save_pic_album)};
@@ -23,7 +22,7 @@ if (!TextUtils.isEmpty(filePath)) {
 }
 break;
 case 2:
-saveBitmapToPictureDir(position,filePath);
+saveBitmapToPictureDir(filePath);
 break;
 }
 }

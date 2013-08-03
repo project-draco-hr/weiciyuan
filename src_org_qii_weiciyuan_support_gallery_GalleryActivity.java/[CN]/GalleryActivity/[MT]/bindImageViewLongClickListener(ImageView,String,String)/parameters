@@ -1,3 +1,3 @@
 ImageView imageView
-int position
+String url
 String filePath
