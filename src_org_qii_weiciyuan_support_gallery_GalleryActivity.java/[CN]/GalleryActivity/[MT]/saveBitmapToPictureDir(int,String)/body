@@ -1,9 +1,6 @@
 {
-  if (saveTask == null) {
+  if (Utility.isTaskStopped(saveTask)) {
     saveTask=new PicSaveTask(filePath);
     saveTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
- else   if (saveTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-    Toast.makeText(GalleryActivity.this,getString(R.string.already_saved),Toast.LENGTH_SHORT).show();
   }
 }

@@ -1,6 +1,5 @@
 {
   super.onPostExecute(value);
-  saveTask=null;
   if (value)   Toast.makeText(GalleryActivity.this,getString(R.string.save_to_album_successfully),Toast.LENGTH_SHORT).show();
  else   Toast.makeText(GalleryActivity.this,getString(R.string.cant_save_pic),Toast.LENGTH_SHORT).show();
 }
