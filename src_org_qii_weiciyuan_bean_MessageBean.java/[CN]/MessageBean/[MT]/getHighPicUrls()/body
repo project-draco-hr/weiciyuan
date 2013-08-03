@@ -1,0 +1,7 @@
+{
+  if (highUrls.size() > 0)   return highUrls;
+  for (  PicUrls url : pic_urls) {
+    highUrls.add(url.thumbnail_pic.replace("thumbnail","large"));
+  }
+  return highUrls;
+}
