@@ -2,7 +2,6 @@
   super.onActivityCreated(savedInstanceState);
   setRetainInstance(true);
   setHasOptionsMenu(true);
-  commander=((ICommander)getActivity()).getBitmapDownloader();
   account=GlobalContext.getInstance().getAccountBean();
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:

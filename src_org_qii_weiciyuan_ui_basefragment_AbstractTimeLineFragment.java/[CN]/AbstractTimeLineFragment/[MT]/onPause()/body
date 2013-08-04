@@ -1,5 +1,5 @@
 {
   super.onPause();
-  ((ICommander)getActivity()).getBitmapDownloader().setPauseDownloadWork(false);
-  ((ICommander)getActivity()).getBitmapDownloader().setPauseReadWork(false);
+  TimeLineBitmapDownloader.getInstance().setPauseDownloadWork(false);
+  TimeLineBitmapDownloader.getInstance().setPauseReadWork(false);
 }

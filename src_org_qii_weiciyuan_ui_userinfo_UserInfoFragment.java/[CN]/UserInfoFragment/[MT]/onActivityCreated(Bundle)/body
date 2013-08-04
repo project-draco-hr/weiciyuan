@@ -17,6 +17,5 @@ topicList=savedInstanceState.getStringArrayList("topicList");
 bean=(UserBean)savedInstanceState.getParcelable("bean");
 break;
 }
-commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
 setValue();
 }

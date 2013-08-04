@@ -1,6 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
-  commander=((ICommander)getActivity()).getBitmapDownloader();
   Loader<T> loader=getLoaderManager().getLoader(NEW_MSG_LOADER_ID);
   if (loader != null) {
     getLoaderManager().initLoader(NEW_MSG_LOADER_ID,null,msgCallback);

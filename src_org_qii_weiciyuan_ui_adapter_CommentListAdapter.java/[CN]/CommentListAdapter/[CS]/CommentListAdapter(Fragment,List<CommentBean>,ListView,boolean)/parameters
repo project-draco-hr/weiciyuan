@@ -1,5 +1,4 @@
 Fragment fragment
-TimeLineBitmapDownloader commander
-List<T> bean
+List<CommentBean> bean
 ListView listView
 boolean showOriStatus

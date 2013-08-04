@@ -1,6 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
-  commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
     break;

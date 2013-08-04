@@ -1,0 +1,3 @@
+{
+  super(fragment,bean,listView,showOriStatus,pre);
+}

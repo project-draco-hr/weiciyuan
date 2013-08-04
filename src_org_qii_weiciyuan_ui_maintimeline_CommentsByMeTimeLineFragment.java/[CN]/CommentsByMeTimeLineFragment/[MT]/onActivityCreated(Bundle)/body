@@ -1,6 +1,5 @@
 {
   super.onActivityCreated(savedInstanceState);
-  commander=((MainTimeLineActivity)getActivity()).getBitmapDownloader();
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
     getLoaderManager().initLoader(DB_CACHE_LOADER_ID,null,dbCallback);

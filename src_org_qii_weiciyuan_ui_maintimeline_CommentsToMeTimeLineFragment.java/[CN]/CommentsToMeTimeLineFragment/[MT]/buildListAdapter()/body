@@ -1,5 +1,5 @@
 {
-  CommentListAdapter adapter=new CommentListAdapter(this,((ICommander)getActivity()).getBitmapDownloader(),getList().getItemList(),getListView(),true,false);
+  CommentListAdapter adapter=new CommentListAdapter(this,getList().getItemList(),getListView(),true,false);
   adapter.setTopTipBar(newMsgTipBar);
   timeLineAdapter=adapter;
   pullToRefreshListView.setAdapter(timeLineAdapter);

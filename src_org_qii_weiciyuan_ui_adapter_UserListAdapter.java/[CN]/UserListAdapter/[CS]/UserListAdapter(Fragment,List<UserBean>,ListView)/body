@@ -1,6 +1,6 @@
 {
   this.bean=bean;
-  this.commander=commander;
+  this.commander=TimeLineBitmapDownloader.getInstance();
   this.inflater=activity.getActivity().getLayoutInflater();
   this.listView=listView;
   this.activity=activity;

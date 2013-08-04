@@ -1,4 +1,3 @@
 Fragment fragment
-TimeLineBitmapDownloader commander
 List<DMUserBean> bean
 ListView listView

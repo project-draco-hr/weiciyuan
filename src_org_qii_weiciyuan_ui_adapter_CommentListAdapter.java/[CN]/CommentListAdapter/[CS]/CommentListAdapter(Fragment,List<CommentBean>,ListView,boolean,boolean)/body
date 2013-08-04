@@ -1,5 +1,5 @@
 {
-  super(fragment,commander,bean,listView,showOriStatus,pref);
+  super(fragment,bean,listView,showOriStatus,pref);
   int[] attrs=new int[]{R.attr.timeline_reply_flag};
   TypedArray ta=fragment.getActivity().obtainStyledAttributes(attrs);
   replyPic=ta.getDrawable(0);

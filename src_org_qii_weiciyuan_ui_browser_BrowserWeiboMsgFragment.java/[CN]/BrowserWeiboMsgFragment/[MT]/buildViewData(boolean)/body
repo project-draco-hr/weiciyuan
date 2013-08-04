@@ -2,7 +2,7 @@
   if (msg.getUser() != null) {
     if (TextUtils.isEmpty(msg.getUser().getRemark()))     layout.username.setText(msg.getUser().getScreen_name());
  else     layout.username.setText(msg.getUser().getScreen_name() + "(" + msg.getUser().getRemark()+ ")");
-    ((AbstractAppActivity)getActivity()).getBitmapDownloader().downloadAvatar(layout.avatar,msg.getUser());
+    TimeLineBitmapDownloader.getInstance().downloadAvatar(layout.avatar,msg.getUser());
   }
   layout.content.setText(msg.getListViewSpannableString());
   layout.content.setMovementMethod(LongClickableLinkMovementMethod.getInstance());

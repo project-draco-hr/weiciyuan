@@ -1,6 +1,4 @@
 Fragment fragment
-TimeLineBitmapDownloader commander
 List<MessageBean> bean
 ListView listView
 boolean showOriStatus
-boolean pre
