@@ -1,0 +1,5 @@
+{
+  int[] attrs=new int[]{attr};
+  TypedArray ta=GlobalContext.getInstance().obtainStyledAttributes(attrs);
+  return ta.getColor(0,430);
+}
