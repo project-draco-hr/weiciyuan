@@ -11,7 +11,7 @@
   }
  else {
     if (isFling) {
-      view.setImageDrawable(transPic);
+      view.setImageDrawable(defaultBG);
       view.getProgressBar().setVisibility(View.GONE);
       return;
     }
