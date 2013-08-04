@@ -3,7 +3,7 @@
     if (!FileManager.isExternalStorageMounted()) {
       return null;
     }
-    if (!filePath.endsWith(".jpg") && !filePath.endsWith(".gif"))     filePath=filePath + ".jpg";
+    if (!filePath.endsWith(".jpg") && !filePath.endsWith(".gif") && !filePath.endsWith(".png"))     filePath=filePath + ".jpg";
     boolean fileExist=new File(filePath).exists();
     if (!fileExist && !SettingUtility.isEnablePic()) {
       return null;
