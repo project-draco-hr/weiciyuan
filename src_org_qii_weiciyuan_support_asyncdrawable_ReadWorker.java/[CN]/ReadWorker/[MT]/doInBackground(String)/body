@@ -19,23 +19,25 @@ synchronized (TimeLineBitmapDownloader.pauseReadWorkLock) {
   int height=0;
   int width=0;
 switch (method) {
+case avatar_small:
 case avatar_large:
     width=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_avatar_width);
   height=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_avatar_height);
-break;
-case avatar_small:
-width=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_avatar_width);
-height=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_avatar_height);
 break;
 case picture_thumbnail:
 width=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_thumbnail_width);
 height=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_thumbnail_height);
 break;
 case picture_large:
+if (!isMultiPictures) {
 DisplayMetrics metrics=globalContext.getDisplayMetrics();
 float reSize=globalContext.getResources().getDisplayMetrics().density;
 height=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_high_thumbnail_height);
 width=(int)(metrics.widthPixels - (8 + 8) * reSize);
+}
+ else {
+height=width=Utility.dip2px(120);
+}
 }
 synchronized (TimeLineBitmapDownloader.pauseReadWorkLock) {
 while (TimeLineBitmapDownloader.pauseReadWork && !isCancelled()) {

@@ -16,7 +16,7 @@
     if (!cancelPotentialDownload(urlKey,view)) {
       return;
     }
-    final ReadWorker newTask=new ReadWorker(view,urlKey,method);
+    final ReadWorker newTask=new ReadWorker(view,urlKey,method,isMultiPictures);
     PictureBitmapDrawable downloadedDrawable=new PictureBitmapDrawable(newTask);
     view.setImageDrawable(downloadedDrawable);
     handler.postDelayed(new Runnable(){
