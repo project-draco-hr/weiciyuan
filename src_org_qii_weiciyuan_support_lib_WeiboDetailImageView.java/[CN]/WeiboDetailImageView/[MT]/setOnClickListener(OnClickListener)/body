@@ -1,4 +1,3 @@
 {
   mImageView.setOnClickListener(onClicker);
-  mCover.setClickable(true);
 }
