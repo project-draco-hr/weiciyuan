@@ -12,6 +12,8 @@
   layout.count_layout=view.findViewById(R.id.count_layout);
   layout.avatar=(ImageView)view.findViewById(R.id.avatar);
   layout.content_pic=(WeiboDetailImageView)view.findViewById(R.id.content_pic);
+  layout.content_pic_multi=(GridLayout)view.findViewById(R.id.content_pic_multi);
   layout.repost_pic=(WeiboDetailImageView)view.findViewById(R.id.repost_content_pic);
+  layout.repost_pic_multi=(GridLayout)view.findViewById(R.id.repost_content_pic_multi);
   layout.repost_layout=(LinearLayout)view.findViewById(R.id.repost_layout);
 }

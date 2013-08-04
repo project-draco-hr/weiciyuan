@@ -20,16 +20,45 @@
   if (!TextUtils.isEmpty(msg.getSource())) {
     layout.source.setText(Html.fromHtml(msg.getSource()).toString());
   }
+  layout.content_pic.setVisibility(View.GONE);
+  layout.content_pic_multi.setVisibility(View.GONE);
   if (!TextUtils.isEmpty(msg.getBmiddle_pic()) && msg.getRetweeted_status() == null) {
-    if (Utility.isTaskStopped(picTask)) {
-      layout.content_pic.setVisibility(View.VISIBLE);
-      if (refreshPic) {
-        picTask=new MsgDetailReadWorker(layout.content_pic,msg);
-        picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    if (!msg.isMultiPics()) {
+      if (Utility.isTaskStopped(picTask)) {
+        layout.content_pic.setVisibility(View.VISIBLE);
+        if (refreshPic) {
+          picTask=new MsgDetailReadWorker(layout.content_pic,msg);
+          picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+        }
+      }
+    }
+ else {
+      layout.content_pic_multi.setVisibility(View.VISIBLE);
+      int count=msg.getPicCount();
+      for (int i=0; i < count; i++) {
+        ImageView pic=(ImageView)layout.content_pic_multi.getChildAt(i);
+        pic.setVisibility(View.VISIBLE);
+        TimeLineBitmapDownloader.getInstance().displayMultiPicture(pic,msg.getMiddlePicUrls().get(i),FileLocationMethod.picture_bmiddle);
+        final int finalI=i;
+        pic.setOnClickListener(new View.OnClickListener(){
+          @Override public void onClick(          View v){
+            Intent intent=new Intent(getActivity(),GalleryActivity.class);
+            intent.putExtra("msg",msg);
+            intent.putExtra("position",finalI);
+            getActivity().startActivity(intent);
+          }
+        }
+);
+      }
+      if (count < 9) {
+        for (int i=count; i < 9; i++) {
+          ImageView pic=(ImageView)layout.content_pic_multi.getChildAt(i);
+          pic.setVisibility(View.GONE);
+        }
       }
     }
   }
-  MessageBean repostMsg=msg.getRetweeted_status();
+  final MessageBean repostMsg=msg.getRetweeted_status();
   layout.repost_layout.setVisibility(repostMsg != null ? View.VISIBLE : View.GONE);
   if (repostMsg != null) {
     layout.content_pic.setVisibility(View.GONE);
@@ -43,12 +72,41 @@
  else {
       layout.recontent.setText(repostMsg.getListViewSpannableString());
     }
+    layout.repost_pic.setVisibility(View.GONE);
+    layout.repost_pic_multi.setVisibility(View.GONE);
     if (!TextUtils.isEmpty(repostMsg.getBmiddle_pic())) {
-      layout.repost_pic.setVisibility(View.VISIBLE);
-      if (Utility.isTaskStopped(picTask)) {
-        if (refreshPic) {
-          picTask=new MsgDetailReadWorker(layout.repost_pic,msg.getRetweeted_status());
-          picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      if (!repostMsg.isMultiPics()) {
+        if (Utility.isTaskStopped(picTask)) {
+          layout.repost_pic.setVisibility(View.VISIBLE);
+          if (refreshPic) {
+            picTask=new MsgDetailReadWorker(layout.repost_pic,repostMsg);
+            picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+          }
+        }
+      }
+ else {
+        layout.repost_pic_multi.setVisibility(View.VISIBLE);
+        int count=repostMsg.getPicCount();
+        for (int i=0; i < count; i++) {
+          ImageView pic=(ImageView)layout.repost_pic_multi.getChildAt(i);
+          pic.setVisibility(View.VISIBLE);
+          TimeLineBitmapDownloader.getInstance().displayMultiPicture(pic,repostMsg.getMiddlePicUrls().get(i),FileLocationMethod.picture_bmiddle);
+          final int finalI=i;
+          pic.setOnClickListener(new View.OnClickListener(){
+            @Override public void onClick(            View v){
+              Intent intent=new Intent(getActivity(),GalleryActivity.class);
+              intent.putExtra("msg",repostMsg);
+              intent.putExtra("position",finalI);
+              getActivity().startActivity(intent);
+            }
+          }
+);
+        }
+        if (count < 9) {
+          for (int i=count; i < 9; i++) {
+            ImageView pic=(ImageView)layout.repost_pic_multi.getChildAt(i);
+            pic.setVisibility(View.GONE);
+          }
         }
       }
     }
