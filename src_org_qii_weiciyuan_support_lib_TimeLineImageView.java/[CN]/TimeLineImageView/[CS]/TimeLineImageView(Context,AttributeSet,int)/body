@@ -3,16 +3,7 @@
   LayoutInflater inflate=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   View v=inflate.inflate(R.layout.timelineimageview_layout,null);
   mImageView=(ImageView)v.findViewById(R.id.imageview);
-  mCover=(ImageView)v.findViewById(R.id.imageview_cover);
   mImageView.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
-  mCover.setImageDrawable(getResources().getDrawable(R.drawable.timelineimageview_cover));
-  mCover.setOnTouchListener(new OnTouchListener(){
-    @Override public boolean onTouch(    View v,    MotionEvent event){
-      mImageView.onTouchEvent(event);
-      return false;
-    }
-  }
-);
   pb=(ProgressBar)v.findViewById(R.id.imageview_pb);
   v.setBackgroundColor(Color.TRANSPARENT);
   addView(v,new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));

@@ -1,5 +1,4 @@
 {
   mImageView.onTouchEvent(event);
-  mCover.onTouchEvent(event);
   return super.onTouchEvent(event);
 }
