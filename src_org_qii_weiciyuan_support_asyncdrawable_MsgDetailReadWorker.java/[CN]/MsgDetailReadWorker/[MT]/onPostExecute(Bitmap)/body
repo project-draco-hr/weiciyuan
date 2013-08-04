@@ -7,6 +7,14 @@
     view.setImageBitmap(bitmap);
     view.setAlpha(0.0f);
     view.animate().alpha(1.0f).setDuration(200);
+    view.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        Intent intent=new Intent(GlobalContext.getInstance(),GalleryActivity.class);
+        intent.putExtra("msg",msg);
+        GlobalContext.getInstance().getActivity().startActivity(intent);
+      }
+    }
+);
   }
  else {
     view.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
