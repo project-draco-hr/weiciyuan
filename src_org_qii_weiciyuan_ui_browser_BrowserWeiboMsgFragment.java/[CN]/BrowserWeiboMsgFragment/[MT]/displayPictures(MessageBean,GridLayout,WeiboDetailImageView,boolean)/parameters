@@ -1,0 +1,4 @@
+MessageBean msg
+GridLayout layout
+WeiboDetailImageView view
+boolean refreshPic

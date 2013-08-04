@@ -1,0 +1,36 @@
+{
+  if (!msg.isMultiPics()) {
+    if (Utility.isTaskStopped(picTask)) {
+      layout.setVisibility(View.VISIBLE);
+      if (refreshPic) {
+        picTask=new MsgDetailReadWorker(view,msg);
+        picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      }
+    }
+  }
+ else {
+    layout.setVisibility(View.VISIBLE);
+    int count=msg.getPicCount();
+    for (int i=0; i < count; i++) {
+      ImageView pic=(ImageView)layout.getChildAt(i);
+      pic.setVisibility(View.VISIBLE);
+      TimeLineBitmapDownloader.getInstance().displayMultiPicture(pic,msg.getMiddlePicUrls().get(i),FileLocationMethod.picture_bmiddle);
+      final int finalI=i;
+      pic.setOnClickListener(new View.OnClickListener(){
+        @Override public void onClick(        View v){
+          Intent intent=new Intent(getActivity(),GalleryActivity.class);
+          intent.putExtra("msg",msg);
+          intent.putExtra("position",finalI);
+          getActivity().startActivity(intent);
+        }
+      }
+);
+    }
+    if (count < 9) {
+      for (int i=count; i < 9; i++) {
+        ImageView pic=(ImageView)layout.getChildAt(i);
+        pic.setVisibility(View.GONE);
+      }
+    }
+  }
+}
