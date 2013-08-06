@@ -4,6 +4,7 @@
   }
   taskMap.remove(url);
   if (!TextUtils.isEmpty(bitmapPath) && iv != null) {
+    iv.setVisibility(View.VISIBLE);
     Bitmap bitmap=ImageTool.decodeBitmapFromSDCard(bitmapPath,-1,-1);
     iv.setImageBitmap(bitmap);
     bindImageViewLongClickListener(iv,url,bitmapPath);

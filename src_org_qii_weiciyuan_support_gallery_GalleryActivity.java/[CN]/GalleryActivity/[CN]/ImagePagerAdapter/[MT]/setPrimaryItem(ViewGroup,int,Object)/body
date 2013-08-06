@@ -1,14 +1,19 @@
 {
   super.setPrimaryItem(container,position,object);
-  View imageLayout=(View)object;
-  if (imageLayout == null)   return;
-  ImageView imageView=(ImageView)imageLayout.findViewById(R.id.image);
+  View contentView=(View)object;
+  if (contentView == null)   return;
+  ImageView imageView=(ImageView)contentView.findViewById(R.id.image);
   if (imageView.getDrawable() != null)   return;
-  final CircleProgressView spinner=(CircleProgressView)imageLayout.findViewById(R.id.loading);
+  imageView.setVisibility(View.INVISIBLE);
+  final CircleProgressView spinner=(CircleProgressView)contentView.findViewById(R.id.loading);
   spinner.setVisibility(View.VISIBLE);
   if (taskMap.get(urls.get(position)) == null) {
     PicSimpleBitmapWorkerTask task=new PicSimpleBitmapWorkerTask(imageView,spinner,urls.get(position),taskMap);
     taskMap.put(urls.get(position),task);
     task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+ else {
+    PicSimpleBitmapWorkerTask task=taskMap.get(urls.get(position));
+    task.setWidget(imageView,spinner);
   }
 }

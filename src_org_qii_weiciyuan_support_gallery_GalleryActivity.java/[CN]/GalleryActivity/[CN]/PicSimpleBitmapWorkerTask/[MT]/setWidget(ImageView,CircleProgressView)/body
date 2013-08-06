@@ -1,0 +1,4 @@
+{
+  this.iv=iv;
+  this.spinner=spinner;
+}
