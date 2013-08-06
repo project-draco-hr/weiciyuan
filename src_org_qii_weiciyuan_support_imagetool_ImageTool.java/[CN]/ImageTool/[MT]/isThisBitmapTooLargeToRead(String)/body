@@ -11,11 +11,10 @@
   if (width == -1 || height == -1) {
     return false;
   }
-  int largestHeight=Utility.getMaxLeftWidthOrHeightImageViewCanRead(width);
-  if (largestHeight > height) {
-    return false;
+  if (width > Utility.getBitmapMaxWidthAndMaxHeight() || height > Utility.getBitmapMaxWidthAndMaxHeight()) {
+    return true;
   }
  else {
-    return true;
+    return false;
   }
 }
