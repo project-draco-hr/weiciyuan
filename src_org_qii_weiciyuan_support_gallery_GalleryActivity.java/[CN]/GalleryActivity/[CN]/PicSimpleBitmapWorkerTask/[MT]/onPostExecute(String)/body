@@ -3,10 +3,9 @@
     return;
   }
   taskMap.remove(url);
-  if (!TextUtils.isEmpty(bitmapPath) && iv != null) {
-    iv.setVisibility(View.VISIBLE);
-    Bitmap bitmap=ImageTool.decodeBitmapFromSDCard(bitmapPath,-1,-1);
-    iv.setImageBitmap(bitmap);
-    bindImageViewLongClickListener(iv,url,bitmapPath);
+  if (TextUtils.isEmpty(bitmapPath) || iv == null)   return;
+  if (!ImageTool.isThisBitmapCanRead(bitmapPath)) {
+    Toast.makeText(GalleryActivity.this,R.string.download_finished_but_cant_read_picture_file,Toast.LENGTH_SHORT).show();
   }
+  readPicture(iv,url,bitmapPath);
 }

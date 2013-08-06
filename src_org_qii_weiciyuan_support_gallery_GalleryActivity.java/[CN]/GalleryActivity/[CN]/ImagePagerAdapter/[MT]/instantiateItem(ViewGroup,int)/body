@@ -10,10 +10,7 @@
 );
   String path=FileManager.getFilePathFromUrl(urls.get(position),FileLocationMethod.picture_large);
   if (ImageTool.isThisBitmapCanRead(path)) {
-    Bitmap bitmap=ImageTool.decodeBitmapFromSDCard(path,-1,-1);
-    imageView.setImageBitmap(bitmap);
-    imageView.setVisibility(View.VISIBLE);
-    bindImageViewLongClickListener(imageView,urls.get(position),path);
+    readPicture(imageView,urls.get(position),path);
   }
  else   if (Utility.isWifi(GalleryActivity.this)) {
     final CircleProgressView spinner=(CircleProgressView)contentView.findViewById(R.id.loading);
