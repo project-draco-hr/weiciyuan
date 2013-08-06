@@ -1,7 +1,7 @@
 {
   int[] maxSizeArray=new int[1];
   GLES10.glGetIntegerv(GL10.GL_MAX_TEXTURE_SIZE,maxSizeArray,0);
-  int maxHeight=1280;
-  int maxWidth=1280;
+  int maxHeight=800;
+  int maxWidth=800;
   return (maxHeight * maxWidth) / heightOrWidth;
 }
