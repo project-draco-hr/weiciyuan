@@ -1,5 +1,5 @@
 {
-  if (showOriStatus && SettingUtility.getAppTheme() == R.style.AppTheme_Four)   listView.setDivider(null);
+  if (showOriStatus)   listView.setDivider(null);
   this.bean=bean;
   this.commander=TimeLineBitmapDownloader.getInstance();
   this.inflater=fragment.getActivity().getLayoutInflater();
