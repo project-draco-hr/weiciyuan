@@ -5,5 +5,4 @@
   finish();
   overridePendingTransition(0,0);
   startActivity(intent);
-  TimeLineBitmapDownloader.refreshThemePictureBackground();
 }
