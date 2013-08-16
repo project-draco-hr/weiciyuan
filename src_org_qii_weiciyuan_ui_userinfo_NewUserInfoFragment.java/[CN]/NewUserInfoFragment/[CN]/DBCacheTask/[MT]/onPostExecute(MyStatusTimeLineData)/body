@@ -1,6 +1,6 @@
 {
   super.onPostExecute(result);
-  if (result != null) {
+  if (result != null && getActivity() != null) {
     getListView().removeFooterView(progressFooter);
     getList().addNewData(result.msgList);
     getAdapter().notifyDataSetChanged();
