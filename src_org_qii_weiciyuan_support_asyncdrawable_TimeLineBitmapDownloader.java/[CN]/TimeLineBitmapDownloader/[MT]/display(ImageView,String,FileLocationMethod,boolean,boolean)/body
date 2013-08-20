@@ -1,8 +1,10 @@
 {
   view.clearAnimation();
+  if (!shouldReloadPicture(view,urlKey))   return;
   final Bitmap bitmap=getBitmapFromMemCache(urlKey);
   if (bitmap != null) {
     view.setImageBitmap(bitmap);
+    view.setTag(urlKey);
     if (view.getAlpha() != 1.0f) {
       view.setAlpha(1.0f);
     }

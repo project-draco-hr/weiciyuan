@@ -1,8 +1,10 @@
 {
   view.clearAnimation();
+  if (!shouldReloadPicture(view.getImageView(),urlKey))   return;
   final Bitmap bitmap=getBitmapFromMemCache(urlKey);
   if (bitmap != null) {
     view.setImageBitmap(bitmap);
+    view.getImageView().setTag(urlKey);
     view.getProgressBar().setVisibility(View.GONE);
     if (view.getAlpha() != 1.0f) {
       view.setAlpha(1.0f);

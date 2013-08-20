@@ -28,6 +28,7 @@
         return;
       }
       view.setImageBitmap(bitmap);
+      view.setTag(getUrl());
       view.startAnimation(anim_in);
     }
   }
