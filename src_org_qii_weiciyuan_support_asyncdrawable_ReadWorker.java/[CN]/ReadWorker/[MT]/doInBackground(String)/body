@@ -29,6 +29,7 @@ width=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_th
 height=globalContext.getResources().getDimensionPixelSize(R.dimen.timeline_pic_thumbnail_height);
 break;
 case picture_large:
+case picture_bmiddle:
 if (!isMultiPictures) {
 DisplayMetrics metrics=globalContext.getDisplayMetrics();
 float reSize=globalContext.getResources().getDisplayMetrics().density;
@@ -38,6 +39,7 @@ width=(int)(metrics.widthPixels - (8 + 8) * reSize);
  else {
 height=width=Utility.dip2px(120);
 }
+break;
 }
 synchronized (TimeLineBitmapDownloader.pauseReadWorkLock) {
 while (TimeLineBitmapDownloader.pauseReadWork && !isCancelled()) {
