@@ -17,6 +17,7 @@ case FIRST_TIME_START:
 loadNewCommentData();
 break;
 case SCREEN_ROTATE:
+buildViewData(true);
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
 msg=(MessageBean)savedInstanceState.getParcelable("msg");
