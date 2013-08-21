@@ -3,6 +3,9 @@
   if (TextUtils.isEmpty(uid)) {
     dao.setScreen_name(screenName);
   }
+  if (!TextUtils.isEmpty(count)) {
+    dao.setCount(count);
+  }
   dao.setSince_id(sinceId);
   dao.setMax_id(maxId);
   MessageListBean result=null;
