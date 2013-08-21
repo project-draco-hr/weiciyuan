@@ -1,0 +1,25 @@
+{
+  for (int i=0; i < viewGroup.getChildCount(); i++) {
+    View child=viewGroup.getChildAt(i);
+    if (child instanceof ViewGroup) {
+      recycleViewGroupAndChildViews((ViewGroup)child,true);
+      continue;
+    }
+    if (child instanceof ImageView) {
+      ImageView iv=(ImageView)child;
+      Drawable drawable=iv.getDrawable();
+      if (drawable instanceof BitmapDrawable) {
+        BitmapDrawable bitmapDrawable=(BitmapDrawable)drawable;
+        Bitmap bitmap=bitmapDrawable.getBitmap();
+        if (recycleBitmap && bitmap != null) {
+          bitmap.recycle();
+        }
+      }
+      iv.setImageBitmap(null);
+      iv.setBackground(null);
+      continue;
+    }
+    child.setBackground(null);
+  }
+  viewGroup.setBackground(null);
+}

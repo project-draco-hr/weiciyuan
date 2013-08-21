@@ -9,7 +9,7 @@
     urls.add(tmp.get(i).replace("thumbnail","large"));
   }
   sum.setText(String.valueOf(urls.size()));
-  ViewPager pager=(ViewPager)findViewById(R.id.pager);
+  pager=(ViewPager)findViewById(R.id.pager);
   pager.setAdapter(new ImagePagerAdapter());
   pager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
     @Override public void onPageSelected(    int position){

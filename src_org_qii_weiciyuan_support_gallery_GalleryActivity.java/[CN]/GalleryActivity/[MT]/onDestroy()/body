@@ -4,4 +4,5 @@
     MyAsyncTask task=taskMap.get(url);
     if (task != null)     task.cancel(true);
   }
+  Utility.recycleViewGroupAndChildViews(pager,true);
 }
