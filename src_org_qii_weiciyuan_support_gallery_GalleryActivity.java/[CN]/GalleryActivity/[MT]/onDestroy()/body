@@ -5,7 +5,7 @@
     if (task != null)     task.cancel(true);
   }
   Utility.recycleViewGroupAndChildViews(pager,true);
-  for (  ViewGroup viewGroup : views) {
+  for (  ViewGroup viewGroup : unRecycledViews) {
     Utility.recycleViewGroupAndChildViews(viewGroup,true);
   }
   System.gc();

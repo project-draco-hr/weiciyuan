@@ -4,8 +4,9 @@
   }
   imageView.setVisibility(View.VISIBLE);
   boolean isThisBitmapTooLarge=ImageTool.isThisBitmapTooLargeToRead(bitmapPath);
-  if (isThisBitmapTooLarge) {
+  if (isThisBitmapTooLarge && !alreadyShowPicturesTooLargeHint) {
     Toast.makeText(GalleryActivity.this,R.string.picture_is_too_large_so_enable_software_layer,Toast.LENGTH_LONG).show();
+    alreadyShowPicturesTooLargeHint=true;
   }
   if (isThisBitmapTooLarge) {
     imageView.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
