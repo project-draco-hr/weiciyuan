@@ -14,7 +14,7 @@
   }
   Bitmap bitmap=null;
   try {
-    bitmap=ImageTool.decodeBitmapFromSDCard(bitmapPath,-1,-1);
+    bitmap=ImageTool.decodeBitmapFromSDCard(bitmapPath,2000,3000);
   }
  catch (  OutOfMemoryError ignored) {
   }

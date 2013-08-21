@@ -26,5 +26,6 @@
     }
   }
   ((ViewPager)view).addView(contentView,0);
+  views.add((ViewGroup)contentView);
   return contentView;
 }

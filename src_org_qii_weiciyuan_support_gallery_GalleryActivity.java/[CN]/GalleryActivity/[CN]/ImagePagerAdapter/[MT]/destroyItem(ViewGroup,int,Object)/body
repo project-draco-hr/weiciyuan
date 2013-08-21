@@ -1,6 +1,7 @@
 {
   if (object instanceof ViewGroup) {
     ((ViewPager)container).removeView((View)object);
+    views.remove(object);
     ViewGroup viewGroup=(ViewGroup)object;
     Utility.recycleViewGroupAndChildViews(viewGroup,true);
   }
