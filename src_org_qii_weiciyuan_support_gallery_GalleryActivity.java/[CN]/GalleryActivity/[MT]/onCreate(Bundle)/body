@@ -19,4 +19,5 @@
   }
 );
   pager.setCurrentItem(getIntent().getIntExtra("position",0));
+  pager.setOffscreenPageLimit(3);
 }
