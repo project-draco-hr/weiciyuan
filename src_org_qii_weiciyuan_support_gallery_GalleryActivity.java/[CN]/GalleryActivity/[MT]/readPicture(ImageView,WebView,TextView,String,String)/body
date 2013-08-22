@@ -1,4 +1,8 @@
 {
+  if (bitmapPath.endsWith(".gif")) {
+    readGif(gif,readError,url,bitmapPath);
+    return;
+  }
   if (!ImageTool.isThisBitmapCanRead(bitmapPath)) {
     Toast.makeText(GalleryActivity.this,R.string.download_finished_but_cant_read_picture_file,Toast.LENGTH_SHORT).show();
   }

@@ -1,6 +1,12 @@
 {
   for (int i=0; i < viewGroup.getChildCount(); i++) {
     View child=viewGroup.getChildAt(i);
+    if (child instanceof WebView) {
+      WebView webView=(WebView)child;
+      webView.loadUrl("about:blank");
+      webView.stopLoading();
+      continue;
+    }
     if (child instanceof ViewGroup) {
       recycleViewGroupAndChildViews((ViewGroup)child,true);
       continue;
