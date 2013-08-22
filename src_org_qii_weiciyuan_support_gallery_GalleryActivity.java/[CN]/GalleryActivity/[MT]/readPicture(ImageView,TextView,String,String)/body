@@ -14,7 +14,7 @@
   }
   Bitmap bitmap=null;
   try {
-    bitmap=ImageTool.decodeBitmapFromSDCard(bitmapPath,2000,3000);
+    bitmap=ImageTool.decodeBitmapFromSDCard(bitmapPath,IMAGEVIEW_SOFT_LAYER_MAX_WIDTH,IMAGEVIEW_SOFT_LAYER_MAX_HEIGHT);
   }
  catch (  OutOfMemoryError ignored) {
   }
