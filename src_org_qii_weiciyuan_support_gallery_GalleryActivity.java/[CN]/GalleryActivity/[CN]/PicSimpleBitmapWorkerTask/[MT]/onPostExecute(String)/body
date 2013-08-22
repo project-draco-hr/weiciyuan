@@ -7,5 +7,5 @@
   if (!ImageTool.isThisBitmapCanRead(bitmapPath)) {
     Toast.makeText(GalleryActivity.this,R.string.download_finished_but_cant_read_picture_file,Toast.LENGTH_SHORT).show();
   }
-  readPicture(iv,url,bitmapPath);
+  readPicture(iv,readError,url,bitmapPath);
 }

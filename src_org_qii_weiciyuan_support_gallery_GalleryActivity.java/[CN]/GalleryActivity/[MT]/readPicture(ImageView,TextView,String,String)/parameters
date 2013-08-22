@@ -1,3 +1,4 @@
 ImageView imageView
+TextView readError
 String url
 String bitmapPath

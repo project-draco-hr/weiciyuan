@@ -1,30 +1,6 @@
 {
   View contentView=inflater.inflate(R.layout.galleryactivity_item,view,false);
-  PhotoView imageView=(PhotoView)contentView.findViewById(R.id.image);
-  imageView.setVisibility(View.INVISIBLE);
-  imageView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener(){
-    @Override public void onPhotoTap(    View view,    float x,    float y){
-      GalleryActivity.this.finish();
-    }
-  }
-);
-  String path=FileManager.getFilePathFromUrl(urls.get(position),FileLocationMethod.picture_large);
-  if (ImageTool.isThisBitmapCanRead(path)) {
-    readPicture(imageView,urls.get(position),path);
-  }
- else   if (Utility.isWifi(GalleryActivity.this)) {
-    final CircleProgressView spinner=(CircleProgressView)contentView.findViewById(R.id.loading);
-    spinner.setVisibility(View.VISIBLE);
-    if (taskMap.get(urls.get(position)) == null) {
-      PicSimpleBitmapWorkerTask task=new PicSimpleBitmapWorkerTask(imageView,spinner,urls.get(position),taskMap);
-      taskMap.put(urls.get(position),task);
-      task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-    }
- else {
-      PicSimpleBitmapWorkerTask task=taskMap.get(urls.get(position));
-      task.setWidget(imageView,spinner);
-    }
-  }
+  handlePage(position,contentView);
   ((ViewPager)view).addView(contentView,0);
   unRecycledViews.add((ViewGroup)contentView);
   return contentView;

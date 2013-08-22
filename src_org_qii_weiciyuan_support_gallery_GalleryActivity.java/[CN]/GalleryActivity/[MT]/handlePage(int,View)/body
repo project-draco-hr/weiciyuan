@@ -1,0 +1,28 @@
+{
+  PhotoView imageView=(PhotoView)contentView.findViewById(R.id.image);
+  imageView.setVisibility(View.INVISIBLE);
+  imageView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener(){
+    @Override public void onPhotoTap(    View view,    float x,    float y){
+      GalleryActivity.this.finish();
+    }
+  }
+);
+  TextView readError=(TextView)contentView.findViewById(R.id.error);
+  String path=FileManager.getFilePathFromUrl(urls.get(position),FileLocationMethod.picture_large);
+  if (ImageTool.isThisBitmapCanRead(path)) {
+    readPicture(imageView,readError,urls.get(position),path);
+  }
+ else   if (Utility.isWifi(GalleryActivity.this)) {
+    final CircleProgressView spinner=(CircleProgressView)contentView.findViewById(R.id.loading);
+    spinner.setVisibility(View.VISIBLE);
+    if (taskMap.get(urls.get(position)) == null) {
+      PicSimpleBitmapWorkerTask task=new PicSimpleBitmapWorkerTask(imageView,spinner,readError,urls.get(position),taskMap);
+      taskMap.put(urls.get(position),task);
+      task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    }
+ else {
+      PicSimpleBitmapWorkerTask task=taskMap.get(urls.get(position));
+      task.setWidget(imageView,spinner);
+    }
+  }
+}

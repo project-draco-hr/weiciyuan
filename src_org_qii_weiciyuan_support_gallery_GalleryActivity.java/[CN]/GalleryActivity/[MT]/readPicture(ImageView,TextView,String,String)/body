@@ -19,6 +19,12 @@
   }
  catch (  OutOfMemoryError ignored) {
   }
-  imageView.setImageBitmap(bitmap);
-  bindImageViewLongClickListener(imageView,url,bitmapPath);
+  if (bitmap != null) {
+    imageView.setImageBitmap(bitmap);
+    bindImageViewLongClickListener(imageView,url,bitmapPath);
+    readError.setVisibility(View.INVISIBLE);
+  }
+ else {
+    readError.setVisibility(View.VISIBLE);
+  }
 }

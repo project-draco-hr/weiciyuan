@@ -1,4 +1,5 @@
 ImageView iv
 CircleProgressView spinner
+TextView readError
 String url
 HashMap<String,PicSimpleBitmapWorkerTask> taskMap
