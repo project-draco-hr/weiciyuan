@@ -1,4 +1,5 @@
 {
+  this.spinner.setVisibility(View.INVISIBLE);
   if (isCancelled()) {
     return;
   }

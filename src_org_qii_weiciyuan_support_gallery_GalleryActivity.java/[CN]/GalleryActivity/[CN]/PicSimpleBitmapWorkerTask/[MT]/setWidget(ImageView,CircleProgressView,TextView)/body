@@ -1,4 +1,5 @@
 {
   this.iv=iv;
   this.spinner=spinner;
+  this.readError=readError;
 }

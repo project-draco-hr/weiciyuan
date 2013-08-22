@@ -4,5 +4,5 @@
   if (contentView == null)   return;
   ImageView imageView=(ImageView)contentView.findViewById(R.id.image);
   if (imageView.getDrawable() != null)   return;
-  handlePage(position,contentView);
+  handlePage(position,contentView,false);
 }
