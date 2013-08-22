@@ -3,7 +3,7 @@ switch (this.listViewOrientation) {
 case VelocityListView.TOWARDS_BOTTOM:
     for (int i=position; i < list.getSize(); i++) {
 synchronized (TaskCache.backgroundWifiDownloadPicturesWorkLock) {
-        while (!TaskCache.isDownloadTaskFinish() && !Thread.currentThread().isInterrupted()) {
+        while (!TaskCache.isDownloadTaskFinished() && !Thread.currentThread().isInterrupted()) {
           try {
             AppLogger.i("WifiAutoDownloadPictureRunnable wait for lock");
             TaskCache.backgroundWifiDownloadPicturesWorkLock.wait();
@@ -35,7 +35,7 @@ synchronized (TaskCache.backgroundWifiDownloadPicturesWorkLock) {
 case VelocityListView.TOWARDS_TOP:
 for (int i=position; i >= 0; i--) {
 synchronized (TaskCache.backgroundWifiDownloadPicturesWorkLock) {
-    while (!TaskCache.isDownloadTaskFinish() && !Thread.currentThread().isInterrupted()) {
+    while (!TaskCache.isDownloadTaskFinished() && !Thread.currentThread().isInterrupted()) {
       try {
         AppLogger.i("WifiAutoDownloadPictureRunnable wait for lock");
         TaskCache.backgroundWifiDownloadPicturesWorkLock.wait();

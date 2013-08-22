@@ -1,6 +1,6 @@
 {
 synchronized (TaskCache.backgroundWifiDownloadPicturesWorkLock) {
     downloadTasks.remove(url,downloadWorker);
-    if (TaskCache.isDownloadTaskFinish())     TaskCache.backgroundWifiDownloadPicturesWorkLock.notifyAll();
+    if (TaskCache.isDownloadTaskFinished())     TaskCache.backgroundWifiDownloadPicturesWorkLock.notifyAll();
   }
 }
