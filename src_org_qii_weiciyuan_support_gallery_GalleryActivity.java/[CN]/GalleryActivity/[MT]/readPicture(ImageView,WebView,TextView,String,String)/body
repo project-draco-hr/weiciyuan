@@ -29,6 +29,7 @@
     readError.setVisibility(View.INVISIBLE);
   }
  else {
+    readError.setText(getString(R.string.picture_read_failed));
     imageView.setVisibility(View.INVISIBLE);
     readError.setVisibility(View.VISIBLE);
   }

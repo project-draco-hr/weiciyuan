@@ -6,7 +6,7 @@
     boolean localFileExist=new File(largePath).exists();
     if (downloadWorker == null) {
       if (localFileExist) {
-        return;
+        return true;
       }
       DownloadWorker newWorker=new DownloadWorker(url,FileLocationMethod.picture_large);
 synchronized (backgroundWifiDownloadPicturesWorkLock) {
@@ -19,21 +19,20 @@ synchronized (backgroundWifiDownloadPicturesWorkLock) {
     }
     try {
       downloadWorker.addDownloadListener(downloadListener);
-      downloadWorker.get(30,TimeUnit.SECONDS);
-      return;
+      return downloadWorker.get(30,TimeUnit.SECONDS);
     }
  catch (    InterruptedException e) {
       Thread.currentThread().interrupt();
       Utility.printStackTrace(e);
-      return;
+      return false;
     }
 catch (    ExecutionException e) {
       Utility.printStackTrace(e);
-      return;
+      return false;
     }
 catch (    TimeoutException e) {
       Utility.printStackTrace(e);
-      return;
+      return false;
     }
 catch (    CancellationException e) {
       removeDownloadTask(url,downloadWorker);

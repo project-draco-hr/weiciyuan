@@ -2,7 +2,11 @@
   if (isCancelled()) {
     return null;
   }
-  TaskCache.waitForMsgDetailPictureDownload(url,downloadListener);
-  String path=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_large);
-  return path;
+  boolean downloaded=TaskCache.waitForMsgDetailPictureDownload(url,downloadListener);
+  if (downloaded) {
+    return FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_large);
+  }
+ else {
+    return null;
+  }
 }
