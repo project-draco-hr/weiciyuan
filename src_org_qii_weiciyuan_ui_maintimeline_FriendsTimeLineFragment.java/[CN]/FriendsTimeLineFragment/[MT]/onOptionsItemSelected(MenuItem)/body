@@ -13,6 +13,7 @@ loadNewMsg();
 }
 break;
 case R.id.switch_theme:
+((MainTimeLineActivity)getActivity()).saveNavigationPositionToDB();
 SettingUtility.switchToAnotherTheme();
 ((MainTimeLineActivity)getActivity()).reload();
 break;
