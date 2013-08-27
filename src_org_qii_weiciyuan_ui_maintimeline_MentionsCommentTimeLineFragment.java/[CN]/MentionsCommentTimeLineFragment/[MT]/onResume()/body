@@ -1,6 +1,7 @@
 {
   super.onResume();
   setListViewPositionFromPositionsCache();
+  LocalBroadcastManager.getInstance(getActivity()).registerReceiver(newBroadcastReceiver,new IntentFilter(AppEventAction.NEW_MSG_BROADCAST));
   setActionBarTabCount(newMsgTipBar.getValues().size());
   getNewMsgTipBar().setOnChangeListener(new TopTipBar.OnChangeListener(){
     @Override public void onChange(    int count){
