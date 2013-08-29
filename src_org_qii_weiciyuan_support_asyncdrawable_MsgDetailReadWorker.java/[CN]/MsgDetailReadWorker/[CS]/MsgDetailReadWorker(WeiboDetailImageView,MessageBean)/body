@@ -3,7 +3,5 @@
   this.pb=this.view.getProgressBar();
   this.msg=msg;
   this.retry=view.getRetryButton();
-  if (retry != null) {
-    retry.setVisibility(View.INVISIBLE);
-  }
+  retry.setVisibility(View.INVISIBLE);
 }

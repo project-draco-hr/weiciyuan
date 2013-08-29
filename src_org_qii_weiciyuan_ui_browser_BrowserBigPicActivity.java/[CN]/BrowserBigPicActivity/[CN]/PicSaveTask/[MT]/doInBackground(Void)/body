@@ -1,3 +1,0 @@
-{
-  return FileManager.saveToPicDir(path);
-}

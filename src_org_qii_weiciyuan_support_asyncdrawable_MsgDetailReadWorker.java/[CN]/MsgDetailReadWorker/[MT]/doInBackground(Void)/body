@@ -2,16 +2,20 @@
   if (isCancelled()) {
     return null;
   }
-  TaskCache.waitForMsgDetailPictureDownload(msg,downloadListener);
-  FileLocationMethod method;
+  String oriPath=FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large);
+  if (ImageTool.isThisBitmapCanRead(oriPath) && TaskCache.isThisUrlTaskFinished(msg.getOriginal_pic())) {
+    return oriPath;
+  }
   String middlePath=FileManager.getFilePathFromUrl(msg.getBmiddle_pic(),FileLocationMethod.picture_bmiddle);
-  String largePath=FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large);
-  String data="";
-  if (new File(largePath).exists()) {
-    data=largePath;
+  if (ImageTool.isThisBitmapCanRead(middlePath) && TaskCache.isThisUrlTaskFinished(msg.getBmiddle_pic())) {
+    return middlePath;
   }
- else   if (new File(middlePath).exists()) {
-    data=middlePath;
+  if (Utility.isWifi(GlobalContext.getInstance())) {
+    boolean result=TaskCache.waitForPictureDownload(msg.getOriginal_pic(),downloadListener,oriPath,FileLocationMethod.picture_large);
+    return result ? oriPath : null;
   }
-  return data;
+ else {
+    boolean result=TaskCache.waitForPictureDownload(msg.getBmiddle_pic(),downloadListener,middlePath,FileLocationMethod.picture_bmiddle);
+    return result ? middlePath : null;
+  }
 }

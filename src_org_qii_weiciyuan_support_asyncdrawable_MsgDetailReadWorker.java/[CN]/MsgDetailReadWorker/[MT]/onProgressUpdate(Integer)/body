@@ -1,6 +1,6 @@
 {
   super.onProgressUpdate(values);
-  if (pb != null) {
+  if (this.getStatus() == Status.RUNNING) {
     pb.setVisibility(View.VISIBLE);
     if (!pbFlag) {
       pb.setIndeterminate(false);

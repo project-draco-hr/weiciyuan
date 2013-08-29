@@ -1,6 +1,6 @@
 {
   retry.setVisibility(View.INVISIBLE);
-  if (pb != null)   pb.setVisibility(View.INVISIBLE);
+  pb.setVisibility(View.INVISIBLE);
   if (!TextUtils.isEmpty(bitmap)) {
     if (!bitmap.endsWith(".gif")) {
       readNormalPic(bitmap);

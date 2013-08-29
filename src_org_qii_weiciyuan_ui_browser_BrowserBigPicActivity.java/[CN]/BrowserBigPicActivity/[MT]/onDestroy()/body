@@ -1,6 +1,0 @@
-{
-  super.onDestroy();
-  Utility.cancelTasks(task,saveTask);
-  layout.webView.loadUrl("about:blank");
-  layout.webView.stopLoading();
-}
