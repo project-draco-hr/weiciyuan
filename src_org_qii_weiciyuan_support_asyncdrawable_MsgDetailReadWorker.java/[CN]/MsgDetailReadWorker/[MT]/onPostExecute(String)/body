@@ -1,12 +1,13 @@
 {
+  retry.setVisibility(View.INVISIBLE);
   if (pb != null)   pb.setVisibility(View.INVISIBLE);
-  if (bitmap != null) {
-    view.setTag(true);
-    view.getImageView().setTag(true);
-    view.setVisibility(View.VISIBLE);
-    view.setImageBitmap(bitmap);
-    view.setAlpha(0.0f);
-    view.animate().alpha(1.0f).setDuration(200);
+  if (!TextUtils.isEmpty(bitmap)) {
+    if (!bitmap.endsWith(".gif")) {
+      readNormalPic(bitmap);
+    }
+ else {
+      view.setGif(bitmap);
+    }
     view.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         Intent intent=new Intent(GlobalContext.getInstance(),GalleryActivity.class);

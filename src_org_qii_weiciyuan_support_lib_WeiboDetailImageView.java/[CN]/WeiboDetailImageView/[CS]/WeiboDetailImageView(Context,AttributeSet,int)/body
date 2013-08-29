@@ -4,6 +4,7 @@
   View v=inflate.inflate(R.layout.weibodetailimageview_layout,null);
   mImageView=(ImageView)v.findViewById(R.id.imageview);
   mImageView.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+  webView=(WebView)v.findViewById(R.id.gif);
   pb=(ProgressBar)v.findViewById(R.id.imageview_pb);
   retry=(Button)v.findViewById(R.id.retry);
   v.setBackgroundColor(Color.TRANSPARENT);

@@ -1,4 +1,0 @@
-{
-  mImageView.onTouchEvent(event);
-  return super.onTouchEvent(event);
-}
