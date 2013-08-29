@@ -10,6 +10,13 @@
   if (ImageTool.isThisBitmapCanRead(middlePath) && TaskCache.isThisUrlTaskFinished(msg.getBmiddle_pic())) {
     return middlePath;
   }
+  GlobalContext.getInstance().getHandler().post(new Runnable(){
+    @Override public void run(){
+      pb.setVisibility(View.VISIBLE);
+      pb.setIndeterminate(false);
+    }
+  }
+);
   if (Utility.isWifi(GlobalContext.getInstance())) {
     boolean result=TaskCache.waitForPictureDownload(msg.getOriginal_pic(),downloadListener,oriPath,FileLocationMethod.picture_large);
     return result ? oriPath : null;
