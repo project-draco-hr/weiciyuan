@@ -2,11 +2,12 @@
   holder.listview_root.setBackgroundColor(defaultBG);
   if (listView.getCheckedItemPosition() == position + 1)   holder.listview_root.setBackgroundColor(checkedBG);
   UserBean user=getList().get(position);
+  holder.avatar.checkVerified(user);
   holder.username.setText(user.getScreen_name());
   String image_url=user.getProfile_image_url();
   if (!TextUtils.isEmpty(image_url)) {
     boolean isFling=((AbstractUserListFragment)activity).isListViewFling();
-    commander.downloadAvatar(holder.avatar,user,isFling);
+    commander.downloadAvatar(holder.avatar.getImageView(),user,isFling);
   }
   holder.content.setText(user.getDescription());
 }
