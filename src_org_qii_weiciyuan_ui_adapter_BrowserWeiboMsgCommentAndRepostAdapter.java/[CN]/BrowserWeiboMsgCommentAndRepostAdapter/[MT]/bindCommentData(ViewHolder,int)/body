@@ -29,6 +29,7 @@
     holder.username.setVisibility(View.INVISIBLE);
     holder.avatar.setVisibility(View.INVISIBLE);
   }
+  holder.avatar.checkVerified(user);
   holder.content.setText(comment.getListViewSpannableString());
   holder.time.setTime(comment.getMills());
   holder.reply.setVisibility(View.VISIBLE);
