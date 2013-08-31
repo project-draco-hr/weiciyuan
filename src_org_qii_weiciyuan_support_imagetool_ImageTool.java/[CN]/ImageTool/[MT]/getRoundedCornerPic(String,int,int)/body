@@ -1,29 +1,3 @@
 {
-  try {
-    if (!FileManager.isExternalStorageMounted()) {
-      return null;
-    }
-    if (!filePath.endsWith(".jpg") && !filePath.endsWith(".gif") && !filePath.endsWith(".png"))     filePath=filePath + ".jpg";
-    boolean fileExist=new File(filePath).exists();
-    if (!fileExist && !SettingUtility.isEnablePic()) {
-      return null;
-    }
-    BitmapFactory.Options options=new BitmapFactory.Options();
-    options.inJustDecodeBounds=true;
-    BitmapFactory.decodeFile(filePath,options);
-    options.inSampleSize=calculateInSampleSize(options,reqWidth,reqHeight);
-    options.inJustDecodeBounds=false;
-    options.inPurgeable=true;
-    options.inInputShareable=true;
-    Bitmap bitmap=BitmapFactory.decodeFile(filePath,options);
-    if (bitmap == null) {
-      new File(filePath).delete();
-      return null;
-    }
-    return bitmap;
-  }
- catch (  OutOfMemoryError ignored) {
-    ignored.printStackTrace();
-    return null;
-  }
+  return getRoundedCornerPic(filePath,reqWidth,reqHeight,0);
 }
