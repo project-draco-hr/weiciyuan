@@ -20,6 +20,7 @@
   dest.writeString(allow_all_comment);
   dest.writeString(avatar_large);
   dest.writeString(verified_reason);
+  dest.writeInt(verified_type);
   dest.writeString(online_status);
   dest.writeString(bi_followers_count);
   dest.writeString(followers_count);

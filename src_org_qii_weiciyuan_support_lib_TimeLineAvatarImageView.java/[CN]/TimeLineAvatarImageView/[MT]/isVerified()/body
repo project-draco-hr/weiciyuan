@@ -1,3 +1,0 @@
-{
-  vImageView.setImageDrawable(getResources().getDrawable(R.drawable.portrait_v_yellow));
-}

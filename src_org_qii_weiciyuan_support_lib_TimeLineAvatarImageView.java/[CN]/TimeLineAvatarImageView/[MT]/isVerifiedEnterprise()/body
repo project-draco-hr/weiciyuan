@@ -1,0 +1,3 @@
+{
+  vImageView.setImageDrawable(getResources().getDrawable(R.drawable.avatar_enterprise_vip));
+}
