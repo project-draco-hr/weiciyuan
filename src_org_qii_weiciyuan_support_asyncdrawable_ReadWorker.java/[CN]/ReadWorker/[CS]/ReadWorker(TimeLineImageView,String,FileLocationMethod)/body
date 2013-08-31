@@ -6,7 +6,7 @@
     view.getProgressBar().setProgress(0);
   }
  else {
-    view.getProgressBar().setVisibility(View.GONE);
+    view.getProgressBar().setVisibility(View.INVISIBLE);
     view.getProgressBar().setProgress(0);
   }
 }
