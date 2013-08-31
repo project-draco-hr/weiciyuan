@@ -5,6 +5,7 @@
     View v=inflate.inflate(R.layout.timelineimageview_layout,this,true);
     mImageView=(ImageView)v.findViewById(R.id.imageview);
     mImageView.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+    gifFlag=(ImageView)v.findViewById(R.id.gif_flag);
     pb=(ProgressBar)v.findViewById(R.id.imageview_pb);
     this.setForeground(getResources().getDrawable(R.drawable.timelineimageview_cover));
     this.setAddStatesFromChildren(true);

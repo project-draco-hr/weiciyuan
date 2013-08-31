@@ -1,0 +1,3 @@
+{
+  gifFlag.setVisibility(value ? VISIBLE : INVISIBLE);
+}
