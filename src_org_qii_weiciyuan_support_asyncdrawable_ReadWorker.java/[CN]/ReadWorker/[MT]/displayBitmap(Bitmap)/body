@@ -9,6 +9,7 @@
         }
       }
       if (bitmap != null) {
+        if (timeLineImageView != null)         timeLineImageView.setGifFlag(ImageTool.isThisPictureGif(getUrl()));
         playImageViewAnimation(imageView,bitmap);
         lruCache.put(data,bitmap);
       }
