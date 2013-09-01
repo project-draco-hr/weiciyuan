@@ -1,0 +1,5 @@
+{
+  if (parentPressState == value)   return;
+  setForeground(value ? getResources().getDrawable(R.drawable.timelineimageview_cover) : null);
+  parentPressState=value;
+}
