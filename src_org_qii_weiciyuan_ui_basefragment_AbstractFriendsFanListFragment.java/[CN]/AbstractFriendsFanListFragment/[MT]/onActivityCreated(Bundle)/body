@@ -2,9 +2,16 @@
   super.onActivityCreated(savedInstanceState);
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
-    pullToRefreshListView.setRefreshing();
-  loadNewMsg();
-break;
+    new Handler().postDelayed(new Runnable(){
+      @Override public void run(){
+        if (getActivity() != null) {
+          pullToRefreshListView.setRefreshing();
+          loadNewMsg();
+        }
+      }
+    }
+,AppConfig.REFRESH_DELAYED_MILL_SECOND_TIME);
+  break;
 case SCREEN_ROTATE:
 refreshLayout(bean);
 break;
