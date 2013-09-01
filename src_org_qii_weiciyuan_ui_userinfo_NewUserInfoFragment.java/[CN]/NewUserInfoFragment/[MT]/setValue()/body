@@ -15,7 +15,12 @@
  else {
     rightPoint.setVisibility(View.VISIBLE);
   }
-  TimeLineBitmapDownloader.getInstance().downloadAvatar(avatar.getImageView(),userBean,(AbstractTimeLineFragment)this);
+  avatar.getImageView().post(new Runnable(){
+    @Override public void run(){
+      TimeLineBitmapDownloader.getInstance().display(avatar.getImageView(),avatar.getImageView().getWidth(),avatar.getImageView().getHeight(),userBean.getAvatar_large(),FileLocationMethod.avatar_large);
+    }
+  }
+);
   avatar.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       String path=FileManager.getFilePathFromUrl(userBean.getAvatar_large(),FileLocationMethod.avatar_large);
