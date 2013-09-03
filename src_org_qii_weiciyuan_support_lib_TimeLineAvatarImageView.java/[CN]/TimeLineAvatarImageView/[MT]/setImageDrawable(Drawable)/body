@@ -1,0 +1,3 @@
+{
+  super.setImageDrawable(drawable);
+}

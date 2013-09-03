@@ -1,0 +1,6 @@
+{
+  if (vType != V_TYPE_PERSONAL) {
+    vType=V_TYPE_PERSONAL;
+    invalidate();
+  }
+}

@@ -1,3 +1,6 @@
 {
-  vImageView.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+  if (vType != V_TYPE_NONE) {
+    vType=V_TYPE_NONE;
+    invalidate();
+  }
 }
