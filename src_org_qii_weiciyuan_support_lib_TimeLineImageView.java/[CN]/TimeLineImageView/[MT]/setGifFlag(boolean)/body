@@ -1,3 +1,6 @@
 {
-  gifFlag.setVisibility(value ? VISIBLE : INVISIBLE);
+  if (showGif != value) {
+    showGif=value;
+    invalidate();
+  }
 }
