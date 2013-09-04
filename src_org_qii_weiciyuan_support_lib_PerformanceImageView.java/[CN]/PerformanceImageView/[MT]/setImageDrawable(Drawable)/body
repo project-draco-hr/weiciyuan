@@ -1,5 +1,5 @@
 {
   mBlockMeasurement=true;
-  super.setImageBitmap(bm);
+  super.setImageDrawable(drawable);
   mBlockMeasurement=false;
 }
