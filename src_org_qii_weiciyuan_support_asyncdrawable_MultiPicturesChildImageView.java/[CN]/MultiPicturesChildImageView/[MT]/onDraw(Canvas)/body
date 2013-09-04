@@ -1,6 +1,12 @@
 {
   super.onDraw(canvas);
-  Bitmap bitmap;
+  if (showGif) {
+    int bitmapHeight=gif.getHeight();
+    int bitmapWidth=gif.getWidth();
+    int x=(getWidth() - bitmapWidth) / 2;
+    int y=(getHeight() - bitmapHeight) / 2;
+    canvas.drawBitmap(gif,x,y,paint);
+  }
   if (pressed) {
     canvas.drawColor(getResources().getColor(R.color.transparent_cover));
   }

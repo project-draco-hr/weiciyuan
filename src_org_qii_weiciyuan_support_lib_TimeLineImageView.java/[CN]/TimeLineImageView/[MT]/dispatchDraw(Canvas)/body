@@ -1,7 +1,6 @@
 {
   super.dispatchDraw(canvas);
   if (showGif) {
-    Bitmap gif=BitmapFactory.decodeResource(getResources(),R.drawable.ic_play_gif);
     int bitmapHeight=gif.getHeight();
     int bitmapWidth=gif.getWidth();
     int x=(getWidth() - bitmapWidth) / 2;

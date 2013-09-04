@@ -1,4 +1,4 @@
 IWeiciyuanDrawable view
-String urlKey
+String url
 FileLocationMethod method
-boolean isFling
+boolean isMultiPictures

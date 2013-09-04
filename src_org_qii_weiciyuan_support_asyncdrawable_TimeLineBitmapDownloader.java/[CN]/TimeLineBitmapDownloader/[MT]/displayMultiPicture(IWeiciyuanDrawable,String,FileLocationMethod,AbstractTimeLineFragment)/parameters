@@ -1,4 +1,4 @@
-ImageView view
+IWeiciyuanDrawable view
 String picUrl
 FileLocationMethod method
 AbstractTimeLineFragment fragment

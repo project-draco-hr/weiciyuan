@@ -13,5 +13,5 @@
     url=user.getProfile_image_url();
     method=FileLocationMethod.avatar_small;
   }
-  display(view,url,method,isFling,false);
+  displayImageView(view,url,method,isFling,false);
 }

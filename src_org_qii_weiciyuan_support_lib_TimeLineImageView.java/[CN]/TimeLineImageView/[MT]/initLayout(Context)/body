@@ -1,4 +1,5 @@
 {
+  gif=BitmapFactory.decodeResource(getResources(),R.drawable.ic_play_gif);
   LayoutInflater inflate=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   View v=inflate.inflate(R.layout.timelineimageview_layout,this,true);
   mImageView=(ImageView)v.findViewById(R.id.imageview);
