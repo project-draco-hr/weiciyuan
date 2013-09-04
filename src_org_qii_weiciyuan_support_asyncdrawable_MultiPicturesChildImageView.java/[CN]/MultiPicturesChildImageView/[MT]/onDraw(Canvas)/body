@@ -1,0 +1,7 @@
+{
+  super.onDraw(canvas);
+  Bitmap bitmap;
+  if (pressed) {
+    canvas.drawColor(getResources().getColor(R.color.transparent_cover));
+  }
+}
