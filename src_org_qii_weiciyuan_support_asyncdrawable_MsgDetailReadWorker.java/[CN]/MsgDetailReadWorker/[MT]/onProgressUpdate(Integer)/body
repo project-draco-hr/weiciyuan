@@ -2,6 +2,7 @@
   super.onProgressUpdate(values);
   if (this.getStatus() == Status.RUNNING) {
     pb.setVisibility(View.VISIBLE);
+    pb.setIndeterminate(false);
     Integer progress=values[0];
     Integer max=values[1];
     pb.setMax(max);

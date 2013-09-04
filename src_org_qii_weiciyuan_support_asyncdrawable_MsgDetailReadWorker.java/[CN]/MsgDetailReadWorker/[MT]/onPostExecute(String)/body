@@ -1,13 +1,14 @@
 {
   retry.setVisibility(View.INVISIBLE);
-  pb.setVisibility(View.INVISIBLE);
-  if (!TextUtils.isEmpty(bitmap)) {
-    if (!bitmap.endsWith(".gif")) {
-      readNormalPic(bitmap);
+  pb.setIndeterminate(true);
+  if (!TextUtils.isEmpty(path)) {
+    if (!path.endsWith(".gif")) {
+      readNormalPic(path);
     }
  else {
-      view.setGif(bitmap);
+      view.setGif(path);
     }
+    pb.setVisibility(View.INVISIBLE);
     view.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         Intent intent=new Intent(GlobalContext.getInstance(),GalleryActivity.class);
@@ -18,6 +19,7 @@
 );
   }
  else {
+    pb.setVisibility(View.INVISIBLE);
     view.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
     retry.setVisibility(View.VISIBLE);
     retry.setOnClickListener(new View.OnClickListener(){
