@@ -1,5 +1,5 @@
 {
-  if (!showPressedState)   return super.onTouchEvent(event);
+  if (!showPressedState || !isClickable() || !isLongClickable())   return super.onTouchEvent(event);
 switch (event.getActionMasked()) {
 case MotionEvent.ACTION_DOWN:
     pressed=true;
