@@ -48,4 +48,6 @@
   }
   Utility.buildTabCount(commentTab,getString(R.string.comments),msg.getComments_count());
   Utility.buildTabCount(repostTab,getString(R.string.repost),msg.getReposts_count());
+  ((BrowserWeiboMsgActivity)getActivity()).updateCommentCount(msg.getComments_count());
+  ((BrowserWeiboMsgActivity)getActivity()).updateRepostCount(msg.getReposts_count());
 }

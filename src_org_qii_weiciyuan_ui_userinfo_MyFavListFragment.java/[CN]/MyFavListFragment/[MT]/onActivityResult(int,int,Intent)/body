@@ -8,7 +8,7 @@
         if (ori.getComments_count() != msg.getComments_count() || ori.getReposts_count() != msg.getReposts_count()) {
           ori.setReposts_count(msg.getReposts_count());
           ori.setComments_count(msg.getComments_count());
-          FriendsTimeLineDBTask.asyncUpdateCount(msg.getId(),msg.getComments_count(),msg.getReposts_count());
+          FavouriteDBTask.asyncUpdatePosition(position,account.getUid());
           getAdapter().notifyDataSetChanged();
         }
         break;
