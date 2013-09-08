@@ -13,4 +13,7 @@
     getPullToRefreshListView().setRefreshing();
     loadNewMsg();
   }
+ else {
+    new RefreshReCmtCountTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
 }

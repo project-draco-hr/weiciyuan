@@ -1,0 +1,10 @@
+{
+  super.onPreExecute();
+  msgIds=new ArrayList<String>();
+  List<MessageBean> msgList=getList().getItemList();
+  for (  MessageBean msg : msgList) {
+    if (msg != null) {
+      msgIds.add(msg.getId());
+    }
+  }
+}
