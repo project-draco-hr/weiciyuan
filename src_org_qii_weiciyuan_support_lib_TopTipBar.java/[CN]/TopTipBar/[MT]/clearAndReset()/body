@@ -1,0 +1,10 @@
+{
+  if (disappear) {
+    return;
+  }
+  ids.clear();
+  disappear(0);
+  if (this.onChangeListener != null) {
+    this.onChangeListener.onChange(ids.size());
+  }
+}

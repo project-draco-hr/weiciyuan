@@ -1,0 +1,15 @@
+{
+  String content=getEditTextView().getText().toString();
+  int index=getEditTextView().getSelectionStart();
+  int a=content.lastIndexOf("//@");
+  if (a >= 0) {
+    String result=content.substring(0,a);
+    int b=result.lastIndexOf("//@");
+    if (b >= 0) {
+      String startPart=content.substring(0,b);
+      String endPart=content.substring(a);
+      getEditTextView().setText(startPart + endPart);
+      if (index <= result.length())       getEditTextView().setSelection(index);
+    }
+  }
+}

@@ -1,4 +1,0 @@
-{
-  super.onCreateOptionsMenu(menu,inflater);
-  inflater.inflate(R.menu.actionbar_menu_myinfofragment,menu);
-}

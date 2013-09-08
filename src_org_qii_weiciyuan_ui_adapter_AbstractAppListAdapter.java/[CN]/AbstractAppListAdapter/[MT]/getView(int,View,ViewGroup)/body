@@ -1,5 +1,6 @@
 {
   ViewHolder holder=null;
+  PrefView prefView=null;
   if (convertView == null || convertView.getTag(R.drawable.ic_launcher + getItemViewType(position)) == null) {
 switch (getItemViewType(position)) {
 case TYPE_SIMPLE:
@@ -8,24 +9,35 @@ case TYPE_SIMPLE:
 case TYPE_MIDDLE:
   convertView=initMiddleLayout(parent);
 break;
-case TYPE_MYSELF:
-convertView=initMylayout(parent);
-break;
-case TYPE_MYSELF_BIG_PIC:
-convertView=initMylayout(parent);
-break;
 case TYPE_NORMAL:
-convertView=initNormallayout(parent);
+prefView=prefNormalViews.poll();
+if (prefView != null) {
+convertView=prefView.view;
+}
+if (convertView == null) {
+convertView=initNormalLayout(parent);
+}
 break;
 case TYPE_NORMAL_BIG_PIC:
-convertView=initNormallayout(parent);
+prefView=prefBigPicViews.poll();
+if (prefView != null) {
+convertView=prefView.view;
+}
+if (convertView == null) {
+convertView=initBigPicLayout(parent);
+}
 break;
 default :
-convertView=initNormallayout(parent);
+convertView=initNormalLayout(parent);
 break;
 }
 if (getItemViewType(position) != TYPE_MIDDLE) {
+if (prefView == null) {
 holder=buildHolder(convertView);
+}
+ else {
+holder=prefView.holder;
+}
 convertView.setTag(R.drawable.ic_launcher + getItemViewType(position),holder);
 convertView.setTag(R.string.listview_index_tag,R.drawable.ic_launcher + getItemViewType(position));
 tagIndexList.add(R.drawable.ic_launcher + getItemViewType(position));
@@ -35,8 +47,16 @@ tagIndexList.add(R.drawable.ic_launcher + getItemViewType(position));
 holder=(ViewHolder)convertView.getTag(R.drawable.ic_launcher + getItemViewType(position));
 }
 if (getItemViewType(position) != TYPE_MIDDLE) {
+configLayerType(holder);
 configViewFont(holder);
 bindViewData(holder,position);
+bindOnTouchListener(holder);
+}
+ else {
+if (savedCurrentMiddleLoadingViewPosition == position + listView.getHeaderViewsCount()) {
+ListViewMiddleMsgLoadingView loadingView=(ListViewMiddleMsgLoadingView)convertView;
+loadingView.load();
+}
 }
 return convertView;
 }

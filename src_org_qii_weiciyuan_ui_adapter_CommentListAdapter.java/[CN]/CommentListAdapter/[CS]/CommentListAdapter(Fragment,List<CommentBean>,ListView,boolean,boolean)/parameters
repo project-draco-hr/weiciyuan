@@ -1,0 +1,5 @@
+Fragment fragment
+List<CommentBean> bean
+ListView listView
+boolean showOriStatus
+boolean pref

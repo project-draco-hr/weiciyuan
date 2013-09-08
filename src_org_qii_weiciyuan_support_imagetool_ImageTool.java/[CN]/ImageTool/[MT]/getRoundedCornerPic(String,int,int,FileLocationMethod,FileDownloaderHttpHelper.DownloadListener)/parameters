@@ -1,0 +1,5 @@
+String url
+int reqWidth
+int reqHeight
+FileLocationMethod method
+FileDownloaderHttpHelper.DownloadListener downloadListener

@@ -1,0 +1,9 @@
+{
+  if (count > 0) {
+    layout.homeCount.setVisibility(View.VISIBLE);
+    layout.homeCount.setText(String.valueOf(count));
+  }
+ else {
+    layout.homeCount.setVisibility(View.GONE);
+  }
+}

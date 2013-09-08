@@ -1,0 +1,7 @@
+{
+  Loader<AsyncTaskLoaderResult<T>> loader=onCreateMiddleMsgLoader(id,args,middleBeginId,middleEndId,middleEndTag,middlePosition);
+  if (loader == null) {
+    loader=new DummyLoader<T>(getActivity());
+  }
+  return loader;
+}

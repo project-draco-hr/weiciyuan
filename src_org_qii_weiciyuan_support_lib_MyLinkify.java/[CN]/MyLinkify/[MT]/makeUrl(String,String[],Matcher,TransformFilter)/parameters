@@ -1,4 +1,0 @@
-String url
-String[] prefixes
-Matcher m
-TransformFilter filter

@@ -1,0 +1,6 @@
+{
+  if (Utility.isTaskStopped(newProfileAvatarReaderWorker)) {
+    newProfileAvatarReaderWorker=new NewProfileAvatarReaderWorker();
+    newProfileAvatarReaderWorker.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

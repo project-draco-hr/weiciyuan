@@ -1,0 +1,15 @@
+{
+  if (DEBUG) {
+    Log.d(LOG_TAG,String.format("onDrag: dx: %.2f. dy: %.2f",dx,dy));
+  }
+  ImageView imageView=getImageView();
+  if (null != imageView && hasDrawable(imageView)) {
+    mSuppMatrix.postTranslate(dx,dy);
+    checkAndDisplayMatrix();
+    if (mAllowParentInterceptOnEdge && !mScaleDragDetector.isScaling()) {
+      if (mScrollEdge == EDGE_BOTH || (mScrollEdge == EDGE_LEFT && dx >= 1f) || (mScrollEdge == EDGE_RIGHT && dx <= -1f)) {
+        imageView.getParent().requestDisallowInterceptTouchEvent(false);
+      }
+    }
+  }
+}

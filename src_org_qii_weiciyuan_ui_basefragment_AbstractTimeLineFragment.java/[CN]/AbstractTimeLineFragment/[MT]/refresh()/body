@@ -1,7 +1,0 @@
-{
-  if (allowRefresh()) {
-    newTask=new TimeLineGetNewMsgListTask();
-    newTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-    ((AbstractAppActivity)getActivity()).getBitmapDownloader().totalStopLoadPicture();
-  }
-}

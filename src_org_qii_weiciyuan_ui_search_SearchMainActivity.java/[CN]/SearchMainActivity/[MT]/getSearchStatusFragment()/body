@@ -1,3 +1,3 @@
 {
-  return (AbstractMessageTimeLineFragment)getFragmentManager().findFragmentByTag(SearchStatusFragment.class.getName());
+  return (AbstractMessageTimeLineFragment)getSupportFragmentManager().findFragmentByTag(SearchStatusFragment.class.getName());
 }

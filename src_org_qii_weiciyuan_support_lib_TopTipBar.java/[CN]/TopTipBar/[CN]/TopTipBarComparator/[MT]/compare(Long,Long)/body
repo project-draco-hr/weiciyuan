@@ -1,0 +1,13 @@
+{
+  Long aL=a;
+  Long bL=b;
+  Long resultL=aL - bL;
+  int result=0;
+  if (resultL > 0L) {
+    result=1;
+  }
+ else   if (resultL < 0L) {
+    result=-1;
+  }
+  return result;
+}

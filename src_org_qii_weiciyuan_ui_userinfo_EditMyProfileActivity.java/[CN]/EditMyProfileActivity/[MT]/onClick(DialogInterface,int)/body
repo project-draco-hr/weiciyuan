@@ -1,0 +1,24 @@
+{
+switch (which) {
+case 0:
+    imageFileUri=getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,new ContentValues());
+  if (imageFileUri != null) {
+    Intent i=new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+    i.putExtra(android.provider.MediaStore.EXTRA_OUTPUT,imageFileUri);
+    if (Utility.isIntentSafe(EditMyProfileActivity.this,i)) {
+      startActivityForResult(i,CAMERA_RESULT);
+    }
+ else {
+      Toast.makeText(EditMyProfileActivity.this,getString(R.string.dont_have_camera_app),Toast.LENGTH_SHORT).show();
+    }
+  }
+ else {
+    Toast.makeText(EditMyProfileActivity.this,getString(R.string.cant_insert_album),Toast.LENGTH_SHORT).show();
+  }
+break;
+case 1:
+Intent choosePictureIntent=new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+startActivityForResult(choosePictureIntent,PIC_RESULT);
+break;
+}
+}

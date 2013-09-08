@@ -1,0 +1,5 @@
+{
+  String accountId=accountBean.getUid();
+  String token=accountBean.getAccess_token();
+  return new MentionsWeiboMsgLoader(getActivity(),accountId,token,middleBeginId,middleEndId);
+}

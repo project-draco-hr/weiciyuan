@@ -1,0 +1,10 @@
+{
+  super(in);
+  Bundle bundle=in.readBundle();
+  this.ids=(TreeSet<Long>)bundle.getSerializable("ids");
+  this.type=(Type)bundle.getSerializable("type");
+  boolean[] disappearArray=new boolean[2];
+  in.readBooleanArray(disappearArray);
+  this.disappear=disappearArray[0];
+  this.visible=disappearArray[1];
+}

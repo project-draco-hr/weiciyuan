@@ -17,6 +17,7 @@
     ListViewTool.addJustHighLightLinks(msg);
     holder.content.setText(msg.getListViewSpannableString());
   }
+  bindOnTouchListener(holder);
   String time=msg.getListviewItemShowTime();
   if (!holder.time.getText().toString().equals(time)) {
     holder.time.setText(time);

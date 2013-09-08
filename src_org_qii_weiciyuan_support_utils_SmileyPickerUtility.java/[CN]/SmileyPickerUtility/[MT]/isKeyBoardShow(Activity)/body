@@ -1,0 +1,4 @@
+{
+  int height=SmileyPickerUtility.getScreenHeight(paramActivity) - SmileyPickerUtility.getStatusBarHeight(paramActivity) - SmileyPickerUtility.getAppHeight(paramActivity);
+  return height != 0;
+}

@@ -1,4 +1,6 @@
 {
   super.onSaveInstanceState(outState);
+  outState.putParcelable("bean",bean);
+  outState.putParcelable("replyDraftBean",replyDraftBean);
   outState.putBoolean("repost",enableRepost.isChecked());
 }

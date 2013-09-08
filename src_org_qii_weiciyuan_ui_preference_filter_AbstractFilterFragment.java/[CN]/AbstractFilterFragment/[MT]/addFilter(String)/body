@@ -1,0 +1,5 @@
+{
+  Set<String> words=new HashSet<String>();
+  words.add(word);
+  addFilter(words);
+}

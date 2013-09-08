@@ -1,0 +1,10 @@
+{
+  ImageView imageView=null;
+  if (null != mImageView) {
+    imageView=mImageView.get();
+  }
+  if (null == imageView) {
+    cleanup();
+  }
+  return imageView;
+}

@@ -1,0 +1,8 @@
+{
+  if (newValue != null && newValue.getItemList() != null && newValue.getItemList().size() > 0) {
+    getList().addNewData(newValue);
+    getAdapter().notifyDataSetChanged();
+    getListView().setSelectionAfterHeaderView();
+    CommentByMeTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
+  }
+}

@@ -1,4 +1,0 @@
-{
-  super(Color.TRANSPARENT);
-  bitmapDownloaderTaskReference=new WeakReference<PictureBitmapWorkerTask>(bitmapDownloaderTask);
-}

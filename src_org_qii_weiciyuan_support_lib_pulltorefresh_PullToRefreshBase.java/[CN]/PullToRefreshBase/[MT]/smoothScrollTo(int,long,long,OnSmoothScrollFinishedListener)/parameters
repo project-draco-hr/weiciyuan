@@ -1,0 +1,4 @@
+int newScrollValue
+long duration
+long delayMillis
+OnSmoothScrollFinishedListener listener

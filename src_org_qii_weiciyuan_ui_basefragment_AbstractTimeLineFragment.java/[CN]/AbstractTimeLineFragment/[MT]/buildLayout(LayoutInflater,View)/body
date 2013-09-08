@@ -1,0 +1,12 @@
+{
+  empty=(TextView)view.findViewById(R.id.empty);
+  progressBar=(ProgressBar)view.findViewById(R.id.progressbar);
+  progressBar.setVisibility(View.GONE);
+  pullToRefreshListView=(PullToRefreshListView)view.findViewById(R.id.listView);
+  newMsgTipBar=(TopTipBar)view.findViewById(R.id.tv_unread_new_message_count_tip_bar);
+  getListView().setHeaderDividersEnabled(false);
+  getListView().setScrollingCacheEnabled(false);
+  footerView=inflater.inflate(R.layout.listview_footer_layout,null);
+  getListView().addFooterView(footerView);
+  dismissFooterView();
+}

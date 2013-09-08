@@ -1,6 +1,0 @@
-ArrayList<LinkSpec> links
-Spannable s
-Pattern pattern
-String[] schemes
-MatchFilter matchFilter
-TransformFilter transformFilter

@@ -7,14 +7,15 @@ intent.putExtra("account",accountBean);
 startActivity(intent);
 break;
 case R.id.refresh:
-if (allowRefresh()) getPullToRefreshListView().startRefreshNow();
-break;
-case R.id.group_name:
-if (canSwitchGroup()) {
-FriendsGroupDialog dialog=new FriendsGroupDialog(GlobalContext.getInstance().getGroup(),currentGroupId);
-dialog.setTargetFragment(this,1);
-dialog.show(getFragmentManager(),"");
+if (allowRefresh()) {
+getPullToRefreshListView().setRefreshing();
+loadNewMsg();
 }
+break;
+case R.id.switch_theme:
+((MainTimeLineActivity)getActivity()).saveNavigationPositionToDB();
+SettingUtility.switchToAnotherTheme();
+((MainTimeLineActivity)getActivity()).reload();
 break;
 }
 return super.onOptionsItemSelected(item);

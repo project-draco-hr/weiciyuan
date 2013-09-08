@@ -1,0 +1,6 @@
+{
+  Intent intent=new Intent();
+  intent.putExtra("user",getList().getUsers().get(position));
+  getActivity().setResult(0,intent);
+  getActivity().finish();
+}

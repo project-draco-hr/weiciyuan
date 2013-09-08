@@ -1,0 +1,12 @@
+{
+  String d=uri.toString();
+  String newValue="";
+  if (d.startsWith("org.qii.weiciyuan")) {
+    int index=d.lastIndexOf("/");
+    newValue=d.substring(index + 1);
+  }
+ else   if (d.startsWith("http")) {
+    newValue=d;
+  }
+  return newValue;
+}

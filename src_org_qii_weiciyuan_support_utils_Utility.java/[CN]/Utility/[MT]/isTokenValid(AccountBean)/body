@@ -1,0 +1,3 @@
+{
+  return !TextUtils.isEmpty(account.getAccess_token()) && (account.getExpires_time() == 0 || (System.currentTimeMillis()) < account.getExpires_time());
+}

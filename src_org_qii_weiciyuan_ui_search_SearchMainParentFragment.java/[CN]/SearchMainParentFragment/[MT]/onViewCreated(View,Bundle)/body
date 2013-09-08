@@ -1,0 +1,8 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  viewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
+  viewPager.setOffscreenPageLimit(2);
+  viewPager.setOnPageChangeListener(onPageChangeListener);
+  SearchTimeLinePagerAdapter adapter=new SearchTimeLinePagerAdapter(this,viewPager,getChildFragmentManager(),(MainTimeLineActivity)getActivity(),searchFragments);
+  viewPager.setAdapter(adapter);
+}

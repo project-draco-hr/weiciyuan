@@ -1,0 +1,4 @@
+{
+  pb.setVisibility(View.INVISIBLE);
+  super.onCancelled(bitmap);
+}

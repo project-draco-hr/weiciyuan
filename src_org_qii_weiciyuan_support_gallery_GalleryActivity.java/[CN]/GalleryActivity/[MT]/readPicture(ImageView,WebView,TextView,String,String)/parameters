@@ -1,0 +1,5 @@
+ImageView imageView
+WebView gif
+TextView readError
+String url
+String bitmapPath

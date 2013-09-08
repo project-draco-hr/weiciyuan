@@ -1,5 +1,8 @@
 {
+  if (state == OnScrollListener.SCROLL_STATE_IDLE && null != mOnLastItemVisibleListener && mLastItemVisible) {
+    mOnLastItemVisibleListener.onLastItemVisible();
+  }
   if (null != mOnScrollListener) {
-    mOnScrollListener.onScrollStateChanged(view,scrollState);
+    mOnScrollListener.onScrollStateChanged(view,state);
   }
 }

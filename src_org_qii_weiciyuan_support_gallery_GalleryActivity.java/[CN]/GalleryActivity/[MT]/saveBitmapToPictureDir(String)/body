@@ -1,0 +1,6 @@
+{
+  if (Utility.isTaskStopped(saveTask)) {
+    saveTask=new PicSaveTask(filePath);
+    saveTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

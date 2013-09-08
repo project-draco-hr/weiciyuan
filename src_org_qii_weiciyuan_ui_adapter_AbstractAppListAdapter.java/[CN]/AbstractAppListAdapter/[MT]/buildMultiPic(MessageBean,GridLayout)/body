@@ -1,0 +1,82 @@
+{
+  if (SettingUtility.isEnablePic()) {
+    gridLayout.setVisibility(View.VISIBLE);
+    int count=msg.getPicCount();
+    for (int i=0; i < count; i++) {
+      IWeiciyuanDrawable pic=(IWeiciyuanDrawable)gridLayout.getChildAt(i);
+      pic.setVisibility(View.VISIBLE);
+      if (SettingUtility.getEnableBigPic()) {
+        TimeLineBitmapDownloader.getInstance().displayMultiPicture(pic,msg.getHighPicUrls().get(i),FileLocationMethod.picture_large,(AbstractTimeLineFragment)fragment);
+      }
+ else {
+        TimeLineBitmapDownloader.getInstance().displayMultiPicture(pic,msg.getThumbnailPicUrls().get(i),FileLocationMethod.picture_thumbnail,(AbstractTimeLineFragment)fragment);
+      }
+      final int finalI=i;
+      pic.setOnClickListener(new View.OnClickListener(){
+        @Override public void onClick(        View v){
+          Intent intent=new Intent(getActivity(),GalleryActivity.class);
+          intent.putExtra("msg",msg);
+          intent.putExtra("position",finalI);
+          getActivity().startActivity(intent);
+        }
+      }
+);
+    }
+    if (count < 9) {
+      ImageView pic;
+switch (count) {
+case 8:
+        pic=(ImageView)gridLayout.getChildAt(8);
+      pic.setVisibility(View.INVISIBLE);
+    break;
+case 7:
+  for (int i=8; i > 6; i--) {
+    pic=(ImageView)gridLayout.getChildAt(i);
+    pic.setVisibility(View.INVISIBLE);
+  }
+break;
+case 6:
+for (int i=8; i > 5; i--) {
+pic=(ImageView)gridLayout.getChildAt(i);
+pic.setVisibility(View.GONE);
+}
+break;
+case 5:
+for (int i=8; i > 5; i--) {
+pic=(ImageView)gridLayout.getChildAt(i);
+pic.setVisibility(View.GONE);
+}
+pic=(ImageView)gridLayout.getChildAt(5);
+pic.setVisibility(View.INVISIBLE);
+break;
+case 4:
+for (int i=8; i > 5; i--) {
+pic=(ImageView)gridLayout.getChildAt(i);
+pic.setVisibility(View.GONE);
+}
+pic=(ImageView)gridLayout.getChildAt(5);
+pic.setVisibility(View.INVISIBLE);
+pic=(ImageView)gridLayout.getChildAt(4);
+pic.setVisibility(View.INVISIBLE);
+break;
+case 3:
+for (int i=8; i > 2; i--) {
+pic=(ImageView)gridLayout.getChildAt(i);
+pic.setVisibility(View.GONE);
+}
+break;
+case 2:
+for (int i=8; i > 2; i--) {
+pic=(ImageView)gridLayout.getChildAt(i);
+pic.setVisibility(View.GONE);
+}
+pic=(ImageView)gridLayout.getChildAt(2);
+pic.setVisibility(View.INVISIBLE);
+break;
+}
+}
+}
+ else {
+gridLayout.setVisibility(View.GONE);
+}
+}

@@ -1,0 +1,6 @@
+{
+  if (showGif != value) {
+    showGif=value;
+    invalidate();
+  }
+}

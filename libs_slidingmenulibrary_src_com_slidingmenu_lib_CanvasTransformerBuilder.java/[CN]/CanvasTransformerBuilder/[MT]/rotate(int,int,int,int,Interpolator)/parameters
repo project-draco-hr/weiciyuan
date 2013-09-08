@@ -1,0 +1,5 @@
+int openedDeg
+int closedDeg
+int px
+int py
+Interpolator interp

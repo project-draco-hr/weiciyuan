@@ -1,0 +1,59 @@
+{
+  int size=positions.size();
+  final List<Integer> positionList=new ArrayList<Integer>();
+  for (int i=0; i < size; i++) {
+    if (positions.get(positions.keyAt(i))) {
+      positionList.add(positions.keyAt(i));
+    }
+  }
+  List<View> views=new ArrayList<View>();
+  int start=getListView().getFirstVisiblePosition();
+  int end=getListView().getLastVisiblePosition();
+  for (  Integer position : positionList) {
+    if (position >= start && position <= end) {
+      views.add(getListView().getChildAt((position - start)).findViewById(R.id.text1));
+    }
+  }
+  List<Animation> animations=new ArrayList<Animation>();
+  Animation.AnimationListener listener=new Animation.AnimationListener(){
+    boolean finished=false;
+    @Override public void onAnimationStart(    Animation animation){
+    }
+    @Override public void onAnimationEnd(    Animation animation){
+      if (finished) {
+        return;
+      }
+      finished=true;
+      Set<String> set=new HashSet<String>();
+      for (      long id : ids) {
+        set.add(list.get((int)id));
+      }
+      for (      String name : set) {
+        Iterator<String> iterator=list.iterator();
+        while (iterator.hasNext()) {
+          String s=iterator.next();
+          if (s.equals(name)) {
+            iterator.remove();
+          }
+        }
+      }
+      mode.finish();
+      if (Utility.isTaskStopped(removeTask)) {
+        removeTask=new RemoveFilterDBTask(set);
+        removeTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      }
+    }
+    @Override public void onAnimationRepeat(    Animation animation){
+    }
+  }
+;
+  for (  View view : views) {
+    CollapseAnimation animation=new CollapseAnimation(view,300);
+    animation.setAnimationListener(listener);
+    animations.add(animation);
+    view.setAnimation(animation);
+  }
+  for (int i=0; i < views.size(); i++) {
+    views.get(i).startAnimation(animations.get(i));
+  }
+}

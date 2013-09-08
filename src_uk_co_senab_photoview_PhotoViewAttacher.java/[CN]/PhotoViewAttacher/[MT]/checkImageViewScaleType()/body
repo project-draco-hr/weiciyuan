@@ -1,0 +1,8 @@
+{
+  ImageView imageView=getImageView();
+  if (null != imageView && !(imageView instanceof PhotoView)) {
+    if (imageView.getScaleType() != ScaleType.MATRIX) {
+      throw new IllegalStateException("The ImageView's ScaleType has been changed since attaching a PhotoViewAttacher");
+    }
+  }
+}

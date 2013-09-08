@@ -1,0 +1,5 @@
+MessageBean content
+List<String> keywordFilter
+List<String> userFilter
+List<String> topicFilter
+List<String> sourceFilter

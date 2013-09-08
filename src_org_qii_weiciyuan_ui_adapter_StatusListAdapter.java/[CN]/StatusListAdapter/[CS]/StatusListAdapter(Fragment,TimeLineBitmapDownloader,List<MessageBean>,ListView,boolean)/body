@@ -1,3 +1,0 @@
-{
-  super(fragment,commander,bean,listView,showOriStatus);
-}

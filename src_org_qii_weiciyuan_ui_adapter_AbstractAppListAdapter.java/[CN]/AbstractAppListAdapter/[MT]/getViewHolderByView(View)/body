@@ -1,0 +1,12 @@
+{
+  try {
+    final int position=listView.getPositionForView(view);
+    if (position == ListView.INVALID_POSITION) {
+      return null;
+    }
+    return getViewHolderByView(position);
+  }
+ catch (  NullPointerException e) {
+  }
+  return null;
+}

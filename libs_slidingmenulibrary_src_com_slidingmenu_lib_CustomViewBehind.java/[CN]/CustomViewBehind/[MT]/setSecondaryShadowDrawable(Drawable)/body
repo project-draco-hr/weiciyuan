@@ -1,0 +1,4 @@
+{
+  mSecondaryShadowDrawable=shadow;
+  invalidate();
+}

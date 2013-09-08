@@ -1,0 +1,4 @@
+int fromY
+int toY
+long duration
+OnSmoothScrollFinishedListener listener

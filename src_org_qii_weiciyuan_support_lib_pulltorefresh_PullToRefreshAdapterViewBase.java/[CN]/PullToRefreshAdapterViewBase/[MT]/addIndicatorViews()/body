@@ -1,4 +1,2 @@
 {
-  Mode mode=getMode();
-  FrameLayout refreshableViewWrapper=getRefreshableViewWrapper();
 }

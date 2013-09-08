@@ -1,10 +1,10 @@
 {
   View view=inflater.inflate(R.layout.userinfofragment_layout,container,false);
-  avatar=(ImageView)view.findViewById(R.id.avatar);
-  avatar.setOnClickListener(new View.OnClickListener(){
+  layout=new Layout();
+  layout.avatar=(ImageView)view.findViewById(R.id.avatar);
+  layout.avatar.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       String path=FileManager.getFilePathFromUrl(bean.getAvatar_large(),FileLocationMethod.avatar_large);
-      path=path + ".jpg";
       if (new File(path).exists()) {
         UserAvatarDialog dialog=new UserAvatarDialog(path);
         dialog.show(getFragmentManager(),"");
@@ -12,21 +12,21 @@
     }
   }
 );
-  username=(TextView)view.findViewById(R.id.username);
-  isVerified=(TextView)view.findViewById(R.id.isVerified);
-  verified_reason=(TextView)view.findViewById(R.id.verified_info);
-  info=(TextView)view.findViewById(R.id.textView_info);
-  blog_url=(TextView)view.findViewById(R.id.blog_url);
-  location=(TextView)view.findViewById(R.id.location);
-  sex=(TextView)view.findViewById(R.id.sex);
-  relationship=(TextView)view.findViewById(R.id.relationship);
-  following_number=(TextView)view.findViewById(R.id.following_number);
-  fans_number=(TextView)view.findViewById(R.id.fans_number);
-  topic_number=(TextView)view.findViewById(R.id.topic_number);
-  blog_url_layout=view.findViewById(R.id.blog_url_layout);
-  intro_layout=view.findViewById(R.id.intro_layout);
-  location_layout=view.findViewById(R.id.location_layout);
-  verified_layout=view.findViewById(R.id.verified_layout);
+  layout.username=(TextView)view.findViewById(R.id.username);
+  layout.isVerified=(TextView)view.findViewById(R.id.isVerified);
+  layout.verified_reason=(TextView)view.findViewById(R.id.verified_info);
+  layout.info=(TextView)view.findViewById(R.id.textView_info);
+  layout.blog_url=(TextView)view.findViewById(R.id.blog_url);
+  layout.location=(TextView)view.findViewById(R.id.location);
+  layout.sex=(TextView)view.findViewById(R.id.sex);
+  layout.relationship=(TextView)view.findViewById(R.id.relationship);
+  layout.following_number=(TextView)view.findViewById(R.id.following_number);
+  layout.fans_number=(TextView)view.findViewById(R.id.fans_number);
+  layout.topic_number=(TextView)view.findViewById(R.id.topic_number);
+  layout.blog_url_layout=(ViewGroup)view.findViewById(R.id.blog_url_layout);
+  layout.intro_layout=(ViewGroup)view.findViewById(R.id.intro_layout);
+  layout.location_layout=(ViewGroup)view.findViewById(R.id.location_layout);
+  layout.verified_layout=(ViewGroup)view.findViewById(R.id.verified_layout);
   View fan_layout=view.findViewById(R.id.fan_layout);
   View following_layout=view.findViewById(R.id.following_layout);
   View topic_layout=view.findViewById(R.id.topic_layout);

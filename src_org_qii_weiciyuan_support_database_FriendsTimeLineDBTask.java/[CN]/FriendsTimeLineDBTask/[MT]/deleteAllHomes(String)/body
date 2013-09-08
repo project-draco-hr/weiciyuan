@@ -1,4 +1,4 @@
 {
-  String sql="delete from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ACCOUNTID+ " in "+ "("+ accountId+ ")";
+  String sql="delete from " + HomeTable.HomeDataTable.TABLE_NAME + " where "+ HomeTable.HomeDataTable.ACCOUNTID+ " in "+ "("+ accountId+ ")";
   getWsd().execSQL(sql);
 }

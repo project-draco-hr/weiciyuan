@@ -1,11 +1,13 @@
 {
 switch (item.getItemId()) {
 case R.id.menu_refresh:
-    if (updateMsgTask == null || updateMsgTask.getStatus() == MyAsyncTask.Status.FINISHED) {
-      updateMsgTask=new UpdateMsgTask();
-      updateMsgTask.execute();
+    if (Utility.isTaskStopped(updateMsgTask)) {
+      updateMsgTask=new UpdateMessageTask(BrowserWeiboMsgFragment.this,layout.content,layout.recontent,msg,true);
+      updateMsgTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
-  break;
+  if (isCommentList)   loadNewCommentData();
+ else   loadNewRepostData();
+break;
 }
 return true;
 }

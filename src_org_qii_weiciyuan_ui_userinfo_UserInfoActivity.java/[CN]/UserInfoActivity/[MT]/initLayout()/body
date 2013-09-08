@@ -1,0 +1,5 @@
+{
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setDisplayShowHomeEnabled(false);
+  getActionBar().setTitle(getString(R.string.personal_info));
+}

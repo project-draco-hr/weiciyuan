@@ -2,15 +2,16 @@
   super.onActivityCreated(savedInstanceState);
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
-    getPullToRefreshListView().startRefreshNow();
-  break;
+    getPullToRefreshListView().setRefreshing();
+  loadNewMsg();
+break;
 case SCREEN_ROTATE:
 refreshLayout(bean);
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
 q=savedInstanceState.getString("q");
 page=savedInstanceState.getInt("page");
-getList().addNewData((TopicResultListBean)savedInstanceState.getSerializable("bean"));
+getList().addNewData((TopicResultListBean)savedInstanceState.getParcelable("bean"));
 getAdapter().notifyDataSetChanged();
 refreshLayout(getList());
 break;

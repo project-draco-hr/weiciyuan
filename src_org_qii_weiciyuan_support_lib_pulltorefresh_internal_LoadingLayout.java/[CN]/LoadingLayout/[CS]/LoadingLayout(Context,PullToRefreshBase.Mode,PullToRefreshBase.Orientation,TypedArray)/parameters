@@ -1,0 +1,4 @@
+Context context
+PullToRefreshBase.Mode mode
+PullToRefreshBase.Orientation scrollDirection
+TypedArray attrs

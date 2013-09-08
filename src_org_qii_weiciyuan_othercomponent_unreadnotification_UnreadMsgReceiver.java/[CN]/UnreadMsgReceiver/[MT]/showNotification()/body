@@ -1,16 +1,33 @@
 {
-  NotificationManager notificationManager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-  Notification notification;
   if (!Utility.isJB()) {
-    notification=new ICSNotification(context,accountBean,comment,repost,mentionCommentsResult,unreadBean).get();
+    NotificationManager notificationManager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+    Notification notification=new ICSNotification(context,accountBean,commentsToMeData,mentionsWeiboData,mentionsCommentData,unreadBean).get();
+    notificationManager.notify(Integer.valueOf(accountBean.getUid()),notification);
   }
  else {
-    if (sum == 1) {
-      notification=new JBBigTextNotification(context,accountBean,comment,repost,mentionCommentsResult,unreadBean).get();
+    if (mentionsWeiboData != null && mentionsWeiboData.getSize() > 0) {
+      Intent intent=new Intent(context,JBMentionsWeiboNotificationServiceHelper.class);
+      intent.putExtra(NotificationServiceHelper.ACCOUNT_ARG,accountBean);
+      intent.putExtra(NotificationServiceHelper.MENTIONS_WEIBO_ARG,mentionsWeiboData);
+      intent.putExtra(NotificationServiceHelper.UNREAD_ARG,unreadBean);
+      intent.putExtra(NotificationServiceHelper.CURRENT_INDEX_ARG,0);
+      context.startService(intent);
     }
- else {
-      notification=new JBInboxNotification(context,accountBean,comment,repost,mentionCommentsResult,unreadBean).get();
+    if (mentionsCommentData != null && mentionsCommentData.getSize() > 0) {
+      Intent intent=new Intent(context,JBMentionsCommentNotificationServiceHelper.class);
+      intent.putExtra(NotificationServiceHelper.ACCOUNT_ARG,accountBean);
+      intent.putExtra(NotificationServiceHelper.MENTIONS_COMMENT_ARG,mentionsCommentData);
+      intent.putExtra(NotificationServiceHelper.UNREAD_ARG,unreadBean);
+      intent.putExtra(NotificationServiceHelper.CURRENT_INDEX_ARG,0);
+      context.startService(intent);
+    }
+    if (commentsToMeData != null && commentsToMeData.getSize() > 0) {
+      Intent intent=new Intent(context,JBCommentsToMeNotificationServiceHelper.class);
+      intent.putExtra(NotificationServiceHelper.ACCOUNT_ARG,accountBean);
+      intent.putExtra(NotificationServiceHelper.COMMENTS_TO_ME_ARG,commentsToMeData);
+      intent.putExtra(NotificationServiceHelper.UNREAD_ARG,unreadBean);
+      intent.putExtra(NotificationServiceHelper.CURRENT_INDEX_ARG,0);
+      context.startService(intent);
     }
   }
-  notificationManager.notify(Long.valueOf(accountBean.getUid()).intValue(),notification);
 }

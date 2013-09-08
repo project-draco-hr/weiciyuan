@@ -1,3 +1,6 @@
 {
+  if (mills == 0L) {
+    TimeTool.dealMills(this);
+  }
   return mills;
 }

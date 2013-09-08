@@ -4,6 +4,5 @@
   menuEnableOriComment=menu.findItem(R.id.menu_enable_ori_comment);
   menuEnableComment.setChecked(savedEnableComment);
   menuEnableOriComment.setChecked(savedEnableOriComment);
-  menu.findItem(R.id.menu_short).setVisible(true);
   return true;
 }

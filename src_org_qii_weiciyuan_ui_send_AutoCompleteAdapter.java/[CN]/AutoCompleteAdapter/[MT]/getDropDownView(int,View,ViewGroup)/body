@@ -1,0 +1,13 @@
+{
+  View view;
+  TextView text;
+  if (convertView == null) {
+    view=activity.getLayoutInflater().inflate(res,parent,false);
+  }
+ else {
+    view=convertView;
+  }
+  text=(TextView)view;
+  text.setText(getItem(position).getNickname());
+  return view;
+}

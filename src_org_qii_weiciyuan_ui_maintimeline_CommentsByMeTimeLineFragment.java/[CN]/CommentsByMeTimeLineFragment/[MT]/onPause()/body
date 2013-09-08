@@ -1,0 +1,6 @@
+{
+  super.onPause();
+  if (!getActivity().isChangingConfigurations()) {
+    CommentByMeTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
+  }
+}

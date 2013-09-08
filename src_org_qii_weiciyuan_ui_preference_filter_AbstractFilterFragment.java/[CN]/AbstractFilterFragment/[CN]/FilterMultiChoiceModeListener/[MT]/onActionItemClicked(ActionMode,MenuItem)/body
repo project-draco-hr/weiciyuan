@@ -1,0 +1,10 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_remove:
+    SparseBooleanArray positions=getListView().getCheckedItemPositions();
+  long[] ids=getListView().getCheckedItemIds();
+removeItem(positions,ids,mode);
+return true;
+}
+return false;
+}

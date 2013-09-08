@@ -1,0 +1,4 @@
+{
+  dest.writeString(total_number);
+  dest.writeTypedList(lists);
+}

@@ -1,0 +1,13 @@
+{
+  FavListDao dao=new FavListDao(token);
+  dao.setPage(page);
+  FavListBean result=null;
+  lock.lock();
+  try {
+    result=dao.getGSONMsgList();
+  }
+  finally {
+    lock.unlock();
+  }
+  return result;
+}

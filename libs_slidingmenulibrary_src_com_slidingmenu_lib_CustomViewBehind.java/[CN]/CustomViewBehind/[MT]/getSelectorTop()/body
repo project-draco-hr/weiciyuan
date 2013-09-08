@@ -1,0 +1,5 @@
+{
+  int y=mSelectedView.getTop();
+  y+=(mSelectedView.getHeight() - mSelectorDrawable.getHeight()) / 2;
+  return y;
+}

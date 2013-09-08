@@ -1,0 +1,8 @@
+{
+  inflater.inflate(R.menu.actionbar_menu_browserwebfragment,menu);
+  MenuItem item=menu.findItem(R.id.menu_share);
+  mShareActionProvider=(ShareActionProvider)item.getActionProvider();
+  refreshItem=menu.findItem(R.id.menu_refresh);
+  super.onCreateOptionsMenu(menu,inflater);
+  mWebView.loadUrl(mUrl);
+}

@@ -1,0 +1,28 @@
+{
+  FavListBean result=new FavListBean();
+  List<FavBean> msgList=new ArrayList<FavBean>();
+  String sql="select * from " + FavouriteTable.FavouriteDataTable.TABLE_NAME + " where "+ FavouriteTable.FavouriteDataTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ FavouriteTable.FavouriteDataTable.MBLOGID+ " desc";
+  Cursor c=getRsd().rawQuery(sql,null);
+  Gson gson=new Gson();
+  while (c.moveToNext()) {
+    String json=c.getString(c.getColumnIndex(FavouriteTable.FavouriteDataTable.JSONDATA));
+    try {
+      FavBean value=gson.fromJson(json,FavBean.class);
+      if (value != null)       value.getStatus().getListViewSpannableString();
+      msgList.add(value);
+    }
+ catch (    JsonSyntaxException e) {
+      AppLogger.e(e.getMessage());
+    }
+  }
+  result.setFavorites(msgList);
+  c.close();
+  sql="select * from " + FavouriteTable.TABLE_NAME + " where "+ FavouriteTable.ACCOUNTID+ "  = "+ accountId;
+  c=getRsd().rawQuery(sql,null);
+  int page=0;
+  while (c.moveToNext()) {
+    page=c.getInt(c.getColumnIndex(FavouriteTable.PAGE));
+  }
+  c.close();
+  return new FavouriteTimeLineData(result,page,getPosition(accountId));
+}

@@ -1,3 +1,4 @@
 {
   mOnRefreshListener2=listener;
+  mOnRefreshListener=null;
 }

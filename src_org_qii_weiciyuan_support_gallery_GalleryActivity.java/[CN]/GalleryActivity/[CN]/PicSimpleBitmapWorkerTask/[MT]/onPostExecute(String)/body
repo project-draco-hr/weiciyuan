@@ -1,0 +1,19 @@
+{
+  this.spinner.setVisibility(View.INVISIBLE);
+  if (isCancelled()) {
+    return;
+  }
+  taskMap.remove(url);
+  if (TextUtils.isEmpty(bitmapPath) || iv == null) {
+    readError.setVisibility(View.VISIBLE);
+    readError.setText(getString(R.string.picture_cant_download_or_sd_cant_read));
+    return;
+  }
+ else {
+    readError.setVisibility(View.INVISIBLE);
+  }
+  if (!ImageTool.isThisBitmapCanRead(bitmapPath)) {
+    Toast.makeText(GalleryActivity.this,R.string.download_finished_but_cant_read_picture_file,Toast.LENGTH_SHORT).show();
+  }
+  readPicture(iv,gif,readError,url,bitmapPath);
+}

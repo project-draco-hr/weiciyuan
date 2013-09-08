@@ -1,0 +1,57 @@
+{
+  CommentListBean commentResult=null;
+  MessageListBean mentionStatusesResult=null;
+  CommentListBean mentionCommentsResult=null;
+  UnreadBean unreadBean=null;
+  String token=accountBean.getAccess_token();
+  UnreadDao unreadDao=new UnreadDao(token,accountBean.getUid());
+  unreadBean=unreadDao.getCount();
+  if (unreadBean == null) {
+    return;
+  }
+  int unreadCommentCount=unreadBean.getCmt();
+  int unreadMentionStatusCount=unreadBean.getMention_status();
+  int unreadMentionCommentCount=unreadBean.getMention_cmt();
+  if (unreadCommentCount > 0 && SettingUtility.allowCommentToMe()) {
+    MainCommentsTimeLineDao dao=new MainCommentsTimeLineDao(token);
+    CommentListBean oldData=null;
+    CommentTimeLineData commentTimeLineData=CommentToMeTimeLineDBTask.getCommentLineMsgList(accountBean.getUid());
+    if (commentTimeLineData != null) {
+      oldData=commentTimeLineData.cmtList;
+    }
+    if (oldData != null && oldData.getSize() > 0) {
+      dao.setSince_id(oldData.getItem(0).getId());
+    }
+    commentResult=dao.getGSONMsgListWithoutClearUnread();
+  }
+  if (unreadMentionStatusCount > 0 && SettingUtility.allowMentionToMe()) {
+    MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(token);
+    MessageListBean oldData=null;
+    MentionTimeLineData commentTimeLineData=MentionWeiboTimeLineDBTask.getRepostLineMsgList(accountBean.getUid());
+    if (commentTimeLineData != null) {
+      oldData=commentTimeLineData.msgList;
+    }
+    if (oldData != null && oldData.getSize() > 0) {
+      dao.setSince_id(oldData.getItem(0).getId());
+    }
+    mentionStatusesResult=dao.getGSONMsgListWithoutClearUnread();
+  }
+  if (unreadMentionCommentCount > 0 && SettingUtility.allowMentionCommentToMe()) {
+    MainCommentsTimeLineDao dao=new MentionsCommentTimeLineDao(token);
+    CommentListBean oldData=null;
+    CommentTimeLineData commentTimeLineData=MentionCommentsTimeLineDBTask.getCommentLineMsgList(accountBean.getUid());
+    if (commentTimeLineData != null) {
+      oldData=commentTimeLineData.cmtList;
+    }
+    if (oldData != null && oldData.getSize() > 0) {
+      dao.setSince_id(oldData.getItem(0).getId());
+    }
+    mentionCommentsResult=dao.getGSONMsgListWithoutClearUnread();
+  }
+  boolean mentionsWeibo=(mentionStatusesResult != null && mentionStatusesResult.getSize() > 0);
+  boolean menttinosComment=(mentionCommentsResult != null && mentionCommentsResult.getSize() > 0);
+  boolean commentsToMe=(commentResult != null && commentResult.getSize() > 0);
+  if (mentionsWeibo || menttinosComment || commentsToMe) {
+    sendTwoKindsOfBroadcast(accountBean,commentResult,mentionStatusesResult,mentionCommentsResult,unreadBean);
+  }
+}

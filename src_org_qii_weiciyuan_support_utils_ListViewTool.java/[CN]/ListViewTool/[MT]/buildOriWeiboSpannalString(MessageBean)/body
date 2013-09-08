@@ -1,0 +1,18 @@
+{
+  String name="";
+  UserBean oriUser=oriMsg.getUser();
+  if (oriUser != null) {
+    name=oriUser.getScreen_name();
+    if (TextUtils.isEmpty(name)) {
+      name=oriUser.getId();
+    }
+  }
+  SpannableString value;
+  if (!TextUtils.isEmpty(name)) {
+    value=ListViewTool.convertNormalStringToSpannableString("@" + name + "???"+ oriMsg.getText());
+  }
+ else {
+    value=ListViewTool.convertNormalStringToSpannableString(oriMsg.getText());
+  }
+  return value;
+}

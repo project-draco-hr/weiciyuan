@@ -1,0 +1,3 @@
+{
+  return getRoundedCornerPic(filePath,reqWidth,reqHeight,0);
+}

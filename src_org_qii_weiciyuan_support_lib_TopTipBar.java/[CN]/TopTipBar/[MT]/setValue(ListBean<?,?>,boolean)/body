@@ -1,0 +1,15 @@
+{
+  this.disappear=disappear;
+  List<? extends ItemBean> values=listData.getItemList();
+  for (  ItemBean b : values) {
+    if (b != null)     ids.add(b.getIdLong());
+  }
+  setCount();
+  if (disappear) {
+    disappear(3000);
+    ids.clear();
+  }
+  if (this.onChangeListener != null) {
+    this.onChangeListener.onChange(ids.size());
+  }
+}

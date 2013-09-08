@@ -1,0 +1,9 @@
+{
+  Bitmap bitmap=ImageTool.readNormalPic(path,2000,2000);
+  view.setTag(true);
+  view.getImageView().setTag(true);
+  view.setVisibility(View.VISIBLE);
+  view.setImageBitmap(bitmap);
+  view.setAlpha(0.0f);
+  view.animate().alpha(1.0f).setDuration(200);
+}

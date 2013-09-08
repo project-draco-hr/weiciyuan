@@ -4,6 +4,36 @@
   if (NotificationUtility.getCount(unreadBean) > 1) {
     builder.setNumber(NotificationUtility.getCount(unreadBean));
   }
+  if (clearNotificationEventReceiver != null) {
+    GlobalContext.getInstance().unregisterReceiver(clearNotificationEventReceiver);
+    JBInboxNotification.clearNotificationEventReceiver=null;
+  }
+  clearNotificationEventReceiver=new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      new Thread(new Runnable(){
+        @Override public void run(){
+          try {
+            new ClearUnreadDao(accountBean.getAccess_token()).clearMentionStatusUnread(unreadBean,accountBean.getUid());
+            new ClearUnreadDao(accountBean.getAccess_token()).clearMentionCommentUnread(unreadBean,accountBean.getUid());
+            new ClearUnreadDao(accountBean.getAccess_token()).clearCommentUnread(unreadBean,accountBean.getUid());
+          }
+ catch (          WeiboException ignored) {
+          }
+ finally {
+            GlobalContext.getInstance().unregisterReceiver(clearNotificationEventReceiver);
+            JBInboxNotification.clearNotificationEventReceiver=null;
+          }
+        }
+      }
+).start();
+    }
+  }
+;
+  IntentFilter intentFilter=new IntentFilter("org.qii.weiciyuan.Notification.unread");
+  GlobalContext.getInstance().registerReceiver(clearNotificationEventReceiver,intentFilter);
+  Intent broadcastIntent=new Intent("org.qii.weiciyuan.Notification.unread");
+  PendingIntent deletedPendingIntent=PendingIntent.getBroadcast(GlobalContext.getInstance(),0,broadcastIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+  builder.setDeleteIntent(deletedPendingIntent);
   Notification.InboxStyle inboxStyle=new Notification.InboxStyle(builder);
   inboxStyle.setBigContentTitle(NotificationUtility.getTicker(unreadBean));
   if (comment != null) {

@@ -1,0 +1,8 @@
+{
+  super.writeToParcel(out,flags);
+  Bundle bundle=new Bundle();
+  bundle.putSerializable("ids",ids);
+  bundle.putSerializable("type",type);
+  out.writeBundle(bundle);
+  out.writeBooleanArray(new boolean[]{this.disappear,this.visible});
+}

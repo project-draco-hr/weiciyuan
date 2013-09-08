@@ -1,13 +1,3 @@
 {
-  Intent sharingIntent=new Intent(Intent.ACTION_SEND);
-  sharingIntent.setType("text/plain");
-  if (msg != null) {
-    sharingIntent.putExtra(Intent.EXTRA_TEXT,msg.getText());
-    PackageManager packageManager=getPackageManager();
-    List<ResolveInfo> activities=packageManager.queryIntentActivities(sharingIntent,0);
-    boolean isIntentSafe=activities.size() > 0;
-    if (isIntentSafe && mShareActionProvider != null) {
-      mShareActionProvider.setShareIntent(sharingIntent);
-    }
-  }
+  Utility.setShareIntent(BrowserWeiboMsgActivity.this,mShareActionProvider,msg);
 }

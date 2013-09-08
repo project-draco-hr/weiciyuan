@@ -1,0 +1,19 @@
+{
+  mAuthActivity=activity;
+  conn=new ServiceConnection(){
+    @Override public void onServiceDisconnected(    ComponentName name){
+    }
+    @Override public void onServiceConnected(    ComponentName name,    IBinder service){
+      RemoteSSO remoteSSOservice=RemoteSSO.Stub.asInterface(service);
+      try {
+        ssoPackageName=remoteSSOservice.getPackageName();
+        ssoActivityName=remoteSSOservice.getActivityName();
+        boolean singleSignOnStarted=startSingleSignOn(mAuthActivity,authPermissions,mAuthActivityCode);
+      }
+ catch (      RemoteException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+;
+}

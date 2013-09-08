@@ -1,9 +1,0 @@
-{
-  super.onPostExecute(result);
-  if (isCancelled())   return;
-  if (result == null || result.size() == 0) {
-    return;
-  }
-  topicList=result;
-  setTextViewNum(topic_number,String.valueOf(result.size()));
-}

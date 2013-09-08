@@ -1,0 +1,4 @@
+{
+  this.token=token;
+  this.name=name;
+}

@@ -1,0 +1,6 @@
+{
+  super.onPause();
+  if (locationListener != null) {
+    ((LocationManager)WriteWeiboActivity.this.getSystemService(Context.LOCATION_SERVICE)).removeUpdates(locationListener);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  getList().replaceData(newValue);
+  getAdapter().notifyDataSetChanged();
+  getListView().setSelectionAfterHeaderView();
+}

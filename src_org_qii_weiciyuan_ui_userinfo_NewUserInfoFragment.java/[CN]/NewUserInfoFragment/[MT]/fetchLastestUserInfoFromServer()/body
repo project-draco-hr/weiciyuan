@@ -1,0 +1,6 @@
+{
+  if (Utility.isTaskStopped(refreshTask)) {
+    refreshTask=new RefreshTask();
+    refreshTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

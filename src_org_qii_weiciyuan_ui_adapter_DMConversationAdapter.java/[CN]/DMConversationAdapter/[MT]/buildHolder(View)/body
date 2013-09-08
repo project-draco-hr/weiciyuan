@@ -1,10 +1,7 @@
 {
   DMViewHolder holder=new DMViewHolder();
-  holder.username=(TextView)convertView.findViewById(R.id.username);
-  TextPaint tp=holder.username.getPaint();
-  tp.setFakeBoldText(true);
   holder.content=(TextView)convertView.findViewById(R.id.content);
   holder.time=(TextView)convertView.findViewById(R.id.time);
-  holder.avatar=(ImageView)convertView.findViewById(R.id.avatar);
+  holder.avatar=(TimeLineAvatarImageView)convertView.findViewById(R.id.avatar);
   return holder;
 }

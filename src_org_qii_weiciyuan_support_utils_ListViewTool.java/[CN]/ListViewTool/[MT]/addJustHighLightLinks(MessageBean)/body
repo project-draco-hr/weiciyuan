@@ -1,18 +1,8 @@
 {
-  bean.setListViewSpannableString(ListViewTool.getJustHighLightLinks(bean.getText()));
+  bean.setListViewSpannableString(convertNormalStringToSpannableString(bean.getText()));
+  bean.getSourceString();
   if (bean.getRetweeted_status() != null) {
-    String name="";
-    UserBean reUser=bean.getRetweeted_status().getUser();
-    if (reUser != null) {
-      name=reUser.getScreen_name();
-    }
-    SpannableString value;
-    if (!TextUtils.isEmpty(name)) {
-      value=ListViewTool.getJustHighLightLinks("@" + name + "???"+ bean.getRetweeted_status().getText());
-    }
- else {
-      value=ListViewTool.getJustHighLightLinks(bean.getRetweeted_status().getText());
-    }
-    bean.getRetweeted_status().setListViewSpannableString(value);
+    bean.getRetweeted_status().setListViewSpannableString(buildOriWeiboSpannalString(bean.getRetweeted_status()));
+    bean.getRetweeted_status().getSourceString();
   }
 }

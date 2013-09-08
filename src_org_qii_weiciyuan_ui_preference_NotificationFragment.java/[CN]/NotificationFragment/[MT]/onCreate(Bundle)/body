@@ -29,7 +29,7 @@
   ringtone.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
       Intent intent=new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
-      intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE,getString(R.string.ringtone));
+      intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE,getString(R.string.pref_ringtone_title));
       intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT,true);
       intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT,true);
       intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE,RingtoneManager.TYPE_NOTIFICATION);

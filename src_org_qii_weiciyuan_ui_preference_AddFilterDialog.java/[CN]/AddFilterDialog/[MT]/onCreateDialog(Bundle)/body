@@ -5,7 +5,7 @@
     @Override public void onClick(    DialogInterface dialog,    int which){
       String word=et.getText().toString().trim();
       if (!TextUtils.isEmpty(word)) {
-        FilterFragment filterFragment=(FilterFragment)getTargetFragment();
+        AbstractFilterFragment filterFragment=(AbstractFilterFragment)getTargetFragment();
         filterFragment.addFilter(word);
       }
     }

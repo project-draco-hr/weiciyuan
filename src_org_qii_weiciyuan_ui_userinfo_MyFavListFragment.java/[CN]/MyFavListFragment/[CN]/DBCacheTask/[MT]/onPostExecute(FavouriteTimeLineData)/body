@@ -1,0 +1,16 @@
+{
+  super.onPostExecute(result);
+  getPullToRefreshListView().setVisibility(View.VISIBLE);
+  if (result != null) {
+    bean.replaceData(result.favList);
+    page=result.page;
+    position=result.position;
+    getAdapter().notifyDataSetChanged();
+    setListViewPositionFromPositionsCache();
+  }
+  refreshLayout(getList());
+  if (getList().getSize() == 0) {
+    getPullToRefreshListView().setRefreshing();
+    loadNewMsg();
+  }
+}

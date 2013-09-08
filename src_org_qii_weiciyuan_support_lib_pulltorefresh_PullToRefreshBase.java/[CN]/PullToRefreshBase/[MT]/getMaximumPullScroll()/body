@@ -1,0 +1,9 @@
+{
+switch (getPullToRefreshScrollDirection()) {
+case HORIZONTAL:
+    return Math.round(getWidth() / FRICTION);
+case VERTICAL:
+default :
+  return Math.round(getHeight() / FRICTION);
+}
+}

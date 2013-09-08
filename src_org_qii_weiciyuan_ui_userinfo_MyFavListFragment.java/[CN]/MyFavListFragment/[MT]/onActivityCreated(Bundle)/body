@@ -1,18 +1,20 @@
 {
   super.onActivityCreated(savedInstanceState);
-  commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
+  setRetainInstance(true);
+  setHasOptionsMenu(true);
+  account=GlobalContext.getInstance().getAccountBean();
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
-    getPullToRefreshListView().startRefreshNow();
+    readDBCache();
   break;
 case SCREEN_ROTATE:
 refreshLayout(bean);
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-getList().addNewData((FavListBean)savedInstanceState.getSerializable("bean"));
-page=savedInstanceState.getInt("page");
-timeLineAdapter.notifyDataSetChanged();
-refreshLayout(bean);
+readDBCache();
 break;
+}
+if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == LeftMenuFragment.FAV_INDEX) {
+buildActionBarAndViewPagerTitles();
 }
 }

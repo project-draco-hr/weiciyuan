@@ -1,0 +1,3 @@
+{
+  return SEND_COMMENT_OR_REPLY_SUCCESSFULLY + oriMsg.getId();
+}

@@ -1,0 +1,34 @@
+{
+  view.clearAnimation();
+  if (!shouldReloadPicture(view,urlKey))   return;
+  final Bitmap bitmap=getBitmapFromMemCache(urlKey);
+  if (bitmap != null) {
+    view.setImageBitmap(bitmap);
+    view.setTag(urlKey);
+    if (view.getAlpha() != 1.0f) {
+      view.setAlpha(1.0f);
+    }
+    cancelPotentialDownload(urlKey,view);
+  }
+ else {
+    if (isFling) {
+      view.setImageDrawable(defaultBG);
+      return;
+    }
+    if (!cancelPotentialDownload(urlKey,view)) {
+      return;
+    }
+    final ReadWorker newTask=new ReadWorker(view,urlKey,method,isMultiPictures);
+    PictureBitmapDrawable downloadedDrawable=new PictureBitmapDrawable(newTask);
+    view.setImageDrawable(downloadedDrawable);
+    handler.postDelayed(new Runnable(){
+      @Override public void run(){
+        if (getBitmapDownloaderTask(view) == newTask) {
+          newTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+        }
+        return;
+      }
+    }
+,400);
+  }
+}

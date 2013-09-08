@@ -1,0 +1,6 @@
+{
+  Intent intent=new Intent(getActivity(),AccountActivity.class);
+  intent.putExtra("launcher",false);
+  startActivity(intent);
+  getActivity().finish();
+}

@@ -1,4 +1,0 @@
-String urlStr
-Map<String,String> param
-String path
-FileUploaderHttpHelper.ProgressListener listener

@@ -1,0 +1,76 @@
+{
+  if (showOriStatus)   listView.setDivider(null);
+  this.bean=bean;
+  this.inflater=fragment.getActivity().getLayoutInflater();
+  this.listView=listView;
+  this.showOriStatus=showOriStatus;
+  this.fragment=fragment;
+  defaultBG=fragment.getResources().getColor(R.color.transparent);
+  checkedBG=ThemeUtility.getColor(R.attr.listview_checked_color);
+  if (pre) {
+    for (int i=0; i < PREF_LISTVIEW_ITEM_VIEW_COUNT; i++) {
+      PrefView prefView=new PrefView();
+      prefView.view=initNormalLayout(null);
+      prefView.holder=buildHolder(prefView.view);
+      prefNormalViews.add(prefView);
+    }
+    for (int i=0; i < PREF_LISTVIEW_ITEM_VIEW_COUNT; i++) {
+      PrefView prefView=new PrefView();
+      prefView.view=initBigPicLayout(null);
+      prefView.holder=buildHolder(prefView.view);
+      prefBigPicViews.add(prefView);
+    }
+  }
+  listView.setRecyclerListener(new AbsListView.RecyclerListener(){
+    @Override public void onMovedToScrapHeap(    View view){
+      Integer index=(Integer)view.getTag(R.string.listview_index_tag);
+      if (index == null)       return;
+      for (      Integer tag : tagIndexList) {
+        ViewHolder holder=(ViewHolder)view.getTag(tag);
+        if (holder != null) {
+          Drawable drawable=holder.avatar.getImageView().getDrawable();
+          clearAvatarBitmap(holder,drawable);
+          drawable=holder.content_pic.getImageView().getDrawable();
+          clearPictureBitmap(holder,drawable);
+          drawable=holder.repost_content_pic.getImageView().getDrawable();
+          clearRepostPictureBitmap(holder,drawable);
+          clearMultiPics(holder.content_pic_multi);
+          clearMultiPics(holder.repost_content_pic_multi);
+          if (!tag.equals(index)) {
+            holder.listview_root.removeAllViewsInLayout();
+            holder.listview_root=null;
+            view.setTag(tag,null);
+          }
+        }
+      }
+    }
+    void clearMultiPics(    GridLayout gridLayout){
+      if (gridLayout == null)       return;
+      for (int i=0; i < gridLayout.getChildCount(); i++) {
+        ImageView iv=(ImageView)gridLayout.getChildAt(i);
+        if (iv != null) {
+          iv.setImageDrawable(null);
+        }
+      }
+    }
+    void clearAvatarBitmap(    ViewHolder holder,    Drawable drawable){
+      if (!(drawable instanceof PictureBitmapDrawable)) {
+        holder.avatar.setImageDrawable(null);
+        holder.avatar.getImageView().clearAnimation();
+      }
+    }
+    void clearPictureBitmap(    ViewHolder holder,    Drawable drawable){
+      if (!(drawable instanceof PictureBitmapDrawable)) {
+        holder.content_pic.setImageDrawable(null);
+        holder.content_pic.getImageView().clearAnimation();
+      }
+    }
+    void clearRepostPictureBitmap(    ViewHolder holder,    Drawable drawable){
+      if (!(drawable instanceof PictureBitmapDrawable)) {
+        holder.repost_content_pic.setImageDrawable(null);
+        holder.repost_content_pic.getImageView().clearAnimation();
+      }
+    }
+  }
+);
+}

@@ -1,5 +1,0 @@
-{
-  displayBitmap(bitmap);
-  clean();
-  super.onCancelled(bitmap);
-}

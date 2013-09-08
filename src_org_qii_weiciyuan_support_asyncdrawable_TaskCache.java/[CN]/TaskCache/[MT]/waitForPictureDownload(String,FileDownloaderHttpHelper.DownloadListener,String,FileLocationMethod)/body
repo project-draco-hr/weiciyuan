@@ -1,0 +1,41 @@
+{
+  while (true) {
+    DownloadWorker downloadWorker=TaskCache.downloadTasks.get(url);
+    boolean localFileExist=new File(savedPath).exists();
+    if (downloadWorker == null) {
+      if (!localFileExist) {
+        DownloadWorker newWorker=new DownloadWorker(url,method);
+synchronized (backgroundWifiDownloadPicturesWorkLock) {
+          downloadWorker=TaskCache.downloadTasks.putIfAbsent(url,newWorker);
+        }
+        if (downloadWorker == null) {
+          downloadWorker=newWorker;
+          downloadWorker.executeOnExecutor(MyAsyncTask.DOWNLOAD_THREAD_POOL_EXECUTOR);
+        }
+      }
+ else {
+        return true;
+      }
+    }
+    downloadWorker.addDownloadListener(downloadListener);
+    try {
+      return downloadWorker.get(30,TimeUnit.SECONDS);
+    }
+ catch (    InterruptedException e) {
+      Utility.printStackTrace(e);
+      Thread.currentThread().interrupt();
+      return false;
+    }
+catch (    ExecutionException e) {
+      Utility.printStackTrace(e);
+      return false;
+    }
+catch (    TimeoutException e) {
+      Utility.printStackTrace(e);
+      return false;
+    }
+catch (    CancellationException e) {
+      removeDownloadTask(url,downloadWorker);
+    }
+  }
+}

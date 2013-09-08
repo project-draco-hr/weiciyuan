@@ -1,0 +1,3 @@
+{
+  return mViewAbove.getCurrentItem() == 0 || mViewAbove.getCurrentItem() == 2;
+}

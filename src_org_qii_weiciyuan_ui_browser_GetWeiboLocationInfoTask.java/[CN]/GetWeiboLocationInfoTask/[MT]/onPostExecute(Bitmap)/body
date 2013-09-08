@@ -1,0 +1,4 @@
+{
+  mapView.setImageBitmap(s);
+  super.onPostExecute(s);
+}

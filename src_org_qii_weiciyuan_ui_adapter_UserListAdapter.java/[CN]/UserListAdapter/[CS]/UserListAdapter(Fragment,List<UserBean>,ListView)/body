@@ -1,0 +1,17 @@
+{
+  this.bean=bean;
+  this.commander=TimeLineBitmapDownloader.getInstance();
+  this.inflater=activity.getActivity().getLayoutInflater();
+  this.listView=listView;
+  this.activity=activity;
+  defaultBG=activity.getResources().getColor(R.color.transparent);
+  checkedBG=ThemeUtility.getColor(R.attr.listview_checked_color);
+  listView.setRecyclerListener(new AbsListView.RecyclerListener(){
+    @Override public void onMovedToScrapHeap(    View view){
+      ViewHolder holder=(ViewHolder)view.getTag();
+      if (holder == null)       return;
+      holder.avatar.setImageDrawable(null);
+    }
+  }
+);
+}

@@ -1,0 +1,8 @@
+{
+synchronized (lock) {
+    if (instance == null) {
+      instance=new TimeLineBitmapDownloader(new Handler(Looper.getMainLooper()));
+    }
+  }
+  return instance;
+}

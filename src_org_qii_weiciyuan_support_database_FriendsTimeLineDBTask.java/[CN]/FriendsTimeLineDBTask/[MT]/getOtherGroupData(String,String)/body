@@ -1,0 +1,26 @@
+{
+  List<MessageTimeLineData> data=new ArrayList<MessageTimeLineData>();
+  TimeLinePosition position=getPosition(accountId);
+  MessageListBean msgList=getHomeLineMsgList(accountId,position.position + DB_CACHE_COUNT_OFFSET);
+  MessageTimeLineData home=new MessageTimeLineData("0",msgList,position);
+  data.add(home);
+  MessageTimeLineData biGroup=HomeOtherGroupTimeLineDBTask.getTimeLineData(accountId,"1");
+  data.add(biGroup);
+  GroupListBean groupListBean=GroupDBTask.get(accountId);
+  if (groupListBean != null) {
+    List<GroupBean> lists=groupListBean.getLists();
+    for (    GroupBean groupBean : lists) {
+      MessageTimeLineData dbMsg=HomeOtherGroupTimeLineDBTask.getTimeLineData(accountId,groupBean.getId());
+      data.add(dbMsg);
+    }
+  }
+  Iterator<MessageTimeLineData> iterator=data.iterator();
+  while (iterator.hasNext()) {
+    MessageTimeLineData single=iterator.next();
+    if (single.groupId.equals(exceptGroupId)) {
+      iterator.remove();
+      break;
+    }
+  }
+  return data;
+}

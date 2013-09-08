@@ -5,7 +5,7 @@
   pullToRefreshListView=(PullToRefreshListView)view.findViewById(R.id.listView);
   pullToRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>(){
     @Override public void onRefresh(    PullToRefreshBase<ListView> refreshView){
-      refresh();
+      loadNewMsg();
     }
   }
 );
@@ -18,8 +18,9 @@
   footerView=inflater.inflate(R.layout.listview_footer_layout,null);
   getListView().addFooterView(footerView);
   dismissFooterView();
-  userListAdapter=new UserListAdapter(AbstractUserListFragment.this,((AbstractAppActivity)getActivity()).getBitmapDownloader(),bean.getUsers(),getListView());
+  userListAdapter=new UserListAdapter(AbstractUserListFragment.this,bean.getUsers(),getListView());
   pullToRefreshListView.setAdapter(userListAdapter);
+  pullToRefreshListView.setOnPullEventListener(getPullEventListener());
   pullToRefreshListView.setOnScrollListener(new AbsListView.OnScrollListener(){
     @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
 switch (scrollState) {

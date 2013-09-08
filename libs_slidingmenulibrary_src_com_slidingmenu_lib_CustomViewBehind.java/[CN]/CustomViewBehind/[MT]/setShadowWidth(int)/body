@@ -1,0 +1,4 @@
+{
+  mShadowWidth=width;
+  invalidate();
+}

@@ -1,19 +1,9 @@
 {
-  Intent intent;
 switch (item.getItemId()) {
-case R.id.name:
-    intent=new Intent(getActivity(),MyInfoActivity.class);
-  intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-intent.putExtra("user",GlobalContext.getInstance().getAccountBean().getInfo());
-intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
-startActivity(intent);
-break;
-case R.id.write_weibo:
-intent=new Intent(getActivity(),WriteWeiboActivity.class);
-intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
-startActivity(intent);
+case R.id.menu_write_dm:
+    Intent intent=new Intent(getActivity(),DMSelectUserActivity.class);
+  startActivityForResult(intent,0);
 break;
 }
-return true;
+return super.onOptionsItemSelected(item);
 }

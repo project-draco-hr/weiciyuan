@@ -1,0 +1,9 @@
+{
+  paramEditText.requestFocus();
+  paramEditText.post(new Runnable(){
+    @Override public void run(){
+      ((InputMethodManager)GlobalContext.getInstance().getSystemService("input_method")).showSoftInput(paramEditText,0);
+    }
+  }
+);
+}

@@ -1,0 +1,3 @@
+SparseBooleanArray positions
+long[] ids
+ActionMode mode

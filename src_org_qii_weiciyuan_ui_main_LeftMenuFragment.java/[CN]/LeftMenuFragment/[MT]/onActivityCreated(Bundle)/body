@@ -1,0 +1,27 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  if (savedInstanceState != null) {
+    currentIndex=savedInstanceState.getInt("currentIndex");
+    mentionsWeiboUnreadCount=savedInstanceState.getInt("mentionsWeiboUnreadCount");
+    mentionsCommentUnreadCount=savedInstanceState.getInt("mentionsCommentUnreadCount");
+    commentsToMeUnreadCount=savedInstanceState.getInt("commentsToMeUnreadCount");
+    commentsTabIndex=savedInstanceState.getInt("commentsTabIndex");
+    mentionsTabIndex=savedInstanceState.getInt("mentionsTabIndex");
+    searchTabIndex=savedInstanceState.getInt("searchTabIndex");
+    firstStart=savedInstanceState.getBoolean("firstStart");
+  }
+ else {
+    readUnreadCountFromDB();
+  }
+  if (currentIndex == -1) {
+    currentIndex=GlobalContext.getInstance().getAccountBean().getNavigationPosition() / 10;
+  }
+  rightFragments.append(HOME_INDEX,((MainTimeLineActivity)getActivity()).getFriendsTimeLineFragment());
+  rightFragments.append(MENTIONS_INDEX,((MainTimeLineActivity)getActivity()).getMentionsTimeLineFragment());
+  rightFragments.append(COMMENTS_INDEX,((MainTimeLineActivity)getActivity()).getCommentsTimeLineFragment());
+  rightFragments.append(SEARCH_INDEX,((MainTimeLineActivity)getActivity()).getSearchFragment());
+  rightFragments.append(DM_INDEX,((MainTimeLineActivity)getActivity()).getDMFragment());
+  rightFragments.append(FAV_INDEX,((MainTimeLineActivity)getActivity()).getFavFragment());
+  rightFragments.append(PROFILE_INDEX,((MainTimeLineActivity)getActivity()).getMyProfileFragment());
+  switchCategory(currentIndex);
+}

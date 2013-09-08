@@ -1,4 +1,0 @@
-{
-  RepostsTimeLineByIdDao dao=new RepostsTimeLineByIdDao(token,id);
-  return dao.getGSONMsgList();
-}

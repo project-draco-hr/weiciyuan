@@ -6,6 +6,11 @@ case android.R.id.home:
   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
 return true;
+case R.id.menu_edit:
+intent=new Intent(this,EditMyProfileActivity.class);
+intent.putExtra("userBean",GlobalContext.getInstance().getAccountBean().getInfo());
+startActivity(intent);
+return true;
 case R.id.menu_at:
 intent=new Intent(this,WriteWeiboActivity.class);
 intent.putExtra("token",getToken());
@@ -37,7 +42,7 @@ followOrUnfollowTask.execute();
 break;
 case R.id.menu_add_to_app_filter:
 if (!TextUtils.isEmpty(bean.getScreen_name())) {
-FilterDBTask.addFilterKeyword(bean.getScreen_name());
+FilterDBTask.addFilterKeyword(FilterDBTask.TYPE_USER,bean.getScreen_name());
 Toast.makeText(this,getString(R.string.filter_successfully),Toast.LENGTH_SHORT).show();
 }
 break;

@@ -1,0 +1,28 @@
+{
+  Geocoder geocoder=new Geocoder(activity,Locale.getDefault());
+  List<Address> addresses=null;
+  try {
+    if (!Utility.isGPSLocationCorrect(geoBean)) {
+      publishProgress("");
+    }
+    addresses=geocoder.getFromLocation(geoBean.getLat(),geoBean.getLon(),1);
+  }
+ catch (  IOException e) {
+  }
+  if (addresses != null && addresses.size() > 0) {
+    Address address=addresses.get(0);
+    StringBuilder builder=new StringBuilder();
+    int size=address.getMaxAddressLineIndex();
+    for (int i=0; i < size; i++) {
+      builder.append(address.getAddressLine(i));
+    }
+    publishProgress(builder.toString());
+  }
+  MapDao dao=new MapDao(GlobalContext.getInstance().getSpecialToken(),geoBean.getLat(),geoBean.getLon());
+  try {
+    return dao.getMap();
+  }
+ catch (  WeiboException e) {
+    return null;
+  }
+}

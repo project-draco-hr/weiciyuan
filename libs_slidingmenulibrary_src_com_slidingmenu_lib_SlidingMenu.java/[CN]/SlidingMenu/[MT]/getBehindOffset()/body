@@ -1,0 +1,3 @@
+{
+  return ((RelativeLayout.LayoutParams)mViewBehind.getLayoutParams()).rightMargin;
+}

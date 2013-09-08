@@ -1,0 +1,14 @@
+{
+  if (DEBUG) {
+    Log.d(LOG_TAG,String.format("onSizeChanged. W: %d, H: %d",w,h));
+  }
+  super.onSizeChanged(w,h,oldw,oldh);
+  refreshLoadingViewsSize();
+  refreshRefreshableViewSize(w,h);
+  post(new Runnable(){
+    @Override public void run(){
+      requestLayout();
+    }
+  }
+);
+}

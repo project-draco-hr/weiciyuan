@@ -1,0 +1,28 @@
+{
+  boolean handled=false;
+  if (mZoomEnabled) {
+switch (ev.getAction()) {
+case MotionEvent.ACTION_DOWN:
+      v.getParent().requestDisallowInterceptTouchEvent(true);
+    cancelFling();
+  break;
+case MotionEvent.ACTION_CANCEL:
+case MotionEvent.ACTION_UP:
+if (getScale() < mMinScale) {
+  RectF rect=getDisplayRect();
+  if (null != rect) {
+    v.post(new AnimatedZoomRunnable(getScale(),mMinScale,rect.centerX(),rect.centerY()));
+    handled=true;
+  }
+}
+break;
+}
+if (null != mGestureDetector && mGestureDetector.onTouchEvent(ev)) {
+handled=true;
+}
+if (null != mScaleDragDetector && mScaleDragDetector.onTouchEvent(ev)) {
+handled=true;
+}
+}
+return handled;
+}

@@ -1,0 +1,7 @@
+{
+  this.bean=bean;
+  this.commander=TimeLineBitmapDownloader.getInstance();
+  this.inflater=fragment.getActivity().getLayoutInflater();
+  this.listView=listView;
+  this.fragment=fragment;
+}

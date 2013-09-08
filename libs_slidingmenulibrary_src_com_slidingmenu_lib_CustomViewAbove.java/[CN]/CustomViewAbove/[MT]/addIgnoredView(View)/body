@@ -1,0 +1,5 @@
+{
+  if (!mIgnoredViews.contains(v)) {
+    mIgnoredViews.add(v);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  if (isCommentList)   bindCommentData(holder,position);
+ else   bindRepostData(holder,position);
+}

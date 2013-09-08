@@ -1,0 +1,3 @@
+{
+  return tabMap.get(COMMENTS_BY_ME_CHILD_POSITION);
+}

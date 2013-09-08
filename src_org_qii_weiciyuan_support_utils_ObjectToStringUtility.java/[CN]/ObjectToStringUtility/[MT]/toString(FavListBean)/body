@@ -1,0 +1,7 @@
+{
+  StringBuilder builder=new StringBuilder();
+  for (  FavBean data : listBean.getFavorites()) {
+    builder.append(data.toString());
+  }
+  return builder.toString();
+}

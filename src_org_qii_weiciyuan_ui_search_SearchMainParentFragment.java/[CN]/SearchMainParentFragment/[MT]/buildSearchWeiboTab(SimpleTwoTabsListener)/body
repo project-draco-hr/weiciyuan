@@ -1,0 +1,8 @@
+{
+  ActionBar.Tab tab;
+  View customView=getActivity().getLayoutInflater().inflate(R.layout.ab_tab_custom_view_layout,null);
+  ((TextView)customView.findViewById(R.id.title)).setText(R.string.weibo);
+  tab=getActivity().getActionBar().newTab().setCustomView(customView).setTag(SearchStatusFragment.class.getName()).setTabListener(tabListener);
+  tabMap.append(SEARCH_WEIBO_CHILD_POSITION,tab);
+  return tab;
+}

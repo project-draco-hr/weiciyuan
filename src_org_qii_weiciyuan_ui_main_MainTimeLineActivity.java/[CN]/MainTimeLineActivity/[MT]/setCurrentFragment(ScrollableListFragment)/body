@@ -1,0 +1,3 @@
+{
+  this.currentFragment=fragment;
+}

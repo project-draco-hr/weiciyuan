@@ -1,4 +1,0 @@
-{
-  deleteAllHomes(accountId);
-  addHomeLineMsg(list,accountId);
-}

@@ -1,0 +1,7 @@
+{
+  if (oldValue != null && oldValue.getSize() > 0) {
+    getItemList().addAll(oldValue.getItemList());
+    setTotal_number(oldValue.getTotal_number());
+    this.statuses.addAll(oldValue.getItemList());
+  }
+}

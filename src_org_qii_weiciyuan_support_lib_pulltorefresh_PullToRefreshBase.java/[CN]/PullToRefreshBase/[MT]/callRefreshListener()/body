@@ -1,0 +1,13 @@
+{
+  if (null != mOnRefreshListener) {
+    mOnRefreshListener.onRefresh(this);
+  }
+ else   if (null != mOnRefreshListener2) {
+    if (mCurrentMode == Mode.PULL_FROM_START) {
+      mOnRefreshListener2.onPullDownToRefresh(this);
+    }
+ else     if (mCurrentMode == Mode.PULL_FROM_END) {
+      mOnRefreshListener2.onPullUpToRefresh(this);
+    }
+  }
+}

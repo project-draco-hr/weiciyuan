@@ -1,0 +1,36 @@
+{
+  if (!mListViewExtrasEnabled) {
+    super.onReset();
+    return;
+  }
+  final LoadingLayout originalLoadingLayout, listViewLoadingLayout;
+  final int scrollToHeight, selection;
+  final boolean scrollLvToEdge;
+switch (getCurrentMode()) {
+case MANUAL_REFRESH_ONLY:
+case PULL_FROM_END:
+    originalLoadingLayout=getFooterLayout();
+  listViewLoadingLayout=mFooterLoadingView;
+selection=mRefreshableView.getCount() - 1;
+scrollToHeight=getFooterSize();
+scrollLvToEdge=Math.abs(mRefreshableView.getLastVisiblePosition() - selection) <= 1;
+break;
+case PULL_FROM_START:
+default :
+originalLoadingLayout=getHeaderLayout();
+listViewLoadingLayout=mHeaderLoadingView;
+scrollToHeight=-getHeaderSize();
+selection=0;
+scrollLvToEdge=Math.abs(mRefreshableView.getFirstVisiblePosition() - selection) <= 1;
+break;
+}
+if (listViewLoadingLayout.getVisibility() == View.VISIBLE) {
+originalLoadingLayout.showInvisibleViews();
+listViewLoadingLayout.setVisibility(View.GONE);
+if (scrollLvToEdge && getState() != State.MANUAL_REFRESHING) {
+mRefreshableView.setSelection(selection);
+setHeaderScroll(scrollToHeight);
+}
+}
+super.onReset();
+}

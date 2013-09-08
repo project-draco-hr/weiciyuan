@@ -1,0 +1,4 @@
+{
+  musicReceiver=new MusicReceiver();
+  registerReceiver(musicReceiver,AppEventAction.getSystemMusicBroadcastFilterAction());
+}

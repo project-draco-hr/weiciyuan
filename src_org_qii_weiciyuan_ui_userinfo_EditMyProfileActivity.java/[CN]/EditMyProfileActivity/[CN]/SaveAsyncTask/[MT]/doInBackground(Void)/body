@@ -1,0 +1,15 @@
+{
+  EditMyProfileDao dao=new EditMyProfileDao(GlobalContext.getInstance().getSpecialToken(),screenName);
+  dao.setUrl(url);
+  dao.setDescription(description);
+  dao.setAvatar(picPath);
+  try {
+    return dao.update();
+  }
+ catch (  WeiboException e) {
+    this.e=e;
+    e.printStackTrace();
+    cancel(true);
+  }
+  return null;
+}

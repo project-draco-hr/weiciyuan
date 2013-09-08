@@ -1,0 +1,5 @@
+{
+synchronized (lock) {
+    instance=new TimeLineBitmapDownloader(new Handler(Looper.getMainLooper()));
+  }
+}

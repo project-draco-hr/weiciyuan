@@ -2,5 +2,6 @@
   this.mode=null;
   listView.clearChoices();
   adapter.notifyDataSetChanged();
-  ((AbstractTimeLineFragment)fragment).setmActionMode(null);
+  if (fragment instanceof AbstractTimeLineFragment)   ((AbstractTimeLineFragment)fragment).setmActionMode(null);
+  if (fragment instanceof BrowserWeiboMsgFragment)   ((BrowserWeiboMsgFragment)fragment).setmActionMode(null);
 }

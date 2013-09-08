@@ -1,0 +1,3 @@
+{
+  return PULL_FROM_START;
+}

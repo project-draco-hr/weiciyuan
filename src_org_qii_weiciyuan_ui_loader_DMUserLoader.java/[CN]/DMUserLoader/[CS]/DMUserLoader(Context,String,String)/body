@@ -1,0 +1,5 @@
+{
+  super(context);
+  this.token=token;
+  this.cursor=cursor;
+}

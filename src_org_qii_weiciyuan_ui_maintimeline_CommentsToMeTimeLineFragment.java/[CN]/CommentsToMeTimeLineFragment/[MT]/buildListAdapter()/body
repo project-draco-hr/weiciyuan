@@ -1,0 +1,6 @@
+{
+  CommentListAdapter adapter=new CommentListAdapter(this,getList().getItemList(),getListView(),true,false);
+  adapter.setTopTipBar(newMsgTipBar);
+  timeLineAdapter=adapter;
+  pullToRefreshListView.setAdapter(timeLineAdapter);
+}

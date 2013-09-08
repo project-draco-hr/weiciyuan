@@ -1,3 +1,4 @@
 {
   haveGPS.setVisibility(View.VISIBLE);
+  CheatSheet.setup(WriteWeiboActivity.this,haveGPS,location);
 }

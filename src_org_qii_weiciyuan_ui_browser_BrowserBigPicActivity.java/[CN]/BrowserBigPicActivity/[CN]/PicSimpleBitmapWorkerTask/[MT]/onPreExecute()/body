@@ -1,5 +1,0 @@
-{
-  super.onPreExecute();
-  pb.setVisibility(View.VISIBLE);
-  webView.setVisibility(View.INVISIBLE);
-}

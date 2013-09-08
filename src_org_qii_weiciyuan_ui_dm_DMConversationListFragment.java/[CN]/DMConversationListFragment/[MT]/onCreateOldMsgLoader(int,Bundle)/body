@@ -1,0 +1,4 @@
+{
+  String token=GlobalContext.getInstance().getSpecialToken();
+  return new DMConversationLoader(getActivity(),token,userBean.getId(),String.valueOf(page + 1));
+}

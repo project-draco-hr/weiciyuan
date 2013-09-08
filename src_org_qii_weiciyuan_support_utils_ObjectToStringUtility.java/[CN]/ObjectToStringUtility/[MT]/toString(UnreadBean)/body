@@ -1,0 +1,3 @@
+{
+  return "unread count: mention comments=" + bean.getMention_cmt() + ","+ "mention weibos="+ bean.getMention_status()+ ","+ "comments"+ bean.getCmt();
+}

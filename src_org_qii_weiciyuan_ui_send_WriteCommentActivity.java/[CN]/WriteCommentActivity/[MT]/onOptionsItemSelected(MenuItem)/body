@@ -26,6 +26,9 @@ Intent intent=new Intent(WriteCommentActivity.this,AtUserActivity.class);
 intent.putExtra("token",token);
 startActivityForResult(intent,AT_USER);
 break;
+case R.id.menu_clear:
+clearContentMenu();
+break;
 }
 return true;
 }

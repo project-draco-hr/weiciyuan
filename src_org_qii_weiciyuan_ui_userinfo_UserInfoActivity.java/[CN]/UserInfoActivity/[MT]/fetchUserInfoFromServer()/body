@@ -1,0 +1,7 @@
+{
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setTitle(bean.getScreen_name());
+  FetchingDataDialog dialog=new FetchingDataDialog();
+  getSupportFragmentManager().beginTransaction().add(dialog,FetchingDataDialog.class.getName()).commit();
+  getSupportLoaderManager().initLoader(REFRESH_LOADER_ID,null,refreshCallback);
+}

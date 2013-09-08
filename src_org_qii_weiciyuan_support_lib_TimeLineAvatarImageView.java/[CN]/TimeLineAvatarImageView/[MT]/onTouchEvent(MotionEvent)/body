@@ -1,0 +1,15 @@
+{
+  if (!showPressedState || !isClickable() || !isLongClickable())   return super.onTouchEvent(event);
+switch (event.getActionMasked()) {
+case MotionEvent.ACTION_DOWN:
+    pressed=true;
+  invalidate();
+break;
+case MotionEvent.ACTION_UP:
+case MotionEvent.ACTION_CANCEL:
+pressed=false;
+invalidate();
+break;
+}
+return super.onTouchEvent(event);
+}

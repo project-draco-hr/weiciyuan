@@ -1,0 +1,7 @@
+{
+  SearchUserFragment fragment=((SearchUserFragment)getChildFragmentManager().findFragmentByTag(SearchUserFragment.class.getName()));
+  if (fragment == null) {
+    fragment=new SearchUserFragment();
+  }
+  return fragment;
+}

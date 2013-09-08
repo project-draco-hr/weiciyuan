@@ -1,0 +1,8 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  viewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
+  viewPager.setOffscreenPageLimit(2);
+  viewPager.setOnPageChangeListener(onPageChangeListener);
+  CommentsTimeLinePagerAdapter adapter=new CommentsTimeLinePagerAdapter(this,viewPager,getChildFragmentManager(),childrenFragments);
+  viewPager.setAdapter(adapter);
+}

@@ -1,3 +1,4 @@
 {
-  pullToRefreshListView.startRefreshNow();
+  pullToRefreshListView.setRefreshing();
+  loadNewMsg();
 }

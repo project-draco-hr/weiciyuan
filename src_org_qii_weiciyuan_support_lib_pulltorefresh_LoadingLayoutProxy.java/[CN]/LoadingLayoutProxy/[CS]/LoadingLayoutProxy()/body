@@ -1,0 +1,3 @@
+{
+  mLoadingLayouts=new HashSet<LoadingLayout>();
+}

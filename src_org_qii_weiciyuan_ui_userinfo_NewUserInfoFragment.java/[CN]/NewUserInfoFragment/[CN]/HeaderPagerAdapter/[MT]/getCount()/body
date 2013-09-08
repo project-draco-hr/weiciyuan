@@ -1,0 +1,3 @@
+{
+  return userBean.isVerified() ? 3 : 2;
+}

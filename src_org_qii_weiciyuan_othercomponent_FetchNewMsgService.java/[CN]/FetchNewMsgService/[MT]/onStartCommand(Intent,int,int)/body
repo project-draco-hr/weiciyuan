@@ -1,9 +1,0 @@
-{
-  if (SettingUtility.disableFetchAtNight() && isNowNight()) {
-    stopSelf();
-  }
- else {
-    startFetchNewMsg();
-  }
-  return super.onStartCommand(intent,flags,startId);
-}

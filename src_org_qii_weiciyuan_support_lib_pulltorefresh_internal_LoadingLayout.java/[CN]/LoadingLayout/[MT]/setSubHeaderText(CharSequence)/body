@@ -1,0 +1,13 @@
+{
+  if (null != mSubHeaderText) {
+    if (TextUtils.isEmpty(label)) {
+      mSubHeaderText.setVisibility(View.GONE);
+    }
+ else {
+      mSubHeaderText.setText(label);
+      if (View.GONE == mSubHeaderText.getVisibility()) {
+        mSubHeaderText.setVisibility(View.VISIBLE);
+      }
+    }
+  }
+}

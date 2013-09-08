@@ -1,0 +1,5 @@
+{
+  UserBean userBean=comment.getUser();
+  String username=(userBean != null ? userBean.getScreen_name() : "user is null");
+  return String.format("%s @%s:%s",TimeTool.getListTime(comment.getMills()),username,comment.getText());
+}

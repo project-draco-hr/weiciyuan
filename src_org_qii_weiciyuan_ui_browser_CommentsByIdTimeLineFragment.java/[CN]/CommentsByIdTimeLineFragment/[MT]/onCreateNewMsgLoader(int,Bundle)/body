@@ -1,0 +1,5 @@
+{
+  String token=GlobalContext.getInstance().getSpecialToken();
+  String sinceId=null;
+  return new CommentsByIdMsgLoader(getActivity(),msg.getId(),token,sinceId,null);
+}

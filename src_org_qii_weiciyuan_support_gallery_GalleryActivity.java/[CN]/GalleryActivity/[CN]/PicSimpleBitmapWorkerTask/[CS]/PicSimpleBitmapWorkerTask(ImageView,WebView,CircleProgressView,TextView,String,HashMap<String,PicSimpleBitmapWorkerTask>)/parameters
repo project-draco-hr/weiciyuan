@@ -1,0 +1,6 @@
+ImageView iv
+WebView gif
+CircleProgressView spinner
+TextView readError
+String url
+HashMap<String,PicSimpleBitmapWorkerTask> taskMap

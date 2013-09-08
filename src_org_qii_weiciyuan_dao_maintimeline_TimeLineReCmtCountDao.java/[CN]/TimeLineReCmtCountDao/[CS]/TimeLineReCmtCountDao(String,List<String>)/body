@@ -1,0 +1,7 @@
+{
+  if (msgIds == null)   throw new IllegalArgumentException("msgIds cant be null");
+  int size=(msgIds.size() >= 100 ? 99 : msgIds.size());
+  this.msgIds=new ArrayList<String>();
+  this.access_token=access_token;
+  this.msgIds.addAll(msgIds.subList(0,size));
+}

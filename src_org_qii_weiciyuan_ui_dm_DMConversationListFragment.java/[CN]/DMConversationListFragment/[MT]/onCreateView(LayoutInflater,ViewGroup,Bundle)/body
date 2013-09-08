@@ -1,0 +1,52 @@
+{
+  View view=inflater.inflate(R.layout.dmconversationlistfragment_layout,container,false);
+  empty=(TextView)view.findViewById(R.id.empty);
+  progressBar=(ProgressBar)view.findViewById(R.id.progressbar);
+  pullToRefreshListView=(PullToRefreshListView)view.findViewById(R.id.listView);
+  pullToRefreshListView.setMode(PullToRefreshBase.Mode.BOTH);
+  pullToRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>(){
+    @Override public void onPullDownToRefresh(    PullToRefreshBase<ListView> refreshView){
+      loadOldMsg(null);
+    }
+    @Override public void onPullUpToRefresh(    PullToRefreshBase<ListView> refreshView){
+      loadNewMsg();
+    }
+  }
+);
+  getListView().setScrollingCacheEnabled(false);
+  getListView().setHeaderDividersEnabled(false);
+  getListView().setStackFromBottom(true);
+  footerView=inflater.inflate(R.layout.listview_footer_layout,null);
+  getListView().addFooterView(footerView);
+  dismissFooterView();
+  et=(EditText)view.findViewById(R.id.content);
+  view.findViewById(R.id.send).setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      send();
+    }
+  }
+);
+  ImageButton emoticon=(ImageButton)view.findViewById(R.id.emoticon);
+  emoticon.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      if (smiley.isShown()) {
+        hideSmileyPicker(true);
+      }
+ else {
+        showSmileyPicker(SmileyPickerUtility.isKeyBoardShow(getActivity()));
+      }
+    }
+  }
+);
+  smiley=(SmileyPicker)view.findViewById(R.id.smiley_picker);
+  smiley.setEditText(getActivity(),(ViewGroup)view.findViewById(R.id.root_layout),et);
+  mContainer=(LinearLayout)view.findViewById(R.id.container);
+  et.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      hideSmileyPicker(true);
+    }
+  }
+);
+  buildListAdapter();
+  return view;
+}

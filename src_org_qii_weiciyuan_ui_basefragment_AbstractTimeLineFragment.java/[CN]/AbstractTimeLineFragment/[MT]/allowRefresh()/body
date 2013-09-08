@@ -1,3 +1,4 @@
 {
-  return Utility.isTaskStopped(newTask) && getPullToRefreshListView().getVisibility() == View.VISIBLE;
+  boolean isNewMsgLoaderLoading=getLoaderManager().getLoader(NEW_MSG_LOADER_ID) != null;
+  return getPullToRefreshListView().getVisibility() == View.VISIBLE && !isNewMsgLoaderLoading;
 }

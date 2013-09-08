@@ -1,0 +1,3 @@
+FavListBean list
+int page
+String accountId

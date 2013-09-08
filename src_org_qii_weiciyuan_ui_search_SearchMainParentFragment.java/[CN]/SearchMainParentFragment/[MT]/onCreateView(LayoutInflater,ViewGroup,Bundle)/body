@@ -1,0 +1,5 @@
+{
+  View view=inflater.inflate(R.layout.viewpager_layout,container,false);
+  viewPager=(ViewPager)view;
+  return view;
+}

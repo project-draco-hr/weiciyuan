@@ -1,0 +1,6 @@
+{
+  super.onResume();
+  if (userBean != null && userBean.getId() != null && userBean.getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+    GlobalContext.getInstance().registerForAccountChangeListener(myProfileInfoChangeListener);
+  }
+}

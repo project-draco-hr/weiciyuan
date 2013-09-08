@@ -1,0 +1,72 @@
+{
+  Notification.Builder builder=new Notification.Builder(getBaseContext()).setTicker(NotificationUtility.getTicker(unreadBean)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
+  int count=(unreadBean.getMention_status() > data.getSize() ? unreadBean.getMention_status() : data.getSize());
+  builder.setContentTitle(String.format(GlobalContext.getInstance().getString(R.string.new_mentions_weibo),String.valueOf(count)));
+  if (data.getSize() > 1)   builder.setNumber(count);
+  if (clearNotificationEventReceiver != null) {
+    GlobalContext.getInstance().unregisterReceiver(clearNotificationEventReceiver);
+    JBMentionsWeiboNotificationServiceHelper.clearNotificationEventReceiver=null;
+  }
+  clearNotificationEventReceiver=new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      new Thread(new Runnable(){
+        @Override public void run(){
+          try {
+            new ClearUnreadDao(accountBean.getAccess_token()).clearMentionStatusUnread(unreadBean,accountBean.getUid());
+          }
+ catch (          WeiboException ignored) {
+          }
+ finally {
+            GlobalContext.getInstance().unregisterReceiver(clearNotificationEventReceiver);
+            JBMentionsWeiboNotificationServiceHelper.clearNotificationEventReceiver=null;
+          }
+        }
+      }
+).start();
+    }
+  }
+;
+  IntentFilter intentFilter=new IntentFilter(RESET_UNREAD_MENTIONS_WEIBO_ACTION);
+  GlobalContext.getInstance().registerReceiver(clearNotificationEventReceiver,intentFilter);
+  Intent broadcastIntent=new Intent(RESET_UNREAD_MENTIONS_WEIBO_ACTION);
+  PendingIntent deletedPendingIntent=PendingIntent.getBroadcast(GlobalContext.getInstance(),0,broadcastIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+  builder.setDeleteIntent(deletedPendingIntent);
+  Intent intent=new Intent(getApplicationContext(),WriteCommentActivity.class);
+  intent.putExtra("token",accountBean.getAccess_token());
+  intent.putExtra("msg",data.getItem(0));
+  PendingIntent pendingIntent=PendingIntent.getActivity(getApplicationContext(),0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+  builder.addAction(R.drawable.comment_light,getApplicationContext().getString(R.string.comments),pendingIntent);
+  if (data.getSize() > 1) {
+    Intent nextIntent=new Intent(JBMentionsWeiboNotificationServiceHelper.this,JBMentionsWeiboNotificationServiceHelper.class);
+    nextIntent.putExtra(NotificationServiceHelper.ACCOUNT_ARG,accountBean);
+    nextIntent.putExtra(NotificationServiceHelper.MENTIONS_WEIBO_ARG,data);
+    nextIntent.putExtra(NotificationServiceHelper.UNREAD_ARG,unreadBean);
+    String actionName;
+    int nextIndex;
+    int actionDrawable;
+    if (currentIndex < data.getSize() - 1) {
+      nextIndex=currentIndex + 1;
+      actionName=getString(R.string.next_message);
+      actionDrawable=R.drawable.notification_action_next;
+    }
+ else {
+      nextIndex=0;
+      actionName=getString(R.string.first_message);
+      actionDrawable=R.drawable.notification_action_previous;
+    }
+    nextIntent.putExtra(NotificationServiceHelper.CURRENT_INDEX_ARG,nextIndex);
+    PendingIntent retrySendIntent=PendingIntent.getService(JBMentionsWeiboNotificationServiceHelper.this,0,nextIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+    builder.addAction(actionDrawable,actionName,retrySendIntent);
+  }
+  Notification.BigTextStyle bigTextStyle=new Notification.BigTextStyle(builder);
+  bigTextStyle.setBigContentTitle("@" + data.getItem(currentIndex).getUser().getScreen_name() + getString(R.string.weibo_at_to_you));
+  bigTextStyle.bigText(data.getItem(currentIndex).getText());
+  String summaryText;
+  if (data.getSize() > 1)   summaryText=accountBean.getUsernick() + "(" + (currentIndex + 1)+ "/"+ data.getSize()+ ")";
+ else   summaryText=accountBean.getUsernick();
+  bigTextStyle.setSummaryText(summaryText);
+  builder.setStyle(bigTextStyle);
+  Utility.configVibrateLedRingTone(builder);
+  NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+  notificationManager.notify(getMentionsWeiboNotificationId(accountBean),builder.build());
+}

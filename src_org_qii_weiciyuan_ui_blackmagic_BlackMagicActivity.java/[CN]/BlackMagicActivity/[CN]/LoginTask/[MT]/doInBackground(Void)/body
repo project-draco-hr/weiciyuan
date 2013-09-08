@@ -1,20 +1,18 @@
 {
   try {
-    String token=new BMOAuthDao(username.getText().toString(),password.getText().toString(),appkey,appSecret).login();
-    UserBean user=new OAuthDao(token).getOAuthUserInfo();
+    String[] result=new BMOAuthDao(username.getText().toString(),password.getText().toString(),appkey,appSecret).login();
+    UserBean user=new OAuthDao(result[0]).getOAuthUserInfo();
     AccountBean account=new AccountBean();
-    account.setAccess_token(token);
-    account.setUsername(user.getName());
-    account.setUid(user.getId());
-    account.setUsernick(user.getScreen_name());
-    account.setAvatar_url(user.getProfile_image_url());
+    account.setAccess_token(result[0]);
     account.setInfo(user);
-    AccountDBTask.addOrUpdateAccount(account);
-    return token;
+    account.setExpires_time(System.currentTimeMillis() + Long.valueOf(result[1]) * 1000);
+    AccountDBTask.addOrUpdateAccount(account,true);
+    AppLogger.e("token expires in " + Utility.calcTokenExpiresInDays(account) + " days");
+    return result;
   }
  catch (  WeiboException e) {
     this.e=e;
     cancel(true);
   }
-  return "";
+  return null;
 }

@@ -1,0 +1,11 @@
+{
+  Intent intent=new Intent(context,WriteCommentActivity.class);
+  intent.setAction(WriteCommentActivity.ACTION_SEND_FAILED);
+  intent.putExtra("account",account);
+  intent.putExtra("content",content);
+  intent.putExtra("oriMsg",oriMsg);
+  intent.putExtra("comment_ori",comment_ori);
+  intent.putExtra("failedReason",failedReason);
+  intent.putExtra("draft",draft);
+  return intent;
+}

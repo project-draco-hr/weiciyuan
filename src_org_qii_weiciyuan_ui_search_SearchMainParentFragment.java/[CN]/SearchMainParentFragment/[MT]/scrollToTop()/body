@@ -1,0 +1,9 @@
+{
+  Fragment fragment=searchFragments.get(viewPager.getCurrentItem());
+  if (fragment instanceof AbstractTimeLineFragment) {
+    Utility.stopListViewScrollingAndScrollToTop(((AbstractTimeLineFragment)fragment).getListView());
+  }
+ else   if (fragment instanceof AbstractUserListFragment) {
+    Utility.stopListViewScrollingAndScrollToTop(((AbstractUserListFragment)fragment).getListView());
+  }
+}

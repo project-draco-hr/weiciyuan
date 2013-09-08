@@ -1,0 +1,6 @@
+{
+  this.view=view;
+  this.pb=this.view.getProgressBar();
+  this.retry=view.getRetryButton();
+  retry.setVisibility(View.INVISIBLE);
+}

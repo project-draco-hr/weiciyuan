@@ -1,0 +1,5 @@
+{
+  if (mSecondaryContent != null)   removeView(mSecondaryContent);
+  mSecondaryContent=v;
+  addView(mSecondaryContent);
+}

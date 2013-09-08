@@ -1,8 +1,0 @@
-{
-  String id=userBean.getId();
-  StatusesTimeLineDao dao=new StatusesTimeLineDao(token,id);
-  dao.setMax_id(beginId);
-  dao.setSince_id(endId);
-  MessageListBean result=dao.getGSONMsgList();
-  return result;
-}

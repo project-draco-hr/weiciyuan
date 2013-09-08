@@ -7,7 +7,7 @@
     drawable=holder.listview_root.getBackground();
     bg.put(holder,drawable);
   }
-  if (listView.getCheckedItemPosition() == position + 1)   holder.listview_root.setBackgroundColor(checkedBG);
+  if (listView.getCheckedItemPosition() == position + listView.getHeaderViewsCount())   holder.listview_root.setBackgroundColor(checkedBG);
   final MessageBean msg=bean.get(position);
   UserBean user=msg.getUser();
   if (user != null) {
@@ -30,70 +30,67 @@
     holder.avatar.setVisibility(View.INVISIBLE);
   }
   if (!TextUtils.isEmpty(msg.getListViewSpannableString())) {
+    boolean haveCachedHeight=msgHeights.get(msg.getIdLong()) != null;
+    ViewGroup.LayoutParams layoutParams=holder.content.getLayoutParams();
+    if (haveCachedHeight) {
+      layoutParams.height=msgHeights.get(msg.getIdLong());
+    }
+ else {
+      layoutParams.height=ViewGroup.LayoutParams.WRAP_CONTENT;
+    }
+    boolean haveCachedWidth=msgWidths.get(msg.getIdLong()) != null;
+    if (haveCachedWidth) {
+      layoutParams.width=msgWidths.get(msg.getIdLong());
+    }
+ else {
+      layoutParams.width=ViewGroup.LayoutParams.WRAP_CONTENT;
+    }
+    holder.content.requestLayout();
     holder.content.setText(msg.getListViewSpannableString());
+    if (!haveCachedHeight) {
+      msgHeights.append(msg.getIdLong(),layoutParams.height);
+    }
+    if (!haveCachedWidth) {
+      msgWidths.append(msg.getIdLong(),layoutParams.width);
+    }
   }
  else {
     ListViewTool.addJustHighLightLinks(msg);
     holder.content.setText(msg.getListViewSpannableString());
   }
-  holder.listview_root.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      if (!((AbstractTimeLineFragment)fragment).clearActionModeIfOpen()) {
-        Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
-        intent.putExtra("msg",msg);
-        intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-        fragment.startActivityForResult(intent,0);
-      }
-    }
-  }
-);
-  holder.username.setOnTouchListener(new View.OnTouchListener(){
-    @Override public boolean onTouch(    View v,    MotionEvent event){
-      holder.listview_root.onTouchEvent(event);
-      return false;
-    }
-  }
-);
-  holder.time.setOnTouchListener(new View.OnTouchListener(){
-    @Override public boolean onTouch(    View v,    MotionEvent event){
-      holder.listview_root.onTouchEvent(event);
-      return false;
-    }
-  }
-);
-  if (holder.content.getMovementMethod() != MyLinkMovementMethod.getInstance())   holder.content.setMovementMethod(MyLinkMovementMethod.getInstance());
-  if (holder.repost_content.getMovementMethod() != MyLinkMovementMethod.getInstance())   holder.repost_content.setMovementMethod(MyLinkMovementMethod.getInstance());
-  View.OnClickListener onClickListener=new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      TextView tv=(TextView)v;
-      int start=tv.getSelectionStart();
-      int end=tv.getSelectionEnd();
-      SpannableString completeText=(SpannableString)((TextView)v).getText();
-      boolean isNotLink=start == -1 || end == -1;
-      if (isNotLink && completeText.getSpanStart(this) == -1) {
-        holder.listview_root.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(),SystemClock.uptimeMillis(),MotionEvent.ACTION_DOWN,0,0,0));
-        holder.listview_root.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(),SystemClock.uptimeMillis(),MotionEvent.ACTION_UP,0,0,0));
-      }
-    }
-  }
-;
-  holder.content.setOnClickListener(onClickListener);
-  holder.repost_content.setOnClickListener(onClickListener);
   holder.time.setTime(msg.getMills());
+  if (holder.source != null)   holder.source.setText(msg.getSourceString());
   if (showOriStatus) {
-    if (msg.getReposts_count() == 0 && msg.getComments_count() == 0) {
-      holder.count_layout.setVisibility(View.GONE);
+    boolean checkRepostsCount=(msg.getReposts_count() != 0);
+    boolean checkCommentsCount=(msg.getComments_count() != 0);
+    boolean checkPic=(!TextUtils.isEmpty(msg.getThumbnail_pic()) || (msg.getRetweeted_status() != null && !TextUtils.isEmpty(msg.getRetweeted_status().getThumbnail_pic())));
+    checkPic=(checkPic && !SettingUtility.isEnablePic());
+    boolean checkGps=(msg.getGeo() != null);
+    if (!checkRepostsCount && !checkCommentsCount && !checkPic&& !checkGps) {
+      holder.count_layout.setVisibility(View.INVISIBLE);
     }
  else {
       holder.count_layout.setVisibility(View.VISIBLE);
-      if (msg.getReposts_count() > 0) {
+      if (checkPic) {
+        holder.timeline_pic.setVisibility(View.VISIBLE);
+      }
+ else {
+        holder.timeline_pic.setVisibility(View.GONE);
+      }
+      if (checkGps) {
+        holder.timeline_gps.setVisibility(View.VISIBLE);
+      }
+ else {
+        holder.timeline_gps.setVisibility(View.INVISIBLE);
+      }
+      if (checkRepostsCount) {
         holder.repost_count.setText(String.valueOf(msg.getReposts_count()));
         holder.repost_count.setVisibility(View.VISIBLE);
       }
  else {
         holder.repost_count.setVisibility(View.GONE);
       }
-      if (msg.getComments_count() > 0) {
+      if (checkCommentsCount) {
         holder.comment_count.setText(String.valueOf(msg.getComments_count()));
         holder.comment_count.setVisibility(View.VISIBLE);
       }
@@ -104,18 +101,26 @@
   }
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
+  holder.repost_content_pic_multi.setVisibility(View.GONE);
   holder.content_pic.setVisibility(View.GONE);
+  holder.content_pic_multi.setVisibility(View.GONE);
   if (!TextUtils.isEmpty(msg.getThumbnail_pic())) {
-    buildPic(msg,holder.content_pic,position);
+    if (msg.isMultiPics()) {
+      buildMultiPic(msg,holder.content_pic_multi);
+    }
+ else {
+      buildPic(msg,holder.content_pic,position);
+    }
   }
   MessageBean repost_msg=msg.getRetweeted_status();
   if (repost_msg != null && showOriStatus) {
-    holder.repost_layout.setVisibility(View.VISIBLE);
+    if (holder.repost_layout != null)     holder.repost_layout.setVisibility(View.VISIBLE);
     holder.repost_flag.setVisibility(View.VISIBLE);
-    buildRepostContent(repost_msg,holder,position);
+    if (holder.content_pic.getVisibility() != View.GONE)     holder.content_pic.setVisibility(View.GONE);
+    buildRepostContent(msg,repost_msg,holder,position);
   }
  else {
-    holder.repost_layout.setVisibility(View.GONE);
+    if (holder.repost_layout != null)     holder.repost_layout.setVisibility(View.GONE);
     holder.repost_flag.setVisibility(View.GONE);
   }
 }

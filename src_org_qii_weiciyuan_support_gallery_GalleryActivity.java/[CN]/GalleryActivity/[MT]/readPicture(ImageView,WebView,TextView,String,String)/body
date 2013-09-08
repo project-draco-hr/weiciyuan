@@ -1,0 +1,36 @@
+{
+  if (bitmapPath.endsWith(".gif")) {
+    readGif(gif,readError,url,bitmapPath);
+    return;
+  }
+  if (!ImageTool.isThisBitmapCanRead(bitmapPath)) {
+    Toast.makeText(GalleryActivity.this,R.string.download_finished_but_cant_read_picture_file,Toast.LENGTH_SHORT).show();
+  }
+  boolean isThisBitmapTooLarge=ImageTool.isThisBitmapTooLargeToRead(bitmapPath);
+  if (isThisBitmapTooLarge && !alreadyShowPicturesTooLargeHint) {
+    Toast.makeText(GalleryActivity.this,R.string.picture_is_too_large_so_enable_software_layer,Toast.LENGTH_LONG).show();
+    alreadyShowPicturesTooLargeHint=true;
+  }
+  if (isThisBitmapTooLarge) {
+    imageView.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+    PhotoView photoView=(PhotoView)imageView;
+    photoView.setMaxScale(15);
+  }
+  Bitmap bitmap=null;
+  try {
+    bitmap=ImageTool.decodeBitmapFromSDCard(bitmapPath,IMAGEVIEW_SOFT_LAYER_MAX_WIDTH,IMAGEVIEW_SOFT_LAYER_MAX_HEIGHT);
+  }
+ catch (  OutOfMemoryError ignored) {
+  }
+  if (bitmap != null) {
+    imageView.setVisibility(View.VISIBLE);
+    imageView.setImageBitmap(bitmap);
+    bindImageViewLongClickListener(imageView,url,bitmapPath);
+    readError.setVisibility(View.INVISIBLE);
+  }
+ else {
+    readError.setText(getString(R.string.picture_read_failed));
+    imageView.setVisibility(View.INVISIBLE);
+    readError.setVisibility(View.VISIBLE);
+  }
+}

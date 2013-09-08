@@ -1,0 +1,51 @@
+{
+  layout.avatar.checkVerified(msg.getUser());
+  if (msg.getUser() != null) {
+    if (TextUtils.isEmpty(msg.getUser().getRemark()))     layout.username.setText(msg.getUser().getScreen_name());
+ else     layout.username.setText(msg.getUser().getScreen_name() + "(" + msg.getUser().getRemark()+ ")");
+    TimeLineBitmapDownloader.getInstance().downloadAvatar(layout.avatar.getImageView(),msg.getUser());
+  }
+  layout.content.setText(msg.getListViewSpannableString());
+  layout.content.setMovementMethod(LongClickableLinkMovementMethod.getInstance());
+  layout.time.setText(msg.getTimeInFormat());
+  if (msg.getGeo() != null) {
+    layout.mapView.setVisibility(View.VISIBLE);
+    if (Utility.isTaskStopped(geoTask)) {
+      geoTask=new GetWeiboLocationInfoTask(getActivity(),msg.getGeo(),layout.mapView,layout.location);
+      geoTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    }
+  }
+ else {
+    layout.mapView.setVisibility(View.GONE);
+  }
+  if (!TextUtils.isEmpty(msg.getSource())) {
+    layout.source.setText(Html.fromHtml(msg.getSource()).toString());
+  }
+  layout.content_pic.setVisibility(View.GONE);
+  layout.content_pic_multi.setVisibility(View.GONE);
+  if (!TextUtils.isEmpty(msg.getBmiddle_pic()) && msg.getRetweeted_status() == null) {
+    displayPictures(msg,layout.content_pic_multi,layout.content_pic,refreshPic);
+  }
+  final MessageBean repostMsg=msg.getRetweeted_status();
+  layout.repost_layout.setVisibility(repostMsg != null ? View.VISIBLE : View.GONE);
+  if (repostMsg != null) {
+    layout.content_pic.setVisibility(View.GONE);
+    layout.repost_layout.setVisibility(View.VISIBLE);
+    layout.recontent.setVisibility(View.VISIBLE);
+    layout.recontent.setMovementMethod(LongClickableLinkMovementMethod.getInstance());
+    if (repostMsg.getUser() != null) {
+      layout.recontent.setText(repostMsg.getListViewSpannableString());
+      buildRepostCount();
+    }
+ else {
+      layout.recontent.setText(repostMsg.getListViewSpannableString());
+    }
+    layout.repost_pic.setVisibility(View.GONE);
+    layout.repost_pic_multi.setVisibility(View.GONE);
+    if (!TextUtils.isEmpty(repostMsg.getBmiddle_pic())) {
+      displayPictures(repostMsg,layout.repost_pic_multi,layout.repost_pic,refreshPic);
+    }
+  }
+  Utility.buildTabCount(commentTab,getString(R.string.comments),msg.getComments_count());
+  Utility.buildTabCount(repostTab,getString(R.string.repost),msg.getReposts_count());
+}

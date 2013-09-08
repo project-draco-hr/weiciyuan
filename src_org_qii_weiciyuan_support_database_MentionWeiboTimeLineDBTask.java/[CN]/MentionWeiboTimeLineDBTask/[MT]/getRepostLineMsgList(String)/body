@@ -1,0 +1,27 @@
+{
+  Gson gson=new Gson();
+  MessageListBean result=new MessageListBean();
+  List<MessageBean> msgList=new ArrayList<MessageBean>();
+  String sql="select * from " + RepostsTable.RepostDataTable.TABLE_NAME + " where "+ RepostsTable.RepostDataTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ RepostsTable.RepostDataTable.MBLOGID+ " desc";
+  Cursor c=getRsd().rawQuery(sql,null);
+  while (c.moveToNext()) {
+    String json=c.getString(c.getColumnIndex(RepostsTable.RepostDataTable.JSONDATA));
+    if (!TextUtils.isEmpty(json)) {
+      try {
+        MessageBean value=gson.fromJson(json,MessageBean.class);
+        value.getListViewSpannableString();
+        msgList.add(value);
+      }
+ catch (      JsonSyntaxException e) {
+        AppLogger.e(e.getMessage());
+      }
+    }
+ else {
+      msgList.add(null);
+    }
+  }
+  result.setStatuses(msgList);
+  c.close();
+  MentionTimeLineData mentionTimeLineData=new MentionTimeLineData(result,getPosition(accountId));
+  return mentionTimeLineData;
+}

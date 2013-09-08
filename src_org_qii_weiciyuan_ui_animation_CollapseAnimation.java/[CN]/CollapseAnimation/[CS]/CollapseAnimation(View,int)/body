@@ -1,0 +1,9 @@
+{
+  setDuration(duration);
+  mAnimatedView=view;
+  mViewLayoutParams=(LinearLayout.LayoutParams)view.getLayoutParams();
+  mIsVisibleAfter=(view.getVisibility() == View.VISIBLE);
+  mMarginStart=mViewLayoutParams.bottomMargin;
+  mMarginEnd=(mMarginStart == 0 ? (0 - view.getHeight()) : 0);
+  view.setVisibility(View.VISIBLE);
+}

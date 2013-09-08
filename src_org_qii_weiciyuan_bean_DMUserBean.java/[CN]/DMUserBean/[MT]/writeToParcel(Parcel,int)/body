@@ -1,0 +1,6 @@
+{
+  dest.writeInt(unread_count);
+  dest.writeLong(mills);
+  dest.writeParcelable(user,flags);
+  dest.writeParcelable(direct_message,flags);
+}

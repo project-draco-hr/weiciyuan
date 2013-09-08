@@ -1,0 +1,6 @@
+{
+  if (result != null) {
+    throw new IllegalArgumentException("can't setArgs after loader executes");
+  }
+  this.args=args;
+}

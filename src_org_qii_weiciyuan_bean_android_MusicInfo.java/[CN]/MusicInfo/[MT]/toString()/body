@@ -1,0 +1,4 @@
+{
+  if (!TextUtils.isEmpty(artist))   return "Now Playing:" + artist + ":"+ track;
+ else   return "Now Playing:" + track;
+}

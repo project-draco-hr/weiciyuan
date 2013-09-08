@@ -1,4 +1,0 @@
-{
-  refreshLayout(getList());
-  getPullToRefreshListView().onRefreshComplete();
-}

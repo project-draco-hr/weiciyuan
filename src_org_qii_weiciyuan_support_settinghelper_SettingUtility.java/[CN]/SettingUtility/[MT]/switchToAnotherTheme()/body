@@ -1,0 +1,14 @@
+{
+  String value=SettingHelper.getSharedPreferences(getContext(),SettingActivity.THEME,"1");
+switch (Integer.valueOf(value)) {
+case 1:
+    SettingHelper.setEditor(getContext(),SettingActivity.THEME,"2");
+  break;
+case 2:
+SettingHelper.setEditor(getContext(),SettingActivity.THEME,"1");
+break;
+default :
+SettingHelper.setEditor(getContext(),SettingActivity.THEME,"1");
+break;
+}
+}

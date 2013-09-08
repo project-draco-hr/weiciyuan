@@ -9,5 +9,6 @@
   super.onCreate(savedInstanceState);
   forceShowActionBarOverflowMenu();
   initNFC();
-  commander=new TimeLineBitmapDownloader(new Handler());
+  GlobalContext.getInstance().setActivity(this);
+  commander=TimeLineBitmapDownloader.getInstance();
 }

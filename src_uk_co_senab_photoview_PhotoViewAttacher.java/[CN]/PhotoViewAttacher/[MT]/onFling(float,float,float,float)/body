@@ -1,0 +1,11 @@
+{
+  if (DEBUG) {
+    Log.d(LOG_TAG,"onFling. sX: " + startX + " sY: "+ startY+ " Vx: "+ velocityX+ " Vy: "+ velocityY);
+  }
+  ImageView imageView=getImageView();
+  if (hasDrawable(imageView)) {
+    mCurrentFlingRunnable=new FlingRunnable(imageView.getContext());
+    mCurrentFlingRunnable.fling(imageView.getWidth(),imageView.getHeight(),(int)velocityX,(int)velocityY);
+    imageView.post(mCurrentFlingRunnable);
+  }
+}

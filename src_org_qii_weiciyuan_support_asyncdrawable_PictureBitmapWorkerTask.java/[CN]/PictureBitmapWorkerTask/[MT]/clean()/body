@@ -1,9 +1,0 @@
-{
-  if (taskMap != null && taskMap.get(data) != null) {
-    taskMap.remove(data);
-  }
-  viewList.clear();
-  taskMap=null;
-  lruCache=null;
-  globalContext=null;
-}

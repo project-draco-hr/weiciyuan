@@ -1,0 +1,6 @@
+{
+  super(context);
+  this.token=token;
+  this.uid=uid;
+  this.page=page;
+}

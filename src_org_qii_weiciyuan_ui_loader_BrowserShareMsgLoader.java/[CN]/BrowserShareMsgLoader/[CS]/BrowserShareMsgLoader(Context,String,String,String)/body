@@ -1,0 +1,6 @@
+{
+  super(context);
+  this.token=token;
+  this.maxId=maxId;
+  this.url=url;
+}

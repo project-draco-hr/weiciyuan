@@ -1,0 +1,8 @@
+{
+  if (groupId.equals("0")) {
+    updatePosition(position,accountId);
+  }
+ else {
+    HomeOtherGroupTimeLineDBTask.updatePosition(position,GlobalContext.getInstance().getCurrentAccountId(),groupId);
+  }
+}

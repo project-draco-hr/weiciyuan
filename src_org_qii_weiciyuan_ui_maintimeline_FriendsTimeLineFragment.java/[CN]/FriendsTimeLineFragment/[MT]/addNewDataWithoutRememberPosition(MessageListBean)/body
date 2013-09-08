@@ -1,0 +1,6 @@
+{
+  newMsgTipBar.setValue(newValue,true);
+  getList().addNewData(newValue);
+  getAdapter().notifyDataSetChanged();
+  getListView().setSelectionAfterHeaderView();
+}

@@ -1,0 +1,4 @@
+{
+  db.execSQL("DROP TABLE IF EXISTS " + AccountTable.TABLE_NAME);
+  deleteAllTableExceptAccount(db);
+}

@@ -1,0 +1,3 @@
+{
+  setSecondaryMenu(LayoutInflater.from(getContext()).inflate(res,null));
+}

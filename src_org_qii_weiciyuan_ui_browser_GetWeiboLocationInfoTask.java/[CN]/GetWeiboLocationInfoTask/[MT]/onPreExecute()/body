@@ -1,0 +1,5 @@
+{
+  super.onPreExecute();
+  location.setVisibility(View.VISIBLE);
+  location.setText(String.valueOf(geoBean.getLat() + "," + geoBean.getLon()));
+}

@@ -1,0 +1,3 @@
+{
+  return FilterDBTask.getFilterKeywordList(FilterDBTask.TYPE_KEYWORD);
+}

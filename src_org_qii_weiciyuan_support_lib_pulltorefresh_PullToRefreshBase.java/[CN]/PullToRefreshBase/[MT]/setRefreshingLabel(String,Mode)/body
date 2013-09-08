@@ -1,8 +1,0 @@
-{
-  if (null != mHeaderLayout && mode.canPullDown()) {
-    mHeaderLayout.setRefreshingLabel(refreshingLabel);
-  }
-  if (null != mFooterLayout && mode.canPullUp()) {
-    mFooterLayout.setRefreshingLabel(refreshingLabel);
-  }
-}

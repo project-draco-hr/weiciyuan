@@ -1,0 +1,14 @@
+{
+  Loader loader=getLoaderManager().getLoader(DB_CACHE_LOADER_ID);
+  if (loader != null) {
+    return;
+  }
+  Intent intent=getActivity().getIntent();
+  CommentListBean commentsToMe=(CommentListBean)intent.getParcelableExtra("comment");
+  if (commentsToMe != null) {
+    addUnreadMessage(commentsToMe);
+    CommentListBean nullObject=null;
+    intent.putExtra("comment",nullObject);
+    getActivity().setIntent(intent);
+  }
+}

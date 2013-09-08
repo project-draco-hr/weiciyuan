@@ -1,0 +1,5 @@
+{
+  this.favList=favList;
+  this.page=page;
+  this.position=position;
+}

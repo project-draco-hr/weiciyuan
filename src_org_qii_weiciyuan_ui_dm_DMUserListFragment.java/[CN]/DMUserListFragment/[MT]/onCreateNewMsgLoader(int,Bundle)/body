@@ -1,0 +1,5 @@
+{
+  String token=GlobalContext.getInstance().getSpecialToken();
+  String cursor=String.valueOf(0);
+  return new DMUserLoader(getActivity(),token,cursor);
+}

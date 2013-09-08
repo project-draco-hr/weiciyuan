@@ -1,0 +1,29 @@
+{
+  mState=state;
+  if (DEBUG) {
+    Log.d(LOG_TAG,"State: " + mState.name());
+  }
+switch (mState) {
+case RESET:
+    onReset();
+  break;
+case PULL_TO_REFRESH:
+onPullToRefresh();
+break;
+case RELEASE_TO_REFRESH:
+onReleaseToRefresh();
+break;
+case REFRESHING:
+case MANUAL_REFRESHING:
+onRefreshing(params[0]);
+break;
+case OVERSCROLLING:
+break;
+case GIVE_UP:
+onGiveUp();
+break;
+}
+if (null != mOnPullEventListener) {
+mOnPullEventListener.onPullEvent(this,mState,mCurrentMode);
+}
+}

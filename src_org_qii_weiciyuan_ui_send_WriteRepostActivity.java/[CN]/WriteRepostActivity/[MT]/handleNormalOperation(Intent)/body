@@ -1,7 +1,7 @@
 {
   token=intent.getStringExtra("token");
   if (TextUtils.isEmpty(token))   token=GlobalContext.getInstance().getSpecialToken();
-  msg=(MessageBean)intent.getSerializableExtra("msg");
+  msg=(MessageBean)intent.getParcelableExtra("msg");
   if (msg.getRetweeted_status() != null) {
     getEditTextView().setText("//@" + msg.getUser().getScreen_name() + ": "+ msg.getText());
     getEditTextView().setHint("//@" + msg.getRetweeted_status().getUser().getScreen_name() + "???"+ msg.getRetweeted_status().getText());
@@ -9,4 +9,5 @@
  else {
     getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
   }
+  getEditTextView().setSelection(0);
 }

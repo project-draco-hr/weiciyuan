@@ -1,0 +1,10 @@
+{
+  try {
+    return new UpdateGroupNameDao(token,groupIdstr,name).update();
+  }
+ catch (  WeiboException e) {
+    e.printStackTrace();
+    cancel(true);
+  }
+  return null;
+}

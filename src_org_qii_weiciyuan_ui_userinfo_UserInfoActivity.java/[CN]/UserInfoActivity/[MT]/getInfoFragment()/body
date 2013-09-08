@@ -1,3 +1,3 @@
 {
-  return ((UserInfoFragment)getFragmentManager().findFragmentByTag(UserInfoFragment.class.getName()));
+  return ((NewUserInfoFragment)getSupportFragmentManager().findFragmentByTag(NewUserInfoFragment.class.getName()));
 }

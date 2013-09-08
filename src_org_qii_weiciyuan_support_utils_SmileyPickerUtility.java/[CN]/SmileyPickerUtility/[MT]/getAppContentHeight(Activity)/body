@@ -1,0 +1,3 @@
+{
+  return SmileyPickerUtility.getScreenHeight(paramActivity) - SmileyPickerUtility.getStatusBarHeight(paramActivity) - SmileyPickerUtility.getActionBarHeight(paramActivity)- SmileyPickerUtility.getKeyboardHeight(paramActivity);
+}

@@ -1,0 +1,3 @@
+{
+  return progressBar.getVisibility() == View.VISIBLE;
+}

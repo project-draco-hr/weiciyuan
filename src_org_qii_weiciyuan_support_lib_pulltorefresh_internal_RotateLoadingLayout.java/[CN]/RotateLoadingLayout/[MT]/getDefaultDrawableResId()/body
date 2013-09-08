@@ -1,0 +1,3 @@
+{
+  return R.drawable.default_ptr_rotate;
+}

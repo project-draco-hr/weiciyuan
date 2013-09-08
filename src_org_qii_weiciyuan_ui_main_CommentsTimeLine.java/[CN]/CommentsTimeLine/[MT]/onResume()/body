@@ -1,0 +1,14 @@
+{
+  super.onResume();
+  Intent intent=getActivity().getIntent();
+  if (intent == null)   return;
+  UnreadTabIndex unreadTabIndex=(UnreadTabIndex)intent.getSerializableExtra("unreadTabIndex");
+  if (unreadTabIndex == null)   return;
+switch (unreadTabIndex) {
+case COMMENT_TO_ME:
+    ((MainTimeLineActivity)getActivity()).getMenuFragment().switchCategory(2);
+  viewPager.setCurrentItem(0);
+intent.putExtra("unreadTabIndex",UnreadTabIndex.NONE);
+break;
+}
+}

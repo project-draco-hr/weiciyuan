@@ -1,0 +1,4 @@
+{
+  this.access_token=token;
+  this.name=name;
+}

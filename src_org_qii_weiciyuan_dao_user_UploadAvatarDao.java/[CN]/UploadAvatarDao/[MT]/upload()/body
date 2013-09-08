@@ -1,0 +1,6 @@
+{
+  String url=URLHelper.AVATAR_UPLOAD;
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  return HttpUtility.getInstance().executeUploadTask(url,map,image,"image",null);
+}

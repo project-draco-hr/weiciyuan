@@ -1,0 +1,3 @@
+MessageListBean list
+int position
+int listViewOrientation

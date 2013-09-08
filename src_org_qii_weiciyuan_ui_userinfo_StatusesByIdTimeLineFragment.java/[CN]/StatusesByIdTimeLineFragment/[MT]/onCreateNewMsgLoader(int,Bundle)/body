@@ -1,0 +1,9 @@
+{
+  String uid=userBean.getId();
+  String screenName=userBean.getScreen_name();
+  String sinceId=null;
+  if (getList().getItemList().size() > 0) {
+    sinceId=getList().getItemList().get(0).getId();
+  }
+  return new StatusesByIdLoader(getActivity(),uid,screenName,token,sinceId,null);
+}

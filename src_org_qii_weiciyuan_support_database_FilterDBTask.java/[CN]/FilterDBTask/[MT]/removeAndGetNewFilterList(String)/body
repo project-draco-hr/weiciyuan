@@ -1,4 +1,0 @@
-{
-  String sql="delete from " + FilterTable.TABLE_NAME + " where "+ FilterTable.NAME+ " = "+ "\""+ word+ "\"";
-  getWsd().execSQL(sql);
-}

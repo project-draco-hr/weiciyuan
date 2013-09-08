@@ -1,0 +1,3 @@
+{
+  view.setLayerType(layerType,null);
+}

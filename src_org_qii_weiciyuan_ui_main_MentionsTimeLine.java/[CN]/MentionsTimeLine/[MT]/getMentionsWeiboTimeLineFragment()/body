@@ -1,0 +1,5 @@
+{
+  MentionsWeiboTimeLineFragment fragment=((MentionsWeiboTimeLineFragment)getChildFragmentManager().findFragmentByTag(MentionsWeiboTimeLineFragment.class.getName()));
+  if (fragment == null)   fragment=new MentionsWeiboTimeLineFragment(GlobalContext.getInstance().getAccountBean(),GlobalContext.getInstance().getAccountBean().getInfo(),GlobalContext.getInstance().getSpecialToken());
+  return fragment;
+}

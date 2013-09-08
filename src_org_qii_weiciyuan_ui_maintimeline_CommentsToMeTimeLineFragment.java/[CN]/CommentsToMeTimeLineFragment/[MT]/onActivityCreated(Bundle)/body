@@ -1,0 +1,28 @@
+{
+  super.onActivityCreated(savedInstanceState);
+switch (getCurrentState(savedInstanceState)) {
+case FIRST_TIME_START:
+    getLoaderManager().initLoader(DB_CACHE_LOADER_ID,null,dbCallback);
+  break;
+case ACTIVITY_DESTROY_AND_CREATE:
+userBean=(UserBean)savedInstanceState.getParcelable("userBean");
+accountBean=(AccountBean)savedInstanceState.getParcelable("account");
+token=savedInstanceState.getString("token");
+timeLinePosition=(TimeLinePosition)savedInstanceState.getSerializable("timeLinePosition");
+unreadBean=(UnreadBean)savedInstanceState.getParcelable("unreadBean");
+Loader<CommentTimeLineData> loader=getLoaderManager().getLoader(DB_CACHE_LOADER_ID);
+if (loader != null) {
+getLoaderManager().initLoader(DB_CACHE_LOADER_ID,null,dbCallback);
+}
+CommentListBean savedBean=(CommentListBean)savedInstanceState.getSerializable("bean");
+if (savedBean != null && savedBean.getSize() > 0) {
+clearAndReplaceValue(savedBean);
+timeLineAdapter.notifyDataSetChanged();
+refreshLayout(getList());
+}
+ else {
+getLoaderManager().initLoader(DB_CACHE_LOADER_ID,null,dbCallback);
+}
+break;
+}
+}

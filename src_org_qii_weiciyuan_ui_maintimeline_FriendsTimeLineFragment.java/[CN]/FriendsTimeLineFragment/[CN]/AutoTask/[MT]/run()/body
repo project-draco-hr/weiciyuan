@@ -3,14 +3,13 @@
     return;
   }
   if (!Utility.isTaskStopped(dbTask))   return;
-  if (!Utility.isTaskStopped(newTask))   return;
-  if (!Utility.isTaskStopped(oldTask))   return;
-  if (!Utility.isTaskStopped(middleTask))   return;
+  if (!allowRefresh())   return;
   if (!Utility.isWifi(getActivity())) {
     return;
   }
-  if (Utility.isTaskStopped(autoRefreshTask)) {
-    autoRefreshTask=new AutoRefreshTask();
-    autoRefreshTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
+  if (isListViewFling() || !isVisible() || ((MainTimeLineActivity)getActivity()).getSlidingMenu().isMenuShowing())   return;
+  Bundle bundle=new Bundle();
+  bundle.putBoolean(BundleArgsConstants.SCROLL_TO_TOP,false);
+  bundle.putBoolean(BundleArgsConstants.AUTO_REFRESH,true);
+  getLoaderManager().restartLoader(NEW_MSG_LOADER_ID,bundle,msgCallback);
 }

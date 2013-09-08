@@ -1,0 +1,8 @@
+{
+  super.onCancelled(userBean);
+  if (this.e != null) {
+    if (this.e.getError_code() == ErrorCode.NOT_FOLLOWED) {
+      user.setFollowing(false);
+    }
+  }
+}

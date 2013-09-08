@@ -1,0 +1,8 @@
+{
+  ActionBar.Tab mentionsWeiboTab;
+  View customView=getActivity().getLayoutInflater().inflate(R.layout.ab_tab_custom_view_layout,null);
+  ((TextView)customView.findViewById(R.id.title)).setText(R.string.mentions_weibo);
+  mentionsWeiboTab=getActivity().getActionBar().newTab().setCustomView(customView).setTag(MentionsWeiboTimeLineFragment.class.getName()).setTabListener(tabListener);
+  tabMap.append(MENTIONS_WEIBO_CHILD_POSITION,mentionsWeiboTab);
+  return mentionsWeiboTab;
+}

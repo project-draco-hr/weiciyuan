@@ -1,0 +1,8 @@
+{
+  super.onCreate(savedInstanceState);
+  mHelper=new SlidingActivityHelper(this);
+  mHelper.onCreate(savedInstanceState);
+  ListView listView=new ListView(this);
+  listView.setId(android.R.id.list);
+  setContentView(listView);
+}

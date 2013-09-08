@@ -1,0 +1,6 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == LeftMenuFragment.MENTIONS_INDEX) {
+    buildActionBarAndViewPagerTitles(((MainTimeLineActivity)getActivity()).getMenuFragment().mentionsTabIndex);
+  }
+}

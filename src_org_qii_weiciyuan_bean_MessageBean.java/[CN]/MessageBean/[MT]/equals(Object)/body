@@ -9,5 +9,5 @@
     return false;
   }
   MessageBean other=(MessageBean)otherObject;
-  return getIdstr().equals(other.getIdstr());
+  return getId().equals(other.getId());
 }

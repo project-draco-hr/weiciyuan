@@ -1,0 +1,7 @@
+{
+  return new AlertDialog.Builder(getActivity()).setMessage(getString(R.string.filter_rule_content)).setPositiveButton(R.string.ok,new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+    }
+  }
+).create();
+}

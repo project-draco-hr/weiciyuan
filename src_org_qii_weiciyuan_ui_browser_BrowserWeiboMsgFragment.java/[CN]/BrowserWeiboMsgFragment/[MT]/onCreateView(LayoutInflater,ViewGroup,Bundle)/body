@@ -1,80 +1,105 @@
 {
-  View view=inflater.inflate(R.layout.browserweibomsgactivity_layout,container,false);
-  username=(TextView)view.findViewById(R.id.username);
-  content=(TextView)view.findViewById(R.id.content);
-  recontent=(TextView)view.findViewById(R.id.repost_content);
-  time=(TextView)view.findViewById(R.id.time);
-  location=(TextView)view.findViewById(R.id.location);
-  source=(TextView)view.findViewById(R.id.source);
-  mapView=(MapView)view.findViewById(R.id.location_mv);
-  if (savedInstanceState != null) {
-    MessageBean msg=(MessageBean)savedInstanceState.get("msg");
-    savedInstanceState.remove("msg");
-    mapView.onCreate(savedInstanceState);
-    savedInstanceState.putSerializable("msg",msg);
-  }
- else {
-    mapView.onCreate(savedInstanceState);
-  }
-  comment_count=(TextView)view.findViewById(R.id.comment_count);
-  repost_count=(TextView)view.findViewById(R.id.repost_count);
-  count_layout=(LinearLayout)view.findViewById(R.id.count_layout);
-  location.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      if (Utility.isGooglePlaySafe(getActivity())) {
-        GeoBean bean=msg.getGeo();
-        Intent intent=new Intent(getActivity(),AppMapActivity.class);
-        intent.putExtra("lat",bean.getLat());
-        intent.putExtra("lon",bean.getLon());
-        if (!String.valueOf(bean.getLat() + "," + bean.getLon()).equals(location.getText()))         intent.putExtra("locationStr",location.getText());
-        startActivity(intent);
+  PullToRefreshListView pullToRefreshListView=new PullToRefreshListView(getActivity());
+  pullToRefreshListView.setMode(PullToRefreshBase.Mode.DISABLED);
+  pullToRefreshListView.setOnLastItemVisibleListener(new PullToRefreshBase.OnLastItemVisibleListener(){
+    @Override public void onLastItemVisible(){
+      if (isCommentList) {
+        if (msg.getComments_count() > 0 && commentList.getSize() > 0)         loadOldCommentData();
       }
  else {
-        GeoBean bean=msg.getGeo();
-        String geoUriString="geo:" + bean.getLat() + ","+ bean.getLon()+ "?q="+ location.getText();
-        Uri geoUri=Uri.parse(geoUriString);
-        Intent mapCall=new Intent(Intent.ACTION_VIEW,geoUri);
-        if (Utility.isIntentSafe(getActivity(),mapCall)) {
-          startActivity(mapCall);
+        if (msg.getReposts_count() > 0 && repostList.getSize() > 0)         loadOldRepostData();
+      }
+    }
+  }
+);
+  pullToRefreshListView.setOnScrollListener(listViewOnScrollListener);
+  listView=pullToRefreshListView.getRefreshableView();
+  View header=inflater.inflate(R.layout.browserweibomsgactivity_layout,listView,false);
+  listView.addHeaderView(header);
+  View switchView=inflater.inflate(R.layout.browserweibomsgfragment_switch_list_type_header,listView,false);
+  listView.addHeaderView(switchView);
+  switchView.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+    }
+  }
+);
+  View progressHeaderLayout=inflater.inflate(R.layout.browserweibomsgfragment_progress_header,listView,false);
+  progressHeader=progressHeaderLayout.findViewById(R.id.progressbar);
+  progressHeader.setVisibility(View.GONE);
+  listView.addHeaderView(progressHeaderLayout);
+  footerView=inflater.inflate(R.layout.listview_footer_layout,null);
+  listView.addFooterView(footerView);
+  dismissFooterView();
+  repostTab=(TextView)switchView.findViewById(R.id.repost);
+  commentTab=(TextView)switchView.findViewById(R.id.comment);
+  repostTab.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      listView.setOnItemClickListener(repostOnItemClickListener);
+      listView.setOnItemLongClickListener(repostOnItemLongClickListener);
+      resetActionMode();
+      dismissFooterView();
+      if (isCommentList) {
+        isCommentList=false;
+        adapter.switchToRepostType();
+        repostTab.setTextColor(getResources().getColor(R.color.orange));
+        commentTab.setTextColor(getResources().getColor(R.color.black));
+        if (repostList.getSize() == 0) {
+          loadNewRepostData();
+        }
+ else {
+          Loader loader=getLoaderManager().getLoader(NEW_REPOST_LOADER_ID);
+          if (loader != null) {
+            progressHeader.setVisibility(View.VISIBLE);
+          }
+ else {
+            progressHeader.setVisibility(View.GONE);
+          }
         }
       }
-    }
-  }
-);
-  avatar=(ImageView)view.findViewById(R.id.avatar);
-  content_pic=(ImageView)view.findViewById(R.id.content_pic);
-  repost_pic=(ImageView)view.findViewById(R.id.repost_content_pic);
-  content_pic_pb=(ProgressBar)view.findViewById(R.id.content_pic_pb);
-  repost_pic_pb=(ProgressBar)view.findViewById(R.id.repost_content_pic_pb);
-  view.findViewById(R.id.first).setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      Intent intent=new Intent(getActivity(),UserInfoActivity.class);
-      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-      intent.putExtra("user",msg.getUser());
-      startActivity(intent);
-    }
-  }
-);
-  content_pic.setOnClickListener(picOnClickListener);
-  repost_pic.setOnClickListener(picOnClickListener);
-  repost_layout=(LinearLayout)view.findViewById(R.id.repost_layout);
-  pic_layout=(FrameLayout)view.findViewById(R.id.pic_layout);
-  recontent.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      boolean isNotLink=recontent.getSelectionStart() == -1 && recontent.getSelectionEnd() == -1;
-      boolean isDeleted=msg.getRetweeted_status() == null || msg.getRetweeted_status().getUser() == null;
-      if (isNotLink && !isDeleted) {
-        Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
-        intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-        intent.putExtra("msg",msg.getRetweeted_status());
-        startActivity(intent);
-      }
- else       if (isNotLink && isDeleted) {
-        Toast.makeText(getActivity(),getString(R.string.cant_open_deleted_weibo),Toast.LENGTH_SHORT).show();
+ else {
+        loadNewRepostData();
       }
     }
   }
 );
-  repost_pic_layout=(FrameLayout)view.findViewById(R.id.repost_pic_layout);
-  return view;
+  commentTab.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      listView.setOnItemClickListener(commentOnItemClickListener);
+      listView.setOnItemLongClickListener(commentOnItemLongClickListener);
+      resetActionMode();
+      dismissFooterView();
+      if (!isCommentList) {
+        isCommentList=true;
+        adapter.switchToCommentType();
+        commentTab.setTextColor(getResources().getColor(R.color.orange));
+        repostTab.setTextColor(getResources().getColor(R.color.black));
+        if (commentList.getSize() == 0) {
+          loadNewCommentData();
+        }
+ else {
+          Loader loader=getLoaderManager().getLoader(NEW_COMMENT_LOADER_ID);
+          if (loader != null) {
+            progressHeader.setVisibility(View.VISIBLE);
+          }
+ else {
+            progressHeader.setVisibility(View.GONE);
+          }
+        }
+      }
+ else {
+        loadNewCommentData();
+      }
+    }
+  }
+);
+  commentTab.setTextColor(getResources().getColor(R.color.orange));
+  listView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+  listView.setOnItemClickListener(commentOnItemClickListener);
+  listView.setOnItemLongClickListener(commentOnItemLongClickListener);
+  initView(header,savedInstanceState);
+  adapter=new BrowserWeiboMsgCommentAndRepostAdapter(this,listView,commentList.getItemList(),repostList.getItemList());
+  listView.setAdapter(adapter);
+  adapter.notifyDataSetChanged();
+  listView.setHeaderDividersEnabled(false);
+  return pullToRefreshListView;
 }

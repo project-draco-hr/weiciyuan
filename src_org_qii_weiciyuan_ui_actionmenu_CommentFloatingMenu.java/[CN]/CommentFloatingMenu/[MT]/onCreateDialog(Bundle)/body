@@ -1,6 +1,6 @@
 {
   if (savedInstanceState != null) {
-    bean=(CommentBean)savedInstanceState.get("bean");
+    bean=(CommentBean)savedInstanceState.getParcelable("bean");
   }
   AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
   builder.setTitle(this.bean.getUser().getScreen_name());

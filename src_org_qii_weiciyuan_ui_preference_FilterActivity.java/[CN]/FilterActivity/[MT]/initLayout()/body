@@ -1,0 +1,32 @@
+{
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setDisplayShowHomeEnabled(true);
+  getActionBar().setTitle(getString(R.string.filter));
+  setContentView(R.layout.viewpager_layout);
+  ActionBar actionBar=getActionBar();
+  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setDisplayShowHomeEnabled(true);
+  actionBar.setTitle(getString(R.string.filter));
+  actionBar.setIcon(R.drawable.ic_filter);
+  View title=getLayoutInflater().inflate(R.layout.filteractivity_title_layout,null);
+  Switch switchBtn=(Switch)title.findViewById(R.id.switchBtn);
+  actionBar.setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
+  actionBar.setDisplayShowCustomEnabled(true);
+  switchBtn.setChecked(SettingUtility.isEnableFilter());
+  switchBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+    @Override public void onCheckedChanged(    CompoundButton buttonView,    boolean isChecked){
+      SettingUtility.setEnableFilter(isChecked);
+    }
+  }
+);
+  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+  actionBar.addTab(actionBar.newTab().setText(getString(R.string.filter_keyword)).setTabListener(tabListener));
+  actionBar.addTab(actionBar.newTab().setText(getString(R.string.filter_user)).setTabListener(tabListener));
+  actionBar.addTab(actionBar.newTab().setText(getString(R.string.filter_topic)).setTabListener(tabListener));
+  actionBar.addTab(actionBar.newTab().setText(getString(R.string.filter_source)).setTabListener(tabListener));
+  viewPager=(ViewPager)findViewById(R.id.viewpager);
+  TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getSupportFragmentManager());
+  viewPager.setOffscreenPageLimit(4);
+  viewPager.setAdapter(adapter);
+  viewPager.setOnPageChangeListener(onPageChangeListener);
+}

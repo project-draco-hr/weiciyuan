@@ -1,0 +1,14 @@
+{
+  RepostsTimeLineByIdDao dao=new RepostsTimeLineByIdDao(token,id);
+  dao.setSince_id(sinceId);
+  dao.setMax_id(maxId);
+  RepostListBean result=null;
+  lock.lock();
+  try {
+    result=dao.getGSONMsgList();
+  }
+  finally {
+    lock.unlock();
+  }
+  return result;
+}

@@ -1,0 +1,40 @@
+{
+  Gson gson=new Gson();
+  List<FavBean> msgList=list.getFavorites();
+  try {
+    getWsd().beginTransaction();
+    for (    FavBean msg : msgList) {
+      ContentValues cv=new ContentValues();
+      cv.put(FavouriteTable.FavouriteDataTable.MBLOGID,msg.getStatus().getId());
+      cv.put(FavouriteTable.FavouriteDataTable.ACCOUNTID,accountId);
+      String json=gson.toJson(msg);
+      cv.put(FavouriteTable.FavouriteDataTable.JSONDATA,json);
+      getWsd().insert(FavouriteTable.FavouriteDataTable.TABLE_NAME,FavouriteTable.FavouriteDataTable.ID,cv);
+    }
+    String sql="select * from " + FavouriteTable.TABLE_NAME + " where "+ FavouriteTable.ACCOUNTID+ "  = "+ accountId;
+    Cursor c=getRsd().rawQuery(sql,null);
+    if (c.moveToNext()) {
+      try {
+        String[] args={accountId};
+        ContentValues cv=new ContentValues();
+        cv.put(FavouriteTable.PAGE,page);
+        getWsd().update(FavouriteTable.TABLE_NAME,cv,FavouriteTable.ACCOUNTID + "=?",args);
+      }
+ catch (      JsonSyntaxException e) {
+      }
+    }
+ else {
+      ContentValues cv=new ContentValues();
+      cv.put(FavouriteTable.ACCOUNTID,accountId);
+      cv.put(FavouriteTable.PAGE,page);
+      getWsd().insert(FavouriteTable.TABLE_NAME,FavouriteTable.ID,cv);
+    }
+    getWsd().setTransactionSuccessful();
+  }
+ catch (  SQLException e) {
+  }
+ finally {
+    getWsd().endTransaction();
+  }
+  reduceFavouriteTable(accountId);
+}

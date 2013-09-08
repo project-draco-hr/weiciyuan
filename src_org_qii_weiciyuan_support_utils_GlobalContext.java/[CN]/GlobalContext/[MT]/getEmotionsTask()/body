@@ -1,18 +1,16 @@
 {
-  Map<String,String> emotions=GlobalContext.getInstance().getEmotions();
+  Map<String,String> emotions=SmileyMap.getInstance().get();
   List<String> index=new ArrayList<String>();
   index.addAll(emotions.keySet());
   for (  String str : index) {
-    String url=emotions.get(str);
-    int position=url.lastIndexOf("/");
-    String name=url.substring(position + 1);
+    String name=emotions.get(str);
     AssetManager assetManager=GlobalContext.getInstance().getAssets();
     InputStream inputStream;
     try {
       inputStream=assetManager.open(name);
       Bitmap bitmap=BitmapFactory.decodeStream(inputStream);
       if (bitmap != null) {
-        Bitmap scaledBitmap=Bitmap.createScaledBitmap(bitmap,Utility.dip2px(20),Utility.dip2px(20),true);
+        Bitmap scaledBitmap=Bitmap.createScaledBitmap(bitmap,Utility.dip2px(getResources().getInteger(R.integer.emotion_size)),Utility.dip2px(getResources().getInteger(R.integer.emotion_size)),true);
         if (bitmap != scaledBitmap) {
           bitmap.recycle();
           bitmap=scaledBitmap;

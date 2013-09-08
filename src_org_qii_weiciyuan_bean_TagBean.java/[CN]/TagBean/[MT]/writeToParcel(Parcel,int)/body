@@ -1,0 +1,5 @@
+{
+  dest.writeInt(id);
+  dest.writeString(name);
+  dest.writeString(weight);
+}

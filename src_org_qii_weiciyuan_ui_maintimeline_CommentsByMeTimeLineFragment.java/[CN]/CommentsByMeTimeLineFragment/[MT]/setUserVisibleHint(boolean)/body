@@ -1,0 +1,5 @@
+{
+  super.setUserVisibleHint(isVisibleToUser);
+  if (isVisible() && isVisibleToUser) {
+  }
+}

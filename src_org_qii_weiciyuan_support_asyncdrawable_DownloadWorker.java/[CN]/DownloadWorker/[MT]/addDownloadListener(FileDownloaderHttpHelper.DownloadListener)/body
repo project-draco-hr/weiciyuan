@@ -1,0 +1,3 @@
+{
+  downloadListenerList.addIfAbsent(listener);
+}

@@ -1,0 +1,11 @@
+{
+  int count=unreadBean.getMention_status();
+  UnreadBean currentCount=new UnreadDao(access_token,accountId).getCount();
+  if (currentCount == null) {
+    return false;
+  }
+  if (count != currentCount.getMention_status()) {
+    return false;
+  }
+  return new ClearUnreadDao(access_token,ClearUnreadDao.MENTION_STATUS).clearUnread();
+}

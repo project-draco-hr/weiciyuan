@@ -1,0 +1,9 @@
+{
+switch (mScrollDirection) {
+case HORIZONTAL:
+    return mInnerLayout.getWidth();
+case VERTICAL:
+default :
+  return mInnerLayout.getHeight();
+}
+}

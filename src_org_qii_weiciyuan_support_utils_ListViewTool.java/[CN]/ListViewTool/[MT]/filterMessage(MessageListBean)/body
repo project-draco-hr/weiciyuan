@@ -1,0 +1,23 @@
+{
+  List<MessageBean> msgList=value.getItemList();
+  Iterator<MessageBean> iterator=msgList.iterator();
+  List<String> keywordFilter=FilterDBTask.getFilterKeywordList(FilterDBTask.TYPE_KEYWORD);
+  List<String> userFilter=FilterDBTask.getFilterKeywordList(FilterDBTask.TYPE_USER);
+  List<String> topicFilter=FilterDBTask.getFilterKeywordList(FilterDBTask.TYPE_TOPIC);
+  List<String> sourceFilter=FilterDBTask.getFilterKeywordList(FilterDBTask.TYPE_SOURCE);
+  while (iterator.hasNext()) {
+    MessageBean msg=iterator.next();
+    if (msg.getUser() == null) {
+      iterator.remove();
+      value.removedCountPlus();
+    }
+ else     if (SettingUtility.isEnableFilter() && ListViewTool.haveFilterWord(msg,keywordFilter,userFilter,topicFilter,sourceFilter)) {
+      iterator.remove();
+      value.removedCountPlus();
+    }
+ else {
+      msg.getListViewSpannableString();
+      TimeTool.dealMills(msg);
+    }
+  }
+}

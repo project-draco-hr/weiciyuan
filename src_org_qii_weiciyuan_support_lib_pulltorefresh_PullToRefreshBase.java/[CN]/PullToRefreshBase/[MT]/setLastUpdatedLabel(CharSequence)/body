@@ -1,9 +1,3 @@
 {
-  if (null != mHeaderLayout) {
-    mHeaderLayout.setSubHeaderText(label);
-  }
-  if (null != mFooterLayout) {
-    mFooterLayout.setSubHeaderText(label);
-  }
-  refreshLoadingViewsHeight();
+  getLoadingLayoutProxy().setLastUpdatedLabel(label);
 }

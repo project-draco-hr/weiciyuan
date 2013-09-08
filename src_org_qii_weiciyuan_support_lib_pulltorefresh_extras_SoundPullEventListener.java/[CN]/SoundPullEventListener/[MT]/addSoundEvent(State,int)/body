@@ -1,0 +1,3 @@
+{
+  mSoundMap.put(event,resId);
+}

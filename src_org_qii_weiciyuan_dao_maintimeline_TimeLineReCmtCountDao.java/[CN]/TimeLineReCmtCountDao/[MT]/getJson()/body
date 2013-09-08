@@ -1,0 +1,11 @@
+{
+  String url=URLHelper.TIMELINE_RE_CMT_COUNT;
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  StringBuilder idsBuilder=new StringBuilder();
+  for (  String id : msgIds) {
+    idsBuilder.append(",").append(id);
+  }
+  map.put("ids",idsBuilder.toString());
+  return HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+}

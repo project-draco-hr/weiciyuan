@@ -10,11 +10,11 @@
     setHeaderScroll(mCurrentY);
   }
   if (mContinueRunning && mScrollToY != mCurrentY) {
-    if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
-      SDK16.postOnAnimation(PullToRefreshBase.this,this);
-    }
+    ViewCompat.postOnAnimation(PullToRefreshBase.this,this);
+  }
  else {
-      postDelayed(this,ANIMATION_DELAY);
+    if (null != mListener) {
+      mListener.onSmoothScrollFinished();
     }
   }
 }

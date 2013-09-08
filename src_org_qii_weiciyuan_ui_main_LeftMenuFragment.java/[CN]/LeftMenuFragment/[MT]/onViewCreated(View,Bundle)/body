@@ -1,0 +1,12 @@
+{
+  super.onViewCreated(view,savedInstanceState);
+  layout.home.setOnClickListener(onClickListener);
+  layout.mention.setOnClickListener(onClickListener);
+  layout.comment.setOnClickListener(onClickListener);
+  layout.search.setOnClickListener(onClickListener);
+  layout.profile.setOnClickListener(onClickListener);
+  layout.setting.setOnClickListener(onClickListener);
+  layout.dm.setOnClickListener(onClickListener);
+  layout.logout.setOnClickListener(onClickListener);
+  layout.fav.setOnClickListener(onClickListener);
+}

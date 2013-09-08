@@ -1,8 +1,0 @@
-{
-  if (!isInEditMode()) {
-    return Html.fromHtml(label);
-  }
- else {
-    return label;
-  }
-}

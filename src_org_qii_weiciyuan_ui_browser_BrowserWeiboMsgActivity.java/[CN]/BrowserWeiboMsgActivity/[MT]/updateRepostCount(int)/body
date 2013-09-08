@@ -1,0 +1,6 @@
+{
+  msg.setReposts_count(count);
+  Intent intent=new Intent();
+  intent.putExtra("msg",msg);
+  setResult(0,intent);
+}

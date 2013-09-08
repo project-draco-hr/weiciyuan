@@ -1,0 +1,3 @@
+{
+  return tabMap.get(MENTIONS_WEIBO_CHILD_POSITION);
+}

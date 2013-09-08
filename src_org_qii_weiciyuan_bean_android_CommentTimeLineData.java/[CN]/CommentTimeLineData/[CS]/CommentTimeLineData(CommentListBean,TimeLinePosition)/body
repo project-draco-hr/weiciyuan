@@ -1,0 +1,4 @@
+{
+  this.cmtList=cmtList;
+  this.position=position;
+}

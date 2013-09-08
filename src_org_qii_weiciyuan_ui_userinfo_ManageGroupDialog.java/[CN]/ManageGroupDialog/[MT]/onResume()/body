@@ -1,0 +1,9 @@
+{
+  super.onResume();
+  GroupListBean current=GlobalContext.getInstance().getGroup();
+  if (current != this.group) {
+    dismissAllowingStateLoss();
+    ManageGroupDialog dialog=new ManageGroupDialog(current,uid);
+    dialog.show(getFragmentManager(),"");
+  }
+}

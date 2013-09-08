@@ -1,0 +1,4 @@
+{
+  final TimeLinePosition position=positionCache.get(currentGroupId);
+  position.newMsgIds=newMsgTipBar.getValues();
+}

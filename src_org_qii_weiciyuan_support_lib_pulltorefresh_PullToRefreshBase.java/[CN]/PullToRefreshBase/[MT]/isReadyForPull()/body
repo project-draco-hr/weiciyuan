@@ -1,11 +1,12 @@
 {
 switch (mMode) {
-case PULL_DOWN_TO_REFRESH:
-    return isReadyForPullDown();
-case PULL_UP_TO_REFRESH:
-  return isReadyForPullUp();
+case PULL_FROM_START:
+    return isReadyForPullStart();
+case PULL_FROM_END:
+  return isReadyForPullEnd();
 case BOTH:
-return isReadyForPullUp() || isReadyForPullDown();
-}
+return isReadyForPullEnd() || isReadyForPullStart();
+default :
 return false;
+}
 }

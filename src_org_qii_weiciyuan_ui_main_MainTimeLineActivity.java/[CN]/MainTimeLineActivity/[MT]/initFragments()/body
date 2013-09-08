@@ -1,0 +1,42 @@
+{
+  Fragment friend=getFriendsTimeLineFragment();
+  Fragment mentions=getMentionsTimeLineFragment();
+  Fragment comments=getCommentsTimeLineFragment();
+  Fragment search=getSearchFragment();
+  Fragment dm=getDMFragment();
+  Fragment fav=getFavFragment();
+  Fragment myself=getMyProfileFragment();
+  FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+  if (!friend.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,friend,FriendsTimeLineFragment.class.getName());
+    fragmentTransaction.hide(friend);
+  }
+  if (!mentions.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,mentions,MentionsTimeLine.class.getName());
+    fragmentTransaction.hide(mentions);
+  }
+  if (!comments.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,comments,CommentsTimeLine.class.getName());
+    fragmentTransaction.hide(comments);
+  }
+  if (!search.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,search,SearchMainParentFragment.class.getName());
+    fragmentTransaction.hide(search);
+  }
+  if (!dm.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,dm,DMUserListFragment.class.getName());
+    fragmentTransaction.hide(dm);
+  }
+  if (!fav.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,fav,MyFavListFragment.class.getName());
+    fragmentTransaction.hide(fav);
+  }
+  if (!myself.isAdded()) {
+    fragmentTransaction.add(R.id.menu_right_fl,myself,NewUserInfoFragment.class.getName());
+    fragmentTransaction.hide(myself);
+  }
+  if (!fragmentTransaction.isEmpty()) {
+    fragmentTransaction.commit();
+    getSupportFragmentManager().executePendingTransactions();
+  }
+}

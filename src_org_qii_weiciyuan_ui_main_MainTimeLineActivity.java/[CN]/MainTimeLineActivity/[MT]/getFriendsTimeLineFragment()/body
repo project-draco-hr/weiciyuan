@@ -1,0 +1,8 @@
+{
+  FriendsTimeLineFragment fragment=((FriendsTimeLineFragment)getSupportFragmentManager().findFragmentByTag(FriendsTimeLineFragment.class.getName()));
+  if (fragment == null) {
+    fragment=new FriendsTimeLineFragment(getAccount(),getUser(),getToken());
+    fragment.setArguments(new Bundle());
+  }
+  return fragment;
+}

@@ -1,0 +1,11 @@
+{
+  Intent intent=new Intent(AppEventAction.NEW_MSG_PRIORITY_BROADCAST);
+  intent.putExtra(BundleArgsConstants.ACCOUNT_EXTRA,accountBean);
+  intent.putExtra(BundleArgsConstants.COMMENTS_TO_ME_EXTRA,commentResult);
+  intent.putExtra(BundleArgsConstants.MENTIONS_WEIBO_EXTRA,mentionStatusesResult);
+  intent.putExtra(BundleArgsConstants.MENTIONS_COMMENT_EXTRA,mentionCommentsResult);
+  intent.putExtra(BundleArgsConstants.UNREAD_EXTRA,unreadBean);
+  sendOrderedBroadcast(intent,null);
+  intent.setAction(AppEventAction.NEW_MSG_BROADCAST);
+  LocalBroadcastManager.getInstance(getBaseContext()).sendBroadcast(intent);
+}

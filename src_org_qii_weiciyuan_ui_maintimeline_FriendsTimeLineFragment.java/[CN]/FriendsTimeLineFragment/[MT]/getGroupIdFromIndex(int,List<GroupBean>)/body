@@ -1,0 +1,13 @@
+{
+  String selectedItemId;
+  if (index == 0) {
+    selectedItemId="0";
+  }
+ else   if (index == 1) {
+    selectedItemId="1";
+  }
+ else {
+    selectedItemId=list.get(index - 2).getIdstr();
+  }
+  return selectedItemId;
+}

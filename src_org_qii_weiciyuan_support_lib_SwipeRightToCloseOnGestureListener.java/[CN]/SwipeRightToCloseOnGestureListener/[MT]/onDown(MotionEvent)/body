@@ -1,0 +1,6 @@
+{
+  mLastOnDownEvent=e;
+  firstPosition[0]=e.getRawX();
+  firstPosition[1]=e.getRawY();
+  return true;
+}

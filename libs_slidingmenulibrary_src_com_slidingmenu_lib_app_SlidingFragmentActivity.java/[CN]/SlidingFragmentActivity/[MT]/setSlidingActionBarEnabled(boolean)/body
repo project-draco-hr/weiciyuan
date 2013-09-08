@@ -1,0 +1,3 @@
+{
+  mHelper.setSlidingActionBarEnabled(b);
+}

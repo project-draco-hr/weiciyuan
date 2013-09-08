@@ -1,0 +1,5 @@
+{
+  super.onPause();
+  TimeLineBitmapDownloader.getInstance().setPauseDownloadWork(false);
+  TimeLineBitmapDownloader.getInstance().setPauseReadWork(false);
+}

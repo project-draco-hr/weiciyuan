@@ -1,0 +1,4 @@
+{
+  super(ThemeUtility.getColor(R.attr.listview_pic_bg));
+  bitmapDownloaderTaskReference=new WeakReference<IPictureWorker>(bitmapDownloaderTask);
+}

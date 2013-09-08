@@ -1,5 +1,0 @@
-{
-  getPullToRefreshListView().onRefreshComplete();
-  getAdapter().notifyDataSetChanged();
-  dismissFooterView();
-}

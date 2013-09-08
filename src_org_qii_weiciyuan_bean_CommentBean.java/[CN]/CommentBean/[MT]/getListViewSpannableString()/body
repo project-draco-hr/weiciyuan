@@ -4,7 +4,6 @@
   }
  else {
     ListViewTool.addJustHighLightLinks(this);
-    if (reply_comment != null)     reply_comment.getListViewReplySpannableString();
     return listViewSpannableString;
   }
 }

@@ -1,0 +1,10 @@
+{
+  gif=BitmapFactory.decodeResource(getResources(),R.drawable.ic_play_gif);
+  LayoutInflater inflate=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  View v=inflate.inflate(R.layout.timelineimageview_layout,this,true);
+  mImageView=(ImageView)v.findViewById(R.id.imageview);
+  mImageView.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+  pb=(ProgressBar)v.findViewById(R.id.imageview_pb);
+  this.setForeground(getResources().getDrawable(R.drawable.timelineimageview_cover));
+  this.setAddStatesFromChildren(true);
+}

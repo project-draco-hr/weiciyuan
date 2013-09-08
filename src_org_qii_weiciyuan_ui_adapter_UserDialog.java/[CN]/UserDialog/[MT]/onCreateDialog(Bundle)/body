@@ -1,0 +1,12 @@
+{
+  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+  CharSequence[] friendItems={getString(R.string.at_him),getString(R.string.manage_group),getString(R.string.add_to_app_filter),getString(R.string.unfollow_him)};
+  CharSequence[] strangerItems={getString(R.string.at_him),getString(R.string.follow_him),getString(R.string.add_to_app_filter)};
+  if (user.isFollowing()) {
+    builder.setTitle(user.getScreen_name()).setItems(friendItems,new FriendOnClicker());
+  }
+ else {
+    builder.setTitle(user.getScreen_name()).setItems(strangerItems,new StrangerOnClick());
+  }
+  return builder.create();
+}

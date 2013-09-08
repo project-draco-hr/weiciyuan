@@ -1,0 +1,9 @@
+{
+  try {
+    return new FriendGroupDao(token).getGroup();
+  }
+ catch (  WeiboException e) {
+    cancel(true);
+  }
+  return null;
+}

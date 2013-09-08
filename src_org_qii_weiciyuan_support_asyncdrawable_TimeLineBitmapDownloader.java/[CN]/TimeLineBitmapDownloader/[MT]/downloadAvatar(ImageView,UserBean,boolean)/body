@@ -1,6 +1,6 @@
 {
   if (user == null) {
-    view.setImageDrawable(transPic);
+    view.setImageDrawable(defaultBG);
     return;
   }
   String url;
@@ -13,5 +13,5 @@
     url=user.getProfile_image_url();
     method=FileLocationMethod.avatar_small;
   }
-  display(view,url,method,isFling);
+  displayImageView(view,url,method,isFling,false);
 }

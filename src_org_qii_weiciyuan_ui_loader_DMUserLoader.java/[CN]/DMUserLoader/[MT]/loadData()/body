@@ -1,0 +1,13 @@
+{
+  DMDao dao=new DMDao(token);
+  dao.setCursor(cursor);
+  DMUserListBean result=null;
+  lock.lock();
+  try {
+    result=dao.getUserList();
+  }
+  finally {
+    lock.unlock();
+  }
+  return result;
+}

@@ -1,0 +1,4 @@
+{
+  super.onCancelled(strings);
+  stopRefreshMenuAnimationIfPossible();
+}

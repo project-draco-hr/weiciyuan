@@ -1,0 +1,33 @@
+{
+  super.onActivityResult(requestCode,resultCode,data);
+  if (resultCode == Activity.RESULT_CANCELED) {
+    return;
+  }
+  String error=data.getStringExtra("error");
+  if (error == null) {
+    error=data.getStringExtra("error_type");
+  }
+  if (error != null) {
+    if (error.equals("access_denied") || error.equals("OAuthAccessDeniedException")) {
+      Log.d("Weibo-authorize","Login canceled by user.");
+    }
+ else {
+      String description=data.getStringExtra("error_description");
+      if (description != null) {
+        error=error + ":" + description;
+      }
+      Log.d("Weibo-authorize","Login failed: " + error);
+    }
+    return;
+  }
+  final String KEY_TOKEN="access_token";
+  final String KEY_EXPIRES="expires_in";
+  final String KEY_REFRESHTOKEN="refresh_token";
+  String token=data.getStringExtra(KEY_TOKEN);
+  String expires=data.getStringExtra(KEY_EXPIRES);
+  String refreshToken=data.getStringExtra(KEY_REFRESHTOKEN);
+  if (Utility.isTaskStopped(task)) {
+    task=new SSOTask(token,expires);
+    task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

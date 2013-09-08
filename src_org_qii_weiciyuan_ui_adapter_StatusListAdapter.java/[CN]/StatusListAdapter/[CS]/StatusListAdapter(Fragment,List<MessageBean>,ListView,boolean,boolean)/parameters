@@ -1,0 +1,5 @@
+Fragment fragment
+List<MessageBean> bean
+ListView listView
+boolean showOriStatus
+boolean pre

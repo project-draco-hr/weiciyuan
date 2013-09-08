@@ -1,4 +1,15 @@
 {
   super.onActivityCreated(savedInstanceState);
-  commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
+  Loader<T> loader=getLoaderManager().getLoader(NEW_MSG_LOADER_ID);
+  if (loader != null) {
+    getLoaderManager().initLoader(NEW_MSG_LOADER_ID,null,msgCallback);
+  }
+  loader=getLoaderManager().getLoader(MIDDLE_MSG_LOADER_ID);
+  if (loader != null) {
+    getLoaderManager().initLoader(MIDDLE_MSG_LOADER_ID,null,msgCallback);
+  }
+  loader=getLoaderManager().getLoader(OLD_MSG_LOADER_ID);
+  if (loader != null) {
+    getLoaderManager().initLoader(OLD_MSG_LOADER_ID,null,msgCallback);
+  }
 }

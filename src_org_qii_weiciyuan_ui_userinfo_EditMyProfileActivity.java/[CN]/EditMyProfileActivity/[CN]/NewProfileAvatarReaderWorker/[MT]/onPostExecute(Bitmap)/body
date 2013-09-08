@@ -1,0 +1,8 @@
+{
+  if (bitmap != null) {
+    layout.avatar.setImageBitmap(bitmap);
+  }
+ else {
+    layout.avatar.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+  }
+}

@@ -1,0 +1,10 @@
+{
+  String title=mWebView.getTitle();
+  String url=mWebView.getUrl();
+  if (!TextUtils.isEmpty(title) && !TextUtils.isEmpty(url)) {
+    return title + " " + url;
+  }
+ else {
+    return mUrl;
+  }
+}

@@ -1,0 +1,38 @@
+{
+  holder.repost_content.setVisibility(View.VISIBLE);
+  if (!repost_msg.getId().equals((String)holder.repost_content.getTag())) {
+    boolean haveCachedHeight=oriMsgHeights.get(msg.getIdLong()) != null;
+    ViewGroup.LayoutParams layoutParams=holder.repost_content.getLayoutParams();
+    if (haveCachedHeight) {
+      layoutParams.height=oriMsgHeights.get(msg.getIdLong());
+    }
+ else {
+      layoutParams.height=ViewGroup.LayoutParams.WRAP_CONTENT;
+    }
+    boolean haveCachedWidth=oriMsgWidths.get(msg.getIdLong()) != null;
+    if (haveCachedWidth) {
+      layoutParams.width=oriMsgWidths.get(msg.getIdLong());
+    }
+ else {
+      layoutParams.width=ViewGroup.LayoutParams.WRAP_CONTENT;
+    }
+    holder.repost_content.requestLayout();
+    holder.repost_content.setText(repost_msg.getListViewSpannableString());
+    if (!haveCachedHeight) {
+      oriMsgHeights.append(msg.getIdLong(),layoutParams.height);
+    }
+    if (!haveCachedWidth) {
+      oriMsgWidths.append(msg.getIdLong(),layoutParams.width);
+    }
+    holder.repost_content.setText(repost_msg.getListViewSpannableString());
+    holder.repost_content.setTag(repost_msg.getId());
+  }
+  if (!TextUtils.isEmpty(repost_msg.getBmiddle_pic())) {
+    if (repost_msg.isMultiPics()) {
+      buildMultiPic(repost_msg,holder.repost_content_pic_multi);
+    }
+ else {
+      buildPic(repost_msg,holder.repost_content_pic,position);
+    }
+  }
+}

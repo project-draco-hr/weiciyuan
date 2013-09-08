@@ -3,4 +3,5 @@
   setContentView(R.layout.viewpager_layout);
   buildViewPager();
   buildActionBarAndViewPagerTitles();
+  handleIntent(getIntent());
 }

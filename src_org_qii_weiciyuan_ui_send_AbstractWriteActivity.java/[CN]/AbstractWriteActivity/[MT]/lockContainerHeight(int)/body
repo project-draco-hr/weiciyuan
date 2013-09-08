@@ -1,0 +1,5 @@
+{
+  LinearLayout.LayoutParams localLayoutParams=(LinearLayout.LayoutParams)this.container.getLayoutParams();
+  localLayoutParams.height=paramInt;
+  localLayoutParams.weight=0.0F;
+}

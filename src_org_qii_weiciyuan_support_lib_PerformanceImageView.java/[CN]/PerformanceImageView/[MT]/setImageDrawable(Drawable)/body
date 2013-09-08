@@ -1,0 +1,5 @@
+{
+  mBlockMeasurement=true;
+  super.setImageDrawable(drawable);
+  mBlockMeasurement=false;
+}

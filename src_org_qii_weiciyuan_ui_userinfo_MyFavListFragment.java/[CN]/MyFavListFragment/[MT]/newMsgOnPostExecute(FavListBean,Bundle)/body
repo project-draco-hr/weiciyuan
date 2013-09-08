@@ -1,0 +1,7 @@
+{
+  if (newValue != null && getActivity() != null && newValue.getSize() > 0) {
+    addNewDataWithoutRememberPosition(newValue);
+    buildActionBarSubtitle();
+    FavouriteDBTask.asyncReplace(getList(),page,account.getUid());
+  }
+}

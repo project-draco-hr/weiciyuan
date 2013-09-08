@@ -1,0 +1,4 @@
+Activity activity
+GeoBean geoBean
+ImageView mapView
+TextView location

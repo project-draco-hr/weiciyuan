@@ -1,0 +1,4 @@
+{
+  if (mOnPostCreateCalled)   throw new IllegalStateException("enableSlidingActionBar must be called in onCreate.");
+  mEnableSlide=slidingActionBarEnabled;
+}

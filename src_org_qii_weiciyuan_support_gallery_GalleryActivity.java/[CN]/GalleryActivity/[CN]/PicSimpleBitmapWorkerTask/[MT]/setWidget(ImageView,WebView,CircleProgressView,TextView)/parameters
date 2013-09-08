@@ -1,0 +1,4 @@
+ImageView iv
+WebView gif
+CircleProgressView spinner
+TextView readError

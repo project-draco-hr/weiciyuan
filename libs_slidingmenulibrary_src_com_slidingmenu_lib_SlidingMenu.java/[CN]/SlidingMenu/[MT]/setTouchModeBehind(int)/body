@@ -1,0 +1,6 @@
+{
+  if (i != TOUCHMODE_FULLSCREEN && i != TOUCHMODE_MARGIN && i != TOUCHMODE_NONE) {
+    throw new IllegalStateException("TouchMode must be set to either" + "TOUCHMODE_FULLSCREEN or TOUCHMODE_MARGIN or TOUCHMODE_NONE.");
+  }
+  mViewBehind.setTouchMode(i);
+}

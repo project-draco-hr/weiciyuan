@@ -1,4 +1,0 @@
-{
-  String sql="delete from " + RepostsTable.TABLE_NAME + " where "+ RepostsTable.ACCOUNTID+ " in "+ "("+ accountId+ ")";
-  getWsd().execSQL(sql);
-}

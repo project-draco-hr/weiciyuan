@@ -1,0 +1,4 @@
+{
+  if (tab == null)   return;
+  tab.setText(" " + count + " "+ tabStrRes);
+}

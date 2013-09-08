@@ -1,7 +1,0 @@
-{
-  super.onPreExecute();
-  long[] ids=getListView().getCheckedItemIds();
-  for (  long id : ids) {
-    set.add(list.get((int)id));
-  }
-}

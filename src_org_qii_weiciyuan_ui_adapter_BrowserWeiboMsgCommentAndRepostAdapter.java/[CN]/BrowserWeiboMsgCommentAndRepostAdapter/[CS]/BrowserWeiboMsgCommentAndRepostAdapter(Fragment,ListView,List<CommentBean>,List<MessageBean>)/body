@@ -1,0 +1,11 @@
+{
+  this.fragment=fragment;
+  this.listView=listView;
+  this.commentListBean=commentListBean;
+  this.repostListBean=repostListBean;
+  this.inflater=fragment.getActivity().getLayoutInflater();
+  this.defaultBG=fragment.getResources().getColor(R.color.transparent);
+  int[] attrs=new int[]{R.attr.listview_checked_color};
+  TypedArray ta=fragment.getActivity().obtainStyledAttributes(attrs);
+  this.checkedBG=ta.getColor(0,430);
+}

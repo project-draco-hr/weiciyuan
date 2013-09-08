@@ -1,0 +1,24 @@
+{
+  String hackTxt;
+  if (txt.startsWith("[") && txt.endsWith("]")) {
+    hackTxt=txt + " ";
+  }
+ else {
+    hackTxt=txt;
+  }
+  SpannableString value=SpannableString.valueOf(hackTxt);
+  Linkify.addLinks(value,WeiboPatterns.MENTION_URL,WeiboPatterns.MENTION_SCHEME);
+  Linkify.addLinks(value,WeiboPatterns.WEB_URL,WeiboPatterns.WEB_SCHEME);
+  Linkify.addLinks(value,WeiboPatterns.TOPIC_URL,WeiboPatterns.TOPIC_SCHEME);
+  URLSpan[] urlSpans=value.getSpans(0,value.length(),URLSpan.class);
+  MyURLSpan weiboSpan=null;
+  for (  URLSpan urlSpan : urlSpans) {
+    weiboSpan=new MyURLSpan(urlSpan.getURL());
+    int start=value.getSpanStart(urlSpan);
+    int end=value.getSpanEnd(urlSpan);
+    value.removeSpan(urlSpan);
+    value.setSpan(weiboSpan,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+  }
+  ListViewTool.addEmotions(value);
+  return value;
+}

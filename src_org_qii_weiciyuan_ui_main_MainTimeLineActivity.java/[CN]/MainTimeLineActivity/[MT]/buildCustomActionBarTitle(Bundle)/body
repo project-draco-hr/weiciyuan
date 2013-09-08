@@ -1,0 +1,24 @@
+{
+  View title=getLayoutInflater().inflate(R.layout.maintimelineactivity_title_layout,null);
+  titleText=(TextView)title.findViewById(R.id.tv_title);
+  View clickToTop=title.findViewById(R.id.tv_click_to_top);
+  clickToTop.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      scrollCurrentListViewToTop();
+    }
+  }
+);
+  View write=title.findViewById(R.id.btn_write);
+  write.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      Intent intent=new Intent(MainTimeLineActivity.this,WriteWeiboActivity.class);
+      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+      intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
+      startActivity(intent);
+    }
+  }
+);
+  ActionBar.LayoutParams layoutParams=new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT,Gravity.RIGHT);
+  getActionBar().setCustomView(title,layoutParams);
+  getActionBar().setDisplayShowCustomEnabled(true);
+}

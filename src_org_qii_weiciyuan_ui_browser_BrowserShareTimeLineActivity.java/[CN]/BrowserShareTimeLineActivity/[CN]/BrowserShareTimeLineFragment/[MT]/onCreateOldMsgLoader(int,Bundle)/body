@@ -1,0 +1,8 @@
+{
+  String token=GlobalContext.getInstance().getSpecialToken();
+  String maxId=null;
+  if (getList().getItemList().size() > 0) {
+    maxId=getList().getItemList().get(getList().getItemList().size() - 1).getId();
+  }
+  return new BrowserShareMsgLoader(getActivity(),token,url,maxId);
+}

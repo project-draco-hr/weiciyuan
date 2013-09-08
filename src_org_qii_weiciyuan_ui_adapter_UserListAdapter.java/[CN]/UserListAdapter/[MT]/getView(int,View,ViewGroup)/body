@@ -5,7 +5,7 @@
     convertView=inflater.inflate(R.layout.user_listview_item_layout,parent,false);
     holder.username=(TextView)convertView.findViewById(R.id.username);
     holder.content=(TextView)convertView.findViewById(R.id.content);
-    holder.avatar=(ImageView)convertView.findViewById(R.id.avatar);
+    holder.avatar=(TimeLineAvatarImageView)convertView.findViewById(R.id.avatar);
     holder.listview_root=(RelativeLayout)convertView.findViewById(R.id.listview_root);
     convertView.setTag(holder);
   }

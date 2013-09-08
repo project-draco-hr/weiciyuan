@@ -1,0 +1,6 @@
+{
+  this.ids.clear();
+  this.ids.addAll(values);
+  this.disappear=false;
+  setCount();
+}

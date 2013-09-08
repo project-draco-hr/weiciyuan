@@ -1,0 +1,4 @@
+{
+  savePositionToPositionsCache();
+  startDownloadingOtherPicturesOnWifiNetworkEnvironment();
+}

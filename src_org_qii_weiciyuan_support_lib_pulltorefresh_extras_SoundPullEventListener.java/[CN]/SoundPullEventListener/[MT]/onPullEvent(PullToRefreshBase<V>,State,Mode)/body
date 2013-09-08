@@ -1,0 +1,6 @@
+{
+  Integer soundResIdObj=mSoundMap.get(event);
+  if (null != soundResIdObj) {
+    playSound(soundResIdObj.intValue());
+  }
+}

@@ -1,0 +1,5 @@
+{
+  mode.getMenuInflater().inflate(R.menu.contextual_menu_managegroupfragment,menu);
+  modify=menu.findItem(R.id.menu_modify_group_name);
+  return true;
+}

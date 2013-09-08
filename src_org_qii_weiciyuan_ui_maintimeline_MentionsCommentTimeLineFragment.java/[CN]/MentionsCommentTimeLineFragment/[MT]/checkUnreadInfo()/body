@@ -1,0 +1,14 @@
+{
+  Loader loader=getLoaderManager().getLoader(DB_CACHE_LOADER_ID);
+  if (loader != null) {
+    return;
+  }
+  Intent intent=getActivity().getIntent();
+  CommentListBean mentionsWeibo=(CommentListBean)intent.getParcelableExtra("mentionsComment");
+  if (mentionsWeibo != null) {
+    addUnreadMessage(mentionsWeibo);
+    CommentListBean nullObject=null;
+    intent.putExtra("mentionsComment",nullObject);
+    getActivity().setIntent(intent);
+  }
+}

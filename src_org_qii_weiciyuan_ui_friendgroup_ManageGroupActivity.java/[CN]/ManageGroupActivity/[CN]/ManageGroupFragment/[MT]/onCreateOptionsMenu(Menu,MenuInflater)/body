@@ -1,0 +1,3 @@
+{
+  inflater.inflate(R.menu.actionbar_menu_managegroupfragment,menu);
+}

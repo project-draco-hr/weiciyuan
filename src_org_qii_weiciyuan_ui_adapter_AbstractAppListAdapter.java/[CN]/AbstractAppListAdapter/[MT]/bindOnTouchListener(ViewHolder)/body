@@ -1,0 +1,9 @@
+{
+  holder.listview_root.setClickable(false);
+  holder.username.setClickable(false);
+  holder.time.setClickable(false);
+  holder.content.setClickable(false);
+  holder.repost_content.setClickable(false);
+  if (holder.content != null)   holder.content.setOnTouchListener(onTouchListener);
+  if (holder.repost_content != null)   holder.repost_content.setOnTouchListener(onTouchListener);
+}

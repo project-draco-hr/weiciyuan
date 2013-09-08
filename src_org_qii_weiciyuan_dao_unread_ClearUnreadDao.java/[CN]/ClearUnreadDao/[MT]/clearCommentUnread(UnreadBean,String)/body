@@ -1,0 +1,11 @@
+{
+  int count=unreadBean.getCmt();
+  UnreadBean currentCount=new UnreadDao(access_token,accountId).getCount();
+  if (currentCount == null) {
+    return false;
+  }
+  if (count != currentCount.getCmt()) {
+    return false;
+  }
+  return new ClearUnreadDao(access_token,ClearUnreadDao.CMT).clearUnread();
+}

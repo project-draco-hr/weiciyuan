@@ -1,0 +1,11 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putInt("currentIndex",currentIndex);
+  outState.putInt("mentionsWeiboUnreadCount",mentionsWeiboUnreadCount);
+  outState.putInt("mentionsCommentUnreadCount",mentionsCommentUnreadCount);
+  outState.putInt("commentsToMeUnreadCount",commentsToMeUnreadCount);
+  outState.putInt("commentsTabIndex",commentsTabIndex);
+  outState.putInt("mentionsTabIndex",mentionsTabIndex);
+  outState.putInt("searchTabIndex",searchTabIndex);
+  outState.putBoolean("firstStart",firstStart);
+}

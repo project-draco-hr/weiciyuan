@@ -1,0 +1,9 @@
+{
+  super.onReceivedTitle(view,sTitle);
+  if (sTitle != null && sTitle.length() > 0) {
+    if (getActivity() == null)     return;
+    ActionBar actionBar=getActivity().getActionBar();
+    if (actionBar == null)     return;
+    actionBar.setTitle(view.getTitle());
+  }
+}

@@ -1,0 +1,4 @@
+{
+  if (sInstance == null)   sInstance=new LongClickableLinkMovementMethod();
+  return sInstance;
+}

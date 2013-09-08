@@ -1,0 +1,11 @@
+{
+  ArrayList<String> result=new ArrayList<String>();
+  String sql="select * from " + TopicTable.TABLE_NAME + " where "+ TopicTable.ACCOUNTID+ "  = "+ accountId;
+  Cursor c=getRsd().rawQuery(sql,null);
+  while (c.moveToNext()) {
+    String topic=c.getString(c.getColumnIndex(TopicTable.TOPIC_NAME));
+    result.add(topic);
+  }
+  c.close();
+  return result;
+}

@@ -10,10 +10,13 @@
   if ((jsonData != null) && (jsonData.contains("{"))) {
     try {
       JSONObject localJSONObject=new JSONObject(jsonData);
-      return localJSONObject.optString("access_token");
+      String[] result=new String[2];
+      result[0]=localJSONObject.optString("access_token");
+      result[1]=localJSONObject.optString("expires_in");
+      return result;
     }
  catch (    JSONException localJSONException) {
     }
   }
-  return "";
+  return null;
 }

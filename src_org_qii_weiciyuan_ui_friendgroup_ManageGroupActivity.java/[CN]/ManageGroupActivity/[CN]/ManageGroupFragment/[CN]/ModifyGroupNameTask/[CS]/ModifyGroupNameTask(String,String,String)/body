@@ -1,0 +1,5 @@
+{
+  this.token=token;
+  this.groupIdstr=groupIdstr;
+  this.name=name;
+}

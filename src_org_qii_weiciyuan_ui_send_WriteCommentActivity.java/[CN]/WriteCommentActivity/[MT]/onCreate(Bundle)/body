@@ -2,17 +2,19 @@
   super.onCreate(savedInstanceState);
   getActionBar().setTitle(R.string.comments);
   getActionBar().setSubtitle(GlobalContext.getInstance().getCurrentAccountName());
-  token=getIntent().getStringExtra("token");
-  if (TextUtils.isEmpty(token))   token=GlobalContext.getInstance().getSpecialToken();
-  msg=(MessageBean)getIntent().getSerializableExtra("msg");
-  if (msg == null) {
-    commentDraftBean=(CommentDraftBean)getIntent().getSerializableExtra("draft");
-    msg=commentDraftBean.getMessageBean();
-    getEditTextView().setText(commentDraftBean.getContent());
-  }
-  getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
-  if (savedInstanceState != null) {
-    savedEnableCommentOri=savedInstanceState.getBoolean("commentOri");
-    savedEnableRepost=savedInstanceState.getBoolean("repost");
+  if (savedInstanceState == null) {
+    Intent intent=getIntent();
+    String action=intent.getAction();
+    if (!TextUtils.isEmpty(action)) {
+      if (action.equals(WriteReplyToCommentActivity.ACTION_DRAFT)) {
+        handleDraftOperation(intent);
+      }
+ else       if (action.equals(WriteReplyToCommentActivity.ACTION_SEND_FAILED)) {
+        handleFailedOperation(intent);
+      }
+    }
+ else {
+      handleNormalOperation(intent);
+    }
   }
 }

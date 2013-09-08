@@ -1,0 +1,43 @@
+{
+  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+  CharSequence[] strangerItems={getString(R.string.open),getString(R.string.copy)};
+  builder.setTitle(getStringContent()).setItems(strangerItems,new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+switch (which) {
+case 0:
+        Context context=getActivity();
+      if (uri.getScheme().startsWith("http")) {
+        String url=uri.toString();
+        if (Utility.isWeiboAccountIdLink(url)) {
+          Intent intent=new Intent(context,UserInfoActivity.class);
+          intent.putExtra("id",Utility.getIdFromWeiboAccountLink(url));
+          context.startActivity(intent);
+        }
+ else         if (Utility.isWeiboAccountDomainLink(url)) {
+          Intent intent=new Intent(context,UserInfoActivity.class);
+          intent.putExtra("domain",Utility.getDomainFromWeiboAccountLink(url));
+          context.startActivity(intent);
+        }
+ else {
+          Intent intent=new Intent(context,BrowserWebActivity.class);
+          intent.putExtra("url",uri.toString());
+          context.startActivity(intent);
+        }
+      }
+ else {
+        Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+        intent.putExtra(Browser.EXTRA_APPLICATION_ID,context.getPackageName());
+        context.startActivity(intent);
+      }
+    break;
+case 1:
+  ClipboardManager cm=(ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+cm.setPrimaryClip(ClipData.newPlainText("sinaweibo",getStringContent()));
+Toast.makeText(GlobalContext.getInstance(),String.format(GlobalContext.getInstance().getString(R.string.have_copied),getStringContent()),Toast.LENGTH_SHORT).show();
+break;
+}
+}
+}
+);
+return builder.create();
+}

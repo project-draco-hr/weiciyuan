@@ -1,0 +1,25 @@
+{
+  if (disappear || id == 0L) {
+    return;
+  }
+  SortedSet tmp=ids.headSet(id,true);
+  if (tmp.size() > 0) {
+    tmp.clear();
+    setCount();
+    if (this.onChangeListener != null) {
+      this.onChangeListener.onChange(ids.size());
+    }
+  }
+  if (type == Type.ALWAYS) {
+    return;
+  }
+  if (helperId == 0L) {
+    return;
+  }
+  if (ids.contains(helperId)) {
+    setCount();
+  }
+ else {
+    setVisibility(View.INVISIBLE);
+  }
+}

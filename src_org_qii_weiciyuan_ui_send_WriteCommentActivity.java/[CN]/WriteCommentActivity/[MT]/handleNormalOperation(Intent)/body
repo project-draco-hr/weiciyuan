@@ -1,0 +1,6 @@
+{
+  token=getIntent().getStringExtra("token");
+  if (TextUtils.isEmpty(token))   token=GlobalContext.getInstance().getSpecialToken();
+  msg=(MessageBean)getIntent().getParcelableExtra("msg");
+  getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
+}

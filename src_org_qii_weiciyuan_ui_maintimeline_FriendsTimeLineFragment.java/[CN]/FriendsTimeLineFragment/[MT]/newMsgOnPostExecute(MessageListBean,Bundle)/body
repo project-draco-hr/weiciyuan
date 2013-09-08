@@ -1,0 +1,18 @@
+{
+  if (Utility.isAllNotNull(getActivity(),newValue) && newValue.getSize() > 0) {
+    if (loaderArgs != null && loaderArgs.getBoolean(BundleArgsConstants.AUTO_REFRESH,false)) {
+      addNewDataAndRememberPositionAutoRefresh(newValue);
+    }
+ else {
+      boolean scrollToTop=SettingUtility.isReadStyleEqualWeibo();
+      if (scrollToTop) {
+        addNewDataWithoutRememberPosition(newValue);
+      }
+ else {
+        addNewDataAndRememberPosition(newValue);
+      }
+    }
+    putToGroupDataMemoryCache(currentGroupId,getList());
+    FriendsTimeLineDBTask.asyncReplace(getList(),accountBean.getUid(),currentGroupId);
+  }
+}

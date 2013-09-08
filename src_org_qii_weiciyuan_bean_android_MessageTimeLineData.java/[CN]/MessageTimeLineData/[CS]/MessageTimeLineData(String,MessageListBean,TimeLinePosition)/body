@@ -1,0 +1,5 @@
+{
+  this.groupId=groupId;
+  this.msgList=msgList;
+  this.position=position;
+}

@@ -1,6 +1,0 @@
-{
-  super.onPreExecute();
-  if (pb != null) {
-    pb.setVisibility(View.VISIBLE);
-  }
-}

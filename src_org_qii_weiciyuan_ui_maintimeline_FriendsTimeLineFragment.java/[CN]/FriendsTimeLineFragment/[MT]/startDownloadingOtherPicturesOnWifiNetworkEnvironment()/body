@@ -1,0 +1,10 @@
+{
+  if (backgroundWifiDownloadPicThread == null && Utility.isWifi(getActivity()) && SettingUtility.getEnableBigPic() && SettingUtility.isWifiAutoDownloadPic()) {
+    final int position=getListView().getFirstVisiblePosition();
+    int listVewOrientation=((VelocityListView)getListView()).getTowardsOrientation();
+    WifiAutoDownloadPictureRunnable runnable=new WifiAutoDownloadPictureRunnable(getList(),position,listVewOrientation);
+    backgroundWifiDownloadPicThread=new Thread(runnable);
+    backgroundWifiDownloadPicThread.start();
+    AppLogger.i("WifiAutoDownloadPictureRunnable startDownloadingOtherPicturesOnWifiNetworkEnvironment");
+  }
+}

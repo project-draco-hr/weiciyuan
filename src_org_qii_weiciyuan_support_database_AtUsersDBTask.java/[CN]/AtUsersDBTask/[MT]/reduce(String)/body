@@ -1,0 +1,14 @@
+{
+  String searchCount="select count(" + AtUsersTable.ID + ") as total"+ " from "+ AtUsersTable.TABLE_NAME+ " where "+ AtUsersTable.ACCOUNTID+ " = "+ accountId;
+  int total=0;
+  Cursor c=getRsd().rawQuery(searchCount,null);
+  if (c.moveToNext()) {
+    total=c.getInt(c.getColumnIndex("total"));
+  }
+  c.close();
+  int needDeletedNumber=total - 15;
+  if (needDeletedNumber > 0) {
+    String sql=" delete from " + AtUsersTable.TABLE_NAME + " where "+ AtUsersTable.ID+ " in "+ "( select "+ AtUsersTable.ID+ " from "+ AtUsersTable.TABLE_NAME+ " where "+ AtUsersTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ AtUsersTable.ID+ " asc limit "+ needDeletedNumber+ " ) ";
+    getWsd().execSQL(sql);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  pb.setVisibility(View.VISIBLE);
+  pb.setMax(max);
+  pb.setProgress(value);
+}

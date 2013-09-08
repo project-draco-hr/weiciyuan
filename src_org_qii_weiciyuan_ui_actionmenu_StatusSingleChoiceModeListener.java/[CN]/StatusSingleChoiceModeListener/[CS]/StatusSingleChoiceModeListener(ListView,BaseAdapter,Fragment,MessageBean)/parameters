@@ -1,0 +1,4 @@
+ListView listView
+BaseAdapter adapter
+Fragment fragment
+MessageBean bean

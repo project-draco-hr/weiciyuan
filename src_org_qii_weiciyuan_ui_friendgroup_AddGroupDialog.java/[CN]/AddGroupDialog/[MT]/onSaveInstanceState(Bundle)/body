@@ -1,0 +1,4 @@
+{
+  super.onSaveInstanceState(outState);
+  outState.putString("name",name.getText().toString());
+}

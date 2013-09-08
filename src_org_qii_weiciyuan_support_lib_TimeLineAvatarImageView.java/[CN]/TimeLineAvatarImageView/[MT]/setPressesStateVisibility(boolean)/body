@@ -1,0 +1,5 @@
+{
+  if (showPressedState == value)   return;
+  showPressedState=value;
+  invalidate();
+}

@@ -1,0 +1,9 @@
+{
+  File[] fileArray=file.listFiles();
+  if (fileArray == null)   return;
+  if (fileArray.length == 0) {
+    if (file.delete()) {
+      clearEmptyDir(file.getParentFile());
+    }
+  }
+}

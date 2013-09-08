@@ -3,6 +3,7 @@
     if (HttpUtility.getInstance().executeDownloadTask(url,path,downloadListener)) {
       return true;
     }
+    new File(path).delete();
   }
   return false;
 }

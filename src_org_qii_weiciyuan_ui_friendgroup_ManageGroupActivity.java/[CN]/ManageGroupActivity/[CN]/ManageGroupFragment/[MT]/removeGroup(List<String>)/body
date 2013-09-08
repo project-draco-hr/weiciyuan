@@ -1,0 +1,3 @@
+{
+  new RemoveGroupTask(GlobalContext.getInstance().getSpecialToken(),groupNames).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}

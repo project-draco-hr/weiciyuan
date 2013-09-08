@@ -1,0 +1,16 @@
+{
+  ViewHolder holder=null;
+  if (convertView == null || convertView.getTag() == null) {
+    convertView=initSimpleLayout(parent);
+    holder=buildHolder(convertView);
+    convertView.setTag(holder);
+  }
+ else {
+    holder=(ViewHolder)convertView.getTag();
+  }
+  configLayerType(holder);
+  configViewFont(holder);
+  bindViewData(holder,position);
+  bindOnTouchListener(holder);
+  return convertView;
+}

@@ -1,0 +1,6 @@
+{
+  this.lruCache=GlobalContext.getInstance().getAvatarCache();
+  this.view=view;
+  this.globalContext=GlobalContext.getInstance();
+  this.data=url;
+}

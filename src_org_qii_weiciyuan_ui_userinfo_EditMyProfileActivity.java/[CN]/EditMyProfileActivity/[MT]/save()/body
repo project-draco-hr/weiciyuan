@@ -1,0 +1,6 @@
+{
+  if (Utility.isTaskStopped(saveAsyncTask) && !isNicknameEmpty()) {
+    saveAsyncTask=new SaveAsyncTask();
+    saveAsyncTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

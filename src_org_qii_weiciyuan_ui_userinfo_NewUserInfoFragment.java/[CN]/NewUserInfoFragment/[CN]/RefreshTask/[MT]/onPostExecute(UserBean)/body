@@ -1,0 +1,13 @@
+{
+  setValue();
+  if (getActivity() instanceof UserInfoActivity) {
+    ((UserInfoActivity)getActivity()).setUser(o);
+    getActivity().invalidateOptionsMenu();
+  }
+  for (  MessageBean msg : bean.getItemList()) {
+    msg.setUser(o);
+  }
+  getAdapter().notifyDataSetChanged();
+  stopRefreshMenuAnimationIfPossible();
+  super.onPostExecute(o);
+}

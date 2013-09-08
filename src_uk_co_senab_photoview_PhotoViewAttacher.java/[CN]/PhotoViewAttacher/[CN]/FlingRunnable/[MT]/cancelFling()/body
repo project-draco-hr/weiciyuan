@@ -1,0 +1,6 @@
+{
+  if (DEBUG) {
+    Log.d(LOG_TAG,"Cancel Fling");
+  }
+  mScroller.forceFinished(true);
+}

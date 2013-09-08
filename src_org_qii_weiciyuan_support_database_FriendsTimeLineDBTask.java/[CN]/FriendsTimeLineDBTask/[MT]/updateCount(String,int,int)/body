@@ -1,0 +1,23 @@
+{
+  String sql="select * from " + HomeTable.HomeDataTable.TABLE_NAME + " where "+ HomeTable.HomeDataTable.MBLOGID+ "  = "+ msgId+ " order by "+ HomeTable.HomeDataTable.ID+ " asc limit 50";
+  Cursor c=getRsd().rawQuery(sql,null);
+  Gson gson=new Gson();
+  while (c.moveToNext()) {
+    String id=c.getString(c.getColumnIndex(HomeTable.HomeDataTable.ID));
+    String json=c.getString(c.getColumnIndex(HomeTable.HomeDataTable.JSONDATA));
+    if (!TextUtils.isEmpty(json)) {
+      try {
+        MessageBean value=gson.fromJson(json,MessageBean.class);
+        value.setComments_count(commentCount);
+        value.setReposts_count(repostCount);
+        String[] args={id};
+        ContentValues cv=new ContentValues();
+        cv.put(HomeTable.HomeDataTable.JSONDATA,gson.toJson(value));
+        getWsd().update(HomeTable.HomeDataTable.TABLE_NAME,cv,HomeTable.HomeDataTable.ID + "=?",args);
+      }
+ catch (      JsonSyntaxException e) {
+      }
+    }
+  }
+  c.close();
+}

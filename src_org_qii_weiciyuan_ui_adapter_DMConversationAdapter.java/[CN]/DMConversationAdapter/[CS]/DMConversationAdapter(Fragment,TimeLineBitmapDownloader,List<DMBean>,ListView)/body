@@ -1,7 +1,0 @@
-{
-  this.bean=bean;
-  this.commander=commander;
-  this.inflater=fragment.getActivity().getLayoutInflater();
-  this.listView=listView;
-  this.fragment=fragment;
-}

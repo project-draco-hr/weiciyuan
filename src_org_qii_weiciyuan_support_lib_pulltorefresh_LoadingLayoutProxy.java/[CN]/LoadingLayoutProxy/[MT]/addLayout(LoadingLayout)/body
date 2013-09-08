@@ -1,0 +1,5 @@
+{
+  if (null != layout) {
+    mLoadingLayouts.add(layout);
+  }
+}

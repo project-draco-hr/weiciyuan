@@ -1,0 +1,21 @@
+{
+  String sql="select * from " + MentionCommentsTable.TABLE_NAME + " where "+ MentionCommentsTable.ACCOUNTID+ "  = "+ accountId;
+  Cursor c=getRsd().rawQuery(sql,null);
+  Gson gson=new Gson();
+  if (c.moveToNext()) {
+    try {
+      String[] args={accountId};
+      ContentValues cv=new ContentValues();
+      cv.put(MentionCommentsTable.TIMELINEDATA,gson.toJson(position));
+      getWsd().update(MentionCommentsTable.TABLE_NAME,cv,MentionCommentsTable.ACCOUNTID + "=?",args);
+    }
+ catch (    JsonSyntaxException e) {
+    }
+  }
+ else {
+    ContentValues cv=new ContentValues();
+    cv.put(MentionCommentsTable.ACCOUNTID,accountId);
+    cv.put(MentionCommentsTable.TIMELINEDATA,gson.toJson(position));
+    getWsd().insert(MentionCommentsTable.TABLE_NAME,MentionCommentsTable.ID,cv);
+  }
+}

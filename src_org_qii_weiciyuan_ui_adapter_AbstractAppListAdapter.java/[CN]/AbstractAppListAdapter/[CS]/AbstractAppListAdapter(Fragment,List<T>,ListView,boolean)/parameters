@@ -1,0 +1,4 @@
+Fragment fragment
+List<T> bean
+ListView listView
+boolean showOriStatus

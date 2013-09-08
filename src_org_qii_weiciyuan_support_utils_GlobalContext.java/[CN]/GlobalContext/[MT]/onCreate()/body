@@ -2,4 +2,6 @@
   super.onCreate();
   globalContext=this;
   buildCache();
+  CrashManagerConstants.loadFromContext(this);
+  CrashManager.registerHandler();
 }

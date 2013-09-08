@@ -1,0 +1,4 @@
+{
+  this.idstr=idstr;
+  this.oriName=oriName;
+}

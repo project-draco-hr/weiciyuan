@@ -1,0 +1,6 @@
+{
+  StatusListAdapter adapter=new StatusListAdapter(this,getList().getItemList(),getListView(),true,false);
+  adapter.setTopTipBar(newMsgTipBar);
+  timeLineAdapter=adapter;
+  getListView().setAdapter(timeLineAdapter);
+}

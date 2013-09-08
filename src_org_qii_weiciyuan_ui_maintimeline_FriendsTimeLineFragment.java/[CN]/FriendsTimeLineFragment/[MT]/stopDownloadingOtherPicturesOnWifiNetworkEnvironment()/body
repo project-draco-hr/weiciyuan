@@ -1,0 +1,7 @@
+{
+  if (backgroundWifiDownloadPicThread != null) {
+    backgroundWifiDownloadPicThread.interrupt();
+    backgroundWifiDownloadPicThread=null;
+    AppLogger.i("WifiAutoDownloadPictureRunnable stopDownloadingOtherPicturesOnWifiNetworkEnvironment");
+  }
+}

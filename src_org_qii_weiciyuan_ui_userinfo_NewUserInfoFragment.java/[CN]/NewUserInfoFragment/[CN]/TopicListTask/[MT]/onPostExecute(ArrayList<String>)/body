@@ -1,0 +1,13 @@
+{
+  super.onPostExecute(result);
+  stopRefreshMenuAnimationIfPossible();
+  if (isCancelled())   return;
+  if (result == null || result.size() == 0) {
+    return;
+  }
+  topicList=result;
+  topicsCount.setText(Utility.convertStateNumberToString(getActivity(),String.valueOf(result.size())));
+  ArrayList<String> dbCache=new ArrayList<String>();
+  dbCache.addAll(topicList);
+  TopicDBTask.asyncReplace(userBean.getId(),dbCache);
+}

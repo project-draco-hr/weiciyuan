@@ -1,0 +1,3 @@
+{
+  FriendsTimeLineDBTask.asyncUpdateRecentGroupId(GlobalContext.getInstance().getCurrentAccountId(),currentGroupId);
+}

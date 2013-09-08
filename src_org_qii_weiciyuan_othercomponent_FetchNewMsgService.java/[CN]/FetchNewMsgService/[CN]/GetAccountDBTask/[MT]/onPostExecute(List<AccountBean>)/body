@@ -1,5 +1,0 @@
-{
-  for (  AccountBean account : accountBeans) {
-    new SimpleTask(account).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
-}

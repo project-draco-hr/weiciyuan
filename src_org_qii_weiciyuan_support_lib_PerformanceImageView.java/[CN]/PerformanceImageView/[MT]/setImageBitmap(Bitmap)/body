@@ -1,5 +1,0 @@
-{
-  mBlockMeasurement=true;
-  super.setImageBitmap(bm);
-  mBlockMeasurement=false;
-}

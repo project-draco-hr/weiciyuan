@@ -1,0 +1,7 @@
+{
+  String sinceId=null;
+  if (getList().getItemList().size() > 0) {
+    sinceId=getList().getItemList().get(0).getId();
+  }
+  return new RepostByIdMsgLoader(getActivity(),id,token,sinceId,null);
+}

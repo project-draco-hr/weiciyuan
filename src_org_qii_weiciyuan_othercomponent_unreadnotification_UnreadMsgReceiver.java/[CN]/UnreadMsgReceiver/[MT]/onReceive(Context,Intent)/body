@@ -1,10 +1,10 @@
 {
   this.context=context;
-  accountBean=(AccountBean)intent.getSerializableExtra("account");
-  comment=(CommentListBean)intent.getSerializableExtra("comment");
-  repost=(MessageListBean)intent.getSerializableExtra("repost");
-  mentionCommentsResult=(CommentListBean)intent.getSerializableExtra("mention_comment");
-  unreadBean=(UnreadBean)intent.getSerializableExtra("unread");
+  accountBean=(AccountBean)intent.getParcelableExtra(BundleArgsConstants.ACCOUNT_EXTRA);
+  commentsToMeData=(CommentListBean)intent.getParcelableExtra(BundleArgsConstants.COMMENTS_TO_ME_EXTRA);
+  mentionsWeiboData=(MessageListBean)intent.getParcelableExtra(BundleArgsConstants.MENTIONS_WEIBO_EXTRA);
+  mentionsCommentData=(CommentListBean)intent.getParcelableExtra(BundleArgsConstants.MENTIONS_COMMENT_EXTRA);
+  unreadBean=(UnreadBean)intent.getParcelableExtra(BundleArgsConstants.UNREAD_EXTRA);
   sum=unreadBean.getMention_cmt() + unreadBean.getMention_status() + unreadBean.getCmt();
   if (sum == 0 && accountBean != null) {
     clearNotification(accountBean);

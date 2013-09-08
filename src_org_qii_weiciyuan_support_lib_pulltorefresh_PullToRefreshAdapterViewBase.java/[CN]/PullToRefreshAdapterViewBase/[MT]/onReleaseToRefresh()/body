@@ -2,10 +2,12 @@
   super.onReleaseToRefresh();
   if (getShowIndicatorInternal()) {
 switch (getCurrentMode()) {
-case PULL_UP_TO_REFRESH:
+case PULL_FROM_END:
       break;
-case PULL_DOWN_TO_REFRESH:
+case PULL_FROM_START:
     break;
+default :
+  break;
 }
 }
 }

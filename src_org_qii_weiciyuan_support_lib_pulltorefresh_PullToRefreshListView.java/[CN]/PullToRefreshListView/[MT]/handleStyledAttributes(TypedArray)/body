@@ -1,0 +1,19 @@
+{
+  super.handleStyledAttributes(a);
+  mListViewExtrasEnabled=a.getBoolean(R.styleable.PullToRefresh_ptrListViewExtrasEnabled,true);
+  if (mListViewExtrasEnabled) {
+    final FrameLayout.LayoutParams lp=new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT,Gravity.CENTER_HORIZONTAL);
+    FrameLayout frame=new FrameLayout(getContext());
+    mHeaderLoadingView=createLoadingLayout(getContext(),Mode.PULL_FROM_START,a);
+    mHeaderLoadingView.setVisibility(View.GONE);
+    frame.addView(mHeaderLoadingView,lp);
+    mRefreshableView.addHeaderView(frame,null,false);
+    mLvFooterLoadingFrame=new FrameLayout(getContext());
+    mFooterLoadingView=createLoadingLayout(getContext(),Mode.PULL_FROM_END,a);
+    mFooterLoadingView.setVisibility(View.GONE);
+    mLvFooterLoadingFrame.addView(mFooterLoadingView,lp);
+    if (!a.hasValue(R.styleable.PullToRefresh_ptrScrollingWhileRefreshingEnabled)) {
+      setScrollingWhileRefreshingEnabled(true);
+    }
+  }
+}

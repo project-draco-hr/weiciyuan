@@ -1,0 +1,3 @@
+{
+  view.setOnLongClickListener(null);
+}

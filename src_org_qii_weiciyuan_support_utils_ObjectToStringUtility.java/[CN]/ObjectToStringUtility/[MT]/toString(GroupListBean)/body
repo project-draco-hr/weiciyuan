@@ -1,0 +1,7 @@
+{
+  StringBuilder builder=new StringBuilder();
+  for (  GroupBean data : listBean.getLists()) {
+    builder.append(data.toString());
+  }
+  return builder.toString();
+}

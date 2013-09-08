@@ -1,6 +1,0 @@
-{
-  if (Utility.isTaskStopped(oldTask)) {
-    oldTask=new TimeLineGetOlderMsgListTask();
-    oldTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
-}

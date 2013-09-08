@@ -1,0 +1,6 @@
+int openedX
+int closedX
+int openedY
+int closedY
+int px
+int py

@@ -1,0 +1,3 @@
+{
+  SettingHelper.setEditor(getContext(),LAST_FOUND_WEIBO_ACCOUNT_LINK,url);
+}

@@ -1,16 +1,15 @@
 {
   super.onCreate(savedInstanceState);
-  setContentView(R.layout.viewpager_layout);
   if (savedInstanceState != null) {
-    accountBean=(AccountBean)savedInstanceState.getSerializable("account");
+    accountBean=(AccountBean)savedInstanceState.getParcelable("account");
   }
  else {
     Intent intent=getIntent();
-    accountBean=(AccountBean)intent.getSerializableExtra("account");
+    accountBean=(AccountBean)intent.getParcelableExtra("account");
   }
   if (accountBean == null)   accountBean=GlobalContext.getInstance().getAccountBean();
   GlobalContext.getInstance().setAccountBean(accountBean);
   SettingUtility.setDefaultAccountId(accountBean.getUid());
-  buildPhoneInterface();
+  buildInterface(savedInstanceState);
   Executors.newSingleThreadScheduledExecutor().schedule(new ClearCacheTask(),8,TimeUnit.SECONDS);
 }

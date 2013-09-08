@@ -1,0 +1,10 @@
+{
+  String image_url=user.getProfile_image_url();
+  if (!TextUtils.isEmpty(image_url)) {
+    view.setVisibility(View.VISIBLE);
+    TimeLineBitmapDownloader.getInstance().downloadAvatar(view,user,false);
+  }
+ else {
+    view.setVisibility(View.GONE);
+  }
+}

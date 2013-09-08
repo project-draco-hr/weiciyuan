@@ -1,9 +1,0 @@
-{
-  Intent intent=new Intent(UnreadMsgReceiver.ACTION);
-  intent.putExtra("account",accountBean);
-  intent.putExtra("comment",commentResult);
-  intent.putExtra("repost",mentionStatusesResult);
-  intent.putExtra("mention_comment",mentionCommentsResult);
-  intent.putExtra("unread",unreadBean);
-  sendOrderedBroadcast(intent,null);
-}

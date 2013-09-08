@@ -3,13 +3,13 @@
   jumpToHomeActivity();
   super.onCreate(savedInstanceState);
   setContentView(R.layout.accountactivity_layout);
+  getActionBar().setTitle(getString(R.string.app_name));
   listAdapter=new AccountAdapter();
   listView=(ListView)findViewById(R.id.listView);
   listView.setOnItemClickListener(new AccountListItemClickListener());
   listView.setAdapter(listAdapter);
   listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
   listView.setMultiChoiceModeListener(new AccountMultiChoiceModeListener());
-  getTask=new GetAccountListDBTask();
-  getTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  getLoaderManager().initLoader(LOADER_ID,null,this);
   if (SettingUtility.firstStart())   showChangeLogDialog();
 }

@@ -1,0 +1,7 @@
+{
+  super.onPostExecute(groupBean);
+  if (getActivity() == null)   return;
+  if (Utility.isAllNotNull(groupBean)) {
+    new RefreshGroupTask(token).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

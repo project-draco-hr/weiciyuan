@@ -1,5 +1,0 @@
-{
-  oldMsgOnPostExecute(newValue);
-  cleanWork();
-  super.onPostExecute(newValue);
-}

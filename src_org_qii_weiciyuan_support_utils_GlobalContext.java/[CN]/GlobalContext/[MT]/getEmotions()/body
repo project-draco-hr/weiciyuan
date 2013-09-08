@@ -1,9 +1,0 @@
-{
-  if (emotions == null) {
-    InputStream inputStream=getResources().openRawResource(R.raw.emotions);
-    emotions=new Gson().fromJson(new InputStreamReader(inputStream),new TypeToken<Map<String,String>>(){
-    }
-.getType());
-  }
-  return emotions;
-}

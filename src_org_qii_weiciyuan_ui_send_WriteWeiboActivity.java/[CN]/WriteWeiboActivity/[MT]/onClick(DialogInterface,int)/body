@@ -1,17 +1,39 @@
 {
 switch (which) {
 case 0:
-    imageFileUri=getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,new ContentValues());
-  if (imageFileUri != null) {
-    Intent i=new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-    i.putExtra(android.provider.MediaStore.EXTRA_OUTPUT,imageFileUri);
-    startActivityForResult(i,CAMERA_RESULT);
+    String[] projection=new String[]{MediaStore.Images.ImageColumns._ID,MediaStore.Images.ImageColumns.DATA,MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME,MediaStore.Images.ImageColumns.DATE_TAKEN,MediaStore.Images.ImageColumns.MIME_TYPE};
+  final Cursor cursor=managedQuery(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,projection,null,null,MediaStore.Images.ImageColumns.DATE_TAKEN + " DESC");
+if (cursor.moveToFirst()) {
+  String path=cursor.getString(1);
+  if (!TextUtils.isEmpty(path)) {
+    picPath=path;
+    enablePicture();
+    if (TextUtils.isEmpty(content.getText().toString())) {
+      content.setText(getString(R.string.share_pic));
+      content.setSelection(content.getText().toString().length());
+    }
+    break;
   }
- else {
-    Toast.makeText(WriteWeiboActivity.this,getString(R.string.cant_insert_album),Toast.LENGTH_SHORT).show();
-  }
+}
+Toast.makeText(WriteWeiboActivity.this,getString(R.string.dont_have_the_last_picture),Toast.LENGTH_SHORT).show();
 break;
 case 1:
+imageFileUri=getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,new ContentValues());
+if (imageFileUri != null) {
+Intent i=new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+i.putExtra(android.provider.MediaStore.EXTRA_OUTPUT,imageFileUri);
+if (Utility.isIntentSafe(WriteWeiboActivity.this,i)) {
+startActivityForResult(i,CAMERA_RESULT);
+}
+ else {
+Toast.makeText(WriteWeiboActivity.this,getString(R.string.dont_have_camera_app),Toast.LENGTH_SHORT).show();
+}
+}
+ else {
+Toast.makeText(WriteWeiboActivity.this,getString(R.string.cant_insert_album),Toast.LENGTH_SHORT).show();
+}
+break;
+case 2:
 Intent choosePictureIntent=new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 startActivityForResult(choosePictureIntent,PIC_RESULT);
 break;

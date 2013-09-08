@@ -1,0 +1,3 @@
+{
+  if (p != null && p.newMsgIds != null)   newMsgTipBar.setValue(p.newMsgIds);
+}

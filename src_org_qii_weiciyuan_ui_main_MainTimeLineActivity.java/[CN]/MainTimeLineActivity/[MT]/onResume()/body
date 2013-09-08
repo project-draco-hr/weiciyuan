@@ -1,14 +1,9 @@
 {
   super.onResume();
-  IntentFilter filter=new IntentFilter(UnreadMsgReceiver.ACTION);
+  IntentFilter filter=new IntentFilter(AppEventAction.NEW_MSG_PRIORITY_BROADCAST);
   filter.setPriority(1);
-  newMsgBroadcastReceiver=new NewMsgBroadcastReceiver();
-  registerReceiver(newMsgBroadcastReceiver,filter);
-  newMsgScheduledExecutorService=Executors.newSingleThreadScheduledExecutor();
-  newMsgScheduledExecutorService.scheduleAtFixedRate(new Runnable(){
-    @Override public void run(){
-      getUnreadCount();
-    }
-  }
-,10,50,TimeUnit.SECONDS);
+  newMsgInterruptBroadcastReceiver=new NewMsgInterruptBroadcastReceiver();
+  registerReceiver(newMsgInterruptBroadcastReceiver,filter);
+  startListenMusicPlaying();
+  readClipboard();
 }

@@ -1,0 +1,9 @@
+{
+  if (view != null) {
+    IPictureWorker bitmapDownloaderTask=getBitmapDownloaderTask(view);
+    if (this == bitmapDownloaderTask) {
+      return true;
+    }
+  }
+  return false;
+}

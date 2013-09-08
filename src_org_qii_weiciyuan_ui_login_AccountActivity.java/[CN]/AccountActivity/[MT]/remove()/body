@@ -1,0 +1,9 @@
+{
+  Set<String> set=new HashSet<String>();
+  long[] ids=listView.getCheckedItemIds();
+  for (  long id : ids) {
+    set.add(String.valueOf(id));
+  }
+  accountList=AccountDBTask.removeAndGetNewAccountList(set);
+  listAdapter.notifyDataSetChanged();
+}

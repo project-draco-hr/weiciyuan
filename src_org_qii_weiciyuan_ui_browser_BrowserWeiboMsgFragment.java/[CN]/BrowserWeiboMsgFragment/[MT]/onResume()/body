@@ -1,5 +1,17 @@
 {
   super.onResume();
-  buildViewData();
-  mapView.onResume();
+  sendCommentCompletedReceiver=new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      if (isCommentList)       loadNewCommentData();
+    }
+  }
+;
+  LocalBroadcastManager.getInstance(getActivity()).registerReceiver(sendCommentCompletedReceiver,new IntentFilter(AppEventAction.buildSendCommentOrReplySuccessfullyAction(msg)));
+  sendRepostCompletedReceiver=new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      if (!isCommentList)       loadNewRepostData();
+    }
+  }
+;
+  LocalBroadcastManager.getInstance(getActivity()).registerReceiver(sendRepostCompletedReceiver,new IntentFilter(AppEventAction.buildSendRepostSuccessfullyAction(msg)));
 }

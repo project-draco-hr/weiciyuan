@@ -1,0 +1,11 @@
+{
+  String url=msg.getOriginal_pic();
+  if (TextUtils.isEmpty(url) && msg.getRetweeted_status() != null) {
+    url=msg.getRetweeted_status().getOriginal_pic();
+  }
+  downloadPic(url);
+  UserBean user=msg.getUser();
+  if (user != null) {
+    downloadAvatar(user.getAvatar_large());
+  }
+}

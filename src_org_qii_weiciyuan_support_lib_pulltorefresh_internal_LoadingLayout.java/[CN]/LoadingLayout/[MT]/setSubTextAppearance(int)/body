@@ -1,0 +1,5 @@
+{
+  if (null != mSubHeaderText) {
+    mSubHeaderText.setTextAppearance(getContext(),value);
+  }
+}

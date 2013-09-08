@@ -2,9 +2,10 @@
   super.onCreate(savedInstanceState);
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setTitle(getString(R.string.fan_list));
+  getActionBar().setIcon(R.drawable.ic_ab_friendship);
   token=getIntent().getStringExtra("token");
-  bean=(UserBean)getIntent().getSerializableExtra("user");
-  if (getFragmentManager().findFragmentByTag(FanListFragment.class.getName()) == null) {
-    getFragmentManager().beginTransaction().replace(android.R.id.content,new FanListFragment(bean.getId()),FanListFragment.class.getName()).commit();
+  bean=(UserBean)getIntent().getParcelableExtra("user");
+  if (getSupportFragmentManager().findFragmentByTag(FanListFragment.class.getName()) == null) {
+    getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new FanListFragment(bean.getId()),FanListFragment.class.getName()).commit();
   }
 }

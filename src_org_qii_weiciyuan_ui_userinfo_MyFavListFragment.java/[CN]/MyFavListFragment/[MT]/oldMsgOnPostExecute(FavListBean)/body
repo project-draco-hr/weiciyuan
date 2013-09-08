@@ -4,5 +4,6 @@
     getAdapter().notifyDataSetChanged();
     buildActionBarSubtitle();
     page++;
+    FavouriteDBTask.asyncReplace(getList(),page,account.getUid());
   }
 }

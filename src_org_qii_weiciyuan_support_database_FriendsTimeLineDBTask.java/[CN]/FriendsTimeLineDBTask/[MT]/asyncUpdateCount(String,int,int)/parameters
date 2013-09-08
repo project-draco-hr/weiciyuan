@@ -1,0 +1,3 @@
+String msgId
+int commentCount
+int repostCount

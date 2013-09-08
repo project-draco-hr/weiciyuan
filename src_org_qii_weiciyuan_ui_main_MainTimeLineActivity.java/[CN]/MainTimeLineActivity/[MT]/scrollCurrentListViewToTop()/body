@@ -1,0 +1,3 @@
+{
+  if (this.currentFragment != null)   this.currentFragment.scrollToTop();
+}

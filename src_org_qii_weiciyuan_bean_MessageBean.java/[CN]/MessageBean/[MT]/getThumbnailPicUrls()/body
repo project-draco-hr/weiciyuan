@@ -1,0 +1,7 @@
+{
+  if (thumbnaiUrls.size() > 0)   return thumbnaiUrls;
+  for (  PicUrls url : pic_urls) {
+    thumbnaiUrls.add(url.thumbnail_pic);
+  }
+  return thumbnaiUrls;
+}

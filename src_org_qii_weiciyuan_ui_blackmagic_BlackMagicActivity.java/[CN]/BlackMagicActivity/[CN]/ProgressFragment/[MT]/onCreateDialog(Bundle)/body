@@ -1,0 +1,7 @@
+{
+  ProgressDialog dialog=new ProgressDialog(getActivity());
+  dialog.setMessage(getString(R.string.logining));
+  dialog.setIndeterminate(false);
+  dialog.setCancelable(true);
+  return dialog;
+}

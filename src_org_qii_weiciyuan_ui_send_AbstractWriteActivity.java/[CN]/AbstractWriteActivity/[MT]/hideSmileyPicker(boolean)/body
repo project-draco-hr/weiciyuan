@@ -1,0 +1,21 @@
+{
+  if (this.smiley.isShown()) {
+    if (showKeyBoard) {
+      LinearLayout.LayoutParams localLayoutParams=(LinearLayout.LayoutParams)this.container.getLayoutParams();
+      localLayoutParams.height=smiley.getTop();
+      localLayoutParams.weight=0.0F;
+      this.smiley.hide(AbstractWriteActivity.this);
+      SmileyPickerUtility.showKeyBoard(et);
+      et.postDelayed(new Runnable(){
+        @Override public void run(){
+          unlockContainerHeightDelayed();
+        }
+      }
+,200L);
+    }
+ else {
+      this.smiley.hide(AbstractWriteActivity.this);
+      unlockContainerHeightDelayed();
+    }
+  }
+}

@@ -2,7 +2,7 @@
   super.onCreate(savedInstanceState);
   setContentView(R.layout.abstractwriteactivity_layout);
   ActionBar actionBar=getActionBar();
-  actionBar.setDisplayHomeAsUpEnabled(true);
+  actionBar.setDisplayHomeAsUpEnabled(false);
   actionBar.setDisplayShowHomeEnabled(true);
   actionBar.setDisplayShowTitleEnabled(true);
   actionBar.setDisplayShowCustomEnabled(true);
@@ -16,15 +16,27 @@
     actionBar.setIcon(new BitmapDrawable(getResources(),bitmap));
   }
   token=getIntent().getStringExtra("token");
-  et=((EditText)findViewById(R.id.status_new_content));
+  View title=getLayoutInflater().inflate(R.layout.writeweiboactivity_title_layout,null);
+  actionBar.setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
+  et=((AutoCompleteTextView)findViewById(R.id.status_new_content));
   et.addTextChangedListener(new TextNumLimitWatcher((TextView)findViewById(R.id.menu_send),et,this));
+  AutoCompleteAdapter adapter=new AutoCompleteAdapter(this,et,(ProgressBar)title.findViewById(R.id.have_suggest_progressbar));
+  et.setAdapter(adapter);
   findViewById(R.id.menu_topic).setOnClickListener(this);
   findViewById(R.id.menu_at).setOnClickListener(this);
   findViewById(R.id.menu_emoticon).setOnClickListener(this);
   findViewById(R.id.menu_send).setOnClickListener(this);
-  View.OnLongClickListener onLongClickListener=new BottomButtonLongClickListener();
-  findViewById(R.id.menu_at).setOnLongClickListener(onLongClickListener);
-  findViewById(R.id.menu_emoticon).setOnLongClickListener(onLongClickListener);
-  findViewById(R.id.menu_topic).setOnLongClickListener(onLongClickListener);
-  findViewById(R.id.menu_send).setOnLongClickListener(onLongClickListener);
+  CheatSheet.setup(AbstractWriteActivity.this,findViewById(R.id.menu_at),R.string.at_other);
+  CheatSheet.setup(AbstractWriteActivity.this,findViewById(R.id.menu_emoticon),R.string.add_emoticon);
+  CheatSheet.setup(AbstractWriteActivity.this,findViewById(R.id.menu_topic),R.string.add_topic);
+  CheatSheet.setup(AbstractWriteActivity.this,findViewById(R.id.menu_send),R.string.send);
+  smiley=(SmileyPicker)findViewById(R.id.smiley_picker);
+  smiley.setEditText(AbstractWriteActivity.this,((LinearLayout)findViewById(R.id.root_layout)),et);
+  container=(RelativeLayout)findViewById(R.id.container);
+  et.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      hideSmileyPicker(true);
+    }
+  }
+);
 }

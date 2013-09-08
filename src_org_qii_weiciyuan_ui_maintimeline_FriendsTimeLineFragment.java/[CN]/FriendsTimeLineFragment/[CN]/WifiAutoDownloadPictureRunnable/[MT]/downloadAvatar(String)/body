@@ -1,0 +1,7 @@
+{
+  if (TextUtils.isEmpty(url)) {
+    return;
+  }
+  String path=FileManager.getFilePathFromUrl(url,FileLocationMethod.avatar_large);
+  TaskCache.waitForPictureDownload(url,null,path,FileLocationMethod.avatar_large);
+}

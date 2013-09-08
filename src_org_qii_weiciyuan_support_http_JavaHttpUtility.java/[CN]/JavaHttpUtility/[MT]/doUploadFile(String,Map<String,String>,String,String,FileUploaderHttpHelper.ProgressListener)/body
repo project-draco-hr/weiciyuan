@@ -1,0 +1,93 @@
+{
+  String BOUNDARYSTR=getBoundry();
+  File targetFile=new File(path);
+  byte[] barry=null;
+  int contentLength=0;
+  String sendStr="";
+  try {
+    barry=("--" + BOUNDARYSTR + "--\r\n").getBytes("UTF-8");
+    sendStr=getBoundaryMessage(BOUNDARYSTR,param,imageParamName,new File(path).getName(),"image/png");
+    contentLength=sendStr.getBytes("UTF-8").length + (int)targetFile.length() + 2 * barry.length;
+  }
+ catch (  UnsupportedEncodingException e) {
+  }
+  int totalSent=0;
+  String lenstr=Integer.toString(contentLength);
+  HttpURLConnection urlConnection=null;
+  BufferedOutputStream out=null;
+  FileInputStream fis=null;
+  GlobalContext globalContext=GlobalContext.getInstance();
+  String errorStr=globalContext.getString(R.string.timeout);
+  globalContext=null;
+  try {
+    URL url=null;
+    url=new URL(urlStr);
+    Proxy proxy=getProxy();
+    if (proxy != null)     urlConnection=(HttpURLConnection)url.openConnection(proxy);
+ else     urlConnection=(HttpURLConnection)url.openConnection();
+    urlConnection.setConnectTimeout(UPLOAD_CONNECT_TIMEOUT);
+    urlConnection.setReadTimeout(UPLOAD_READ_TIMEOUT);
+    urlConnection.setDoInput(true);
+    urlConnection.setDoOutput(true);
+    urlConnection.setRequestMethod("POST");
+    urlConnection.setUseCaches(false);
+    urlConnection.setRequestProperty("Connection","Keep-Alive");
+    urlConnection.setRequestProperty("Charset","UTF-8");
+    urlConnection.setRequestProperty("Content-type","multipart/form-data;boundary=" + BOUNDARYSTR);
+    urlConnection.setRequestProperty("Content-Length",lenstr);
+    ((HttpURLConnection)urlConnection).setFixedLengthStreamingMode(contentLength);
+    urlConnection.connect();
+    out=new BufferedOutputStream(urlConnection.getOutputStream());
+    out.write(sendStr.getBytes("UTF-8"));
+    totalSent+=sendStr.getBytes("UTF-8").length;
+    fis=new FileInputStream(targetFile);
+    int bytesRead;
+    int bytesAvailable;
+    int bufferSize;
+    byte[] buffer;
+    int maxBufferSize=1 * 1024;
+    bytesAvailable=fis.available();
+    bufferSize=Math.min(bytesAvailable,maxBufferSize);
+    buffer=new byte[bufferSize];
+    bytesRead=fis.read(buffer,0,bufferSize);
+    long transferred=0;
+    final Thread thread=Thread.currentThread();
+    while (bytesRead > 0) {
+      if (thread.isInterrupted()) {
+        targetFile.delete();
+        throw new InterruptedIOException();
+      }
+      out.write(buffer,0,bufferSize);
+      bytesAvailable=fis.available();
+      bufferSize=Math.min(bytesAvailable,maxBufferSize);
+      bytesRead=fis.read(buffer,0,bufferSize);
+      transferred+=bytesRead;
+      if (transferred % 50 == 0)       out.flush();
+      if (listener != null)       listener.transferred(transferred);
+    }
+    out.write(barry);
+    totalSent+=barry.length;
+    out.write(barry);
+    totalSent+=barry.length;
+    out.flush();
+    out.close();
+    if (listener != null) {
+      listener.waitServerResponse();
+    }
+    int status=urlConnection.getResponseCode();
+    if (status != HttpURLConnection.HTTP_OK) {
+      String error=handleError(urlConnection);
+      throw new WeiboException(error);
+    }
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    throw new WeiboException(errorStr,e);
+  }
+ finally {
+    Utility.closeSilently(fis);
+    Utility.closeSilently(out);
+    if (urlConnection != null)     urlConnection.disconnect();
+  }
+  return true;
+}

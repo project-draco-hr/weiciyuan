@@ -1,0 +1,7 @@
+{
+  super(paramContext,paramAttributeSet);
+  this.mInflater=LayoutInflater.from(paramContext);
+  GridView gridView=(GridView)this.mInflater.inflate(R.layout.writeweiboactivity_smileypicker,null);
+  addView(gridView);
+  gridView.setAdapter(new SmileyAdapter(paramContext));
+}

@@ -1,4 +1,2 @@
 {
-  CommentByIdFloatingMenu menu=new CommentByIdFloatingMenu(getList().getItem(position));
-  menu.show(getFragmentManager(),"");
 }

@@ -1,3 +1,0 @@
-{
-  return this == PULL_UP_TO_REFRESH || this == BOTH;
-}

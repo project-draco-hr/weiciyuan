@@ -2,7 +2,7 @@
   super.onCreate(savedInstanceState);
   getActionBar().setDisplayHomeAsUpEnabled(true);
   Intent intent=getIntent();
-  CommentBean bean=(CommentBean)intent.getSerializableExtra("comment");
+  CommentBean bean=(CommentBean)intent.getParcelableExtra("comment");
   token=intent.getStringExtra("token");
   if (getFragmentManager().findFragmentByTag(BrowserCommentActivity.class.getName()) == null) {
     getFragmentManager().beginTransaction().replace(android.R.id.content,new BrowserCommentFragment(bean),BrowserCommentFragment.class.getName()).commit();

@@ -1,0 +1,8 @@
+{
+  int height=SmileyPickerUtility.getScreenHeight(paramActivity) - SmileyPickerUtility.getStatusBarHeight(paramActivity) - SmileyPickerUtility.getAppHeight(paramActivity);
+  if (height == 0) {
+    height=SettingUtility.getDefaultSoftKeyBoardHeight();
+  }
+  SettingUtility.setDefaultSoftKeyBoardHeight(height);
+  return height;
+}

@@ -1,0 +1,22 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_refresh_my_profile:
+    startRefreshMenuAnimation();
+  finishedWatcher=new AtomicInteger(3);
+fetchLastestUserInfoFromServer();
+fetchTopicInfoFromServer();
+loadNewMsg();
+return true;
+case R.id.menu_edit:
+if (isMyself() && isOpenedFromMainPage()) {
+Intent intent=new Intent(getActivity(),EditMyProfileActivity.class);
+intent.putExtra("userBean",GlobalContext.getInstance().getAccountBean().getInfo());
+startActivity(intent);
+return true;
+}
+ else {
+return super.onOptionsItemSelected(item);
+}
+}
+return super.onOptionsItemSelected(item);
+}

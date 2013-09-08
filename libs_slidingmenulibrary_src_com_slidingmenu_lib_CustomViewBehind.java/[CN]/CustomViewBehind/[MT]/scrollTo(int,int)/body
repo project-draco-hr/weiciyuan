@@ -1,0 +1,4 @@
+{
+  super.scrollTo(x,y);
+  if (mTransformer != null)   invalidate();
+}

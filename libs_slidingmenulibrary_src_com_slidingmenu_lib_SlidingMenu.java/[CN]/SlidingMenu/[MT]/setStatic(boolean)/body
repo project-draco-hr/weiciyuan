@@ -1,0 +1,12 @@
+{
+  if (b) {
+    setSlidingEnabled(false);
+    mViewAbove.setCustomViewBehind(null);
+    mViewAbove.setCurrentItem(1);
+  }
+ else {
+    mViewAbove.setCurrentItem(1);
+    mViewAbove.setCustomViewBehind(mViewBehind);
+    setSlidingEnabled(true);
+  }
+}

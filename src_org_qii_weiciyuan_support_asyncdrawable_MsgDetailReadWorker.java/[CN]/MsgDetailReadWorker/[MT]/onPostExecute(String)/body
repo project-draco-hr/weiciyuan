@@ -1,0 +1,33 @@
+{
+  retry.setVisibility(View.INVISIBLE);
+  pb.setIndeterminate(true);
+  if (!TextUtils.isEmpty(path)) {
+    if (!path.endsWith(".gif")) {
+      readNormalPic(path);
+    }
+ else {
+      view.setGif(path);
+    }
+    pb.setVisibility(View.INVISIBLE);
+    view.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        Intent intent=new Intent(GlobalContext.getInstance(),GalleryActivity.class);
+        intent.putExtra("msg",msg);
+        GlobalContext.getInstance().getActivity().startActivity(intent);
+      }
+    }
+);
+  }
+ else {
+    pb.setVisibility(View.INVISIBLE);
+    view.setImageDrawable(new ColorDrawable(Color.TRANSPARENT));
+    retry.setVisibility(View.VISIBLE);
+    retry.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        MsgDetailReadWorker picTask=new MsgDetailReadWorker(view,msg);
+        picTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      }
+    }
+);
+  }
+}

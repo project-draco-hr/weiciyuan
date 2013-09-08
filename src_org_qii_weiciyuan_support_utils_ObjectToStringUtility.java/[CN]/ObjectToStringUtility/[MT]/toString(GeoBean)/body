@@ -1,0 +1,4 @@
+{
+  double[] c=bean.getCoordinates();
+  return "type=" + bean.getType() + "coordinates="+ "["+ c[0]+ ","+ c[1]+ "]";
+}

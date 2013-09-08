@@ -1,0 +1,3 @@
+{
+  dest.writeString(thumbnail_pic);
+}

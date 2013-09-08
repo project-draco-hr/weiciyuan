@@ -1,0 +1,14 @@
+{
+  stopRefreshMenuAnimationIfPossible();
+  getListView().removeFooterView(progressFooter);
+  if (getActivity() != null && newValue.getSize() > 0) {
+    getList().addNewData(newValue);
+    getAdapter().notifyDataSetChanged();
+    getListView().setSelectionAfterHeaderView();
+    getActivity().invalidateOptionsMenu();
+    moreFooter.setVisibility(View.VISIBLE);
+    if (isMyself()) {
+      MyStatusDBTask.asyncReplace(getList(),userBean.getId());
+    }
+  }
+}

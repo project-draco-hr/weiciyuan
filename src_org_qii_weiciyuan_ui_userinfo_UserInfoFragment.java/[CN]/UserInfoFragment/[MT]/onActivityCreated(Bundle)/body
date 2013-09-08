@@ -3,15 +3,19 @@
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
     bean=((IUserInfo)getActivity()).getUser();
-  refresh();
+  handler.postDelayed(new Runnable(){
+    @Override public void run(){
+      refresh();
+    }
+  }
+,1000);
 break;
 case SCREEN_ROTATE:
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
 topicList=savedInstanceState.getStringArrayList("topicList");
-bean=(UserBean)savedInstanceState.getSerializable("bean");
+bean=(UserBean)savedInstanceState.getParcelable("bean");
 break;
 }
-commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
 setValue();
 }

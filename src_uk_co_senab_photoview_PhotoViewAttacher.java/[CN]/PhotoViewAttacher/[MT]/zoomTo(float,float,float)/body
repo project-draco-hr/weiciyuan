@@ -1,0 +1,6 @@
+{
+  ImageView imageView=getImageView();
+  if (null != imageView) {
+    imageView.post(new AnimatedZoomRunnable(getScale(),scale,focalX,focalY));
+  }
+}

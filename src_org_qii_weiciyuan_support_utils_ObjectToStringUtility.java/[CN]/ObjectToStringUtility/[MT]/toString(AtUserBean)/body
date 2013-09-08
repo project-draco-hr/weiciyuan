@@ -1,0 +1,3 @@
+{
+  return String.format("nickname=%s,remark=%s",user.getNickname(),user.getRemark());
+}

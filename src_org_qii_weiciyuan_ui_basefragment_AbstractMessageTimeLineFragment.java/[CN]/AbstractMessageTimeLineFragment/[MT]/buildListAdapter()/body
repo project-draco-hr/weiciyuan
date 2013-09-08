@@ -1,4 +1,4 @@
 {
-  timeLineAdapter=new StatusListAdapter(this,((AbstractAppActivity)getActivity()).getBitmapDownloader(),getList().getItemList(),getListView(),true);
+  timeLineAdapter=new StatusListAdapter(this,getList().getItemList(),getListView(),true);
   getListView().setAdapter(timeLineAdapter);
 }

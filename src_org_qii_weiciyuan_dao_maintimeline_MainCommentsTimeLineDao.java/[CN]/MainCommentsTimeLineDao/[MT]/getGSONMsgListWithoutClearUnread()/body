@@ -17,5 +17,19 @@
  catch (  JsonSyntaxException e) {
     AppLogger.e(e.getMessage());
   }
+  if (value != null && value.getSize() > 0) {
+    List<CommentBean> msgList=value.getItemList();
+    Iterator<CommentBean> iterator=msgList.iterator();
+    while (iterator.hasNext()) {
+      CommentBean msg=iterator.next();
+      if (msg.getUser() == null) {
+        iterator.remove();
+      }
+ else {
+        msg.getListViewSpannableString();
+        TimeTool.dealMills(msg);
+      }
+    }
+  }
   return value;
 }

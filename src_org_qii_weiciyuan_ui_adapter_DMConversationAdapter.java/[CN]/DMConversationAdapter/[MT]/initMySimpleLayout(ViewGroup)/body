@@ -1,0 +1,5 @@
+{
+  View convertView;
+  convertView=inflater.inflate(R.layout.dmconversationadapter_item_myself_layout,parent,false);
+  return convertView;
+}

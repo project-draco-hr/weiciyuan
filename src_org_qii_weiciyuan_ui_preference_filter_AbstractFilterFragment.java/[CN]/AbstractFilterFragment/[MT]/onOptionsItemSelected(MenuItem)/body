@@ -1,0 +1,15 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_add:
+    AddFilterDialog dialog=new AddFilterDialog();
+  dialog.setTargetFragment(AbstractFilterFragment.this,0);
+dialog.show(getFragmentManager(),"");
+break;
+case R.id.filter_clear:
+ClearFilterDialog clearFilterDialog=new ClearFilterDialog();
+clearFilterDialog.setTargetFragment(this,0);
+clearFilterDialog.show(getFragmentManager(),"");
+return true;
+}
+return true;
+}

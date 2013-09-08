@@ -1,8 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  groupNames[0]=getString(R.string.all_people_send_to_me);
-  groupNames[1]=getString(R.string.mentions_to_me);
-  groupNames[2]=getString(R.string.my_comment);
-  setHasOptionsMenu(true);
-  setRetainInstance(true);
-}

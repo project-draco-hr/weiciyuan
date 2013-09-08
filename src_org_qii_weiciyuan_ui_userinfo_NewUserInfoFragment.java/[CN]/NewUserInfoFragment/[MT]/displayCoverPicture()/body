@@ -1,0 +1,6 @@
+{
+  final int height=Utility.dip2px(200);
+  final int width=Utility.getMaxLeftWidthOrHeightImageViewCanRead(height);
+  final String picPath=userBean.getCover_image();
+  TimeLineBitmapDownloader.getInstance().display(cover,width,height,picPath,FileLocationMethod.cover);
+}

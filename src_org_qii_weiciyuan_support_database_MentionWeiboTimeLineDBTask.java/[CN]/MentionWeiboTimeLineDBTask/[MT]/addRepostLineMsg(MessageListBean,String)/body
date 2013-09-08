@@ -1,0 +1,33 @@
+{
+  Gson gson=new Gson();
+  List<MessageBean> msgList=list.getItemList();
+  int size=msgList.size();
+  try {
+    getWsd().beginTransaction();
+    for (int i=0; i < size; i++) {
+      MessageBean msg=msgList.get(i);
+      if (msg != null) {
+        ContentValues cv=new ContentValues();
+        cv.put(RepostsTable.RepostDataTable.MBLOGID,msg.getId());
+        cv.put(RepostsTable.RepostDataTable.ACCOUNTID,accountId);
+        String json=gson.toJson(msg);
+        cv.put(RepostsTable.RepostDataTable.JSONDATA,json);
+        getWsd().insert(RepostsTable.RepostDataTable.TABLE_NAME,RepostsTable.RepostDataTable.ID,cv);
+      }
+ else {
+        ContentValues cv=new ContentValues();
+        cv.put(RepostsTable.RepostDataTable.MBLOGID,"-1");
+        cv.put(RepostsTable.RepostDataTable.ACCOUNTID,accountId);
+        cv.put(RepostsTable.RepostDataTable.JSONDATA,"");
+        getWsd().insert(RepostsTable.RepostDataTable.TABLE_NAME,RepostsTable.RepostDataTable.ID,cv);
+      }
+    }
+    getWsd().setTransactionSuccessful();
+  }
+ catch (  SQLException e) {
+  }
+ finally {
+    getWsd().endTransaction();
+  }
+  reduceRepostTable(accountId);
+}

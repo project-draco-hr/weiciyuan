@@ -1,4 +1,4 @@
 {
-  inflater.inflate(R.menu.actionbar_menu_mystatustimelinefragment,menu);
-  menu.findItem(R.id.name).setTitle(getString(R.string.personal_info));
+  super.onCreateOptionsMenu(menu,inflater);
+  inflater.inflate(R.menu.actionbar_menu_dmuserlistfragment,menu);
 }

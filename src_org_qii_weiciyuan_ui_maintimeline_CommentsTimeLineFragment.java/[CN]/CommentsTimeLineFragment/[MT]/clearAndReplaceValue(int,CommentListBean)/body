@@ -1,5 +1,0 @@
-{
-  groupDataCache.get(position).getItemList().clear();
-  groupDataCache.get(position).getItemList().addAll(newValue.getItemList());
-  groupDataCache.get(position).setTotal_number(newValue.getTotal_number());
-}

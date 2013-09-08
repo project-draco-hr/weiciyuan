@@ -1,6 +1,6 @@
 {
   super.onPause();
-  unregisterReceiver(newMsgBroadcastReceiver);
-  newMsgScheduledExecutorService.shutdownNow();
-  if (getUnreadCountTask != null)   getUnreadCountTask.cancel(true);
+  unregisterReceiver(newMsgInterruptBroadcastReceiver);
+  if (musicReceiver != null)   unregisterReceiver(musicReceiver);
+  if (isFinishing())   saveNavigationPositionToDB();
 }

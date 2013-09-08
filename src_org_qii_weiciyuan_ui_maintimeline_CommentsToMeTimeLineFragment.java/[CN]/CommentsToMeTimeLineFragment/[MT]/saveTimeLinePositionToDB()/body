@@ -1,0 +1,5 @@
+{
+  timeLinePosition=Utility.getCurrentPositionFromListView(getListView());
+  timeLinePosition.newMsgIds=newMsgTipBar.getValues();
+  CommentToMeTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
+}

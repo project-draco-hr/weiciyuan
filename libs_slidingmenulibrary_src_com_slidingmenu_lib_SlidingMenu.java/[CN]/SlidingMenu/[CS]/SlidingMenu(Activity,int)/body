@@ -1,0 +1,4 @@
+{
+  this(activity,null);
+  this.attachToActivity(activity,slideStyle);
+}

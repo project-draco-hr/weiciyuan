@@ -1,6 +1,0 @@
-{
-  if (Utility.isTaskStopped(middleTask)) {
-    middleTask=new TimeLineGetMiddleMsgListTask(beginId,endId,endTag,position);
-    middleTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-  }
-}

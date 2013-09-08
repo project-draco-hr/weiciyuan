@@ -1,0 +1,7 @@
+{
+  View contentView=inflater.inflate(R.layout.galleryactivity_item,view,false);
+  handlePage(position,contentView,true);
+  ((ViewPager)view).addView(contentView,0);
+  unRecycledViews.add((ViewGroup)contentView);
+  return contentView;
+}

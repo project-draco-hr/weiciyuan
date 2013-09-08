@@ -1,0 +1,8 @@
+{
+  setBehindContentView(R.layout.menu_frame);
+  getSlidingMenu().setSlidingEnabled(true);
+  getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getSlidingMenu().setMode(SlidingMenu.LEFT);
+  getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+}

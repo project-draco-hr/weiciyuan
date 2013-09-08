@@ -1,5 +1,5 @@
 {
   super.onSaveInstanceState(outState);
-  outState.putSerializable("userBean",userBean);
+  outState.putParcelable("userBean",userBean);
   outState.putStringArrayList("topicList",result);
 }

@@ -1,0 +1,4 @@
+{
+  boolean isFling=((AbstractTimeLineFragment)fragment).isListViewFling();
+  display(view,picUrl,method,isFling,true);
+}

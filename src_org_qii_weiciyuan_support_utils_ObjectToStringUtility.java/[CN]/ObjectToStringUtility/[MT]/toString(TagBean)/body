@@ -1,0 +1,3 @@
+{
+  return "tag id=" + bean.getId() + ","+ "name="+ bean.getName();
+}

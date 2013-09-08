@@ -1,0 +1,10 @@
+{
+  ArrayList<String> deletedList=new ArrayList<String>();
+  deletedList.addAll(list);
+  list.clear();
+  adapter.notifyDataSetChanged();
+  if (Utility.isTaskStopped(removeTask)) {
+    removeTask=new RemoveFilterDBTask(deletedList);
+    removeTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

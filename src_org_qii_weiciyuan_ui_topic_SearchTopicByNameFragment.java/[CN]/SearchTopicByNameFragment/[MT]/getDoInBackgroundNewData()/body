@@ -1,7 +1,0 @@
-{
-  page=1;
-  SearchTopicDao dao=new SearchTopicDao(GlobalContext.getInstance().getSpecialToken(),q);
-  dao.setPage(String.valueOf(page));
-  TopicResultListBean result=dao.getGSONMsgList();
-  return result;
-}

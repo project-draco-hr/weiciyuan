@@ -1,0 +1,13 @@
+{
+  SearchDao dao=new SearchDao(token,searchWord);
+  dao.setPage(page);
+  SearchStatusListBean result=null;
+  lock.lock();
+  try {
+    result=dao.getStatusList();
+  }
+  finally {
+    lock.unlock();
+  }
+  return result;
+}

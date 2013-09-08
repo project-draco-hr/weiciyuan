@@ -1,0 +1,7 @@
+Context context
+String uid
+String screenName
+String token
+String sinceId
+String maxId
+String count

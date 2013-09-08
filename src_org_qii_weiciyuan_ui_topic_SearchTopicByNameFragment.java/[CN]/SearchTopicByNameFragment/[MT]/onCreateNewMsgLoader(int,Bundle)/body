@@ -1,0 +1,6 @@
+{
+  String token=GlobalContext.getInstance().getSpecialToken();
+  String word=this.q;
+  page=1;
+  return new SearchTopicByNameLoader(getActivity(),token,word,String.valueOf(page));
+}

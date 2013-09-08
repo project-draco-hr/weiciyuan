@@ -1,0 +1,8 @@
+{
+  ActionBar.Tab mentionsCommentTab;
+  View customView=getActivity().getLayoutInflater().inflate(R.layout.ab_tab_custom_view_layout,null);
+  ((TextView)customView.findViewById(R.id.title)).setText(R.string.mentions_to_me);
+  mentionsCommentTab=getActivity().getActionBar().newTab().setCustomView(customView).setTag(MentionsCommentTimeLineFragment.class.getName()).setTabListener(tabListener);
+  tabMap.append(MENTIONS_COMMENT_CHILD_POSITION,mentionsCommentTab);
+  return mentionsCommentTab;
+}

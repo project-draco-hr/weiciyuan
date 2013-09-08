@@ -1,15 +1,15 @@
 {
   super.onCreate(savedInstanceState);
   if (savedInstanceState != null) {
-    msg=(MessageBean)savedInstanceState.getSerializable("msg");
+    msg=(MessageBean)savedInstanceState.getParcelable("msg");
     token=savedInstanceState.getString("token");
   }
  else {
     Intent intent=getIntent();
     token=intent.getStringExtra("token");
-    msg=(MessageBean)intent.getSerializableExtra("msg");
+    msg=(MessageBean)intent.getParcelableExtra("msg");
   }
-  setContentView(R.layout.viewpager_layout);
+  setContentView(R.layout.viewpager_with_bg_layout);
   buildViewPager();
   buildActionBarAndViewPagerTitles();
 }

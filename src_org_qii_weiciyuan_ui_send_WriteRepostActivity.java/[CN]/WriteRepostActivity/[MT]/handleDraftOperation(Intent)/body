@@ -1,7 +1,7 @@
 {
-  AccountBean account=(AccountBean)intent.getSerializableExtra("account");
+  AccountBean account=(AccountBean)intent.getParcelableExtra("account");
   token=account.getAccess_token();
-  repostDraftBean=(RepostDraftBean)intent.getSerializableExtra("draft");
+  repostDraftBean=(RepostDraftBean)intent.getParcelableExtra("draft");
   getEditTextView().setText(repostDraftBean.getContent());
   msg=repostDraftBean.getMessageBean();
   if (msg.getRetweeted_status() != null) {

@@ -1,0 +1,7 @@
+{
+  super.onHiddenChanged(hidden);
+  if (!hidden) {
+    int commentsTabIndex=getArguments().getInt("commentsTabIndex");
+    buildActionBarAndViewPagerTitles(commentsTabIndex);
+  }
+}

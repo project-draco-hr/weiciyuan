@@ -1,0 +1,13 @@
+{
+  if (isCancelled()) {
+    return null;
+  }
+  if (Utility.isWifi(GlobalContext.getInstance())) {
+    boolean result=TaskCache.waitForPictureDownload(msg.getOriginal_pic(),downloadListener,oriPath,FileLocationMethod.picture_large);
+    return result ? oriPath : null;
+  }
+ else {
+    boolean result=TaskCache.waitForPictureDownload(msg.getBmiddle_pic(),downloadListener,middlePath,FileLocationMethod.picture_bmiddle);
+    return result ? middlePath : null;
+  }
+}

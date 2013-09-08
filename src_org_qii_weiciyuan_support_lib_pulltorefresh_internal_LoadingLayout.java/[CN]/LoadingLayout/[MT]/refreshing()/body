@@ -1,0 +1,14 @@
+{
+  if (null != mHeaderText) {
+    mHeaderText.setText(mRefreshingLabel);
+  }
+  if (mUseIntrinsicAnimation) {
+    ((AnimationDrawable)mHeaderImage.getDrawable()).start();
+  }
+ else {
+    refreshingImpl();
+  }
+  if (null != mSubHeaderText) {
+    mSubHeaderText.setVisibility(View.GONE);
+  }
+}

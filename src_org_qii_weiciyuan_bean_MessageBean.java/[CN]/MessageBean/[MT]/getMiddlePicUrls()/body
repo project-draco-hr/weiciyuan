@@ -1,0 +1,7 @@
+{
+  if (middleUrls.size() > 0)   return middleUrls;
+  for (  PicUrls url : pic_urls) {
+    middleUrls.add(url.thumbnail_pic.replace("thumbnail","bmiddle"));
+  }
+  return middleUrls;
+}

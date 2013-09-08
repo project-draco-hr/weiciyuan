@@ -1,0 +1,25 @@
+{
+  String json=getMsgListJson();
+  Gson gson=new Gson();
+  ShareListBean value=null;
+  try {
+    value=gson.fromJson(json,ShareListBean.class);
+  }
+ catch (  JsonSyntaxException e) {
+    AppLogger.e(e.getMessage());
+  }
+  if (value != null) {
+    Iterator<MessageBean> iterator=value.getItemList().iterator();
+    while (iterator.hasNext()) {
+      MessageBean msg=iterator.next();
+      if (msg.getUser() == null) {
+        iterator.remove();
+      }
+ else {
+        msg.getListViewSpannableString();
+        TimeTool.dealMills(msg);
+      }
+    }
+  }
+  return value;
+}

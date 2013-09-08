@@ -1,0 +1,8 @@
+{
+  super(context);
+  this.token=token;
+  this.sinceId=sinceId;
+  this.maxId=maxId;
+  this.uid=uid;
+  this.screenName=screenName;
+}

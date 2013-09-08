@@ -1,4 +1,0 @@
-{
-  showListView();
-  Utility.stopListViewScrollingAndScrollToTop(getListView());
-}

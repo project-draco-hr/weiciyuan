@@ -1,0 +1,5 @@
+{
+  LayoutInflater inflater=(LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  View v=inflater.inflate(R.layout.newuserinfofragment_refresh_actionbar_view_layout,null);
+  refreshItem.setActionView(v);
+}

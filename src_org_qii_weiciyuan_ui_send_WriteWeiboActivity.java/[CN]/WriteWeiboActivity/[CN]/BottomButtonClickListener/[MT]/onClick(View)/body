@@ -4,13 +4,16 @@ case R.id.menu_add_gps:
     addLocation();
   break;
 case R.id.menu_add_pic:
-ImageButton imageButton=(ImageButton)findViewById(R.id.menu_add_pic);
-if (imageButton.getDrawable().getLevel() == 0) addPic();
+if (TextUtils.isEmpty(picPath)) addPic();
  else showPic();
 break;
 case R.id.menu_emoticon:
-EmotionsGridDialog dialog=new EmotionsGridDialog();
-dialog.show(getFragmentManager(),"");
+if (smiley.isShown()) {
+hideSmileyPicker(true);
+}
+ else {
+showSmileyPicker(SmileyPickerUtility.isKeyBoardShow(WriteWeiboActivity.this));
+}
 break;
 case R.id.menu_send:
 send();

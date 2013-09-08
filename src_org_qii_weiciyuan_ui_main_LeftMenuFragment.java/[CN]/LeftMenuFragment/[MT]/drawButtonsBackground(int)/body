@@ -1,0 +1,38 @@
+{
+  layout.home.setBackgroundResource(R.drawable.btn_drawer_menu);
+  layout.mention.setBackgroundResource(R.drawable.btn_drawer_menu);
+  layout.comment.setBackgroundResource(R.drawable.btn_drawer_menu);
+  layout.search.setBackgroundResource(R.drawable.btn_drawer_menu);
+  layout.profile.setBackgroundResource(R.drawable.btn_drawer_menu);
+  layout.dm.setBackgroundResource(R.drawable.btn_drawer_menu);
+  layout.fav.setBackgroundResource(R.drawable.btn_drawer_menu);
+switch (position) {
+case HOME_INDEX:
+    layout.home.setBackgroundResource(R.color.ics_blue_semi);
+  break;
+case MENTIONS_INDEX:
+layout.mention.setBackgroundResource(R.color.ics_blue_semi);
+break;
+case COMMENTS_INDEX:
+layout.comment.setBackgroundResource(R.color.ics_blue_semi);
+break;
+case SEARCH_INDEX:
+layout.search.setBackgroundResource(R.color.ics_blue_semi);
+break;
+case DM_INDEX:
+layout.dm.setBackgroundResource(R.color.ics_blue_semi);
+break;
+case FAV_INDEX:
+layout.fav.setBackgroundResource(R.color.ics_blue_semi);
+break;
+case PROFILE_INDEX:
+layout.profile.setBackgroundResource(R.color.ics_blue_semi);
+break;
+case LOGOUT_INDEX:
+layout.logout.setBackgroundResource(R.color.ics_blue_semi);
+break;
+case SETTING_INDEX:
+layout.setting.setBackgroundResource(R.color.ics_blue_semi);
+break;
+}
+}

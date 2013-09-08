@@ -1,0 +1,3 @@
+{
+  return FilterDBTask.removeAndGetNewFilterKeywordList(FilterDBTask.TYPE_USER,set);
+}

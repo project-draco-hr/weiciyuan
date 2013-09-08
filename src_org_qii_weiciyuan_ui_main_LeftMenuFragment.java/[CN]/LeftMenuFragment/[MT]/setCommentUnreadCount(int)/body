@@ -1,0 +1,10 @@
+{
+  this.commentsToMeUnreadCount=count;
+  if (this.commentsToMeUnreadCount > 0) {
+    layout.commentCount.setVisibility(View.VISIBLE);
+    layout.commentCount.setText(String.valueOf(this.commentsToMeUnreadCount));
+  }
+ else {
+    layout.commentCount.setVisibility(View.GONE);
+  }
+}

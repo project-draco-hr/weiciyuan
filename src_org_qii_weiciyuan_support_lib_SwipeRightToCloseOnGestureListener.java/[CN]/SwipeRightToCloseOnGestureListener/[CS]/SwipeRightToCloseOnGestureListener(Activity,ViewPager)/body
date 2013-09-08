@@ -1,0 +1,4 @@
+{
+  this.viewPager=viewPager;
+  this.topView=((View)(activity.findViewById(android.R.id.content).getParent()));
+}

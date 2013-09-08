@@ -1,9 +1,9 @@
 {
-  PictureBitmapWorkerTask bitmapDownloaderTask=getBitmapDownloaderTask(imageView);
+  IPictureWorker bitmapDownloaderTask=getBitmapDownloaderTask(imageView);
   if (bitmapDownloaderTask != null) {
     String bitmapUrl=bitmapDownloaderTask.getUrl();
     if ((bitmapUrl == null) || (!bitmapUrl.equals(url))) {
-      bitmapDownloaderTask.cancel(true);
+      if (bitmapDownloaderTask instanceof MyAsyncTask)       ((MyAsyncTask)bitmapDownloaderTask).cancel(true);
     }
  else {
       return false;

@@ -1,0 +1,17 @@
+{
+  TimeLinePosition position=MentionWeiboTimeLineDBTask.getPosition(GlobalContext.getInstance().getCurrentAccountId());
+  TreeSet<Long> hashSet=position.newMsgIds;
+  if (hashSet != null) {
+    mentionsWeiboUnreadCount=hashSet.size();
+  }
+  position=MentionCommentsTimeLineDBTask.getPosition(GlobalContext.getInstance().getCurrentAccountId());
+  hashSet=position.newMsgIds;
+  if (hashSet != null) {
+    mentionsCommentUnreadCount=hashSet.size();
+  }
+  position=CommentToMeTimeLineDBTask.getPosition(GlobalContext.getInstance().getCurrentAccountId());
+  hashSet=position.newMsgIds;
+  if (hashSet != null) {
+    commentsToMeUnreadCount=hashSet.size();
+  }
+}

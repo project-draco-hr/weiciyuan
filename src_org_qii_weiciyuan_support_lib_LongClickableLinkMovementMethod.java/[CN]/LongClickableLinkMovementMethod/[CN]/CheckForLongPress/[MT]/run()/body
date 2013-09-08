@@ -1,0 +1,6 @@
+{
+  if (isPressed() && longClickable) {
+    spans[0].onLongClick(widget);
+    mHasPerformedLongPress=true;
+  }
+}

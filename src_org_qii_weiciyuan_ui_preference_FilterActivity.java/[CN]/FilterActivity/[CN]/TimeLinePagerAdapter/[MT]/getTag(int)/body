@@ -1,0 +1,8 @@
+{
+  List<String> tagList=new ArrayList<String>();
+  tagList.add(FilterKeywordFragment.class.getName());
+  tagList.add(FilterUserFragment.class.getName());
+  tagList.add(FilterTopicFragment.class.getName());
+  tagList.add(FilterSourceFragment.class.getName());
+  return tagList.get(position);
+}

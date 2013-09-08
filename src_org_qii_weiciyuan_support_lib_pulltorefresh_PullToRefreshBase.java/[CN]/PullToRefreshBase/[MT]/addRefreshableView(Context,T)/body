@@ -1,5 +1,5 @@
 {
   mRefreshableViewWrapper=new FrameLayout(context);
   mRefreshableViewWrapper.addView(refreshableView,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
-  addViewInternal(mRefreshableViewWrapper,new LayoutParams(LayoutParams.MATCH_PARENT,0,1.0f));
+  addViewInternal(mRefreshableViewWrapper,new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
 }

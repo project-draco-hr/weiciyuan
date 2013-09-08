@@ -1,0 +1,4 @@
+{
+  mViewAbove.setContent(view);
+  showContent();
+}

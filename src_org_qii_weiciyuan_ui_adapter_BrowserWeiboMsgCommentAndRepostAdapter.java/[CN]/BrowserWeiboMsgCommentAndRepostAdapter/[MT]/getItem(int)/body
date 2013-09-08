@@ -1,0 +1,8 @@
+{
+  if (isCommentList) {
+    return commentListBean.get(position);
+  }
+ else {
+    return repostListBean.get(position);
+  }
+}

@@ -1,0 +1,23 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.dmselectuseractivity_layout);
+  getActionBar().setTitle(R.string.select_dm_receiver);
+  getActionBar().setDisplayShowHomeEnabled(false);
+  getActionBar().setDisplayShowTitleEnabled(true);
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  if (savedInstanceState == null) {
+    getSupportFragmentManager().beginTransaction().replace(R.id.list_content,new SelectFriendsListFragment(GlobalContext.getInstance().getCurrentAccountId())).commit();
+  }
+  AutoCompleteTextView search=(AutoCompleteTextView)findViewById(R.id.search);
+  AutoCompleteAdapter adapter=new AutoCompleteAdapter(this,android.R.layout.simple_dropdown_item_1line);
+  search.setAdapter(adapter);
+  search.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+    @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      Intent intent=new Intent();
+      intent.putExtra("user",data.get(position));
+      setResult(0,intent);
+      finish();
+    }
+  }
+);
+}

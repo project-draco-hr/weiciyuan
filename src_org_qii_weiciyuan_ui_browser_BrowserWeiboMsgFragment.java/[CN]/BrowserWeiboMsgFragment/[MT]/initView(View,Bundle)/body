@@ -1,0 +1,19 @@
+{
+  layout=new BrowserWeiboMsgLayout();
+  layout.username=(TextView)view.findViewById(R.id.username);
+  layout.content=(TextView)view.findViewById(R.id.content);
+  layout.recontent=(TextView)view.findViewById(R.id.repost_content);
+  layout.time=(TextView)view.findViewById(R.id.time);
+  layout.location=(TextView)view.findViewById(R.id.location);
+  layout.source=(TextView)view.findViewById(R.id.source);
+  layout.mapView=(ImageView)view.findViewById(R.id.map);
+  layout.comment_count=(TextView)view.findViewById(R.id.comment_count);
+  layout.repost_count=(TextView)view.findViewById(R.id.repost_count);
+  layout.count_layout=view.findViewById(R.id.count_layout);
+  layout.avatar=(ProfileTopAvatarImageView)view.findViewById(R.id.avatar);
+  layout.content_pic=(WeiboDetailImageView)view.findViewById(R.id.content_pic);
+  layout.content_pic_multi=(GridLayout)view.findViewById(R.id.content_pic_multi);
+  layout.repost_pic=(WeiboDetailImageView)view.findViewById(R.id.repost_content_pic);
+  layout.repost_pic_multi=(GridLayout)view.findViewById(R.id.repost_content_pic_multi);
+  layout.repost_layout=(LinearLayout)view.findViewById(R.id.repost_layout);
+}

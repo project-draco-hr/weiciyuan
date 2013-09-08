@@ -1,0 +1,4 @@
+{
+  result=CommentToMeTimeLineDBTask.getCommentLineMsgList(accountId);
+  return result;
+}

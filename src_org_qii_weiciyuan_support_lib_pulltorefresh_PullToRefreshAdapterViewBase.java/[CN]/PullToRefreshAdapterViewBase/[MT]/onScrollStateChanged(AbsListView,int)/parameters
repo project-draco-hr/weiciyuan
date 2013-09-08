@@ -1,2 +1,2 @@
 AbsListView view
-int scrollState
+int state

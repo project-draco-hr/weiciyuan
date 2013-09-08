@@ -1,0 +1,4 @@
+{
+  gif=BitmapFactory.decodeResource(getResources(),R.drawable.ic_play_gif_small);
+  paint.setAntiAlias(true);
+}

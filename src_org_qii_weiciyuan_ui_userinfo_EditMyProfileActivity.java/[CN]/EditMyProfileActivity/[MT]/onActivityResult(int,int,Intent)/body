@@ -1,0 +1,17 @@
+{
+  super.onActivityResult(requestCode,resultCode,intent);
+  if (resultCode == RESULT_OK) {
+switch (requestCode) {
+case CAMERA_RESULT:
+      picPath=Utility.getPicPathFromUri(imageFileUri,this);
+    break;
+case PIC_RESULT:
+  Uri imageFileUri=intent.getData();
+picPath=Utility.getPicPathFromUri(imageFileUri,this);
+break;
+}
+}
+if (!TextUtils.isEmpty(picPath)) {
+displayPic();
+}
+}

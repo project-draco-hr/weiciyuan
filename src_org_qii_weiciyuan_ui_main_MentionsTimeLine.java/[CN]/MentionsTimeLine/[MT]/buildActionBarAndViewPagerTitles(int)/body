@@ -1,0 +1,29 @@
+{
+  ((MainTimeLineActivity)getActivity()).setCurrentFragment(this);
+  if (Utility.isDevicePort()) {
+    ((MainTimeLineActivity)getActivity()).setTitle(R.string.mentions);
+    getActivity().getActionBar().setIcon(R.drawable.repost_light);
+  }
+ else {
+    ((MainTimeLineActivity)getActivity()).setTitle("");
+    getActivity().getActionBar().setIcon(R.drawable.ic_launcher);
+  }
+  ActionBar actionBar=getActivity().getActionBar();
+  actionBar.setDisplayHomeAsUpEnabled(Utility.isDevicePort());
+  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+  actionBar.removeAllTabs();
+  SimpleTwoTabsListener tabListener=new SimpleTwoTabsListener(viewPager);
+  ActionBar.Tab mentionsWeiboTab=getWeiboTab();
+  if (mentionsWeiboTab == null) {
+    mentionsWeiboTab=buildMentionsWeiboTab(tabListener);
+  }
+  actionBar.addTab(mentionsWeiboTab);
+  ActionBar.Tab mentionsCommentTab=getCommentTab();
+  if (mentionsCommentTab == null) {
+    mentionsCommentTab=buildMentionsCommentTab(tabListener);
+  }
+  actionBar.addTab(mentionsCommentTab);
+  if (actionBar.getNavigationMode() == ActionBar.NAVIGATION_MODE_TABS && nav > -1) {
+    viewPager.setCurrentItem(nav,false);
+  }
+}

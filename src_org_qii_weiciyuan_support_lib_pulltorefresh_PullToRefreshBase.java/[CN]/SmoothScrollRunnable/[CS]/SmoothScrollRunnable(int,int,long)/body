@@ -1,6 +1,0 @@
-{
-  mScrollFromY=fromY;
-  mScrollToY=toY;
-  mInterpolator=mScrollAnimationInterpolator;
-  mDuration=duration;
-}

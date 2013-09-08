@@ -1,0 +1,4 @@
+{
+  super.onDetach();
+  PreferenceManager.getDefaultSharedPreferences(getActivity()).unregisterOnSharedPreferenceChangeListener(this);
+}

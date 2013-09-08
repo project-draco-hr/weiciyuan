@@ -1,0 +1,5 @@
+{
+  dest.writeString(uid);
+  dest.writeString(nickname);
+  dest.writeString(remark);
+}

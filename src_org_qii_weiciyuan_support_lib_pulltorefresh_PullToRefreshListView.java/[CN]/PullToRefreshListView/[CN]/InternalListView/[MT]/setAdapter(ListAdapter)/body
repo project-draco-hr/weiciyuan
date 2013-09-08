@@ -1,3 +1,7 @@
 {
+  if (null != mLvFooterLoadingFrame && !mAddedLvFooter) {
+    addFooterView(mLvFooterLoadingFrame,null,false);
+    mAddedLvFooter=true;
+  }
   super.setAdapter(adapter);
 }

@@ -1,3 +1,5 @@
 {
-  return FriendsTimeLineDBTask.getHomeLineMsgList(accountBean.getUid());
+  MessageTimeLineData recentGroupData=FriendsTimeLineDBTask.getRecentGroupData(accountBean.getUid());
+  publishProgress(recentGroupData);
+  return FriendsTimeLineDBTask.getOtherGroupData(accountBean.getUid(),recentGroupData.groupId);
 }

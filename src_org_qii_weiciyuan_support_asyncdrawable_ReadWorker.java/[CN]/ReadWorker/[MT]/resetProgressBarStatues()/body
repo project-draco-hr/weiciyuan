@@ -1,0 +1,7 @@
+{
+  if (pbWeakReference == null)   return;
+  ProgressBar pb=pbWeakReference.get();
+  if (pb != null) {
+    pb.setVisibility(View.INVISIBLE);
+  }
+}

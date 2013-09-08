@@ -1,6 +1,6 @@
 {
-  token=((AccountBean)intent.getSerializableExtra("account")).getAccess_token();
-  msg=(MessageBean)intent.getSerializableExtra("oriMsg");
+  token=((AccountBean)intent.getParcelableExtra("account")).getAccess_token();
+  msg=(MessageBean)intent.getParcelableExtra("oriMsg");
   getEditTextView().setText(intent.getStringExtra("content"));
   if (msg.getRetweeted_status() != null) {
     getEditTextView().setHint("//@" + msg.getRetweeted_status().getUser().getScreen_name() + "???"+ msg.getRetweeted_status().getText());
@@ -9,5 +9,5 @@
     getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
   }
   getEditTextView().setError(intent.getStringExtra("failedReason"));
-  repostDraftBean=(RepostDraftBean)intent.getSerializableExtra("repostDraftBean");
+  repostDraftBean=(RepostDraftBean)intent.getParcelableExtra("repostDraftBean");
 }

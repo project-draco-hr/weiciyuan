@@ -2,5 +2,20 @@
   if (msg.getRetweeted_status() != null) {
     menuEnableOriComment.setVisible(true);
   }
+  String contentStr=getEditTextView().getText().toString();
+  if (Utility.countWord(contentStr,"//@",0) > 2) {
+    menu.findItem(R.id.menu_short_right).setVisible(true);
+    menu.findItem(R.id.menu_short_middle).setVisible(true);
+  }
+ else {
+    menu.findItem(R.id.menu_short_right).setVisible(false);
+    menu.findItem(R.id.menu_short_middle).setVisible(false);
+  }
+  if (!TextUtils.isEmpty(contentStr)) {
+    menu.findItem(R.id.menu_clear).setVisible(true);
+  }
+ else {
+    menu.findItem(R.id.menu_clear).setVisible(false);
+  }
   return super.onPrepareOptionsMenu(menu);
 }

@@ -1,0 +1,7 @@
+{
+  super.onCancelled(userBean);
+  if (Utility.isAllNotNull(getActivity(),this.e)) {
+    Toast.makeText(getActivity(),e.getError(),Toast.LENGTH_SHORT).show();
+  }
+  stopRefreshMenuAnimationIfPossible();
+}

@@ -1,0 +1,8 @@
+{
+  if (selfListener != null) {
+    selfListener.onScrollStateChanged(view,scrollState);
+  }
+  for (  OnScrollListener l : clientListener) {
+    l.onScrollStateChanged(view,scrollState);
+  }
+}

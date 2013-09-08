@@ -2,7 +2,7 @@
   if (!isPullToRefreshEnabled()) {
     return false;
   }
-  if (mDisableScrollingWhileRefreshing && isRefreshing()) {
+  if (!mScrollingWhileRefreshingEnabled && isRefreshing()) {
     return true;
   }
   if (event.getAction() == MotionEvent.ACTION_DOWN && event.getEdgeFlags() != 0) {
@@ -13,6 +13,7 @@ case MotionEvent.ACTION_MOVE:
 {
       if (mIsBeingDragged) {
         mLastMotionY=event.getY();
+        mLastMotionX=event.getX();
         pullEvent();
         return true;
       }
@@ -22,6 +23,7 @@ case MotionEvent.ACTION_DOWN:
 {
     if (isReadyForPull()) {
       mLastMotionY=mInitialMotionY=event.getY();
+      mLastMotionX=mInitialMotionX=event.getX();
       return true;
     }
     break;
@@ -31,27 +33,15 @@ case MotionEvent.ACTION_UP:
 {
   if (mIsBeingDragged) {
     mIsBeingDragged=false;
-    if (mState == RELEASE_TO_REFRESH) {
-      if (null != mOnRefreshListener) {
-        startRefresh();
-        return true;
-      }
- else       if (null != mOnRefreshListener2) {
-        setRefreshingInternal(true);
-        if (mCurrentMode == Mode.PULL_DOWN_TO_REFRESH) {
-          mOnRefreshListener2.onPullDownToRefresh(this);
-        }
- else         if (mCurrentMode == Mode.PULL_UP_TO_REFRESH) {
-          mOnRefreshListener2.onPullUpToRefresh(this);
-        }
-        return true;
-      }
- else {
-        resetHeader();
-        return true;
-      }
+    if (mState == State.RELEASE_TO_REFRESH && (null != mOnRefreshListener || null != mOnRefreshListener2)) {
+      setState(State.REFRESHING,true);
+      return true;
     }
-    smoothScrollTo(0);
+    if (isRefreshing()) {
+      smoothScrollTo(0);
+      return true;
+    }
+    setState(State.GIVE_UP);
     return true;
   }
   break;

@@ -1,0 +1,19 @@
+{
+  ResolveInfo resolveInfo=activity.getPackageManager().resolveActivity(intent,0);
+  if (resolveInfo == null) {
+    return false;
+  }
+  String packageName=resolveInfo.activityInfo.packageName;
+  try {
+    PackageInfo packageInfo=activity.getPackageManager().getPackageInfo(packageName,PackageManager.GET_SIGNATURES);
+    for (    Signature signature : packageInfo.signatures) {
+      if (WEIBO_SIGNATURE.equals(signature.toCharsString())) {
+        return true;
+      }
+    }
+  }
+ catch (  PackageManager.NameNotFoundException e) {
+    return false;
+  }
+  return false;
+}

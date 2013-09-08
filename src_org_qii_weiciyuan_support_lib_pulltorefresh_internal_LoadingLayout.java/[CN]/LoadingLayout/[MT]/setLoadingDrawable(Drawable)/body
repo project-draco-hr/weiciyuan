@@ -1,0 +1,5 @@
+{
+  mHeaderImage.setImageDrawable(imageDrawable);
+  mUseIntrinsicAnimation=(imageDrawable instanceof AnimationDrawable);
+  onLoadingDrawableSet(imageDrawable);
+}

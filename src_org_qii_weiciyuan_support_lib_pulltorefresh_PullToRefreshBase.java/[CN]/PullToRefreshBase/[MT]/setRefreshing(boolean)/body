@@ -1,6 +1,5 @@
 {
   if (!isRefreshing()) {
-    setRefreshingInternal(doScroll);
-    mState=MANUAL_REFRESHING;
+    setState(State.MANUAL_REFRESHING,doScroll);
   }
 }

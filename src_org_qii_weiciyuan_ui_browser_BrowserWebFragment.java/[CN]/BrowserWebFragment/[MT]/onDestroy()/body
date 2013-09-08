@@ -1,0 +1,7 @@
+{
+  if (mWebView != null) {
+    mWebView.destroy();
+    mWebView=null;
+  }
+  super.onDestroy();
+}

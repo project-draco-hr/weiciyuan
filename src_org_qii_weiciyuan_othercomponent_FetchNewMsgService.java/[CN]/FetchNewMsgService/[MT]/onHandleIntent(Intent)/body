@@ -1,0 +1,17 @@
+{
+  if (SettingUtility.disableFetchAtNight() && isNowNight()) {
+    return;
+  }
+  List<AccountBean> accountBeanList=AccountDBTask.getAccountList();
+  if (accountBeanList.size() == 0) {
+    return;
+  }
+  for (  AccountBean account : accountBeanList) {
+    try {
+      fetchMsg(account);
+    }
+ catch (    WeiboException e) {
+      e.printStackTrace();
+    }
+  }
+}

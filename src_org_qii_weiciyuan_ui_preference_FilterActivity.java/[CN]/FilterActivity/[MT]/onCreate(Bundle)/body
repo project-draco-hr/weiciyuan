@@ -1,19 +1,4 @@
 {
   super.onCreate(savedInstanceState);
-  getActionBar().setDisplayHomeAsUpEnabled(true);
-  getActionBar().setTitle(getString(R.string.filter));
-  View title=getLayoutInflater().inflate(R.layout.filteractivity_title_layout,null);
-  Switch switchBtn=(Switch)title.findViewById(R.id.switchBtn);
-  getActionBar().setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
-  getActionBar().setDisplayShowCustomEnabled(true);
-  switchBtn.setChecked(SettingUtility.isEnableFilter());
-  switchBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-    @Override public void onCheckedChanged(    CompoundButton buttonView,    boolean isChecked){
-      SettingUtility.setEnableFilter(isChecked);
-    }
-  }
-);
-  if (savedInstanceState == null) {
-    getFragmentManager().beginTransaction().replace(android.R.id.content,new FilterFragment()).commit();
-  }
+  initLayout();
 }

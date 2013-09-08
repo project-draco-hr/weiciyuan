@@ -1,0 +1,7 @@
+{
+  if (position == null) {
+    savePositionToPositionsCache();
+  }
+  position.newMsgIds=newMsgTipBar.getValues();
+  FavouriteDBTask.asyncUpdatePosition(position,account.getUid());
+}

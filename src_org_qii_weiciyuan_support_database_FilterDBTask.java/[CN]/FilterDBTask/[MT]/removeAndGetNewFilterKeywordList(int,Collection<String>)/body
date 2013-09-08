@@ -1,0 +1,4 @@
+{
+  for (  String word : words)   removeAndGetFilterKeywordList(type,word);
+  return getFilterKeywordList(type);
+}

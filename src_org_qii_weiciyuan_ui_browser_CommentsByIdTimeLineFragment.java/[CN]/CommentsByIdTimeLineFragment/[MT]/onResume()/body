@@ -1,0 +1,11 @@
+{
+  super.onResume();
+  sendCompletedReceiver=new BroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      getPullToRefreshListView().setRefreshing();
+      loadNewMsg();
+    }
+  }
+;
+  LocalBroadcastManager.getInstance(getActivity()).registerReceiver(sendCompletedReceiver,new IntentFilter("org.qii.weiciyuan.SEND.COMMENT.COMPLETED"));
+}

@@ -1,0 +1,6 @@
+{
+  this.mEditText=paramEditText;
+  this.activity=activity;
+  rootLayout.setLayoutTransition(transitioner);
+  setupAnimations(transitioner);
+}

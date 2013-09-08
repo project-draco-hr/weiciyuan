@@ -1,0 +1,18 @@
+{
+  String sql="select * from " + RepostsTable.TABLE_NAME + " where "+ RepostsTable.ACCOUNTID+ "  = "+ accountId;
+  Cursor c=getRsd().rawQuery(sql,null);
+  Gson gson=new Gson();
+  while (c.moveToNext()) {
+    String json=c.getString(c.getColumnIndex(RepostsTable.TIMELINEDATA));
+    if (!TextUtils.isEmpty(json)) {
+      try {
+        TimeLinePosition value=gson.fromJson(json,TimeLinePosition.class);
+        return value;
+      }
+ catch (      JsonSyntaxException e) {
+      }
+    }
+  }
+  c.close();
+  return new TimeLinePosition(0,0);
+}

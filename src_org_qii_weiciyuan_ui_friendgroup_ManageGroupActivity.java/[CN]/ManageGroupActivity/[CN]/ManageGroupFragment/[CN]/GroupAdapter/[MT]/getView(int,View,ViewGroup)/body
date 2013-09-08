@@ -1,0 +1,10 @@
+{
+  View view=getActivity().getLayoutInflater().inflate(R.layout.managegroupactivity_list_item_layout,parent,false);
+  TextView tv=(TextView)view;
+  tv.setBackgroundColor(defaultBG);
+  if (getListView().getCheckedItemPositions().get(position)) {
+    tv.setBackgroundColor(checkedBG);
+  }
+  tv.setText(name.get(position));
+  return view;
+}

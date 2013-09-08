@@ -1,0 +1,3 @@
+{
+  positionCache.put(currentGroupId,Utility.getCurrentPositionFromListView(getListView()));
+}

@@ -1,0 +1,9 @@
+{
+  DMBean dmBean=bean.get(position);
+  if (dmBean.getUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+    return TYPE_MYSELF;
+  }
+ else {
+    return TYPE_NORMAL;
+  }
+}

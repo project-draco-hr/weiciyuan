@@ -1,0 +1,8 @@
+{
+  if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+    String query=intent.getStringExtra(SearchManager.QUERY);
+    SearchRecentSuggestions suggestions=new SearchRecentSuggestions(this,SearchSuggestionProvider.AUTHORITY,SearchSuggestionProvider.MODE);
+    suggestions.saveRecentQuery(query,null);
+    search(query);
+  }
+}

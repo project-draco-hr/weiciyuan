@@ -1,0 +1,14 @@
+{
+  MentionsCommentTimeLineDao dao=new MentionsCommentTimeLineDao(token);
+  dao.setSince_id(sinceId);
+  dao.setMax_id(maxId);
+  CommentListBean result=null;
+  lock.lock();
+  try {
+    result=dao.getGSONMsgList();
+  }
+  finally {
+    lock.unlock();
+  }
+  return result;
+}

@@ -1,0 +1,22 @@
+{
+  super.onProgressUpdate(result);
+  if (result != null && result.length > 0) {
+    MessageTimeLineData recentData=result[0];
+    getList().replaceData(recentData.msgList);
+    putToGroupDataMemoryCache(recentData.groupId,recentData.msgList);
+    positionCache.put(recentData.groupId,recentData.position);
+    currentGroupId=recentData.groupId;
+  }
+  getPullToRefreshListView().setVisibility(View.VISIBLE);
+  getAdapter().notifyDataSetChanged();
+  setListViewPositionFromPositionsCache();
+  if (getActivity().getActionBar().getNavigationMode() == ActionBar.NAVIGATION_MODE_LIST)   getActivity().getActionBar().setSelectedNavigationItem(getRecentNavIndex());
+  refreshLayout(getList());
+  if (getList().getSize() == 0) {
+    getPullToRefreshListView().setRefreshing();
+    loadNewMsg();
+  }
+ else {
+    new RefreshReCmtCountTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

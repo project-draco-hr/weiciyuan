@@ -1,0 +1,10 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_add_common:
+    Set<String> words=CommonAppDefinedFilterList.getDefinedFilterKeywordAndUserList();
+  words.removeAll(list);
+addFilter(words);
+return true;
+}
+return super.onOptionsItemSelected(item);
+}

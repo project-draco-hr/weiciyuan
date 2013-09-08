@@ -1,0 +1,5 @@
+{
+  dest.writeString(id);
+  dest.writeInt(comments);
+  dest.writeInt(reposts);
+}

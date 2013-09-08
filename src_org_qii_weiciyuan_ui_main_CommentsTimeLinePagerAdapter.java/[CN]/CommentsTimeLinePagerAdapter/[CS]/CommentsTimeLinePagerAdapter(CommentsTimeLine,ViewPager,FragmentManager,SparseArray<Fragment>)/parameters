@@ -1,0 +1,4 @@
+CommentsTimeLine fragment
+ViewPager viewPager
+FragmentManager fm
+SparseArray<Fragment> fragmentList

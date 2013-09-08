@@ -1,0 +1,17 @@
+{
+  dest.writeLong(id);
+  dest.writeString(idstr);
+  dest.writeString(created_at);
+  dest.writeString(text);
+  dest.writeString(sender_id);
+  dest.writeString(recipient_id);
+  dest.writeString(sender_screen_name);
+  dest.writeString(recipient_screen_name);
+  dest.writeString(mid);
+  dest.writeString(source);
+  dest.writeString(status_id);
+  dest.writeString(geo);
+  dest.writeLong(mills);
+  dest.writeParcelable(sender,flags);
+  dest.writeParcelable(recipient,flags);
+}

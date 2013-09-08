@@ -1,5 +1,0 @@
-{
-  MessageListBean copy=new MessageListBean();
-  copy.addNewData(value);
-  groupDataCache.put(groupId,copy);
-}

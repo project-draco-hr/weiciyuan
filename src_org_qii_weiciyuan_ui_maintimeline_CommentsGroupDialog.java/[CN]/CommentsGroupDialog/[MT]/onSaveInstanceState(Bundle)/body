@@ -1,5 +1,0 @@
-{
-  super.onSaveInstanceState(outState);
-  outState.putStringArray("group",group);
-  outState.putInt("selected",selected);
-}

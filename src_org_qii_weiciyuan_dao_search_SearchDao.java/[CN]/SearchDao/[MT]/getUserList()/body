@@ -6,12 +6,7 @@
   map.put("page",page);
   map.put("q",q);
   String jsonData=null;
-  try {
-    jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
-  }
- catch (  WeiboException e) {
-    e.printStackTrace();
-  }
+  jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
   Gson gson=new Gson();
   UserListBean value=null;
   try {

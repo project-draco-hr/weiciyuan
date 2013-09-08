@@ -1,0 +1,6 @@
+{
+  SparseArray<String> tagList=new SparseArray<String>();
+  tagList.append(CommentsTimeLine.COMMENTS_TO_ME_CHILD_POSITION,CommentsToMeTimeLineFragment.class.getName());
+  tagList.append(CommentsTimeLine.COMMENTS_BY_ME_CHILD_POSITION,CommentsByMeTimeLineFragment.class.getName());
+  return tagList.get(position);
+}

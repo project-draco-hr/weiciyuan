@@ -1,0 +1,7 @@
+{
+  StringBuilder builder=new StringBuilder();
+  for (  DMUserBean data : listBean.getItemList()) {
+    builder.append(data.toString());
+  }
+  return builder.toString();
+}

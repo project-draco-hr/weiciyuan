@@ -1,0 +1,36 @@
+{
+  this.topTipBar=bar;
+  AutoScrollListView autoScrollListView=(AutoScrollListView)listView;
+  autoScrollListView.setOnScrollListener(new AbsListView.OnScrollListener(){
+    @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
+    }
+    @Override public void onScroll(    AbsListView view,    int firstVisibleItem,    int visibleItemCount,    int totalItemCount){
+      VelocityListView velocityListView=(VelocityListView)view;
+      View childView=Utility.getListViewItemViewFromPosition(listView,firstVisibleItem);
+      if (childView == null) {
+        return;
+      }
+      int position=firstVisibleItem - ((ListView)view).getHeaderViewsCount();
+      if (childView.getTop() == 0 && position <= 0) {
+        topTipBar.clearAndReset();
+      }
+ else {
+        handle(position + 1);
+      }
+    }
+    private void handle(    int position){
+      if (position > 0 && topTipBar != null && position < bean.size()) {
+        MessageBean next=bean.get(position);
+        if (next != null) {
+          MessageBean helperMsg=bean.get(position - 1);
+          long helperId=0L;
+          if (helperMsg != null) {
+            helperId=helperMsg.getIdLong();
+          }
+          topTipBar.handle(next.getIdLong(),helperId);
+        }
+      }
+    }
+  }
+);
+}

@@ -1,0 +1,10 @@
+{
+switch (item.getItemId()) {
+case R.id.menu_add:
+    AddGroupDialog dialog=new AddGroupDialog();
+  dialog.setTargetFragment(ManageGroupFragment.this,0);
+dialog.show(getFragmentManager(),"");
+break;
+}
+return true;
+}

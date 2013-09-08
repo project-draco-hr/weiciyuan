@@ -1,0 +1,22 @@
+{
+  Gson gson=new Gson();
+  List<CommentBean> msgList=list.getItemList();
+  try {
+    getWsd().beginTransaction();
+    for (    CommentBean msg : msgList) {
+      ContentValues cv=new ContentValues();
+      cv.put(MentionCommentsTable.MentionCommentsDataTable.MBLOGID,msg.getId());
+      cv.put(MentionCommentsTable.MentionCommentsDataTable.ACCOUNTID,accountId);
+      String json=gson.toJson(msg);
+      cv.put(MentionCommentsTable.MentionCommentsDataTable.JSONDATA,json);
+      getWsd().insert(MentionCommentsTable.MentionCommentsDataTable.TABLE_NAME,MentionCommentsTable.MentionCommentsDataTable.ID,cv);
+    }
+    getWsd().setTransactionSuccessful();
+  }
+ catch (  SQLException e) {
+  }
+ finally {
+    getWsd().endTransaction();
+  }
+  reduceCommentTable(accountId);
+}

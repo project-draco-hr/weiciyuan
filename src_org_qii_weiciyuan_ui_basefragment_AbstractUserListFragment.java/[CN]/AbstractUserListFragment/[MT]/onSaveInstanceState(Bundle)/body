@@ -1,4 +1,4 @@
 {
   super.onSaveInstanceState(outState);
-  outState.putSerializable("bean",bean);
+  outState.putParcelable("bean",bean);
 }

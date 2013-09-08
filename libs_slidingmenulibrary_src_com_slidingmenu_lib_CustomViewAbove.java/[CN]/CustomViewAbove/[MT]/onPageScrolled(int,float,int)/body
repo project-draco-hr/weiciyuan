@@ -1,0 +1,8 @@
+{
+  if (mOnPageChangeListener != null) {
+    mOnPageChangeListener.onPageScrolled(position,offset,offsetPixels);
+  }
+  if (mInternalPageChangeListener != null) {
+    mInternalPageChangeListener.onPageScrolled(position,offset,offsetPixels);
+  }
+}

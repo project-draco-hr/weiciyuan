@@ -5,5 +5,5 @@
     return;
   }
   topicList=result;
-  setTextViewNum(topic_number,String.valueOf(result.size()));
+  setTextViewNum(layout.topic_number,String.valueOf(result.size()));
 }

@@ -1,5 +1,8 @@
 {
-  if (!TextUtils.isEmpty(content.getText().toString()) && canShowSaveDraftDialog()) {
+  if (smiley.isShown()) {
+    hideSmileyPicker(false);
+  }
+ else   if (!TextUtils.isEmpty(content.getText().toString()) && canShowSaveDraftDialog()) {
     SaveDraftDialog dialog=new SaveDraftDialog();
     dialog.show(getFragmentManager(),"");
   }

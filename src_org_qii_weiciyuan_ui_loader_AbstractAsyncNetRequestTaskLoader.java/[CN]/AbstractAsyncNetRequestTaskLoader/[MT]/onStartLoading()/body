@@ -1,0 +1,9 @@
+{
+  super.onStartLoading();
+  if (result == null) {
+    forceLoad();
+  }
+ else {
+    deliverResult(result);
+  }
+}

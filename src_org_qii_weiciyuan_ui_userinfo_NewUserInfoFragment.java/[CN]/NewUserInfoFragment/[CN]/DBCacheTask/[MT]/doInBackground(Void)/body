@@ -1,0 +1,5 @@
+{
+  ArrayList<String> topicList=TopicDBTask.get(userBean.getId());
+  publishProgress(topicList);
+  return MyStatusDBTask.get(userBean.getId());
+}

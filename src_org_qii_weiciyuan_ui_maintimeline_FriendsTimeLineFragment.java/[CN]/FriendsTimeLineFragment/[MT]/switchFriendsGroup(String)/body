@@ -1,0 +1,28 @@
+{
+  getLoaderManager().destroyLoader(NEW_MSG_LOADER_ID);
+  getLoaderManager().destroyLoader(MIDDLE_MSG_LOADER_ID);
+  getLoaderManager().destroyLoader(OLD_MSG_LOADER_ID);
+  getPullToRefreshListView().onRefreshComplete();
+  dismissFooterView();
+  savedCurrentLoadingMsgViewPositon=-1;
+  if (timeLineAdapter instanceof AbstractAppListAdapter) {
+    ((AbstractAppListAdapter)timeLineAdapter).setSavedMiddleLoadingViewPosition(savedCurrentLoadingMsgViewPositon);
+  }
+  positionCache.put(currentGroupId,Utility.getCurrentPositionFromListView(getListView()));
+  saveNewMsgCountToPositionsCache();
+  setSelected(groupId);
+  newMsgTipBar.clearAndReset();
+  if (groupDataCache.get(currentGroupId) == null || groupDataCache.get(currentGroupId).getSize() == 0) {
+    getList().getItemList().clear();
+    getAdapter().notifyDataSetChanged();
+    getPullToRefreshListView().setRefreshing();
+    loadNewMsg();
+  }
+ else {
+    getList().replaceData(groupDataCache.get(currentGroupId));
+    getAdapter().notifyDataSetChanged();
+    setListViewPositionFromPositionsCache();
+    saveGroupIdToDB();
+    new RefreshReCmtCountTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

@@ -1,0 +1,13 @@
+{
+  LoadingLayoutProxy proxy=super.createLoadingLayoutProxy(includeStart,includeEnd);
+  if (mListViewExtrasEnabled) {
+    final Mode mode=getMode();
+    if (includeStart && mode.showHeaderLoadingLayout()) {
+      proxy.addLayout(mHeaderLoadingView);
+    }
+    if (includeEnd && mode.showFooterLoadingLayout()) {
+      proxy.addLayout(mFooterLoadingView);
+    }
+  }
+  return proxy;
+}

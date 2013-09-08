@@ -1,0 +1,4 @@
+{
+  this(context,uid,screenName,token,sinceId,maxId);
+  this.count=count;
+}

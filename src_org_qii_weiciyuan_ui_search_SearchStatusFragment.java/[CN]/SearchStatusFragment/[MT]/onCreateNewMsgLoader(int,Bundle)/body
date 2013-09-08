@@ -1,0 +1,6 @@
+{
+  String token=GlobalContext.getInstance().getSpecialToken();
+  String word=((SearchMainParentFragment)getParentFragment()).getSearchWord();
+  page=1;
+  return new SearchStatusLoader(getActivity(),token,word,String.valueOf(page));
+}

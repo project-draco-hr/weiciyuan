@@ -1,6 +1,0 @@
-{
-  super.resetHeader();
-  if (getShowIndicatorInternal()) {
-    updateIndicatorViewsVisibility();
-  }
-}

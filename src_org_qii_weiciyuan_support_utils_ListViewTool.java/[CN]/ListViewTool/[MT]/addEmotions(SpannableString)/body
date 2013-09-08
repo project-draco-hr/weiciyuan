@@ -1,5 +1,5 @@
 {
-  Matcher localMatcher=Pattern.compile("\\[(\\S+?)\\]").matcher(value);
+  Matcher localMatcher=WeiboPatterns.EMOTION_URL.matcher(value);
   while (localMatcher.find()) {
     String str2=localMatcher.group(0);
     int k=localMatcher.start();

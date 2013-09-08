@@ -1,0 +1,10 @@
+{
+  if (null != mImageView) {
+    mImageView.get().getViewTreeObserver().removeGlobalOnLayoutListener(this);
+  }
+  mViewTreeObserver=null;
+  mMatrixChangeListener=null;
+  mPhotoTapListener=null;
+  mViewTapListener=null;
+  mImageView=null;
+}

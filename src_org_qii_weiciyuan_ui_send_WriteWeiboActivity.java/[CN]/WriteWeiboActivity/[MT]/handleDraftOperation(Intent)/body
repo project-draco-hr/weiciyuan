@@ -1,8 +1,8 @@
 {
-  accountBean=(AccountBean)intent.getSerializableExtra("account");
+  accountBean=(AccountBean)intent.getParcelableExtra("account");
   token=accountBean.getAccess_token();
   getActionBar().setSubtitle(accountBean.getUsernick());
-  statusDraftBean=(StatusDraftBean)intent.getSerializableExtra("draft");
+  statusDraftBean=(StatusDraftBean)intent.getParcelableExtra("draft");
   if (statusDraftBean != null) {
     content.setText(statusDraftBean.getContent());
     picPath=statusDraftBean.getPic();

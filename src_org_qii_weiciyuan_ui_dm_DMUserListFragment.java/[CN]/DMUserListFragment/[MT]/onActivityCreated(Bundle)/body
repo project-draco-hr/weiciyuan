@@ -1,7 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
-  setHasOptionsMenu(true);
   setRetainInstance(true);
+  setHasOptionsMenu(true);
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
     if (Utility.isTaskStopped(dbTask)) {
@@ -13,9 +13,12 @@ case SCREEN_ROTATE:
 refreshLayout(getList());
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-bean.addNewData((DMUserListBean)savedInstanceState.getSerializable("bean"));
+bean.addNewData((DMUserListBean)savedInstanceState.getParcelable("bean"));
 getAdapter().notifyDataSetChanged();
 refreshLayout(getList());
 break;
+}
+if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == LeftMenuFragment.DM_INDEX) {
+buildActionBarAndViewPagerTitles();
 }
 }

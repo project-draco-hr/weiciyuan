@@ -1,0 +1,4 @@
+{
+  String sql="delete from " + TopicTable.TABLE_NAME + " where "+ TopicTable.ACCOUNTID+ " in "+ "("+ accountId+ ")";
+  getWsd().execSQL(sql);
+}

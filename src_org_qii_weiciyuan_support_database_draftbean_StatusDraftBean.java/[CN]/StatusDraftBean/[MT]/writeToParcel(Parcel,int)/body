@@ -1,0 +1,7 @@
+{
+  dest.writeString(content);
+  dest.writeString(pic);
+  dest.writeParcelable(gps,flags);
+  dest.writeString(accountId);
+  dest.writeString(id);
+}

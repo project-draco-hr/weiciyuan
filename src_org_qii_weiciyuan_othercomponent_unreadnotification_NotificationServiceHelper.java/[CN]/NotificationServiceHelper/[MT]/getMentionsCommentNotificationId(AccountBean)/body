@@ -1,0 +1,3 @@
+{
+  return accountBean.getUid().hashCode() + MENTIONS_COMMENT_NOTIFICATION_ID;
+}

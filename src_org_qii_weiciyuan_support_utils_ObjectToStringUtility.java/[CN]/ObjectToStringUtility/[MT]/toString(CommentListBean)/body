@@ -1,0 +1,7 @@
+{
+  StringBuilder builder=new StringBuilder();
+  for (  CommentBean comment : commentList.getItemList()) {
+    builder.append(comment.toString());
+  }
+  return builder.toString();
+}

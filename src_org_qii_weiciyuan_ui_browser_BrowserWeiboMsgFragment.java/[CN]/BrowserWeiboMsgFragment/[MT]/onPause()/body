@@ -1,0 +1,5 @@
+{
+  super.onPause();
+  LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(sendCommentCompletedReceiver);
+  LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(sendRepostCompletedReceiver);
+}

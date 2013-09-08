@@ -1,3 +1,0 @@
-{
-  return ((MentionsTimeLineFragment)getFragmentManager().findFragmentByTag(MentionsTimeLineFragment.class.getName()));
-}

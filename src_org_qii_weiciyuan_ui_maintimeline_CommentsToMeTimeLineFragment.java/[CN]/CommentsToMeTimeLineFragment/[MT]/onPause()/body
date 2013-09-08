@@ -1,0 +1,7 @@
+{
+  super.onPause();
+  if (!getActivity().isChangingConfigurations()) {
+    saveTimeLinePositionToDB();
+  }
+  LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(newBroadcastReceiver);
+}

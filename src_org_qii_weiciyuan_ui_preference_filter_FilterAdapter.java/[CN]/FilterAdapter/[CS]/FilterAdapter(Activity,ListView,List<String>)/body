@@ -1,0 +1,9 @@
+{
+  defaultBG=activity.getResources().getColor(R.color.transparent);
+  int[] attrs=new int[]{R.attr.listview_checked_color};
+  TypedArray ta=activity.obtainStyledAttributes(attrs);
+  checkedBG=ta.getColor(0,430);
+  this.activity=activity;
+  this.list=list;
+  this.listView=listView;
+}

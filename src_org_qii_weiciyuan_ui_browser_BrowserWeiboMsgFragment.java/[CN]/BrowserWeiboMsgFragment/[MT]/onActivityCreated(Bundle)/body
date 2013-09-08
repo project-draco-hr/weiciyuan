@@ -5,14 +5,31 @@
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
     if (Utility.isTaskStopped(updateMsgTask)) {
-      updateMsgTask=new UpdateMsgTask();
-      updateMsgTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      handler.postDelayed(new Runnable(){
+        @Override public void run(){
+          updateMsgTask=new UpdateMessageTask(BrowserWeiboMsgFragment.this,layout.content,layout.recontent,msg,false);
+          updateMsgTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+        }
+      }
+,2000);
     }
-  break;
+  buildViewData(true);
+loadNewCommentData();
+break;
 case SCREEN_ROTATE:
+buildViewData(true);
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-msg=(MessageBean)savedInstanceState.getSerializable("msg");
+msg=(MessageBean)savedInstanceState.getParcelable("msg");
+buildViewData(true);
 break;
+}
+Loader loader=getLoaderManager().getLoader(NEW_COMMENT_LOADER_ID);
+if (loader != null) {
+getLoaderManager().initLoader(NEW_COMMENT_LOADER_ID,null,commentMsgCallback);
+}
+loader=getLoaderManager().getLoader(OLD_COMMENT_LOADER_ID);
+if (loader != null) {
+getLoaderManager().initLoader(OLD_COMMENT_LOADER_ID,null,commentMsgCallback);
 }
 }

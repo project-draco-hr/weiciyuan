@@ -1,0 +1,6 @@
+{
+  super.onReset();
+  if (getShowIndicatorInternal()) {
+    updateIndicatorViewsVisibility();
+  }
+}

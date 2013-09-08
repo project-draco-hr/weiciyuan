@@ -1,0 +1,18 @@
+{
+  super.onActivityCreated(savedInstanceState);
+switch (getCurrentState(savedInstanceState)) {
+case FIRST_TIME_START:
+    getPullToRefreshListView().setRefreshing();
+  loadNewMsg();
+break;
+case SCREEN_ROTATE:
+refreshLayout(bean);
+break;
+case ACTIVITY_DESTROY_AND_CREATE:
+getList().addNewData((ShareListBean)savedInstanceState.getParcelable("bean"));
+url=savedInstanceState.getString("url");
+timeLineAdapter.notifyDataSetChanged();
+refreshLayout(bean);
+break;
+}
+}

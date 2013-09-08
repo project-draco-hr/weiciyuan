@@ -1,52 +1,50 @@
 {
   super.onCreate(savedInstanceState);
+  initLayout();
   token=getIntent().getStringExtra("token");
-  bean=(UserBean)getIntent().getSerializableExtra("user");
+  bean=getIntent().getParcelableExtra("user");
   if (bean == null) {
-    Uri data=getIntent().getData();
-    if (data != null) {
-      String d=data.toString();
-      int index=d.lastIndexOf("/");
-      String newValue=d.substring(index + 1);
+    String id=getIntent().getStringExtra("id");
+    if (!TextUtils.isEmpty(id)) {
       bean=new UserBean();
-      bean.setScreen_name(newValue);
+      bean.setId(id);
     }
- else     if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(getIntent().getAction())) {
-      processIntent(getIntent());
+ else {
+      String domain=getIntent().getStringExtra("domain");
+      if (!TextUtils.isEmpty(domain)) {
+        bean=new UserBean();
+        bean.setDomain(domain);
+      }
+ else {
+        Uri data=getIntent().getData();
+        if (data != null) {
+          String d=data.toString();
+          int index=d.lastIndexOf("@");
+          String newValue=d.substring(index + 1);
+          bean=new UserBean();
+          bean.setScreen_name(newValue);
+        }
+ else         if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(getIntent().getAction())) {
+          processIntent(getIntent());
+        }
+      }
     }
+    fetchUserInfoFromServer();
   }
-  if (bean.getScreen_name().equals(GlobalContext.getInstance().getCurrentAccountName()) || (bean.getId() != null && bean.getId().equals(GlobalContext.getInstance().getCurrentAccountId()))) {
+ else {
+    buildContent();
+  }
+  if (isMyselfProfile()) {
+    if (getClass() == MyInfoActivity.class) {
+      return;
+    }
     Intent intent=new Intent(this,MyInfoActivity.class);
     intent.putExtra("token",getToken());
-    AccountBean accountBean=new AccountBean();
-    accountBean.setAccess_token(token);
-    accountBean.setUsernick(GlobalContext.getInstance().getCurrentAccountName());
-    accountBean.setUid(GlobalContext.getInstance().getCurrentAccountId());
     UserBean userBean=new UserBean();
     userBean.setId(GlobalContext.getInstance().getCurrentAccountId());
     intent.putExtra("user",bean);
-    intent.putExtra("account",accountBean);
+    intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
     startActivity(intent);
     finish();
   }
-  getActionBar().setDisplayHomeAsUpEnabled(true);
-  getActionBar().setTitle(getString(R.string.personal_info));
-  setContentView(R.layout.viewpager_layout);
-  mViewPager=(ViewPager)findViewById(R.id.viewpager);
-  mViewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
-  TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getFragmentManager());
-  mViewPager.setOffscreenPageLimit(2);
-  mViewPager.setAdapter(adapter);
-  mViewPager.setOnPageChangeListener(onPageChangeListener);
-  gestureDetector=new GestureDetector(UserInfoActivity.this,new MyOnGestureListener());
-  mViewPager.setOnTouchListener(new View.OnTouchListener(){
-    @Override public boolean onTouch(    View v,    MotionEvent event){
-      return gestureDetector.onTouchEvent(event);
-    }
-  }
-);
-  ActionBar actionBar=getActionBar();
-  actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-  actionBar.addTab(actionBar.newTab().setText(getString(R.string.info)).setTabListener(tabListener));
-  actionBar.addTab(actionBar.newTab().setText(getString(R.string.weibo)).setTabListener(tabListener));
 }

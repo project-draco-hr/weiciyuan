@@ -1,0 +1,6 @@
+{
+  super.onHiddenChanged(hidden);
+  if (!hidden) {
+    buildActionBarNav();
+  }
+}

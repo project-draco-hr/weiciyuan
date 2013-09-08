@@ -1,0 +1,4 @@
+{
+  LeftMenuFragment fragment=getMenuFragment();
+  fragment.setMentionCommentUnreadCount(count);
+}

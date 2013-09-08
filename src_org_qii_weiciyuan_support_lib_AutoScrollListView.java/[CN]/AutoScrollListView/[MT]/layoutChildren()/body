@@ -1,0 +1,43 @@
+{
+  super.layoutChildren();
+  if (mRequestedScrollPosition == -1) {
+    return;
+  }
+  final int position=mRequestedScrollPosition;
+  mRequestedScrollPosition=-1;
+  int firstPosition=getFirstVisiblePosition() + 1;
+  int lastPosition=getLastVisiblePosition();
+  if (position >= firstPosition && position <= lastPosition) {
+    return;
+  }
+  final int offset=(int)(getHeight() * PREFERRED_SELECTION_OFFSET_FROM_TOP);
+  if (!mSmoothScrollRequested) {
+    setSelectionFromTop(position,offset);
+    super.layoutChildren();
+  }
+ else {
+    int twoScreens=(lastPosition - firstPosition) * 2;
+    int preliminaryPosition;
+    if (position < firstPosition) {
+      preliminaryPosition=position + twoScreens;
+      if (preliminaryPosition >= getCount()) {
+        preliminaryPosition=getCount() - 1;
+      }
+      if (preliminaryPosition < firstPosition) {
+        setSelection(preliminaryPosition);
+        super.layoutChildren();
+      }
+    }
+ else {
+      preliminaryPosition=position - twoScreens;
+      if (preliminaryPosition < 0) {
+        preliminaryPosition=0;
+      }
+      if (preliminaryPosition > lastPosition) {
+        setSelection(preliminaryPosition);
+        super.layoutChildren();
+      }
+    }
+    smoothScrollToPositionFromTop(position,offset);
+  }
+}

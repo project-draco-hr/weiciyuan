@@ -1,9 +1,9 @@
 {
   super.onSaveInstanceState(outState);
   outState.putString("picPath",picPath);
-  outState.putSerializable("geoBean",geoBean);
+  outState.putParcelable("geoBean",geoBean);
   outState.putString("location",location);
   outState.putParcelable("imageFileUri",imageFileUri);
-  outState.putSerializable("statusDraftBean",statusDraftBean);
-  outState.putSerializable("accountBean",accountBean);
+  outState.putParcelable("statusDraftBean",statusDraftBean);
+  outState.putParcelable("accountBean",accountBean);
 }

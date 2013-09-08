@@ -1,9 +1,13 @@
 {
 switch (v.getId()) {
 case R.id.menu_emoticon:
-    EmotionsGridDialog dialog=new EmotionsGridDialog();
-  dialog.show(getFragmentManager(),"");
-break;
+    if (smiley.isShown()) {
+      hideSmileyPicker(true);
+    }
+ else {
+      showSmileyPicker(SmileyPickerUtility.isKeyBoardShow(AbstractWriteActivity.this));
+    }
+  break;
 case R.id.menu_send:
 send();
 break;

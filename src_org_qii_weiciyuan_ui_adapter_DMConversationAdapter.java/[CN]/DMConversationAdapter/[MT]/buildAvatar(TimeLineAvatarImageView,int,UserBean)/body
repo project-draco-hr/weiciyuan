@@ -1,0 +1,19 @@
+{
+  String image_url=user.getProfile_image_url();
+  if (!TextUtils.isEmpty(image_url)) {
+    view.setVisibility(View.VISIBLE);
+    commander.downloadAvatar(view.getImageView(),user,(AbstractTimeLineFragment)fragment);
+    view.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        Intent intent=new Intent(getActivity(),UserInfoActivity.class);
+        intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+        intent.putExtra("user",user);
+        getActivity().startActivity(intent);
+      }
+    }
+);
+  }
+ else {
+    view.setVisibility(View.GONE);
+  }
+}

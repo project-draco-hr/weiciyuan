@@ -1,0 +1,7 @@
+{
+  super.onHiddenChanged(hidden);
+  if (!hidden) {
+    int mentionsTabIndex=getArguments().getInt("mentionsTabIndex");
+    buildActionBarAndViewPagerTitles(mentionsTabIndex);
+  }
+}

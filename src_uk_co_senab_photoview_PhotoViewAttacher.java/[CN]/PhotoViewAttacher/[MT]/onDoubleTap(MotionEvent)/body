@@ -1,0 +1,19 @@
+{
+  try {
+    float scale=getScale();
+    float x=ev.getX();
+    float y=ev.getY();
+    if (scale < mMidScale) {
+      zoomTo(mMidScale,x,y);
+    }
+ else     if (scale >= mMidScale && scale < mMaxScale) {
+      zoomTo(mMaxScale,x,y);
+    }
+ else {
+      zoomTo(mMinScale,x,y);
+    }
+  }
+ catch (  ArrayIndexOutOfBoundsException e) {
+  }
+  return true;
+}

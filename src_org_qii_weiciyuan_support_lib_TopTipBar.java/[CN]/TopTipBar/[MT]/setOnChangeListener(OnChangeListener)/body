@@ -1,0 +1,4 @@
+{
+  this.onChangeListener=l;
+  this.onChangeListener.onChange(ids.size());
+}

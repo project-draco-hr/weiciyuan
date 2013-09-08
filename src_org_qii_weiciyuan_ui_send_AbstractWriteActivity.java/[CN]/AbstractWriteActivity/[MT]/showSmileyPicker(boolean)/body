@@ -1,0 +1,4 @@
+{
+  this.smiley.show(AbstractWriteActivity.this,showAnimation);
+  lockContainerHeight(SmileyPickerUtility.getAppContentHeight(AbstractWriteActivity.this));
+}

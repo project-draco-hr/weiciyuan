@@ -1,15 +1,14 @@
 {
   String token=params[0];
+  long expiresInSeconds=Long.valueOf(params[1]);
   try {
     UserBean user=new OAuthDao(token).getOAuthUserInfo();
     AccountBean account=new AccountBean();
     account.setAccess_token(token);
-    account.setUsername(user.getName());
-    account.setUid(user.getId());
-    account.setUsernick(user.getScreen_name());
-    account.setAvatar_url(user.getProfile_image_url());
+    account.setExpires_time(System.currentTimeMillis() + expiresInSeconds * 1000);
     account.setInfo(user);
-    return AccountDBTask.addOrUpdateAccount(account);
+    AppLogger.e("token expires in " + Utility.calcTokenExpiresInDays(account) + " days");
+    return AccountDBTask.addOrUpdateAccount(account,false);
   }
  catch (  WeiboException e) {
     AppLogger.e(e.getError());

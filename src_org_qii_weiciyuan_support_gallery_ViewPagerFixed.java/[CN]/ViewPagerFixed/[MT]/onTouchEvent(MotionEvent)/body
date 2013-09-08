@@ -1,0 +1,9 @@
+{
+  try {
+    return super.onTouchEvent(ev);
+  }
+ catch (  IllegalArgumentException ex) {
+    ex.printStackTrace();
+  }
+  return false;
+}

@@ -1,0 +1,39 @@
+{
+  ListAdapter adapter=mRefreshableView.getAdapter();
+  if (!mListViewExtrasEnabled || !getShowViewWhileRefreshing() || null == adapter || adapter.isEmpty()) {
+    super.onRefreshing(doScroll);
+    return;
+  }
+  super.onRefreshing(false);
+  final LoadingLayout origLoadingView, listViewLoadingView, oppositeListViewLoadingView;
+  final int selection, scrollToY;
+switch (getCurrentMode()) {
+case MANUAL_REFRESH_ONLY:
+case PULL_FROM_END:
+    origLoadingView=getFooterLayout();
+  listViewLoadingView=mFooterLoadingView;
+oppositeListViewLoadingView=mHeaderLoadingView;
+selection=mRefreshableView.getCount() - 1;
+scrollToY=getScrollY() - getFooterSize();
+break;
+case PULL_FROM_START:
+default :
+origLoadingView=getHeaderLayout();
+listViewLoadingView=mHeaderLoadingView;
+oppositeListViewLoadingView=mFooterLoadingView;
+selection=0;
+scrollToY=getScrollY() + getHeaderSize();
+break;
+}
+origLoadingView.reset();
+origLoadingView.hideAllViews();
+oppositeListViewLoadingView.setVisibility(View.GONE);
+listViewLoadingView.setVisibility(View.VISIBLE);
+listViewLoadingView.refreshing();
+if (doScroll) {
+disableLoadingLayoutVisibilityChanges();
+setHeaderScroll(scrollToY);
+mRefreshableView.setSelection(selection);
+smoothScrollTo(0);
+}
+}

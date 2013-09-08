@@ -1,8 +1,7 @@
 {
   super.onActivityCreated(savedInstanceState);
-  commander=((AbstractAppActivity)getActivity()).getBitmapDownloader();
   if (savedInstanceState != null && bean.getItemList().size() == 0) {
-    clearAndReplaceValue((SearchStatusListBean)savedInstanceState.getSerializable("bean"));
+    clearAndReplaceValue((SearchStatusListBean)savedInstanceState.getParcelable("bean"));
     timeLineAdapter.notifyDataSetChanged();
   }
   refreshLayout(bean);

@@ -4,14 +4,19 @@
   setRetainInstance(true);
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
-    getPullToRefreshListView().startRefreshNow();
+    new Handler().postDelayed(new Runnable(){
+      @Override public void run(){
+        if (getActivity() != null)         loadNewMsg();
+      }
+    }
+,AppConfig.REFRESH_DELAYED_MILL_SECOND_TIME);
   break;
 case SCREEN_ROTATE:
 refreshLayout(getList());
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-getList().addNewData((DMListBean)savedInstanceState.getSerializable("bean"));
-userBean=(UserBean)savedInstanceState.getSerializable("userBean");
+getList().addNewData((DMListBean)savedInstanceState.getParcelable("bean"));
+userBean=(UserBean)savedInstanceState.getParcelable("userBean");
 page=savedInstanceState.getInt("page");
 getAdapter().notifyDataSetChanged();
 refreshLayout(bean);

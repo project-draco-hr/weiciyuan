@@ -1,7 +1,11 @@
 {
-  String json=getMsgListJson();
+  String url=getUrl();
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",access_token);
+  map.put("type",type);
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
   try {
-    JSONObject jsonObject=new JSONObject(json);
+    JSONObject jsonObject=new JSONObject(jsonData);
     return jsonObject.optBoolean("result",false);
   }
  catch (  JSONException e) {

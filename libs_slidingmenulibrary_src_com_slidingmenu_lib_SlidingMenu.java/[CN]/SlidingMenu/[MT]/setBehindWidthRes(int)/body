@@ -1,0 +1,4 @@
+{
+  int i=(int)getContext().getResources().getDimension(res);
+  setBehindWidth(i);
+}

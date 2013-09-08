@@ -1,0 +1,4 @@
+{
+  int i=(int)getContext().getResources().getDimension(resID);
+  setBehindOffset(i);
+}

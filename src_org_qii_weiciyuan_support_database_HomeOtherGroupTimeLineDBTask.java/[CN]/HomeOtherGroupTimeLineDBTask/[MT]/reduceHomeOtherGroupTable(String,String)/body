@@ -1,0 +1,16 @@
+{
+  String searchCount="select count(" + HomeOtherGroupTable.HomeOtherGroupDataTable.ID + ") as total"+ " from "+ HomeOtherGroupTable.HomeOtherGroupDataTable.TABLE_NAME+ " where "+ HomeOtherGroupTable.HomeOtherGroupDataTable.ACCOUNTID+ " = "+ accountId+ " and "+ HomeOtherGroupTable.HomeOtherGroupDataTable.GROUPID+ " = "+ groupId;
+  int total=0;
+  Cursor c=getWsd().rawQuery(searchCount,null);
+  if (c.moveToNext()) {
+    total=c.getInt(c.getColumnIndex("total"));
+  }
+  c.close();
+  AppLogger.e("total=" + total);
+  int needDeletedNumber=total - AppConfig.DEFAULT_HOME_DB_CACHE_COUNT;
+  if (needDeletedNumber > 0) {
+    AppLogger.e("" + needDeletedNumber);
+    String sql=" delete from " + HomeOtherGroupTable.HomeOtherGroupDataTable.TABLE_NAME + " where "+ HomeOtherGroupTable.HomeOtherGroupDataTable.ID+ " in "+ "( select "+ HomeOtherGroupTable.HomeOtherGroupDataTable.ID+ " from "+ HomeOtherGroupTable.HomeOtherGroupDataTable.TABLE_NAME+ " where "+ HomeOtherGroupTable.HomeOtherGroupDataTable.ACCOUNTID+ " in "+ "("+ accountId+ ") "+ " and "+ HomeOtherGroupTable.HomeOtherGroupDataTable.GROUPID+ " = "+ groupId+ " order by "+ HomeOtherGroupTable.HomeOtherGroupDataTable.ID+ " desc limit "+ needDeletedNumber+ " ) ";
+    getWsd().execSQL(sql);
+  }
+}
