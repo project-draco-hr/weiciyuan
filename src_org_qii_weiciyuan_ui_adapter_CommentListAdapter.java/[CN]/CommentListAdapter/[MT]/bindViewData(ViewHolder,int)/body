@@ -31,7 +31,7 @@
   }
   holder.content.setText(comment.getListViewSpannableString());
   holder.time.setTime(comment.getMills());
-  if (holder.source != null)   holder.source.setText(Html.fromHtml(comment.getSource()).toString());
+  if (holder.source != null)   holder.source.setText(comment.getSourceString());
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
   CommentBean reply=comment.getReply_comment();

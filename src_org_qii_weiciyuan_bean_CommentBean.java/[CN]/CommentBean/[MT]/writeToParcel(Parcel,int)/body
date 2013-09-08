@@ -9,4 +9,5 @@
   dest.writeParcelable(user,flags);
   dest.writeParcelable(status,flags);
   dest.writeParcelable(reply_comment,flags);
+  dest.writeString(sourceString);
 }
