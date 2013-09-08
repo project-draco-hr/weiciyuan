@@ -9,6 +9,6 @@
       msg.setComments_count(count.getComments());
     }
   }
+  FavouriteDBTask.asyncReplace(getList(),page,account.getUid());
   getAdapter().notifyDataSetChanged();
-  FavouriteDBTask.asyncUpdatePosition(position,account.getUid());
 }

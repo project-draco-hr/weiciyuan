@@ -8,7 +8,7 @@
         if (ori.getComments_count() != msg.getComments_count() || ori.getReposts_count() != msg.getReposts_count()) {
           ori.setReposts_count(msg.getReposts_count());
           ori.setComments_count(msg.getComments_count());
-          FavouriteDBTask.asyncReplace(getList(),page,account.getUid());
+          MentionWeiboTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
           getAdapter().notifyDataSetChanged();
         }
         break;

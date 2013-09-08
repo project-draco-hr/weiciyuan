@@ -1,0 +1,14 @@
+{
+  final int id=mRequestCodes.get(requestCode);
+  if (id == 0)   return false;
+  mRequestCodes.delete(requestCode);
+  List<Fragment> fragments=getChildFragmentManager().getFragments();
+  if (fragments == null)   return false;
+  for (  Fragment fragment : fragments) {
+    if (fragment.hashCode() == id) {
+      fragment.onActivityResult(requestCode,resultCode,data);
+      return true;
+    }
+  }
+  return false;
+}

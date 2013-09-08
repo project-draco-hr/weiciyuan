@@ -2,5 +2,5 @@
   Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
   intent.putExtra("msg",bean.getItemList().get(position));
   intent.putExtra("token",token);
-  startActivity(intent);
+  startActivityForResult(intent,MainTimeLineActivity.REQUEST_CODE_UPDATE_MENTIONS_WEIBO_TIMELINE_COMMENT_REPOST_COUNT);
 }
