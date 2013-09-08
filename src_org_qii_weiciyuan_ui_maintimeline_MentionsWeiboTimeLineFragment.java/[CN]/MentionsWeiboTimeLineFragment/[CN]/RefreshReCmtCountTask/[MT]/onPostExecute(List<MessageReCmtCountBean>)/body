@@ -1,0 +1,14 @@
+{
+  super.onPostExecute(value);
+  if (getActivity() == null || value == null)   return;
+  for (int i=0; i < value.size(); i++) {
+    MessageBean msg=getList().getItem(i);
+    MessageReCmtCountBean count=value.get(i);
+    if (msg != null && msg.getId().equals(count.getId())) {
+      msg.setReposts_count(count.getReposts());
+      msg.setComments_count(count.getComments());
+    }
+  }
+  MentionWeiboTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
+  getAdapter().notifyDataSetChanged();
+}

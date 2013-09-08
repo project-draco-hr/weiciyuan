@@ -1,0 +1,9 @@
+{
+  try {
+    return new TimeLineReCmtCountDao(GlobalContext.getInstance().getSpecialToken(),msgIds).get();
+  }
+ catch (  WeiboException e) {
+    cancel(true);
+  }
+  return null;
+}
