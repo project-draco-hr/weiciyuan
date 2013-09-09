@@ -41,5 +41,4 @@
     cv.put(FavouriteTable.PAGE,page);
     getWsd().insert(FavouriteTable.TABLE_NAME,FavouriteTable.ID,cv);
   }
-  reduceFavouriteTable(accountId);
 }
