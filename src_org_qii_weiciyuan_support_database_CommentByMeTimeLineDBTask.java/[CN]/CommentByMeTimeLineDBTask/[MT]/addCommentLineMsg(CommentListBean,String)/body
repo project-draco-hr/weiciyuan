@@ -1,7 +1,6 @@
 {
   Gson gson=new Gson();
   List<CommentBean> msgList=list.getItemList();
-  long now=System.currentTimeMillis();
   DatabaseUtils.InsertHelper ih=new DatabaseUtils.InsertHelper(getWsd(),CommentByMeTable.CommentByMeDataTable.TABLE_NAME);
   final int mblogidColumn=ih.getColumnIndex(CommentByMeTable.CommentByMeDataTable.MBLOGID);
   final int accountidColumn=ih.getColumnIndex(CommentByMeTable.CommentByMeDataTable.ACCOUNTID);
@@ -24,6 +23,5 @@
     getWsd().endTransaction();
     ih.close();
   }
-  AppLogger.e("time=" + (System.currentTimeMillis() - now));
   reduceCommentTable(accountId);
 }
