@@ -1,7 +1,7 @@
 {
   TimeLinePosition position=getPosition(accountId);
   CommentListBean result=new CommentListBean();
-  int limit=position.position + DB_CACHE_COUNT_OFFSET > AppConfig.DEFAULT_MSG_COUNT_50 ? position.position + DB_CACHE_COUNT_OFFSET : AppConfig.DEFAULT_MSG_COUNT_50;
+  int limit=position.position + AppConfig.DB_CACHE_COUNT_OFFSET > AppConfig.DEFAULT_MSG_COUNT_50 ? position.position + AppConfig.DB_CACHE_COUNT_OFFSET : AppConfig.DEFAULT_MSG_COUNT_50;
   List<CommentBean> msgList=new ArrayList<CommentBean>();
   String sql="select * from " + CommentByMeTable.CommentByMeDataTable.TABLE_NAME + " where "+ CommentByMeTable.CommentByMeDataTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ CommentByMeTable.CommentByMeDataTable.MBLOGID+ " desc limit "+ limit;
   Cursor c=getRsd().rawQuery(sql,null);
