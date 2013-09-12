@@ -1,6 +1,7 @@
 {
   holder.repost_content.setVisibility(View.VISIBLE);
-  if (!repost_msg.getId().equals((String)holder.repost_content.getTag())) {
+  boolean isSameTag=repost_msg.getId().equals((String)holder.repost_content.getTag());
+  if (!isSameTag) {
     holder.repost_content.setText(repost_msg.getListViewSpannableString());
     holder.repost_content.setTag(repost_msg.getId());
   }
