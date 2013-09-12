@@ -1,0 +1,5 @@
+{
+  int nowYear=now.get(Calendar.YEAR);
+  int msgYear=msg.get(Calendar.YEAR);
+  return nowYear == msgYear;
+}

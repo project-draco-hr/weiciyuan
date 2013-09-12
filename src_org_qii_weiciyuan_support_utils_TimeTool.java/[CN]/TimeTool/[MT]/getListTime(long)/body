@@ -38,7 +38,7 @@
     }
   }
   long calMonth=calDay / 31;
-  if (calMonth < 12) {
+  if (calMonth < 12 && isSameYear(nowCalendar,msgCalendar)) {
     if (dateFormat == null)     dateFormat=new java.text.SimpleDateFormat(DATE_FORMAT);
     String result=dateFormat.format(msgCalendar.getTime());
     return new StringBuilder().append(result).toString();
