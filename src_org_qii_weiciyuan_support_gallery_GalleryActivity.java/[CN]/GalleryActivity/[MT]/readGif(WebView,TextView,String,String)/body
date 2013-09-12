@@ -1,5 +1,6 @@
 {
   webView.setVisibility(View.VISIBLE);
+  bindImageViewLongClickListener(((View)webView.getParent()),url,bitmapPath);
   if (webView.getTag() != null)   return;
   webView.setBackgroundColor(getResources().getColor(R.color.transparent));
   webView.getSettings().setJavaScriptEnabled(true);

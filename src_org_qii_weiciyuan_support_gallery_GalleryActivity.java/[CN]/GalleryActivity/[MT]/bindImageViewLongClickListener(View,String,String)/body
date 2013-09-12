@@ -1,5 +1,5 @@
 {
-  imageView.setOnLongClickListener(new View.OnLongClickListener(){
+  view.setOnLongClickListener(new View.OnLongClickListener(){
     @Override public boolean onLongClick(    View v){
       String[] values={getString(R.string.copy_link_to_clipboard),getString(R.string.share),getString(R.string.save_pic_album)};
       new AlertDialog.Builder(GalleryActivity.this).setItems(values,new DialogInterface.OnClickListener(){
