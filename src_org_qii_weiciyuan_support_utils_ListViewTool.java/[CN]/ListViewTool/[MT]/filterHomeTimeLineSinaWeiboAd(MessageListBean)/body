@@ -1,0 +1,12 @@
+{
+  List<MessageBean> msgList=value.getItemList();
+  Iterator<MessageBean> iterator=msgList.iterator();
+  while (iterator.hasNext()) {
+    MessageBean msg=iterator.next();
+    UserBean user=msg.getUser();
+    if (user != null && !user.isFollowing()) {
+      iterator.remove();
+      value.removedCountPlus();
+    }
+  }
+}
