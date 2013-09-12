@@ -1,8 +1,10 @@
 {
+  TimeLinePosition position=getPosition(accountId);
   Gson gson=new Gson();
   MessageListBean result=new MessageListBean();
+  int limit=position.position + DB_CACHE_COUNT_OFFSET > AppConfig.DEFAULT_MSG_COUNT_50 ? position.position + DB_CACHE_COUNT_OFFSET : AppConfig.DEFAULT_MSG_COUNT_50;
   List<MessageBean> msgList=new ArrayList<MessageBean>();
-  String sql="select * from " + RepostsTable.RepostDataTable.TABLE_NAME + " where "+ RepostsTable.RepostDataTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ RepostsTable.RepostDataTable.MBLOGID+ " desc";
+  String sql="select * from " + RepostsTable.RepostDataTable.TABLE_NAME + " where "+ RepostsTable.RepostDataTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ RepostsTable.RepostDataTable.MBLOGID+ " desc limit "+ limit;
   Cursor c=getRsd().rawQuery(sql,null);
   while (c.moveToNext()) {
     String json=c.getString(c.getColumnIndex(RepostsTable.RepostDataTable.JSONDATA));
@@ -22,6 +24,6 @@
   }
   result.setStatuses(msgList);
   c.close();
-  MentionTimeLineData mentionTimeLineData=new MentionTimeLineData(result,getPosition(accountId));
+  MentionTimeLineData mentionTimeLineData=new MentionTimeLineData(result,position);
   return mentionTimeLineData;
 }
