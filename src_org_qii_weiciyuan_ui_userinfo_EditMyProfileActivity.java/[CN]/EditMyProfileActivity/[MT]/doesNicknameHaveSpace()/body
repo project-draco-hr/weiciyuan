@@ -1,0 +1,7 @@
+{
+  boolean result=layout.nickname.getText().toString().contains(" ");
+  if (result) {
+    layout.nickname.setError(getString(R.string.nickname_cant_have_space));
+  }
+  return result;
+}
