@@ -6,11 +6,4 @@
     total=c.getInt(c.getColumnIndex("total"));
   }
   c.close();
-  AppLogger.e("total=" + total);
-  int needDeletedNumber=total - AppConfig.DEFAULT_COMMENTS_TO_ME_DB_CACHE_COUNT;
-  if (needDeletedNumber > 0) {
-    AppLogger.e("" + needDeletedNumber);
-    String sql=" delete from " + CommentsTable.CommentsDataTable.TABLE_NAME + " where "+ CommentsTable.CommentsDataTable.ID+ " in "+ "( select "+ CommentsTable.CommentsDataTable.ID+ " from "+ CommentsTable.CommentsDataTable.TABLE_NAME+ " where "+ CommentsTable.CommentsDataTable.ACCOUNTID+ " in "+ "("+ accountId+ ") order by "+ CommentsTable.CommentsDataTable.ID+ " asc limit "+ needDeletedNumber+ " ) ";
-    getWsd().execSQL(sql);
-  }
 }
