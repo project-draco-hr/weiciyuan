@@ -2,6 +2,7 @@ ImageView iv
 WebView gif
 WebView large
 CircleProgressView spinner
+TextView wait
 TextView readError
 String url
 HashMap<String,PicSimpleBitmapWorkerTask> taskMap

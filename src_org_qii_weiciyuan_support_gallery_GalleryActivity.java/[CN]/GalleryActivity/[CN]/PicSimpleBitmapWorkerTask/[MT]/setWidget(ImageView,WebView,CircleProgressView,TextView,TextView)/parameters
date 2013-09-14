@@ -1,4 +1,5 @@
 ImageView iv
 WebView gif
 CircleProgressView spinner
+TextView wait
 TextView readError

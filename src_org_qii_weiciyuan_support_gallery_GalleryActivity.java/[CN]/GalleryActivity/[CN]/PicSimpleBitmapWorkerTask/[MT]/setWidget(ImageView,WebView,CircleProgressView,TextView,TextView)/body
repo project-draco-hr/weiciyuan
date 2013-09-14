@@ -1,6 +1,7 @@
 {
   this.iv=iv;
   this.spinner=spinner;
+  this.wait=wait;
   this.readError=readError;
   this.gif=gif;
 }

@@ -6,6 +6,7 @@
   this.taskMap=taskMap;
   this.gif=gif;
   this.large=large;
+  this.wait=wait;
   this.readError.setVisibility(View.INVISIBLE);
   this.spinner.setVisibility(View.VISIBLE);
 }
