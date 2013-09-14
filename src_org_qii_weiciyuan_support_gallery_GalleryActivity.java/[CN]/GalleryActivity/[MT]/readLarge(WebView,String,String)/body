@@ -1,5 +1,6 @@
 {
   large.setVisibility(View.VISIBLE);
+  bindImageViewLongClickListener(large,url,bitmapPath);
   if (large.getTag() != null)   return;
   large.getSettings().setJavaScriptEnabled(true);
   large.getSettings().setUseWideViewPort(true);

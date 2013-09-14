@@ -12,7 +12,7 @@
     alreadyShowPicturesTooLargeHint=true;
   }
   if (isThisBitmapTooLarge) {
-    readLarge(large,bitmapPath);
+    readLarge(large,url,bitmapPath);
     return;
   }
   Bitmap bitmap=null;
