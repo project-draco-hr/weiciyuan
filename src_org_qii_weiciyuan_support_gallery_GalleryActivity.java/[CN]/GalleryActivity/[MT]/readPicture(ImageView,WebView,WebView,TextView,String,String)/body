@@ -12,9 +12,8 @@
     alreadyShowPicturesTooLargeHint=true;
   }
   if (isThisBitmapTooLarge) {
-    imageView.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
-    PhotoView photoView=(PhotoView)imageView;
-    photoView.setMaxScale(15);
+    readLarge(large,bitmapPath);
+    return;
   }
   Bitmap bitmap=null;
   try {

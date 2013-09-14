@@ -10,17 +10,20 @@
   WebView gif=(WebView)contentView.findViewById(R.id.gif);
   gif.setBackgroundColor(getResources().getColor(R.color.transparent));
   gif.setVisibility(View.INVISIBLE);
+  WebView large=(WebView)contentView.findViewById(R.id.large);
+  large.setBackgroundColor(getResources().getColor(R.color.transparent));
+  large.setVisibility(View.INVISIBLE);
   TextView readError=(TextView)contentView.findViewById(R.id.error);
   String path=FileManager.getFilePathFromUrl(urls.get(position),FileLocationMethod.picture_large);
   boolean shouldDownLoadPicture=!fromInstantiateItem || (fromInstantiateItem && Utility.isWifi(GalleryActivity.this));
   if (ImageTool.isThisBitmapCanRead(path) && taskMap.get(urls.get(position)) == null && TaskCache.isThisUrlTaskFinished(urls.get(position))) {
-    readPicture(imageView,gif,readError,urls.get(position),path);
+    readPicture(imageView,gif,large,readError,urls.get(position),path);
   }
  else   if (shouldDownLoadPicture) {
     final CircleProgressView spinner=(CircleProgressView)contentView.findViewById(R.id.loading);
     spinner.setVisibility(View.VISIBLE);
     if (taskMap.get(urls.get(position)) == null) {
-      PicSimpleBitmapWorkerTask task=new PicSimpleBitmapWorkerTask(imageView,gif,spinner,readError,urls.get(position),taskMap);
+      PicSimpleBitmapWorkerTask task=new PicSimpleBitmapWorkerTask(imageView,gif,large,spinner,readError,urls.get(position),taskMap);
       taskMap.put(urls.get(position),task);
       task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }

@@ -1,5 +1,6 @@
 ImageView imageView
 WebView gif
+WebView large
 TextView readError
 String url
 String bitmapPath

@@ -1,5 +1,6 @@
 ImageView iv
 WebView gif
+WebView large
 CircleProgressView spinner
 TextView readError
 String url
