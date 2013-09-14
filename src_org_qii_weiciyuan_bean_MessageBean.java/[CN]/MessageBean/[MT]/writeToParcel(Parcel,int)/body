@@ -21,4 +21,5 @@
   dest.writeParcelable(user,flags);
   dest.writeParcelable(geo,flags);
   dest.writeTypedList(pic_urls);
+  dest.writeStringList(pic_ids);
 }

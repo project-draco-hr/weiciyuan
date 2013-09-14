@@ -1,3 +1,3 @@
 {
-  return pic_urls.size() > 1;
+  return pic_urls.size() > 1 || pic_ids.size() > 1;
 }

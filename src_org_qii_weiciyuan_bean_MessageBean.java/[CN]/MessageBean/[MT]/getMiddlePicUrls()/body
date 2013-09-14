@@ -3,5 +3,11 @@
   for (  PicUrls url : pic_urls) {
     middleUrls.add(url.thumbnail_pic.replace("thumbnail","bmiddle"));
   }
+  if (middleUrls.size() == 0) {
+    String prefStr="http://ww4.sinaimg.cn/bmiddle/";
+    for (    String url : pic_ids) {
+      middleUrls.add(prefStr + url + ".jpg");
+    }
+  }
   return middleUrls;
 }

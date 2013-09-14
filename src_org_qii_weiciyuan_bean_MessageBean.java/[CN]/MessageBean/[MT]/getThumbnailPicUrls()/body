@@ -3,5 +3,11 @@
   for (  PicUrls url : pic_urls) {
     thumbnaiUrls.add(url.thumbnail_pic);
   }
+  if (thumbnaiUrls.size() == 0) {
+    String prefStr="http://ww4.sinaimg.cn/thumbnail/";
+    for (    String url : pic_ids) {
+      thumbnaiUrls.add(prefStr + url + ".jpg");
+    }
+  }
   return thumbnaiUrls;
 }

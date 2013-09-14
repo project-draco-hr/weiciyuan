@@ -3,5 +3,11 @@
   for (  PicUrls url : pic_urls) {
     highUrls.add(url.thumbnail_pic.replace("thumbnail","large"));
   }
+  if (highUrls.size() == 0) {
+    String prefStr="http://ww4.sinaimg.cn/large/";
+    for (    String url : pic_ids) {
+      highUrls.add(prefStr + url + ".jpg");
+    }
+  }
   return highUrls;
 }
