@@ -10,7 +10,7 @@
     moreFooter.setVisibility(View.VISIBLE);
   }
   refreshLayout(getList());
-  if (getList().getSize() == 0) {
+  if (getList().getSize() == 0 && getActivity() != null) {
     loadNewMsg();
   }
 }
