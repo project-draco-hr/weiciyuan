@@ -1,5 +1,6 @@
 {
   super.onPostExecute(result);
+  if (getActivity() == null)   return;
   if (result != null && getActivity() != null) {
     getListView().removeFooterView(progressFooter);
     getList().addNewData(result.msgList);
@@ -10,7 +11,7 @@
     moreFooter.setVisibility(View.VISIBLE);
   }
   refreshLayout(getList());
-  if (getList().getSize() == 0 && getActivity() != null) {
+  if (getList().getSize() == 0) {
     loadNewMsg();
   }
 }
