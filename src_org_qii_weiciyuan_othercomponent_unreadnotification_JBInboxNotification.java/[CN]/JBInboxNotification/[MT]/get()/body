@@ -1,5 +1,5 @@
 {
-  Notification.Builder builder=new Notification.Builder(context).setTicker(NotificationUtility.getTicker(unreadBean)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
+  Notification.Builder builder=new Notification.Builder(context).setTicker(NotificationUtility.getTicker(unreadBean)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
   builder.setContentTitle(NotificationUtility.getTicker(unreadBean));
   if (NotificationUtility.getCount(unreadBean) > 1) {
     builder.setNumber(NotificationUtility.getCount(unreadBean));
