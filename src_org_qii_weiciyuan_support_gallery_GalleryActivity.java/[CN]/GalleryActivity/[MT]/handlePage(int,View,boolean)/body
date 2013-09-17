@@ -1,12 +1,14 @@
 {
   PhotoView imageView=(PhotoView)contentView.findViewById(R.id.image);
   imageView.setVisibility(View.INVISIBLE);
-  imageView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener(){
-    @Override public void onPhotoTap(    View view,    float x,    float y){
-      GalleryActivity.this.finish();
+  if (SettingUtility.allowClickToCloseGallery()) {
+    imageView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener(){
+      @Override public void onPhotoTap(      View view,      float x,      float y){
+        GalleryActivity.this.finish();
+      }
     }
-  }
 );
+  }
   WebView gif=(WebView)contentView.findViewById(R.id.gif);
   gif.setBackgroundColor(getResources().getColor(R.color.transparent));
   gif.setVisibility(View.INVISIBLE);

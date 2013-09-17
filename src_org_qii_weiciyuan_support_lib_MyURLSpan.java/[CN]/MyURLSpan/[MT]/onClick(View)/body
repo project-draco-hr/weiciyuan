@@ -14,9 +14,7 @@
       context.startActivity(intent);
     }
  else {
-      Intent intent=new Intent(context,BrowserWebActivity.class);
-      intent.putExtra("url",uri.toString());
-      context.startActivity(intent);
+      WebBrowserSelector.openLink(context,uri);
     }
   }
  else {

@@ -1,0 +1,5 @@
+{
+  super.onCreate(savedInstanceState);
+  setRetainInstance(false);
+  addPreferencesFromResource(R.xml.other_pref);
+}
