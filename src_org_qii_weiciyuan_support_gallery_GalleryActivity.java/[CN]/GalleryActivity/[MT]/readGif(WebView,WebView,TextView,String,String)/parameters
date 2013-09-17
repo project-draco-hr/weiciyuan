@@ -1,4 +1,5 @@
 WebView webView
+WebView large
 TextView readError
 String url
 String bitmapPath

@@ -1,4 +1,11 @@
 {
+  BitmapFactory.Options options=new BitmapFactory.Options();
+  options.inJustDecodeBounds=true;
+  BitmapFactory.decodeFile(bitmapPath,options);
+  if (options.outWidth >= Utility.getScreenWidth() || options.outHeight >= Utility.getScreenHeight()) {
+    readLarge(large,url,bitmapPath);
+    return;
+  }
   webView.setVisibility(View.VISIBLE);
   bindImageViewLongClickListener(((View)webView.getParent()),url,bitmapPath);
   if (webView.getTag() != null)   return;

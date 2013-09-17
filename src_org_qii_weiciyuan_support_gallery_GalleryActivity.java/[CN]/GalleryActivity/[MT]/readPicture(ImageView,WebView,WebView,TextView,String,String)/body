@@ -1,6 +1,6 @@
 {
   if (bitmapPath.endsWith(".gif")) {
-    readGif(gif,readError,url,bitmapPath);
+    readGif(gif,large,readError,url,bitmapPath);
     return;
   }
   if (!ImageTool.isThisBitmapCanRead(bitmapPath)) {
