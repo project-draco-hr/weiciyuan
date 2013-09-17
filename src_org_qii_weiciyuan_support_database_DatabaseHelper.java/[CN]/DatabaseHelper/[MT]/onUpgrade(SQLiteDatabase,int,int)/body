@@ -1,12 +1,10 @@
 {
-switch (oldVersion) {
-case 19:
-case 26:
-case 30:
+  if (oldVersion < 34) {
     deleteAllTable(db);
-  onCreate(db);
-default :
-deleteAllTableExceptAccount(db);
-createOtherTable(db);
-}
+    onCreate(db);
+  }
+ else {
+    deleteAllTableExceptAccount(db);
+    createOtherTable(db);
+  }
 }
