@@ -1,5 +1,4 @@
 {
-  largePicsPositions.add(GalleryActivity.this.urls.indexOf(url));
   large.setVisibility(View.VISIBLE);
   bindImageViewLongClickListener(large,url,bitmapPath);
   if (SettingUtility.allowClickToCloseGallery()) {
