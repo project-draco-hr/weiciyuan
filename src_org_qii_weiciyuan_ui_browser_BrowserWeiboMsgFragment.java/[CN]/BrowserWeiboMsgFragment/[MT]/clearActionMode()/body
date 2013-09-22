@@ -1,0 +1,10 @@
+{
+  if (mActionMode != null) {
+    mActionMode.finish();
+    mActionMode=null;
+  }
+  if (getListView() != null && getListView().getCheckedItemCount() > 0) {
+    getListView().clearChoices();
+    if (adapter != null)     adapter.notifyDataSetChanged();
+  }
+}

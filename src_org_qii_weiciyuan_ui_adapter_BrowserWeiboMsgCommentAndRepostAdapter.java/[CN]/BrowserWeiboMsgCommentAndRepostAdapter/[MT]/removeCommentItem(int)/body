@@ -1,0 +1,27 @@
+{
+  if (postion >= 0 && postion < commentListBean.size()) {
+    Animation anim=AnimationUtils.loadAnimation(fragment.getActivity(),R.anim.account_delete_slide_out_right);
+    anim.setAnimationListener(new Animation.AnimationListener(){
+      @Override public void onAnimationStart(      Animation animation){
+      }
+      @Override public void onAnimationEnd(      Animation animation){
+        commentListBean.remove(postion);
+        BrowserWeiboMsgCommentAndRepostAdapter.this.notifyDataSetChanged();
+      }
+      @Override public void onAnimationRepeat(      Animation animation){
+      }
+    }
+);
+    int positonInListView=postion + 1;
+    int start=listView.getFirstVisiblePosition();
+    int end=listView.getLastVisiblePosition();
+    if (positonInListView >= start && positonInListView <= end) {
+      int positionInCurrentScreen=postion - start;
+      listView.getChildAt(positionInCurrentScreen + 1).startAnimation(anim);
+    }
+ else {
+      commentListBean.remove(postion);
+      BrowserWeiboMsgCommentAndRepostAdapter.this.notifyDataSetChanged();
+    }
+  }
+}
