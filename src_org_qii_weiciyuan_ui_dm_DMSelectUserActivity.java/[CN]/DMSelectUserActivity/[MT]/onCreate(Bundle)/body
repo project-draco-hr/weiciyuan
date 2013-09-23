@@ -5,6 +5,10 @@
   getActionBar().setDisplayShowHomeEnabled(false);
   getActionBar().setDisplayShowTitleEnabled(true);
   getActionBar().setDisplayHomeAsUpEnabled(true);
+  View title=getLayoutInflater().inflate(R.layout.dmselectuseractivity_title_layout,null);
+  suggestProgressBar=(ProgressBar)title.findViewById(R.id.have_suggest_progressbar);
+  getActionBar().setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
+  getActionBar().setDisplayShowCustomEnabled(true);
   if (savedInstanceState == null) {
     getSupportFragmentManager().beginTransaction().replace(R.id.list_content,new SelectFriendsListFragment(GlobalContext.getInstance().getCurrentAccountId())).commit();
   }

@@ -3,6 +3,12 @@
     @Override protected FilterResults performFiltering(    CharSequence constraint){
       FilterResults filterResults=new FilterResults();
       if (constraint != null) {
+        activity.runOnUiThread(new Runnable(){
+          @Override public void run(){
+            suggestProgressBar.setVisibility(View.VISIBLE);
+          }
+        }
+);
         SearchDao dao=new SearchDao(GlobalContext.getInstance().getSpecialToken(),constraint.toString());
         try {
           data=dao.getUserList().getUsers();
@@ -12,6 +18,12 @@
         filterResults.values=data;
         filterResults.count=data.size();
       }
+      activity.runOnUiThread(new Runnable(){
+        @Override public void run(){
+          suggestProgressBar.setVisibility(View.INVISIBLE);
+        }
+      }
+);
       return filterResults;
     }
     @Override public CharSequence convertResultToString(    Object resultValue){
