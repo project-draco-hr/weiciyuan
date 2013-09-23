@@ -1,4 +1,5 @@
 {
+  ((IWeiciyuanDrawable)view).checkVerified(user);
   String image_url=user.getProfile_image_url();
   if (!TextUtils.isEmpty(image_url)) {
     view.setVisibility(View.VISIBLE);
