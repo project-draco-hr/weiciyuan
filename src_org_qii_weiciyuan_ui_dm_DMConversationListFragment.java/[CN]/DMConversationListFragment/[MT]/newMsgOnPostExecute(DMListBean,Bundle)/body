@@ -1,4 +1,5 @@
 {
+  dmProgressBar.setVisibility(View.INVISIBLE);
   if (newValue != null && newValue.getSize() > 0 && getActivity() != null) {
     getList().addNewData(newValue);
     Collections.sort(getList().getItemList(),comparator);

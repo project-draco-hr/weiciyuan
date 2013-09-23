@@ -1,7 +1,8 @@
 {
   View view=inflater.inflate(R.layout.dmconversationlistfragment_layout,container,false);
   empty=(TextView)view.findViewById(R.id.empty);
-  progressBar=(ProgressBar)view.findViewById(R.id.progressbar);
+  progressBar=new ProgressBar(getActivity());
+  dmProgressBar=(ProgressBar)view.findViewById(R.id.progressbar);
   pullToRefreshListView=(PullToRefreshListView)view.findViewById(R.id.listView);
   pullToRefreshListView.setMode(PullToRefreshBase.Mode.BOTH);
   pullToRefreshListView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>(){
