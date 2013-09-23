@@ -1,9 +1,9 @@
 {
 switch (mScrollDirection) {
 case HORIZONTAL:
-    return mInnerLayout.getWidth();
+    return mInnerLayout.getWidth() > 0 ? mInnerLayout.getWidth() : Utility.dip2px(49);
 case VERTICAL:
 default :
-  return mInnerLayout.getHeight();
+  return mInnerLayout.getHeight() > 0 ? mInnerLayout.getHeight() : Utility.dip2px(49);
 }
 }
