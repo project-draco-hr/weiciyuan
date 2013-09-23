@@ -8,6 +8,7 @@
   searchView.setIconifiedByDefault(false);
   searchView.setSubmitButtonEnabled(false);
   searchView.setMaxWidth(Utility.dip2px(250));
+  ThemeUtility.customActionBarSearchViewTextColor(searchView);
   searchView.requestFocus();
   searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
     @Override public boolean onQueryTextSubmit(    String query){
