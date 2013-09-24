@@ -24,4 +24,6 @@
   rightFragments.append(FAV_INDEX,((MainTimeLineActivity)getActivity()).getFavFragment());
   rightFragments.append(PROFILE_INDEX,((MainTimeLineActivity)getActivity()).getMyProfileFragment());
   switchCategory(currentIndex);
+  layout.nickname.setText(GlobalContext.getInstance().getCurrentAccountName());
+  TimeLineBitmapDownloader.getInstance().display(layout.avatar,-1,-1,GlobalContext.getInstance().getAccountBean().getInfo().getAvatar_large(),FileLocationMethod.avatar_large);
 }

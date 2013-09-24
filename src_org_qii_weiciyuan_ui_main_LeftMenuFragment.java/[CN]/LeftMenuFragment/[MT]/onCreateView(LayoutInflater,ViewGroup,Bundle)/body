@@ -1,6 +1,8 @@
 {
-  View view=inflater.inflate(R.layout.slidingdrawer_contents,container,false);
+  final ScrollView view=(ScrollView)inflater.inflate(R.layout.slidingdrawer_contents,container,false);
   layout=new Layout();
+  layout.avatar=(ImageView)view.findViewById(R.id.avatar);
+  layout.nickname=(TextView)view.findViewById(R.id.nickname);
   layout.home=(LinearLayout)view.findViewById(R.id.btn_home);
   layout.mention=(LinearLayout)view.findViewById(R.id.btn_mention);
   layout.comment=(LinearLayout)view.findViewById(R.id.btn_comment);
