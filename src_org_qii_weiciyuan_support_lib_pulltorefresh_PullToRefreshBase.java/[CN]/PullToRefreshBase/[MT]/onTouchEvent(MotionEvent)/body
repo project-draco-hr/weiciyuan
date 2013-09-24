@@ -38,13 +38,35 @@ case MotionEvent.ACTION_UP:
       return true;
     }
     if (isRefreshing()) {
-      smoothScrollTo(0);
-      return true;
-    }
-    setState(State.GIVE_UP);
-    return true;
-  }
-  break;
+      if (getRefreshableView() instanceof AdapterView) {
+        int count=0;
+        Adapter adapter=((AdapterView)getRefreshableView()).getAdapter();
+        if (adapter instanceof HeaderViewListAdapter) {
+          count=((HeaderViewListAdapter)adapter).getWrappedAdapter().getCount();
+        }
+        if (count > 0) {
+          smoothScrollTo(0);
+          return true;
+        }
+switch (mCurrentMode) {
+case MANUAL_REFRESH_ONLY:
+case PULL_FROM_END:
+          smoothScrollTo(getFooterSize(),null);
+        break;
+default :
+case PULL_FROM_START:
+      smoothScrollTo(-getHeaderSize(),null);
+    break;
+}
+return true;
+}
+smoothScrollTo(0);
+return true;
+}
+setState(State.GIVE_UP);
+return true;
+}
+break;
 }
 }
 return false;

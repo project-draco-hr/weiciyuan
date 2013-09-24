@@ -1,5 +1,5 @@
 {
-  final int newScrollValue;
+  int newScrollValue;
   final int itemDimension;
   final float initialMotionValue, lastMotionValue;
 switch (getPullToRefreshScrollDirection()) {
@@ -23,6 +23,25 @@ default :
 newScrollValue=Math.round(Math.min(initialMotionValue - lastMotionValue,0) / FRICTION);
 itemDimension=getHeaderSize();
 break;
+}
+if (getRefreshableView() instanceof AdapterView && isRefreshing()) {
+int count=0;
+Adapter adapter=((AdapterView)getRefreshableView()).getAdapter();
+if (adapter instanceof HeaderViewListAdapter) {
+count=((HeaderViewListAdapter)adapter).getWrappedAdapter().getCount();
+}
+if (count == 0) {
+switch (mCurrentMode) {
+case MANUAL_REFRESH_ONLY:
+case PULL_FROM_END:
+newScrollValue+=getFooterSize();
+break;
+default :
+case PULL_FROM_START:
+newScrollValue+=-getHeaderSize();
+break;
+}
+}
 }
 setHeaderScroll(newScrollValue);
 if (newScrollValue != 0 && !isRefreshing()) {
