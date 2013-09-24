@@ -1,0 +1,9 @@
+{
+  File cachedDir=GlobalContext.getInstance().getExternalCacheDir();
+  if (cachedDir != null) {
+    findPreference(SettingActivity.SAVED_LOG_PATH).setSummary(FileManager.getLogDir());
+  }
+ else {
+    findPreference(SettingActivity.SAVED_LOG_PATH).setSummary(getString(R.string.sd_card_in_not_mounted));
+  }
+}
