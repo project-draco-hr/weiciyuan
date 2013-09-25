@@ -2,6 +2,7 @@
   super.setPrimaryItem(container,position,object);
   View contentView=(View)object;
   if (contentView == null)   return;
+  contentView.setTag(CURRENT_VISIBLE_PAGE);
   if (SettingUtility.allowClickToCloseGallery()) {
     contentView.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){

@@ -1,0 +1,13 @@
+{
+  if (rect == null) {
+    super.onBackPressed();
+    return;
+  }
+  View view=pager.findViewWithTag(CURRENT_VISIBLE_PAGE);
+  final PhotoView imageView=(PhotoView)view.findViewById(R.id.image);
+  if (imageView.getAttacher().getImageView() == null || (!(imageView.getAttacher().getImageView().getDrawable() instanceof BitmapDrawable))) {
+    super.onBackPressed();
+    return;
+  }
+  animateClose(imageView);
+}
