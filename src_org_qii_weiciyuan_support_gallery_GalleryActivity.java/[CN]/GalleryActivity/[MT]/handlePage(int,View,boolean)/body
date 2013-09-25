@@ -1,10 +1,47 @@
 {
-  PhotoView imageView=(PhotoView)contentView.findViewById(R.id.image);
+  final PhotoView imageView=(PhotoView)contentView.findViewById(R.id.image);
   imageView.setVisibility(View.INVISIBLE);
   if (SettingUtility.allowClickToCloseGallery()) {
     imageView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener(){
       @Override public void onPhotoTap(      View view,      float x,      float y){
-        GalleryActivity.this.finish();
+        if (rect == null || imageView.getAttacher().getImageView() == null || (!(imageView.getAttacher().getImageView().getDrawable() instanceof BitmapDrawable))) {
+          GalleryActivity.this.finish();
+          return;
+        }
+        animationView.setImageDrawable(imageView.getAttacher().getImageView().getDrawable());
+        pager.setVisibility(View.INVISIBLE);
+        final Rect startBounds=rect;
+        final Rect finalBounds=new Rect();
+        final Point globalOffset=new Point();
+        animationView.getGlobalVisibleRect(finalBounds,globalOffset);
+        startBounds.offset(-globalOffset.x,-globalOffset.y);
+        finalBounds.offset(-globalOffset.x,-globalOffset.y);
+        float startScale;
+        if ((float)finalBounds.width() / finalBounds.height() > (float)startBounds.width() / startBounds.height()) {
+          startScale=(float)startBounds.height() / finalBounds.height();
+          float startWidth=startScale * finalBounds.width();
+          float deltaWidth=(startWidth - startBounds.width()) / 2;
+          startBounds.left-=deltaWidth;
+          startBounds.right+=deltaWidth;
+        }
+ else {
+          startScale=(float)startBounds.width() / finalBounds.width();
+          float startHeight=startScale * finalBounds.height();
+          float deltaHeight=(startHeight - startBounds.height()) / 2;
+          startBounds.top-=deltaHeight;
+          startBounds.bottom+=deltaHeight;
+        }
+        animationView.setPivotX(0f);
+        animationView.setPivotY(0f);
+        final float startScaleFinal=startScale;
+        animationView.animate().setInterpolator(new DecelerateInterpolator()).x(startBounds.left).y(startBounds.top).scaleY(startScaleFinal).scaleX(startScaleFinal).setDuration(300).setListener(new AnimatorListenerAdapter(){
+          @Override public void onAnimationEnd(          Animator animation){
+            super.onAnimationEnd(animation);
+            GalleryActivity.this.finish();
+            overridePendingTransition(0,0);
+          }
+        }
+).start();
       }
     }
 );

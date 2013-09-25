@@ -1,8 +1,10 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.galleryactivity_layout);
+  animationView=(ImageView)findViewById(R.id.animation);
   position=(TextView)findViewById(R.id.position);
   TextView sum=(TextView)findViewById(R.id.sum);
+  rect=getIntent().getParcelableExtra("rect");
   MessageBean msg=getIntent().getParcelableExtra("msg");
   ArrayList<String> tmp=msg.getThumbnailPicUrls();
   for (int i=0; i < tmp.size(); i++) {
