@@ -1,0 +1,6 @@
+{
+  View view=getLayoutInflater(null).inflate(R.layout.slidingdrawer_avatar,parent,false);
+  ImageView iv=(ImageView)view.findViewById(R.id.avatar);
+  TimeLineBitmapDownloader.getInstance().display(iv,-1,-1,GlobalContext.getInstance().getAccountBean().getInfo().getAvatar_large(),FileLocationMethod.avatar_large);
+  return view;
+}

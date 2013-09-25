@@ -1,0 +1,25 @@
+{
+  View view=getLayoutInflater(null).inflate(R.layout.slidingdrawer_avatar_dropdown,parent,false);
+  TextView nickname=(TextView)view.findViewById(R.id.nickname);
+  ImageView avatar=(ImageView)view.findViewById(R.id.avatar);
+  if (data.size() > 0) {
+    final AccountBean accountBean=data.get(position);
+    TimeLineBitmapDownloader.getInstance().display(avatar,-1,-1,accountBean.getInfo().getAvatar_large(),FileLocationMethod.avatar_large);
+    nickname.setText(accountBean.getUsernick());
+    view.setOnClickListener(new View.OnClickListener(){
+      @Override public void onClick(      View v){
+        Intent start=new Intent(getActivity(),MainTimeLineActivity.class);
+        start.putExtra("account",accountBean);
+        getActivity().startActivity(start);
+        getActivity().finish();
+      }
+    }
+);
+  }
+ else {
+    avatar.setVisibility(View.GONE);
+    nickname.setTextColor(getResources().getColor(R.color.gray));
+    nickname.setText(getString(R.string.dont_have_other_account));
+  }
+  return view;
+}

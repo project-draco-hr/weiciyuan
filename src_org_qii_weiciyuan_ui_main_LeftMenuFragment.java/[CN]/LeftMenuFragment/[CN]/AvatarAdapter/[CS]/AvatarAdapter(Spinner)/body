@@ -1,0 +1,17 @@
+{
+  data.addAll(AccountDBTask.getAccountList());
+  if (data.size() == 1) {
+    count=1;
+  }
+ else {
+    count=data.size() - 1;
+  }
+  Iterator<AccountBean> iterator=data.iterator();
+  while (iterator.hasNext()) {
+    AccountBean accountBean=iterator.next();
+    if (accountBean.getUid().equals(GlobalContext.getInstance().getAccountBean().getUid())) {
+      iterator.remove();
+      break;
+    }
+  }
+}
