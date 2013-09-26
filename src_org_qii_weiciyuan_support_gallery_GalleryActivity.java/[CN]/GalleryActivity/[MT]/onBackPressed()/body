@@ -1,5 +1,5 @@
 {
-  if (rect == null) {
+  if (rect == null || urls.size() > 1) {
     super.onBackPressed();
     return;
   }
