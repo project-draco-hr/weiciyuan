@@ -1,0 +1,16 @@
+{
+  if (index > 1)   return;
+  for (int i=0; i < viewGroup.getChildCount(); i++) {
+    View child=viewGroup.getChildAt(i);
+    if (child instanceof ViewGroup) {
+      setIcon((ViewGroup)child);
+    }
+ else     if (child instanceof ImageView) {
+      index++;
+      if (index == 1) {
+        ImageView iv=(ImageView)child;
+        iv.setImageResource(ThemeUtility.getActionBarShareItemIcon());
+      }
+    }
+  }
+}

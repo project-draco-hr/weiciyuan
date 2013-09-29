@@ -1,0 +1,5 @@
+{
+  View view=super.onCreateActionView();
+  setIcon((ViewGroup)view);
+  return view;
+}
