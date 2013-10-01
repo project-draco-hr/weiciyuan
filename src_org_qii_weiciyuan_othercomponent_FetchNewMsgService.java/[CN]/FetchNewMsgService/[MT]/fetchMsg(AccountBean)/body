@@ -25,7 +25,7 @@
     commentResult=dao.getGSONMsgListWithoutClearUnread();
   }
   if (unreadMentionStatusCount > 0 && SettingUtility.allowMentionToMe()) {
-    MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(token);
+    MentionsWeiboTimeLineDao dao=new MentionsWeiboTimeLineDao(token);
     MessageListBean oldData=null;
     MentionTimeLineData commentTimeLineData=MentionWeiboTimeLineDBTask.getRepostLineMsgList(accountBean.getUid());
     if (commentTimeLineData != null) {

@@ -1,5 +1,5 @@
 {
-  MainMentionsTimeLineDao dao=new MainMentionsTimeLineDao(token);
+  MentionsWeiboTimeLineDao dao=new MentionsWeiboTimeLineDao(token);
   dao.setSince_id(sinceId);
   dao.setMax_id(maxId);
   MessageListBean result=null;
