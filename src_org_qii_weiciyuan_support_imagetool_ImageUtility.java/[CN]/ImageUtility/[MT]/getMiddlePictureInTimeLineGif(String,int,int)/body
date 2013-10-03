@@ -52,7 +52,7 @@
         bitmap=scale;
       }
     }
-    Bitmap cornerBitmap=ImageEdit.getRoundedCornerBitmap(bitmap);
+    Bitmap cornerBitmap=ImageEditUtility.getRoundedCornerBitmap(bitmap);
     if (cornerBitmap != bitmap) {
       bitmap.recycle();
       bitmap=cornerBitmap;
