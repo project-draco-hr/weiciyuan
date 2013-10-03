@@ -11,7 +11,7 @@
     holder.content.setText(msg.getListViewSpannableString());
   }
  else {
-    ListViewTool.addJustHighLightLinks(msg);
+    TimeLineUtility.addJustHighLightLinks(msg);
     holder.content.setText(msg.getListViewSpannableString());
   }
   String time=msg.getListviewItemShowTime();

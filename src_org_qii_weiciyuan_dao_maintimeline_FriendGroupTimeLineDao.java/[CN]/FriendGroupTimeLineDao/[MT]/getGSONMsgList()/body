@@ -10,7 +10,7 @@
     return null;
   }
   if (value != null && value.getItemList().size() > 0) {
-    ListViewTool.filterMessage(value);
+    TimeLineUtility.filterMessage(value);
   }
   return value;
 }

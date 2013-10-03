@@ -10,8 +10,8 @@
     return null;
   }
   if (value != null && value.getItemList().size() > 0) {
-    ListViewTool.filterMessage(value);
-    ListViewTool.filterHomeTimeLineSinaWeiboAd(value);
+    TimeLineUtility.filterMessage(value);
+    TimeLineUtility.filterHomeTimeLineSinaWeiboAd(value);
   }
   return value;
 }

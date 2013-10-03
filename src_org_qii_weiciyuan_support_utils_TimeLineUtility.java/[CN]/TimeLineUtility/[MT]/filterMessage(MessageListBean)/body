@@ -11,7 +11,7 @@
       iterator.remove();
       value.removedCountPlus();
     }
- else     if (SettingUtility.isEnableFilter() && ListViewTool.haveFilterWord(msg,keywordFilter,userFilter,topicFilter,sourceFilter)) {
+ else     if (SettingUtility.isEnableFilter() && TimeLineUtility.haveFilterWord(msg,keywordFilter,userFilter,topicFilter,sourceFilter)) {
       iterator.remove();
       value.removedCountPlus();
     }

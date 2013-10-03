@@ -3,7 +3,7 @@
     return listViewSpannableString;
   }
  else {
-    ListViewTool.addJustHighLightLinks(this);
+    TimeLineUtility.addJustHighLightLinks(this);
     return listViewSpannableString;
   }
 }

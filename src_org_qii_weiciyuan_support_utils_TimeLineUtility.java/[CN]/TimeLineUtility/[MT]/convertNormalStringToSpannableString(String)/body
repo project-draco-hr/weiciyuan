@@ -19,6 +19,6 @@
     value.removeSpan(urlSpan);
     value.setSpan(weiboSpan,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
   }
-  ListViewTool.addEmotions(value);
+  TimeLineUtility.addEmotions(value);
   return value;
 }

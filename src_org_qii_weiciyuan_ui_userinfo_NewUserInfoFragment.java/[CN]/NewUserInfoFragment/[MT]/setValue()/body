@@ -51,7 +51,7 @@
   }
   if (!TextUtils.isEmpty(userBean.getUrl())) {
     url.setText(userBean.getUrl());
-    ListViewTool.addLinks(url);
+    TimeLineUtility.addLinks(url);
     url.setVisibility(View.VISIBLE);
   }
  else {

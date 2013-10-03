@@ -29,7 +29,7 @@
   }
   if (!TextUtils.isEmpty(bean.getUrl())) {
     layout.blog_url.setText(bean.getUrl());
-    ListViewTool.addLinks(layout.blog_url);
+    TimeLineUtility.addLinks(layout.blog_url);
     layout.blog_url_layout.setVisibility(View.VISIBLE);
     layout.blog_url.setVisibility(View.VISIBLE);
   }

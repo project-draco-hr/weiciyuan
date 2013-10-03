@@ -9,10 +9,10 @@
   }
   SpannableString value;
   if (!TextUtils.isEmpty(name)) {
-    value=ListViewTool.convertNormalStringToSpannableString("@" + name + "???"+ oriMsg.getText());
+    value=TimeLineUtility.convertNormalStringToSpannableString("@" + name + "???"+ oriMsg.getText());
   }
  else {
-    value=ListViewTool.convertNormalStringToSpannableString(oriMsg.getText());
+    value=TimeLineUtility.convertNormalStringToSpannableString(oriMsg.getText());
   }
   return value;
 }

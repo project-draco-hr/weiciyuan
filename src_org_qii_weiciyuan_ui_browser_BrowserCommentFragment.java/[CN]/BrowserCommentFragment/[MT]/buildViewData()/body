@@ -10,7 +10,7 @@
     }
   }
   content.setText(msg.getText());
-  ListViewTool.addLinks(content);
+  TimeLineUtility.addLinks(content);
   time.setText(msg.getListviewItemShowTime());
   if (!TextUtils.isEmpty(msg.getSource())) {
     source.setText(Html.fromHtml(msg.getSource()).toString());

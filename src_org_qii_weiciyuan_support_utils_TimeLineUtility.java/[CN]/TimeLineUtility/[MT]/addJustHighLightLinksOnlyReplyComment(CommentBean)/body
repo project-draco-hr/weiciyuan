@@ -6,10 +6,10 @@
   }
   SpannableString value;
   if (!TextUtils.isEmpty(name)) {
-    value=ListViewTool.convertNormalStringToSpannableString("@" + name + "???"+ bean.getText());
+    value=TimeLineUtility.convertNormalStringToSpannableString("@" + name + "???"+ bean.getText());
   }
  else {
-    value=ListViewTool.convertNormalStringToSpannableString(bean.getText());
+    value=TimeLineUtility.convertNormalStringToSpannableString(bean.getText());
   }
   bean.setListViewSpannableString(value);
 }

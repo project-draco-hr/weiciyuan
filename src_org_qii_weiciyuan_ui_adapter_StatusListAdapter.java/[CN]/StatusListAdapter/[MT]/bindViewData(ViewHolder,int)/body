@@ -55,7 +55,7 @@
     }
   }
  else {
-    ListViewTool.addJustHighLightLinks(msg);
+    TimeLineUtility.addJustHighLightLinks(msg);
     holder.content.setText(msg.getListViewSpannableString());
   }
   holder.time.setTime(msg.getMills());

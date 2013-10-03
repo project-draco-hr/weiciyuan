@@ -1,0 +1,3 @@
+{
+  bean.setListViewSpannableString(TimeLineUtility.convertNormalStringToSpannableString(bean.getText()));
+}
