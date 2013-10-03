@@ -1,6 +1,6 @@
 {
-  if (vType != V_TYPE_ENTERPRISE) {
-    vType=V_TYPE_ENTERPRISE;
+  if (vType != UserBean.V_TYPE_ENTERPRISE) {
+    vType=UserBean.V_TYPE_ENTERPRISE;
     invalidate();
   }
 }

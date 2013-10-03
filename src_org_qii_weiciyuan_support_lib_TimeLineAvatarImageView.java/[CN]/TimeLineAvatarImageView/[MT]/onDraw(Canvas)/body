@@ -2,11 +2,11 @@
   super.onDraw(canvas);
   Bitmap bitmap;
 switch (vType) {
-case V_TYPE_PERSONAL:
+case UserBean.V_TYPE_PERSONAL:
     bitmap=BitmapFactory.decodeResource(getResources(),R.drawable.avatar_vip);
   canvas.drawBitmap(bitmap,getWidth() - bitmap.getWidth(),getHeight() - bitmap.getHeight(),paint);
 break;
-case V_TYPE_ENTERPRISE:
+case UserBean.V_TYPE_ENTERPRISE:
 bitmap=BitmapFactory.decodeResource(getResources(),R.drawable.avatar_enterprise_vip);
 canvas.drawBitmap(bitmap,getWidth() - bitmap.getWidth(),getHeight() - bitmap.getHeight(),paint);
 break;

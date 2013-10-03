@@ -1,6 +1,6 @@
 {
-  if (vType != V_TYPE_PERSONAL) {
-    vType=V_TYPE_PERSONAL;
+  if (vType != UserBean.V_TYPE_PERSONAL) {
+    vType=UserBean.V_TYPE_PERSONAL;
     invalidate();
   }
 }

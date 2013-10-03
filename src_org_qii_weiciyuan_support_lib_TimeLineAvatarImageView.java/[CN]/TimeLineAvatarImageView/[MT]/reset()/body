@@ -1,6 +1,6 @@
 {
-  if (vType != V_TYPE_NONE) {
-    vType=V_TYPE_NONE;
+  if (vType != UserBean.V_TYPE_NONE) {
+    vType=UserBean.V_TYPE_NONE;
     invalidate();
   }
 }
