@@ -3,10 +3,10 @@
     readGif(gif,large,readError,url,bitmapPath);
     return;
   }
-  if (!ImageTool.isThisBitmapCanRead(bitmapPath)) {
+  if (!ImageUtility.isThisBitmapCanRead(bitmapPath)) {
     Toast.makeText(GalleryActivity.this,R.string.download_finished_but_cant_read_picture_file,Toast.LENGTH_SHORT).show();
   }
-  boolean isThisBitmapTooLarge=ImageTool.isThisBitmapTooLargeToRead(bitmapPath);
+  boolean isThisBitmapTooLarge=ImageUtility.isThisBitmapTooLargeToRead(bitmapPath);
   if (isThisBitmapTooLarge && !alreadyShowPicturesTooLargeHint) {
     Toast.makeText(GalleryActivity.this,R.string.picture_is_too_large_so_enable_software_layer,Toast.LENGTH_LONG).show();
     alreadyShowPicturesTooLargeHint=true;
@@ -19,7 +19,7 @@
     @Override protected Bitmap doInBackground(    Void... params){
       Bitmap bitmap=null;
       try {
-        bitmap=ImageTool.decodeBitmapFromSDCard(bitmapPath,IMAGEVIEW_SOFT_LAYER_MAX_WIDTH,IMAGEVIEW_SOFT_LAYER_MAX_HEIGHT);
+        bitmap=ImageUtility.decodeBitmapFromSDCard(bitmapPath,IMAGEVIEW_SOFT_LAYER_MAX_WIDTH,IMAGEVIEW_SOFT_LAYER_MAX_HEIGHT);
       }
  catch (      OutOfMemoryError ignored) {
       }

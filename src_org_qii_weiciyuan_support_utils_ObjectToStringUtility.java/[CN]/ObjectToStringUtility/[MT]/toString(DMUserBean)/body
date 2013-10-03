@@ -1,5 +1,5 @@
 {
   UserBean userBean=dm.getUser();
   String username=(userBean != null ? userBean.getScreen_name() : "user is null");
-  return String.format("%s @%s:%s",TimeTool.getListTime(dm.getMills()),username,dm.getText());
+  return String.format("%s @%s:%s",TimeUtility.getListTime(dm.getMills()),username,dm.getText());
 }

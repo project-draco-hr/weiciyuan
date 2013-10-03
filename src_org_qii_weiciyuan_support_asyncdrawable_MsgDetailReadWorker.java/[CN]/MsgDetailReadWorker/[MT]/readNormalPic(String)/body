@@ -1,5 +1,5 @@
 {
-  Bitmap bitmap=ImageTool.readNormalPic(path,2000,2000);
+  Bitmap bitmap=ImageUtility.readNormalPic(path,2000,2000);
   view.setTag(true);
   view.getImageView().setTag(true);
   view.setVisibility(View.VISIBLE);

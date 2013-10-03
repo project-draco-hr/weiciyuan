@@ -1,5 +1,5 @@
 {
-  Bitmap bitmap=ImageTool.getWriteWeiboPictureThumblr(picPath);
+  Bitmap bitmap=ImageUtility.getWriteWeiboPictureThumblr(picPath);
   if (bitmap != null) {
     ((ImageButton)findViewById(R.id.menu_add_pic)).setImageBitmap(bitmap);
   }

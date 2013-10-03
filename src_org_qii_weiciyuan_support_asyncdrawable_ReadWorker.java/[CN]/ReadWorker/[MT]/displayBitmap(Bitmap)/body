@@ -9,7 +9,7 @@
         }
       }
       if (bitmap != null) {
-        if (IWeiciyuanDrawable != null)         IWeiciyuanDrawable.setGifFlag(ImageTool.isThisPictureGif(getUrl()));
+        if (IWeiciyuanDrawable != null)         IWeiciyuanDrawable.setGifFlag(ImageUtility.isThisPictureGif(getUrl()));
         playImageViewAnimation(imageView,bitmap);
         lruCache.put(data,bitmap);
       }

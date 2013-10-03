@@ -23,7 +23,7 @@ case picture_large:
 actualDownloadUrl=url.replace("large","woriginal");
 break;
 }
-boolean result=ImageTool.getBitmapFromNetWork(actualDownloadUrl,filePath,new FileDownloaderHttpHelper.DownloadListener(){
+boolean result=ImageUtility.getBitmapFromNetWork(actualDownloadUrl,filePath,new FileDownloaderHttpHelper.DownloadListener(){
 @Override public void pushProgress(int progress,int max){
 publishProgress(progress,max);
 }

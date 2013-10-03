@@ -1,4 +1,4 @@
 {
-  String time=TimeTool.getListTime(mills);
+  String time=TimeUtility.getListTime(mills);
   if (!getText().toString().equals(time))   setText(time);
 }

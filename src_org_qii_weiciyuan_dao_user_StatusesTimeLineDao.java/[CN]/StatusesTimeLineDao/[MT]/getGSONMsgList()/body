@@ -22,7 +22,7 @@
   }
   if (value != null && value.getSize() > 0) {
     for (    MessageBean b : value.getItemList()) {
-      TimeTool.dealMills(b);
+      TimeUtility.dealMills(b);
       TimeLineUtility.addJustHighLightLinks(b);
     }
   }

@@ -13,7 +13,7 @@
       builder.setStyle(bigTextStyle);
     }
  else {
-      Bitmap bitmap=ImageTool.getNotificationSendFailedPic(picPath);
+      Bitmap bitmap=ImageUtility.getNotificationSendFailedPic(picPath);
       if (bitmap != null) {
         Notification.BigPictureStyle bigPictureStyle=new Notification.BigPictureStyle(builder);
         bigPictureStyle.setBigContentTitle(getString(R.string.send_faile_click_to_open));

@@ -4,7 +4,7 @@
     @Override protected Bitmap doInBackground(    Void... params){
       Bitmap bitmap=null;
       boolean downloaded=TaskCache.waitForPictureDownload(url,null,FileManager.getFilePathFromUrl(url,method),method);
-      if (downloaded)       bitmap=ImageTool.readNormalPic(FileManager.getFilePathFromUrl(url,method),width,height);
+      if (downloaded)       bitmap=ImageUtility.readNormalPic(FileManager.getFilePathFromUrl(url,method),width,height);
       return bitmap;
     }
     @Override protected void onPostExecute(    Bitmap bitmap){

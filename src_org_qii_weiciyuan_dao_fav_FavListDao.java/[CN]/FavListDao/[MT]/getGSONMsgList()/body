@@ -22,7 +22,7 @@
       }
  else {
         msg.getStatus().getListViewSpannableString();
-        TimeTool.dealMills(msg.getStatus());
+        TimeUtility.dealMills(msg.getStatus());
       }
     }
   }

@@ -2,7 +2,7 @@
   boolean result=false;
   try {
     if (!TextUtils.isEmpty(picPath)) {
-      String uploadPicPath=ImageTool.compressPic(SendWeiboService.this,picPath);
+      String uploadPicPath=ImageUtility.compressPic(SendWeiboService.this,picPath);
       size=new File(uploadPicPath).length();
       result=sendPic(uploadPicPath);
     }

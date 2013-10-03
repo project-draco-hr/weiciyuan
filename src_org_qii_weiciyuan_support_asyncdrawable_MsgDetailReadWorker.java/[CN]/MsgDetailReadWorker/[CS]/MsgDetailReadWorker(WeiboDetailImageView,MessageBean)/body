@@ -5,13 +5,13 @@
   this.retry=view.getRetryButton();
   retry.setVisibility(View.INVISIBLE);
   oriPath=FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large);
-  if (ImageTool.isThisBitmapCanRead(oriPath) && TaskCache.isThisUrlTaskFinished(msg.getOriginal_pic())) {
+  if (ImageUtility.isThisBitmapCanRead(oriPath) && TaskCache.isThisUrlTaskFinished(msg.getOriginal_pic())) {
     onPostExecute(oriPath);
     cancel(true);
     return;
   }
   middlePath=FileManager.getFilePathFromUrl(msg.getBmiddle_pic(),FileLocationMethod.picture_bmiddle);
-  if (ImageTool.isThisBitmapCanRead(middlePath) && TaskCache.isThisUrlTaskFinished(msg.getBmiddle_pic())) {
+  if (ImageUtility.isThisBitmapCanRead(middlePath) && TaskCache.isThisUrlTaskFinished(msg.getBmiddle_pic())) {
     onPostExecute(middlePath);
     cancel(true);
     return;

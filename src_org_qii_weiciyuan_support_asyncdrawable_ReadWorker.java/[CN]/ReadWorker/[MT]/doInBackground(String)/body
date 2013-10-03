@@ -56,10 +56,10 @@ Bitmap bitmap;
 switch (method) {
 case avatar_small:
 case avatar_large:
-bitmap=ImageTool.getRoundedCornerPic(path,width,height,Utility.dip2px(2));
+bitmap=ImageUtility.getRoundedCornerPic(path,width,height,Utility.dip2px(2));
 break;
 default :
-bitmap=ImageTool.getRoundedCornerPic(path,width,height,0);
+bitmap=ImageUtility.getRoundedCornerPic(path,width,height,0);
 break;
 }
 if (bitmap == null) {

@@ -15,8 +15,8 @@
   webView.setHorizontalScrollBarEnabled(false);
   path=getIntent().getStringExtra("path");
   if (!TextUtils.isEmpty(path)) {
-    if (ImageTool.isThisBitmapCanRead(path)) {
-      int[] size=ImageTool.getBitmapSize(path);
+    if (ImageUtility.isThisBitmapCanRead(path)) {
+      int[] size=ImageUtility.getBitmapSize(path);
       getActionBar().setSubtitle(String.valueOf(size[0]) + "x" + String.valueOf(size[1]));
     }
     File file=new File(path);

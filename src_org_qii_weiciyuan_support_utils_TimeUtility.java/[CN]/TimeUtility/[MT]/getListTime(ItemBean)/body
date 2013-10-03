@@ -4,7 +4,7 @@
     msg=bean.getMills();
   }
  else {
-    TimeTool.dealMills(bean);
+    TimeUtility.dealMills(bean);
     msg=bean.getMills();
   }
   return getListTime(msg);
