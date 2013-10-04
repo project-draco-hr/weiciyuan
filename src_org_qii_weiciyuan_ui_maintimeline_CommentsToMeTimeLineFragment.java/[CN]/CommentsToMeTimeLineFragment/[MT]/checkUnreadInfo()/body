@@ -4,9 +4,11 @@
     return;
   }
   Intent intent=getActivity().getIntent();
-  CommentListBean commentsToMe=(CommentListBean)intent.getParcelableExtra("comment");
+  CommentListBean commentsToMe=intent.getParcelableExtra(BundleArgsConstants.COMMENTS_TO_ME_EXTRA);
+  UnreadBean unreadBeanFromNotification=intent.getParcelableExtra(BundleArgsConstants.UNREAD_EXTRA);
   if (commentsToMe != null) {
     addUnreadMessage(commentsToMe);
+    clearUnreadComment(unreadBeanFromNotification);
     CommentListBean nullObject=null;
     intent.putExtra("comment",nullObject);
     getActivity().setIntent(intent);
