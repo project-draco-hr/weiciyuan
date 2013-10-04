@@ -1,6 +1,6 @@
 {
+  int count=(data.getSize() >= Integer.valueOf(SettingUtility.getMsgCount()) ? unreadBean.getMention_cmt() : data.getSize());
   Notification.Builder builder=new Notification.Builder(getBaseContext()).setTicker(NotificationUtility.getTicker(unreadBean)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
-  int count=(unreadBean.getMention_cmt() > data.getSize() ? unreadBean.getMention_cmt() : data.getSize());
   builder.setContentTitle(String.format(GlobalContext.getInstance().getString(R.string.new_mentions_comment),String.valueOf(count)));
   if (data.getSize() > 1)   builder.setNumber(count);
   if (clearNotificationEventReceiver != null) {
