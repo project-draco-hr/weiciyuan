@@ -1,5 +1,4 @@
 {
-  LongClickableLinkMovementMethod.getInstance().removeLongClickCallback();
   if (hasActionMode()) {
     int position=getListView().getCheckedItemPosition();
     if (getListView().getFirstVisiblePosition() > position || getListView().getLastVisiblePosition() < position) {
