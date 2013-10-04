@@ -1,5 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  emotions=GlobalContext.getInstance().getEmotionsPics();
-  index.addAll(emotions.keySet());
-}
