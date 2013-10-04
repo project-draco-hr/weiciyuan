@@ -2,6 +2,6 @@
   if (getActivity() == null)   return;
   ActionBar actionBar=getActivity().getActionBar();
   if (actionBar == null)   return;
-  actionBar.setTitle(view.getTitle());
+  if (!TextUtils.isEmpty(view.getTitle()))   actionBar.setTitle(view.getTitle());
   finishRefreshAnimation();
 }

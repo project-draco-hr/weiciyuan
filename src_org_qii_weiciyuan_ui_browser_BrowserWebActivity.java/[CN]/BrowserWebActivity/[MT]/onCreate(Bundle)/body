@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   url=getIntent().getStringExtra("url");
-  getActionBar().setDisplayShowHomeEnabled(true);
+  getActionBar().setDisplayShowHomeEnabled(false);
   getActionBar().setDisplayShowTitleEnabled(true);
   getActionBar().setDisplayHomeAsUpEnabled(false);
   View title=getLayoutInflater().inflate(R.layout.browserwebactivity_title_layout,null);
