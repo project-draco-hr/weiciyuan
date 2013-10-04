@@ -9,7 +9,7 @@
     view.setOnClickListener(new View.OnClickListener(){
       @Override public void onClick(      View v){
         Intent start=new Intent(getActivity(),MainTimeLineActivity.class);
-        start.putExtra("account",accountBean);
+        start.putExtra(BundleArgsConstants.ACCOUNT_EXTRA,accountBean);
         getActivity().startActivity(start);
         getActivity().finish();
       }

@@ -41,6 +41,7 @@
     nextIntent.putExtra(NotificationServiceHelper.ACCOUNT_ARG,accountBean);
     nextIntent.putExtra(NotificationServiceHelper.MENTIONS_COMMENT_ARG,data);
     nextIntent.putExtra(NotificationServiceHelper.UNREAD_ARG,unreadBean);
+    nextIntent.putExtra(NotificationServiceHelper.PENDING_INTENT_INNER_ARG,clickToOpenAppPendingIntentInner);
     String actionName;
     int nextIndex;
     int actionDrawable;

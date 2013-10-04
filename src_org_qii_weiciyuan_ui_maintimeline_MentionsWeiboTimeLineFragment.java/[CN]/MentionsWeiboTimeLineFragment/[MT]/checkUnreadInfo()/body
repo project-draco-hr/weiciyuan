@@ -4,11 +4,13 @@
     return;
   }
   Intent intent=getActivity().getIntent();
-  MessageListBean mentionsWeibo=(MessageListBean)intent.getParcelableExtra("repost");
+  MessageListBean mentionsWeibo=intent.getParcelableExtra(BundleArgsConstants.MENTIONS_WEIBO_EXTRA);
+  UnreadBean unreadBeanFromNotification=intent.getParcelableExtra(BundleArgsConstants.UNREAD_EXTRA);
   if (mentionsWeibo != null) {
     addUnreadMessage(mentionsWeibo);
+    clearUnreadMentions(unreadBeanFromNotification);
     MessageListBean nullObject=null;
-    intent.putExtra("repost",nullObject);
+    intent.putExtra(BundleArgsConstants.MENTIONS_WEIBO_EXTRA,nullObject);
     getActivity().setIntent(intent);
   }
 }

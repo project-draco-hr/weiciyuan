@@ -1,0 +1,13 @@
+{
+  new MyAsyncTask<Void,Void,Void>(){
+    @Override protected Void doInBackground(    Void... params){
+      try {
+        new ClearUnreadDao(GlobalContext.getInstance().getAccountBean().getAccess_token()).clearMentionCommentUnread(data,GlobalContext.getInstance().getAccountBean().getUid());
+      }
+ catch (      WeiboException ignored) {
+      }
+      return null;
+    }
+  }
+.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}

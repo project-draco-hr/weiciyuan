@@ -12,6 +12,7 @@
  else {
     finish();
     overridePendingTransition(0,0);
+    intent.putExtra("account",newAccountBean);
     startActivity(intent);
     overridePendingTransition(0,0);
   }
