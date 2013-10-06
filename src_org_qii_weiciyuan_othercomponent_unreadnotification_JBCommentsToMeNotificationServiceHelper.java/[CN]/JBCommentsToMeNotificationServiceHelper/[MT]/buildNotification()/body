@@ -1,6 +1,6 @@
 {
   int count=(data.getSize() >= Integer.valueOf(SettingUtility.getMsgCount()) ? unreadBean.getCmt() : data.getSize());
-  Notification.Builder builder=new Notification.Builder(getBaseContext()).setTicker(NotificationUtility.getTicker(unreadBean)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
+  Notification.Builder builder=new Notification.Builder(getBaseContext()).setTicker(ticker).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
   builder.setContentTitle(String.format(GlobalContext.getInstance().getString(R.string.new_comments),String.valueOf(count)));
   if (data.getSize() > 1)   builder.setNumber(count);
   if (clearNotificationEventReceiver != null) {
@@ -42,6 +42,7 @@
     nextIntent.putExtra(NotificationServiceHelper.COMMENTS_TO_ME_ARG,data);
     nextIntent.putExtra(NotificationServiceHelper.UNREAD_ARG,unreadBean);
     nextIntent.putExtra(NotificationServiceHelper.PENDING_INTENT_INNER_ARG,clickToOpenAppPendingIntentInner);
+    nextIntent.putExtra(NotificationServiceHelper.TICKER,ticker);
     String actionName;
     int nextIndex;
     int actionDrawable;

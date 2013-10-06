@@ -12,6 +12,7 @@
     clickNotificationToOpenAppPendingIntentInner.putExtra(BundleArgsConstants.COMMENTS_TO_ME_EXTRA,commentsToMeData);
     clickNotificationToOpenAppPendingIntentInner.putExtra(BundleArgsConstants.UNREAD_EXTRA,unreadBean);
     clickNotificationToOpenAppPendingIntentInner.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+    String ticker=NotificationUtility.getTicker(unreadBean,mentionsWeiboData,mentionsCommentData,commentsToMeData);
     if (mentionsWeiboData != null && mentionsWeiboData.getSize() > 0) {
       Intent intent=new Intent(context,JBMentionsWeiboNotificationServiceHelper.class);
       intent.putExtra(NotificationServiceHelper.ACCOUNT_ARG,accountBean);
@@ -19,6 +20,7 @@
       intent.putExtra(NotificationServiceHelper.UNREAD_ARG,unreadBean);
       intent.putExtra(NotificationServiceHelper.CURRENT_INDEX_ARG,0);
       intent.putExtra(NotificationServiceHelper.PENDING_INTENT_INNER_ARG,clickNotificationToOpenAppPendingIntentInner);
+      intent.putExtra(NotificationServiceHelper.TICKER,ticker);
       context.startService(intent);
     }
     if (mentionsCommentData != null && mentionsCommentData.getSize() > 0) {
@@ -28,6 +30,7 @@
       intent.putExtra(NotificationServiceHelper.UNREAD_ARG,unreadBean);
       intent.putExtra(NotificationServiceHelper.CURRENT_INDEX_ARG,0);
       intent.putExtra(NotificationServiceHelper.PENDING_INTENT_INNER_ARG,clickNotificationToOpenAppPendingIntentInner);
+      intent.putExtra(NotificationServiceHelper.TICKER,ticker);
       context.startService(intent);
     }
     if (commentsToMeData != null && commentsToMeData.getSize() > 0) {
@@ -37,6 +40,7 @@
       intent.putExtra(NotificationServiceHelper.UNREAD_ARG,unreadBean);
       intent.putExtra(NotificationServiceHelper.CURRENT_INDEX_ARG,0);
       intent.putExtra(NotificationServiceHelper.PENDING_INTENT_INNER_ARG,clickNotificationToOpenAppPendingIntentInner);
+      intent.putExtra(NotificationServiceHelper.TICKER,ticker);
       context.startService(intent);
     }
   }

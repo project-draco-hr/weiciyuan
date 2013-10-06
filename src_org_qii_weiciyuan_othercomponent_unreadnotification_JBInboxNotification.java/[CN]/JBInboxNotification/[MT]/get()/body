@@ -1,6 +1,6 @@
 {
-  Notification.Builder builder=new Notification.Builder(context).setTicker(NotificationUtility.getTicker(unreadBean)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
-  builder.setContentTitle(NotificationUtility.getTicker(unreadBean));
+  Notification.Builder builder=new Notification.Builder(context).setTicker(NotificationUtility.getTicker(unreadBean,null,null,null)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
+  builder.setContentTitle(NotificationUtility.getTicker(unreadBean,null,null,null));
   if (NotificationUtility.getCount(unreadBean) > 1) {
     builder.setNumber(NotificationUtility.getCount(unreadBean));
   }
@@ -35,7 +35,7 @@
   PendingIntent deletedPendingIntent=PendingIntent.getBroadcast(GlobalContext.getInstance(),0,broadcastIntent,PendingIntent.FLAG_UPDATE_CURRENT);
   builder.setDeleteIntent(deletedPendingIntent);
   Notification.InboxStyle inboxStyle=new Notification.InboxStyle(builder);
-  inboxStyle.setBigContentTitle(NotificationUtility.getTicker(unreadBean));
+  inboxStyle.setBigContentTitle(NotificationUtility.getTicker(unreadBean,null,null,null));
   if (comment != null) {
     for (    CommentBean c : comment.getItemList()) {
       inboxStyle.addLine(c.getUser().getScreen_name() + ":" + c.getText());

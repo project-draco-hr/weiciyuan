@@ -4,6 +4,7 @@
   this.unreadBean=intent.getParcelableExtra(NotificationServiceHelper.UNREAD_ARG);
   this.currentIndex=intent.getIntExtra(NotificationServiceHelper.CURRENT_INDEX_ARG,0);
   this.clickToOpenAppPendingIntentInner=intent.getParcelableExtra(NotificationServiceHelper.PENDING_INTENT_INNER_ARG);
+  this.ticker=intent.getStringExtra(NotificationServiceHelper.TICKER);
   buildNotification();
   stopSelf();
   return super.onStartCommand(intent,flags,startId);

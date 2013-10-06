@@ -1,6 +1,6 @@
 {
-  Notification.Builder builder=new Notification.Builder(context).setTicker(NotificationUtility.getTicker(unreadBean)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
-  builder.setContentTitle(NotificationUtility.getTicker(unreadBean));
+  Notification.Builder builder=new Notification.Builder(context).setTicker(NotificationUtility.getTicker(unreadBean,null,null,null)).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
+  builder.setContentTitle(NotificationUtility.getTicker(unreadBean,null,null,null));
   builder.setNumber(1);
   if (clearNotificationEventReceiver != null) {
     GlobalContext.getInstance().unregisterReceiver(clearNotificationEventReceiver);
