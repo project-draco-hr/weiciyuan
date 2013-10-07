@@ -1,11 +1,11 @@
 {
-  mViewPager=(MyViewPager)findViewById(R.id.viewpager);
+  MyViewPager viewPager=(MyViewPager)findViewById(R.id.viewpager);
   TimeLinePagerAdapter adapter=new TimeLinePagerAdapter(getSupportFragmentManager());
-  mViewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
-  mViewPager.setOffscreenPageLimit(3);
-  mViewPager.setAdapter(adapter);
-  mViewPager.setOnPageChangeListener(onPageChangeListener);
-  gestureDetector=new GestureDetector(BrowserWeiboMsgActivity.this,new SwipeRightToCloseOnGestureListener(BrowserWeiboMsgActivity.this,mViewPager));
-  mViewPager.setGestureDetector(this,gestureDetector);
+  viewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
+  viewPager.setOffscreenPageLimit(1);
+  viewPager.setAdapter(adapter);
+  viewPager.setOnPageChangeListener(onPageChangeListener);
+  gestureDetector=new GestureDetector(BrowserWeiboMsgActivity.this,new SwipeRightToCloseOnGestureListener(BrowserWeiboMsgActivity.this,viewPager));
+  viewPager.setGestureDetector(this,gestureDetector);
   getWindow().setBackgroundDrawable(getResources().getDrawable(R.color.transparent));
 }

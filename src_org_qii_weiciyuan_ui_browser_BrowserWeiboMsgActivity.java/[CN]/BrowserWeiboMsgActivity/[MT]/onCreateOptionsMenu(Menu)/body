@@ -4,6 +4,6 @@
     menu.findItem(R.id.menu_delete).setVisible(true);
   }
   MenuItem item=menu.findItem(R.id.menu_share);
-  mShareActionProvider=(ShareActionProvider)item.getActionProvider();
+  shareActionProvider=(ShareActionProvider)item.getActionProvider();
   return super.onCreateOptionsMenu(menu);
 }

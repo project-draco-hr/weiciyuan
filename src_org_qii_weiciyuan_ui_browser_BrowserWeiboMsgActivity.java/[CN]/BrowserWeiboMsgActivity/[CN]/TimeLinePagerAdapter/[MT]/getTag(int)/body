@@ -1,7 +1,5 @@
 {
   List<String> tagList=new ArrayList<String>();
   tagList.add(BrowserWeiboMsgFragment.class.getName());
-  tagList.add(CommentsByIdTimeLineFragment.class.getName());
-  tagList.add(RepostsByIdTimeLineFragment.class.getName());
   return tagList.get(position);
 }

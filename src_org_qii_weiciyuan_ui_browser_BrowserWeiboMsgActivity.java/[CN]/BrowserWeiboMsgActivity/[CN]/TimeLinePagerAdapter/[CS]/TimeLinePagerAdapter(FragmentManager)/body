@@ -6,16 +6,4 @@
  else {
     list.add(getBrowserWeiboMsgFragment());
   }
-  if (getCommentFragment() == null) {
-    list.add(new CommentsByIdTimeLineFragment(token,msg));
-  }
- else {
-    list.add(getCommentFragment());
-  }
-  if (getRepostFragment() == null) {
-    list.add(new RepostsByIdTimeLineFragment(token,msg.getId(),msg));
-  }
- else {
-    list.add(getRepostFragment());
-  }
 }

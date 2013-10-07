@@ -1,3 +1,3 @@
 {
-  Utility.setShareIntent(BrowserWeiboMsgActivity.this,mShareActionProvider,msg);
+  Utility.setShareIntent(BrowserWeiboMsgActivity.this,shareActionProvider,msg);
 }

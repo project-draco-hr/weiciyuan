@@ -1,13 +1,13 @@
 {
   super.onCreate(savedInstanceState);
   if (savedInstanceState != null) {
-    msg=(MessageBean)savedInstanceState.getParcelable("msg");
+    msg=savedInstanceState.getParcelable("msg");
     token=savedInstanceState.getString("token");
   }
  else {
     Intent intent=getIntent();
     token=intent.getStringExtra("token");
-    msg=(MessageBean)intent.getParcelableExtra("msg");
+    msg=intent.getParcelableExtra("msg");
   }
   setContentView(R.layout.viewpager_with_bg_layout);
   buildViewPager();
