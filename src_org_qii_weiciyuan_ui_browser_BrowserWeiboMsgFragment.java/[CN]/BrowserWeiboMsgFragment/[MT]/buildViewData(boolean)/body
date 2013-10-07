@@ -6,7 +6,7 @@
     TimeLineBitmapDownloader.getInstance().downloadAvatar(layout.avatar.getImageView(),msg.getUser());
   }
   layout.content.setText(msg.getListViewSpannableString());
-  layout.content.setMovementMethod(LongClickableLinkMovementMethod.getInstance());
+  layout.content.setOnTouchListener(new ClickableTextViewMentionOnTouchListener());
   layout.time.setText(msg.getTimeInFormat());
   if (msg.getGeo() != null) {
     layout.mapView.setVisibility(View.VISIBLE);
