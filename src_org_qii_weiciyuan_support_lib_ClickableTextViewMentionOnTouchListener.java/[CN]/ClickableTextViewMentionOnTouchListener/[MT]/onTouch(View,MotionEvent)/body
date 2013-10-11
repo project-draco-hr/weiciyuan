@@ -29,6 +29,7 @@ break;
 if (find) {
 BackgroundColorSpan backgroundColorSpan=new BackgroundColorSpan(ThemeUtility.getColor(R.attr.link_pressed_background_color));
 value.setSpan(backgroundColorSpan,findStart,findEnd,Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+tv.setText(value);
 }
 return find;
 case MotionEvent.ACTION_CANCEL:
@@ -38,6 +39,7 @@ BackgroundColorSpan[] backgroundColorSpans=value.getSpans(0,value.length(),Backg
 for (BackgroundColorSpan backgroundColorSpan : backgroundColorSpans) {
 value.removeSpan(backgroundColorSpan);
 }
+tv.setText(value);
 break;
 }
 return false;
