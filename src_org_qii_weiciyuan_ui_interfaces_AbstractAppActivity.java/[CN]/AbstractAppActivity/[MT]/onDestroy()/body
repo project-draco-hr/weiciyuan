@@ -1,7 +1,0 @@
-{
-  super.onDestroy();
-  if (commander != null) {
-    commander.totalStopLoadPicture();
-    commander=null;
-  }
-}

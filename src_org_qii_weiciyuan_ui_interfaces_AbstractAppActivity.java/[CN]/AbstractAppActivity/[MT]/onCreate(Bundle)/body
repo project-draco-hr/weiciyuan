@@ -10,5 +10,4 @@
   forceShowActionBarOverflowMenu();
   initNFC();
   GlobalContext.getInstance().setActivity(this);
-  commander=TimeLineBitmapDownloader.getInstance();
 }
