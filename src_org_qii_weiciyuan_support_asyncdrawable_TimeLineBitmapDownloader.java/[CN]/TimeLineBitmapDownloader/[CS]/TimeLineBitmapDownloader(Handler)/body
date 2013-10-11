@@ -1,4 +1,4 @@
 {
   this.handler=handler;
-  this.defaultBG=new ColorDrawable(ThemeUtility.getColor(R.attr.listview_pic_bg));
+  this.defaultPictureResId=ThemeUtility.getResourceId(R.attr.listview_pic_bg);
 }

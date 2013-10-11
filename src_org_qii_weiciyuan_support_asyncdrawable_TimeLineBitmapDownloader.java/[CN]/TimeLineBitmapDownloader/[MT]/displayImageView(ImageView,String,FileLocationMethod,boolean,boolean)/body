@@ -12,7 +12,7 @@
   }
  else {
     if (isFling) {
-      view.setImageDrawable(defaultBG);
+      view.setImageResource(defaultPictureResId);
       return;
     }
     if (!cancelPotentialDownload(urlKey,view)) {

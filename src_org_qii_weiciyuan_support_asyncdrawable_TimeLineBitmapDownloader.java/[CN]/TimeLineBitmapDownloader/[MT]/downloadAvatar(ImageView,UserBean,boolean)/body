@@ -1,6 +1,6 @@
 {
   if (user == null) {
-    view.setImageDrawable(defaultBG);
+    view.setImageResource(defaultPictureResId);
     return;
   }
   String url;
