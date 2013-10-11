@@ -41,8 +41,8 @@
       if (isCommentList) {
         isCommentList=false;
         adapter.switchToRepostType();
-        repostTab.setTextColor(getResources().getColor(R.color.orange));
-        commentTab.setTextColor(getResources().getColor(R.color.black));
+        repostTab.setTextColor(ThemeUtility.getColor(R.attr.browser_weibo_detail_comments_reposts_category_color_selected));
+        commentTab.setTextColor(ThemeUtility.getColor(R.attr.browser_weibo_detail_comments_reposts_category_color_unselected));
         if (repostList.getSize() == 0) {
           loadNewRepostData();
         }
@@ -71,8 +71,8 @@
       if (!isCommentList) {
         isCommentList=true;
         adapter.switchToCommentType();
-        commentTab.setTextColor(getResources().getColor(R.color.orange));
-        repostTab.setTextColor(getResources().getColor(R.color.black));
+        commentTab.setTextColor(ThemeUtility.getColor(R.attr.browser_weibo_detail_comments_reposts_category_color_selected));
+        repostTab.setTextColor(ThemeUtility.getColor(R.attr.browser_weibo_detail_comments_reposts_category_color_unselected));
         if (commentList.getSize() == 0) {
           loadNewCommentData();
         }
