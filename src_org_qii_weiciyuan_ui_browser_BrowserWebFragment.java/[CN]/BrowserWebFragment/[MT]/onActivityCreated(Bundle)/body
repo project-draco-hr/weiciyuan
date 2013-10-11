@@ -1,3 +1,6 @@
 {
   super.onActivityCreated(savedInstanceState);
+  if (savedInstanceState != null) {
+    mUrl=savedInstanceState.getString("mUrl");
+  }
 }
