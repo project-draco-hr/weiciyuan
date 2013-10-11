@@ -1,5 +1,5 @@
 {
-  if (urlKey.equals(view.getTag()) && view.getDrawable() != null && ((BitmapDrawable)view.getDrawable() != null && ((BitmapDrawable)view.getDrawable()).getBitmap() != null)) {
+  if (urlKey.equals(view.getTag()) && view.getDrawable() != null && view.getDrawable() instanceof BitmapDrawable && ((BitmapDrawable)view.getDrawable() != null && ((BitmapDrawable)view.getDrawable()).getBitmap() != null)) {
     AppLogger.d("shouldReloadPicture=false");
     return false;
   }
