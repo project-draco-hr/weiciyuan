@@ -8,6 +8,7 @@
     accountBean=(AccountBean)intent.getParcelableExtra("account");
   }
   if (accountBean == null)   accountBean=GlobalContext.getInstance().getAccountBean();
+  GlobalContext.getInstance().setGroup(null);
   GlobalContext.getInstance().setAccountBean(accountBean);
   SettingUtility.setDefaultAccountId(accountBean.getUid());
   buildInterface(savedInstanceState);

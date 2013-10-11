@@ -4,7 +4,7 @@ case FIRST_TIME_START:
     if (Utility.isTaskStopped(dbTask) && getList().getSize() == 0) {
       dbTask=new DBCacheTask();
       dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-      GroupInfoTask groupInfoTask=new GroupInfoTask(GlobalContext.getInstance().getSpecialToken());
+      GroupInfoTask groupInfoTask=new GroupInfoTask(GlobalContext.getInstance().getSpecialToken(),GlobalContext.getInstance().getCurrentAccountId());
       groupInfoTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     }
  else {
@@ -24,13 +24,13 @@ buildActionBarNav();
 setListViewPositionFromPositionsCache();
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-userBean=(UserBean)savedInstanceState.getParcelable("userBean");
-accountBean=(AccountBean)savedInstanceState.getParcelable("account");
+userBean=savedInstanceState.getParcelable("userBean");
+accountBean=savedInstanceState.getParcelable("account");
 token=savedInstanceState.getString("token");
 if (Utility.isTaskStopped(dbTask) && getList().getSize() == 0) {
 dbTask=new DBCacheTask();
 dbTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
-GroupInfoTask groupInfoTask=new GroupInfoTask(GlobalContext.getInstance().getSpecialToken());
+GroupInfoTask groupInfoTask=new GroupInfoTask(GlobalContext.getInstance().getSpecialToken(),GlobalContext.getInstance().getCurrentAccountId());
 groupInfoTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
  else {

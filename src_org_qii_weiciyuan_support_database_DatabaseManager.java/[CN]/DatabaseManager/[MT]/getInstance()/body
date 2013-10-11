@@ -6,6 +6,7 @@
     singleton=new DatabaseManager();
     singleton.wsd=wsd;
     singleton.rsd=rsd;
+    singleton.databaseHelper=databaseHelper;
   }
   return singleton;
 }
