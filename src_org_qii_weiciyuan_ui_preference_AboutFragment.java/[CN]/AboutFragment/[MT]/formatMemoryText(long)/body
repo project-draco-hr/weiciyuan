@@ -1,0 +1,4 @@
+{
+  float memoryInMB=memory * 1f / 1024 / 1024;
+  return String.format("%.1f MB",memoryInMB);
+}
