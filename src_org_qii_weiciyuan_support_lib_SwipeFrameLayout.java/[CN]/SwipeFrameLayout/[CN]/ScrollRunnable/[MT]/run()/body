@@ -1,0 +1,8 @@
+{
+  if (scroller.computeScrollOffset()) {
+    int currentValue=scroller.getCurrX();
+    topView.scrollTo(currentValue,0);
+    topView.invalidate();
+    post(this);
+  }
+}

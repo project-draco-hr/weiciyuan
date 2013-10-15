@@ -1,8 +1,8 @@
 {
   if (e2.getRawX() < initPointLocation[0]) {
-    float y=topView.getTranslationX();
+    float y=topView.getScaleX();
     if (y != 0f) {
-      topView.setTranslationX(0);
+      restoreActivity();
       return super.onScroll(e1,e2,distanceX,distanceY);
     }
  else {
@@ -12,7 +12,8 @@
   final int MAX_MOTION_EVENT_DOWN__X_POSITION=Utility.dip2px(25);
   float s=e2.getRawX() - initPointLocation[0];
   if (initPointLocation[0] <= MAX_MOTION_EVENT_DOWN__X_POSITION) {
-    topView.setTranslationX(s);
+    topView.scrollTo((int)-s,0);
+    topView.invalidate();
     return true;
   }
  else {

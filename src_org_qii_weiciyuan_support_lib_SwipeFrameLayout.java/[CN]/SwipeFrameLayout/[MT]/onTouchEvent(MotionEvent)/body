@@ -1,4 +1,7 @@
 {
+  if (scroller.computeScrollOffset()) {
+    scroller.abortAnimation();
+  }
 switch (ev.getActionMasked()) {
 case MotionEvent.ACTION_DOWN:
     initPointLocation[0]=ev.getRawX();
