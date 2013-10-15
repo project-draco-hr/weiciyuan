@@ -69,5 +69,11 @@
     }
   }
 );
-  return view;
+  View result=view;
+  if (!isOpenedFromMainPage()) {
+    SwipeFrameLayout swipeFrameLayout=new SwipeFrameLayout(getActivity());
+    swipeFrameLayout.addView(result,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+    result=swipeFrameLayout;
+  }
+  return result;
 }

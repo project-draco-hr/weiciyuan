@@ -1,9 +1,0 @@
-{
-  super(fm);
-  if (getBrowserWeiboMsgFragment() == null) {
-    list.add(new BrowserWeiboMsgFragment(msg));
-  }
- else {
-    list.add(getBrowserWeiboMsgFragment());
-  }
-}

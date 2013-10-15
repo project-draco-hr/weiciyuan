@@ -1,6 +1,0 @@
-{
-  ActionBar actionBar=getActionBar();
-  actionBar.setDisplayShowHomeEnabled(false);
-  actionBar.setDisplayHomeAsUpEnabled(true);
-  actionBar.setTitle(getString(R.string.detail));
-}

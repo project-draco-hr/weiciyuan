@@ -9,7 +9,5 @@
     token=intent.getStringExtra("token");
     msg=intent.getParcelableExtra("msg");
   }
-  setContentView(R.layout.viewpager_with_bg_layout);
-  buildViewPager();
-  buildActionBarAndViewPagerTitles();
+  initLayout();
 }

@@ -1,4 +1,5 @@
 {
+  SwipeFrameLayout swipeFrameLayout=new SwipeFrameLayout(getActivity());
   PullToRefreshListView pullToRefreshListView=new PullToRefreshListView(getActivity());
   pullToRefreshListView.setMode(PullToRefreshBase.Mode.DISABLED);
   pullToRefreshListView.setOnLastItemVisibleListener(new PullToRefreshBase.OnLastItemVisibleListener(){
@@ -101,5 +102,6 @@
   listView.setAdapter(adapter);
   adapter.notifyDataSetChanged();
   listView.setHeaderDividersEnabled(false);
-  return pullToRefreshListView;
+  swipeFrameLayout.addView(pullToRefreshListView,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  return swipeFrameLayout;
 }

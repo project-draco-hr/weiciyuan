@@ -1,4 +1,6 @@
 {
+  setContentView(R.layout.userinfoactivity_layout);
+  getWindow().setBackgroundDrawable(getResources().getDrawable(R.color.transparent));
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setDisplayShowHomeEnabled(false);
   getActionBar().setTitle(getString(R.string.personal_info));

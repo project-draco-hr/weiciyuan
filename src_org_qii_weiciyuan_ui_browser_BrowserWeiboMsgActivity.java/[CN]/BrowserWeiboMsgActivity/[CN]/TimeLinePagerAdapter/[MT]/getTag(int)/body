@@ -1,5 +1,0 @@
-{
-  List<String> tagList=new ArrayList<String>();
-  tagList.add(BrowserWeiboMsgFragment.class.getName());
-  return tagList.get(position);
-}
