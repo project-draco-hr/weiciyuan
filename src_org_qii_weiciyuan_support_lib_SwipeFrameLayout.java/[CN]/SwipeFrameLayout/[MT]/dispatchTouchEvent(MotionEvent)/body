@@ -1,0 +1,10 @@
+{
+switch (ev.getActionMasked()) {
+case MotionEvent.ACTION_DOWN:
+    initPointLocation[0]=ev.getRawX();
+  initPointLocation[1]=ev.getRawY();
+this.gestureDetector.onTouchEvent(ev);
+break;
+}
+return super.dispatchTouchEvent(ev);
+}

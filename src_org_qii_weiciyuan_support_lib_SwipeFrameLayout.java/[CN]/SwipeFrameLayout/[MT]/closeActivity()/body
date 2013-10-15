@@ -1,0 +1,4 @@
+{
+  activity.finish();
+  activity.overridePendingTransition(R.anim.stay,R.anim.swipe_right_to_close);
+}

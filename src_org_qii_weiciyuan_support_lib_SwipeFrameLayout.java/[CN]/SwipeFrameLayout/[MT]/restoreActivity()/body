@@ -1,0 +1,9 @@
+{
+  topView.animate().translationX(0).setDuration(300L).withLayer().setListener(new AnimatorListenerAdapter(){
+    @Override public void onAnimationEnd(    Animator animation){
+      super.onAnimationEnd(animation);
+      topView.animate().setListener(null);
+    }
+  }
+);
+}

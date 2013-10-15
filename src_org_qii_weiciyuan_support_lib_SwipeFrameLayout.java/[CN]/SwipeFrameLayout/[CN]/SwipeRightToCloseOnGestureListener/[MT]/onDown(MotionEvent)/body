@@ -1,0 +1,6 @@
+{
+  mLastOnDownEvent=e;
+  initPointLocation[0]=e.getRawX();
+  initPointLocation[1]=e.getRawY();
+  return true;
+}
