@@ -1,5 +1,5 @@
 {
-  scroller=new OverScroller(getContext());
+  scroller=new OverScroller(getContext(),new DecelerateInterpolator());
   setBackground(ThemeUtility.getDrawable(android.R.attr.windowBackground));
   this.activity=(Activity)getContext();
   this.topView=((View)(activity.findViewById(android.R.id.content).getParent()));
