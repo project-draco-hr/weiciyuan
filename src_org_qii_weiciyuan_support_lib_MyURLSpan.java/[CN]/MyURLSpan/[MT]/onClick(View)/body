@@ -14,7 +14,9 @@
       context.startActivity(intent);
     }
  else {
-      WebBrowserSelector.openLink(context,uri);
+      String openUrl=url;
+      if (openUrl.endsWith("/"))       openUrl=openUrl.substring(0,openUrl.lastIndexOf("/"));
+      WebBrowserSelector.openLink(context,Uri.parse(openUrl));
     }
   }
  else {

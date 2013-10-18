@@ -1,5 +1,5 @@
 {
-  String domain=url.substring(17);
+  String domain=url.substring("http://weibo.com/".length());
   domain=domain.replace("/","");
   return domain;
 }

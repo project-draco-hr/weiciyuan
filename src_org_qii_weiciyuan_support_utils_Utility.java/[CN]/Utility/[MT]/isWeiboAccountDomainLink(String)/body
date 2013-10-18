@@ -5,6 +5,15 @@
  else {
     boolean a=url.startsWith("http://weibo.com/");
     boolean b=!url.contains("?");
-    return a && b;
+    String tmp=url;
+    if (tmp.endsWith("/"))     tmp=tmp.substring(0,tmp.lastIndexOf("/"));
+    int count=0;
+    char[] value=tmp.toCharArray();
+    for (    char c : value) {
+      if ("/".equalsIgnoreCase(String.valueOf(c))) {
+        count++;
+      }
+    }
+    return a && b && count == 3;
   }
 }
