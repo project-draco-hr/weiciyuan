@@ -1,4 +1,5 @@
 {
+  getActionBar().setTitle(bean.getScreen_name());
   new Handler(Looper.getMainLooper()).post(new Runnable(){
     @Override public void run(){
       if (getSupportFragmentManager().findFragmentByTag(NewUserInfoFragment.class.getName()) == null) {
