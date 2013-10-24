@@ -1,6 +1,6 @@
 {
   Map<String,String> general=SmileyMap.getInstance().getGeneral();
-  emotionsPic.put(0,getEmotionsTask(general));
+  emotionsPic.put(SmileyMap.GENERAL_EMOTION_POSITION,getEmotionsTask(general));
   Map<String,String> huahua=SmileyMap.getInstance().getHuahua();
-  emotionsPic.put(2,getEmotionsTask(huahua));
+  emotionsPic.put(SmileyMap.HUAHUA_EMOTION_POSITION,getEmotionsTask(huahua));
 }
