@@ -1,0 +1,7 @@
+{
+  View view=activity.getLayoutInflater().inflate(R.layout.smileypicker_gridview,container,false);
+  GridView gridView=(GridView)view.findViewById(R.id.smiley_grid);
+  gridView.setAdapter(new SmileyAdapter(activity,position));
+  container.addView(view,0,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+  return view;
+}

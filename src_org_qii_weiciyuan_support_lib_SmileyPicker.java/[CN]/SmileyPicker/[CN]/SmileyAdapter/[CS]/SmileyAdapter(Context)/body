@@ -1,6 +1,0 @@
-{
-  this.mInflater=LayoutInflater.from(context);
-  Set<String> keySet=GlobalContext.getInstance().getEmotionsPics().keySet();
-  keys=new ArrayList<String>();
-  keys.addAll(keySet);
-}

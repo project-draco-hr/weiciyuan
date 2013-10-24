@@ -1,0 +1,35 @@
+{
+  super(paramContext,paramAttributeSet);
+  this.mInflater=LayoutInflater.from(paramContext);
+  View view=this.mInflater.inflate(R.layout.writeweiboactivity_smileypicker,null);
+  viewPager=(ViewPager)view.findViewById(R.id.viewpager);
+  viewPager.setAdapter(new SmileyPagerAdapter());
+  leftPoint=(ImageView)view.findViewById(R.id.left_point);
+  centerPoint=(ImageView)view.findViewById(R.id.center_point);
+  rightPoint=(ImageView)view.findViewById(R.id.right_point);
+  leftPoint.getDrawable().setLevel(1);
+  viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+    @Override public void onPageSelected(    int position){
+      super.onPageSelected(position);
+switch (position) {
+case 0:
+        leftPoint.getDrawable().setLevel(1);
+      centerPoint.getDrawable().setLevel(0);
+    rightPoint.getDrawable().setLevel(0);
+  break;
+case 1:
+leftPoint.getDrawable().setLevel(0);
+centerPoint.getDrawable().setLevel(1);
+rightPoint.getDrawable().setLevel(0);
+break;
+case 2:
+leftPoint.getDrawable().setLevel(0);
+centerPoint.getDrawable().setLevel(0);
+rightPoint.getDrawable().setLevel(1);
+break;
+}
+}
+}
+);
+addView(view);
+}

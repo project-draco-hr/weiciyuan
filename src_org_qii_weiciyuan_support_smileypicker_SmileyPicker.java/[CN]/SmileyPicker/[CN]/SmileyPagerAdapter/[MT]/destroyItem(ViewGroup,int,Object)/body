@@ -1,0 +1,4 @@
+{
+  View view=(View)object;
+  container.removeView(view);
+}

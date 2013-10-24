@@ -1,0 +1,23 @@
+{
+  this.mInflater=LayoutInflater.from(context);
+  this.keys=new ArrayList<String>();
+  Set<String> keySet;
+switch (emotionPosition) {
+case 0:
+    keySet=GlobalContext.getInstance().getEmotionsPics().keySet();
+  keys.addAll(keySet);
+bitmapMap=GlobalContext.getInstance().getEmotionsPics();
+break;
+case 1:
+bitmapMap=new LinkedHashMap<String,Bitmap>();
+keys=new ArrayList<String>();
+break;
+case 2:
+keySet=GlobalContext.getInstance().getHuahuaPics().keySet();
+keys.addAll(keySet);
+bitmapMap=GlobalContext.getInstance().getHuahuaPics();
+break;
+default :
+throw new IllegalArgumentException("emotion position is invalid");
+}
+}

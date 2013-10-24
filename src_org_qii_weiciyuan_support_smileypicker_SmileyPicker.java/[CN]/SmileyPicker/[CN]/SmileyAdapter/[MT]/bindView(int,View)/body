@@ -1,0 +1,15 @@
+{
+  ImageView imageView=((ImageView)paramView.findViewById(R.id.smiley_item));
+  imageView.setImageBitmap(bitmapMap.get(keys.get(position)));
+  paramView.setOnClickListener(new OnClickListener(){
+    @Override public void onClick(    View v){
+      String ori=mEditText.getText().toString();
+      int index=mEditText.getSelectionStart();
+      StringBuilder stringBuilder=new StringBuilder(ori);
+      stringBuilder.insert(index,keys.get(position));
+      mEditText.setText(stringBuilder.toString());
+      mEditText.setSelection(index + keys.get(position).length());
+    }
+  }
+);
+}

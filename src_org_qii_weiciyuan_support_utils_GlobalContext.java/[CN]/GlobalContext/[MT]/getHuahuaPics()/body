@@ -1,9 +1,9 @@
 {
   if (emotionsPic != null && emotionsPic.size() > 0) {
-    return emotionsPic.get(0);
+    return emotionsPic.get(2);
   }
  else {
     getEmotionsTask();
-    return emotionsPic.get(0);
+    return emotionsPic.get(2);
   }
 }

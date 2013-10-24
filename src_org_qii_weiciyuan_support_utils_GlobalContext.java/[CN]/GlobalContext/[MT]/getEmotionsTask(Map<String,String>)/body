@@ -1,0 +1,25 @@
+{
+  List<String> index=new ArrayList<String>();
+  index.addAll(emotionMap.keySet());
+  LinkedHashMap<String,Bitmap> bitmapMap=new LinkedHashMap<String,Bitmap>();
+  for (  String str : index) {
+    String name=emotionMap.get(str);
+    AssetManager assetManager=GlobalContext.getInstance().getAssets();
+    InputStream inputStream;
+    try {
+      inputStream=assetManager.open(name);
+      Bitmap bitmap=BitmapFactory.decodeStream(inputStream);
+      if (bitmap != null) {
+        Bitmap scaledBitmap=Bitmap.createScaledBitmap(bitmap,Utility.dip2px(getResources().getInteger(R.integer.emotion_size)),Utility.dip2px(getResources().getInteger(R.integer.emotion_size)),true);
+        if (bitmap != scaledBitmap) {
+          bitmap.recycle();
+          bitmap=scaledBitmap;
+        }
+        bitmapMap.put(str,bitmap);
+      }
+    }
+ catch (    IOException ignored) {
+    }
+  }
+  return bitmapMap;
+}
