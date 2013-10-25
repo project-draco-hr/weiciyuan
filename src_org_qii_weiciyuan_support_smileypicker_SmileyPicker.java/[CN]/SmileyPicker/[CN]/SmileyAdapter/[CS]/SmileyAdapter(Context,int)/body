@@ -1,4 +1,5 @@
 {
+  this.emotionPosition=emotionPosition;
   this.mInflater=LayoutInflater.from(context);
   this.keys=new ArrayList<String>();
   Set<String> keySet;
@@ -7,15 +8,19 @@ case SmileyMap.GENERAL_EMOTION_POSITION:
     keySet=GlobalContext.getInstance().getEmotionsPics().keySet();
   keys.addAll(keySet);
 bitmapMap=GlobalContext.getInstance().getEmotionsPics();
+count=bitmapMap.size();
 break;
 case SmileyMap.EMOJI_EMOTION_POSITION:
-bitmapMap=new LinkedHashMap<String,Bitmap>();
-keys=new ArrayList<String>();
+keySet=EmojiMap.getInstance().getMap().keySet();
+keys.addAll(keySet);
+bitmapMap=null;
+count=keys.size();
 break;
 case SmileyMap.HUAHUA_EMOTION_POSITION:
 keySet=GlobalContext.getInstance().getHuahuaPics().keySet();
 keys.addAll(keySet);
 bitmapMap=GlobalContext.getInstance().getHuahuaPics();
+count=bitmapMap.size();
 break;
 default :
 throw new IllegalArgumentException("emotion position is invalid");

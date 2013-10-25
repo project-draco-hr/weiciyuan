@@ -1,7 +1,17 @@
 {
-  ImageView imageView=((ImageView)paramView.findViewById(R.id.smiley_item));
-  imageView.setImageBitmap(bitmapMap.get(keys.get(position)));
-  paramView.setOnClickListener(new OnClickListener(){
+  ImageView imageView=((ImageView)contentView.findViewById(R.id.smiley_item));
+  TextView textView=(TextView)contentView.findViewById(R.id.smiley_text_item);
+  if (emotionPosition != SmileyMap.EMOJI_EMOTION_POSITION) {
+    imageView.setVisibility(View.VISIBLE);
+    textView.setVisibility(View.INVISIBLE);
+    imageView.setImageBitmap(bitmapMap.get(keys.get(position)));
+  }
+ else {
+    imageView.setVisibility(View.INVISIBLE);
+    textView.setVisibility(View.VISIBLE);
+    textView.setText(keys.get(position));
+  }
+  contentView.setOnClickListener(new OnClickListener(){
     @Override public void onClick(    View v){
       String ori=mEditText.getText().toString();
       int index=mEditText.getSelectionStart();
