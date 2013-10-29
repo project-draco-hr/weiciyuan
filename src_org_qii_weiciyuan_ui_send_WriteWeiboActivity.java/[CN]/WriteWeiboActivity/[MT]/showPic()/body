@@ -1,5 +1,5 @@
 {
-  Intent intent=new Intent(WriteWeiboActivity.this,BrowserLocalPicActivity.class);
+  Intent intent=new Intent(WriteWeiboActivity.this,BrowserWriteWeiboLocalPicActivity.class);
   intent.putExtra("path",picPath);
   startActivityForResult(intent,BROWSER_PIC);
 }
