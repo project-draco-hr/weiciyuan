@@ -19,6 +19,16 @@ return picPath;
 break;
 }
 Bitmap bitmap=BitmapFactory.decodeFile(picPath,options);
+int exifRotation=ImageUtility.getFileExifRotation(picPath);
+if (exifRotation != 0) {
+Matrix mtx=new Matrix();
+mtx.postRotate(exifRotation);
+Bitmap adjustedBitmap=Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),mtx,true);
+if (adjustedBitmap != bitmap) {
+bitmap.recycle();
+bitmap=adjustedBitmap;
+}
+}
 FileOutputStream stream=null;
 String tmp=FileManager.getUploadPicTempFile();
 try {

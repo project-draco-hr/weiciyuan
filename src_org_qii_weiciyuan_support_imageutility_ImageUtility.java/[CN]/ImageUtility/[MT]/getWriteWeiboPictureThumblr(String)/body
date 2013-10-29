@@ -34,6 +34,16 @@
       bitmap.recycle();
       bitmap=roundedBitmap;
     }
+    int exifRotation=ImageUtility.getFileExifRotation(filePath);
+    if (exifRotation != 0) {
+      Matrix mtx=new Matrix();
+      mtx.postRotate(exifRotation);
+      Bitmap adjustedBitmap=Bitmap.createBitmap(roundedBitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),mtx,true);
+      if (adjustedBitmap != bitmap) {
+        bitmap.recycle();
+        bitmap=adjustedBitmap;
+      }
+    }
     return bitmap;
   }
  catch (  OutOfMemoryError ignored) {
