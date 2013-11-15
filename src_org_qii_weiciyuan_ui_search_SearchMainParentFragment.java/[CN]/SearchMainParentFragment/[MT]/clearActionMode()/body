@@ -1,0 +1,4 @@
+{
+  getSearchUserFragment().clearActionMode();
+  getSearchWeiboFragment().clearActionMode();
+}

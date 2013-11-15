@@ -15,6 +15,7 @@
     readLarge(large,url,bitmapPath);
     return;
   }
+  if (imageView.getDrawable() != null)   return;
   new MyAsyncTask<Void,Bitmap,Bitmap>(){
     @Override protected Bitmap doInBackground(    Void... params){
       Bitmap bitmap=null;
@@ -22,11 +23,18 @@
         bitmap=ImageUtility.decodeBitmapFromSDCard(bitmapPath,IMAGEVIEW_SOFT_LAYER_MAX_WIDTH,IMAGEVIEW_SOFT_LAYER_MAX_HEIGHT);
       }
  catch (      OutOfMemoryError ignored) {
+        GlobalContext.getInstance().getBitmapCache().evictAll();
+        try {
+          bitmap=ImageUtility.decodeBitmapFromSDCard(bitmapPath,IMAGEVIEW_SOFT_LAYER_MAX_WIDTH,IMAGEVIEW_SOFT_LAYER_MAX_HEIGHT);
+        }
+ catch (        OutOfMemoryError ignoredToo) {
+        }
       }
       return bitmap;
     }
     @Override protected void onPostExecute(    Bitmap bitmap){
       super.onPostExecute(bitmap);
+      if (imageView.getDrawable() != null)       return;
       if (bitmap != null) {
         imageView.setVisibility(View.VISIBLE);
         imageView.setImageBitmap(bitmap);

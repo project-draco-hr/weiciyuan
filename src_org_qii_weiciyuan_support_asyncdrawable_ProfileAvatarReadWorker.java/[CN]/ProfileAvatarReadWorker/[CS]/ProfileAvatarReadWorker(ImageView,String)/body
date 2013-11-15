@@ -1,5 +1,5 @@
 {
-  this.lruCache=GlobalContext.getInstance().getAvatarCache();
+  this.lruCache=GlobalContext.getInstance().getBitmapCache();
   this.view=view;
   this.globalContext=GlobalContext.getInstance();
   this.data=url;

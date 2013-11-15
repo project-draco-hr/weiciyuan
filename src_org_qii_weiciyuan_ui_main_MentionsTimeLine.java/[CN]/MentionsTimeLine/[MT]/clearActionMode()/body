@@ -1,0 +1,4 @@
+{
+  getMentionsCommentTimeLineFragment().clearActionMode();
+  getMentionsWeiboTimeLineFragment().clearActionMode();
+}
