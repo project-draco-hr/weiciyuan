@@ -22,12 +22,6 @@ if (start <= offset && offset <= end) {
   break;
 }
 }
-String content=tv.getText().toString();
-Rect bounds=new Rect();
-Paint textPaint=tv.getPaint();
-textPaint.getTextBounds(content,findStart,findEnd,bounds);
-int width=bounds.width();
-find&=(width >= x);
 float lineWidth=layout.getLineWidth(line);
 find&=(lineWidth >= x);
 if (find) {
