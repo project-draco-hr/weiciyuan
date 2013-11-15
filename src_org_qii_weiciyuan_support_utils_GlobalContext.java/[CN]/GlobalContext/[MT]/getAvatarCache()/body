@@ -1,6 +1,0 @@
-{
-  if (avatarCache == null) {
-    buildCache();
-  }
-  return avatarCache;
-}

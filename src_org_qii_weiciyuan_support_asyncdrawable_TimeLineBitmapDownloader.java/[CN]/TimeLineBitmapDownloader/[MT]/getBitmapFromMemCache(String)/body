@@ -1,4 +1,4 @@
 {
   if (TextUtils.isEmpty(key))   return null;
- else   return GlobalContext.getInstance().getAvatarCache().get(key);
+ else   return GlobalContext.getInstance().getBitmapCache().get(key);
 }

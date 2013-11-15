@@ -1,6 +1,6 @@
 {
   super.onBackPressed();
   GlobalContext.getInstance().startedApp=false;
-  GlobalContext.getInstance().getAvatarCache().evictAll();
+  GlobalContext.getInstance().getBitmapCache().evictAll();
   finish();
 }
