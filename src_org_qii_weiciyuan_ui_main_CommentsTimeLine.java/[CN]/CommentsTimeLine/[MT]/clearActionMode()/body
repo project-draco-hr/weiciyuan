@@ -1,0 +1,4 @@
+{
+  getCommentsByMeTimeLineFragment().clearActionMode();
+  getCommentsToMeTimeLineFragment().clearActionMode();
+}
