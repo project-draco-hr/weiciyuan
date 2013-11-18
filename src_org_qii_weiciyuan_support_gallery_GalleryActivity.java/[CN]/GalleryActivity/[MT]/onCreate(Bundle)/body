@@ -2,6 +2,7 @@
   super.onCreate(savedInstanceState);
   setContentView(R.layout.galleryactivity_layout);
   animationView=(ImageView)findViewById(R.id.animation);
+  currentViewPositionLayout=findViewById(R.id.position_layout);
   position=(TextView)findViewById(R.id.position);
   TextView sum=(TextView)findViewById(R.id.sum);
   rect=getIntent().getParcelableExtra("rect");
