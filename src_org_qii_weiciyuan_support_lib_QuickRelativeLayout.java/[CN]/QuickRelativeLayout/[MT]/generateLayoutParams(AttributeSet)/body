@@ -1,0 +1,3 @@
+{
+  return new QuickRelativeLayout.LayoutParams(getContext(),attrs);
+}
