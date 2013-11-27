@@ -1,6 +1,10 @@
 {
   super.onPause();
   unregisterReceiver(newMsgInterruptBroadcastReceiver);
-  if (musicReceiver != null)   unregisterReceiver(musicReceiver);
-  if (isFinishing())   saveNavigationPositionToDB();
+  if (musicReceiver != null) {
+    unregisterReceiver(musicReceiver);
+  }
+  if (isFinishing()) {
+    saveNavigationPositionToDB();
+  }
 }

@@ -6,9 +6,13 @@
  else {
     Intent intent=getIntent();
     accountBean=(AccountBean)intent.getParcelableExtra("account");
-    if (accountBean == null)     accountBean=(AccountBean)intent.getParcelableExtra(BundleArgsConstants.ACCOUNT_EXTRA);
+    if (accountBean == null) {
+      accountBean=(AccountBean)intent.getParcelableExtra(BundleArgsConstants.ACCOUNT_EXTRA);
+    }
   }
-  if (accountBean == null)   accountBean=GlobalContext.getInstance().getAccountBean();
+  if (accountBean == null) {
+    accountBean=GlobalContext.getInstance().getAccountBean();
+  }
   GlobalContext.getInstance().setGroup(null);
   GlobalContext.getInstance().setAccountBean(accountBean);
   SettingUtility.setDefaultAccountId(accountBean.getUid());
