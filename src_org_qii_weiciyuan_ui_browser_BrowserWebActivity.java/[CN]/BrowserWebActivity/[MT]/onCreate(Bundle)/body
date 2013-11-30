@@ -1,6 +1,12 @@
 {
   super.onCreate(savedInstanceState);
-  url=getIntent().getStringExtra("url");
+  String action=getIntent().getAction();
+  if (Intent.ACTION_VIEW.equalsIgnoreCase(action)) {
+    url=getIntent().getData().toString();
+  }
+ else {
+    url=getIntent().getStringExtra("url");
+  }
   getActionBar().setDisplayShowHomeEnabled(false);
   getActionBar().setDisplayShowTitleEnabled(true);
   getActionBar().setDisplayHomeAsUpEnabled(false);

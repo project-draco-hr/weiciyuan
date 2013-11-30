@@ -1,7 +1,11 @@
 {
   super.onPostExecute(result);
-  if (result == null)   return;
-  if (shareCountBtn == null)   return;
+  if (result == null) {
+    return;
+  }
+  if (shareCountBtn == null) {
+    return;
+  }
   shareCountInt=result;
   shareCountBtn.setText(String.valueOf(shareCountInt));
 }
