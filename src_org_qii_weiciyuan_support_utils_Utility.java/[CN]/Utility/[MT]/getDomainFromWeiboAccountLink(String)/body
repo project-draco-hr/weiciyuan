@@ -1,5 +1,19 @@
 {
-  String domain=url.substring("http://weibo.com/".length());
+  final String NORMAL_DOMAIN_PREFIX="http://weibo.com/";
+  final String ENTERPRISE_DOMAIN_PREFIX="http://e.weibo.com/";
+  if (TextUtils.isEmpty(url)) {
+    throw new IllegalArgumentException("Url can't be empty");
+  }
+  if (!url.startsWith(NORMAL_DOMAIN_PREFIX) && !url.startsWith(ENTERPRISE_DOMAIN_PREFIX)) {
+    throw new IllegalArgumentException("Url must start with " + NORMAL_DOMAIN_PREFIX + " or "+ ENTERPRISE_DOMAIN_PREFIX);
+  }
+  String domain=null;
+  if (url.startsWith(ENTERPRISE_DOMAIN_PREFIX)) {
+    domain=url.substring(ENTERPRISE_DOMAIN_PREFIX.length());
+  }
+ else   if (url.startsWith(NORMAL_DOMAIN_PREFIX)) {
+    domain=url.substring(NORMAL_DOMAIN_PREFIX.length());
+  }
   domain=domain.replace("/","");
   return domain;
 }

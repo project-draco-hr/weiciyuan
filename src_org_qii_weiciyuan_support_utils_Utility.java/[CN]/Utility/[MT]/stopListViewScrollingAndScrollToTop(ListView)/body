@@ -1,4 +1,8 @@
 {
-  if (listView instanceof AutoScrollListView)   ((AutoScrollListView)listView).requestPositionToScreen(0,true);
- else   listView.smoothScrollToPosition(0,0);
+  if (listView instanceof AutoScrollListView) {
+    ((AutoScrollListView)listView).requestPositionToScreen(0,true);
+  }
+ else {
+    listView.smoothScrollToPosition(0,0);
+  }
 }

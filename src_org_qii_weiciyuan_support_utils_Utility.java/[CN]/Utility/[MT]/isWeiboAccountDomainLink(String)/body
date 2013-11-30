@@ -3,10 +3,12 @@
     return false;
   }
  else {
-    boolean a=url.startsWith("http://weibo.com/");
+    boolean a=url.startsWith("http://weibo.com/") || url.startsWith("http://e.weibo.com/");
     boolean b=!url.contains("?");
     String tmp=url;
-    if (tmp.endsWith("/"))     tmp=tmp.substring(0,tmp.lastIndexOf("/"));
+    if (tmp.endsWith("/")) {
+      tmp=tmp.substring(0,tmp.lastIndexOf("/"));
+    }
     int count=0;
     char[] value=tmp.toCharArray();
     for (    char c : value) {

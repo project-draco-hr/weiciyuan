@@ -3,5 +3,7 @@
   setHasOptionsMenu(true);
   setRetainInstance(true);
   String path=FileManager.getWebViewFaviconDirPath();
-  if (!TextUtils.isEmpty(path))   WebIconDatabase.getInstance().open(FileManager.getWebViewFaviconDirPath());
+  if (!TextUtils.isEmpty(path)) {
+    WebIconDatabase.getInstance().open(FileManager.getWebViewFaviconDirPath());
+  }
 }

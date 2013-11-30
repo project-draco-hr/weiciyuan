@@ -1,4 +1,14 @@
 {
-  view.loadUrl(url);
-  return true;
+  if (Utility.isWeiboAccountDomainLink(url)) {
+    String result=Utility.getDomainFromWeiboAccountLink(url);
+    Intent intent=new Intent(getActivity(),UserInfoActivity.class);
+    intent.putExtra("domain",result);
+    getActivity().startActivity(intent);
+    getActivity().finish();
+    return true;
+  }
+ else {
+    view.loadUrl(url);
+    return true;
+  }
 }

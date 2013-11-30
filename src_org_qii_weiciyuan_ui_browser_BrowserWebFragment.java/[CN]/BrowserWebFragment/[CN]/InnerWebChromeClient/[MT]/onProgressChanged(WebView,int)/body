@@ -1,6 +1,12 @@
 {
-  if (getActivity() == null)   return;
-  if (!mProgressBar.isShown())   mProgressBar.setVisibility(View.VISIBLE);
+  if (getActivity() == null) {
+    return;
+  }
+  if (!mProgressBar.isShown()) {
+    mProgressBar.setVisibility(View.VISIBLE);
+  }
   mProgressBar.setProgress(progress);
-  if (progress == 100)   mProgressBar.setVisibility(View.INVISIBLE);
+  if (progress == 100) {
+    mProgressBar.setVisibility(View.INVISIBLE);
+  }
 }

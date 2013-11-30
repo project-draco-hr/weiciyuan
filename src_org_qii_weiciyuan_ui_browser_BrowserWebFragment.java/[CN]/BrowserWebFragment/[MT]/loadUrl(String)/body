@@ -1,4 +1,8 @@
 {
-  if (mIsWebViewAvailable)   getWebView().loadUrl(mUrl=url);
- else   Log.w("ImprovedWebViewFragment","WebView cannot be found. Check the view and fragment have been loaded.");
+  if (mIsWebViewAvailable) {
+    getWebView().loadUrl(mUrl=url);
+  }
+ else {
+    Log.w("ImprovedWebViewFragment","WebView cannot be found. Check the view and fragment have been loaded.");
+  }
 }

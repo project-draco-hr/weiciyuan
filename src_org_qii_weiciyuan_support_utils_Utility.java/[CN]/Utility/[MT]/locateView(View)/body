@@ -1,6 +1,8 @@
 {
   int[] location=new int[2];
-  if (v == null)   return null;
+  if (v == null) {
+    return null;
+  }
   try {
     v.getLocationOnScreen(location);
   }

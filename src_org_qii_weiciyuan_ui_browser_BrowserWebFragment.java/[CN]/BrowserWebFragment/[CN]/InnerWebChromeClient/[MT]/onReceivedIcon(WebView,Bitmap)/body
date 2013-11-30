@@ -1,4 +1,6 @@
 {
   super.onReceivedIcon(view,icon);
-  if (getActivity() == null)   return;
+  if (getActivity() == null) {
+    return;
+  }
 }
