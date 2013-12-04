@@ -1,0 +1,7 @@
+{
+  CommonErrorDialogFragment fragment=new CommonErrorDialogFragment();
+  Bundle bundle=new Bundle();
+  bundle.putString("error",error);
+  fragment.setArguments(bundle);
+  return fragment;
+}
