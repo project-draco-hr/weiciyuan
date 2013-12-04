@@ -1,5 +1,7 @@
 {
   super.onPostExecute(userBean);
   bean=userBean;
-  if (getInfoFragment() != null)   getInfoFragment().forceReloadData(userBean);
+  if (getInfoFragment() != null) {
+    getInfoFragment().forceReloadData(userBean);
+  }
 }

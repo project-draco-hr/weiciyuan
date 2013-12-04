@@ -1,5 +1,7 @@
 {
-  if (bean.getSize() == 0)   dmProgressBar.setVisibility(View.VISIBLE);
+  if (bean.getSize() == 0) {
+    dmProgressBar.setVisibility(View.VISIBLE);
+  }
   getLoaderManager().destroyLoader(MIDDLE_MSG_LOADER_ID);
   getLoaderManager().destroyLoader(OLD_MSG_LOADER_ID);
   dismissFooterView();

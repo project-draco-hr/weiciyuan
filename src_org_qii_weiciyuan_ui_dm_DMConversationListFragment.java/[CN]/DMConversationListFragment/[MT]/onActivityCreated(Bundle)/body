@@ -6,7 +6,9 @@ switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
     new Handler().postDelayed(new Runnable(){
       @Override public void run(){
-        if (getActivity() != null)         loadNewMsg();
+        if (getActivity() != null) {
+          loadNewMsg();
+        }
       }
     }
 ,AppConfig.REFRESH_DELAYED_MILL_SECOND_TIME);

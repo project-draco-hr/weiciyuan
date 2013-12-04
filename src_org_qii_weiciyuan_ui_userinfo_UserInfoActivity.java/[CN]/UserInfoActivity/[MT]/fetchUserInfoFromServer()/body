@@ -2,10 +2,14 @@
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setDisplayShowHomeEnabled(false);
   String title=bean.getScreen_name();
-  if (TextUtils.isEmpty(title))   title=bean.getDomain();
-  if (TextUtils.isEmpty(title))   title=bean.getId();
+  if (TextUtils.isEmpty(title)) {
+    title=bean.getDomain();
+  }
+  if (TextUtils.isEmpty(title)) {
+    title=bean.getId();
+  }
   getActionBar().setTitle(title);
-  FetchingDataDialog dialog=new FetchingDataDialog();
-  getSupportFragmentManager().beginTransaction().add(dialog,FetchingDataDialog.class.getName()).commit();
+  CommonProgressDialogFragment dialog=CommonProgressDialogFragment.newInstance(getString(R.string.fetching_user_info));
+  getSupportFragmentManager().beginTransaction().add(dialog,CommonProgressDialogFragment.class.getName()).commit();
   getSupportLoaderManager().initLoader(REFRESH_LOADER_ID,null,refreshCallback);
 }

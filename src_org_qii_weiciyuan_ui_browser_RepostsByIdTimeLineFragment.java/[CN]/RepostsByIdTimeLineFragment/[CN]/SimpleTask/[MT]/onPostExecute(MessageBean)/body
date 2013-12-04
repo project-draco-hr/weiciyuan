@@ -1,5 +1,7 @@
 {
-  if (progressFragment != null)   progressFragment.dismissAllowingStateLoss();
+  if (progressFragment != null) {
+    progressFragment.dismissAllowingStateLoss();
+  }
   if (s != null) {
     et.setText("");
     loadNewMsg();

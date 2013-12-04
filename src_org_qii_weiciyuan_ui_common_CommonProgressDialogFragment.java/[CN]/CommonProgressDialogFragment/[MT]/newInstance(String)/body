@@ -1,0 +1,7 @@
+{
+  CommonProgressDialogFragment fragment=new CommonProgressDialogFragment();
+  Bundle bundle=new Bundle();
+  bundle.putString("content",content);
+  fragment.setArguments(bundle);
+  return fragment;
+}

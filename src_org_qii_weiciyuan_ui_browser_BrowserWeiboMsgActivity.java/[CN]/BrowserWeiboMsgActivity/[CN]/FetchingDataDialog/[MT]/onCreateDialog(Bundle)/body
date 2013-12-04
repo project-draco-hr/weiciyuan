@@ -1,5 +1,0 @@
-{
-  ProgressDialog dialog=new ProgressDialog(getActivity());
-  dialog.setMessage(getString(R.string.fetching_weibo_info));
-  return dialog;
-}
