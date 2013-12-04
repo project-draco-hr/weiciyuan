@@ -1,8 +1,12 @@
 {
   layout.avatar.checkVerified(msg.getUser());
   if (msg.getUser() != null) {
-    if (TextUtils.isEmpty(msg.getUser().getRemark()))     layout.username.setText(msg.getUser().getScreen_name());
- else     layout.username.setText(msg.getUser().getScreen_name() + "(" + msg.getUser().getRemark()+ ")");
+    if (TextUtils.isEmpty(msg.getUser().getRemark())) {
+      layout.username.setText(msg.getUser().getScreen_name());
+    }
+ else {
+      layout.username.setText(msg.getUser().getScreen_name() + "(" + msg.getUser().getRemark()+ ")");
+    }
     TimeLineBitmapDownloader.getInstance().downloadAvatar(layout.avatar.getImageView(),msg.getUser());
   }
   layout.content.setText(msg.getListViewSpannableString());

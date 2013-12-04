@@ -1,0 +1,17 @@
+{
+  if (TextUtils.isEmpty(url)) {
+    return false;
+  }
+ else {
+    boolean urlValide=url.startsWith("http://www.weibo.com/");
+    if (!urlValide) {
+      return false;
+    }
+    if (url.endsWith("/")) {
+      url=url.substring(0,url.length() - 1);
+    }
+    url=url.substring("http://www.weibo.com/".length(),url.length());
+    String[] result=url.split("/");
+    return result != null && result.length == 2;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  String url=URLHelper.MID_TO_ID;
+  Map<String,String> map=new HashMap<String,String>();
+  map.put("access_token",token);
+  map.put("mid",mid);
+  map.put("type","1");
+  map.put("isBase62","1");
+  String json=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,map);
+  try {
+    JSONObject jsonObject=new JSONObject(json);
+    return jsonObject.optString("id","0");
+  }
+ catch (  JSONException e) {
+    AppLogger.e(e.getMessage());
+  }
+  return "0";
+}

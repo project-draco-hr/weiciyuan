@@ -1,10 +1,6 @@
 {
-  if (getSupportFragmentManager().findFragmentByTag(BrowserWeiboMsgFragment.class.getName()) == null) {
-    getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new BrowserWeiboMsgFragment(msg),BrowserWeiboMsgFragment.class.getName()).commit();
-  }
+  setContentView(R.layout.browserweibomsgactivity_layout);
   getWindow().setBackgroundDrawable(getResources().getDrawable(R.color.transparent));
-  ActionBar actionBar=getActionBar();
-  actionBar.setDisplayShowHomeEnabled(false);
-  actionBar.setDisplayHomeAsUpEnabled(true);
-  actionBar.setTitle(getString(R.string.detail));
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setDisplayShowHomeEnabled(false);
 }

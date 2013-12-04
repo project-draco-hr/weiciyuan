@@ -1,13 +1,29 @@
 {
   super.onCreate(savedInstanceState);
+  initLayout();
   if (savedInstanceState != null) {
     msg=savedInstanceState.getParcelable("msg");
     token=savedInstanceState.getString("token");
+    if (msg != null) {
+      buildContent();
+    }
+ else {
+      msgId=getIntent().getStringExtra("weiboId");
+      fetchUserInfoFromServer();
+    }
   }
  else {
-    Intent intent=getIntent();
-    token=intent.getStringExtra("token");
-    msg=intent.getParcelableExtra("msg");
+    String action=getIntent().getAction();
+    if (ACTION_WITH_ID.equalsIgnoreCase(action)) {
+      token=getIntent().getStringExtra("token");
+      msgId=getIntent().getStringExtra("weiboId");
+      fetchUserInfoFromServer();
+    }
+ else {
+      Intent intent=getIntent();
+      token=intent.getStringExtra("token");
+      msg=intent.getParcelableExtra("msg");
+      buildContent();
+    }
   }
-  initLayout();
 }

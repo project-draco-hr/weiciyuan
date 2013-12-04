@@ -5,17 +5,21 @@
   pullToRefreshListView.setOnLastItemVisibleListener(new PullToRefreshBase.OnLastItemVisibleListener(){
     @Override public void onLastItemVisible(){
       if (isCommentList) {
-        if (msg.getComments_count() > 0 && commentList.getSize() > 0)         loadOldCommentData();
+        if (msg.getComments_count() > 0 && commentList.getSize() > 0) {
+          loadOldCommentData();
+        }
       }
  else {
-        if (msg.getReposts_count() > 0 && repostList.getSize() > 0)         loadOldRepostData();
+        if (msg.getReposts_count() > 0 && repostList.getSize() > 0) {
+          loadOldRepostData();
+        }
       }
     }
   }
 );
   pullToRefreshListView.setOnScrollListener(listViewOnScrollListener);
   listView=pullToRefreshListView.getRefreshableView();
-  View header=inflater.inflate(R.layout.browserweibomsgactivity_layout,listView,false);
+  View header=inflater.inflate(R.layout.browserweibomsgfragment_layout,listView,false);
   listView.addHeaderView(header);
   View switchView=inflater.inflate(R.layout.browserweibomsgfragment_switch_list_type_header,listView,false);
   listView.addHeaderView(switchView);

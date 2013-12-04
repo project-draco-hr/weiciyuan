@@ -1,7 +1,9 @@
 {
   super.onCreate(savedInstanceState);
   try {
-    if (hasGpsInfo())     MapsInitializer.initialize(getActivity());
+    if (hasGpsInfo()) {
+      MapsInitializer.initialize(getActivity());
+    }
   }
  catch (  GooglePlayServicesNotAvailableException impossible) {
   }

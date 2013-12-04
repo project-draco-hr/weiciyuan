@@ -7,7 +7,9 @@
         Intent intent=new Intent(getActivity(),AppMapActivity.class);
         intent.putExtra("lat",bean.getLat());
         intent.putExtra("lon",bean.getLon());
-        if (!String.valueOf(bean.getLat() + "," + bean.getLon()).equals(layout.location.getText()))         intent.putExtra("locationStr",layout.location.getText());
+        if (!String.valueOf(bean.getLat() + "," + bean.getLon()).equals(layout.location.getText())) {
+          intent.putExtra("locationStr",layout.location.getText());
+        }
         startActivity(intent);
       }
  else {

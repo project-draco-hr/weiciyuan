@@ -5,6 +5,8 @@
   }
   if (getListView() != null && getListView().getCheckedItemCount() > 0) {
     getListView().clearChoices();
-    if (adapter != null)     adapter.notifyDataSetChanged();
+    if (adapter != null) {
+      adapter.notifyDataSetChanged();
+    }
   }
 }

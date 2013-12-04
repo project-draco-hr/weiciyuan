@@ -7,6 +7,12 @@
     getActivity().finish();
     return true;
   }
+ else   if (Utility.isWeiboMid(url)) {
+    String mid=Utility.getMidFromUrl(url);
+    RedirectLinkToWeiboIdTask task=new RedirectLinkToWeiboIdTask(url,mid);
+    task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    return true;
+  }
  else {
     view.loadUrl(url);
     return true;

@@ -2,14 +2,18 @@
   super.onResume();
   sendCommentCompletedReceiver=new BroadcastReceiver(){
     @Override public void onReceive(    Context context,    Intent intent){
-      if (isCommentList)       loadNewCommentData();
+      if (isCommentList) {
+        loadNewCommentData();
+      }
     }
   }
 ;
   LocalBroadcastManager.getInstance(getActivity()).registerReceiver(sendCommentCompletedReceiver,new IntentFilter(AppEventAction.buildSendCommentOrReplySuccessfullyAction(msg)));
   sendRepostCompletedReceiver=new BroadcastReceiver(){
     @Override public void onReceive(    Context context,    Intent intent){
-      if (!isCommentList)       loadNewRepostData();
+      if (!isCommentList) {
+        loadNewRepostData();
+      }
     }
   }
 ;

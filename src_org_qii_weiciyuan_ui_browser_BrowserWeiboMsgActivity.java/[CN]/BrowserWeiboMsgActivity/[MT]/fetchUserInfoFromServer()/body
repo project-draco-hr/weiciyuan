@@ -1,0 +1,6 @@
+{
+  getActionBar().setTitle(getString(R.string.fetching_weibo_info));
+  FetchingDataDialog dialog=new FetchingDataDialog();
+  getSupportFragmentManager().beginTransaction().add(dialog,FetchingDataDialog.class.getName()).commit();
+  getSupportLoaderManager().initLoader(REFRESH_LOADER_ID,null,refreshCallback);
+}
