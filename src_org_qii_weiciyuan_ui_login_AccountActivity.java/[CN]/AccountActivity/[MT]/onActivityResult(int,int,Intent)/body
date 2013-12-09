@@ -1,7 +1,9 @@
 {
   if (requestCode == ADD_ACCOUNT_REQUEST_CODE && resultCode == RESULT_OK) {
     refresh();
-    if (data == null)     return;
+    if (data == null) {
+      return;
+    }
     String expires_time=data.getExtras().getString("expires_in");
     long expiresDays=TimeUnit.SECONDS.toDays(Long.valueOf(expires_time));
     String content=String.format(getString(R.string.token_expires_in_time),String.valueOf(expiresDays));

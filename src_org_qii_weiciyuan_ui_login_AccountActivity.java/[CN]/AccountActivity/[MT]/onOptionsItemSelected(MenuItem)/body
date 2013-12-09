@@ -17,9 +17,15 @@ case R.id.menu_add_account:
 new AlertDialog.Builder(this).setItems(values,new DialogInterface.OnClickListener(){
   @Override public void onClick(  DialogInterface dialog,  int which){
     Intent intent;
-    if (which == 0)     intent=new Intent(AccountActivity.this,OAuthActivity.class);
- else     if (which == 1)     intent=new Intent(AccountActivity.this,SSOActivity.class);
- else     intent=new Intent(AccountActivity.this,BlackMagicActivity.class);
+    if (which == 0) {
+      intent=new Intent(AccountActivity.this,OAuthActivity.class);
+    }
+ else     if (which == 1) {
+      intent=new Intent(AccountActivity.this,SSOActivity.class);
+    }
+ else {
+      intent=new Intent(AccountActivity.this,BlackMagicActivity.class);
+    }
     startActivityForResult(intent,ADD_ACCOUNT_REQUEST_CODE);
   }
 }

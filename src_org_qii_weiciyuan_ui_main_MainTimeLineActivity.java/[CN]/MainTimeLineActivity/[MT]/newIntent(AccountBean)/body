@@ -1,0 +1,5 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),MainTimeLineActivity.class);
+  intent.putExtra(BundleArgsConstants.ACCOUNT_EXTRA,accountBean);
+  return intent;
+}

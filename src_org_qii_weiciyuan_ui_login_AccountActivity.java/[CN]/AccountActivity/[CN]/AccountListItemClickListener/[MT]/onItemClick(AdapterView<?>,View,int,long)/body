@@ -1,6 +1,5 @@
 {
-  Intent intent=new Intent(AccountActivity.this,MainTimeLineActivity.class);
-  intent.putExtra("account",accountList.get(i));
+  Intent intent=MainTimeLineActivity.newIntent(accountList.get(i));
   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
   startActivity(intent);
   finish();

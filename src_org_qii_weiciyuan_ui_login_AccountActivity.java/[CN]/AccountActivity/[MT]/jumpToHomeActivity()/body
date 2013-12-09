@@ -8,8 +8,7 @@
       if (!TextUtils.isEmpty(id)) {
         AccountBean bean=AccountDBTask.getAccount(id);
         if (bean != null) {
-          Intent start=new Intent(AccountActivity.this,MainTimeLineActivity.class);
-          start.putExtra(BundleArgsConstants.ACCOUNT_EXTRA,bean);
+          Intent start=MainTimeLineActivity.newIntent(bean);
           startActivity(start);
           finish();
         }
