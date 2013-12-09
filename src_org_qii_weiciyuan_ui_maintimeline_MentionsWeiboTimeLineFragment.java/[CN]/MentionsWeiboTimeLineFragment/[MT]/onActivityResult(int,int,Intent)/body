@@ -1,5 +1,7 @@
 {
-  if (data == null)   return;
+  if (data == null) {
+    return;
+  }
   final MessageBean msg=(MessageBean)data.getParcelableExtra("msg");
   if (msg != null) {
     for (int i=0; i < getList().getSize(); i++) {

@@ -2,12 +2,18 @@
   if (!SettingUtility.getEnableAutoRefresh()) {
     return;
   }
-  if (!Utility.isTaskStopped(dbTask))   return;
-  if (!allowRefresh())   return;
+  if (!Utility.isTaskStopped(dbTask)) {
+    return;
+  }
+  if (!allowRefresh()) {
+    return;
+  }
   if (!Utility.isWifi(getActivity())) {
     return;
   }
-  if (isListViewFling() || !isVisible() || ((MainTimeLineActivity)getActivity()).getSlidingMenu().isMenuShowing())   return;
+  if (isListViewFling() || !isVisible() || ((MainTimeLineActivity)getActivity()).getSlidingMenu().isMenuShowing()) {
+    return;
+  }
   Bundle bundle=new Bundle();
   bundle.putBoolean(BundleArgsConstants.SCROLL_TO_TOP,false);
   bundle.putBoolean(BundleArgsConstants.AUTO_REFRESH,true);

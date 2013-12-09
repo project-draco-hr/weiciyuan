@@ -6,8 +6,12 @@
   weiboCount.setText(Utility.convertStateNumberToString(getActivity(),userBean.getStatuses_count()));
   TextPaint tp=nickname.getPaint();
   tp.setFakeBoldText(true);
-  if (TextUtils.isEmpty(userBean.getRemark()))   nickname.setText(userBean.getScreen_name());
- else   nickname.setText(userBean.getScreen_name() + "(" + userBean.getRemark()+ ")");
+  if (TextUtils.isEmpty(userBean.getRemark())) {
+    nickname.setText(userBean.getScreen_name());
+  }
+ else {
+    nickname.setText(userBean.getScreen_name() + "(" + userBean.getRemark()+ ")");
+  }
   avatar.checkVerified(userBean);
   if (!userBean.isVerified()) {
     rightPoint.setVisibility(View.GONE);

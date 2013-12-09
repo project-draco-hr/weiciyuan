@@ -1,0 +1,7 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),BrowserWeiboMsgActivity.class);
+  intent.putExtra("msg",msg);
+  intent.putExtra("token",token);
+  intent.setAction(ACTION_WITH_DETAIL);
+  return intent;
+}

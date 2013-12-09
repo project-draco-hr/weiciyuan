@@ -1,6 +1,8 @@
 {
   super.onProgressUpdate(result);
-  if (getActivity() == null)   return;
+  if (getActivity() == null) {
+    return;
+  }
   if (result != null && result.length > 0) {
     MessageTimeLineData recentData=result[0];
     getList().replaceData(recentData.msgList);
@@ -11,7 +13,9 @@
   getPullToRefreshListView().setVisibility(View.VISIBLE);
   getAdapter().notifyDataSetChanged();
   setListViewPositionFromPositionsCache();
-  if (getActivity().getActionBar().getNavigationMode() == ActionBar.NAVIGATION_MODE_LIST)   getActivity().getActionBar().setSelectedNavigationItem(getRecentNavIndex());
+  if (getActivity().getActionBar().getNavigationMode() == ActionBar.NAVIGATION_MODE_LIST) {
+    getActivity().getActionBar().setSelectedNavigationItem(getRecentNavIndex());
+  }
   refreshLayout(getList());
   if (getList().getSize() == 0) {
     getPullToRefreshListView().setRefreshing();

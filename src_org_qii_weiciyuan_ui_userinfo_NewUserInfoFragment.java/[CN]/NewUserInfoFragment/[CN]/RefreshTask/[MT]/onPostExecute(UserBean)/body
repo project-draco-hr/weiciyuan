@@ -1,5 +1,7 @@
 {
-  if (o == null || getActivity() == null)   return;
+  if (o == null || getActivity() == null) {
+    return;
+  }
   setValue();
   if (getActivity() instanceof UserInfoActivity) {
     ((UserInfoActivity)getActivity()).setUser(o);

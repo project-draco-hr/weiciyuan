@@ -19,11 +19,14 @@
       msgId=getIntent().getStringExtra("weiboId");
       fetchUserInfoFromServer();
     }
- else {
+ else     if (ACTION_WITH_DETAIL.equalsIgnoreCase(action)) {
       Intent intent=getIntent();
       token=intent.getStringExtra("token");
       msg=intent.getParcelableExtra("msg");
       buildContent();
+    }
+ else {
+      throw new IllegalArgumentException("activity intent action must be " + ACTION_WITH_DETAIL + " or "+ ACTION_WITH_ID);
     }
   }
 }

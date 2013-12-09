@@ -1,6 +1,12 @@
 {
   super.onPostExecute(aBoolean);
-  if (getActivity() == null)   return;
-  if (aBoolean)   Toast.makeText(getActivity(),getString(R.string.unfollow_topic_successfully),Toast.LENGTH_SHORT).show();
- else   Toast.makeText(getActivity(),getString(R.string.unfollow_topic_failed),Toast.LENGTH_SHORT).show();
+  if (getActivity() == null) {
+    return;
+  }
+  if (aBoolean) {
+    Toast.makeText(getActivity(),getString(R.string.unfollow_topic_successfully),Toast.LENGTH_SHORT).show();
+  }
+ else {
+    Toast.makeText(getActivity(),getString(R.string.unfollow_topic_failed),Toast.LENGTH_SHORT).show();
+  }
 }

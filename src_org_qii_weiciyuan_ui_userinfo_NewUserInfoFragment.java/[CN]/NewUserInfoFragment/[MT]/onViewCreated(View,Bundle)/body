@@ -16,7 +16,9 @@ case MotionEvent.ACTION_UP:
   rawX=0f;
 return false;
 case MotionEvent.ACTION_MOVE:
-if (Math.abs(rawX - event.getRawX()) > ViewConfiguration.get(getActivity()).getScaledTouchSlop()) viewPager.getParent().requestDisallowInterceptTouchEvent(true);
+if (Math.abs(rawX - event.getRawX()) > ViewConfiguration.get(getActivity()).getScaledTouchSlop()) {
+viewPager.getParent().requestDisallowInterceptTouchEvent(true);
+}
 break;
 }
 return false;

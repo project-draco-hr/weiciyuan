@@ -1,6 +1,10 @@
 {
   TimeLinePosition p=positionCache.get(currentGroupId);
-  if (p != null)   getListView().setSelectionFromTop(p.position + 1,p.top);
- else   getListView().setSelectionFromTop(0,0);
+  if (p != null) {
+    getListView().setSelectionFromTop(p.position + 1,p.top);
+  }
+ else {
+    getListView().setSelectionFromTop(0,0);
+  }
   setListViewUnreadTipBar(p);
 }

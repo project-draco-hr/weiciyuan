@@ -1,7 +1,7 @@
 {
-  Intent intent=new Intent(activity,BrowserWeiboMsgActivity.class);
+  Intent intent=new Intent(GlobalContext.getInstance(),BrowserWeiboMsgActivity.class);
   intent.putExtra("weiboId",weiboId);
   intent.putExtra("token",token);
   intent.setAction(ACTION_WITH_ID);
-  activity.startActivity(intent);
+  return intent;
 }

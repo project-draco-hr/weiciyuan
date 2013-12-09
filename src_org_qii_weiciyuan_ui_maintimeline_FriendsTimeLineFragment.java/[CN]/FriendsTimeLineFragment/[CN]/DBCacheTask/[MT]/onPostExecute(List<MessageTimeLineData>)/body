@@ -1,6 +1,8 @@
 {
   super.onPostExecute(result);
-  if (getActivity() == null)   return;
+  if (getActivity() == null) {
+    return;
+  }
   if (result != null) {
     for (    MessageTimeLineData single : result) {
       putToGroupDataMemoryCache(single.groupId,single.msgList);

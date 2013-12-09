@@ -7,10 +7,7 @@
         public void onInfoWindowClick(        Marker marker){
           MessageBean msg=bindEvent.get(marker);
           if (msg != null) {
-            Intent intent=new Intent(NearbyTimeLineActivity.this,BrowserWeiboMsgActivity.class);
-            intent.putExtra("msg",msg);
-            intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-            startActivityForResult(intent,0);
+            startActivityForResult(BrowserWeiboMsgActivity.newIntent(msg,GlobalContext.getInstance().getSpecialToken()),0);
           }
         }
       }

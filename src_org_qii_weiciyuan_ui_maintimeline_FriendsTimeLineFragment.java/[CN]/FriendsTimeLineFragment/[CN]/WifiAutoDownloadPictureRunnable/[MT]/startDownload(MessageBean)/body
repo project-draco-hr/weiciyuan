@@ -1,7 +1,9 @@
 {
   if (!msg.isMultiPics()) {
     String url=msg.getOriginal_pic();
-    if (!TextUtils.isEmpty(url))     downloadPic(url);
+    if (!TextUtils.isEmpty(url)) {
+      downloadPic(url);
+    }
   }
  else {
     ArrayList<String> urls=msg.getHighPicUrls();
@@ -13,7 +15,9 @@
   if (reTweetedMsg != null) {
     if (!reTweetedMsg.isMultiPics()) {
       String url=reTweetedMsg.getOriginal_pic();
-      if (!TextUtils.isEmpty(url))       downloadPic(url);
+      if (!TextUtils.isEmpty(url)) {
+        downloadPic(url);
+      }
     }
  else {
       ArrayList<String> urls=reTweetedMsg.getHighPicUrls();

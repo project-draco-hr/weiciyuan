@@ -1,7 +1,7 @@
 {
   super.onPostExecute(id);
   if (Long.valueOf(id) > 0L) {
-    BrowserWeiboMsgActivity.startActivityWithWeiboId(getActivity(),id,GlobalContext.getInstance().getSpecialToken());
+    startActivity(BrowserWeiboMsgActivity.newIntent(id,GlobalContext.getInstance().getSpecialToken()));
     getActivity().finish();
   }
  else {

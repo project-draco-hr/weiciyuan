@@ -10,14 +10,11 @@
       Intent intent;
 switch (which) {
 case 0:
-        intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
-      intent.putExtra("msg",bean.getStatus());
-    intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-  startActivity(intent);
-break;
+        startActivity(BrowserWeiboMsgActivity.newIntent(bean.getStatus(),GlobalContext.getInstance().getSpecialToken()));
+      break;
 case 1:
-intent=new Intent(getActivity(),WriteReplyToCommentActivity.class);
-intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+    intent=new Intent(getActivity(),WriteReplyToCommentActivity.class);
+  intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
 intent.putExtra("msg",bean);
 getActivity().startActivity(intent);
 break;

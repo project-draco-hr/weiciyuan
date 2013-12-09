@@ -1,6 +1,3 @@
 {
-  Intent intent=new Intent(getActivity(),BrowserWeiboMsgActivity.class);
-  intent.putExtra("msg",getList().getItemList().get(position));
-  intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-  startActivityForResult(intent,0);
+  startActivityForResult(BrowserWeiboMsgActivity.newIntent(getList().getItemList().get(position),GlobalContext.getInstance().getSpecialToken()),0);
 }

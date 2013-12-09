@@ -2,7 +2,9 @@
   if (!isMyself() || !isOpenedFromMainPage()) {
     return;
   }
-  if (finishedWatcher == null)   return;
+  if (finishedWatcher == null) {
+    return;
+  }
   finishedWatcher.getAndDecrement();
   if (finishedWatcher.get() == 0) {
     stopRefreshMenuAnimation();

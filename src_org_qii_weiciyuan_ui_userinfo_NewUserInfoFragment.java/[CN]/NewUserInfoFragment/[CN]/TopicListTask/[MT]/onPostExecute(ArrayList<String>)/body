@@ -1,7 +1,9 @@
 {
   super.onPostExecute(result);
   stopRefreshMenuAnimationIfPossible();
-  if (isCancelled())   return;
+  if (isCancelled()) {
+    return;
+  }
   if (result == null || result.size() == 0) {
     return;
   }

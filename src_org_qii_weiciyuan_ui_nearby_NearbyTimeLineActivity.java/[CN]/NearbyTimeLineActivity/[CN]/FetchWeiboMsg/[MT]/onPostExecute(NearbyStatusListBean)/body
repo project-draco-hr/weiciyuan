@@ -4,7 +4,9 @@
     refresh.getActionView().clearAnimation();
     refresh.setActionView(null);
   }
-  if (nearbyStatusListBean == null)   return;
+  if (nearbyStatusListBean == null) {
+    return;
+  }
   List<MessageBean> messageBeanList=nearbyStatusListBean.getItemList();
   for (  MessageBean msg : messageBeanList) {
     GeoBean g=msg.getGeo();
