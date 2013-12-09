@@ -4,9 +4,10 @@ switch (item.getItemId()) {
 case android.R.id.home:
     saveToDraft();
   InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-if (imm.isActive()) imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,InputMethodManager.HIDE_NOT_ALWAYS);
-intent=new Intent(this,MainTimeLineActivity.class);
-intent.putExtra("account",getAccount());
+if (imm.isActive()) {
+  imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,InputMethodManager.HIDE_NOT_ALWAYS);
+}
+intent=MainTimeLineActivity.newIntent(getAccount());
 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 startActivity(intent);
 break;
@@ -32,7 +33,9 @@ addLocation();
 break;
 case R.id.menu_add_now_playing:
 MusicInfo musicInfo=GlobalContext.getInstance().getMusicInfo();
-if (!musicInfo.isEmpty()) content.append(musicInfo.toString());
+if (!musicInfo.isEmpty()) {
+content.append(musicInfo.toString());
+}
 break;
 }
 return true;

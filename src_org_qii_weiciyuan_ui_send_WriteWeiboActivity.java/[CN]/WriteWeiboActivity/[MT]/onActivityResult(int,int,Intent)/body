@@ -30,7 +30,9 @@ content.setSelection(index + name.length());
 break;
 case BROWSER_PIC:
 boolean deleted=intent.getBooleanExtra("deleted",false);
-if (deleted) deletePicture();
+if (deleted) {
+deletePicture();
+}
 break;
 }
 }

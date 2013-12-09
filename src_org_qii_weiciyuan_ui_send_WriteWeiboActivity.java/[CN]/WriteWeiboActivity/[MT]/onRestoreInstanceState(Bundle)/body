@@ -2,11 +2,17 @@
   super.onRestoreInstanceState(savedInstanceState);
   if (savedInstanceState != null) {
     picPath=savedInstanceState.getString("picPath");
-    if (!TextUtils.isEmpty(picPath))     enablePicture();
+    if (!TextUtils.isEmpty(picPath)) {
+      enablePicture();
+    }
     geoBean=(GeoBean)savedInstanceState.getParcelable("geoBean");
     location=savedInstanceState.getString("location");
-    if (geoBean != null && !TextUtils.isEmpty(location))     enableGeo();
- else     disableGeo();
+    if (geoBean != null && !TextUtils.isEmpty(location)) {
+      enableGeo();
+    }
+ else {
+      disableGeo();
+    }
     imageFileUri=savedInstanceState.getParcelable("imageFileUri");
     statusDraftBean=(StatusDraftBean)savedInstanceState.getParcelable("statusDraftBean");
     accountBean=(AccountBean)savedInstanceState.getParcelable("accountBean");

@@ -10,7 +10,9 @@
     BroadcastReceiver receiver=new BroadcastReceiver(){
       @Override public void onReceive(      Context context,      Intent intent){
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(this);
-        if (currentIndex == DM_INDEX)         showDMPageImp();
+        if (currentIndex == DM_INDEX) {
+          showDMPageImp();
+        }
       }
     }
 ;

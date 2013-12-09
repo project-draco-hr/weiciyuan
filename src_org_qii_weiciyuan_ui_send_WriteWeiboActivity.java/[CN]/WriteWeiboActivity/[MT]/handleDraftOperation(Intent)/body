@@ -7,7 +7,9 @@
     content.setText(statusDraftBean.getContent());
     picPath=statusDraftBean.getPic();
     geoBean=statusDraftBean.getGps();
-    if (!TextUtils.isEmpty(picPath))     enablePicture();
+    if (!TextUtils.isEmpty(picPath)) {
+      enablePicture();
+    }
     if (geoBean != null) {
       if (Utility.isTaskStopped(locationTask)) {
         locationTask=new GetGoogleLocationInfo(geoBean);

@@ -4,8 +4,12 @@ case R.id.menu_add_gps:
     addLocation();
   break;
 case R.id.menu_add_pic:
-if (TextUtils.isEmpty(picPath)) addPic();
- else showPic();
+if (TextUtils.isEmpty(picPath)) {
+  addPic();
+}
+ else {
+  showPic();
+}
 break;
 case R.id.menu_emoticon:
 if (smiley.isShown()) {

@@ -10,7 +10,9 @@
     BroadcastReceiver receiver=new BroadcastReceiver(){
       @Override public void onReceive(      Context context,      Intent intent){
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(this);
-        if (currentIndex == COMMENTS_INDEX)         showCommentPageImp();
+        if (currentIndex == COMMENTS_INDEX) {
+          showCommentPageImp();
+        }
       }
     }
 ;

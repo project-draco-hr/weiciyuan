@@ -10,7 +10,9 @@
     BroadcastReceiver receiver=new BroadcastReceiver(){
       @Override public void onReceive(      Context context,      Intent intent){
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(this);
-        if (currentIndex == FAV_INDEX)         showFavPageImp();
+        if (currentIndex == FAV_INDEX) {
+          showFavPageImp();
+        }
       }
     }
 ;
