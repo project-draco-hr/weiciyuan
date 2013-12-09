@@ -1,6 +1,8 @@
 {
   super.onPostExecute(result);
-  if (result != null)   getList().addNewData(result);
+  if (result != null) {
+    getList().addNewData(result);
+  }
   getPullToRefreshListView().setVisibility(View.VISIBLE);
   getAdapter().notifyDataSetChanged();
   refreshLayout(getList());

@@ -1,0 +1,5 @@
+{
+  DMUserListFragment fragment=new DMUserListFragment();
+  fragment.setArguments(new Bundle());
+  return fragment;
+}

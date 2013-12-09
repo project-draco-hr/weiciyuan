@@ -1,9 +1,13 @@
 {
   super.onResume();
   Intent intent=getActivity().getIntent();
-  if (intent == null)   return;
+  if (intent == null) {
+    return;
+  }
   UnreadTabIndex unreadTabIndex=(UnreadTabIndex)intent.getSerializableExtra(BundleArgsConstants.OPEN_NAVIGATION_INDEX_EXTRA);
-  if (unreadTabIndex == null)   return;
+  if (unreadTabIndex == null) {
+    return;
+  }
 switch (unreadTabIndex) {
 case MENTION_WEIBO:
     ((MainTimeLineActivity)getActivity()).getMenuFragment().switchCategory(LeftMenuFragment.MENTIONS_INDEX);

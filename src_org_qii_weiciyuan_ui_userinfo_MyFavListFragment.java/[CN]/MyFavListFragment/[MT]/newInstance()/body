@@ -1,0 +1,5 @@
+{
+  MyFavListFragment fragment=new MyFavListFragment();
+  fragment.setArguments(new Bundle());
+  return fragment;
+}

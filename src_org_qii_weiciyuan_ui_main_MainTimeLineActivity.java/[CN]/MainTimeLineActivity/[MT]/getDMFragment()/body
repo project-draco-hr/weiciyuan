@@ -1,8 +1,7 @@
 {
   DMUserListFragment fragment=((DMUserListFragment)getSupportFragmentManager().findFragmentByTag(DMUserListFragment.class.getName()));
   if (fragment == null) {
-    fragment=new DMUserListFragment();
-    fragment.setArguments(new Bundle());
+    fragment=DMUserListFragment.newInstance();
   }
   return fragment;
 }

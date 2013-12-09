@@ -1,5 +1,7 @@
 {
   CommentsByMeTimeLineFragment fragment=((CommentsByMeTimeLineFragment)getChildFragmentManager().findFragmentByTag(CommentsByMeTimeLineFragment.class.getName()));
-  if (fragment == null)   fragment=new CommentsByMeTimeLineFragment(GlobalContext.getInstance().getAccountBean(),GlobalContext.getInstance().getAccountBean().getInfo(),GlobalContext.getInstance().getSpecialToken());
+  if (fragment == null) {
+    fragment=new CommentsByMeTimeLineFragment(GlobalContext.getInstance().getAccountBean(),GlobalContext.getInstance().getAccountBean().getInfo(),GlobalContext.getInstance().getSpecialToken());
+  }
   return fragment;
 }

@@ -1,8 +1,7 @@
 {
   SearchMainParentFragment fragment=((SearchMainParentFragment)getSupportFragmentManager().findFragmentByTag(SearchMainParentFragment.class.getName()));
   if (fragment == null) {
-    fragment=new SearchMainParentFragment();
-    fragment.setArguments(new Bundle());
+    fragment=SearchMainParentFragment.newInstance();
   }
   return fragment;
 }

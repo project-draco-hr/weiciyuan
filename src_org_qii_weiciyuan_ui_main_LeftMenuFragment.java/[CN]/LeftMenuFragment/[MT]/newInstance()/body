@@ -1,0 +1,5 @@
+{
+  LeftMenuFragment fragment=new LeftMenuFragment();
+  fragment.setArguments(new Bundle());
+  return fragment;
+}

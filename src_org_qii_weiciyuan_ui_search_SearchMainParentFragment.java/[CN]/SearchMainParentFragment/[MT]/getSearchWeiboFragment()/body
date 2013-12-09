@@ -1,5 +1,7 @@
 {
   SearchStatusFragment fragment=((SearchStatusFragment)getChildFragmentManager().findFragmentByTag(SearchStatusFragment.class.getName()));
-  if (fragment == null)   fragment=new SearchStatusFragment();
+  if (fragment == null) {
+    fragment=new SearchStatusFragment();
+  }
   return fragment;
 }

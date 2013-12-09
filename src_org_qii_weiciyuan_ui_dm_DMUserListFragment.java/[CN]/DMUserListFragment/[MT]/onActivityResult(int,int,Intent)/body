@@ -1,6 +1,8 @@
 {
   super.onActivityResult(requestCode,resultCode,data);
-  if (data == null)   return;
+  if (data == null) {
+    return;
+  }
   Intent intent=new Intent(getActivity(),DMActivity.class);
   intent.putExtra("user",data.getParcelableExtra("user"));
   startActivity(intent);

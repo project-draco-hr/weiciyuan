@@ -3,9 +3,13 @@
   if (!hidden) {
     int searchTabIndex=getArguments().getInt("searchTabIndex");
     buildActionBarAndViewPagerTitles(searchTabIndex);
-    if (searchView != null)     SmileyPickerUtility.showKeyBoard(searchView);
+    if (searchView != null) {
+      SmileyPickerUtility.showKeyBoard(searchView);
+    }
   }
  else {
-    if (searchView != null)     SmileyPickerUtility.hideSoftInput(searchView);
+    if (searchView != null) {
+      SmileyPickerUtility.hideSoftInput(searchView);
+    }
   }
 }
