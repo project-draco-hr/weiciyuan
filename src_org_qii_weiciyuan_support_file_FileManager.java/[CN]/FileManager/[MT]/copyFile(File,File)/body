@@ -12,7 +12,11 @@
     outBuff.flush();
   }
   finally {
-    if (inBuff != null)     inBuff.close();
-    if (outBuff != null)     outBuff.close();
+    if (inBuff != null) {
+      inBuff.close();
+    }
+    if (outBuff != null) {
+      outBuff.close();
+    }
   }
 }

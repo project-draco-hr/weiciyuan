@@ -2,4 +2,5 @@
   super.onDestroy();
   webView.loadUrl("about:blank");
   webView.stopLoading();
+  webView.clearCache(true);
 }

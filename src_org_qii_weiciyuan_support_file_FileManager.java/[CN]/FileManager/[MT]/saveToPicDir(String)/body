@@ -1,5 +1,7 @@
 {
-  if (!isExternalStorageMounted())   return false;
+  if (!isExternalStorageMounted()) {
+    return false;
+  }
   File file=new File(path);
   String name=file.getName();
   String newPath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath() + File.separator + name;

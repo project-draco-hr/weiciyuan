@@ -1,7 +1,9 @@
 {
   if (isExternalStorageMounted()) {
     File path=GlobalContext.getInstance().getExternalCacheDir();
-    if (path != null)     return path.getAbsolutePath();
+    if (path != null) {
+      return path.getAbsolutePath();
+    }
  else {
       if (!cantReadBecauseOfAndroidBugPermissionProblem) {
         cantReadBecauseOfAndroidBugPermissionProblem=true;

@@ -1,0 +1,13 @@
+{
+  super.onPostExecute(s);
+  if (getActivity() == null) {
+    return;
+  }
+  getFragmentManager().beginTransaction().remove(ConvertKKUriToPathFragment.this).commitAllowingStateLoss();
+  if (TextUtils.isEmpty(s)) {
+    Toast.makeText(getActivity(),getString(R.string.fetch_picture_from_other_apps_failed),Toast.LENGTH_SHORT).show();
+    return;
+  }
+  WriteWeiboActivity activity=(WriteWeiboActivity)getActivity();
+  activity.picConvertSucceedKK(s);
+}

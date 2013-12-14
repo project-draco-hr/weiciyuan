@@ -1,0 +1,8 @@
+{
+  ConvertKKUriToPathFragment fragment=new ConvertKKUriToPathFragment();
+  Bundle bundle=new Bundle();
+  bundle.putParcelable("uri",uri);
+  fragment.setArguments(bundle);
+  fragment.setRetainInstance(true);
+  return fragment;
+}

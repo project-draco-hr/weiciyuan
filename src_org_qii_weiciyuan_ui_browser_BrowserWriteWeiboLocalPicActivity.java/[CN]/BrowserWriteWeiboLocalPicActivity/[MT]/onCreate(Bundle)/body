@@ -11,6 +11,7 @@
   webView.getSettings().setLoadWithOverviewMode(true);
   webView.getSettings().setBuiltInZoomControls(true);
   webView.getSettings().setDisplayZoomControls(false);
+  webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
   webView.setVerticalScrollBarEnabled(false);
   webView.setHorizontalScrollBarEnabled(false);
   path=getIntent().getStringExtra("path");

@@ -3,6 +3,6 @@
     return "";
   }
  else {
-    return getSdCardPath() + File.separator + "upload.jpg";
+    return getSdCardPath() + File.separator + "kk_convert.jpg";
   }
 }

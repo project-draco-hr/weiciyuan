@@ -15,9 +15,12 @@ if (TextUtils.isEmpty(content.getText().toString())) {
 content.setText(getString(R.string.share_pic));
 content.setSelection(content.getText().toString().length());
 }
-Uri imageFileUri=intent.getData();
-picPath=Utility.getPicPathFromUri(imageFileUri,this);
+picPath=Utility.getPicPathFromUri(intent.getData(),this);
 enablePicture();
+break;
+case PIC_RESULT_KK:
+ConvertKKUriToPathFragment fragment=ConvertKKUriToPathFragment.newInstance(intent.getData());
+getSupportFragmentManager().beginTransaction().add(fragment,"").commit();
 break;
 case AT_USER:
 String name=intent.getStringExtra("name");

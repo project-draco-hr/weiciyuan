@@ -1,0 +1,26 @@
+{
+  try {
+    InputStream inputStream=mContentResolver.openInputStream(uri);
+    String path=FileManager.getKKConvertPicTempFile();
+    if (TextUtils.isEmpty(path)) {
+      return null;
+    }
+    File file=new File(path);
+    file.getParentFile().mkdirs();
+    if (file.exists() || file.length() > 0) {
+      file.delete();
+    }
+    file.createNewFile();
+    Utility.copyFile(inputStream,file);
+    if (ImageUtility.isThisBitmapCanRead(path)) {
+      return path;
+    }
+  }
+ catch (  FileNotFoundException e) {
+    e.printStackTrace();
+  }
+catch (  IOException e) {
+    e.printStackTrace();
+  }
+  return null;
+}

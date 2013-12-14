@@ -1,0 +1,7 @@
+{
+  super.onActivityCreated(savedInstanceState);
+  if (task == null) {
+    task=new ConvertTask((Uri)getArguments().getParcelable("uri"));
+    task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+}

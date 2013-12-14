@@ -1,0 +1,12 @@
+{
+  BufferedInputStream bufferedInputStream=new BufferedInputStream(in);
+  FileOutputStream outputStream=new FileOutputStream(destFile);
+  BufferedOutputStream bufferedOutputStream=new BufferedOutputStream(outputStream);
+  byte[] buffer=new byte[1024];
+  int len;
+  while ((len=bufferedInputStream.read(buffer)) != -1) {
+    bufferedOutputStream.write(buffer,0,len);
+  }
+  closeSilently(bufferedInputStream);
+  closeSilently(bufferedOutputStream);
+}

@@ -30,8 +30,16 @@ Toast.makeText(WriteWeiboActivity.this,getString(R.string.cant_insert_album),Toa
 }
 break;
 case 2:
+if (Utility.isKK()) {
+Intent intent=new Intent(Intent.ACTION_OPEN_DOCUMENT);
+intent.addCategory(Intent.CATEGORY_OPENABLE);
+intent.setType("image/*");
+startActivityForResult(intent,PIC_RESULT_KK);
+}
+ else {
 Intent choosePictureIntent=new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 startActivityForResult(choosePictureIntent,PIC_RESULT);
+}
 break;
 }
 }
