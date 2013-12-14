@@ -1,0 +1,19 @@
+{
+  Preference debugPreferenceCategory=(PreferenceCategory)findPreference(DEBUG_INFO);
+  Preference debugPreference=findPreference(SettingActivity.DEBUG_MEM_INFO);
+  if (SettingUtility.isBlackMagicEnabled()) {
+    Runtime rt=Runtime.getRuntime();
+    long vmAlloc=rt.totalMemory() - rt.freeMemory();
+    long nativeAlloc=Debug.getNativeHeapAllocatedSize();
+    String vmAllocStr="VM Allocated " + formatMemoryText(vmAlloc);
+    String nativeAllocStr="Native Allocated " + formatMemoryText(nativeAlloc);
+    ActivityManager am=(ActivityManager)getActivity().getSystemService(Context.ACTIVITY_SERVICE);
+    int memoryClass=am.getMemoryClass();
+    String result="VM Max " + Integer.toString(memoryClass) + "MB";
+    debugPreference.setSummary(vmAllocStr + "," + nativeAllocStr+ ","+ result);
+  }
+ else {
+    PreferenceScreen screen=getPreferenceScreen();
+    screen.removePreference(debugPreferenceCategory);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  SettingHelper.setEditor(getContext(),BLACK_MAGIC,true);
+}

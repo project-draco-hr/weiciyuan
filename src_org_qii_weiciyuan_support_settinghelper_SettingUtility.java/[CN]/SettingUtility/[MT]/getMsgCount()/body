@@ -7,8 +7,12 @@ case 2:
   return String.valueOf(AppConfig.DEFAULT_MSG_COUNT_50);
 case 3:
 if (Utility.isConnected(getContext())) {
-  if (Utility.isWifi(getContext()))   return String.valueOf(AppConfig.DEFAULT_MSG_COUNT_50);
- else   return String.valueOf(AppConfig.DEFAULT_MSG_COUNT_25);
+  if (Utility.isWifi(getContext())) {
+    return String.valueOf(AppConfig.DEFAULT_MSG_COUNT_50);
+  }
+ else {
+    return String.valueOf(AppConfig.DEFAULT_MSG_COUNT_25);
+  }
 }
 }
 return String.valueOf(AppConfig.DEFAULT_MSG_COUNT_25);

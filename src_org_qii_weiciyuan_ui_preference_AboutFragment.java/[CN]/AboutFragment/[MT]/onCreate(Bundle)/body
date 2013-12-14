@@ -33,19 +33,13 @@
     }
   }
 );
-  if (getResources().getBoolean(R.bool.blackmagic)) {
-    Runtime rt=Runtime.getRuntime();
-    long vmAlloc=rt.totalMemory() - rt.freeMemory();
-    long nativeAlloc=Debug.getNativeHeapAllocatedSize();
-    String vmAllocStr="VM Allocated " + formatMemoryText(vmAlloc);
-    String nativeAllocStr="Native Allocated " + formatMemoryText(nativeAlloc);
-    ActivityManager am=(ActivityManager)getActivity().getSystemService(Context.ACTIVITY_SERVICE);
-    int memoryClass=am.getMemoryClass();
-    String result="VM Max " + Integer.toString(memoryClass) + "MB";
-    findPreference(SettingActivity.DEBUG_MEM_INFO).setSummary(vmAllocStr + "," + nativeAllocStr+ ","+ result);
-  }
+  detectDebugPreference();
   findPreference(SettingActivity.AUTHOR).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
+      blackMagicCount++;
+      if (blackMagicCount > 3) {
+        SettingUtility.setBlackMagicEnabled();
+      }
       if (mp != null && mp.isPlaying()) {
         mp.stop();
         playing=false;
