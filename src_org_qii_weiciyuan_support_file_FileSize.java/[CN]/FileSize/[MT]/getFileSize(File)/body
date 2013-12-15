@@ -1,17 +1,16 @@
 {
-  File[] fileArray=file.listFiles();
-  if (fileArray != null && fileArray.length != 0) {
-    for (int i=0; i < fileArray.length; i++) {
-      File fileSI=fileArray[i];
-      if (fileSI.isDirectory()) {
-        getFileSize(fileSI);
-      }
-      if (fileSI.isFile()) {
-        this.longSize+=fileSI.length();
-      }
-    }
+  if (file == null || !file.exists()) {
+    return;
   }
- else {
-    this.longSize=0;
+  if (file.isFile()) {
+    this.longSize+=file.length();
+    return;
+  }
+  File[] childArray=file.listFiles();
+  if (childArray == null || childArray.length == 0) {
+    return;
+  }
+  for (  File child : childArray) {
+    getFileSize(child);
   }
 }
