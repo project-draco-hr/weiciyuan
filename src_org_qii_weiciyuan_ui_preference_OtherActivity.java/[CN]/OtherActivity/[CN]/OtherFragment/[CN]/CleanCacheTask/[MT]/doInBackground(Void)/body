@@ -1,0 +1,4 @@
+{
+  FileManager.deletePictureCache();
+  return null;
+}

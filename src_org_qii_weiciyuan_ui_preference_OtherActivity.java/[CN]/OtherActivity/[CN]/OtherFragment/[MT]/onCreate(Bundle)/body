@@ -2,4 +2,12 @@
   super.onCreate(savedInstanceState);
   setRetainInstance(false);
   addPreferencesFromResource(R.xml.other_pref);
+  new CalcCacheSize(findPreference(SettingActivity.CLICK_TO_CLEAN_CACHE)).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  findPreference(SettingActivity.CLICK_TO_CLEAN_CACHE).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
+    @Override public boolean onPreferenceClick(    Preference preference){
+      new CleanCacheTask(findPreference(SettingActivity.CLICK_TO_CLEAN_CACHE)).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      return true;
+    }
+  }
+);
 }

@@ -1,0 +1,7 @@
+{
+  super.onPostExecute(s);
+  if (getActivity() == null) {
+    return;
+  }
+  preference.setSummary(s);
+}
