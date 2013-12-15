@@ -1,0 +1,6 @@
+{
+  if (!TextUtils.isEmpty(url) && url.startsWith("http://weibo.cn")) {
+    url=url.replace("http://weibo.cn","http://weibo.com");
+  }
+  return url;
+}

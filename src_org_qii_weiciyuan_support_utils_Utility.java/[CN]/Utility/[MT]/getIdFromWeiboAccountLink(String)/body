@@ -1,4 +1,5 @@
 {
+  url=convertWeiboCnToWeiboCom(url);
   String id=url.substring("http://weibo.com/u/".length());
   id=id.replace("/","");
   return id;

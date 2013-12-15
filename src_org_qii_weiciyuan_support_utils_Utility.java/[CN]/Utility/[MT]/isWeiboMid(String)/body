@@ -3,6 +3,7 @@
     return false;
   }
  else {
+    url=convertWeiboCnToWeiboCom(url);
     boolean urlValide=url.startsWith("http://www.weibo.com/");
     if (!urlValide) {
       return false;

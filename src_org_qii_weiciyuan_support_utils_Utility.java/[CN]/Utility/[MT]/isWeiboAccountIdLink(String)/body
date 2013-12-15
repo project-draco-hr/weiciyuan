@@ -1,3 +1,4 @@
 {
+  url=convertWeiboCnToWeiboCom(url);
   return !TextUtils.isEmpty(url) && url.startsWith("http://weibo.com/u/");
 }

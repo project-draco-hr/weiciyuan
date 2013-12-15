@@ -3,6 +3,7 @@
     return false;
   }
  else {
+    url=convertWeiboCnToWeiboCom(url);
     boolean a=url.startsWith("http://weibo.com/") || url.startsWith("http://e.weibo.com/");
     boolean b=!url.contains("?");
     String tmp=url;

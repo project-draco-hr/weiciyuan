@@ -1,4 +1,5 @@
 {
+  url=convertWeiboCnToWeiboCom(url);
   final String NORMAL_DOMAIN_PREFIX="http://weibo.com/";
   final String ENTERPRISE_DOMAIN_PREFIX="http://e.weibo.com/";
   if (TextUtils.isEmpty(url)) {
