@@ -21,6 +21,7 @@
   userListAdapter=new UserListAdapter(AbstractUserListFragment.this,bean.getUsers(),getListView());
   pullToRefreshListView.setAdapter(userListAdapter);
   pullToRefreshListView.setOnPullEventListener(getPullEventListener());
+  pullToRefreshListView.getRefreshableView().setFooterDividersEnabled(false);
   pullToRefreshListView.setOnScrollListener(new AbsListView.OnScrollListener(){
     @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
 switch (scrollState) {
