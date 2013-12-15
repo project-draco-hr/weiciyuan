@@ -7,7 +7,9 @@
   }
   if (pullToRefreshListView != null && getListView().getCheckedItemCount() > 0) {
     getListView().clearChoices();
-    if (getAdapter() != null)     getAdapter().notifyDataSetChanged();
+    if (getAdapter() != null) {
+      getAdapter().notifyDataSetChanged();
+    }
   }
   return flag;
 }

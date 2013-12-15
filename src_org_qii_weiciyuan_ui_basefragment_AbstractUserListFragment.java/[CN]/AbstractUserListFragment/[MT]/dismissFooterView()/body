@@ -1,5 +1,10 @@
 {
-  footerView.findViewById(R.id.refresh).setVisibility(View.GONE);
-  footerView.findViewById(R.id.refresh).clearAnimation();
-  footerView.findViewById(R.id.listview_footer).setVisibility(View.GONE);
+  final View progressbar=footerView.findViewById(R.id.loading_progressbar);
+  progressbar.animate().scaleX(0).scaleY(0).alpha(0.5f).setDuration(300).withEndAction(new Runnable(){
+    @Override public void run(){
+      progressbar.setVisibility(View.GONE);
+    }
+  }
+);
+  footerView.findViewById(R.id.laod_failed).setVisibility(View.GONE);
 }

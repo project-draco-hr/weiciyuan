@@ -1,6 +1,6 @@
 {
 switch (item.getItemId()) {
-case R.id.refresh:
+case R.id.loading_progressbar:
     pullToRefreshListView.setRefreshing();
   loadNewMsg();
 break;
