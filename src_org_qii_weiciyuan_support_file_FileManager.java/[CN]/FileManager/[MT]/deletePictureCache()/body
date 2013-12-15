@@ -4,10 +4,12 @@
   String oriPath=getSdCardPath() + File.separator + PICTURE_LARGE;
   String largeAvatarPath=getSdCardPath() + File.separator + AVATAR_LARGE;
   String smallAvatarPath=getSdCardPath() + File.separator + AVATAR_SMAll;
+  String coverPath=getSdCardPath() + File.separator + COVER;
   deleteDirectory(new File(thumbnailPath));
   deleteDirectory(new File(middlePath));
   deleteDirectory(new File(oriPath));
   deleteDirectory(new File(largeAvatarPath));
   deleteDirectory(new File(smallAvatarPath));
+  deleteDirectory(new File(coverPath));
   return true;
 }
