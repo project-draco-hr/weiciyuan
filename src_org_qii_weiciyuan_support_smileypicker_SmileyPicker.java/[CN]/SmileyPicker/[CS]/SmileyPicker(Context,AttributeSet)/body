@@ -7,6 +7,12 @@
   leftPoint=(ImageView)view.findViewById(R.id.left_point);
   centerPoint=(ImageView)view.findViewById(R.id.center_point);
   rightPoint=(ImageView)view.findViewById(R.id.right_point);
+  if (Utility.isKK()) {
+    rightPoint.setVisibility(View.VISIBLE);
+  }
+ else {
+    rightPoint.setVisibility(View.GONE);
+  }
   leftPoint.getDrawable().setLevel(1);
   viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
     @Override public void onPageSelected(    int position){
