@@ -5,4 +5,7 @@
       clearActionMode();
     }
   }
+  if (getListView().getLastVisiblePosition() > getList().getSize() - 3 && getListView().getFirstVisiblePosition() != getListView().getHeaderViewsCount()) {
+    loadOldMsg(null);
+  }
 }

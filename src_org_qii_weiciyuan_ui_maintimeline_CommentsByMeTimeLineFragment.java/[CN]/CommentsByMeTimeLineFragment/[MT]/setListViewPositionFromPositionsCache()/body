@@ -1,4 +1,8 @@
 {
-  if (timeLinePosition != null)   getListView().setSelectionFromTop(timeLinePosition.position + 1,timeLinePosition.top);
- else   getListView().setSelectionFromTop(0,0);
+  if (timeLinePosition != null) {
+    getListView().setSelectionFromTop(timeLinePosition.position + 1,timeLinePosition.top);
+  }
+ else {
+    getListView().setSelectionFromTop(0,0);
+  }
 }
