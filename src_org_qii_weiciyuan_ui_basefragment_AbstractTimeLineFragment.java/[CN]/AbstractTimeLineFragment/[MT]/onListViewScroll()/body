@@ -5,7 +5,7 @@
       clearActionMode();
     }
   }
-  if (getListView().getLastVisiblePosition() > getList().getSize() - 3 && getListView().getFirstVisiblePosition() != getListView().getHeaderViewsCount()) {
+  if (allowLoadOldMsgBeforeReachListBottom() && getListView().getLastVisiblePosition() > 7 && getListView().getLastVisiblePosition() > getList().getSize() - 3 && getListView().getFirstVisiblePosition() != getListView().getHeaderViewsCount()) {
     loadOldMsg(null);
   }
 }
