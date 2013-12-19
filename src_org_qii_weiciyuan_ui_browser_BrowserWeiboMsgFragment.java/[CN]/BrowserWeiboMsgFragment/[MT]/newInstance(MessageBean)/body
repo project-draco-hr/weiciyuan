@@ -1,0 +1,4 @@
+{
+  BrowserWeiboMsgFragment fragment=new BrowserWeiboMsgFragment(msg);
+  return fragment;
+}
