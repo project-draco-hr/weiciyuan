@@ -1,4 +1,7 @@
 {
+  if (getLoaderManager().getLoader(OLD_COMMENT_LOADER_ID) != null || !canLoadOldCommentData) {
+    return;
+  }
   showFooterView();
   getLoaderManager().destroyLoader(NEW_COMMENT_LOADER_ID);
   getLoaderManager().restartLoader(OLD_COMMENT_LOADER_ID,null,commentMsgCallback);

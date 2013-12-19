@@ -1,4 +1,8 @@
 {
+  if (getLoaderManager().getLoader(OLD_REPOST_LOADER_ID) != null || !canLoadOldRepostData) {
+    return;
+  }
+  showFooterView();
   getLoaderManager().destroyLoader(NEW_REPOST_LOADER_ID);
   getLoaderManager().restartLoader(OLD_REPOST_LOADER_ID,null,repostMsgCallback);
 }

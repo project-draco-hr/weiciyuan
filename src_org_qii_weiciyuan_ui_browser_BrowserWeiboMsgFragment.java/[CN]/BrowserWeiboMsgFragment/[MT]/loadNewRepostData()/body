@@ -1,4 +1,5 @@
 {
+  canLoadOldRepostData=true;
   progressHeader.setVisibility(View.VISIBLE);
   getLoaderManager().destroyLoader(OLD_REPOST_LOADER_ID);
   getLoaderManager().restartLoader(NEW_REPOST_LOADER_ID,null,repostMsgCallback);
