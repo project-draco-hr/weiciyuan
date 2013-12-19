@@ -2,21 +2,7 @@
   SwipeFrameLayout swipeFrameLayout=new SwipeFrameLayout(getActivity());
   PullToRefreshListView pullToRefreshListView=new PullToRefreshListView(getActivity());
   pullToRefreshListView.setMode(PullToRefreshBase.Mode.DISABLED);
-  pullToRefreshListView.setOnLastItemVisibleListener(new PullToRefreshBase.OnLastItemVisibleListener(){
-    @Override public void onLastItemVisible(){
-      if (isCommentList) {
-        if (msg.getComments_count() > 0 && commentList.getSize() > 0) {
-          loadOldCommentData();
-        }
-      }
- else {
-        if (msg.getReposts_count() > 0 && repostList.getSize() > 0) {
-          loadOldRepostData();
-        }
-      }
-    }
-  }
-);
+  pullToRefreshListView.setOnLastItemVisibleListener(onLastItemVisibleListener);
   pullToRefreshListView.setOnScrollListener(listViewOnScrollListener);
   listView=pullToRefreshListView.getRefreshableView();
   View header=inflater.inflate(R.layout.browserweibomsgfragment_layout,listView,false);
@@ -37,66 +23,8 @@
   dismissFooterView();
   repostTab=(TextView)switchView.findViewById(R.id.repost);
   commentTab=(TextView)switchView.findViewById(R.id.comment);
-  repostTab.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      listView.setOnItemClickListener(repostOnItemClickListener);
-      listView.setOnItemLongClickListener(repostOnItemLongClickListener);
-      resetActionMode();
-      dismissFooterView();
-      if (isCommentList) {
-        isCommentList=false;
-        adapter.switchToRepostType();
-        repostTab.setTextColor(ThemeUtility.getColor(R.attr.browser_weibo_detail_comments_reposts_category_color_selected));
-        commentTab.setTextColor(ThemeUtility.getColor(R.attr.browser_weibo_detail_comments_reposts_category_color_unselected));
-        if (repostList.getSize() == 0) {
-          loadNewRepostData();
-        }
- else {
-          Loader loader=getLoaderManager().getLoader(NEW_REPOST_LOADER_ID);
-          if (loader != null) {
-            progressHeader.setVisibility(View.VISIBLE);
-          }
- else {
-            progressHeader.setVisibility(View.GONE);
-          }
-        }
-      }
- else {
-        loadNewRepostData();
-      }
-    }
-  }
-);
-  commentTab.setOnClickListener(new View.OnClickListener(){
-    @Override public void onClick(    View v){
-      listView.setOnItemClickListener(commentOnItemClickListener);
-      listView.setOnItemLongClickListener(commentOnItemLongClickListener);
-      resetActionMode();
-      dismissFooterView();
-      if (!isCommentList) {
-        isCommentList=true;
-        adapter.switchToCommentType();
-        commentTab.setTextColor(ThemeUtility.getColor(R.attr.browser_weibo_detail_comments_reposts_category_color_selected));
-        repostTab.setTextColor(ThemeUtility.getColor(R.attr.browser_weibo_detail_comments_reposts_category_color_unselected));
-        if (commentList.getSize() == 0) {
-          loadNewCommentData();
-        }
- else {
-          Loader loader=getLoaderManager().getLoader(NEW_COMMENT_LOADER_ID);
-          if (loader != null) {
-            progressHeader.setVisibility(View.VISIBLE);
-          }
- else {
-            progressHeader.setVisibility(View.GONE);
-          }
-        }
-      }
- else {
-        loadNewCommentData();
-      }
-    }
-  }
-);
+  repostTab.setOnClickListener(new RepostTabOnClickListener());
+  commentTab.setOnClickListener(new CommentTabOnClickListener());
   commentTab.setTextColor(getResources().getColor(R.color.orange));
   listView.setFooterDividersEnabled(false);
   listView.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);

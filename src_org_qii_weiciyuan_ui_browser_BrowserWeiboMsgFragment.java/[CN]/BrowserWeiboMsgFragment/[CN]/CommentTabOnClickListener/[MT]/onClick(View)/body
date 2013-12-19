@@ -1,0 +1,27 @@
+{
+  listView.setOnItemClickListener(commentOnItemClickListener);
+  listView.setOnItemLongClickListener(commentOnItemLongClickListener);
+  resetActionMode();
+  dismissFooterView();
+  if (!isCommentList) {
+    isCommentList=true;
+    adapter.switchToCommentType();
+    commentTab.setTextColor(ThemeUtility.getColor(R.attr.browser_weibo_detail_comments_reposts_category_color_selected));
+    repostTab.setTextColor(ThemeUtility.getColor(R.attr.browser_weibo_detail_comments_reposts_category_color_unselected));
+    if (commentList.getSize() == 0) {
+      loadNewCommentData();
+    }
+ else {
+      Loader loader=getLoaderManager().getLoader(NEW_COMMENT_LOADER_ID);
+      if (loader != null) {
+        progressHeader.setVisibility(View.VISIBLE);
+      }
+ else {
+        progressHeader.setVisibility(View.GONE);
+      }
+    }
+  }
+ else {
+    loadNewCommentData();
+  }
+}
