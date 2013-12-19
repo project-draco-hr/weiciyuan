@@ -1,6 +1,7 @@
 {
   listView.setOnItemClickListener(commentOnItemClickListener);
   listView.setOnItemLongClickListener(commentOnItemLongClickListener);
+  emptyHeader.setText(R.string.comment_is_empty);
   resetActionMode();
   dismissFooterView();
   if (!isCommentList) {
@@ -23,5 +24,11 @@
   }
  else {
     loadNewCommentData();
+  }
+  if (commentList.getSize() > 0) {
+    emptyHeader.setVisibility(View.GONE);
+  }
+ else {
+    emptyHeader.setVisibility(View.VISIBLE);
   }
 }

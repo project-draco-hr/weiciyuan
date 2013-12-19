@@ -18,6 +18,10 @@
   progressHeader=progressHeaderLayout.findViewById(R.id.progressbar);
   progressHeader.setVisibility(View.GONE);
   listView.addHeaderView(progressHeaderLayout);
+  View emptyLayout=inflater.inflate(R.layout.browserweibomsgfragment_empty_header,listView,false);
+  emptyHeader=(TextView)emptyLayout.findViewById(R.id.empty_text);
+  emptyHeader.setOnClickListener(new EmptyHeaderOnClickListener());
+  listView.addHeaderView(emptyLayout);
   footerView=inflater.inflate(R.layout.listview_footer_layout,null);
   listView.addFooterView(footerView);
   dismissFooterView();

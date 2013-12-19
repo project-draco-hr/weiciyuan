@@ -1,0 +1,8 @@
+{
+  if (isCommentList) {
+    loadNewCommentData();
+  }
+ else {
+    loadNewRepostData();
+  }
+}

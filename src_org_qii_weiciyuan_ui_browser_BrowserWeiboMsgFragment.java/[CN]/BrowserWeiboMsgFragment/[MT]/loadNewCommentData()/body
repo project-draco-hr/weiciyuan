@@ -1,5 +1,8 @@
 {
   canLoadOldCommentData=true;
+  if (getLoaderManager().getLoader(NEW_COMMENT_LOADER_ID) != null) {
+    return;
+  }
   progressHeader.setVisibility(View.VISIBLE);
   getLoaderManager().destroyLoader(OLD_COMMENT_LOADER_ID);
   getLoaderManager().restartLoader(NEW_COMMENT_LOADER_ID,null,commentMsgCallback);

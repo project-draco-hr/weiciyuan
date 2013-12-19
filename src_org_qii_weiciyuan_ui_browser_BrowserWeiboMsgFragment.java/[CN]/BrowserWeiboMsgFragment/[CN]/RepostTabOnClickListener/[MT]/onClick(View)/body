@@ -1,6 +1,7 @@
 {
   listView.setOnItemClickListener(repostOnItemClickListener);
   listView.setOnItemLongClickListener(repostOnItemLongClickListener);
+  emptyHeader.setText(R.string.repost_is_empty);
   resetActionMode();
   dismissFooterView();
   if (isCommentList) {
@@ -23,5 +24,11 @@
   }
  else {
     loadNewRepostData();
+  }
+  if (repostList.getSize() > 0) {
+    emptyHeader.setVisibility(View.GONE);
+  }
+ else {
+    emptyHeader.setVisibility(View.VISIBLE);
   }
 }
