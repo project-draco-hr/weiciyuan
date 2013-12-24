@@ -1,4 +1,8 @@
 {
-  if (getAccountBean() != null)   return getAccountBean().getAccess_token();
- else   return "";
+  if (getAccountBean() != null) {
+    return getAccountBean().getAccess_token();
+  }
+ else {
+    return "";
+  }
 }
