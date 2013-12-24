@@ -1,5 +1,8 @@
 {
   super.onPostExecute(result);
+  if (getActivity() == null) {
+    return;
+  }
   getPullToRefreshListView().setVisibility(View.VISIBLE);
   if (result != null) {
     bean.replaceData(result.favList);
