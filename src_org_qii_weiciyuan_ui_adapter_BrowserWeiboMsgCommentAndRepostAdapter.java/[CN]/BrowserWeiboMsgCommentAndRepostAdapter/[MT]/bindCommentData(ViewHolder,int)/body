@@ -7,7 +7,9 @@
     drawable=holder.listview_root.getBackground();
     bg.put(holder,drawable);
   }
-  if (listView.getCheckedItemPosition() == position + listView.getHeaderViewsCount())   holder.listview_root.setBackgroundColor(checkedBG);
+  if (listView.getCheckedItemPosition() == position + listView.getHeaderViewsCount()) {
+    holder.listview_root.setBackgroundColor(checkedBG);
+  }
   final CommentBean comment=(CommentBean)getItem(position);
   UserBean user=comment.getUser();
   if (user != null) {
