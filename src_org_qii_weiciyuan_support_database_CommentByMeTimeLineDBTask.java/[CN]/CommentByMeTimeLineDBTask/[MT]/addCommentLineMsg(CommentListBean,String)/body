@@ -9,10 +9,17 @@
     getWsd().beginTransaction();
     for (    CommentBean msg : msgList) {
       ih.prepareForInsert();
-      ih.bind(mblogidColumn,msg.getId());
-      ih.bind(accountidColumn,accountId);
-      String json=gson.toJson(msg);
-      ih.bind(jsondataColumn,json);
+      if (msg != null) {
+        ih.bind(mblogidColumn,msg.getId());
+        ih.bind(accountidColumn,accountId);
+        String json=gson.toJson(msg);
+        ih.bind(jsondataColumn,json);
+      }
+ else {
+        ih.bind(mblogidColumn,"-1");
+        ih.bind(accountidColumn,accountId);
+        ih.bind(jsondataColumn,"");
+      }
       ih.execute();
     }
     getWsd().setTransactionSuccessful();
