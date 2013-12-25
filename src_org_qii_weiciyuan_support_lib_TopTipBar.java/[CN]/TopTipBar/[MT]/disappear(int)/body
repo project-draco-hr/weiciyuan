@@ -3,7 +3,10 @@
     return;
   }
   if (lastRunnable != null) {
-    getHandler().removeCallbacks(lastRunnable);
+    Handler handler=getHandler();
+    if (handler != null) {
+      handler.removeCallbacks(lastRunnable);
+    }
   }
   lastRunnable=new Runnable(){
     @Override public void run(){
@@ -22,5 +25,7 @@
   }
 ;
   Handler handler=getHandler();
-  if (handler != null)   handler.postDelayed(lastRunnable,duration);
+  if (handler != null) {
+    handler.postDelayed(lastRunnable,duration);
+  }
 }
