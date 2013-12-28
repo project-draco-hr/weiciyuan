@@ -1,0 +1,9 @@
+{
+  if (Utility.isKK()) {
+    getMenuInflater().inflate(R.menu.actionbar_menu_licenseactivity,menu);
+    return true;
+  }
+ else {
+    return super.onCreateOptionsMenu(menu);
+  }
+}
