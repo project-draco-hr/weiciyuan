@@ -1,0 +1,5 @@
+{
+  boolean result=SettingHelper.getSharedPreferences(getContext(),"is_following_or_fan_list_first_show",true);
+  SettingHelper.setEditor(getContext(),"is_following_or_fan_list_first_show",false);
+  return result;
+}

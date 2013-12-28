@@ -1,0 +1,15 @@
+{
+  if (mActionMode != null) {
+    getListView().clearChoices();
+    mActionMode.finish();
+    mActionMode=null;
+    return;
+  }
+  getListView().clearChoices();
+  if (position - 1 < getList().getUsers().size()) {
+    listViewItemClick(parent,view,position - 1,id);
+  }
+ else {
+    listViewFooterViewClick(view);
+  }
+}

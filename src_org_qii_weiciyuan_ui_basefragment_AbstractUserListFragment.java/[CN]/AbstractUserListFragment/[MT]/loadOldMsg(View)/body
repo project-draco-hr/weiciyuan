@@ -1,4 +1,7 @@
 {
+  if (getLoaderManager().getLoader(OLD_USER_LOADER_ID) != null || !canLoadOldData) {
+    return;
+  }
   getLoaderManager().destroyLoader(NEW_USER_LOADER_ID);
   getPullToRefreshListView().onRefreshComplete();
   getLoaderManager().restartLoader(OLD_USER_LOADER_ID,null,msgCallback);

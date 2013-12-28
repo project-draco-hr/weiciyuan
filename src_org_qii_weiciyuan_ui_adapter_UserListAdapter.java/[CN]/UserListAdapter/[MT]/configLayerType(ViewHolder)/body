@@ -1,9 +1,13 @@
 {
   boolean disableHardAccelerated=SettingUtility.disableHardwareAccelerated();
-  if (!disableHardAccelerated)   return;
+  if (!disableHardAccelerated) {
+    return;
+  }
   int currentWidgetLayerType=holder.username.getLayerType();
   if (View.LAYER_TYPE_SOFTWARE != currentWidgetLayerType) {
     holder.username.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
-    if (holder.content != null)     holder.content.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+    if (holder.content != null) {
+      holder.content.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+    }
   }
 }

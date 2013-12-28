@@ -1,0 +1,5 @@
+{
+  if (getListView().getLastVisiblePosition() > 7 && getListView().getLastVisiblePosition() > getList().getUsers().size() - 3 && getListView().getFirstVisiblePosition() != getListView().getHeaderViewsCount()) {
+    loadOldMsg(null);
+  }
+}
