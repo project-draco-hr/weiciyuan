@@ -2,7 +2,9 @@
   super.onDestroy();
   for (  String url : urls) {
     MyAsyncTask task=taskMap.get(url);
-    if (task != null)     task.cancel(true);
+    if (task != null) {
+      task.cancel(true);
+    }
   }
   Utility.recycleViewGroupAndChildViews(pager,true);
   for (  ViewGroup viewGroup : unRecycledViews) {

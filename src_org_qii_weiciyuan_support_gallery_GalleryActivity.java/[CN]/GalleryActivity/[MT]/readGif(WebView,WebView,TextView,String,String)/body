@@ -1,4 +1,5 @@
 {
+  readError.setVisibility(View.INVISIBLE);
   BitmapFactory.Options options=new BitmapFactory.Options();
   options.inJustDecodeBounds=true;
   BitmapFactory.decodeFile(bitmapPath,options);
@@ -13,7 +14,9 @@
   }
   webView.setVisibility(View.VISIBLE);
   bindImageViewLongClickListener(((View)webView.getParent()),url,bitmapPath);
-  if (webView.getTag() != null)   return;
+  if (webView.getTag() != null) {
+    return;
+  }
   webView.getSettings().setJavaScriptEnabled(true);
   webView.getSettings().setUseWideViewPort(true);
   webView.getSettings().setLoadWithOverviewMode(true);

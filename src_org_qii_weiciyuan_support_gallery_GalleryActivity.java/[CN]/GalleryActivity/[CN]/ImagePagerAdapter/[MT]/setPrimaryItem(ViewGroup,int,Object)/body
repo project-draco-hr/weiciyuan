@@ -1,7 +1,9 @@
 {
   super.setPrimaryItem(container,position,object);
   View contentView=(View)object;
-  if (contentView == null)   return;
+  if (contentView == null) {
+    return;
+  }
   contentView.setTag(CURRENT_VISIBLE_PAGE);
   if (SettingUtility.allowClickToCloseGallery()) {
     contentView.setOnClickListener(new View.OnClickListener(){
@@ -12,6 +14,8 @@
 );
   }
   ImageView imageView=(ImageView)contentView.findViewById(R.id.image);
-  if (imageView.getDrawable() != null)   return;
+  if (imageView.getDrawable() != null) {
+    return;
+  }
   handlePage(position,contentView,false);
 }

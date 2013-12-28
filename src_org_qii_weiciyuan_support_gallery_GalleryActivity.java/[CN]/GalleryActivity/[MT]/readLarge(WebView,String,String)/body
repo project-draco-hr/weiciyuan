@@ -4,7 +4,9 @@
   if (SettingUtility.allowClickToCloseGallery()) {
     large.setOnTouchListener(largeOnTouchListener);
   }
-  if (large.getTag() != null)   return;
+  if (large.getTag() != null) {
+    return;
+  }
   large.getSettings().setJavaScriptEnabled(true);
   large.getSettings().setUseWideViewPort(true);
   large.getSettings().setLoadWithOverviewMode(true);
