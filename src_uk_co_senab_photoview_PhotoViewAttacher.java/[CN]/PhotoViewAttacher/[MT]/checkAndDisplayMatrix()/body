@@ -1,4 +1,5 @@
 {
-  checkMatrixBounds();
-  setImageViewMatrix(getDisplayMatrix());
+  if (checkMatrixBounds()) {
+    setImageViewMatrix(getDrawMatrix());
+  }
 }

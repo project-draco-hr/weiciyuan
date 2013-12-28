@@ -1,0 +1,6 @@
+{
+  degrees%=360;
+  mSuppMatrix.postRotate(mLastRotation - degrees);
+  mLastRotation=degrees;
+  checkAndDisplayMatrix();
+}

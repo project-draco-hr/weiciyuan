@@ -1,5 +1,5 @@
 {
   mSuppMatrix.reset();
-  setImageViewMatrix(getDisplayMatrix());
+  setImageViewMatrix(getDrawMatrix());
   checkMatrixBounds();
 }

@@ -1,6 +1,6 @@
 {
   currentViewPositionLayout.setVisibility(View.INVISIBLE);
-  animationView.setImageDrawable(imageView.getAttacher().getImageView().getDrawable());
+  animationView.setImageDrawable(imageView.getDrawable());
   pager.setVisibility(View.INVISIBLE);
   final Rect startBounds=rect;
   final Rect finalBounds=new Rect();

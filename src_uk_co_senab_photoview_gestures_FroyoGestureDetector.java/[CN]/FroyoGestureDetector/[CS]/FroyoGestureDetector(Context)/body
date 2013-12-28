@@ -1,0 +1,16 @@
+{
+  super(context);
+  ScaleGestureDetector.OnScaleGestureListener mScaleListener=new ScaleGestureDetector.OnScaleGestureListener(){
+    @Override public boolean onScale(    ScaleGestureDetector detector){
+      mListener.onScale(detector.getScaleFactor(),detector.getFocusX(),detector.getFocusY());
+      return true;
+    }
+    @Override public boolean onScaleBegin(    ScaleGestureDetector detector){
+      return true;
+    }
+    @Override public void onScaleEnd(    ScaleGestureDetector detector){
+    }
+  }
+;
+  mDetector=new ScaleGestureDetector(context,mScaleListener);
+}

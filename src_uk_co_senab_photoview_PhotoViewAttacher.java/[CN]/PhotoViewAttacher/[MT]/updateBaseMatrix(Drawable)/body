@@ -3,8 +3,8 @@
   if (null == imageView || null == d) {
     return;
   }
-  final float viewWidth=imageView.getWidth();
-  final float viewHeight=imageView.getHeight();
+  final float viewWidth=getImageViewWidth(imageView);
+  final float viewHeight=getImageViewHeight(imageView);
   final int drawableWidth=d.getIntrinsicWidth();
   final int drawableHeight=d.getIntrinsicHeight();
   mBaseMatrix.reset();

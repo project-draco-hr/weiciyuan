@@ -1,13 +1,19 @@
 {
   boolean handled=false;
-  if (mZoomEnabled) {
+  if (mZoomEnabled && hasDrawable((ImageView)v)) {
+    ViewParent parent=v.getParent();
 switch (ev.getAction()) {
-case MotionEvent.ACTION_DOWN:
-      v.getParent().requestDisallowInterceptTouchEvent(true);
+case ACTION_DOWN:
+      if (null != parent) {
+        parent.requestDisallowInterceptTouchEvent(true);
+      }
+ else {
+        Log.i(LOG_TAG,"onTouch getParent() returned null");
+      }
     cancelFling();
   break;
-case MotionEvent.ACTION_CANCEL:
-case MotionEvent.ACTION_UP:
+case ACTION_CANCEL:
+case ACTION_UP:
 if (getScale() < mMinScale) {
   RectF rect=getDisplayRect();
   if (null != rect) {
@@ -17,10 +23,10 @@ if (getScale() < mMinScale) {
 }
 break;
 }
-if (null != mGestureDetector && mGestureDetector.onTouchEvent(ev)) {
+if (null != mScaleDragDetector && mScaleDragDetector.onTouchEvent(ev)) {
 handled=true;
 }
-if (null != mScaleDragDetector && mScaleDragDetector.onTouchEvent(ev)) {
+if (null != mGestureDetector && mGestureDetector.onTouchEvent(ev)) {
 handled=true;
 }
 }

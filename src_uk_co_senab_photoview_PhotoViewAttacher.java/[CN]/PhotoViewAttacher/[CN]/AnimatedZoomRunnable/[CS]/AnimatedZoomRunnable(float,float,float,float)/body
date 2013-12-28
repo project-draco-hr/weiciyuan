@@ -1,11 +1,7 @@
 {
-  mTargetZoom=targetZoom;
   mFocalX=focalX;
   mFocalY=focalY;
-  if (currentZoom < targetZoom) {
-    mDeltaScale=ANIMATION_SCALE_PER_ITERATION_IN;
-  }
- else {
-    mDeltaScale=ANIMATION_SCALE_PER_ITERATION_OUT;
-  }
+  mStartTime=System.currentTimeMillis();
+  mZoomStart=currentZoom;
+  mZoomEnd=targetZoom;
 }

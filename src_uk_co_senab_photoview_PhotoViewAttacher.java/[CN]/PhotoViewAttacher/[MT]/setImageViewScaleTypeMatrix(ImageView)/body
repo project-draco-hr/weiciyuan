@@ -1,8 +1,6 @@
 {
-  if (null != imageView) {
-    if (imageView instanceof PhotoView) {
-    }
- else {
+  if (null != imageView && !(imageView instanceof IPhotoView)) {
+    if (!ScaleType.MATRIX.equals(imageView.getScaleType())) {
       imageView.setScaleType(ScaleType.MATRIX);
     }
   }

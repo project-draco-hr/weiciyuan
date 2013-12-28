@@ -1,15 +1,24 @@
 {
+  if (mScaleDragDetector.isScaling()) {
+    return;
+  }
   if (DEBUG) {
-    Log.d(LOG_TAG,String.format("onDrag: dx: %.2f. dy: %.2f",dx,dy));
+    LogManager.getLogger().d(LOG_TAG,String.format("onDrag: dx: %.2f. dy: %.2f",dx,dy));
   }
   ImageView imageView=getImageView();
-  if (null != imageView && hasDrawable(imageView)) {
-    mSuppMatrix.postTranslate(dx,dy);
-    checkAndDisplayMatrix();
-    if (mAllowParentInterceptOnEdge && !mScaleDragDetector.isScaling()) {
-      if (mScrollEdge == EDGE_BOTH || (mScrollEdge == EDGE_LEFT && dx >= 1f) || (mScrollEdge == EDGE_RIGHT && dx <= -1f)) {
-        imageView.getParent().requestDisallowInterceptTouchEvent(false);
+  mSuppMatrix.postTranslate(dx,dy);
+  checkAndDisplayMatrix();
+  ViewParent parent=imageView.getParent();
+  if (mAllowParentInterceptOnEdge) {
+    if (mScrollEdge == EDGE_BOTH || (mScrollEdge == EDGE_LEFT && dx >= 1f) || (mScrollEdge == EDGE_RIGHT && dx <= -1f)) {
+      if (null != parent) {
+        parent.requestDisallowInterceptTouchEvent(false);
       }
+    }
+  }
+ else {
+    if (null != parent) {
+      parent.requestDisallowInterceptTouchEvent(true);
     }
   }
 }

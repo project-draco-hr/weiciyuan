@@ -1,15 +1,15 @@
 {
   final ImageView imageView=getImageView();
   if (null == imageView) {
-    return;
+    return false;
   }
-  final RectF rect=getDisplayRect(getDisplayMatrix());
+  final RectF rect=getDisplayRect(getDrawMatrix());
   if (null == rect) {
-    return;
+    return false;
   }
   final float height=rect.height(), width=rect.width();
   float deltaX=0, deltaY=0;
-  final int viewHeight=imageView.getHeight();
+  final int viewHeight=getImageViewHeight(imageView);
   if (height <= viewHeight) {
 switch (mScaleType) {
 case FIT_START:
@@ -29,7 +29,7 @@ deltaY=-rect.top;
  else if (rect.bottom < viewHeight) {
 deltaY=viewHeight - rect.bottom;
 }
-final int viewWidth=imageView.getWidth();
+final int viewWidth=getImageViewWidth(imageView);
 if (width <= viewWidth) {
 switch (mScaleType) {
 case FIT_START:
@@ -56,4 +56,5 @@ mScrollEdge=EDGE_RIGHT;
 mScrollEdge=EDGE_NONE;
 }
 mSuppMatrix.postTranslate(deltaX,deltaY);
+return true;
 }

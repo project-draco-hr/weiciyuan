@@ -1,4 +1,0 @@
-{
-  super(context);
-  mDetector=new ScaleGestureDetector(context,mScaleListener);
-}
