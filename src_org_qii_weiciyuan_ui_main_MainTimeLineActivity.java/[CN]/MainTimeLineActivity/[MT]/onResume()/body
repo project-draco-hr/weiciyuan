@@ -6,4 +6,5 @@
   registerReceiver(newMsgInterruptBroadcastReceiver,filter);
   startListenMusicPlaying();
   readClipboard();
+  ConnectionChangeReceiver.judgeNetworkStatus(this);
 }

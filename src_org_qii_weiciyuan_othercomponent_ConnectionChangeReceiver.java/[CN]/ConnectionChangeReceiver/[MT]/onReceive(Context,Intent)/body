@@ -1,15 +1,3 @@
 {
-  if (Utility.isConnected(context)) {
-    if (SettingUtility.getEnableFetchMSG()) {
-      AppNewMsgAlarm.startAlarm(context,true);
-    }
- else {
-      AppNewMsgAlarm.stopAlarm(context,false);
-    }
-    decideTimeLineBigPic(context);
-    decideCommentRepostAvatar(context);
-  }
- else {
-    AppNewMsgAlarm.stopAlarm(context,false);
-  }
+  judgeNetworkStatus(context);
 }
