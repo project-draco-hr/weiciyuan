@@ -1,4 +1,8 @@
 {
-  if (getList() != null && getList().get(position) != null && getList().size() > 0 && position < getList().size())   return Long.valueOf(getList().get(position).getId());
- else   return NO_ITEM_ID;
+  if (getList() != null && getList().get(position) != null && getList().size() > 0 && position < getList().size()) {
+    return Long.valueOf(getList().get(position).getId());
+  }
+ else {
+    return NO_ITEM_ID;
+  }
 }

@@ -1,13 +1,25 @@
 {
   boolean disableHardAccelerated=SettingUtility.disableHardwareAccelerated();
-  if (!disableHardAccelerated)   return;
+  if (!disableHardAccelerated) {
+    return;
+  }
   int currentWidgetLayerType=holder.username.getLayerType();
   if (View.LAYER_TYPE_SOFTWARE != currentWidgetLayerType) {
     holder.username.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
-    if (holder.content != null)     holder.content.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
-    if (holder.repost_content != null)     holder.repost_content.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
-    if (holder.time != null)     holder.time.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
-    if (holder.repost_count != null)     holder.repost_count.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
-    if (holder.comment_count != null)     holder.comment_count.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+    if (holder.content != null) {
+      holder.content.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+    }
+    if (holder.repost_content != null) {
+      holder.repost_content.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+    }
+    if (holder.time != null) {
+      holder.time.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+    }
+    if (holder.repost_count != null) {
+      holder.repost_count.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+    }
+    if (holder.comment_count != null) {
+      holder.comment_count.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+    }
   }
 }

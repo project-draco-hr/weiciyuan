@@ -2,7 +2,8 @@
   ViewHolder holder=null;
   PrefView prefView=null;
   if (convertView == null || convertView.getTag(R.drawable.ic_launcher + getItemViewType(position)) == null) {
-switch (getItemViewType(position)) {
+    int itemViewType=getItemViewType(position);
+switch (itemViewType) {
 case TYPE_SIMPLE:
       convertView=initSimpleLayout(parent);
     break;
@@ -31,7 +32,7 @@ default :
 convertView=initNormalLayout(parent);
 break;
 }
-if (getItemViewType(position) != TYPE_MIDDLE) {
+if (itemViewType != TYPE_MIDDLE) {
 if (prefView == null) {
 holder=buildHolder(convertView);
 }

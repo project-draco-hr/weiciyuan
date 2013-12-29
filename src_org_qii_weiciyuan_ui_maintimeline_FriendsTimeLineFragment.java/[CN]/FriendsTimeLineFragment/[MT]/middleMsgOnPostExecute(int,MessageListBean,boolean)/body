@@ -1,18 +1,19 @@
 {
-  if (newValue != null) {
-    int size=newValue.getSize();
-    if (getActivity() != null && newValue.getSize() > 0) {
-      getList().addMiddleData(position,newValue,towardsBottom);
-      if (towardsBottom) {
-        getAdapter().notifyDataSetChanged();
-      }
+  if (newValue == null) {
+    return;
+  }
+  int size=newValue.getSize();
+  if (getActivity() != null && newValue.getSize() > 0) {
+    getList().addMiddleData(position,newValue,towardsBottom);
+    if (towardsBottom) {
+      getAdapter().notifyDataSetChanged();
+    }
  else {
-        View v=Utility.getListViewItemViewFromPosition(getListView(),position + 1 + 1);
-        int top=(v == null) ? 0 : v.getTop();
-        getAdapter().notifyDataSetChanged();
-        int ss=position + 1 + size - 1;
-        getListView().setSelectionFromTop(ss,top);
-      }
+      View v=Utility.getListViewItemViewFromPosition(getListView(),position + 1 + 1);
+      int top=(v == null) ? 0 : v.getTop();
+      getAdapter().notifyDataSetChanged();
+      int ss=position + 1 + size - 1;
+      getListView().setSelectionFromTop(ss,top);
     }
   }
 }
