@@ -2,65 +2,16 @@
 switch (this.listViewScrollOrientation) {
 case VelocityListView.TOWARDS_BOTTOM:
     for (int i=position; i < list.getSize(); i++) {
-synchronized (TaskCache.backgroundWifiDownloadPicturesWorkLock) {
-        while (!TaskCache.isDownloadTaskFinished() && !Thread.currentThread().isInterrupted()) {
-          try {
-            AppLogger.i("WifiAutoDownloadPictureRunnable wait for lock");
-            TaskCache.backgroundWifiDownloadPicturesWorkLock.wait();
-          }
- catch (          InterruptedException e) {
-            Thread.currentThread().interrupt();
-          }
-        }
-      }
-      if (Thread.currentThread().isInterrupted()) {
-        AppLogger.i("WifiAutoDownloadPictureRunnable interrupted");
+      if (!continueHandleMessage(i)) {
         return;
       }
-      MessageBean msg=list.getItem(i);
-      if (msg == null) {
-        continue;
-      }
-      Boolean done=result.get(msg.getId());
-      if (done != null && done) {
-        AppLogger.i("already done skipped");
-        continue;
-      }
-      AppLogger.i("WifiAutoDownloadPictureRunnable" + msg.getId() + "start");
-      startDownload(msg);
-      AppLogger.i("WifiAutoDownloadPictureRunnable" + msg.getId() + "finished");
-      result.put(msg.getId(),true);
     }
   break;
 case VelocityListView.TOWARDS_TOP:
 for (int i=position; i >= 0; i--) {
-synchronized (TaskCache.backgroundWifiDownloadPicturesWorkLock) {
-    while (!TaskCache.isDownloadTaskFinished() && !Thread.currentThread().isInterrupted()) {
-      try {
-        AppLogger.i("WifiAutoDownloadPictureRunnable wait for lock");
-        TaskCache.backgroundWifiDownloadPicturesWorkLock.wait();
-      }
- catch (      InterruptedException e) {
-        Thread.currentThread().interrupt();
-      }
-    }
-  }
-  if (Thread.currentThread().isInterrupted()) {
+  if (!continueHandleMessage(i)) {
     return;
   }
-  MessageBean msg=list.getItem(i);
-  if (msg == null) {
-    continue;
-  }
-  Boolean done=result.get(msg.getId());
-  if (done != null && done) {
-    AppLogger.i("already done skipped");
-    continue;
-  }
-  AppLogger.i("WifiAutoDownloadPictureRunnable" + msg.getId() + "start");
-  startDownload(msg);
-  AppLogger.i("WifiAutoDownloadPictureRunnable" + msg.getId() + "finished");
-  result.put(msg.getId(),true);
 }
 break;
 }
