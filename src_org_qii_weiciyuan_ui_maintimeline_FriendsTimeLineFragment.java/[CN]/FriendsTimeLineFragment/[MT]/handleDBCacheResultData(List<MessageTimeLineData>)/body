@@ -1,0 +1,6 @@
+{
+  for (  MessageTimeLineData single : result) {
+    putToGroupDataMemoryCache(single.groupId,single.msgList);
+    positionCache.put(single.groupId,single.position);
+  }
+}

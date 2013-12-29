@@ -1,0 +1,4 @@
+{
+  fragmentWeakReference=new WeakReference<FriendsTimeLineFragment>(friendsTimeLineFragment);
+  this.accountId=accountId;
+}

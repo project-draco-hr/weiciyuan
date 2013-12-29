@@ -1,12 +1,7 @@
 {
   super.onPostExecute(result);
-  if (getActivity() == null) {
-    return;
-  }
-  if (result != null) {
-    for (    MessageTimeLineData single : result) {
-      putToGroupDataMemoryCache(single.groupId,single.msgList);
-      positionCache.put(single.groupId,single.position);
-    }
+  FriendsTimeLineFragment fragment=fragmentWeakReference.get();
+  if (fragment != null && result != null && result.size() > 0) {
+    fragment.handleDBCacheResultData(result);
   }
 }

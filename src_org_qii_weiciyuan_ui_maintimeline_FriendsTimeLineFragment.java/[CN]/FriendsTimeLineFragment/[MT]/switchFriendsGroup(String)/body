@@ -23,6 +23,6 @@
     getAdapter().notifyDataSetChanged();
     setListViewPositionFromPositionsCache();
     saveGroupIdToDB();
-    new RefreshReCmtCountTask().executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    new RefreshReCmtCountTask(this,getList()).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }
 }

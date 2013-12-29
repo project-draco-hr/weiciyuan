@@ -1,4 +1,7 @@
 {
   super.onPreExecute();
-  getPullToRefreshListView().setVisibility(View.INVISIBLE);
+  FriendsTimeLineFragment fragment=fragmentWeakReference.get();
+  if (fragment != null) {
+    fragment.getPullToRefreshListView().setVisibility(View.INVISIBLE);
+  }
 }

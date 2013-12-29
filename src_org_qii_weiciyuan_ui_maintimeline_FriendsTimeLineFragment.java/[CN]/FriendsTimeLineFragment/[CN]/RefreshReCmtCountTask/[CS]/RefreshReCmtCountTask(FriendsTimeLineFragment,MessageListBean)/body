@@ -1,0 +1,10 @@
+{
+  fragmentWeakReference=new WeakReference<FriendsTimeLineFragment>(friendsTimeLineFragment);
+  msgIds=new ArrayList<String>();
+  List<MessageBean> msgList=data.getItemList();
+  for (  MessageBean msg : msgList) {
+    if (msg != null) {
+      msgIds.add(msg.getId());
+    }
+  }
+}
