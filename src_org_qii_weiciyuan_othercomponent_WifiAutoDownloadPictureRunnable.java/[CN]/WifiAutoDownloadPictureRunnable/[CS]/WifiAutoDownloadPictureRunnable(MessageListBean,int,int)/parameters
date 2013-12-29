@@ -1,3 +1,3 @@
 MessageListBean list
 int position
-int listViewOrientation
+int listViewScrollOrientation

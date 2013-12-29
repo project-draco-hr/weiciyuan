@@ -1,5 +1,5 @@
 {
-switch (this.listViewOrientation) {
+switch (this.listViewScrollOrientation) {
 case VelocityListView.TOWARDS_BOTTOM:
     for (int i=position; i < list.getSize(); i++) {
 synchronized (TaskCache.backgroundWifiDownloadPicturesWorkLock) {

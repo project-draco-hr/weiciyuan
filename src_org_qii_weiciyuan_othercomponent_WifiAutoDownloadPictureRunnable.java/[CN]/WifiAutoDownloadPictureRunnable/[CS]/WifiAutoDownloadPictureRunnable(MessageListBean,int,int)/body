@@ -1,0 +1,9 @@
+{
+  this.list=new MessageListBean();
+  for (  MessageBean msg : list.getItemList()) {
+    this.list.getItemList().add(msg);
+  }
+  this.position=position;
+  this.listViewScrollOrientation=listViewScrollOrientation;
+  AppLogger.i("WifiAutoDownloadPictureRunnable new Runnable");
+}

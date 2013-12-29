@@ -1,7 +1,0 @@
-{
-  this.list=new MessageListBean();
-  this.list.addNewData(list);
-  this.position=position;
-  this.listViewOrientation=listViewOrientation;
-  AppLogger.i("WifiAutoDownloadPictureRunnable new Runnable");
-}
