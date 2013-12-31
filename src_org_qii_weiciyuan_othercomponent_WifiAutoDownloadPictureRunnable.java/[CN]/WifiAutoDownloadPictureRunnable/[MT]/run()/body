@@ -1,18 +1,7 @@
 {
-switch (this.listViewScrollOrientation) {
-case VelocityListView.TOWARDS_BOTTOM:
-    for (int i=position; i < list.getSize(); i++) {
-      if (!continueHandleMessage(i)) {
-        return;
-      }
+  for (  MessageBean msg : this.msgList.getItemList()) {
+    if (!continueHandleMessage(msg)) {
+      return;
     }
-  break;
-case VelocityListView.TOWARDS_TOP:
-for (int i=position; i >= 0; i--) {
-  if (!continueHandleMessage(i)) {
-    return;
   }
-}
-break;
-}
 }

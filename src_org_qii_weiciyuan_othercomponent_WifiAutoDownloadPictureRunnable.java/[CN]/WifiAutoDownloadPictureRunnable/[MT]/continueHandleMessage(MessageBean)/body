@@ -1,0 +1,33 @@
+{
+  if (Thread.currentThread().isInterrupted()) {
+    return false;
+  }
+  if (!Utility.isWifi(GlobalContext.getInstance())) {
+    return false;
+  }
+  if (msg == null) {
+    return true;
+  }
+  Boolean done=result.get(msg.getId());
+  if (done != null && done) {
+    AppLogger.i("already done skipped");
+    return true;
+  }
+synchronized (TaskCache.backgroundWifiDownloadPicturesWorkLock) {
+    while (!TaskCache.isDownloadTaskFinished() && !Thread.currentThread().isInterrupted()) {
+      try {
+        AppLogger.i("WifiAutoDownloadPictureRunnable wait for lock");
+        TaskCache.backgroundWifiDownloadPicturesWorkLock.wait();
+      }
+ catch (      InterruptedException e) {
+        Thread.currentThread().interrupt();
+        return false;
+      }
+    }
+  }
+  AppLogger.i("WifiAutoDownloadPictureRunnable" + msg.getId() + "start");
+  startDownload(msg);
+  AppLogger.i("WifiAutoDownloadPictureRunnable" + msg.getId() + "finished");
+  result.put(msg.getId(),true);
+  return true;
+}
