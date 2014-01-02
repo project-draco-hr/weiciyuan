@@ -3,8 +3,9 @@
   new Handler(Looper.getMainLooper()).post(new Runnable(){
     @Override public void run(){
       if (getSupportFragmentManager().findFragmentByTag(NewUserInfoFragment.class.getName()) == null) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.content,new NewUserInfoFragment(getUser(),getToken()),NewUserInfoFragment.class.getName()).commit();
+        getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new NewUserInfoFragment(getUser(),getToken()),NewUserInfoFragment.class.getName()).commit();
         getSupportFragmentManager().executePendingTransactions();
+        findViewById(android.R.id.content).setBackgroundDrawable(null);
       }
     }
   }

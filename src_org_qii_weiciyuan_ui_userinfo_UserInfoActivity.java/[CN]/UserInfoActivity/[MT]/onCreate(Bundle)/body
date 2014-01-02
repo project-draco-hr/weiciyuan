@@ -30,6 +30,7 @@
       }
     }
     fetchUserInfoFromServer();
+    findViewById(android.R.id.content).setBackgroundDrawable(ThemeUtility.getDrawable(android.R.attr.windowBackground));
   }
  else {
     buildContent();
