@@ -1,11 +1,6 @@
 {
-  Intent intent=getIntent();
-  if (intent == null) {
-    return;
-  }
-  boolean launcher=intent.getBooleanExtra("launcher",true);
   String id=SettingUtility.getDefaultAccountId();
-  if (launcher && !TextUtils.isEmpty(id)) {
+  if (!TextUtils.isEmpty(id)) {
     AccountBean bean=AccountDBTask.getAccount(id);
     if (bean != null) {
       Intent start=MainTimeLineActivity.newIntent(bean);

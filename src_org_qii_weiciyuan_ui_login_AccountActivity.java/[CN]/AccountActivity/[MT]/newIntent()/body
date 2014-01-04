@@ -1,5 +1,5 @@
 {
   Intent intent=new Intent(GlobalContext.getInstance(),AccountActivity.class);
-  intent.putExtra("launcher",false);
+  intent.setAction(ACTION_OPEN_FROM_APP_INNER);
   return intent;
 }

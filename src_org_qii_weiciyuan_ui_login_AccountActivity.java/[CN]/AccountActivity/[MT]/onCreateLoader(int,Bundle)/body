@@ -1,3 +1,3 @@
 {
-  return new AccountDataLoader(AccountActivity.this,args);
+  return new AccountDBLoader(AccountActivity.this,args);
 }
