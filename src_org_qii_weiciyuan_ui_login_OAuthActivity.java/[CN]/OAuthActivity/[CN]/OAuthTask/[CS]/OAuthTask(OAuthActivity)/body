@@ -1,0 +1,3 @@
+{
+  oAuthActivityWeakReference=new WeakReference<OAuthActivity>(activity);
+}

@@ -1,0 +1,5 @@
+BlackMagicActivity activity
+String username
+String password
+String appkey
+String appSecret

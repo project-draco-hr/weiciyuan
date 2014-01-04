@@ -1,4 +1,6 @@
 {
   super.onPause();
-  if (isFinishing())   webView.stopLoading();
+  if (isFinishing()) {
+    webView.stopLoading();
+  }
 }

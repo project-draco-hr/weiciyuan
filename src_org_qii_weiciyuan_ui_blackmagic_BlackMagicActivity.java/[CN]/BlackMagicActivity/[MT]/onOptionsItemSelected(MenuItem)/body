@@ -16,7 +16,7 @@ password.setError(getString(R.string.password_cant_be_empty));
 return true;
 }
 if (Utility.isTaskStopped(loginTask)) {
-loginTask=new LoginTask();
+loginTask=new LoginTask(this,username.getText().toString(),password.getText().toString(),appkey,appSecret);
 loginTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
 return true;

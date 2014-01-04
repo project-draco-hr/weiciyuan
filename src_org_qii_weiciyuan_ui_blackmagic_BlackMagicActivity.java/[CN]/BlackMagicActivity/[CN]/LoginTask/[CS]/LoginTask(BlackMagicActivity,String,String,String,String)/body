@@ -1,0 +1,7 @@
+{
+  mBlackMagicActivityWeakReference=new WeakReference<BlackMagicActivity>(activity);
+  this.username=username;
+  this.password=password;
+  this.appkey=appkey;
+  this.appSecret=appSecret;
+}

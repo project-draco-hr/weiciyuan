@@ -3,10 +3,14 @@
   if (progressFragment != null) {
     progressFragment.dismissAllowingStateLoss();
   }
+  BlackMagicActivity activity=mBlackMagicActivityWeakReference.get();
+  if (activity == null) {
+    return;
+  }
   Bundle values=new Bundle();
   values.putString("expires_in",s[1]);
   Intent intent=new Intent();
   intent.putExtras(values);
-  setResult(RESULT_OK,intent);
-  finish();
+  activity.setResult(RESULT_OK,intent);
+  activity.finish();
 }

@@ -1,6 +1,6 @@
 {
   try {
-    String[] result=new BMOAuthDao(username.getText().toString(),password.getText().toString(),appkey,appSecret).login();
+    String[] result=new BMOAuthDao(username,password,appkey,appSecret).login();
     UserBean user=new OAuthDao(result[0]).getOAuthUserInfo();
     AccountBean account=new AccountBean();
     account.setAccess_token(result[0]);

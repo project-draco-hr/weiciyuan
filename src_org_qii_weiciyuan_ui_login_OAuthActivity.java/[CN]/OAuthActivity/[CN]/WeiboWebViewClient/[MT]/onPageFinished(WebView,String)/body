@@ -1,4 +1,6 @@
 {
   super.onPageFinished(view,url);
-  if (!url.equals("about:blank"))   completeRefresh();
+  if (!url.equals("about:blank")) {
+    completeRefresh();
+  }
 }

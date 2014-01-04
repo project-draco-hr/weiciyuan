@@ -1,5 +1,8 @@
 {
   super.onPreExecute();
   progressFragment.setAsyncTask(LoginTask.this);
-  progressFragment.show(getSupportFragmentManager(),"");
+  BlackMagicActivity activity=mBlackMagicActivityWeakReference.get();
+  if (activity != null) {
+    progressFragment.show(activity.getSupportFragmentManager(),"");
+  }
 }
