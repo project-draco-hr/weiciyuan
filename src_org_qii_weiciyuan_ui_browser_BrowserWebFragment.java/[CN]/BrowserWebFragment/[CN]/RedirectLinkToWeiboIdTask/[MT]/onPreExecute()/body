@@ -1,3 +1,13 @@
 {
   super.onPreExecute();
+  BrowserWebFragment webFragment=webFragmentWeakReference.get();
+  if (webFragment == null) {
+    return;
+  }
+  Activity activity=webFragment.getActivity();
+  if (activity == null) {
+    return;
+  }
+  commonProgressDialogFragment=CommonProgressDialogFragment.newInstance(progressStr);
+  commonProgressDialogFragment.show(((FragmentActivity)activity).getSupportFragmentManager(),"dialog");
 }

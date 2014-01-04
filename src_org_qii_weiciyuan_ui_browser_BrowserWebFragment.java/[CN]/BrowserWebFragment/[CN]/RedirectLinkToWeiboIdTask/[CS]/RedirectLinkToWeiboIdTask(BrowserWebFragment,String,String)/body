@@ -1,5 +1,6 @@
 {
   this.oriUrl=oriUrl;
   this.mid=mid;
+  this.progressStr=webFragment.getString(R.string.converting_weibo_link);
   this.webFragmentWeakReference=new WeakReference<BrowserWebFragment>(webFragment);
 }

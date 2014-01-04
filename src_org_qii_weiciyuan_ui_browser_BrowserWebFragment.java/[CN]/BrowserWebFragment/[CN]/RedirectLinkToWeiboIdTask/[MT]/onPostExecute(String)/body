@@ -8,6 +8,7 @@
   if (activity == null) {
     return;
   }
+  commonProgressDialogFragment.dismissAllowingStateLoss();
   if (Long.valueOf(id) > 0L) {
     webFragment.startActivity(BrowserWeiboMsgActivity.newIntent(id,GlobalContext.getInstance().getSpecialToken()));
     activity.finish();
