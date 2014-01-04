@@ -1,7 +1,13 @@
 {
   super.onPostExecute(result);
   FriendsTimeLineFragment fragment=fragmentWeakReference.get();
-  if (fragment != null && result != null && result.size() > 0) {
+  if (fragment == null) {
+    return;
+  }
+  if (fragment.getActivity() == null) {
+    return;
+  }
+  if (result != null && result.size() > 0) {
     fragment.handleDBCacheResultData(result);
   }
 }

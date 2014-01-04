@@ -1,7 +1,11 @@
 {
   super.onProgressUpdate(result);
   FriendsTimeLineFragment fragment=fragmentWeakReference.get();
-  if (fragment != null) {
-    fragment.handleDBCacheOnProgressUpdateData(result);
+  if (fragment == null) {
+    return;
   }
+  if (fragment.getActivity() == null) {
+    return;
+  }
+  fragment.handleDBCacheOnProgressUpdateData(result);
 }

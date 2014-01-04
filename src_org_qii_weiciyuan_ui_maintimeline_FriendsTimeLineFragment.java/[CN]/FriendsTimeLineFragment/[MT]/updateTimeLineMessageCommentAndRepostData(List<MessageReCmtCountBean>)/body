@@ -1,4 +1,7 @@
 {
+  if (getList().getSize() == 0) {
+    return;
+  }
   for (int i=0; i < value.size(); i++) {
     MessageBean msg=getList().getItem(i);
     MessageReCmtCountBean count=value.get(i);
