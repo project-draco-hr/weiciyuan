@@ -1,2 +1,3 @@
+String uid
 List<String> add
 List<String> remove

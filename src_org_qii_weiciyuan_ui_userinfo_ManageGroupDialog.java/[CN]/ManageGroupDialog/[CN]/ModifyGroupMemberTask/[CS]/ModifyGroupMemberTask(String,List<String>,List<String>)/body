@@ -1,4 +1,5 @@
 {
+  this.uid=uid;
   this.add=add;
   this.remove=remove;
 }
