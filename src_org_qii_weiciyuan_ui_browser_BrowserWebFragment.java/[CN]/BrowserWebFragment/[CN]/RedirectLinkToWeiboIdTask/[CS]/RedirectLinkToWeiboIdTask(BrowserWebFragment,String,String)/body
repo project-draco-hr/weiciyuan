@@ -1,0 +1,5 @@
+{
+  this.oriUrl=oriUrl;
+  this.mid=mid;
+  this.webFragmentWeakReference=new WeakReference<BrowserWebFragment>(webFragment);
+}

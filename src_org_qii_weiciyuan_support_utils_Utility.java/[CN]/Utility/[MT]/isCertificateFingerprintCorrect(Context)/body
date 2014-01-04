@@ -1,0 +1,32 @@
+{
+  try {
+    PackageManager pm=context.getPackageManager();
+    String packageName=context.getPackageName();
+    int flags=PackageManager.GET_SIGNATURES;
+    PackageInfo packageInfo=pm.getPackageInfo(packageName,flags);
+    Signature[] signatures=packageInfo.signatures;
+    byte[] cert=signatures[0].toByteArray();
+    String strResult="";
+    MessageDigest md;
+    md=MessageDigest.getInstance("MD5");
+    md.update(cert);
+    for (    byte b : md.digest()) {
+      strResult+=Integer.toString(b & 0xff,16);
+    }
+    strResult=strResult.toUpperCase();
+    if ("606A98FAF73EF658B775CA4EFE4B8427".toUpperCase().equals(strResult)) {
+      return true;
+    }
+    if ("C96155C3DAD4CA1069808F0BAC813A69".toUpperCase().equals(strResult)) {
+      return true;
+    }
+    AppLogger.e(strResult);
+  }
+ catch (  NoSuchAlgorithmException ex) {
+    ex.printStackTrace();
+  }
+catch (  PackageManager.NameNotFoundException ex) {
+    ex.printStackTrace();
+  }
+  return false;
+}

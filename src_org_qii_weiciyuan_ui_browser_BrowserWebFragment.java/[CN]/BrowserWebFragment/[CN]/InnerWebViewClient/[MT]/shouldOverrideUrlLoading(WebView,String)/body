@@ -9,7 +9,7 @@
   }
  else   if (Utility.isWeiboMid(url)) {
     String mid=Utility.getMidFromUrl(url);
-    RedirectLinkToWeiboIdTask task=new RedirectLinkToWeiboIdTask(url,mid);
+    RedirectLinkToWeiboIdTask task=new RedirectLinkToWeiboIdTask(BrowserWebFragment.this,url,mid);
     task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
     return true;
   }

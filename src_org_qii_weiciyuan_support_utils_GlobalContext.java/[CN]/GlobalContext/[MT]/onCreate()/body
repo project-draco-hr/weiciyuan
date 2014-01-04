@@ -4,4 +4,7 @@
   buildCache();
   CrashManagerConstants.loadFromContext(this);
   CrashManager.registerHandler();
+  if (Utility.isCertificateFingerprintCorrect(this)) {
+    Crashlytics.start(this);
+  }
 }
