@@ -1,6 +1,5 @@
 {
-  GlobalContext.getInstance().startedApp=true;
-  jumpToHomeActivity();
+  jumpToMainTimeLineActivity();
   super.onCreate(savedInstanceState);
   setContentView(R.layout.accountactivity_layout);
   getActionBar().setTitle(getString(R.string.app_name));

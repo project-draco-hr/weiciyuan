@@ -1,0 +1,5 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),AccountActivity.class);
+  intent.putExtra("launcher",false);
+  return intent;
+}

@@ -1,4 +1,3 @@
 {
-  GlobalContext.getInstance().startedApp=false;
   super.onBackPressed();
 }
