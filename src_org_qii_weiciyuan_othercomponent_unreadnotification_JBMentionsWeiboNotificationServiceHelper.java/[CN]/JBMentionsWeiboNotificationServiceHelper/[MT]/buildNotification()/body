@@ -2,9 +2,11 @@
   int count=(data.getSize() >= Integer.valueOf(SettingUtility.getMsgCount()) ? unreadBean.getMention_status() : data.getSize());
   Notification.Builder builder=new Notification.Builder(getBaseContext()).setTicker(ticker).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
   builder.setContentTitle(String.format(GlobalContext.getInstance().getString(R.string.new_mentions_weibo),String.valueOf(count)));
-  if (data.getSize() > 1)   builder.setNumber(count);
+  if (data.getSize() > 1) {
+    builder.setNumber(count);
+  }
   if (clearNotificationEventReceiver != null) {
-    GlobalContext.getInstance().unregisterReceiver(clearNotificationEventReceiver);
+    Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(GlobalContext.getInstance(),clearNotificationEventReceiver);
     JBMentionsWeiboNotificationServiceHelper.clearNotificationEventReceiver=null;
   }
   clearNotificationEventReceiver=new BroadcastReceiver(){
@@ -17,7 +19,7 @@
  catch (          WeiboException ignored) {
           }
  finally {
-            GlobalContext.getInstance().unregisterReceiver(clearNotificationEventReceiver);
+            Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(GlobalContext.getInstance(),clearNotificationEventReceiver);
             JBMentionsWeiboNotificationServiceHelper.clearNotificationEventReceiver=null;
           }
         }
@@ -69,8 +71,12 @@
   }
   bigTextStyle.bigText(data.getItem(currentIndex).getText());
   String summaryText;
-  if (data.getSize() > 1)   summaryText=accountBean.getUsernick() + "(" + (currentIndex + 1)+ "/"+ data.getSize()+ ")";
- else   summaryText=accountBean.getUsernick();
+  if (data.getSize() > 1) {
+    summaryText=accountBean.getUsernick() + "(" + (currentIndex + 1)+ "/"+ data.getSize()+ ")";
+  }
+ else {
+    summaryText=accountBean.getUsernick();
+  }
   bigTextStyle.setSummaryText(summaryText);
   builder.setStyle(bigTextStyle);
   Utility.configVibrateLedRingTone(builder);

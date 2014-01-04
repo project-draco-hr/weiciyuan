@@ -1,0 +1,8 @@
+{
+  try {
+    context.getApplicationContext().unregisterReceiver(broadcastReceiver);
+  }
+ catch (  IllegalArgumentException receiverNotRegisteredException) {
+    receiverNotRegisteredException.printStackTrace();
+  }
+}
