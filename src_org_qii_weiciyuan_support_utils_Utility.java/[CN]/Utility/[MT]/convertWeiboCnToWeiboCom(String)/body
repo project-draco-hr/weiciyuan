@@ -1,6 +1,11 @@
 {
-  if (!TextUtils.isEmpty(url) && url.startsWith("http://weibo.cn")) {
-    url=url.replace("http://weibo.cn","http://weibo.com");
+  if (!TextUtils.isEmpty(url)) {
+    if (url.startsWith("http://weibo.cn")) {
+      url=url.replace("http://weibo.cn","http://weibo.com");
+    }
+ else     if (url.startsWith("http://www.weibo.com")) {
+      url=url.replace("http://www.weibo.com","http://weibo.com");
+    }
   }
   return url;
 }
