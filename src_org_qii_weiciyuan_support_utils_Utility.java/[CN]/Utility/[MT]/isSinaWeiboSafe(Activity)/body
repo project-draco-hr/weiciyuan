@@ -1,0 +1,6 @@
+{
+  Intent mapCall=new Intent("com.sina.weibo.remotessoservice");
+  PackageManager packageManager=activity.getPackageManager();
+  List<ResolveInfo> services=packageManager.queryIntentServices(mapCall,0);
+  return services.size() > 0;
+}
