@@ -1,4 +1,7 @@
 {
   progressFragment.setAsyncTask(this);
-  progressFragment.show(getSupportFragmentManager(),"");
+  SSOActivity activity=sSOActivityWeakReference.get();
+  if (activity != null) {
+    progressFragment.show(activity.getSupportFragmentManager(),"");
+  }
 }

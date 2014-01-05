@@ -1,6 +1,8 @@
 {
   super.onCreate(savedInstanceState);
   getActionBar().setTitle(R.string.official_app_login);
-  SsoHandler mSsoHandler=new SsoHandler(SSOActivity.this);
-  mSsoHandler.authorize();
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setDisplayShowHomeEnabled(false);
+  SsoHandler ssoHandler=new SsoHandler(SSOActivity.this);
+  ssoHandler.authorize();
 }

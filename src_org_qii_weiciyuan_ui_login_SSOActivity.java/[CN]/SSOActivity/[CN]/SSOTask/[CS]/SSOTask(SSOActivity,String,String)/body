@@ -1,0 +1,5 @@
+{
+  this.sSOActivityWeakReference=new WeakReference<SSOActivity>(ssoActivity);
+  this.token=token;
+  this.expiresIn=expiresIn;
+}

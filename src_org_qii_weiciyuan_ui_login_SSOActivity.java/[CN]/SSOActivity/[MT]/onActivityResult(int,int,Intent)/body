@@ -1,6 +1,8 @@
 {
   super.onActivityResult(requestCode,resultCode,data);
-  if (resultCode == Activity.RESULT_CANCELED) {
+  if (resultCode == Activity.RESULT_CANCELED || data == null) {
+    Toast.makeText(this,R.string.you_cancel_login,Toast.LENGTH_SHORT).show();
+    finish();
     return;
   }
   String error=data.getStringExtra("error");
@@ -10,6 +12,8 @@
   if (error != null) {
     if (error.equals("access_denied") || error.equals("OAuthAccessDeniedException")) {
       Log.d("Weibo-authorize","Login canceled by user.");
+      Toast.makeText(this,R.string.you_cancel_login,Toast.LENGTH_SHORT).show();
+      finish();
     }
  else {
       String description=data.getStringExtra("error_description");
@@ -17,6 +21,8 @@
         error=error + ":" + description;
       }
       Log.d("Weibo-authorize","Login failed: " + error);
+      Toast.makeText(this,getString(R.string.login_failed) + error,Toast.LENGTH_SHORT).show();
+      finish();
     }
     return;
   }
@@ -27,7 +33,7 @@
   String expires=data.getStringExtra(KEY_EXPIRES);
   String refreshToken=data.getStringExtra(KEY_REFRESHTOKEN);
   if (Utility.isTaskStopped(task)) {
-    task=new SSOTask(token,expires);
+    task=new SSOTask(SSOActivity.this,token,expires);
     task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
   }
 }

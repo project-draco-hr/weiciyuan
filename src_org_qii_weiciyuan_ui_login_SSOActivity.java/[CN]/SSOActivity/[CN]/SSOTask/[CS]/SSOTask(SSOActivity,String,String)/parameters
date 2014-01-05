@@ -1,2 +1,3 @@
+SSOActivity ssoActivity
 String token
 String expiresIn
