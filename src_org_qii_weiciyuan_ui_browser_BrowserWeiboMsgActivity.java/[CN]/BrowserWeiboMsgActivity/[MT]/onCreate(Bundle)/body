@@ -18,6 +18,7 @@
       token=getIntent().getStringExtra("token");
       msgId=getIntent().getStringExtra("weiboId");
       fetchUserInfoFromServer();
+      findViewById(android.R.id.content).setBackgroundDrawable(ThemeUtility.getDrawable(android.R.attr.windowBackground));
     }
  else     if (ACTION_WITH_DETAIL.equalsIgnoreCase(action)) {
       Intent intent=getIntent();

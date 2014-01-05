@@ -3,6 +3,8 @@
     @Override public void run(){
       if (getSupportFragmentManager().findFragmentByTag(BrowserWeiboMsgFragment.class.getName()) == null) {
         getSupportFragmentManager().beginTransaction().replace(android.R.id.content,BrowserWeiboMsgFragment.newInstance(msg),BrowserWeiboMsgFragment.class.getName()).commit();
+        getSupportFragmentManager().executePendingTransactions();
+        findViewById(android.R.id.content).setBackgroundDrawable(null);
       }
     }
   }

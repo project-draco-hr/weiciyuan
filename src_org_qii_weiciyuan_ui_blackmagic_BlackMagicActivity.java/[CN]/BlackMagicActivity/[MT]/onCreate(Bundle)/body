@@ -1,9 +1,9 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.blackmagicactivity_layout);
-  ActionBar actionBar=getActionBar();
-  actionBar.setDisplayHomeAsUpEnabled(false);
-  actionBar.setTitle(getString(R.string.hack_login));
+  getActionBar().setDisplayHomeAsUpEnabled(true);
+  getActionBar().setDisplayShowHomeEnabled(false);
+  getActionBar().setTitle(getString(R.string.hack_login));
   username=(EditText)findViewById(R.id.username);
   password=(EditText)findViewById(R.id.password);
   spinner=(Spinner)findViewById(R.id.spinner);

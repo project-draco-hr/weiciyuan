@@ -1,22 +1,17 @@
 {
 switch (item.getItemId()) {
-case android.R.id.home:
-    Intent intent=AccountActivity.newIntent();
-  intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-startActivity(intent);
-return true;
 case R.id.menu_login:
-if (username.getText().toString().length() == 0) {
-username.setError(getString(R.string.email_cant_be_empty));
-return true;
-}
-if (password.getText().toString().length() == 0) {
-password.setError(getString(R.string.password_cant_be_empty));
-return true;
-}
+    if (username.getText().toString().length() == 0) {
+      username.setError(getString(R.string.email_cant_be_empty));
+      return true;
+    }
+  if (password.getText().toString().length() == 0) {
+    password.setError(getString(R.string.password_cant_be_empty));
+    return true;
+  }
 if (Utility.isTaskStopped(loginTask)) {
-loginTask=new LoginTask(this,username.getText().toString(),password.getText().toString(),appkey,appSecret);
-loginTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  loginTask=new LoginTask(this,username.getText().toString(),password.getText().toString(),appkey,appSecret);
+  loginTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
 }
 return true;
 default :
