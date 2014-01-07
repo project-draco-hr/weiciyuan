@@ -34,7 +34,6 @@
   }
 );
   detectDebugPreference();
-  detectCrashPreference();
   findPreference(SettingActivity.AUTHOR).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
       blackMagicCount++;
