@@ -3,9 +3,19 @@
   new Handler(Looper.getMainLooper()).post(new Runnable(){
     @Override public void run(){
       if (getSupportFragmentManager().findFragmentByTag(NewUserInfoFragment.class.getName()) == null) {
-        getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new NewUserInfoFragment(getUser(),getToken()),NewUserInfoFragment.class.getName()).commit();
+        getSupportFragmentManager().beginTransaction().replace(android.R.id.content,NewUserInfoFragment.newInstance(getUser(),getToken()),NewUserInfoFragment.class.getName()).commit();
         getSupportFragmentManager().executePendingTransactions();
-        findViewById(android.R.id.content).setBackgroundDrawable(null);
+        ObjectAnimator animator=ObjectAnimator.ofFloat(((ViewGroup)findViewById(android.R.id.content)).getChildAt(0),"translationY",400f,0f);
+        animator.setDuration(300);
+        animator.setInterpolator(new DecelerateInterpolator());
+        animator.addListener(new AnimatorListenerAdapter(){
+          @Override public void onAnimationEnd(          Animator animation){
+            super.onAnimationEnd(animation);
+            findViewById(android.R.id.content).setBackgroundDrawable(null);
+          }
+        }
+);
+        animator.start();
       }
     }
   }
