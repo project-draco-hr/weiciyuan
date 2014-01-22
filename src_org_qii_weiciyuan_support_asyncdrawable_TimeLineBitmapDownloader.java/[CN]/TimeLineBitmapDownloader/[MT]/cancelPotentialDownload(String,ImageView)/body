@@ -3,7 +3,9 @@
   if (bitmapDownloaderTask != null) {
     String bitmapUrl=bitmapDownloaderTask.getUrl();
     if ((bitmapUrl == null) || (!bitmapUrl.equals(url))) {
-      if (bitmapDownloaderTask instanceof MyAsyncTask)       ((MyAsyncTask)bitmapDownloaderTask).cancel(true);
+      if (bitmapDownloaderTask instanceof MyAsyncTask) {
+        ((MyAsyncTask)bitmapDownloaderTask).cancel(true);
+      }
     }
  else {
       return false;

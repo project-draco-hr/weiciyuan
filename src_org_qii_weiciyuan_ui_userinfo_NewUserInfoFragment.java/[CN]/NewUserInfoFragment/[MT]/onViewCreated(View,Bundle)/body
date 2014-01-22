@@ -46,6 +46,14 @@ rightPoint.getDrawable().setLevel(1);
 break;
 }
 }
+@Override public void onPageScrolled(int position,float positionOffset,int positionOffsetPixels){
+super.onPageScrolled(position,positionOffset,positionOffsetPixels);
+if (position == 0) {
+if (positionOffset > 0) {
+blur.setAlpha(positionOffset);
+}
+}
+}
 }
 );
 }

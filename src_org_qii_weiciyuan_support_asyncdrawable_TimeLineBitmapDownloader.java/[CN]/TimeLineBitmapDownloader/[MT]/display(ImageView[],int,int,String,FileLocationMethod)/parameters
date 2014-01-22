@@ -1,0 +1,5 @@
+ImageView[] imageView
+int width
+int height
+String url
+FileLocationMethod method

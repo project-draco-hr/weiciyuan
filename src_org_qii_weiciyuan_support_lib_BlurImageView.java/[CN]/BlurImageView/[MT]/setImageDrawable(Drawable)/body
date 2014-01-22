@@ -1,0 +1,10 @@
+{
+  if (drawable instanceof BitmapDrawable) {
+    BitmapDrawable bitmapDrawable=(BitmapDrawable)drawable;
+    Bitmap bitmap=bitmapDrawable.getBitmap();
+    if (bitmap != null) {
+      drawable=new BitmapDrawable(getResources(),fastBlur(bitmap,radius));
+    }
+  }
+  super.setImageDrawable(drawable);
+}

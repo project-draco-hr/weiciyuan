@@ -1,11 +1,15 @@
 {
   view.getImageView().clearAnimation();
-  if (!shouldReloadPicture(view.getImageView(),urlKey))   return;
+  if (!shouldReloadPicture(view.getImageView(),urlKey)) {
+    return;
+  }
   final Bitmap bitmap=getBitmapFromMemCache(urlKey);
   if (bitmap != null) {
     view.setImageBitmap(bitmap);
     view.getImageView().setTag(urlKey);
-    if (view.getProgressBar() != null)     view.getProgressBar().setVisibility(View.INVISIBLE);
+    if (view.getProgressBar() != null) {
+      view.getProgressBar().setVisibility(View.INVISIBLE);
+    }
     if (view.getImageView().getAlpha() != 1.0f) {
       view.getImageView().setAlpha(1.0f);
     }
@@ -15,7 +19,9 @@
  else {
     if (isFling) {
       view.getImageView().setImageResource(defaultPictureResId);
-      if (view.getProgressBar() != null)       view.getProgressBar().setVisibility(View.INVISIBLE);
+      if (view.getProgressBar() != null) {
+        view.getProgressBar().setVisibility(View.INVISIBLE);
+      }
       view.setGifFlag(ImageUtility.isThisPictureGif(urlKey));
       return;
     }

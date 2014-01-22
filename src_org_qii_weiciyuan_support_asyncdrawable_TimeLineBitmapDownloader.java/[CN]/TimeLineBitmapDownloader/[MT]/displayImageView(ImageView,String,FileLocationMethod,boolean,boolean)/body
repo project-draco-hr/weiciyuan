@@ -1,6 +1,8 @@
 {
   view.clearAnimation();
-  if (!shouldReloadPicture(view,urlKey))   return;
+  if (!shouldReloadPicture(view,urlKey)) {
+    return;
+  }
   final Bitmap bitmap=getBitmapFromMemCache(urlKey);
   if (bitmap != null) {
     view.setImageBitmap(bitmap);
