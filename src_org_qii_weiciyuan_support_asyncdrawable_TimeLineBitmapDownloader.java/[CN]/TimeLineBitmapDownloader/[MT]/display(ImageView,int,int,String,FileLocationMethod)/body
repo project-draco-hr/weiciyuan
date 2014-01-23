@@ -1,5 +1,5 @@
 {
-  ImageView[] ivArray=new ImageView[1];
-  ivArray[0]=imageView;
-  display(ivArray,width,height,url,method);
+  ArrayList<ImageView> imageViewArrayList=new ArrayList<ImageView>();
+  imageViewArrayList.add(imageView);
+  display(imageViewArrayList,width,height,url,method,null);
 }

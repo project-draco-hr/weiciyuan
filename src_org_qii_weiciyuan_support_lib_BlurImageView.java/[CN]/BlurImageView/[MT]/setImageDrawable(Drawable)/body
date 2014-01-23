@@ -1,9 +1,25 @@
 {
   if (drawable instanceof BitmapDrawable) {
     BitmapDrawable bitmapDrawable=(BitmapDrawable)drawable;
-    Bitmap bitmap=bitmapDrawable.getBitmap();
+    final Bitmap bitmap=bitmapDrawable.getBitmap();
     if (bitmap != null) {
-      drawable=new BitmapDrawable(getResources(),fastBlur(bitmap,radius));
+      blurThread=new Thread(new Runnable(){
+        @Override public void run(){
+          final Drawable blurDrawable=new BitmapDrawable(getResources(),fastBlur(bitmap,radius));
+          if (Thread.currentThread().isInterrupted()) {
+            return;
+          }
+          new Handler(Looper.getMainLooper()).post(new Runnable(){
+            @Override public void run(){
+              BlurImageView.super.setImageDrawable(blurDrawable);
+            }
+          }
+);
+        }
+      }
+);
+      blurThread.start();
+      return;
     }
   }
   super.setImageDrawable(drawable);

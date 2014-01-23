@@ -1,0 +1,6 @@
+{
+  super.onDetachedFromWindow();
+  if (blurThread != null) {
+    blurThread.interrupt();
+  }
+}

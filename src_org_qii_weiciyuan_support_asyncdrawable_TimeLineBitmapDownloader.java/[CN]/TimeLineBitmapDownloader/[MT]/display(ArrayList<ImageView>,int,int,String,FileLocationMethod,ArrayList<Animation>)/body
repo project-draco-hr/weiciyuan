@@ -14,8 +14,13 @@
     @Override protected void onPostExecute(    Bitmap bitmap){
       super.onPostExecute(bitmap);
       if (bitmap != null) {
-        for (        ImageView iv : imageView) {
-          iv.setImageDrawable(new BitmapDrawable(GlobalContext.getInstance().getResources(),bitmap));
+        for (int i=0; i < imageView.size(); i++) {
+          ImageView imageView1=imageView.get(i);
+          imageView1.setImageDrawable(new BitmapDrawable(GlobalContext.getInstance().getResources(),bitmap));
+          if (animations != null && animations.size() > i) {
+            Animation animation=animations.get(i);
+            imageView1.startAnimation(animation);
+          }
         }
       }
     }
