@@ -75,10 +75,12 @@
  else {
     followsYou.setVisibility(View.GONE);
   }
-  cover.post(new Runnable(){
-    @Override public void run(){
-      displayCoverPicture();
+  if (cover.getDrawable() == null) {
+    cover.post(new Runnable(){
+      @Override public void run(){
+        displayCoverPicture();
+      }
     }
-  }
 );
+  }
 }

@@ -7,7 +7,7 @@
   imageViewArrayList.add(cover);
   imageViewArrayList.add(blur);
   TranslateAnimation animation=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,-100f,Animation.RELATIVE_TO_SELF,0f);
-  animation.setDuration(2000);
+  animation.setDuration(3000);
   animation.setInterpolator(new DecelerateInterpolator());
   ArrayList<Animation> animationArray=new ArrayList<Animation>();
   animationArray.add(animation);
