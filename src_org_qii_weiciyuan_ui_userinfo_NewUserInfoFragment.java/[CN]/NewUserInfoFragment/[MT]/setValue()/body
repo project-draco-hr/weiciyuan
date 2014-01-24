@@ -76,11 +76,14 @@
     followsYou.setVisibility(View.GONE);
   }
   if (cover.getDrawable() == null) {
-    cover.post(new Runnable(){
+    Utility.runUIActionDelayed(new Runnable(){
       @Override public void run(){
+        if (getActivity() == null) {
+          return;
+        }
         displayCoverPicture();
       }
     }
-);
+,400);
   }
 }

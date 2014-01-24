@@ -6,9 +6,17 @@ case FIRST_TIME_START:
     readDBCache();
   }
  else {
-    fetchLastestUserInfoFromServer();
-    loadNewMsg();
-    fetchTopicInfoFromServer();
+    Utility.runUIActionDelayed(new Runnable(){
+      @Override public void run(){
+        if (getActivity() == null) {
+          return;
+        }
+        fetchLastestUserInfoFromServer();
+        loadNewMsg();
+        fetchTopicInfoFromServer();
+      }
+    }
+,400);
   }
 break;
 case SCREEN_ROTATE:
