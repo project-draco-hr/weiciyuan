@@ -1,4 +1,7 @@
 {
+  if (broadcastReceiver == null) {
+    return;
+  }
   try {
     context.getApplicationContext().unregisterReceiver(broadcastReceiver);
   }

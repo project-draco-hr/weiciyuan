@@ -1,9 +1,7 @@
 {
   super.onPause();
   Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(this,newMsgInterruptBroadcastReceiver);
-  if (musicReceiver != null) {
-    Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(this,musicReceiver);
-  }
+  Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(this,musicReceiver);
   if (isFinishing()) {
     saveNavigationPositionToDB();
   }

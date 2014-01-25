@@ -3,7 +3,7 @@
   IntentFilter filter=new IntentFilter(AppEventAction.NEW_MSG_PRIORITY_BROADCAST);
   filter.setPriority(1);
   newMsgInterruptBroadcastReceiver=new NewMsgInterruptBroadcastReceiver();
-  registerReceiver(newMsgInterruptBroadcastReceiver,filter);
+  Utility.registerReceiverIgnoredReceiverHasRegisteredHereException(this,newMsgInterruptBroadcastReceiver,filter);
   startListenMusicPlaying();
   readClipboard();
   ConnectionChangeReceiver.judgeNetworkStatus(this);

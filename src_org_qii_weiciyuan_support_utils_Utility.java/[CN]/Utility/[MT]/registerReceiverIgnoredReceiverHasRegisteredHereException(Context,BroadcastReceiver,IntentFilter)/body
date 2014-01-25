@@ -1,0 +1,11 @@
+{
+  if (broadcastReceiver == null || intentFilter == null) {
+    return;
+  }
+  try {
+    context.getApplicationContext().registerReceiver(broadcastReceiver,intentFilter);
+  }
+ catch (  AndroidRuntimeException receiverHasRegisteredException) {
+    receiverHasRegisteredException.printStackTrace();
+  }
+}
