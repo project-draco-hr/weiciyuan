@@ -4,7 +4,8 @@
   filter.setPriority(1);
   newMsgInterruptBroadcastReceiver=new NewMsgInterruptBroadcastReceiver();
   Utility.registerReceiverIgnoredReceiverHasRegisteredHereException(this,newMsgInterruptBroadcastReceiver,filter);
-  startListenMusicPlaying();
+  musicReceiver=new MusicReceiver();
+  Utility.registerReceiverIgnoredReceiverHasRegisteredHereException(this,musicReceiver,AppEventAction.getSystemMusicBroadcastFilterAction());
   readClipboard();
   ConnectionChangeReceiver.judgeNetworkStatus(this);
 }

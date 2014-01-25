@@ -1,4 +1,0 @@
-{
-  musicReceiver=new MusicReceiver();
-  Utility.registerReceiverIgnoredReceiverHasRegisteredHereException(this,musicReceiver,AppEventAction.getSystemMusicBroadcastFilterAction());
-}

@@ -1,9 +1,10 @@
 {
-  if (broadcastReceiver == null || intentFilter == null) {
+  if (broadcastReceiver == null || broadcastReceiver.hasRegistered() || intentFilter == null) {
     return;
   }
   try {
     context.getApplicationContext().registerReceiver(broadcastReceiver,intentFilter);
+    broadcastReceiver.setHasRegistered(true);
   }
  catch (  AndroidRuntimeException receiverHasRegisteredException) {
     receiverHasRegisteredException.printStackTrace();

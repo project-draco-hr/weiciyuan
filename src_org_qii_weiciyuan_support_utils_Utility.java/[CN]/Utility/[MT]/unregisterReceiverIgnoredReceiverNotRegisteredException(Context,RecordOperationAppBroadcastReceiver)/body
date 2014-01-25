@@ -1,9 +1,10 @@
 {
-  if (broadcastReceiver == null) {
+  if (broadcastReceiver == null || broadcastReceiver.hasUnRegistered() || !broadcastReceiver.hasRegistered()) {
     return;
   }
   try {
     context.getApplicationContext().unregisterReceiver(broadcastReceiver);
+    broadcastReceiver.setHasUnRegistered(true);
   }
  catch (  IllegalArgumentException receiverNotRegisteredException) {
     receiverNotRegisteredException.printStackTrace();
