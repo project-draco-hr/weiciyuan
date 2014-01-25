@@ -1,0 +1,14 @@
+{
+  if (getActivity() == null) {
+    return;
+  }
+  displayCoverPicture();
+  if (isMyself() && isOpenedFromMainPage()) {
+    readDBCache();
+  }
+ else {
+    fetchLastestUserInfoFromServer();
+    loadNewMsg();
+    fetchTopicInfoFromServer();
+  }
+}

@@ -4,5 +4,8 @@
   ObjectAnimator objectAnimator=ObjectAnimator.ofInt(wrapper,"change",from,to);
   objectAnimator.setDuration(300);
   objectAnimator.setInterpolator(new DecelerateInterpolator());
+  if (animatorListener != null) {
+    objectAnimator.addListener(animatorListener);
+  }
   objectAnimator.start();
 }

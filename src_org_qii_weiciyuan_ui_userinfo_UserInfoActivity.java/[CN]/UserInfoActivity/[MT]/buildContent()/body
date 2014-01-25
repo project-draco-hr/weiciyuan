@@ -6,7 +6,7 @@
         NewUserInfoFragment userInfoFragment=NewUserInfoFragment.newInstance(getUser(),getToken());
         getSupportFragmentManager().beginTransaction().replace(android.R.id.content,userInfoFragment,NewUserInfoFragment.class.getName()).commit();
         getSupportFragmentManager().executePendingTransactions();
-        AnimationUtility.translateFragmentY(userInfoFragment,-400,0);
+        AnimationUtility.translateFragmentY(userInfoFragment,-400,0,userInfoFragment);
       }
     }
   }
