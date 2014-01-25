@@ -9,7 +9,7 @@
     Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(GlobalContext.getInstance(),clearNotificationEventReceiver);
     JBMentionsWeiboNotificationServiceHelper.clearNotificationEventReceiver=null;
   }
-  clearNotificationEventReceiver=new BroadcastReceiver(){
+  clearNotificationEventReceiver=new RecordOperationAppBroadcastReceiver(){
     @Override public void onReceive(    Context context,    Intent intent){
       new Thread(new Runnable(){
         @Override public void run(){
