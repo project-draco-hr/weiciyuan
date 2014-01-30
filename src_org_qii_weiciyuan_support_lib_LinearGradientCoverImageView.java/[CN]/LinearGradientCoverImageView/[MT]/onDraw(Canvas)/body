@@ -1,0 +1,9 @@
+{
+  super.onDraw(canvas);
+  if (linearGradient == null) {
+    int colorLinear[]={Color.TRANSPARENT,getResources().getColor(R.color.dark_gray)};
+    linearGradient=new LinearGradient(0,0,0,getHeight(),colorLinear,null,Shader.TileMode.REPEAT);
+    paint.setShader(linearGradient);
+  }
+  canvas.drawPaint(paint);
+}
