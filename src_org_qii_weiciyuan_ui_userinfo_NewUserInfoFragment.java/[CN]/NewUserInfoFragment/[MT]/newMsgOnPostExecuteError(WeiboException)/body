@@ -1,4 +1,5 @@
 {
   super.newMsgOnPostExecuteError(exception);
   stopRefreshMenuAnimationIfPossible();
+  getListView().removeFooterView(progressFooter);
 }
