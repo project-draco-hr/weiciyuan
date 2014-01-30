@@ -1,15 +1,15 @@
 {
   if (position - 1 < getList().getUsers().size() && position - 1 >= 0) {
-    if (mActionMode != null) {
-      mActionMode.finish();
-      mActionMode=null;
+    if (actionMode != null) {
+      actionMode.finish();
+      actionMode=null;
       getListView().setItemChecked(position,true);
       getAdapter().notifyDataSetChanged();
       if (currentUser.getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
-        mActionMode=getActivity().startActionMode(new MyFanSingleChoiceModeListener(getListView(),getAdapter(),FanListFragment.this,bean.getUsers().get(position - 1)));
+        actionMode=getActivity().startActionMode(new MyFanSingleChoiceModeListener(getListView(),getAdapter(),FanListFragment.this,bean.getUsers().get(position - 1)));
       }
  else {
-        mActionMode=getActivity().startActionMode(new NormalFriendShipSingleChoiceModeListener(getListView(),getAdapter(),FanListFragment.this,bean.getUsers().get(position - 1)));
+        actionMode=getActivity().startActionMode(new NormalFriendShipSingleChoiceModeListener(getListView(),getAdapter(),FanListFragment.this,bean.getUsers().get(position - 1)));
       }
       return true;
     }
@@ -17,10 +17,10 @@
       getListView().setItemChecked(position,true);
       getAdapter().notifyDataSetChanged();
       if (currentUser.getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
-        mActionMode=getActivity().startActionMode(new MyFanSingleChoiceModeListener(getListView(),getAdapter(),FanListFragment.this,bean.getUsers().get(position - 1)));
+        actionMode=getActivity().startActionMode(new MyFanSingleChoiceModeListener(getListView(),getAdapter(),FanListFragment.this,bean.getUsers().get(position - 1)));
       }
  else {
-        mActionMode=getActivity().startActionMode(new NormalFriendShipSingleChoiceModeListener(getListView(),getAdapter(),FanListFragment.this,bean.getUsers().get(position - 1)));
+        actionMode=getActivity().startActionMode(new NormalFriendShipSingleChoiceModeListener(getListView(),getAdapter(),FanListFragment.this,bean.getUsers().get(position - 1)));
       }
       return true;
     }

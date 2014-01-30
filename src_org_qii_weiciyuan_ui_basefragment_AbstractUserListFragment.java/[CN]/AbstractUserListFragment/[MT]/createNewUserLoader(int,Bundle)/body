@@ -1,5 +1,5 @@
 {
-  Loader<AsyncTaskLoaderResult<UserListBean>> loader=onCreateNewMsgLoader(id,args);
+  Loader<AsyncTaskLoaderResult<UserListBean>> loader=onCreateNewUserLoader(id,args);
   if (loader == null) {
     loader=new DummyLoader<UserListBean>(getActivity());
   }

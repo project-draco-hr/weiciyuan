@@ -2,10 +2,10 @@
   super.onActivityCreated(savedInstanceState);
   Loader<UserListBean> loader=getLoaderManager().getLoader(NEW_USER_LOADER_ID);
   if (loader != null) {
-    getLoaderManager().initLoader(NEW_USER_LOADER_ID,null,msgCallback);
+    getLoaderManager().initLoader(NEW_USER_LOADER_ID,null,userAsyncTaskLoaderCallback);
   }
   loader=getLoaderManager().getLoader(OLD_USER_LOADER_ID);
   if (loader != null) {
-    getLoaderManager().initLoader(OLD_USER_LOADER_ID,null,msgCallback);
+    getLoaderManager().initLoader(OLD_USER_LOADER_ID,null,userAsyncTaskLoaderCallback);
   }
 }
