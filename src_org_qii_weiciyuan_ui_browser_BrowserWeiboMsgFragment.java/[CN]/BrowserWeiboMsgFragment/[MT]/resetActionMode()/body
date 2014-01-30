@@ -1,8 +1,8 @@
 {
-  if (mActionMode != null) {
+  if (actionMode != null) {
     getListView().clearChoices();
-    mActionMode.finish();
-    mActionMode=null;
+    actionMode.finish();
+    actionMode=null;
     return true;
   }
  else {

@@ -1,7 +1,7 @@
 {
-  if (mActionMode != null) {
-    mActionMode.finish();
-    mActionMode=null;
+  if (actionMode != null) {
+    actionMode.finish();
+    actionMode=null;
   }
   if (getListView() != null && getListView().getCheckedItemCount() > 0) {
     getListView().clearChoices();

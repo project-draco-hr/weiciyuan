@@ -1,8 +1,8 @@
 {
   boolean flag=false;
-  if (mActionMode != null) {
-    mActionMode.finish();
-    mActionMode=null;
+  if (actionMode != null) {
+    actionMode.finish();
+    actionMode=null;
     flag=true;
   }
   if (pullToRefreshListView != null && getListView().getCheckedItemCount() > 0) {
