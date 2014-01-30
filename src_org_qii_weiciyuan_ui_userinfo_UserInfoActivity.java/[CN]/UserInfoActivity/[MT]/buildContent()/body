@@ -2,9 +2,9 @@
   getActionBar().setTitle(bean.getScreen_name());
   new Handler(Looper.getMainLooper()).post(new Runnable(){
     @Override public void run(){
-      if (getSupportFragmentManager().findFragmentByTag(NewUserInfoFragment.class.getName()) == null) {
-        NewUserInfoFragment userInfoFragment=NewUserInfoFragment.newInstance(getUser(),getToken());
-        getSupportFragmentManager().beginTransaction().replace(android.R.id.content,userInfoFragment,NewUserInfoFragment.class.getName()).commit();
+      if (getSupportFragmentManager().findFragmentByTag(UserInfoFragment.class.getName()) == null) {
+        UserInfoFragment userInfoFragment=UserInfoFragment.newInstance(getUser(),getToken());
+        getSupportFragmentManager().beginTransaction().replace(android.R.id.content,userInfoFragment,UserInfoFragment.class.getName()).commit();
         getSupportFragmentManager().executePendingTransactions();
         AnimationUtility.translateFragmentY(userInfoFragment,-400,0,userInfoFragment);
       }

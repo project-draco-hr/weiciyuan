@@ -1,7 +1,0 @@
-{
-  super.onCancelled(userBean);
-  if (Utility.isAllNotNull(getActivity(),this.e)) {
-    newMsgTipBar.setError(e.getError());
-  }
-  stopRefreshMenuAnimationIfPossible();
-}

@@ -2,10 +2,10 @@
   View view=null;
 switch (position) {
 case 0:
-    view=headerLeft;
+    view=headerFirst;
   break;
 case 1:
-view=headerRight;
+view=headerSecond;
 break;
 case 2:
 view=headerThird;

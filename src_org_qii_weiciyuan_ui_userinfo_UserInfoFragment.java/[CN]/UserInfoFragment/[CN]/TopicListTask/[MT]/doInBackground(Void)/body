@@ -1,5 +1,5 @@
 {
-  UserTopicListDao dao=new UserTopicListDao(GlobalContext.getInstance().getSpecialToken(),bean.getId());
+  UserTopicListDao dao=new UserTopicListDao(GlobalContext.getInstance().getSpecialToken(),userBean.getId());
   try {
     return dao.getGSONMsgList();
   }

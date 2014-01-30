@@ -22,7 +22,7 @@
     fragmentTransaction.hide(fav);
   }
   if (!myself.isAdded()) {
-    fragmentTransaction.add(R.id.menu_right_fl,myself,NewUserInfoFragment.class.getName());
+    fragmentTransaction.add(R.id.menu_right_fl,myself,UserInfoFragment.class.getName());
     fragmentTransaction.hide(myself);
   }
   if (GlobalContext.getInstance().getAccountBean().isBlack_magic()) {

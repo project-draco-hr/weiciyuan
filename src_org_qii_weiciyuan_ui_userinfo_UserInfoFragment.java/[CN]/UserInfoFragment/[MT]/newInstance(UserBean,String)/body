@@ -1,0 +1,5 @@
+{
+  UserInfoFragment fragment=new UserInfoFragment(userBean,token);
+  fragment.setArguments(new Bundle());
+  return fragment;
+}

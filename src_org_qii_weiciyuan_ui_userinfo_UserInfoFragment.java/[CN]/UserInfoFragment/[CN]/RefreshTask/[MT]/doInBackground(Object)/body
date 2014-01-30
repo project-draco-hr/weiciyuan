@@ -1,13 +1,13 @@
 {
   if (!isCancelled()) {
     ShowUserDao dao=new ShowUserDao(GlobalContext.getInstance().getSpecialToken());
-    boolean haveId=!TextUtils.isEmpty(bean.getId());
-    boolean haveName=!TextUtils.isEmpty(bean.getScreen_name());
+    boolean haveId=!TextUtils.isEmpty(userBean.getId());
+    boolean haveName=!TextUtils.isEmpty(userBean.getScreen_name());
     if (haveId) {
-      dao.setUid(bean.getId());
+      dao.setUid(userBean.getId());
     }
  else     if (haveName) {
-      dao.setScreen_name(bean.getScreen_name());
+      dao.setScreen_name(userBean.getScreen_name());
     }
  else {
       cancel(true);
@@ -22,7 +22,7 @@
       cancel(true);
     }
     if (user != null) {
-      bean=user;
+      userBean=user;
     }
  else {
       cancel(true);

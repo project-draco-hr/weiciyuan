@@ -1,9 +1,15 @@
 {
   super.onPostExecute(result);
-  if (isCancelled())   return;
+  stopRefreshMenuAnimationIfPossible();
+  if (isCancelled()) {
+    return;
+  }
   if (result == null || result.size() == 0) {
     return;
   }
   topicList=result;
-  setTextViewNum(layout.topic_number,String.valueOf(result.size()));
+  topicsCount.setText(Utility.convertStateNumberToString(getActivity(),String.valueOf(result.size())));
+  ArrayList<String> dbCache=new ArrayList<String>();
+  dbCache.addAll(topicList);
+  TopicDBTask.asyncReplace(userBean.getId(),dbCache);
 }

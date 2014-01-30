@@ -1,4 +1,4 @@
 {
-  this.bean=bean;
-  refresh();
+  this.userBean=bean;
+  fetchLastestUserInfoFromServer();
 }

@@ -9,5 +9,5 @@
   Fragment fragment=rightFragments.get(PROFILE_INDEX);
   ft.show(fragment);
   ft.commit();
-  ((NewUserInfoFragment)fragment).buildActionBarAndViewPagerTitles();
+  ((UserInfoFragment)fragment).buildActionBarAndViewPagerTitles();
 }

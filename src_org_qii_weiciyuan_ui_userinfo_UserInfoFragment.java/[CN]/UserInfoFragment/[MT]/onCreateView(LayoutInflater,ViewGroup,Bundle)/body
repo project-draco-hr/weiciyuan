@@ -1,61 +1,81 @@
 {
-  View view=inflater.inflate(R.layout.userinfofragment_layout,container,false);
-  layout=new Layout();
-  layout.avatar=(ImageView)view.findViewById(R.id.avatar);
-  layout.avatar.setOnClickListener(new View.OnClickListener(){
+  View view=super.onCreateView(inflater,container,savedInstanceState);
+  view.setBackground(null);
+  View header=inflater.inflate(R.layout.newuserinfofragment_header_layout,getListView(),false);
+  getListView().addHeaderView(header);
+  footerView.setVisibility(View.GONE);
+  progressFooter=inflater.inflate(R.layout.newuserinfofragment_progress_footer,getListView(),false);
+  progressFooter.setVisibility(View.GONE);
+  getListView().addFooterView(progressFooter);
+  moreFooter=inflater.inflate(R.layout.newuserinfofragment_more_footer,getListView(),false);
+  moreFooter.setVisibility(View.GONE);
+  getListView().addFooterView(moreFooter);
+  viewPager=(ViewPager)header.findViewById(R.id.viewpager);
+  cover=(ImageView)header.findViewById(R.id.cover);
+  blur=(BlurImageView)header.findViewById(R.id.blur);
+  friendsCount=(TextView)header.findViewById(R.id.friends_count);
+  fansCount=(TextView)header.findViewById(R.id.fans_count);
+  topicsCount=(TextView)header.findViewById(R.id.topics_count);
+  weiboCount=(TextView)header.findViewById(R.id.weibo_count);
+  headerFirst=inflater.inflate(R.layout.newuserinfofragment_header_viewpager_first_layout,null,false);
+  headerSecond=inflater.inflate(R.layout.newuserinfofragment_header_viewpager_second_layout,null,false);
+  headerThird=inflater.inflate(R.layout.newuserinfofragment_header_viewpager_third_layout,null,false);
+  avatar=(TimeLineAvatarImageView)headerFirst.findViewById(R.id.avatar);
+  nickname=(TextView)headerFirst.findViewById(R.id.nickname);
+  location=(TextView)headerFirst.findViewById(R.id.location);
+  followsYou=(TextView)headerFirst.findViewById(R.id.follows_you);
+  bio=(TextView)headerSecond.findViewById(R.id.bio);
+  url=(TextView)headerSecond.findViewById(R.id.url);
+  verifiedReason=(TextView)headerThird.findViewById(R.id.verified_reason);
+  leftPoint=(ImageView)header.findViewById(R.id.left_point);
+  centerPoint=(ImageView)header.findViewById(R.id.center_point);
+  rightPoint=(ImageView)header.findViewById(R.id.right_point);
+  leftPoint.getDrawable().setLevel(1);
+  View weiboCountLayout=header.findViewById(R.id.weibo_count_layout);
+  View friendsCountLayout=header.findViewById(R.id.friends_count_layout);
+  View fansCountLayout=header.findViewById(R.id.fans_count_layout);
+  View topicCountLayout=header.findViewById(R.id.topics_count_layout);
+  weiboCountLayout.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
-      String path=FileManager.getFilePathFromUrl(bean.getAvatar_large(),FileLocationMethod.avatar_large);
-      if (new File(path).exists()) {
-        UserAvatarDialog dialog=new UserAvatarDialog(path);
-        dialog.show(getFragmentManager(),"");
-      }
+      Intent intent=new Intent(getActivity(),UserTimeLineActivity.class);
+      intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
+      intent.putExtra("user",userBean);
+      startActivity(intent);
     }
   }
 );
-  layout.username=(TextView)view.findViewById(R.id.username);
-  layout.isVerified=(TextView)view.findViewById(R.id.isVerified);
-  layout.verified_reason=(TextView)view.findViewById(R.id.verified_info);
-  layout.info=(TextView)view.findViewById(R.id.textView_info);
-  layout.blog_url=(TextView)view.findViewById(R.id.blog_url);
-  layout.location=(TextView)view.findViewById(R.id.location);
-  layout.sex=(TextView)view.findViewById(R.id.sex);
-  layout.relationship=(TextView)view.findViewById(R.id.relationship);
-  layout.following_number=(TextView)view.findViewById(R.id.following_number);
-  layout.fans_number=(TextView)view.findViewById(R.id.fans_number);
-  layout.topic_number=(TextView)view.findViewById(R.id.topic_number);
-  layout.blog_url_layout=(ViewGroup)view.findViewById(R.id.blog_url_layout);
-  layout.intro_layout=(ViewGroup)view.findViewById(R.id.intro_layout);
-  layout.location_layout=(ViewGroup)view.findViewById(R.id.location_layout);
-  layout.verified_layout=(ViewGroup)view.findViewById(R.id.verified_layout);
-  View fan_layout=view.findViewById(R.id.fan_layout);
-  View following_layout=view.findViewById(R.id.following_layout);
-  View topic_layout=view.findViewById(R.id.topic_layout);
-  following_layout.setOnClickListener(new View.OnClickListener(){
+  friendsCountLayout.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),FriendListActivity.class);
       intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-      intent.putExtra("user",bean);
+      intent.putExtra("user",userBean);
       startActivity(intent);
     }
   }
 );
-  fan_layout.setOnClickListener(new View.OnClickListener(){
+  fansCountLayout.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),FanListActivity.class);
       intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-      intent.putExtra("user",bean);
+      intent.putExtra("user",userBean);
       startActivity(intent);
     }
   }
 );
-  topic_layout.setOnClickListener(new View.OnClickListener(){
+  topicCountLayout.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       Intent intent=new Intent(getActivity(),UserTopicListActivity.class);
-      intent.putExtra("userBean",bean);
+      intent.putExtra("userBean",userBean);
       intent.putStringArrayListExtra("topicList",topicList);
       startActivity(intent);
     }
   }
 );
-  return view;
+  View result=view;
+  if (!isOpenedFromMainPage()) {
+    SwipeFrameLayout swipeFrameLayout=new SwipeFrameLayout(getActivity());
+    swipeFrameLayout.addView(result,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT));
+    result=swipeFrameLayout;
+  }
+  return result;
 }

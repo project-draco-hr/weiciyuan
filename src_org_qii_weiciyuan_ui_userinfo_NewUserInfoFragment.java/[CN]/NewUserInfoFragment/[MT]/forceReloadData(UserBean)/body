@@ -1,4 +1,0 @@
-{
-  this.userBean=bean;
-  fetchLastestUserInfoFromServer();
-}

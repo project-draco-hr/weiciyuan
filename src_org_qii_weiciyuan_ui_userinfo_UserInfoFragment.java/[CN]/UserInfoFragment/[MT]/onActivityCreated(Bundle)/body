@@ -1,21 +1,29 @@
 {
-  super.onActivityCreated(savedInstanceState);
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
-    bean=((IUserInfo)getActivity()).getUser();
-  handler.postDelayed(new Runnable(){
-    @Override public void run(){
-      refresh();
-    }
-  }
-,1000);
-break;
+    displayBasicInfo();
+  break;
 case SCREEN_ROTATE:
+refreshLayout(getList());
+displayBasicInfo();
+displayCoverPicture();
+if (bean.getSize() > 0) {
+moreFooter.setVisibility(View.VISIBLE);
+getListView().removeFooterView(progressFooter);
+}
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-topicList=savedInstanceState.getStringArrayList("topicList");
-bean=(UserBean)savedInstanceState.getParcelable("bean");
+getList().replaceData((MessageListBean)savedInstanceState.getParcelable("bean"));
+userBean=(UserBean)savedInstanceState.getParcelable("userBean");
+token=savedInstanceState.getString("token");
+getAdapter().notifyDataSetChanged();
+refreshLayout(getList());
+displayBasicInfo();
+displayCoverPicture();
 break;
 }
-setValue();
+super.onActivityCreated(savedInstanceState);
+if ((getActivity() instanceof MainTimeLineActivity) && (((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == LeftMenuFragment.PROFILE_INDEX) {
+buildActionBarAndViewPagerTitles();
+}
 }

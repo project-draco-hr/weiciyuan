@@ -1,5 +1,6 @@
 {
   super.onSaveInstanceState(outState);
-  outState.putStringArrayList("topicList",topicList);
-  outState.putParcelable("bean",bean);
+  outState.putParcelable("bean",getList());
+  outState.putParcelable("userBean",userBean);
+  outState.putString("token",token);
 }
