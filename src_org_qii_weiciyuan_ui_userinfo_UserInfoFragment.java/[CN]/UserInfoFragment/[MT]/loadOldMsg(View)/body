@@ -1,6 +1,4 @@
 {
-  Intent intent=new Intent(getActivity(),UserTimeLineActivity.class);
-  intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-  intent.putExtra("user",userBean);
+  Intent intent=UserTimeLineActivity.newIntent(GlobalContext.getInstance().getSpecialToken(),userBean);
   startActivity(intent);
 }

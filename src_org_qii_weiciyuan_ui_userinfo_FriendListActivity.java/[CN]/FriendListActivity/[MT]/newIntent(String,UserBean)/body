@@ -1,0 +1,6 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),FriendListActivity.class);
+  intent.putExtra("token",token);
+  intent.putExtra("user",userBean);
+  return intent;
+}

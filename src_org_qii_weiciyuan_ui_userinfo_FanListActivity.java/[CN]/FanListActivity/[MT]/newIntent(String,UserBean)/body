@@ -1,0 +1,6 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),FanListActivity.class);
+  intent.putExtra("token",token);
+  intent.putExtra("user",userBean);
+  return intent;
+}

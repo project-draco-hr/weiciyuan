@@ -1,0 +1,6 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),UserTopicListActivity.class);
+  intent.putExtra("userBean",userBean);
+  intent.putStringArrayListExtra("topicList",topicList);
+  return intent;
+}
