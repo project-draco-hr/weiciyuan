@@ -2,5 +2,5 @@
   getLoaderManager().destroyLoader(MIDDLE_MSG_LOADER_ID);
   getLoaderManager().destroyLoader(OLD_MSG_LOADER_ID);
   dismissFooterView();
-  getLoaderManager().restartLoader(NEW_MSG_LOADER_ID,null,msgCallback);
+  getLoaderManager().restartLoader(NEW_MSG_LOADER_ID,null,msgAsyncTaskLoaderCallback);
 }

@@ -2,14 +2,14 @@
   super.onActivityCreated(savedInstanceState);
   Loader<T> loader=getLoaderManager().getLoader(NEW_MSG_LOADER_ID);
   if (loader != null) {
-    getLoaderManager().initLoader(NEW_MSG_LOADER_ID,null,msgCallback);
+    getLoaderManager().initLoader(NEW_MSG_LOADER_ID,null,msgAsyncTaskLoaderCallback);
   }
   loader=getLoaderManager().getLoader(MIDDLE_MSG_LOADER_ID);
   if (loader != null) {
-    getLoaderManager().initLoader(MIDDLE_MSG_LOADER_ID,null,msgCallback);
+    getLoaderManager().initLoader(MIDDLE_MSG_LOADER_ID,null,msgAsyncTaskLoaderCallback);
   }
   loader=getLoaderManager().getLoader(OLD_MSG_LOADER_ID);
   if (loader != null) {
-    getLoaderManager().initLoader(OLD_MSG_LOADER_ID,null,msgCallback);
+    getLoaderManager().initLoader(OLD_MSG_LOADER_ID,null,msgAsyncTaskLoaderCallback);
   }
 }

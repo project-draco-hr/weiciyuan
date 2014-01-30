@@ -17,5 +17,5 @@
   Bundle bundle=new Bundle();
   bundle.putBoolean(BundleArgsConstants.SCROLL_TO_TOP,false);
   bundle.putBoolean(BundleArgsConstants.AUTO_REFRESH,true);
-  getLoaderManager().restartLoader(NEW_MSG_LOADER_ID,bundle,msgCallback);
+  getLoaderManager().restartLoader(NEW_MSG_LOADER_ID,bundle,msgAsyncTaskLoaderCallback);
 }

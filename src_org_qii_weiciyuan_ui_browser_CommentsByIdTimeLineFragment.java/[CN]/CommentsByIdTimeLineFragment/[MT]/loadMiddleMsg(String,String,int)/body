@@ -7,5 +7,5 @@
   bundle.putString("beginId",beginId);
   bundle.putString("endId",endId);
   bundle.putInt("position",position);
-  getLoaderManager().restartLoader(MIDDLE_MSG_LOADER_ID,bundle,msgCallback);
+  getLoaderManager().restartLoader(MIDDLE_MSG_LOADER_ID,bundle,msgAsyncTaskLoaderCallback);
 }

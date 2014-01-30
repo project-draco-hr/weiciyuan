@@ -9,5 +9,5 @@
   bundle.putInt("position",position);
   VelocityListView velocityListView=(VelocityListView)getListView();
   bundle.putBoolean("towardsBottom",velocityListView.getTowardsOrientation() == VelocityListView.TOWARDS_BOTTOM);
-  getLoaderManager().restartLoader(MIDDLE_MSG_LOADER_ID,bundle,msgCallback);
+  getLoaderManager().restartLoader(MIDDLE_MSG_LOADER_ID,bundle,msgAsyncTaskLoaderCallback);
 }

@@ -7,5 +7,4 @@
     getAdapter().notifyDataSetChanged();
     return;
   }
-  ItemBean lastItem=newValue.getItem(newValue.getSize() - 1);
 }
