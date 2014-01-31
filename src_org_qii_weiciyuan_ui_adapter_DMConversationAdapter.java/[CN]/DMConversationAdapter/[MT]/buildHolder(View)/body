@@ -1,7 +1,7 @@
 {
   DMViewHolder holder=new DMViewHolder();
-  holder.content=(TextView)convertView.findViewById(R.id.content);
-  holder.time=(TextView)convertView.findViewById(R.id.time);
+  holder.content=ViewUtility.findViewById(convertView,R.id.content);
+  holder.time=ViewUtility.findViewById(convertView,R.id.time);
   holder.avatar=(TimeLineAvatarImageView)convertView.findViewById(R.id.avatar);
   return holder;
 }
