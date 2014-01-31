@@ -12,6 +12,7 @@
  else {
     nickname.setText(userBean.getScreen_name() + "(" + userBean.getRemark()+ ")");
   }
+  getActivity().getActionBar().setTitle(userBean.getScreen_name());
   avatar.checkVerified(userBean);
   if (!userBean.isVerified()) {
     rightPoint.setVisibility(View.GONE);
