@@ -1,5 +1,8 @@
 {
   final View fragmentView=fragment.getView();
+  if (fragmentView == null) {
+    return;
+  }
   FragmentViewXWrapper wrapper=new FragmentViewXWrapper(fragmentView);
   ObjectAnimator objectAnimator=ObjectAnimator.ofInt(wrapper,"change",from,to);
   objectAnimator.setDuration(300);
