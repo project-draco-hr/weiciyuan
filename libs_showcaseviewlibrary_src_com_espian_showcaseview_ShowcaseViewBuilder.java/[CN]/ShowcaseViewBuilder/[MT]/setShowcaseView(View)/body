@@ -1,0 +1,4 @@
+{
+  showcaseView.setShowcaseView(view);
+  return this;
+}

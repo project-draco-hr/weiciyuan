@@ -1,0 +1,5 @@
+Canvas canvas
+float x
+float y
+float scaleMultiplier
+float radius

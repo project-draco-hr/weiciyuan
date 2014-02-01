@@ -1,0 +1,21 @@
+{
+  return new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showcaseView.onClick(showcaseView);
+      int fadeOutTime=showcaseView.getConfigOptions().fadeOutDuration;
+      if (fadeOutTime > 0) {
+        final Handler handler=new Handler();
+        handler.postDelayed(new Runnable(){
+          @Override public void run(){
+            showNextView(showcaseView);
+          }
+        }
+,fadeOutTime);
+      }
+ else {
+        showNextView(showcaseView);
+      }
+    }
+  }
+;
+}

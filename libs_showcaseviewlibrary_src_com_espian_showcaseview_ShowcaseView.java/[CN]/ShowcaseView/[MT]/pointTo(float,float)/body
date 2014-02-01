@@ -1,0 +1,4 @@
+{
+  mHandy=getHand();
+  AnimationUtils.createMovementAnimation(mHandy,x,y).start();
+}

@@ -1,0 +1,23 @@
+{
+  if (shouldDrawText()) {
+    float[] textPosition=getBestTextPosition();
+    if (!TextUtils.isEmpty(mTitle)) {
+      canvas.save();
+      if (hasPositionChanged) {
+        mDynamicTitleLayout=new DynamicLayout(mTitle,mPaintTitle,(int)textPosition[2],Layout.Alignment.ALIGN_NORMAL,1.0f,1.0f,true);
+      }
+      canvas.translate(textPosition[0],textPosition[1]);
+      mDynamicTitleLayout.draw(canvas);
+      canvas.restore();
+    }
+    if (!TextUtils.isEmpty(mDetails)) {
+      canvas.save();
+      if (hasPositionChanged) {
+        mDynamicDetailLayout=new DynamicLayout(mDetails,mPaintDetail,(int)textPosition[2],Layout.Alignment.ALIGN_NORMAL,1.2f,1.0f,true);
+      }
+      canvas.translate(textPosition[0],textPosition[1] + mDynamicTitleLayout.getHeight());
+      mDynamicDetailLayout.draw(canvas);
+      canvas.restore();
+    }
+  }
+}

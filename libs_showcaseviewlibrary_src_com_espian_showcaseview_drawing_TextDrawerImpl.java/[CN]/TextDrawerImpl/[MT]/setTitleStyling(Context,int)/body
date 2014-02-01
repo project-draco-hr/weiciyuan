@@ -1,0 +1,3 @@
+{
+  mTitleSpan=new TextAppearanceSpan(context,styleId);
+}

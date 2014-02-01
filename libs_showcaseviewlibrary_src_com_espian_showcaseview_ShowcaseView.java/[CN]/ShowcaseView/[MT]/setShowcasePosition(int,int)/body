@@ -1,0 +1,8 @@
+{
+  if (isRedundant) {
+    return;
+  }
+  showcaseX=x;
+  showcaseY=y;
+  invalidate();
+}

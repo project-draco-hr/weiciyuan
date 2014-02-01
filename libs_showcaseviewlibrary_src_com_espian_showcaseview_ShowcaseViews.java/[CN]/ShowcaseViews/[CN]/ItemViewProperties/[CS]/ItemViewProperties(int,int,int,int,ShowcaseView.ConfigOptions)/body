@@ -1,0 +1,3 @@
+{
+  this(id,titleResId,messageResId,itemType,DEFAULT_SCALE,configOptions);
+}

@@ -1,0 +1,4 @@
+{
+  showcaseView.pointTo(view);
+  return this;
+}

@@ -1,0 +1,17 @@
+{
+  ShowcaseViewBuilder builder=new ShowcaseViewBuilder(activity).setText(properties.titleResId,properties.messageResId).setShowcaseIndicatorScale(properties.scale).setConfigOptions(properties.configOptions);
+  if (showcaseActionBar(properties)) {
+    builder.setShowcaseItem(properties.itemType,properties.id,activity);
+  }
+ else   if (properties.id == ItemViewProperties.ID_NO_SHOWCASE) {
+    builder.setShowcaseNoView();
+  }
+ else {
+    builder.setShowcaseView(activity.findViewById(properties.id));
+  }
+  ShowcaseView showcaseView=builder.build();
+  showcaseView.overrideButtonClick(createShowcaseViewDismissListener(showcaseView));
+  views.add(showcaseView);
+  animations.add(null);
+  return this;
+}

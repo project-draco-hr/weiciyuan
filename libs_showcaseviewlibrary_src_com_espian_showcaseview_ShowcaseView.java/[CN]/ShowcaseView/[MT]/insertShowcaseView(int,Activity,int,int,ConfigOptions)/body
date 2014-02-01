@@ -1,0 +1,7 @@
+{
+  View v=activity.findViewById(showcaseViewId);
+  if (v != null) {
+    return insertShowcaseView(v,activity,title,detailText,options);
+  }
+  return null;
+}

@@ -1,0 +1,35 @@
+{
+  post(new Runnable(){
+    @Override public void run(){
+      BaseReflector reflector=BaseReflector.getReflectorForActivity(activity);
+      ViewParent p=reflector.getActionBarView();
+      ActionBarViewWrapper wrapper=new ActionBarViewWrapper(p);
+switch (itemType) {
+case ITEM_ACTION_HOME:
+        setShowcaseView(reflector.getHomeButton());
+      break;
+case ITEM_SPINNER:
+    setShowcaseView(wrapper.getSpinnerView());
+  break;
+case ITEM_TITLE:
+setShowcaseView(wrapper.getTitleView());
+break;
+case ITEM_ACTION_ITEM:
+setShowcaseView(wrapper.getActionItem(actionItemId));
+break;
+case ITEM_ACTION_OVERFLOW:
+View overflow=wrapper.getOverflowView();
+if (overflow != null) {
+setShowcaseView(wrapper.getOverflowView());
+}
+ else {
+setShowcasePosition(getLegacyOverflowPoint());
+}
+break;
+default :
+Log.e("TAG","Unknown item type");
+}
+}
+}
+);
+}

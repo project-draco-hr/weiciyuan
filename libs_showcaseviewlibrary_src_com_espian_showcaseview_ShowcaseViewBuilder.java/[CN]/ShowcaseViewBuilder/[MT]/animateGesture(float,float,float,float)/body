@@ -1,0 +1,4 @@
+{
+  showcaseView.animateGesture(offsetStartX,offsetStartY,offsetEndX,offsetEndY);
+  return this;
+}

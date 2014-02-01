@@ -1,0 +1,8 @@
+{
+  ObjectAnimator alphaIn=ObjectAnimator.ofFloat(view,ALPHA,INVISIBLE,VISIBLE).setDuration(500);
+  ObjectAnimator setUpX=ObjectAnimator.ofFloat(view,COORD_X,x).setDuration(INSTANT);
+  ObjectAnimator setUpY=ObjectAnimator.ofFloat(view,COORD_Y,y).setDuration(INSTANT);
+  AnimatorSet as=new AnimatorSet();
+  as.play(setUpX).with(setUpY).before(alphaIn);
+  return as;
+}

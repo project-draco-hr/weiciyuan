@@ -1,0 +1,15 @@
+{
+  if (isRedundant || view == null) {
+    isRedundant=true;
+    return;
+  }
+  isRedundant=false;
+  view.post(new Runnable(){
+    @Override public void run(){
+      Point viewPoint=Calculator.getShowcasePointFromView(view,getConfigOptions());
+      setShowcasePosition(viewPoint);
+      invalidate();
+    }
+  }
+);
+}

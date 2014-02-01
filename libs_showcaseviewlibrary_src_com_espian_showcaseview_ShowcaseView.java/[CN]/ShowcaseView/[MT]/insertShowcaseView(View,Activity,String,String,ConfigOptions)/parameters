@@ -1,0 +1,5 @@
+View viewToShowcase
+Activity activity
+String title
+String detailText
+ConfigOptions options

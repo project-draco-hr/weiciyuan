@@ -1,0 +1,6 @@
+{
+  final View mHandy=((LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.handy,null);
+  addView(mHandy);
+  AnimationUtils.hide(mHandy);
+  return mHandy;
+}

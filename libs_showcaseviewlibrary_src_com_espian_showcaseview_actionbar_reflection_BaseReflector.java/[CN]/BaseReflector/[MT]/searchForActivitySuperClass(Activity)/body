@@ -1,0 +1,13 @@
+{
+  Class currentLevel=activity.getClass();
+  while (currentLevel != Activity.class) {
+    if (currentLevel.getSimpleName().equals("SherlockActivity")) {
+      return ActionBarType.ACTIONBAR_SHERLOCK;
+    }
+    if (currentLevel.getSimpleName().equals("ActionBarActivity")) {
+      return ActionBarType.APP_COMPAT;
+    }
+    currentLevel=currentLevel.getSuperclass();
+  }
+  return ActionBarType.STANDARD;
+}

@@ -1,0 +1,5 @@
+{
+  float x=AnimationUtils.getX(view) + view.getWidth() / 2;
+  float y=AnimationUtils.getY(view) + view.getHeight() / 2;
+  pointTo(x,y);
+}

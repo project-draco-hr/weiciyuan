@@ -1,0 +1,3 @@
+{
+  return createFadeOutAnimation(target,DEFAULT_DURATION,listener);
+}

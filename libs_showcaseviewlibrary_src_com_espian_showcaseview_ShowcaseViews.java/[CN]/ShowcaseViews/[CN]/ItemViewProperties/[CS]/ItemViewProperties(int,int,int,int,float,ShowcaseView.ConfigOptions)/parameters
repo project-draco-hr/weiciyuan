@@ -1,0 +1,6 @@
+int id
+int titleResId
+int messageResId
+int itemType
+float scale
+ShowcaseView.ConfigOptions configOptions

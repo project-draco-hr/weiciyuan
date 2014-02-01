@@ -1,0 +1,3 @@
+{
+  this.showcaseView=new ShowcaseView(activity);
+}

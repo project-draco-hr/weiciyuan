@@ -1,0 +1,27 @@
+{
+  setHardwareAccelerated(true);
+  boolean hasShot=getContext().getSharedPreferences(PREFS_SHOWCASE_INTERNAL,Context.MODE_PRIVATE).getBoolean("hasShot" + getConfigOptions().showcaseId,false);
+  if (hasShot && mOptions.shotType == TYPE_ONE_SHOT) {
+    setVisibility(View.GONE);
+    isRedundant=true;
+    return;
+  }
+  showcaseRadius=metricScale * INNER_CIRCLE_RADIUS;
+  setOnTouchListener(this);
+  if (!mOptions.noButton && mEndButton.getParent() == null) {
+    RelativeLayout.LayoutParams lps=getConfigOptions().buttonLayoutParams;
+    if (lps == null) {
+      lps=(LayoutParams)generateDefaultLayoutParams();
+      lps.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+      lps.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+      int margin=((Number)(metricScale * 12)).intValue();
+      lps.setMargins(margin,margin,margin,margin);
+    }
+    mEndButton.setLayoutParams(lps);
+    mEndButton.setText(buttonText != null ? buttonText : getResources().getString(R.string.ok));
+    if (!hasCustomClickListener) {
+      mEndButton.setOnClickListener(this);
+    }
+    addView(mEndButton);
+  }
+}

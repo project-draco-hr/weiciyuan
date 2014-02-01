@@ -1,0 +1,8 @@
+{
+  mDensityScale=densityScale;
+  mCalculator=calculator;
+  mPaintTitle=new TextPaint();
+  mPaintTitle.setAntiAlias(true);
+  mPaintDetail=new TextPaint();
+  mPaintDetail.setAntiAlias(true);
+}

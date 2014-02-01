@@ -1,0 +1,6 @@
+{
+  if (mOptions == null) {
+    return mOptions=new ConfigOptions();
+  }
+  return mOptions;
+}

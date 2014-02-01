@@ -1,0 +1,8 @@
+{
+  AnimationUtils.createFadeInAnimation(this,getConfigOptions().fadeInDuration,new AnimationStartListener(){
+    @Override public void onAnimationStart(){
+      setVisibility(View.VISIBLE);
+    }
+  }
+).start();
+}

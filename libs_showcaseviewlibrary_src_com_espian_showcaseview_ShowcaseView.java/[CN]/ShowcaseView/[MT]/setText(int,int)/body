@@ -1,0 +1,5 @@
+{
+  String titleText=getContext().getResources().getString(titleTextResId);
+  String subText=getContext().getResources().getString(subTextResId);
+  setText(titleText,subText);
+}

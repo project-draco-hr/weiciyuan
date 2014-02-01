@@ -1,0 +1,3 @@
+{
+  return insertShowcaseViewInternal(target,activity,title,detail,options);
+}

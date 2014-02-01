@@ -1,0 +1,8 @@
+View view
+float canvasX
+float canvasY
+float offsetStartX
+float offsetStartY
+float offsetEndX
+float offsetEndY
+AnimationEndListener listener

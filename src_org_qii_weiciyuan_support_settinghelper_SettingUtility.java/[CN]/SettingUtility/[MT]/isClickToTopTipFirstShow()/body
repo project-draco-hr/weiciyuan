@@ -1,0 +1,5 @@
+{
+  boolean result=SettingHelper.getSharedPreferences(getContext(),CLICK_TO_TOP_TIP,true);
+  SettingHelper.setEditor(getContext(),CLICK_TO_TOP_TIP,false);
+  return result;
+}

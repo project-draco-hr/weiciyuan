@@ -1,0 +1,12 @@
+{
+  if (mOptions.shotType == TYPE_ONE_SHOT) {
+    SharedPreferences internal=getContext().getSharedPreferences(PREFS_SHOWCASE_INTERNAL,Context.MODE_PRIVATE);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+      internal.edit().putBoolean("hasShot" + getConfigOptions().showcaseId,true).apply();
+    }
+ else {
+      internal.edit().putBoolean("hasShot" + getConfigOptions().showcaseId,true).commit();
+    }
+  }
+  hide();
+}

@@ -1,0 +1,8 @@
+{
+  this.id=id;
+  this.titleResId=titleResId;
+  this.messageResId=messageResId;
+  this.itemType=itemType;
+  this.scale=scale;
+  this.configOptions=configOptions;
+}

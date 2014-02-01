@@ -1,0 +1,4 @@
+int id
+int titleResId
+int messageResId
+int itemType

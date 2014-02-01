@@ -1,0 +1,9 @@
+{
+  AnimationUtils.createFadeOutAnimation(this,new AnimationEndListener(){
+    @Override public void onAnimationEnd(){
+      setVisibility(View.GONE);
+      mEventListener.onShowcaseViewDidHide(ShowcaseView.this);
+    }
+  }
+).start();
+}

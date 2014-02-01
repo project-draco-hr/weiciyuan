@@ -1,0 +1,3 @@
+{
+  mDetailSpan=new TextAppearanceSpan(context,styleId);
+}

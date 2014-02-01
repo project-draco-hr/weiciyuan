@@ -1,7 +1,7 @@
 {
   View title=getLayoutInflater().inflate(R.layout.maintimelineactivity_title_layout,null);
   titleText=(TextView)title.findViewById(R.id.tv_title);
-  View clickToTop=title.findViewById(R.id.tv_click_to_top);
+  clickToTop=title.findViewById(R.id.tv_click_to_top);
   clickToTop.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       scrollCurrentListViewToTop();

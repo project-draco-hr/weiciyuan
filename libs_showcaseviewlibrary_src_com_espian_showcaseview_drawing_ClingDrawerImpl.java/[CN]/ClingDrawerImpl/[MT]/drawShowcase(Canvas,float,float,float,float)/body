@@ -1,0 +1,11 @@
+{
+  Matrix mm=new Matrix();
+  mm.postScale(scaleMultiplier,scaleMultiplier,x,y);
+  canvas.setMatrix(mm);
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+    canvas.drawCircle(x,y,radius,mEraser);
+  }
+  mShowcaseDrawable.setBounds(mShowcaseRect);
+  mShowcaseDrawable.draw(canvas);
+  canvas.setMatrix(new Matrix());
+}

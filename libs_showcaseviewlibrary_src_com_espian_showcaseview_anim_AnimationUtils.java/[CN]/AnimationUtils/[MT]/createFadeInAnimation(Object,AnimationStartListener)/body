@@ -1,0 +1,3 @@
+{
+  return createFadeInAnimation(target,DEFAULT_DURATION,listener);
+}

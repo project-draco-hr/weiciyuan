@@ -1,0 +1,5 @@
+int showcaseViewId
+Activity activity
+String title
+String detailText
+ConfigOptions options

@@ -1,0 +1,6 @@
+{
+  mTextDrawer.setTitle(titleText);
+  mTextDrawer.setDetails(subText);
+  mAlteredText=true;
+  invalidate();
+}

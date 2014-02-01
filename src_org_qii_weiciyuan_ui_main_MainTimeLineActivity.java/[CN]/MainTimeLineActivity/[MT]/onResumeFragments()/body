@@ -1,0 +1,7 @@
+{
+  super.onResumeFragments();
+  if (SettingUtility.isClickToTopTipFirstShow()) {
+    ViewTarget target=new ViewTarget(getClickToTopView());
+    ShowcaseView.insertShowcaseView(target,this,R.string.tip,R.string.click_to_top_tip);
+  }
+}

@@ -1,0 +1,3 @@
+int titleResId
+int messageResId
+ShowcaseView.ConfigOptions configOptions

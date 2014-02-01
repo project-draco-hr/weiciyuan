@@ -1,0 +1,4 @@
+float offsetStartX
+float offsetStartY
+float offsetEndX
+float offsetEndY

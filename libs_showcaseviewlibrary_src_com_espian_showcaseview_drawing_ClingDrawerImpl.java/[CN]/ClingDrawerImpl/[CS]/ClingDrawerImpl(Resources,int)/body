@@ -1,0 +1,10 @@
+{
+  PorterDuffXfermode mBlender=new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+  mEraser=new Paint();
+  mEraser.setColor(0xFFFFFF);
+  mEraser.setAlpha(0);
+  mEraser.setXfermode(mBlender);
+  mEraser.setAntiAlias(true);
+  mShowcaseDrawable=resources.getDrawable(R.drawable.cling_bleached);
+  mShowcaseDrawable.setColorFilter(showcaseColor,PorterDuff.Mode.MULTIPLY);
+}

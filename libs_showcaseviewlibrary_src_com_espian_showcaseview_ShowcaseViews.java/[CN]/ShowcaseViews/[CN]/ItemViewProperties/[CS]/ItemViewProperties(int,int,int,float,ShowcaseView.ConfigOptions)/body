@@ -1,0 +1,3 @@
+{
+  this(id,titleResId,messageResId,ID_NOT_IN_ACTIONBAR,scale,configOptions);
+}

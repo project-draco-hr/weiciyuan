@@ -1,0 +1,3 @@
+{
+  animateGesture(offsetStartX,offsetStartY,offsetEndX,offsetEndY,false);
+}

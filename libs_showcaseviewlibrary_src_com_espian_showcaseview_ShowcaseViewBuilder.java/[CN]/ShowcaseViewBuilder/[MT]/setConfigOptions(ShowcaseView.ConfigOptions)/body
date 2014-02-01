@@ -1,0 +1,4 @@
+{
+  showcaseView.setConfigOptions(configOptions);
+  return this;
+}

@@ -1,0 +1,10 @@
+{
+  post(new Runnable(){
+    @Override public void run(){
+      mHandy=getHand();
+      Point targetPoint=target.getPoint();
+      AnimationUtils.createMovementAnimation(mHandy,targetPoint.x,targetPoint.y).start();
+    }
+  }
+);
+}

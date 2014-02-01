@@ -1,0 +1,10 @@
+{
+  mEventListener.onShowcaseViewHide(this);
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && getConfigOptions().fadeOutDuration > 0) {
+    fadeOutShowcase();
+  }
+ else {
+    setVisibility(View.GONE);
+    mEventListener.onShowcaseViewDidHide(this);
+  }
+}

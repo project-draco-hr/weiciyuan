@@ -1,0 +1,5 @@
+Target target
+Activity activity
+int title
+int detail
+ConfigOptions options

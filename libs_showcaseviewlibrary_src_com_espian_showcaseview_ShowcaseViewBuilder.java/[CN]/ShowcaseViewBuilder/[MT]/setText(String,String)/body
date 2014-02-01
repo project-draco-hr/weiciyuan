@@ -1,0 +1,4 @@
+{
+  showcaseView.setText(titleText,subText);
+  return this;
+}

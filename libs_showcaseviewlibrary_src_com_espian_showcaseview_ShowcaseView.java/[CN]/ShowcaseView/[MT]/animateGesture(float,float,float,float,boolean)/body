@@ -1,0 +1,10 @@
+{
+  mHandy=((LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.handy,null);
+  addView(mHandy);
+  moveHand(startX,startY,endX,endY,absoluteCoordinates,new AnimationEndListener(){
+    @Override public void onAnimationEnd(){
+      removeView(mHandy);
+    }
+  }
+);
+}

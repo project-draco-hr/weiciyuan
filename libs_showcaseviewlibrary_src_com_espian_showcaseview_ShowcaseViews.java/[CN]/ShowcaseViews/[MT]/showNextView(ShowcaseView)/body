@@ -1,0 +1,8 @@
+{
+  if (views.isEmpty()) {
+    showcaseAcknowledgedListener.onShowCaseAcknowledged(showcaseView);
+  }
+ else {
+    show();
+  }
+}

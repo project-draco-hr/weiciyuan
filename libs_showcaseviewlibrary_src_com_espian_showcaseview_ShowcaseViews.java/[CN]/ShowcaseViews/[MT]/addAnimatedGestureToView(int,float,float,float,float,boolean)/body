@@ -1,0 +1,4 @@
+{
+  animations.remove(viewIndex);
+  animations.add(viewIndex,new float[]{absoluteCoordinates ? ABSOLUTE_COORDINATES : RELATIVE_COORDINATES,startX,startY,endX,endY});
+}

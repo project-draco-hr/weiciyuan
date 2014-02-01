@@ -1,0 +1,24 @@
+{
+  postDelayed(new Runnable(){
+    @Override public void run(){
+      Point targetPoint=target.getPoint();
+      if (targetPoint != null) {
+        mHasNoTarget=false;
+        if (animate) {
+          Animator animator=PointAnimator.ofPoints(ShowcaseView.this,targetPoint);
+          animator.setDuration(getConfigOptions().fadeInDuration);
+          animator.setInterpolator(INTERPOLATOR);
+          animator.start();
+        }
+ else {
+          setShowcasePosition(targetPoint);
+        }
+      }
+ else {
+        mHasNoTarget=true;
+        invalidate();
+      }
+    }
+  }
+,100);
+}

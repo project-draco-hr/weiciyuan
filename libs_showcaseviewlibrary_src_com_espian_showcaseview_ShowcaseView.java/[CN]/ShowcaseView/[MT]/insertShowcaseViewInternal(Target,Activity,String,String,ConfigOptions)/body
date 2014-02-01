@@ -1,0 +1,13 @@
+{
+  ShowcaseView sv=new ShowcaseView(activity);
+  sv.setConfigOptions(options);
+  if (sv.getConfigOptions().insert == INSERT_TO_DECOR) {
+    ((ViewGroup)activity.getWindow().getDecorView()).addView(sv);
+  }
+ else {
+    ((ViewGroup)activity.findViewById(android.R.id.content)).addView(sv);
+  }
+  sv.setShowcase(target);
+  sv.setText(title,detail);
+  return sv;
+}

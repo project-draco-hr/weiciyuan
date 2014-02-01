@@ -1,0 +1,6 @@
+int x
+int y
+Activity activity
+int title
+int detailText
+ConfigOptions options

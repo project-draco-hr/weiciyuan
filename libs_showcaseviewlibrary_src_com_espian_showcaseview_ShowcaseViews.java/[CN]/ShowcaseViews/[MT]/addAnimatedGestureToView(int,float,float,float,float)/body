@@ -1,0 +1,3 @@
+{
+  addAnimatedGestureToView(viewIndex,offsetStartX,offsetStartY,offsetEndX,offsetEndY,false);
+}
