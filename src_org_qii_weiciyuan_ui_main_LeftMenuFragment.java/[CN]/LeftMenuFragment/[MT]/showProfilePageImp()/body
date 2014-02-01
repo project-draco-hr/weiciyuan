@@ -6,8 +6,9 @@
   ft.hide(rightFragments.get(SEARCH_INDEX));
   ft.hide(rightFragments.get(DM_INDEX));
   ft.hide(rightFragments.get(FAV_INDEX));
-  Fragment fragment=rightFragments.get(PROFILE_INDEX);
+  UserInfoFragment fragment=(UserInfoFragment)rightFragments.get(PROFILE_INDEX);
   ft.show(fragment);
   ft.commit();
   ((UserInfoFragment)fragment).buildActionBarAndViewPagerTitles();
+  AnimationUtility.translateFragmentY(fragment,-400,0,fragment);
 }
