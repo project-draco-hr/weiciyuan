@@ -3,4 +3,9 @@
   if (bitmap != null) {
     ((ImageButton)findViewById(R.id.menu_add_pic)).setImageBitmap(bitmap);
   }
+  bitmap=ImageUtility.decodeBitmapFromSDCard(picPath,Utility.getScreenWidth(),Utility.getScreenHeight());
+  if (bitmap != null) {
+    preview.setVisibility(View.VISIBLE);
+    preview.setImageBitmap(bitmap);
+  }
 }

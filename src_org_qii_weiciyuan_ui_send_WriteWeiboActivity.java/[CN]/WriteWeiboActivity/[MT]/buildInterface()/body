@@ -65,6 +65,7 @@ content.addTextChangedListener(new TextNumLimitWatcher((TextView)findViewById(R.
 content.setDrawingCacheEnabled(true);
 AutoCompleteAdapter adapter=new AutoCompleteAdapter(this,content,(ProgressBar)title.findViewById(R.id.have_suggest_progressbar));
 content.setAdapter(adapter);
+preview=ViewUtility.findViewById(this,R.id.status_image_preview);
 View.OnClickListener onClickListener=new BottomButtonClickListener();
 findViewById(R.id.menu_at).setOnClickListener(onClickListener);
 findViewById(R.id.menu_emoticon).setOnClickListener(onClickListener);
