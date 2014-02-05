@@ -1,0 +1,5 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),BrowserShareTimeLineActivity.class);
+  intent.putExtra("url",url);
+  return intent;
+}

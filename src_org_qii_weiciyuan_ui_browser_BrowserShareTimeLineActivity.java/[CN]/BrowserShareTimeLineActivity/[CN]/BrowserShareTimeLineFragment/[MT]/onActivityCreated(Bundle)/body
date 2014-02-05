@@ -10,7 +10,6 @@ refreshLayout(bean);
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
 getList().addNewData((ShareListBean)savedInstanceState.getParcelable("bean"));
-url=savedInstanceState.getString("url");
 timeLineAdapter.notifyDataSetChanged();
 refreshLayout(bean);
 break;

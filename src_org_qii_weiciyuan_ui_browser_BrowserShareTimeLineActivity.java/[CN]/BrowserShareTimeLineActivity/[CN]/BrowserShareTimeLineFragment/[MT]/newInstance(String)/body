@@ -1,0 +1,7 @@
+{
+  BrowserShareTimeLineFragment fragment=new BrowserShareTimeLineFragment();
+  Bundle bundle=new Bundle();
+  bundle.putString("url",url);
+  fragment.setArguments(bundle);
+  return fragment;
+}

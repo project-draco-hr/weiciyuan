@@ -6,6 +6,6 @@
   getActionBar().setDisplayHomeAsUpEnabled(true);
   getActionBar().setTitle(url);
   if (savedInstanceState == null) {
-    getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new BrowserShareTimeLineFragment(url)).commit();
+    getSupportFragmentManager().beginTransaction().replace(android.R.id.content,BrowserShareTimeLineFragment.newInstance(url)).commit();
   }
 }
