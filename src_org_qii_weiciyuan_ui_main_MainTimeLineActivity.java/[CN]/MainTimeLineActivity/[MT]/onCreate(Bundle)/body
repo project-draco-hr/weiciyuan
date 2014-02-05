@@ -1,14 +1,11 @@
 {
   super.onCreate(savedInstanceState);
   if (savedInstanceState != null) {
-    accountBean=(AccountBean)savedInstanceState.getParcelable("account");
+    accountBean=savedInstanceState.getParcelable("account");
   }
  else {
     Intent intent=getIntent();
-    accountBean=(AccountBean)intent.getParcelableExtra("account");
-    if (accountBean == null) {
-      accountBean=(AccountBean)intent.getParcelableExtra(BundleArgsConstants.ACCOUNT_EXTRA);
-    }
+    accountBean=intent.getParcelableExtra(BundleArgsConstants.ACCOUNT_EXTRA);
   }
   if (accountBean == null) {
     accountBean=GlobalContext.getInstance().getAccountBean();

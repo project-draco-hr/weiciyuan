@@ -1,18 +1,17 @@
 {
   super.onNewIntent(intent);
-  AccountBean newAccountBean=(AccountBean)intent.getParcelableExtra(BundleArgsConstants.ACCOUNT_EXTRA);
-  if (newAccountBean == null) {
+  AccountBean intentAccountBean=intent.getParcelableExtra(BundleArgsConstants.ACCOUNT_EXTRA);
+  if (intentAccountBean == null) {
     return;
   }
-  if (newAccountBean.getUid().equals(accountBean.getUid())) {
-    accountBean=newAccountBean;
+  if (accountBean.equals(intentAccountBean)) {
+    accountBean=intentAccountBean;
     GlobalContext.getInstance().setAccountBean(accountBean);
     setIntent(intent);
   }
  else {
     finish();
     overridePendingTransition(0,0);
-    intent.putExtra("account",newAccountBean);
     startActivity(intent);
     overridePendingTransition(0,0);
   }

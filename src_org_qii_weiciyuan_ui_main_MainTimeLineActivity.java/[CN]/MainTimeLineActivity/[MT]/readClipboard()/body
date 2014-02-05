@@ -1,5 +1,5 @@
 {
-  ClipboardManager cm=(ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+  ClipboardManager cm=(ClipboardManager)getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
   ClipData cmContent=cm.getPrimaryClip();
   if (cmContent == null) {
     return;
