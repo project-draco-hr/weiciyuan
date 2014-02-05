@@ -1,0 +1,8 @@
+{
+  StatusesByIdTimeLineFragment fragment=new StatusesByIdTimeLineFragment();
+  Bundle bundle=new Bundle();
+  bundle.putParcelable("userBean",userBean);
+  bundle.putString("token",token);
+  fragment.setArguments(bundle);
+  return fragment;
+}

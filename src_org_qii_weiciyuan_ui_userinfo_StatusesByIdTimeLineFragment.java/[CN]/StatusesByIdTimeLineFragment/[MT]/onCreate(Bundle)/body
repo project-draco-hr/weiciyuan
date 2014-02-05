@@ -1,0 +1,5 @@
+{
+  super.onCreate(savedInstanceState);
+  userBean=getArguments().getParcelable("userBean");
+  token=getArguments().getString("token");
+}
