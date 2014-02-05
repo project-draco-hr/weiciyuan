@@ -10,7 +10,7 @@
   getActionBar().setCustomView(title,new ActionBar.LayoutParams(Gravity.RIGHT));
   getActionBar().setDisplayShowCustomEnabled(true);
   if (savedInstanceState == null) {
-    getSupportFragmentManager().beginTransaction().replace(R.id.list_content,new SelectFriendsListFragment(GlobalContext.getInstance().getCurrentAccountId())).commit();
+    getSupportFragmentManager().beginTransaction().replace(R.id.list_content,SelectFriendsListFragment.newInstance(GlobalContext.getInstance().getAccountBean().getInfo())).commit();
   }
   AutoCompleteTextView search=(AutoCompleteTextView)findViewById(R.id.search);
   AutoCompleteAdapter adapter=new AutoCompleteAdapter(this,android.R.layout.simple_dropdown_item_1line);

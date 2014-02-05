@@ -5,7 +5,7 @@
       actionMode=null;
       getListView().setItemChecked(position,true);
       getAdapter().notifyDataSetChanged();
-      if (currentUser.getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+      if (getCurrentUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
         actionMode=getActivity().startActionMode(new MyFanSingleChoiceModeListener(getListView(),getAdapter(),FanListFragment.this,bean.getUsers().get(position - 1)));
       }
  else {
@@ -16,7 +16,7 @@
  else {
       getListView().setItemChecked(position,true);
       getAdapter().notifyDataSetChanged();
-      if (currentUser.getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
+      if (getCurrentUser().getId().equals(GlobalContext.getInstance().getCurrentAccountId())) {
         actionMode=getActivity().startActionMode(new MyFanSingleChoiceModeListener(getListView(),getAdapter(),FanListFragment.this,bean.getUsers().get(position - 1)));
       }
  else {

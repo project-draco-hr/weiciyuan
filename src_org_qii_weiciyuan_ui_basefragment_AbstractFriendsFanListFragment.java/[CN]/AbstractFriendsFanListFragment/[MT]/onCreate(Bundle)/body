@@ -1,4 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  currentUser=((IUserInfo)getActivity()).getUser();
-}

@@ -1,6 +1,6 @@
 {
-  if (!TextUtils.isEmpty(currentUser.getFriends_count())) {
-    int size=Integer.valueOf(currentUser.getFriends_count());
+  if (!TextUtils.isEmpty(getCurrentUser().getFriends_count())) {
+    int size=Integer.valueOf(getCurrentUser().getFriends_count());
     int newSize=bean.getTotal_number();
     String number="";
     if (size >= newSize) {

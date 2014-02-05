@@ -1,5 +1,0 @@
-{
-  super.onSaveInstanceState(outState);
-  outState.putParcelable("currentUser",currentUser);
-  outState.putString("uid",uid);
-}

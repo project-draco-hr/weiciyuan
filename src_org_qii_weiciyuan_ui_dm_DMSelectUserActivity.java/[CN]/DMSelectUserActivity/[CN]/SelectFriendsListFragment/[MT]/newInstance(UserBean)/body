@@ -1,0 +1,7 @@
+{
+  SelectFriendsListFragment fragment=new SelectFriendsListFragment();
+  Bundle bundle=new Bundle();
+  bundle.putParcelable("userBean",userBean);
+  fragment.setArguments(bundle);
+  return fragment;
+}

@@ -1,5 +1,5 @@
 {
   String token=GlobalContext.getInstance().getSpecialToken();
   String cursor=String.valueOf(0);
-  return new FanUserLoader(getActivity(),token,uid,cursor);
+  return new FanUserLoader(getActivity(),token,getCurrentUser().getId(),cursor);
 }

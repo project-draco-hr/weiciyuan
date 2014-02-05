@@ -5,6 +5,6 @@
   getActionBar().setIcon(R.drawable.ic_ab_friendship);
   bean=(UserBean)getIntent().getParcelableExtra("user");
   if (getSupportFragmentManager().findFragmentByTag(FriendsListFragment.class.getName()) == null) {
-    getSupportFragmentManager().beginTransaction().replace(android.R.id.content,new FriendsListFragment(bean.getId()),FriendsListFragment.class.getName()).commit();
+    getSupportFragmentManager().beginTransaction().replace(android.R.id.content,FriendsListFragment.newInstance(bean),FriendsListFragment.class.getName()).commit();
   }
 }

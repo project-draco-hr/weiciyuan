@@ -4,5 +4,5 @@
   }
   String token=GlobalContext.getInstance().getSpecialToken();
   String cursor=String.valueOf(bean.getNext_cursor());
-  return new FriendUserLoader(getActivity(),token,uid,cursor);
+  return new FriendUserLoader(getActivity(),token,getCurrentUser().getId(),cursor);
 }
