@@ -4,10 +4,11 @@
   }
   File file=new File(path);
   String name=file.getName();
-  String newPath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath() + File.separator + name;
+  String newPath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath() + File.separator + WEICIYUAN+ File.separator+ name;
   try {
     FileManager.createNewFileInSDCard(newPath);
     copyFile(file,new File(newPath));
+    Utility.forceRefreshSystemAlbum(newPath);
     return true;
   }
  catch (  IOException e) {
