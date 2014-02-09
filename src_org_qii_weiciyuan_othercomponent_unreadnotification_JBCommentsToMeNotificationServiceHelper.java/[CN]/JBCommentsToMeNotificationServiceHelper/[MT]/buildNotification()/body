@@ -1,8 +1,11 @@
 {
-  int count=(data.getSize() >= Integer.valueOf(SettingUtility.getMsgCount()) ? unreadBean.getCmt() : data.getSize());
+  int count=unreadBean.getCmt();
+  if (count == 0) {
+    return;
+  }
   Notification.Builder builder=new Notification.Builder(getBaseContext()).setTicker(ticker).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent()).setOnlyAlertOnce(true);
   builder.setContentTitle(String.format(GlobalContext.getInstance().getString(R.string.new_comments),String.valueOf(count)));
-  if (data.getSize() > 1) {
+  if (count > 1) {
     builder.setNumber(count);
   }
   if (clearNotificationEventReceiver != null) {
@@ -38,7 +41,7 @@
   intent.putExtra("msg",data.getItem(currentIndex));
   PendingIntent pendingIntent=PendingIntent.getActivity(getApplicationContext(),0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
   builder.addAction(R.drawable.reply_to_comment_light,getApplicationContext().getString(R.string.reply_to_comment),pendingIntent);
-  if (data.getSize() > 1) {
+  if (count > 1) {
     Intent nextIntent=new Intent(JBCommentsToMeNotificationServiceHelper.this,JBCommentsToMeNotificationServiceHelper.class);
     nextIntent.putExtra(NotificationServiceHelper.ACCOUNT_ARG,accountBean);
     nextIntent.putExtra(NotificationServiceHelper.COMMENTS_TO_ME_ARG,data);
@@ -48,7 +51,7 @@
     String actionName;
     int nextIndex;
     int actionDrawable;
-    if (currentIndex < data.getSize() - 1) {
+    if (currentIndex < count - 1) {
       nextIndex=currentIndex + 1;
       actionName=getString(R.string.next_message);
       actionDrawable=R.drawable.notification_action_next;
@@ -72,8 +75,8 @@
   }
   bigTextStyle.bigText(data.getItem(currentIndex).getText());
   String summaryText;
-  if (data.getSize() > 1) {
-    summaryText=accountBean.getUsernick() + "(" + (currentIndex + 1)+ "/"+ data.getSize()+ ")";
+  if (count > 1) {
+    summaryText=accountBean.getUsernick() + "(" + (currentIndex + 1)+ "/"+ count+ ")";
   }
  else {
     summaryText=accountBean.getUsernick();
