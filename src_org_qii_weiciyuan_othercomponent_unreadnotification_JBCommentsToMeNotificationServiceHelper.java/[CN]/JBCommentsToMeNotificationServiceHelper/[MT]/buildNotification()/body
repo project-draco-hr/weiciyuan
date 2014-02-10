@@ -1,5 +1,5 @@
 {
-  int count=unreadBean.getCmt();
+  int count=Math.min(unreadBean.getCmt(),data.getSize());
   if (count == 0) {
     return;
   }
