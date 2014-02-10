@@ -1,6 +1,8 @@
 {
   Layout layout=((TextView)v).getLayout();
-  if (layout == null)   return false;
+  if (layout == null) {
+    return false;
+  }
   int x=(int)event.getX();
   int y=(int)event.getY();
   int line=layout.getLineForVertical(y);
@@ -41,13 +43,13 @@ case MotionEvent.ACTION_UP:
 if (find) {
 LongClickableLinkMovementMethod.getInstance().onTouchEvent(tv,value,event);
 LongClickableLinkMovementMethod.getInstance().removeLongClickCallback();
-}
 BackgroundColorSpan[] backgroundColorSpans=value.getSpans(0,value.length(),BackgroundColorSpan.class);
 for (BackgroundColorSpan backgroundColorSpan : backgroundColorSpans) {
 value.removeSpan(backgroundColorSpan);
 }
 tv.setText(value);
 find=false;
+}
 break;
 }
 return false;
