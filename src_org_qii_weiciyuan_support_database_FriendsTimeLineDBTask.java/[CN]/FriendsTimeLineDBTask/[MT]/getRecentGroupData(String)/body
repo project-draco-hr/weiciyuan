@@ -7,8 +7,8 @@
     msgList=getHomeLineMsgList(accountId,position.position + AppConfig.DB_CACHE_COUNT_OFFSET);
   }
  else {
-    msgList=HomeOtherGroupTimeLineDBTask.get(accountId,groupId);
     position=HomeOtherGroupTimeLineDBTask.getPosition(accountId,groupId);
+    msgList=HomeOtherGroupTimeLineDBTask.get(accountId,groupId,position.position + AppConfig.DB_CACHE_COUNT_OFFSET);
   }
   return new MessageTimeLineData(groupId,msgList,position);
 }

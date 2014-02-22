@@ -1,8 +1,9 @@
 {
   Gson gson=new Gson();
   MessageListBean result=new MessageListBean();
+  int limit=limitCount > AppConfig.DEFAULT_MSG_COUNT_50 ? limitCount : AppConfig.DEFAULT_MSG_COUNT_50;
   List<MessageBean> msgList=new ArrayList<MessageBean>();
-  String sql="select * from " + HomeOtherGroupTable.HomeOtherGroupDataTable.TABLE_NAME + " where "+ HomeOtherGroupTable.HomeOtherGroupDataTable.ACCOUNTID+ "  = "+ accountId+ " and "+ HomeOtherGroupTable.HomeOtherGroupDataTable.GROUPID+ " =  "+ groupId+ " order by "+ HomeOtherGroupTable.HomeOtherGroupDataTable.ID+ " asc limit 50";
+  String sql="select * from " + HomeOtherGroupTable.HomeOtherGroupDataTable.TABLE_NAME + " where "+ HomeOtherGroupTable.HomeOtherGroupDataTable.ACCOUNTID+ "  = "+ accountId+ " and "+ HomeOtherGroupTable.HomeOtherGroupDataTable.GROUPID+ " =  "+ groupId+ " order by "+ HomeOtherGroupTable.HomeOtherGroupDataTable.ID+ " asc limit "+ limit;
   Cursor c=getRsd().rawQuery(sql,null);
   while (c.moveToNext()) {
     String json=c.getString(c.getColumnIndex(HomeOtherGroupTable.HomeOtherGroupDataTable.JSONDATA));
