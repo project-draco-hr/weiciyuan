@@ -1,0 +1,24 @@
+{
+  DatabaseUtils.InsertHelper ih=new DatabaseUtils.InsertHelper(getWsd(),NotificationTable.TABLE_NAME);
+  final int mblogidColumn=ih.getColumnIndex(NotificationTable.MSGID);
+  final int accountidColumn=ih.getColumnIndex(NotificationTable.ACCOUNTID);
+  final int typeColumn=ih.getColumnIndex(NotificationTable.TYPE);
+  try {
+    getWsd().beginTransaction();
+    for (int i=0; i < msgIds.size(); i++) {
+      String msg=msgIds.get(i);
+      ih.prepareForInsert();
+      ih.bind(mblogidColumn,msg);
+      ih.bind(accountidColumn,accountId);
+      ih.bind(typeColumn,type.getValue());
+      ih.execute();
+    }
+    getWsd().setTransactionSuccessful();
+  }
+ catch (  SQLException e) {
+  }
+ finally {
+    getWsd().endTransaction();
+    ih.close();
+  }
+}

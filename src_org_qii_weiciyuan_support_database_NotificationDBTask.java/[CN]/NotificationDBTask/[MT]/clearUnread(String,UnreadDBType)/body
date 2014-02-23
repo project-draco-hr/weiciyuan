@@ -1,0 +1,4 @@
+{
+  String sql="delete from " + NotificationTable.TABLE_NAME + " where "+ NotificationTable.ACCOUNTID+ " in "+ "("+ accountId+ ")"+ " and "+ NotificationTable.TYPE+ " = "+ type.getValue();
+  getWsd().execSQL(sql);
+}

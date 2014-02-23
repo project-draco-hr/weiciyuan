@@ -1,0 +1,4 @@
+String accountId
+int mentionsWeibo
+int mentionsComment
+int cmt

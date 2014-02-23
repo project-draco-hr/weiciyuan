@@ -8,22 +8,24 @@
   if (count > 1) {
     builder.setNumber(count);
   }
-  if (clearNotificationEventReceiver != null) {
-    Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(GlobalContext.getInstance(),clearNotificationEventReceiver);
-    JBCommentsToMeNotificationServiceHelper.clearNotificationEventReceiver=null;
+  if (clearNotificationEventReceiver.get(accountBean.getUid()) != null) {
+    Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(GlobalContext.getInstance(),clearNotificationEventReceiver.get(accountBean.getUid()));
+    JBCommentsToMeNotificationServiceHelper.clearNotificationEventReceiver.put(accountBean.getUid(),null);
   }
-  clearNotificationEventReceiver=new RecordOperationAppBroadcastReceiver(){
+  RecordOperationAppBroadcastReceiver receiver=new RecordOperationAppBroadcastReceiver(){
     @Override public void onReceive(    Context context,    Intent intent){
       new Thread(new Runnable(){
         @Override public void run(){
           try {
-            new ClearUnreadDao(accountBean.getAccess_token()).clearCommentUnread(unreadBean,accountBean.getUid());
+            ArrayList<String> ids=new ArrayList<String>();
+            for (            CommentBean msg : data.getItemList()) {
+              ids.add(msg.getId());
+            }
+            NotificationDBTask.addUnreadNotification(accountBean.getUid(),ids,NotificationDBTask.UnreadDBType.commentsToMe);
           }
- catch (          WeiboException ignored) {
-          }
- finally {
-            Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(GlobalContext.getInstance(),clearNotificationEventReceiver);
-            JBCommentsToMeNotificationServiceHelper.clearNotificationEventReceiver=null;
+  finally {
+            Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(GlobalContext.getInstance(),clearNotificationEventReceiver.get(accountBean.getUid()));
+            JBCommentsToMeNotificationServiceHelper.clearNotificationEventReceiver.put(accountBean.getUid(),null);
           }
         }
       }
@@ -31,8 +33,9 @@
     }
   }
 ;
+  clearNotificationEventReceiver.put(accountBean.getUid(),receiver);
   IntentFilter intentFilter=new IntentFilter(RESET_UNREAD_COMMENTS_TO_ME_ACTION);
-  GlobalContext.getInstance().registerReceiver(clearNotificationEventReceiver,intentFilter);
+  GlobalContext.getInstance().registerReceiver(receiver,intentFilter);
   Intent broadcastIntent=new Intent(RESET_UNREAD_COMMENTS_TO_ME_ACTION);
   PendingIntent deletedPendingIntent=PendingIntent.getBroadcast(GlobalContext.getInstance(),0,broadcastIntent,PendingIntent.FLAG_UPDATE_CURRENT);
   builder.setDeleteIntent(deletedPendingIntent);

@@ -1,0 +1,3 @@
+String accountId
+ArrayList<String> msgIds
+UnreadDBType type

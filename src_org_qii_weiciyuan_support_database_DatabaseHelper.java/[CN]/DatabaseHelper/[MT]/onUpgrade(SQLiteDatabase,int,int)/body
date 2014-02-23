@@ -3,6 +3,9 @@
     deleteAllTable(db);
     onCreate(db);
   }
+ else   if (oldVersion == 34) {
+    upgrade34To35(db);
+  }
  else {
     deleteAllTableExceptAccount(db);
     createOtherTable(db);

@@ -48,6 +48,7 @@
     }
     mentionCommentsResult=dao.getGSONMsgListWithoutClearUnread();
   }
+  clearDatabaseUnreadInfo(accountBean.getUid(),unreadBean.getMention_status(),unreadBean.getMention_cmt(),unreadBean.getCmt());
   boolean mentionsWeibo=(mentionStatusesResult != null && mentionStatusesResult.getSize() > 0);
   boolean mentionsComment=(mentionCommentsResult != null && mentionCommentsResult.getSize() > 0);
   boolean commentsToMe=(commentResult != null && commentResult.getSize() > 0);

@@ -1,0 +1,11 @@
+{
+  if (mentionsWeibo == 0) {
+    NotificationDBTask.asyncClearUnread(accountId,NotificationDBTask.UnreadDBType.mentionsWeibo);
+  }
+  if (mentionsComment == 0) {
+    NotificationDBTask.asyncClearUnread(accountId,NotificationDBTask.UnreadDBType.mentionsComment);
+  }
+  if (cmt == 0) {
+    NotificationDBTask.asyncClearUnread(accountId,NotificationDBTask.UnreadDBType.commentsToMe);
+  }
+}

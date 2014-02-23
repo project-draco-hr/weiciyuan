@@ -1,0 +1,11 @@
+{
+  HashSet<String> ids=new HashSet<String>();
+  String sql="select * from " + NotificationTable.TABLE_NAME + " where "+ NotificationTable.ACCOUNTID+ "  = "+ accountId+ " and "+ NotificationTable.TYPE+ " = "+ type.getValue()+ " order by "+ NotificationTable.ID+ " asc";
+  Cursor c=getRsd().rawQuery(sql,null);
+  while (c.moveToNext()) {
+    String id=c.getString(c.getColumnIndex(NotificationTable.MSGID));
+    ids.add(id);
+  }
+  c.close();
+  return ids;
+}
