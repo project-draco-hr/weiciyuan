@@ -1,3 +1,0 @@
-{
-  return sum > 0 && (commentsToMeData != null || mentionsWeiboData != null || mentionsCommentData != null);
-}

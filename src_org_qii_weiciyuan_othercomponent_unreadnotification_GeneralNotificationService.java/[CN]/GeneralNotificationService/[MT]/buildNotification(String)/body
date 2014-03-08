@@ -71,6 +71,14 @@
     PendingIntent pendingIntent=PendingIntent.getActivity(getApplicationContext(),0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
     builder.addAction(R.drawable.reply_to_comment_light,getApplicationContext().getString(R.string.reply_to_comment),pendingIntent);
   }
+  String avatar=((ItemBean)itemBean).getUser().getAvatar_large();
+  String avatarPath=FileManager.getFilePathFromUrl(avatar,FileLocationMethod.avatar_large);
+  if (ImageUtility.isThisBitmapCanRead(avatarPath)) {
+    Bitmap bitmap=BitmapFactory.decodeFile(avatarPath,new BitmapFactory.Options());
+    if (bitmap != null) {
+      builder.setLargeIcon(bitmap);
+    }
+  }
   if (count > 1) {
     Intent nextIntent=new Intent(GeneralNotificationService.this,GeneralNotificationService.class);
     nextIntent.putExtra(NotificationServiceHelper.ACCOUNT_ARG,accountBean);
