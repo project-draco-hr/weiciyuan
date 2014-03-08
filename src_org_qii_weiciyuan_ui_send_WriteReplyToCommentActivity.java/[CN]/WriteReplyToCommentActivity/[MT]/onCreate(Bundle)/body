@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   getActionBar().setTitle(getString(R.string.reply_to_comment));
-  getActionBar().setSubtitle(GlobalContext.getInstance().getCurrentAccountName());
+  getActionBar().setSubtitle(getCurrentAccountBean().getUsernick());
   if (savedInstanceState == null) {
     Intent intent=getIntent();
     String action=intent.getAction();
@@ -11,6 +11,9 @@
       }
  else       if (action.equals(WriteReplyToCommentActivity.ACTION_SEND_FAILED)) {
         handleFailedOperation(intent);
+      }
+ else       if (action.equals(WriteReplyToCommentActivity.ACTION_NOTIFICATION_REPLY)) {
+        handleNotificationReplyOperation(intent);
       }
     }
  else {

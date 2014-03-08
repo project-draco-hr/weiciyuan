@@ -4,8 +4,8 @@
     Intent intent=new Intent(WriteReplyToCommentActivity.this,SendReplyToCommentService.class);
     intent.putExtra("oriMsg",bean);
     intent.putExtra("content",content);
-    intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-    intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
+    intent.putExtra("token",getCurrentAccountBean().getAccess_token());
+    intent.putExtra("account",getCurrentAccountBean());
     if (enableRepost.isChecked()) {
       intent.putExtra("repostContent",repost());
     }

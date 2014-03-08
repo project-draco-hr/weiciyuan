@@ -1,0 +1,8 @@
+{
+  token=((AccountBean)intent.getParcelableExtra("account")).getAccess_token();
+  bean=(CommentBean)getIntent().getParcelableExtra("oriMsg");
+  getEditTextView().setHint("@" + bean.getUser().getScreen_name() + "???"+ bean.getText());
+  if (!TextUtils.isEmpty(intent.getStringExtra("repostContent"))) {
+    savedEnableRepost=true;
+  }
+}
