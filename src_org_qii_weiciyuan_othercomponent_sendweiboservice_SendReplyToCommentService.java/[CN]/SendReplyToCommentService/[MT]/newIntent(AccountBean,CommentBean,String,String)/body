@@ -1,0 +1,11 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),SendReplyToCommentService.class);
+  intent.putExtra("oriMsg",commentBean);
+  intent.putExtra("content",content);
+  intent.putExtra("token",accountBean.getAccess_token());
+  intent.putExtra("account",accountBean);
+  if (!TextUtils.isEmpty(repostContent)) {
+    intent.putExtra("repostContent",repostContent);
+  }
+  return intent;
+}

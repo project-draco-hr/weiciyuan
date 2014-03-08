@@ -1,0 +1,4 @@
+AccountBean accountBean
+CommentBean commentBean
+String content
+String repostContent
