@@ -1,0 +1,12 @@
+{
+  ValueWrapper valueWrapper=new ValueWrapper();
+  valueWrapper.accountBean=intent.getParcelableExtra(NotificationServiceHelper.ACCOUNT_ARG);
+  valueWrapper.unreadBean=intent.getParcelableExtra(NotificationServiceHelper.UNREAD_ARG);
+  valueWrapper.clickToOpenAppPendingIntentInner=intent.getParcelableExtra(NotificationServiceHelper.PENDING_INTENT_INNER_ARG);
+  valueWrapper.ticker=intent.getStringExtra(NotificationServiceHelper.TICKER);
+  valueBagHashMap.put(valueWrapper.accountBean.getUid(),valueWrapper);
+  AppLogger.i("service account name=" + valueWrapper.accountBean.getUsernick());
+  buildNotification(valueWrapper.accountBean.getUid());
+  stopSelf();
+  return super.onStartCommand(intent,flags,startId);
+}

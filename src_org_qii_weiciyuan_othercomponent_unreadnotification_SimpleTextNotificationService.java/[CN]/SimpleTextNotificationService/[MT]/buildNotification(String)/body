@@ -1,0 +1,48 @@
+{
+  ValueWrapper valueWrapper=valueBagHashMap.get(uid);
+  if (valueWrapper == null) {
+    return;
+  }
+  final AccountBean accountBean=valueWrapper.accountBean;
+  final UnreadBean unreadBean=valueWrapper.unreadBean;
+  Intent clickToOpenAppPendingIntentInner=valueWrapper.clickToOpenAppPendingIntentInner;
+  String ticker=valueWrapper.ticker;
+  final RecordOperationAppBroadcastReceiver clearNotificationEventReceiver=valueWrapper.clearNotificationEventReceiver;
+  Notification.Builder builder=new Notification.Builder(getBaseContext()).setTicker(ticker).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent(clickToOpenAppPendingIntentInner)).setOnlyAlertOnce(true);
+  builder.setContentTitle(ticker);
+  Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(GlobalContext.getInstance(),clearNotificationEventReceiver);
+  valueWrapper.clearNotificationEventReceiver=new RecordOperationAppBroadcastReceiver(){
+    @Override public void onReceive(    Context context,    Intent intent){
+      new Thread(new Runnable(){
+        @Override public void run(){
+          try {
+            new ClearUnreadDao(accountBean.getAccess_token()).clearMentionStatusUnread(unreadBean,accountBean.getUid());
+            new ClearUnreadDao(accountBean.getAccess_token()).clearMentionCommentUnread(unreadBean,accountBean.getUid());
+            new ClearUnreadDao(accountBean.getAccess_token()).clearCommentUnread(unreadBean,accountBean.getUid());
+          }
+ catch (          WeiboException ignored) {
+          }
+ finally {
+            Utility.unregisterReceiverIgnoredReceiverNotRegisteredException(GlobalContext.getInstance(),clearNotificationEventReceiver);
+            new Handler(Looper.getMainLooper()).post(new Runnable(){
+              @Override public void run(){
+                Toast.makeText(getApplicationContext(),"????????????",Toast.LENGTH_SHORT).show();
+              }
+            }
+);
+          }
+        }
+      }
+).start();
+    }
+  }
+;
+  IntentFilter intentFilter=new IntentFilter(RESET_UNREAD_MENTIONS_WEIBO_ACTION);
+  GlobalContext.getInstance().registerReceiver(valueWrapper.clearNotificationEventReceiver,intentFilter);
+  Intent broadcastIntent=new Intent(RESET_UNREAD_MENTIONS_WEIBO_ACTION);
+  PendingIntent deletedPendingIntent=PendingIntent.getBroadcast(GlobalContext.getInstance(),accountBean.getUid().hashCode(),broadcastIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+  builder.setDeleteIntent(deletedPendingIntent);
+  Utility.configVibrateLedRingTone(builder);
+  NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+  notificationManager.notify(getMentionsWeiboNotificationId(accountBean),builder.build());
+}

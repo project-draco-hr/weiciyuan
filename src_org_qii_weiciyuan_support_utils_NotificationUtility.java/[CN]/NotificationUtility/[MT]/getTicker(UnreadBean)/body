@@ -1,0 +1,8 @@
+{
+  int unreadMentionCmt=unreadBean.getMention_cmt();
+  int unreadMentionStatus=unreadBean.getMention_status();
+  int unreadCmt=unreadBean.getCmt();
+  int messageCount=unreadMentionCmt + unreadMentionStatus + unreadCmt;
+  String txt=String.format(GlobalContext.getInstance().getString(R.string.new_unread_messages),String.valueOf(messageCount));
+  return txt;
+}
