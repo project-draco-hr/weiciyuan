@@ -1,0 +1,6 @@
+{
+  clickToOpenAppPendingIntentInner.setExtrasClassLoader(getClass().getClassLoader());
+  clickToOpenAppPendingIntentInner.putExtra(BundleArgsConstants.OPEN_NAVIGATION_INDEX_EXTRA,UnreadTabIndex.MENTION_WEIBO);
+  PendingIntent pendingIntent=PendingIntent.getActivity(getBaseContext(),0,clickToOpenAppPendingIntentInner,PendingIntent.FLAG_UPDATE_CURRENT);
+  return pendingIntent;
+}

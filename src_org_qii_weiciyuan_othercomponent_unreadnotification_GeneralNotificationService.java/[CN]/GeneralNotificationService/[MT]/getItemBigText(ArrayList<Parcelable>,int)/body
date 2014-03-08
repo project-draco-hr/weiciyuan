@@ -1,0 +1,4 @@
+{
+  ItemBean itemBean=(ItemBean)notificationItems.get(currentIndex);
+  return itemBean.getText();
+}
