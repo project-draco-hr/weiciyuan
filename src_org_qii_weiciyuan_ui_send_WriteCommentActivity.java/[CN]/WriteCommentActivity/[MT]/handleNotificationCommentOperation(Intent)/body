@@ -1,0 +1,6 @@
+{
+  AccountBean accountBean=intent.getParcelableExtra("account");
+  token=accountBean.getAccess_token();
+  msg=intent.getParcelableExtra("msg");
+  getEditTextView().setHint("@" + msg.getUser().getScreen_name() + "???"+ msg.getText());
+}

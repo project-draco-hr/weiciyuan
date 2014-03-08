@@ -1,0 +1,9 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),SendCommentService.class);
+  intent.putExtra("oriMsg",msg);
+  intent.putExtra("content",content);
+  intent.putExtra("comment_ori",comment_ori);
+  intent.putExtra("token",accountBean.getAccess_token());
+  intent.putExtra("account",accountBean);
+  return intent;
+}

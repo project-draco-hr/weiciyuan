@@ -1,0 +1,4 @@
+AccountBean accountBean
+MessageBean msg
+String content
+boolean comment_ori

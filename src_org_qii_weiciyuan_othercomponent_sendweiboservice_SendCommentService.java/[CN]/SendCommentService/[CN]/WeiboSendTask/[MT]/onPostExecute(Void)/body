@@ -1,5 +1,7 @@
 {
   super.onPostExecute(aVoid);
-  if (commentDraftBean != null)   DraftDBManager.getInstance().remove(commentDraftBean.getId());
+  if (commentDraftBean != null) {
+    DraftDBManager.getInstance().remove(commentDraftBean.getId());
+  }
   showSuccessfulNotification(WeiboSendTask.this);
 }

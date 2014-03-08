@@ -1,0 +1,9 @@
+{
+  if (WriteCommentActivity.ACTION_NOTIFICATION_COMMENT.equals(getIntent().getAction()) || WriteCommentActivity.ACTION_SEND_FAILED.equals(getIntent().getAction())) {
+    AccountBean accountBean=((AccountBean)getIntent().getParcelableExtra("account"));
+    return accountBean;
+  }
+ else {
+    return super.getCurrentAccountBean();
+  }
+}

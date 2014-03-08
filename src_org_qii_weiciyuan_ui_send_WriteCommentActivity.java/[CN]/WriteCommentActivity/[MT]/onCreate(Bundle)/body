@@ -1,16 +1,19 @@
 {
   super.onCreate(savedInstanceState);
   getActionBar().setTitle(R.string.comments);
-  getActionBar().setSubtitle(GlobalContext.getInstance().getCurrentAccountName());
+  getActionBar().setSubtitle(getCurrentAccountBean().getUsernick());
   if (savedInstanceState == null) {
     Intent intent=getIntent();
     String action=intent.getAction();
     if (!TextUtils.isEmpty(action)) {
-      if (action.equals(WriteReplyToCommentActivity.ACTION_DRAFT)) {
+      if (action.equals(WriteCommentActivity.ACTION_DRAFT)) {
         handleDraftOperation(intent);
       }
- else       if (action.equals(WriteReplyToCommentActivity.ACTION_SEND_FAILED)) {
+ else       if (action.equals(WriteCommentActivity.ACTION_SEND_FAILED)) {
         handleFailedOperation(intent);
+      }
+ else       if (action.equals(WriteCommentActivity.ACTION_NOTIFICATION_COMMENT)) {
+        handleNotificationCommentOperation(intent);
       }
     }
  else {

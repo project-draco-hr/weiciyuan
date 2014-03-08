@@ -1,0 +1,7 @@
+{
+  Intent intent=new Intent(context,WriteCommentActivity.class);
+  intent.setAction(WriteCommentActivity.ACTION_NOTIFICATION_COMMENT);
+  intent.putExtra("account",account);
+  intent.putExtra("msg",msg);
+  return intent;
+}

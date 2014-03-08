@@ -1,6 +1,8 @@
 {
   token=getIntent().getStringExtra("token");
-  if (TextUtils.isEmpty(token))   token=GlobalContext.getInstance().getSpecialToken();
+  if (TextUtils.isEmpty(token)) {
+    token=GlobalContext.getInstance().getSpecialToken();
+  }
   commentDraftBean=(CommentDraftBean)getIntent().getParcelableExtra("draft");
   msg=commentDraftBean.getMessageBean();
   getEditTextView().setText(commentDraftBean.getContent());

@@ -1,12 +1,7 @@
 {
   if (!enableRepost.isChecked()) {
     String content=((EditText)findViewById(R.id.status_new_content)).getText().toString();
-    Intent intent=new Intent(WriteCommentActivity.this,SendCommentService.class);
-    intent.putExtra("oriMsg",msg);
-    intent.putExtra("content",content);
-    intent.putExtra("comment_ori",enableCommentOri.isChecked());
-    intent.putExtra("token",GlobalContext.getInstance().getSpecialToken());
-    intent.putExtra("account",GlobalContext.getInstance().getAccountBean());
+    Intent intent=SendCommentService.newIntent(getCurrentAccountBean(),msg,content,enableCommentOri.isChecked());
     startService(intent);
     finish();
   }
