@@ -1,4 +1,4 @@
 {
   ItemBean itemBean=(ItemBean)notificationItems.get(currentIndex);
-  return itemBean.getText();
+  return TimeLineUtility.convertNormalStringToSpannableString(itemBean.getText());
 }

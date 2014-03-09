@@ -17,8 +17,8 @@
   if (count == 0) {
     return;
   }
-  Notification.Builder builder=new Notification.Builder(getBaseContext()).setTicker(ticker).setContentText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent(clickToOpenAppPendingIntentInner)).setOnlyAlertOnce(true);
-  builder.setContentTitle(ticker);
+  Notification.Builder builder=new Notification.Builder(getBaseContext()).setTicker(ticker).setContentText(ticker).setSubText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent(clickToOpenAppPendingIntentInner)).setOnlyAlertOnce(true);
+  builder.setContentTitle(getString(R.string.app_name));
   if (count > 1) {
     builder.setNumber(count);
   }
