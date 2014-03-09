@@ -1,0 +1,7 @@
+{
+  try {
+    dialogFragment.show(activity.getSupportFragmentManager(),"");
+  }
+ catch (  Exception ignored) {
+  }
+}

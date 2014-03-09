@@ -15,7 +15,9 @@
     }
  else {
       String openUrl=url;
-      if (openUrl.endsWith("/"))       openUrl=openUrl.substring(0,openUrl.lastIndexOf("/"));
+      if (openUrl.endsWith("/")) {
+        openUrl=openUrl.substring(0,openUrl.lastIndexOf("/"));
+      }
       WebBrowserSelector.openLink(context,Uri.parse(openUrl));
     }
   }

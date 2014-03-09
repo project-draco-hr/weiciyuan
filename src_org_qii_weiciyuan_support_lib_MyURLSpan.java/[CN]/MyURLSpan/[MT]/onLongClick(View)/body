@@ -13,7 +13,7 @@
     if (!TextUtils.isEmpty(newValue)) {
       Utility.vibrate(widget.getContext(),widget);
       LongClickLinkDialog dialog=new LongClickLinkDialog(data);
-      dialog.show(((Activity)widget.getContext()).getFragmentManager(),"");
+      Utility.forceShowDialog((FragmentActivity)widget.getContext(),dialog);
     }
   }
 }
