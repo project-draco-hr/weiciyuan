@@ -1,7 +1,4 @@
 {
-  try {
-    dialogFragment.show(activity.getSupportFragmentManager(),"");
-  }
- catch (  Exception ignored) {
-  }
+  dialogFragment.show(activity.getSupportFragmentManager(),"");
+  activity.getSupportFragmentManager().executePendingTransactions();
 }
