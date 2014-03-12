@@ -1,5 +1,8 @@
 {
   AccountBean accountBean=intent.getParcelableExtra(NotificationServiceHelper.ACCOUNT_ARG);
+  if (accountBean == null) {
+    throw new IllegalArgumentException("you must use BigTextNotificationService newIntent method");
+  }
   ValueWrapper valueWrapper=valueBagHashMap.get(accountBean.getUid());
   if (valueWrapper == null) {
     valueWrapper=new ValueWrapper();

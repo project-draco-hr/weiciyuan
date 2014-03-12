@@ -1,0 +1,8 @@
+AccountBean accountBean
+MessageListBean mentionsWeiboData
+CommentListBean commentsToMeData
+CommentListBean mentionsCommentData
+UnreadBean unreadBean
+Intent clickNotificationToOpenAppPendingIntentInner
+String ticker
+int currentIndex

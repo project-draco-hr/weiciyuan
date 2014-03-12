@@ -1,0 +1,12 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),BigTextNotificationService.class);
+  intent.putExtra(NotificationServiceHelper.ACCOUNT_ARG,accountBean);
+  intent.putExtra(NotificationServiceHelper.MENTIONS_WEIBO_ARG,mentionsWeiboData);
+  intent.putExtra(NotificationServiceHelper.MENTIONS_COMMENT_ARG,mentionsCommentData);
+  intent.putExtra(NotificationServiceHelper.COMMENTS_TO_ME_ARG,commentsToMeData);
+  intent.putExtra(NotificationServiceHelper.UNREAD_ARG,unreadBean);
+  intent.putExtra(NotificationServiceHelper.CURRENT_INDEX_ARG,currentIndex);
+  intent.putExtra(NotificationServiceHelper.PENDING_INTENT_INNER_ARG,clickNotificationToOpenAppPendingIntentInner);
+  intent.putExtra(NotificationServiceHelper.TICKER,ticker);
+  return intent;
+}
