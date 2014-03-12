@@ -1,5 +1,9 @@
 {
-  ValueWrapper valueWrapper=new ValueWrapper();
+  AccountBean accountBean=intent.getParcelableExtra(NotificationServiceHelper.ACCOUNT_ARG);
+  ValueWrapper valueWrapper=valueBagHashMap.get(accountBean.getUid());
+  if (valueWrapper == null) {
+    valueWrapper=new ValueWrapper();
+  }
   valueWrapper.accountBean=intent.getParcelableExtra(NotificationServiceHelper.ACCOUNT_ARG);
   valueWrapper.mentionsWeibo=intent.getParcelableExtra(NotificationServiceHelper.MENTIONS_WEIBO_ARG);
   valueWrapper.commentsToMe=intent.getParcelableExtra(NotificationServiceHelper.COMMENTS_TO_ME_ARG);
