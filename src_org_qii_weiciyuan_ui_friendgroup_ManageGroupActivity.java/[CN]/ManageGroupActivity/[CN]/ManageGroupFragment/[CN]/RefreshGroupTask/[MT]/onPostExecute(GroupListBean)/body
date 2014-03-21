@@ -1,6 +1,8 @@
 {
   super.onPostExecute(groupListBean);
-  if (getActivity() == null)   return;
+  if (getActivity() == null) {
+    return;
+  }
   GroupDBTask.update(groupListBean,GlobalContext.getInstance().getCurrentAccountId());
   GlobalContext.getInstance().setGroup(groupListBean);
   group=groupListBean;

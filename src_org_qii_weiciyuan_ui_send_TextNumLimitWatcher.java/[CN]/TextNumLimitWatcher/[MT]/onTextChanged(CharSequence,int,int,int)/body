@@ -11,9 +11,6 @@
     tv.setTextColor(activity.getResources().getColor(R.color.red));
   }
  else   if (left >= 0 && left <= 140) {
-    int[] attrs=new int[]{android.R.attr.actionMenuTextColor};
-    TypedArray ta=activity.obtainStyledAttributes(attrs);
-    int drawableFromTheme=ta.getColor(0,430);
-    tv.setTextColor(drawableFromTheme);
+    tv.setTextColor(ThemeUtility.getColor(activity,android.R.attr.actionMenuTextColor));
   }
 }

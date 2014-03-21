@@ -1,0 +1,7 @@
+{
+  int[] attrs=new int[]{attr};
+  TypedArray ta=activity.obtainStyledAttributes(attrs);
+  int value=ta.getDimensionPixelSize(0,defaultValue);
+  ta.recycle();
+  return value;
+}

@@ -1,6 +1,3 @@
 {
-  int[] attrs=new int[]{R.attr.link_color};
-  TypedArray ta=GlobalContext.getInstance().getActivity().obtainStyledAttributes(attrs);
-  int drawableFromTheme=ta.getColor(0,430);
-  tp.setColor(drawableFromTheme);
+  tp.setColor(ThemeUtility.getColor(R.attr.link_color));
 }

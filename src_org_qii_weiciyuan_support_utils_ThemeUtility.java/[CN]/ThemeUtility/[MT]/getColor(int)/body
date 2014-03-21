@@ -1,6 +1,3 @@
 {
-  int[] attrs=new int[]{attr};
-  Context context=GlobalContext.getInstance().getActivity();
-  TypedArray ta=context.obtainStyledAttributes(attrs);
-  return ta.getColor(0,430);
+  return getColor(GlobalContext.getInstance().getActivity(),attr);
 }

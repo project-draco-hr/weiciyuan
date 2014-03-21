@@ -2,5 +2,7 @@
   int[] attrs=new int[]{attr};
   Context context=GlobalContext.getInstance().getActivity();
   TypedArray ta=context.obtainStyledAttributes(attrs);
-  return ta.getResourceId(0,430);
+  int id=ta.getResourceId(0,430);
+  ta.recycle();
+  return id;
 }

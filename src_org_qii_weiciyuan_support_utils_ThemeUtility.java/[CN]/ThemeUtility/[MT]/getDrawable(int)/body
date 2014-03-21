@@ -2,5 +2,7 @@
   int[] attrs=new int[]{attr};
   Context context=GlobalContext.getInstance().getActivity();
   TypedArray ta=context.obtainStyledAttributes(attrs);
-  return ta.getDrawable(0);
+  Drawable drawable=ta.getDrawable(0);
+  ta.recycle();
+  return drawable;
 }

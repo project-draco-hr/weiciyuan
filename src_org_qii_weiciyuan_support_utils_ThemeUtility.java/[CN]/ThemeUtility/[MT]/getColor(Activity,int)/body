@@ -1,0 +1,7 @@
+{
+  int[] attrs=new int[]{attr};
+  TypedArray ta=activity.obtainStyledAttributes(attrs);
+  int color=ta.getColor(0,430);
+  ta.recycle();
+  return color;
+}
