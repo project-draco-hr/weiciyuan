@@ -1,0 +1,10 @@
+{
+  String searchCount="select count(" + NotificationTable.MSGID + ") as total"+ " from "+ NotificationTable.TABLE_NAME+ " where "+ NotificationTable.ACCOUNTID+ " = "+ accountId;
+  int total=0;
+  Cursor c=getWsd().rawQuery(searchCount,null);
+  if (c.moveToNext()) {
+    total=c.getInt(c.getColumnIndex("total"));
+  }
+  c.close();
+  return total >= AppConfig.DEFAULT_NOTIFICATION_UNREAD_DB_CACHE_COUNT;
+}

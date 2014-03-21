@@ -5,9 +5,8 @@
   final int typeColumn=ih.getColumnIndex(NotificationTable.TYPE);
   try {
     getWsd().beginTransaction();
-    for (int i=0; i < msgIds.size(); i++) {
-      String msg=msgIds.get(i);
-      ih.prepareForInsert();
+    for (    String msg : msgIds) {
+      ih.prepareForReplace();
       ih.bind(mblogidColumn,msg);
       ih.bind(accountidColumn,accountId);
       ih.bind(typeColumn,type.getValue());
@@ -15,7 +14,7 @@
     }
     getWsd().setTransactionSuccessful();
   }
- catch (  SQLException e) {
+ catch (  SQLException ignored) {
   }
  finally {
     getWsd().endTransaction();
