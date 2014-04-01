@@ -1,0 +1,29 @@
+{
+  final Rect startBounds=rect;
+  final Rect finalBounds=AnimationUtility.getBitmapRectFromImageView(animation);
+  if (rect == null || finalBounds == null) {
+    return;
+  }
+  float startScale;
+  if ((float)finalBounds.width() / finalBounds.height() > (float)startBounds.width() / startBounds.height()) {
+    startScale=(float)startBounds.height() / finalBounds.height();
+  }
+ else {
+    startScale=(float)startBounds.width() / finalBounds.width();
+  }
+  final float startScaleFinal=startScale;
+  int deltaTop=startBounds.top - finalBounds.top;
+  int deltaLeft=startBounds.left - finalBounds.left;
+  animation.setPivotY((animation.getHeight() - finalBounds.height()) / 2);
+  animation.setPivotX((animation.getWidth() - finalBounds.width()) / 2);
+  animation.animate().translationX(deltaLeft).translationY(deltaTop).scaleY(startScaleFinal).scaleX(startScaleFinal).setDuration(ANIMATION_DURATION).setInterpolator(new AccelerateDecelerateInterpolator()).withEndAction(new Runnable(){
+    @Override public void run(){
+      GalleryAnimationActivity.super.onBackPressed();
+      overridePendingTransition(0,0);
+    }
+  }
+);
+  ObjectAnimator bgAnim=ObjectAnimator.ofInt(backgroundColor,"alpha",0);
+  bgAnim.setDuration(ANIMATION_DURATION);
+  bgAnim.start();
+}

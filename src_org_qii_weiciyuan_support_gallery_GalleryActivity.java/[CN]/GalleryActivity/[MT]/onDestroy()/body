@@ -6,9 +6,11 @@
       task.cancel(true);
     }
   }
-  Utility.recycleViewGroupAndChildViews(pager,true);
-  for (  ViewGroup viewGroup : unRecycledViews) {
-    Utility.recycleViewGroupAndChildViews(viewGroup,true);
+  if (pager != null && unRecycledViews != null) {
+    Utility.recycleViewGroupAndChildViews(pager,true);
+    for (    ViewGroup viewGroup : unRecycledViews) {
+      Utility.recycleViewGroupAndChildViews(viewGroup,true);
+    }
+    System.gc();
   }
-  System.gc();
 }

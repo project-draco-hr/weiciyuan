@@ -1,0 +1,8 @@
+{
+  if (Math.abs(animation.getScale() - 1.0f) > 0.1f) {
+    animation.setScale(1,true);
+    return;
+  }
+  overridePendingTransition(0,0);
+  animateClose(null);
+}
