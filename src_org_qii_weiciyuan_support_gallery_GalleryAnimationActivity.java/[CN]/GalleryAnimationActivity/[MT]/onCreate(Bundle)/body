@@ -11,12 +11,12 @@
   View background=findViewById(R.id.background);
   backgroundColor=new ColorDrawable(Color.BLACK);
   background.setBackground(backgroundColor);
-  String path=FileManager.getFilePathFromUrl(urls.get(0),FileLocationMethod.picture_large);
+  String path=FileManager.getFilePathFromUrl(urls.get(getIntent().getIntExtra("position",0)),FileLocationMethod.picture_large);
   Bitmap bitmap=ImageUtility.decodeBitmapFromSDCard(path,IMAGEVIEW_SOFT_LAYER_MAX_WIDTH,IMAGEVIEW_SOFT_LAYER_MAX_HEIGHT);
   animation.setImageBitmap(bitmap);
   animation.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
     @Override public boolean onPreDraw(){
-      final Rect startBounds=new Rect(rect);
+      final Rect startBounds=new Rect(rect.scaledBitmapRect);
       final Rect finalBounds=AnimationUtility.getBitmapRectFromImageView(animation);
       if (rect == null || finalBounds == null) {
         return true;
@@ -35,9 +35,21 @@
       animation.setTranslationX(deltaLeft);
       animation.setTranslationY(deltaTop);
       animation.animate().translationY(0).translationX(0).scaleY(1).scaleX(1).setDuration(ANIMATION_DURATION).setInterpolator(new AccelerateDecelerateInterpolator());
-      ObjectAnimator bgAnim=ObjectAnimator.ofInt(backgroundColor,"alpha",0,255);
-      bgAnim.setDuration(ANIMATION_DURATION);
-      bgAnim.start();
+      if (rect.type == AnimationRect.TYPE_EXTEND_V || rect.type == AnimationRect.TYPE_EXTEND_H) {
+        ObjectAnimator bgAnim=ObjectAnimator.ofInt(backgroundColor,"alpha",0,255);
+        bgAnim.setDuration(ANIMATION_DURATION);
+        bgAnim.start();
+      }
+ else {
+        AnimatorSet animationSet=new AnimatorSet();
+        animationSet.setDuration(ANIMATION_DURATION);
+        animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
+        animationSet.playTogether(ObjectAnimator.ofInt(backgroundColor,"alpha",0,255));
+        animationSet.playTogether(ObjectAnimator.ofFloat(animation,"clipHorizontal",rect.clipRectH,0));
+        animationSet.playTogether(ObjectAnimator.ofFloat(animation,"clipVertical",rect.clipRectV,0));
+        animationSet.start();
+        backgroundColor.setAlpha(0);
+      }
       animation.getViewTreeObserver().removeOnPreDrawListener(this);
       return true;
     }

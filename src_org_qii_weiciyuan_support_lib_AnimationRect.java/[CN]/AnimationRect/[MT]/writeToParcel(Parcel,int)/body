@@ -1,0 +1,8 @@
+{
+  dest.writeParcelable(scaledBitmapRect,flags);
+  dest.writeFloat(clipRectH);
+  dest.writeFloat(clipRectV);
+  dest.writeParcelable(imageViewRect,flags);
+  dest.writeInt(type);
+  dest.writeBooleanArray(new boolean[]{clipped});
+}

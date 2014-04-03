@@ -1,0 +1,41 @@
+{
+  Drawable drawable=getDrawable();
+  Bitmap bitmap=null;
+  if (drawable instanceof BitmapDrawable) {
+    bitmap=((BitmapDrawable)drawable).getBitmap();
+  }
+  if (bitmap != null) {
+    Rect clipRect=new Rect(rect);
+    int width=clipRect.width();
+    int height=clipRect.height();
+    int bitmapWidth=bitmap.getWidth();
+    int bitmapHeight=bitmap.getHeight();
+    int imageViewWidth=width;
+    int imageviewHeight=height;
+    float startScale;
+    int deltaX;
+    int deltaY;
+    if ((float)imageViewWidth / bitmapWidth > (float)imageviewHeight / bitmapHeight) {
+      startScale=(float)imageviewHeight / bitmapHeight;
+    }
+ else {
+      startScale=(float)imageViewWidth / bitmapWidth;
+    }
+    bitmapHeight=(int)(bitmapHeight * startScale);
+    bitmapWidth=(int)(bitmapWidth * startScale);
+    deltaX=(imageViewWidth - bitmapWidth) / 2;
+    deltaY=(imageviewHeight - bitmapHeight) / 2;
+    Paint paint=new Paint();
+    paint.setColor(Color.GREEN);
+    canvas.save();
+    int clipV=(int)(this.clipVerticalPercent * bitmapHeight) + deltaY;
+    int clipH=(int)(this.clipHorizontalPercent * bitmapWidth) + deltaX;
+    clipRect.set(clipRect.left + clipH,clipRect.top + clipV,clipRect.right - clipH,clipRect.bottom - clipV);
+    canvas.clipRect(clipRect);
+    super.draw(canvas);
+    canvas.restore();
+  }
+ else {
+    super.draw(canvas);
+  }
+}

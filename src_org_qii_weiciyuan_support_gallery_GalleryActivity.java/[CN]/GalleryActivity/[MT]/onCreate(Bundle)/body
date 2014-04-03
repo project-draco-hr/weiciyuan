@@ -5,17 +5,18 @@
   currentViewPositionLayout=findViewById(R.id.position_layout);
   position=(TextView)findViewById(R.id.position);
   TextView sum=(TextView)findViewById(R.id.sum);
-  rect=getIntent().getParcelableExtra("rect");
+  rect=((AnimationRect)getIntent().getParcelableExtra("rect")).scaledBitmapRect;
   MessageBean msg=getIntent().getParcelableExtra("msg");
   ArrayList<String> tmp=msg.getThumbnailPicUrls();
   for (int i=0; i < tmp.size(); i++) {
     urls.add(tmp.get(i).replace("thumbnail","large"));
   }
   sum.setText(String.valueOf(urls.size()));
-  if (urls.size() == 1 && rect != null && ImageUtility.isThisBitmapCanRead(FileManager.getFilePathFromUrl(urls.get(0),FileLocationMethod.picture_large)) && !ImageUtility.isThisBitmapTooLargeToRead(FileManager.getFilePathFromUrl(urls.get(0),FileLocationMethod.picture_large)) && !ImageUtility.isThisPictureGif(urls.get(0))) {
+  if (urls.size() < 10 && rect != null && ImageUtility.isThisBitmapCanRead(FileManager.getFilePathFromUrl(urls.get(0),FileLocationMethod.picture_large)) && !ImageUtility.isThisBitmapTooLargeToRead(FileManager.getFilePathFromUrl(urls.get(0),FileLocationMethod.picture_large)) && !ImageUtility.isThisPictureGif(urls.get(0))) {
     Intent intent=new Intent(this,GalleryAnimationActivity.class);
     intent.putExtra("msg",getIntent().getParcelableExtra("msg"));
     intent.putExtra("rect",getIntent().getParcelableExtra("rect"));
+    intent.putExtra("position",getIntent().getIntExtra("position",0));
     startActivity(intent);
     overridePendingTransition(0,0);
     finish();
