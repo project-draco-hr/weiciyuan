@@ -1,0 +1,10 @@
+{
+  Gson gson=new Gson();
+  ContentValues cv=new ContentValues();
+  cv.put(AtUsersTable.USERID,atUserBean.getUid());
+  cv.put(AtUsersTable.ACCOUNTID,accountId);
+  String json=gson.toJson(atUserBean);
+  cv.put(AtUsersTable.JSONDATA,json);
+  db.replace(AtUsersTable.TABLE_NAME,AtUsersTable.ID,cv);
+  reduce(accountId);
+}

@@ -1,5 +1,8 @@
 {
-  if (oldVersion < 34) {
+  if (oldVersion == 35) {
+    Upgrade35to36.upgrade(db);
+  }
+ else   if (oldVersion < 34) {
     deleteAllTable(db);
     onCreate(db);
   }

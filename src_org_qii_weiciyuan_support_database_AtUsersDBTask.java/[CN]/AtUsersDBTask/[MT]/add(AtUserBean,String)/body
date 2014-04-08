@@ -1,9 +1,3 @@
 {
-  Gson gson=new Gson();
-  ContentValues cv=new ContentValues();
-  cv.put(AtUsersTable.ACCOUNTID,accountId);
-  String json=gson.toJson(atUserBean);
-  cv.put(AtUsersTable.JSONDATA,json);
-  getWsd().insert(AtUsersTable.TABLE_NAME,AtUsersTable.ID,cv);
-  reduce(accountId);
+  add(getWsd(),atUserBean,accountId);
 }

@@ -1,0 +1,18 @@
+{
+  List<AtUserBean> msgList=new ArrayList<AtUserBean>();
+  String sql="select * from " + AtUsersTable.TABLE_NAME + " where "+ AtUsersTable.ACCOUNTID+ "  = "+ accountId+ " order by "+ AtUsersTable.ID+ " desc";
+  Cursor c=db.rawQuery(sql,null);
+  Gson gson=new Gson();
+  while (c.moveToNext()) {
+    String json=c.getString(c.getColumnIndex(AtUsersTable.JSONDATA));
+    try {
+      AtUserBean value=gson.fromJson(json,AtUserBean.class);
+      msgList.add(value);
+    }
+ catch (    JsonSyntaxException e) {
+      AppLogger.e(e.getMessage());
+    }
+  }
+  c.close();
+  return msgList;
+}
