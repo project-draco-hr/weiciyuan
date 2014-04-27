@@ -29,13 +29,14 @@
   avatar.setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View v){
       String path=FileManager.getFilePathFromUrl(userBean.getAvatar_large(),FileLocationMethod.avatar_large);
-      if (!new File(path).exists()) {
+      if (!ImageUtility.isThisBitmapCanRead(path)) {
         path=FileManager.getFilePathFromUrl(userBean.getProfile_image_url(),FileLocationMethod.avatar_small);
-        if (!new File(path).exists()) {
+        if (!ImageUtility.isThisBitmapCanRead(path)) {
           return;
         }
       }
-      UserAvatarDialog dialog=new UserAvatarDialog(path);
+      Rect rect=AnimationUtility.getBitmapRectFromImageView(avatar);
+      UserAvatarDialog dialog=UserAvatarDialog.newInstance(path,rect);
       dialog.show(getFragmentManager(),"");
     }
   }

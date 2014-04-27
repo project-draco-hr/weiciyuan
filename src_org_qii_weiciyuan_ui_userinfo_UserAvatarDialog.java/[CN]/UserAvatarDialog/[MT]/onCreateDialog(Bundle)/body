@@ -1,11 +1,56 @@
 {
-  if (savedInstanceState != null) {
-    path=savedInstanceState.getString("path");
-  }
+  String path=getArguments().getString("path");
+  final Rect ori=getArguments().getParcelable("rect");
   Bitmap bitmap=BitmapFactory.decodeFile(path);
-  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity(),R.style.UserAvatarDialog);
-  View customView=getActivity().getLayoutInflater().inflate(R.layout.useravatardialog_layout,null);
-  ((ImageView)customView.findViewById(R.id.imageview)).setImageBitmap(bitmap);
-  builder.setView(customView);
-  return builder.create();
+  final View content=getActivity().getLayoutInflater().inflate(R.layout.useravatardialog_layout,null);
+  final ImageView avatar=((ImageView)content.findViewById(R.id.imageview));
+  avatar.setImageBitmap(bitmap);
+  Dialog dialog=new Dialog(getActivity(),R.style.UserAvatarDialog){
+    @Override public boolean onKeyDown(    int keyCode,    KeyEvent event){
+      if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+        int[] avatarLocation=new int[2];
+        avatar.getLocationOnScreen(avatarLocation);
+        final int transX=ori.left - avatarLocation[0];
+        final int transY=ori.top - avatarLocation[1];
+        final float scaleX=(float)ori.width() / (float)avatar.getWidth();
+        final float scaleY=(float)ori.height() / (float)avatar.getHeight();
+        avatar.animate().translationX(transX).translationY(transY).scaleY(scaleY).scaleX(scaleX).alpha(0.7f).rotationY(0f).setDuration(300).withEndAction(new Runnable(){
+          @Override public void run(){
+            dismissAllowingStateLoss();
+          }
+        }
+);
+        return true;
+      }
+      return super.onKeyDown(keyCode,event);
+    }
+  }
+;
+  dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+  dialog.setContentView(content);
+  content.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+    @Override public void onGlobalLayout(){
+      content.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+      int[] avatarLocation=new int[2];
+      avatar.getLocationOnScreen(avatarLocation);
+      final int transX=ori.left - avatarLocation[0];
+      final int transY=ori.top - avatarLocation[1];
+      final float scaleX=(float)ori.width() / (float)avatar.getWidth();
+      final float scaleY=(float)ori.height() / (float)avatar.getHeight();
+      avatar.setTranslationX(transX);
+      avatar.setTranslationY(transY);
+      avatar.setPivotX(0);
+      avatar.setPivotY(0);
+      avatar.setScaleX(scaleX);
+      avatar.setScaleY(scaleY);
+      avatar.animate().translationX(0).translationY(0).scaleY(1).scaleX(1).alpha(1.0f).setDuration(300).withEndAction(new Runnable(){
+        @Override public void run(){
+        }
+      }
+);
+    }
+  }
+);
+  dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+  return dialog;
 }

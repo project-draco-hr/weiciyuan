@@ -1,0 +1,8 @@
+{
+  UserAvatarDialog dialog=new UserAvatarDialog();
+  Bundle bundle=new Bundle();
+  bundle.putString("path",path);
+  bundle.putParcelable("rect",rect);
+  dialog.setArguments(bundle);
+  return dialog;
+}
