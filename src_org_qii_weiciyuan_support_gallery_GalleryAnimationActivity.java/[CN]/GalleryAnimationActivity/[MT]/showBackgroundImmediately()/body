@@ -1,0 +1,6 @@
+{
+  if (background.getBackground() == null) {
+    backgroundColor=new ColorDrawable(Color.BLACK);
+    background.setBackground(backgroundColor);
+  }
+}

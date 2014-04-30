@@ -1,0 +1,4 @@
+{
+  final View appView=activity.findViewById(android.R.id.content);
+  return appView;
+}

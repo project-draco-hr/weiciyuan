@@ -1,0 +1,5 @@
+{
+  this.spinner=spinner;
+  this.wait=wait;
+  this.readError=readError;
+}

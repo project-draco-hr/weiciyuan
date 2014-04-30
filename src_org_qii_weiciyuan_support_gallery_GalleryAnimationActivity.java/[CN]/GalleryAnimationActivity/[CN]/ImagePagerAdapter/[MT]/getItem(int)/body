@@ -1,0 +1,10 @@
+{
+  ContainerFragment fragment=fragmentMap.get(position);
+  if (fragment == null) {
+    boolean animateIn=(initPosition == position) && !alreadyAnimateIn;
+    fragment=ContainerFragment.newInstance(urls.get(position),rectList.get(position),animateIn,initPosition == position);
+    alreadyAnimateIn=true;
+    fragmentMap.put(position,fragment);
+  }
+  return fragment;
+}

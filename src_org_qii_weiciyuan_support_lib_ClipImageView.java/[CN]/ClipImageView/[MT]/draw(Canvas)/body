@@ -4,7 +4,7 @@
   if (drawable instanceof BitmapDrawable) {
     bitmap=((BitmapDrawable)drawable).getBitmap();
   }
-  if (bitmap != null) {
+  if (bitmap != null && clipEnable) {
     Rect clipRect=new Rect(rect);
     int width=clipRect.width();
     int height=clipRect.height();

@@ -1,0 +1,19 @@
+{
+  View view=inflater.inflate(R.layout.gallery_container_layout,container,false);
+  CircleProgressView progressView=(CircleProgressView)view.findViewById(R.id.loading);
+  TextView wait=(TextView)view.findViewById(R.id.wait);
+  TextView error=(TextView)view.findViewById(R.id.error);
+  String url=getArguments().getString("url");
+  boolean animateIn=getArguments().getBoolean("animationIn");
+  String path=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_large);
+  if (ImageUtility.isThisBitmapCanRead(path)) {
+    displayPicture(path,animateIn);
+  }
+ else {
+    GalleryAnimationActivity activity=(GalleryAnimationActivity)getActivity();
+    activity.showBackgroundImmediately();
+    PicSimpleBitmapWorkerTask task=new PicSimpleBitmapWorkerTask(progressView,wait,error,url,taskMap);
+    task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+  }
+  return view;
+}

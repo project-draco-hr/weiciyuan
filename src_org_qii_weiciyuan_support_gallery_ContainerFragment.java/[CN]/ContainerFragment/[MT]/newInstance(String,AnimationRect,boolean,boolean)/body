@@ -1,0 +1,10 @@
+{
+  ContainerFragment fragment=new ContainerFragment();
+  Bundle bundle=new Bundle();
+  bundle.putString("url",url);
+  bundle.putParcelable("rect",rect);
+  bundle.putBoolean("animationIn",animationIn);
+  bundle.putBoolean("firstOpenPage",firstOpenPage);
+  fragment.setArguments(bundle);
+  return fragment;
+}

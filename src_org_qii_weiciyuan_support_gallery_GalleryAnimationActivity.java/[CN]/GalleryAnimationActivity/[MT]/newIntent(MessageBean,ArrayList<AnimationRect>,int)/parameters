@@ -1,0 +1,3 @@
+MessageBean msg
+ArrayList<AnimationRect> rectList
+int initPosition

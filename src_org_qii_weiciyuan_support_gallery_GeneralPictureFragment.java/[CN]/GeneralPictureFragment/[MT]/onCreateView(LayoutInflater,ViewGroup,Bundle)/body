@@ -1,0 +1,69 @@
+{
+  View view=inflater.inflate(R.layout.gallery_general_layout,container,false);
+  photoView=(PhotoView)view.findViewById(R.id.animation);
+  final String path=getArguments().getString("path");
+  boolean animateIn=getArguments().getBoolean("animationIn");
+  final AnimationRect rect=getArguments().getParcelable("rect");
+  if (!animateIn) {
+    new MyAsyncTask<Void,Bitmap,Bitmap>(){
+      @Override protected Bitmap doInBackground(      Void... params){
+        Bitmap bitmap=ImageUtility.decodeBitmapFromSDCard(path,IMAGEVIEW_SOFT_LAYER_MAX_WIDTH,IMAGEVIEW_SOFT_LAYER_MAX_HEIGHT);
+        return bitmap;
+      }
+      @Override protected void onPostExecute(      Bitmap bitmap){
+        super.onPostExecute(bitmap);
+        photoView.setImageBitmap(bitmap);
+      }
+    }
+.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    return view;
+  }
+  Bitmap bitmap=ImageUtility.decodeBitmapFromSDCard(path,IMAGEVIEW_SOFT_LAYER_MAX_WIDTH,IMAGEVIEW_SOFT_LAYER_MAX_HEIGHT);
+  photoView.setImageBitmap(bitmap);
+  photoView.setClipEnable(true);
+  final Runnable endAction=new Runnable(){
+    @Override public void run(){
+      Bundle bundle=getArguments();
+      bundle.putBoolean("animationIn",false);
+      photoView.setClipEnable(false);
+    }
+  }
+;
+  photoView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+    @Override public boolean onPreDraw(){
+      final Rect startBounds=new Rect(rect.scaledBitmapRect);
+      final Rect finalBounds=AnimationUtility.getBitmapRectFromImageView(photoView);
+      if (rect == null || finalBounds == null) {
+        return true;
+      }
+      float startScale=(float)finalBounds.width() / startBounds.width();
+      if (startScale * startBounds.height() > finalBounds.height()) {
+        startScale=(float)finalBounds.height() / startBounds.height();
+      }
+      int deltaTop=startBounds.top - finalBounds.top;
+      int deltaLeft=startBounds.left - finalBounds.left;
+      AppLogger.e("deltaTop=" + deltaTop + ",deltaLeft="+ deltaLeft+ ",scale="+ startScale);
+      photoView.setPivotY((photoView.getHeight() - finalBounds.height()) / 2);
+      photoView.setPivotX((photoView.getWidth() - finalBounds.width()) / 2);
+      photoView.setScaleX(1 / startScale);
+      photoView.setScaleY(1 / startScale);
+      photoView.setTranslationX(deltaLeft);
+      photoView.setTranslationY(deltaTop);
+      photoView.animate().translationY(0).translationX(0).scaleY(1).scaleX(1).setDuration(ANIMATION_DURATION).setInterpolator(new AccelerateDecelerateInterpolator()).withEndAction(endAction);
+      if (rect.type == AnimationRect.TYPE_EXTEND_V || rect.type == AnimationRect.TYPE_EXTEND_H) {
+      }
+ else {
+        AnimatorSet animationSet=new AnimatorSet();
+        animationSet.setDuration(ANIMATION_DURATION);
+        animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
+        animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipHorizontal",rect.clipRectH,0));
+        animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipVertical",rect.clipRectV,0));
+        animationSet.start();
+      }
+      photoView.getViewTreeObserver().removeOnPreDrawListener(this);
+      return true;
+    }
+  }
+);
+  return view;
+}

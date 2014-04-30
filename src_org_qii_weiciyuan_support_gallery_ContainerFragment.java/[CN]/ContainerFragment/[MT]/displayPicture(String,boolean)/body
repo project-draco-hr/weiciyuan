@@ -1,0 +1,28 @@
+{
+  GalleryAnimationActivity activity=(GalleryAnimationActivity)getActivity();
+  AnimationRect rect=getArguments().getParcelable("rect");
+  boolean firstOpenPage=getArguments().getBoolean("firstOpenPage");
+  if (firstOpenPage) {
+    if (animateIn) {
+      ObjectAnimator animator=activity.showBackgroundAnimate();
+      animator.start();
+    }
+ else {
+      activity.showBackgroundImmediately();
+    }
+  }
+  if (!ImageUtility.isThisBitmapTooLargeToRead(path)) {
+    Fragment fragment=null;
+    if (ImageUtility.isThisPictureGif(path)) {
+      fragment=GifPictureFragment.newInstance(path);
+    }
+ else {
+      fragment=GeneralPictureFragment.newInstance(path,rect,animateIn);
+    }
+    getChildFragmentManager().beginTransaction().replace(R.id.child,fragment).commit();
+  }
+ else {
+    LargePictureFragment fragment=LargePictureFragment.newInstance(path);
+    getChildFragmentManager().beginTransaction().replace(R.id.child,fragment).commit();
+  }
+}

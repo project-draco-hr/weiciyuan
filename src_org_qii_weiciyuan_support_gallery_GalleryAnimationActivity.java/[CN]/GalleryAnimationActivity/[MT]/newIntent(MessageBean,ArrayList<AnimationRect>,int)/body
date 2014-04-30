@@ -1,0 +1,7 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),GalleryAnimationActivity.class);
+  intent.putExtra("msg",msg);
+  intent.putExtra("rect",rectList);
+  intent.putExtra("position",initPosition);
+  return intent;
+}

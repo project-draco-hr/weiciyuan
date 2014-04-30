@@ -1,7 +1,7 @@
 {
   if (SettingUtility.isEnablePic()) {
     gridLayout.setVisibility(View.VISIBLE);
-    int count=msg.getPicCount();
+    final int count=msg.getPicCount();
     for (int i=0; i < count; i++) {
       final IWeiciyuanDrawable pic=(IWeiciyuanDrawable)gridLayout.getChildAt(i);
       pic.setVisibility(View.VISIBLE);
@@ -14,15 +14,17 @@
       final int finalI=i;
       pic.setOnClickListener(new View.OnClickListener(){
         @Override public void onClick(        View v){
-          Intent intent=new Intent(getActivity(),GalleryActivity.class);
-          intent.putExtra("msg",msg);
-          intent.putExtra("position",finalI);
-          AnimationRect rect=AnimationRect.buildFromImageView((ImageView)pic);
-          if (rect != null) {
-            intent.putExtra("rect",rect);
+          ArrayList<AnimationRect> animationRectArrayList=new ArrayList<AnimationRect>();
+          for (int i=0; i < count; i++) {
+            final IWeiciyuanDrawable pic=(IWeiciyuanDrawable)gridLayout.getChildAt(i);
+            ImageView imageView=(ImageView)pic;
+            if (imageView.getVisibility() == View.VISIBLE) {
+              AnimationRect rect=AnimationRect.buildFromImageView(imageView);
+              animationRectArrayList.add(rect);
+            }
           }
-          Bundle scaleBundle=ActivityOptions.makeScaleUpAnimation(v,0,0,v.getWidth(),v.getHeight()).toBundle();
-          getActivity().startActivity(intent,scaleBundle);
+          Intent intent=GalleryAnimationActivity.newIntent(msg,animationRectArrayList,finalI);
+          getActivity().startActivity(intent);
         }
       }
 );

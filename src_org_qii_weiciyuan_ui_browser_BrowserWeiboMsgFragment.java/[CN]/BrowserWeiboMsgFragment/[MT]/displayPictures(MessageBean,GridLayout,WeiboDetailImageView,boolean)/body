@@ -11,17 +11,24 @@
   }
  else {
     layout.setVisibility(View.VISIBLE);
-    int count=msg.getPicCount();
+    final int count=msg.getPicCount();
     for (int i=0; i < count; i++) {
-      IWeiciyuanDrawable pic=(IWeiciyuanDrawable)layout.getChildAt(i);
+      final IWeiciyuanDrawable pic=(IWeiciyuanDrawable)layout.getChildAt(i);
       pic.setVisibility(View.VISIBLE);
       TimeLineBitmapDownloader.getInstance().displayMultiPicture(pic,msg.getMiddlePicUrls().get(i),FileLocationMethod.picture_bmiddle);
       final int finalI=i;
       pic.setOnClickListener(new View.OnClickListener(){
         @Override public void onClick(        View v){
-          Intent intent=new Intent(getActivity(),GalleryActivity.class);
-          intent.putExtra("msg",msg);
-          intent.putExtra("position",finalI);
+          ArrayList<AnimationRect> animationRectArrayList=new ArrayList<AnimationRect>();
+          for (int i=0; i < count; i++) {
+            final IWeiciyuanDrawable pic=(IWeiciyuanDrawable)layout.getChildAt(i);
+            ImageView imageView=(ImageView)pic;
+            if (imageView.getVisibility() == View.VISIBLE) {
+              AnimationRect rect=AnimationRect.buildFromImageView(imageView);
+              animationRectArrayList.add(rect);
+            }
+          }
+          Intent intent=GalleryAnimationActivity.newIntent(msg,animationRectArrayList,finalI);
           getActivity().startActivity(intent);
         }
       }

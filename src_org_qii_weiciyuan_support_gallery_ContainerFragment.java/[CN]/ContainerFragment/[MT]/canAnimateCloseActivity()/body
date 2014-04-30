@@ -1,0 +1,9 @@
+{
+  Fragment fragment=getChildFragmentManager().findFragmentById(R.id.child);
+  if (fragment instanceof GeneralPictureFragment) {
+    return true;
+  }
+ else {
+    return false;
+  }
+}

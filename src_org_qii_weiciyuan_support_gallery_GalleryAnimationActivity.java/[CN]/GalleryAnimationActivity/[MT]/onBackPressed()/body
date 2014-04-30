@@ -1,8 +1,25 @@
 {
-  if (Math.abs(animation.getScale() - 1.0f) > 0.1f) {
-    animation.setScale(1,true);
-    return;
+  ContainerFragment fragment=fragmentMap.get(pager.getCurrentItem());
+  if (fragment != null && fragment.canAnimateCloseActivity()) {
+    backgroundColor=new ColorDrawable(Color.BLACK);
+    ObjectAnimator bgAnim=ObjectAnimator.ofInt(backgroundColor,"alpha",0);
+    bgAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
+      @Override public void onAnimationUpdate(      ValueAnimator animation){
+        background.setBackground(backgroundColor);
+      }
+    }
+);
+    bgAnim.addListener(new AnimatorListenerAdapter(){
+      @Override public void onAnimationEnd(      Animator animation){
+        super.onAnimationEnd(animation);
+        GalleryAnimationActivity.super.onBackPressed();
+        overridePendingTransition(-1,-1);
+      }
+    }
+);
+    fragment.animationExit(bgAnim);
   }
-  overridePendingTransition(0,0);
-  animateClose(null);
+ else {
+    super.onBackPressed();
+  }
 }

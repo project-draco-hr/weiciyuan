@@ -1,0 +1,12 @@
+{
+  backgroundColor=new ColorDrawable(Color.BLACK);
+  background.setBackground(backgroundColor);
+  ObjectAnimator bgAnim=ObjectAnimator.ofInt(backgroundColor,"alpha",0,255);
+  bgAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
+    @Override public void onAnimationUpdate(    ValueAnimator animation){
+      background.setBackground(backgroundColor);
+    }
+  }
+);
+  return bgAnim;
+}

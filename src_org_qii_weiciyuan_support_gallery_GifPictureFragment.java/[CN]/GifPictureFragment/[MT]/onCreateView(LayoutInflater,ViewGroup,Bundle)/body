@@ -1,0 +1,14 @@
+{
+  View view=inflater.inflate(R.layout.gallery_gif_layout,container,false);
+  GifImageView gifImageView=(GifImageView)view.findViewById(R.id.animation);
+  String path=getArguments().getString("path");
+  File gifFile=new File(path);
+  try {
+    GifDrawable gifFromFile=new GifDrawable(gifFile);
+    gifImageView.setImageDrawable(gifFromFile);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  return view;
+}

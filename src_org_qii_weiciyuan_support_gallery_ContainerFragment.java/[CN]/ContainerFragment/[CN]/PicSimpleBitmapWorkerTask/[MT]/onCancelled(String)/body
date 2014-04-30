@@ -1,0 +1,6 @@
+{
+  super.onCancelled(s);
+  taskMap.remove(url);
+  this.spinner.setVisibility(View.INVISIBLE);
+  this.wait.setVisibility(View.INVISIBLE);
+}

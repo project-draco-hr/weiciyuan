@@ -1,0 +1,7 @@
+{
+  GifPictureFragment fragment=new GifPictureFragment();
+  Bundle bundle=new Bundle();
+  bundle.putString("path",path);
+  fragment.setArguments(bundle);
+  return fragment;
+}

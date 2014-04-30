@@ -1,0 +1,8 @@
+{
+  if (Math.abs(photoView.getScale() - 1.0f) > 0.1f) {
+    photoView.setScale(1,true);
+    return;
+  }
+  getActivity().overridePendingTransition(0,0);
+  animateClose(backgroundAnimator);
+}

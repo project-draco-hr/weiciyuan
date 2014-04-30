@@ -1,0 +1,9 @@
+{
+  this.url=url;
+  this.spinner=spinner;
+  this.readError=readError;
+  this.taskMap=taskMap;
+  this.wait=wait;
+  this.readError.setVisibility(View.INVISIBLE);
+  this.spinner.setVisibility(View.VISIBLE);
+}
