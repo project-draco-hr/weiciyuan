@@ -1,0 +1,9 @@
+{
+  if (afd == null) {
+    throw new NullPointerException("Source is null");
+  }
+  FileDescriptor fd=afd.getFileDescriptor();
+  mGifInfoPtr=openFd(mMetaData,fd,afd.getStartOffset());
+  mColors=new int[mMetaData[0] * mMetaData[1]];
+  mInputSourceLength=afd.getLength();
+}

@@ -1,0 +1,3 @@
+{
+  return mMetaData[0] * mMetaData[1] * 4;
+}

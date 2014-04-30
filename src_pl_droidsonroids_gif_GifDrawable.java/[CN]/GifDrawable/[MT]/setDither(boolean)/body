@@ -1,0 +1,4 @@
+{
+  mPaint.setDither(dither);
+  invalidateSelf();
+}

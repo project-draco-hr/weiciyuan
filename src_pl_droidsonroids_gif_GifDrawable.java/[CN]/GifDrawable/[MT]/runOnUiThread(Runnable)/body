@@ -1,0 +1,8 @@
+{
+  if (Looper.myLooper() == UI_HANDLER.getLooper()) {
+    task.run();
+  }
+ else {
+    UI_HANDLER.post(task);
+  }
+}

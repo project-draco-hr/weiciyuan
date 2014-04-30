@@ -1,0 +1,11 @@
+{
+  if (stream == null) {
+    throw new NullPointerException("Source is null");
+  }
+  if (!stream.markSupported()) {
+    throw new IllegalArgumentException("InputStream does not support marking");
+  }
+  mGifInfoPtr=openStream(mMetaData,stream);
+  mColors=new int[mMetaData[0] * mMetaData[1]];
+  mInputSourceLength=-1L;
+}

@@ -1,0 +1,3 @@
+{
+  setCompoundDrawablesRelativeWithIntrinsicBounds(getGifOrDefaultDrawable(start),getGifOrDefaultDrawable(top),getGifOrDefaultDrawable(end),getGifOrDefaultDrawable(bottom));
+}

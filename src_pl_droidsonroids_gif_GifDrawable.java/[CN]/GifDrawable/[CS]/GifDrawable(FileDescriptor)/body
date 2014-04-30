@@ -1,0 +1,8 @@
+{
+  if (fd == null) {
+    throw new NullPointerException("Source is null");
+  }
+  mGifInfoPtr=openFd(mMetaData,fd,0);
+  mColors=new int[mMetaData[0] * mMetaData[1]];
+  mInputSourceLength=-1L;
+}

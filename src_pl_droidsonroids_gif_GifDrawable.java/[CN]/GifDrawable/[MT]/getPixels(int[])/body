@@ -1,0 +1,10 @@
+{
+  final int[] colors=mColors;
+  if (colors == null) {
+    return;
+  }
+  if (pixels.length < colors.length) {
+    throw new ArrayIndexOutOfBoundsException("Pixels array is too small. Required length: " + colors.length);
+  }
+  System.arraycopy(colors,0,pixels,0,colors.length);
+}

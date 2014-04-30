@@ -1,0 +1,16 @@
+{
+  if (resId == 0) {
+    return null;
+  }
+  final Resources resources=getResources();
+  if (!isInEditMode() && "drawable".equals(resources.getResourceTypeName(resId))) {
+    try {
+      return new GifDrawable(resources,resId);
+    }
+ catch (    IOException ignored) {
+    }
+catch (    NotFoundException ignored) {
+    }
+  }
+  return resources.getDrawable(resId);
+}

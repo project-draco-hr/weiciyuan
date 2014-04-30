@@ -1,0 +1,30 @@
+{
+  GifDrawable gd=null;
+  if (uri != null) {
+    final String scheme=uri.getScheme();
+    try {
+      if (ContentResolver.SCHEME_FILE.equals(scheme)) {
+        gd=new GifDrawable(uri.getPath());
+      }
+ else {
+        AssetFileDescriptor afd=getContext().getContentResolver().openAssetFileDescriptor(uri,"r");
+        if (afd != null) {
+          try {
+            gd=new GifDrawable(afd);
+          }
+ catch (          IOException ex) {
+            afd.close();
+          }
+        }
+      }
+    }
+ catch (    IOException ex) {
+    }
+  }
+  if (gd != null) {
+    setImageDrawable(gd);
+  }
+ else {
+    super.setImageURI(uri);
+  }
+}

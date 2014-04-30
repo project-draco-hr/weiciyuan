@@ -1,0 +1,19 @@
+{
+  if (x < 0) {
+    throw new IllegalArgumentException("x must be >= 0");
+  }
+  if (y < 0) {
+    throw new IllegalArgumentException("y must be >= 0");
+  }
+  if (x >= mMetaData[0]) {
+    throw new IllegalArgumentException("x must be < GIF width");
+  }
+  if (y >= mMetaData[1]) {
+    throw new IllegalArgumentException("y must be < GIF height");
+  }
+  final int[] colors=mColors;
+  if (colors == null) {
+    throw new IllegalArgumentException("GifDrawable is recycled");
+  }
+  return colors[mMetaData[1] * y + x];
+}

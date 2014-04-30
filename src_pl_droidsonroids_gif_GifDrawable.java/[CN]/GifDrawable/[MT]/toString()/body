@@ -1,0 +1,3 @@
+{
+  return String.format(Locale.US,"Size: %dx%d, %d frames, error: %d",mMetaData[0],mMetaData[1],mMetaData[2],mMetaData[3]);
+}

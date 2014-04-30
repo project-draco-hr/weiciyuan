@@ -1,0 +1,3 @@
+{
+  setResource(false,resId,getResources());
+}

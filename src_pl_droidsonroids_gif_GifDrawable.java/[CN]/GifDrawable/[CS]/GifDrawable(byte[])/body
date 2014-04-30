@@ -1,0 +1,8 @@
+{
+  if (bytes == null) {
+    throw new NullPointerException("Source is null");
+  }
+  mGifInfoPtr=openByteArray(mMetaData,bytes);
+  mColors=new int[mMetaData[0] * mMetaData[1]];
+  mInputSourceLength=bytes.length;
+}

@@ -1,0 +1,12 @@
+{
+  if (position < 0) {
+    throw new IllegalArgumentException("Position is not positive");
+  }
+  runOnUiThread(new Runnable(){
+    @Override public void run(){
+      seekToTime(mGifInfoPtr,position,mColors);
+      invalidateSelf();
+    }
+  }
+);
+}

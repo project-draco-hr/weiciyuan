@@ -1,0 +1,8 @@
+{
+  if (file == null) {
+    throw new NullPointerException("Source is null");
+  }
+  mInputSourceLength=file.length();
+  mGifInfoPtr=openFile(mMetaData,file.getPath());
+  mColors=new int[mMetaData[0] * mMetaData[1]];
+}

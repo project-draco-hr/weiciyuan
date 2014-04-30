@@ -1,0 +1,11 @@
+{
+  if (buffer == null) {
+    throw new NullPointerException("Source is null");
+  }
+  if (!buffer.isDirect()) {
+    throw new IllegalArgumentException("ByteBuffer is not direct");
+  }
+  mGifInfoPtr=openDirectByteBuffer(mMetaData,buffer);
+  mColors=new int[mMetaData[0] * mMetaData[1]];
+  mInputSourceLength=buffer.capacity();
+}

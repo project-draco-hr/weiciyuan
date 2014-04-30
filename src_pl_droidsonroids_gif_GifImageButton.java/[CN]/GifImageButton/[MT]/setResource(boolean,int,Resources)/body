@@ -1,0 +1,25 @@
+{
+  try {
+    GifDrawable d=new GifDrawable(res,resId);
+    if (isSrc) {
+      setImageDrawable(d);
+    }
+ else     if (Build.VERSION.SDK_INT >= 16) {
+      setBackground(d);
+    }
+ else {
+      setBackgroundDrawable(d);
+    }
+    return;
+  }
+ catch (  IOException ignored) {
+  }
+catch (  NotFoundException ignored) {
+  }
+  if (isSrc) {
+    super.setImageResource(resId);
+  }
+ else {
+    super.setBackgroundResource(resId);
+  }
+}

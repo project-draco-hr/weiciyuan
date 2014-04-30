@@ -1,0 +1,7 @@
+{
+  mIsRunning=false;
+  int tmpPtr=mGifInfoPtr;
+  mGifInfoPtr=0;
+  mColors=null;
+  free(tmpPtr);
+}

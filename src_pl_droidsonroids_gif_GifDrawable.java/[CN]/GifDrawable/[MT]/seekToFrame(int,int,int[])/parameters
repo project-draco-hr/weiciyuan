@@ -1,0 +1,3 @@
+int gifFileInPtr
+int frameNr
+int[] pixels

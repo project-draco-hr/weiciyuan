@@ -1,0 +1,6 @@
+{
+  if (factor <= 0f) {
+    throw new IllegalArgumentException("Speed factor is not positive");
+  }
+  setSpeedFactor(mGifInfoPtr,factor);
+}

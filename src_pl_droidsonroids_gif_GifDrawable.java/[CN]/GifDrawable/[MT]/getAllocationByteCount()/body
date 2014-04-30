@@ -1,0 +1,8 @@
+{
+  long nativeSize=getAllocationByteCount(mGifInfoPtr);
+  final int[] colors=mColors;
+  if (colors == null) {
+    return nativeSize;
+  }
+  return nativeSize + colors.length * 4L;
+}

@@ -1,0 +1,27 @@
+{
+  if (mApplyTransformation) {
+    mDstRect.set(getBounds());
+    mSx=(float)mDstRect.width() / mMetaData[0];
+    mSy=(float)mDstRect.height() / mMetaData[1];
+    mApplyTransformation=false;
+  }
+  if (mPaint.getShader() == null) {
+    if (mIsRunning) {
+      renderFrame(mColors,mGifInfoPtr,mMetaData);
+    }
+ else {
+      mMetaData[4]=-1;
+    }
+    canvas.scale(mSx,mSy);
+    final int[] colors=mColors;
+    if (colors != null) {
+      canvas.drawBitmap(colors,0,mMetaData[0],0f,0f,mMetaData[0],mMetaData[1],true,mPaint);
+    }
+    if (mMetaData[4] >= 0 && mMetaData[2] > 1) {
+      UI_HANDLER.postDelayed(mInvalidateTask,mMetaData[4]);
+    }
+  }
+ else {
+    canvas.drawRect(mDstRect,mPaint);
+  }
+}

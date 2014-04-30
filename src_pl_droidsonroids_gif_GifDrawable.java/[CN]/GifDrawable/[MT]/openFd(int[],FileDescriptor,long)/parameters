@@ -1,0 +1,3 @@
+int[] metaData
+FileDescriptor fd
+long offset

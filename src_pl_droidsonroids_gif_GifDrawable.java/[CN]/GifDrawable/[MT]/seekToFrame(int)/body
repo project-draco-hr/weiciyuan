@@ -1,0 +1,12 @@
+{
+  if (frameIndex < 0) {
+    throw new IllegalArgumentException("frameIndex is not positive");
+  }
+  runOnUiThread(new Runnable(){
+    @Override public void run(){
+      seekToFrame(mGifInfoPtr,frameIndex,mColors);
+      invalidateSelf();
+    }
+  }
+);
+}

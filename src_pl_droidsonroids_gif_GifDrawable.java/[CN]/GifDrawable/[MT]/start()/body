@@ -1,0 +1,4 @@
+{
+  mIsRunning=true;
+  runOnUiThread(mStartTask);
+}
