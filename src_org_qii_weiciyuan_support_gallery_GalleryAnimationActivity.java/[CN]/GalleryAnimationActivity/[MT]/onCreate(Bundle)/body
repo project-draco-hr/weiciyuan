@@ -10,6 +10,7 @@
   position=(TextView)findViewById(R.id.position);
   initPosition=getIntent().getIntExtra("position",0);
   pager=(ViewPager)findViewById(R.id.pager);
+  pager.setPadding(0,Utility.dip2px(STATUS_BAR_HEIGHT_DP_UNIT),0,0);
   pager.setAdapter(new ImagePagerAdapter(getSupportFragmentManager()));
   pager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
     @Override public void onPageSelected(    int position){

@@ -1,0 +1,30 @@
+{
+  String[] values={getString(R.string.copy_link_to_clipboard),getString(R.string.share),getString(R.string.save_pic_album)};
+  new AlertDialog.Builder(context).setItems(values,new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+switch (which) {
+case 0:
+        ClipboardManager cm=(ClipboardManager)context.getSystemService(Context.CLIPBOARD_SERVICE);
+      cm.setPrimaryClip(ClipData.newPlainText("sinaweibo",url));
+    Toast.makeText(context,getString(R.string.copy_successfully),Toast.LENGTH_SHORT).show();
+  break;
+case 1:
+Intent sharingIntent=new Intent(Intent.ACTION_SEND);
+sharingIntent.setType("image/jpeg");
+if (!TextUtils.isEmpty(filePath)) {
+Uri uri=Uri.fromFile(new File(filePath));
+sharingIntent.putExtra(Intent.EXTRA_STREAM,uri);
+if (Utility.isIntentSafe(context,sharingIntent)) {
+context.startActivity(Intent.createChooser(sharingIntent,getString(R.string.share)));
+}
+}
+break;
+case 2:
+saveBitmapToPictureDir(filePath);
+break;
+}
+}
+}
+).show();
+return true;
+}

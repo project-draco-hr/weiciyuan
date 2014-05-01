@@ -1,6 +1,17 @@
 {
   View view=inflater.inflate(R.layout.gallery_large_layout,container,false);
   WebView large=(WebView)view.findViewById(R.id.large);
+  large.setBackgroundColor(getResources().getColor(R.color.transparent));
+  large.setVisibility(View.INVISIBLE);
+  large.setOverScrollMode(View.OVER_SCROLL_NEVER);
+  if (Utility.doThisDeviceOwnNavigationBar(getActivity())) {
+    large.setPadding(0,0,0,Utility.dip2px(NAVIGATION_BAR_HEIGHT_DP_UNIT));
+  }
+  if (SettingUtility.allowClickToCloseGallery()) {
+    large.setOnTouchListener(largeOnTouchListener);
+  }
+  LongClickListener longClickListener=((ContainerFragment)getParentFragment()).getLongClickListener();
+  large.setOnLongClickListener(longClickListener);
   String path=getArguments().getString("path");
   large.getSettings().setJavaScriptEnabled(true);
   large.getSettings().setUseWideViewPort(true);

@@ -1,0 +1,5 @@
+{
+  this.context=activity;
+  this.url=url;
+  this.filePath=path;
+}
