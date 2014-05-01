@@ -1,4 +1,0 @@
-{
-  this.clipEnable=value;
-  invalidate();
-}

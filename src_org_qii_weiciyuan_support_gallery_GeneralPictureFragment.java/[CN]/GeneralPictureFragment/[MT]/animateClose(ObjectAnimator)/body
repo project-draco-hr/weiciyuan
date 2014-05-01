@@ -1,6 +1,5 @@
 {
   AnimationRect rect=getArguments().getParcelable("rect");
-  photoView.setClipEnable(true);
   final Rect startBounds=rect.scaledBitmapRect;
   final Rect finalBounds=AnimationUtility.getBitmapRectFromImageView(photoView);
   float startScale;
