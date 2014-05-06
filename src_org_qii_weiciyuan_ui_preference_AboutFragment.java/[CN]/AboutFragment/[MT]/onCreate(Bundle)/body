@@ -33,6 +33,18 @@
     }
   }
 );
+  findPreference(SettingActivity.DONATE).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
+    @Override public boolean onPreferenceClick(    Preference preference){
+      Dialog dialog=new Dialog(getActivity(),R.style.UserAvatarDialog);
+      dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+      ImageView imageView=new ImageView(getActivity());
+      imageView.setImageResource(R.drawable.alipay);
+      dialog.setContentView(imageView);
+      dialog.show();
+      return true;
+    }
+  }
+);
   detectDebugPreference();
   findPreference(SettingActivity.AUTHOR).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener(){
     @Override public boolean onPreferenceClick(    Preference preference){
