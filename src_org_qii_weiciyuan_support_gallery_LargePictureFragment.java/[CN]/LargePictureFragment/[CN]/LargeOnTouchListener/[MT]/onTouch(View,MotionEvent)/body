@@ -1,0 +1,4 @@
+{
+  gestureDetector.onTouchEvent(event);
+  return false;
+}

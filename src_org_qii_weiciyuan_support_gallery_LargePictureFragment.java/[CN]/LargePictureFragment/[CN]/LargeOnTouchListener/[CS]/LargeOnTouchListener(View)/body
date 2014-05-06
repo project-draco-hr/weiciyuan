@@ -1,0 +1,10 @@
+{
+  gestureDetector=new GestureDetector(view.getContext(),new GestureDetector.SimpleOnGestureListener(){
+    @Override public boolean onSingleTapUp(    MotionEvent e){
+      Utility.playClickSound(view);
+      getActivity().onBackPressed();
+      return true;
+    }
+  }
+);
+}

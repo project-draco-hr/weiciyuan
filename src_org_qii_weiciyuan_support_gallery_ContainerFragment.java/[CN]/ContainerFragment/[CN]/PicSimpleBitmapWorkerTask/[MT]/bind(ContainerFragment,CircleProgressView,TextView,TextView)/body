@@ -1,0 +1,6 @@
+{
+  this.containerRefList.add(new WeakReference<ContainerFragment>(fragment));
+  this.spinner=spinner;
+  this.wait=wait;
+  this.readError=readError;
+}

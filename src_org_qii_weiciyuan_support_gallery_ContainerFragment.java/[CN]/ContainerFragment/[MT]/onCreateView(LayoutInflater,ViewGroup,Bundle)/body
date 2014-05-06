@@ -6,14 +6,23 @@
   String url=getArguments().getString("url");
   boolean animateIn=getArguments().getBoolean("animationIn");
   String path=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_large);
-  if (ImageUtility.isThisBitmapCanRead(path)) {
+  if (ImageUtility.isThisBitmapCanRead(path) && taskMap.get(url) == null && TaskCache.isThisUrlTaskFinished(url)) {
     displayPicture(path,animateIn);
   }
  else {
     GalleryAnimationActivity activity=(GalleryAnimationActivity)getActivity();
     activity.showBackgroundImmediately();
-    PicSimpleBitmapWorkerTask task=new PicSimpleBitmapWorkerTask(progressView,wait,error,url,taskMap);
-    task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+    progressView.setVisibility(View.VISIBLE);
+    if (taskMap.get(url) == null) {
+      PicSimpleBitmapWorkerTask task=new PicSimpleBitmapWorkerTask(this,progressView,wait,error,url,taskMap);
+      taskMap.put(url,task);
+      task.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+      wait.setVisibility(View.VISIBLE);
+    }
+ else {
+      PicSimpleBitmapWorkerTask task=taskMap.get(url);
+      task.bind(this,progressView,wait,error);
+    }
   }
   return view;
 }

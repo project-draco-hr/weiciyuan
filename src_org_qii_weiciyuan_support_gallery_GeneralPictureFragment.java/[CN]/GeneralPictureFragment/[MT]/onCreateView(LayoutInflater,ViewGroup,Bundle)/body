@@ -1,9 +1,6 @@
 {
   View view=inflater.inflate(R.layout.gallery_general_layout,container,false);
   photoView=(PhotoView)view.findViewById(R.id.animation);
-  if (Utility.doThisDeviceOwnNavigationBar(getActivity())) {
-    photoView.setPadding(0,0,0,Utility.dip2px(NAVIGATION_BAR_HEIGHT_DP_UNIT));
-  }
   if (SettingUtility.allowClickToCloseGallery()) {
     photoView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener(){
       @Override public void onPhotoTap(      View view,      float x,      float y){

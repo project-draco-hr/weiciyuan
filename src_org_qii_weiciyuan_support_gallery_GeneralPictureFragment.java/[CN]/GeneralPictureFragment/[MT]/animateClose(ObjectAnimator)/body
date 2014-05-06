@@ -2,6 +2,9 @@
   AnimationRect rect=getArguments().getParcelable("rect");
   final Rect startBounds=rect.scaledBitmapRect;
   final Rect finalBounds=AnimationUtility.getBitmapRectFromImageView(photoView);
+  if (finalBounds == null) {
+    return;
+  }
   float startScale;
   if ((float)finalBounds.width() / finalBounds.height() > (float)startBounds.width() / startBounds.height()) {
     startScale=(float)startBounds.height() / finalBounds.height();

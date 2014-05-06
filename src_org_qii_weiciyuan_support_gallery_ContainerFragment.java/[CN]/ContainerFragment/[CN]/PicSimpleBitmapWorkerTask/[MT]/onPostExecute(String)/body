@@ -1,20 +1,30 @@
 {
-  this.spinner.setVisibility(View.INVISIBLE);
-  this.wait.setVisibility(View.INVISIBLE);
+  this.taskMap.remove(url);
   if (isCancelled()) {
     return;
   }
-  taskMap.remove(url);
-  if (TextUtils.isEmpty(bitmapPath)) {
-    readError.setVisibility(View.VISIBLE);
-    readError.setText(getString(R.string.picture_cant_download_or_sd_cant_read));
-    return;
-  }
+  for (  WeakReference<ContainerFragment> containerRef : containerRefList) {
+    ContainerFragment fragment=containerRef.get();
+    if (fragment == null) {
+      continue;
+    }
+    Activity activity=fragment.getActivity();
+    if (activity == null) {
+      continue;
+    }
+    this.spinner.setVisibility(View.INVISIBLE);
+    this.wait.setVisibility(View.INVISIBLE);
+    if (TextUtils.isEmpty(bitmapPath)) {
+      readError.setVisibility(View.VISIBLE);
+      readError.setText(activity.getString(R.string.picture_cant_download_or_sd_cant_read));
+    }
+ else     if (!ImageUtility.isThisBitmapCanRead(bitmapPath)) {
+      readError.setVisibility(View.VISIBLE);
+      readError.setText(activity.getString(R.string.download_finished_but_cant_read_picture_file));
+    }
  else {
-    readError.setVisibility(View.INVISIBLE);
+      readError.setVisibility(View.INVISIBLE);
+      fragment.displayPicture(bitmapPath,false);
+    }
   }
-  if (!ImageUtility.isThisBitmapCanRead(bitmapPath)) {
-    Toast.makeText(getActivity(),R.string.download_finished_but_cant_read_picture_file,Toast.LENGTH_SHORT).show();
-  }
-  displayPicture(bitmapPath,false);
 }

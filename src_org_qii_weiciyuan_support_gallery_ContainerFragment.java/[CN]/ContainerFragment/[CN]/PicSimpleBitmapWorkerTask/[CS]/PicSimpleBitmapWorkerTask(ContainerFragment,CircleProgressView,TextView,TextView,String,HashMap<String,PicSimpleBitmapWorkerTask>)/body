@@ -1,4 +1,5 @@
 {
+  this.containerRefList.add(new WeakReference<ContainerFragment>(containerFragment));
   this.url=url;
   this.spinner=spinner;
   this.readError=readError;

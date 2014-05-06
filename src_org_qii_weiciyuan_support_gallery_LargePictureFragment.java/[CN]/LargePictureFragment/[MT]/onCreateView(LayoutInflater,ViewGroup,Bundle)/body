@@ -4,11 +4,8 @@
   large.setBackgroundColor(getResources().getColor(R.color.transparent));
   large.setVisibility(View.INVISIBLE);
   large.setOverScrollMode(View.OVER_SCROLL_NEVER);
-  if (Utility.doThisDeviceOwnNavigationBar(getActivity())) {
-    large.setPadding(0,0,0,Utility.dip2px(NAVIGATION_BAR_HEIGHT_DP_UNIT));
-  }
   if (SettingUtility.allowClickToCloseGallery()) {
-    large.setOnTouchListener(largeOnTouchListener);
+    large.setOnTouchListener(new LargeOnTouchListener(large));
   }
   LongClickListener longClickListener=((ContainerFragment)getParentFragment()).getLongClickListener();
   large.setOnLongClickListener(longClickListener);

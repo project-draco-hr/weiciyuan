@@ -1,3 +1,5 @@
 {
   super(context,attrs,defStyle);
+  paint=new Paint();
+  paint.setColor(Color.GREEN);
 }
