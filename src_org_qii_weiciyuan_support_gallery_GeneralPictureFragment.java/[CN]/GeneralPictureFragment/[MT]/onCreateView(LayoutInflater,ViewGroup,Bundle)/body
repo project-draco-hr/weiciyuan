@@ -2,8 +2,8 @@
   View view=inflater.inflate(R.layout.gallery_general_layout,container,false);
   photoView=(PhotoView)view.findViewById(R.id.animation);
   if (SettingUtility.allowClickToCloseGallery()) {
-    photoView.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener(){
-      @Override public void onPhotoTap(      View view,      float x,      float y){
+    photoView.setOnViewTapListener(new PhotoViewAttacher.OnViewTapListener(){
+      @Override public void onViewTap(      View view,      float x,      float y){
         getActivity().onBackPressed();
       }
     }
