@@ -1,0 +1,4 @@
+Activity activity
+String url
+FileLocationMethod method
+DownloadCallback callback

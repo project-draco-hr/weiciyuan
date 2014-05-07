@@ -1,0 +1,4 @@
+Object object
+String url
+FileLocationMethod method
+DownloadCallback callback

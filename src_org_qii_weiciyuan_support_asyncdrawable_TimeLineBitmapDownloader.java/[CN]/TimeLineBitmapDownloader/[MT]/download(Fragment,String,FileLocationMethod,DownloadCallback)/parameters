@@ -1,0 +1,4 @@
+Fragment fragment
+String url
+FileLocationMethod method
+DownloadCallback callback

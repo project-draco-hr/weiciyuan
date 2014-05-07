@@ -10,6 +10,7 @@
  else {
       activity.showBackgroundImmediately();
     }
+    getArguments().putBoolean("firstOpenPage",false);
   }
   if (!ImageUtility.isThisBitmapTooLargeToRead(path)) {
     Fragment fragment=null;

@@ -19,7 +19,7 @@ synchronized (backgroundWifiDownloadPicturesWorkLock) {
     }
     downloadWorker.addDownloadListener(downloadListener);
     try {
-      return downloadWorker.get(30,TimeUnit.SECONDS);
+      return downloadWorker.get(TIME_OUT,TimeUnit.SECONDS);
     }
  catch (    InterruptedException e) {
       Utility.printStackTrace(e);
