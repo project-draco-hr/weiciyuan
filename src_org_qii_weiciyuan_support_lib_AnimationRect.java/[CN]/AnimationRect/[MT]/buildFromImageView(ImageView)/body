@@ -10,6 +10,11 @@
     return null;
   }
   rect.imageViewRect=new Rect();
+  rect.widgetWidth=imageView.getWidth();
+  rect.widgetHeight=imageView.getHeight();
+  rect.thumbnailWidthHeightRatio=(float)bitmap.getWidth() / (float)bitmap.getHeight();
+  rect.thumbnailWidth=bitmap.getWidth();
+  rect.thumbnailHeight=bitmap.getHeight();
   boolean result=imageView.getGlobalVisibleRect(rect.imageViewRect);
   boolean checkWidth=rect.imageViewRect.width() < imageView.getWidth();
   boolean checkHeight=rect.imageViewRect.height() < imageView.getHeight();

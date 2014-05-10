@@ -1,0 +1,4 @@
+{
+  this.clipRightPercent=value;
+  invalidate();
+}

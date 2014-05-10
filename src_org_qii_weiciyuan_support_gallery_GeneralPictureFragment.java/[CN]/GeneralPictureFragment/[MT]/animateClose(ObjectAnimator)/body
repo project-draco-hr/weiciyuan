@@ -12,13 +12,6 @@
     backgroundAnimator.start();
     return;
   }
-  float timelineBitmapRatio=(float)startBounds.width() / (float)startBounds.height();
-  float bitmapRatio=(float)finalBounds.width() / (float)finalBounds.height();
-  if (Math.abs(timelineBitmapRatio - bitmapRatio) > 0.01f) {
-    photoView.animate().alpha(0);
-    backgroundAnimator.start();
-    return;
-  }
   if (Utility.isDevicePort() != rect.isScreenPortrait) {
     photoView.animate().alpha(0);
     backgroundAnimator.start();
@@ -32,6 +25,12 @@
     startScale=(float)startBounds.width() / finalBounds.width();
   }
   final float startScaleFinal=startScale;
+  int oriBitmapScaledWidth=(int)(finalBounds.width() * startScale);
+  int oriBitmapScaledHeight=(int)(finalBounds.height() * startScale);
+  int thumbnailAndOriDeltaRightSize=Math.abs(rect.scaledBitmapRect.width() - oriBitmapScaledWidth);
+  int thumbnailAndOriDeltaBottomSize=Math.abs(rect.scaledBitmapRect.height() - oriBitmapScaledHeight);
+  float serverClipThumbnailRightSizePercent=(float)thumbnailAndOriDeltaRightSize / (float)oriBitmapScaledWidth;
+  float serverClipThumbnailBottomSizePercent=(float)thumbnailAndOriDeltaBottomSize / (float)oriBitmapScaledHeight;
   int deltaTop=startBounds.top - finalBounds.top;
   int deltaLeft=startBounds.left - finalBounds.left;
   photoView.setPivotY((photoView.getHeight() - finalBounds.height()) / 2);
@@ -47,15 +46,24 @@
   }
 );
   if (rect.type == AnimationRect.TYPE_EXTEND_V || rect.type == AnimationRect.TYPE_EXTEND_H) {
-    backgroundAnimator.start();
+    AnimatorSet animationSet=new AnimatorSet();
+    animationSet.setDuration(ANIMATION_DURATION);
+    animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
+    animationSet.playTogether(backgroundAnimator);
+    animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipBottom",0,serverClipThumbnailBottomSizePercent));
+    animationSet.start();
   }
  else {
     AnimatorSet animationSet=new AnimatorSet();
     animationSet.setDuration(ANIMATION_DURATION);
     animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
     animationSet.playTogether(backgroundAnimator);
-    animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipHorizontal",0,rect.clipRectH));
-    animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipVertical",0,rect.clipRectV));
+    float clipRectH=((float)(oriBitmapScaledWidth - oriBitmapScaledWidth * serverClipThumbnailRightSizePercent - rect.widgetWidth) / 2) / (float)oriBitmapScaledWidth;
+    float clipRectV=((float)(oriBitmapScaledHeight - oriBitmapScaledHeight * serverClipThumbnailBottomSizePercent - rect.widgetHeight) / 2) / (float)oriBitmapScaledHeight;
+    animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipHorizontal",0,clipRectH));
+    animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipVertical",0,clipRectV));
+    animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipBottom",0,serverClipThumbnailBottomSizePercent));
+    animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipRight",0,serverClipThumbnailRightSizePercent));
     animationSet.start();
   }
 }

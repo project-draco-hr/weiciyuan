@@ -1,0 +1,4 @@
+{
+  this.clipBottomPercent=value;
+  invalidate();
+}
