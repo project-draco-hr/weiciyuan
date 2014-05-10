@@ -3,5 +3,6 @@
   dest.writeString(previous_cursor);
   dest.writeString(next_cursor);
   dest.writeTypedList(statuses);
+  dest.writeTypedList(ad);
   dest.writeInt(removedCount);
 }
