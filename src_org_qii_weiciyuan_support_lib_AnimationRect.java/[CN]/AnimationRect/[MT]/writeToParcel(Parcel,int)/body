@@ -5,4 +5,5 @@
   dest.writeParcelable(imageViewRect,flags);
   dest.writeInt(type);
   dest.writeBooleanArray(new boolean[]{clipped});
+  dest.writeBooleanArray(new boolean[]{isScreenPortrait});
 }

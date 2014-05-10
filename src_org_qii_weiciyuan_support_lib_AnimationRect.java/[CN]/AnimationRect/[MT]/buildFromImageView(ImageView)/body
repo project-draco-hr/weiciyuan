@@ -1,5 +1,6 @@
 {
   AnimationRect rect=new AnimationRect();
+  rect.isScreenPortrait=Utility.isDevicePort();
   Drawable drawable=imageView.getDrawable();
   Bitmap bitmap=null;
   if (drawable instanceof BitmapDrawable) {
@@ -18,24 +19,24 @@
   int bitmapWidth=bitmap.getWidth();
   int bitmapHeight=bitmap.getHeight();
   int imageViewWidth=imageView.getWidth();
-  int imageviewHeight=imageView.getHeight();
+  int imageViewHeight=imageView.getHeight();
   float startScale;
   int deltaX;
   int deltaY;
 switch (scaledType) {
 case CENTER_CROP:
-    if ((float)imageViewWidth / bitmapWidth > (float)imageviewHeight / bitmapHeight) {
+    if ((float)imageViewWidth / bitmapWidth > (float)imageViewHeight / bitmapHeight) {
       startScale=(float)imageViewWidth / bitmapWidth;
       rect.type=TYPE_CLIP_V;
     }
  else {
-      startScale=(float)imageviewHeight / bitmapHeight;
+      startScale=(float)imageViewHeight / bitmapHeight;
       rect.type=TYPE_CLIP_H;
     }
   bitmapHeight=(int)(bitmapHeight * startScale);
 bitmapWidth=(int)(bitmapWidth * startScale);
 deltaX=(imageViewWidth - bitmapWidth) / 2;
-deltaY=(imageviewHeight - bitmapHeight) / 2;
+deltaY=(imageViewHeight - bitmapHeight) / 2;
 scaledBitmapRect.set(scaledBitmapRect.left + deltaX,scaledBitmapRect.top + deltaY,scaledBitmapRect.right - deltaX,scaledBitmapRect.bottom - deltaY);
 if (rect.type == TYPE_CLIP_H) {
 rect.clipRectH=Math.abs((float)deltaX / (float)bitmapWidth);
@@ -45,8 +46,8 @@ rect.clipRectV=Math.abs((float)deltaY / (float)bitmapHeight);
 }
 break;
 case FIT_CENTER:
-if ((float)imageViewWidth / bitmapWidth > (float)imageviewHeight / bitmapHeight) {
-startScale=(float)imageviewHeight / bitmapHeight;
+if ((float)imageViewWidth / bitmapWidth > (float)imageViewHeight / bitmapHeight) {
+startScale=(float)imageViewHeight / bitmapHeight;
 rect.type=TYPE_EXTEND_V;
 }
  else {
@@ -56,7 +57,7 @@ rect.type=TYPE_EXTEND_H;
 bitmapHeight=(int)(bitmapHeight * startScale);
 bitmapWidth=(int)(bitmapWidth * startScale);
 deltaX=(imageViewWidth - bitmapWidth) / 2;
-deltaY=(imageviewHeight - bitmapHeight) / 2;
+deltaY=(imageViewHeight - bitmapHeight) / 2;
 scaledBitmapRect.set(scaledBitmapRect.left + deltaX,scaledBitmapRect.top + deltaY,scaledBitmapRect.right - deltaX,scaledBitmapRect.bottom - deltaY);
 break;
 }

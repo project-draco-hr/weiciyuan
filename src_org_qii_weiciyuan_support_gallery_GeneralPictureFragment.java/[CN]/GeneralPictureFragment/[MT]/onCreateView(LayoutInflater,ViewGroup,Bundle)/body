@@ -49,6 +49,12 @@
         photoView.getViewTreeObserver().removeOnPreDrawListener(this);
         return true;
       }
+      float timelineBitmapRatio=(float)startBounds.width() / (float)startBounds.height();
+      float bitmapRatio=(float)finalBounds.width() / (float)finalBounds.height();
+      if (Math.abs(timelineBitmapRatio - bitmapRatio) > 0.01f) {
+        photoView.getViewTreeObserver().removeOnPreDrawListener(this);
+        return true;
+      }
       float startScale=(float)finalBounds.width() / startBounds.width();
       if (startScale * startBounds.height() > finalBounds.height()) {
         startScale=(float)finalBounds.height() / startBounds.height();
