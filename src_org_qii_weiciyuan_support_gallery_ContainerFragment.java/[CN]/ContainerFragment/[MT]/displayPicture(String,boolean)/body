@@ -15,7 +15,7 @@
   if (!ImageUtility.isThisBitmapTooLargeToRead(path)) {
     Fragment fragment=null;
     if (ImageUtility.isThisPictureGif(path)) {
-      fragment=GifPictureFragment.newInstance(path);
+      fragment=GifPictureFragment.newInstance(path,rect,animateIn);
     }
  else {
       fragment=GeneralPictureFragment.newInstance(path,rect,animateIn);

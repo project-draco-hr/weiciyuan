@@ -3,6 +3,9 @@
   if (fragment instanceof GeneralPictureFragment) {
     return true;
   }
+ else   if (fragment instanceof GifPictureFragment) {
+    return true;
+  }
  else {
     return false;
   }

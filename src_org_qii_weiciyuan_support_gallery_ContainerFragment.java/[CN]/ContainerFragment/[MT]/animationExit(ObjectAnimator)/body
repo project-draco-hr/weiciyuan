@@ -4,4 +4,8 @@
     GeneralPictureFragment child=(GeneralPictureFragment)fragment;
     child.animationExit(backgroundAnimator);
   }
+ else   if (fragment instanceof GifPictureFragment) {
+    GifPictureFragment child=(GifPictureFragment)fragment;
+    child.animationExit(backgroundAnimator);
+  }
 }

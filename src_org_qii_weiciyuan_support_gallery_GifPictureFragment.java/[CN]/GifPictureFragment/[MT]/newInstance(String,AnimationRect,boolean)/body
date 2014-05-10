@@ -2,6 +2,8 @@
   GifPictureFragment fragment=new GifPictureFragment();
   Bundle bundle=new Bundle();
   bundle.putString("path",path);
+  bundle.putParcelable("rect",rect);
+  bundle.putBoolean("animationIn",animationIn);
   fragment.setArguments(bundle);
   return fragment;
 }

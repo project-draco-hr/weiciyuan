@@ -1,0 +1,8 @@
+{
+  if (Math.abs(gifImageView.getScale() - 1.0f) > 0.1f) {
+    gifImageView.setScale(1,true);
+    return;
+  }
+  getActivity().overridePendingTransition(0,0);
+  animateClose(backgroundAnimator);
+}
