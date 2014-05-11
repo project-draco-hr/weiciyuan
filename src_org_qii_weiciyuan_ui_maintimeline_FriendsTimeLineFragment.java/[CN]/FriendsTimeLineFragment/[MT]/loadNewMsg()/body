@@ -1,0 +1,4 @@
+{
+  super.loadNewMsg();
+  new RefreshReCmtCountTask(FriendsTimeLineFragment.this,getList()).executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+}

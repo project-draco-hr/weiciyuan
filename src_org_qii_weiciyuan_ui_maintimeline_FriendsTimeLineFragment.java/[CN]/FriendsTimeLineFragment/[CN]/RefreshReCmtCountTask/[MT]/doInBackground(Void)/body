@@ -1,4 +1,7 @@
 {
+  if (msgIds.size() == 0) {
+    return null;
+  }
   try {
     return new TimeLineReCmtCountDao(GlobalContext.getInstance().getSpecialToken(),msgIds).get();
   }
