@@ -1,0 +1,26 @@
+{
+  clickToOpenAppPendingIntentInner.setExtrasClassLoader(getClass().getClassLoader());
+  UnreadTabIndex unreadTabIndex=UnreadTabIndex.NONE;
+  if (itemBean instanceof MessageBean) {
+    unreadTabIndex=UnreadTabIndex.MENTION_WEIBO;
+  }
+ else   if (itemBean instanceof CommentBean) {
+    CommentBean commentBean=(CommentBean)itemBean;
+    MessageBean messageBean=commentBean.getStatus();
+    if (messageBean != null) {
+      UserBean userBean=messageBean.getUser();
+      if (accountBean.getInfo().equals(userBean)) {
+        unreadTabIndex=UnreadTabIndex.COMMENT_TO_ME;
+      }
+ else {
+        unreadTabIndex=UnreadTabIndex.MENTION_COMMENT;
+      }
+    }
+ else {
+      unreadTabIndex=UnreadTabIndex.MENTION_COMMENT;
+    }
+  }
+  clickToOpenAppPendingIntentInner.putExtra(BundleArgsConstants.OPEN_NAVIGATION_INDEX_EXTRA,unreadTabIndex);
+  PendingIntent pendingIntent=PendingIntent.getActivity(getBaseContext(),0,clickToOpenAppPendingIntentInner,PendingIntent.FLAG_UPDATE_CURRENT);
+  return pendingIntent;
+}

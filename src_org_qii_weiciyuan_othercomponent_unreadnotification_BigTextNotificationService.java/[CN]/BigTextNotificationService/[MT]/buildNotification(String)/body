@@ -16,7 +16,8 @@
   if (count == 0) {
     return;
   }
-  Notification.Builder builder=new Notification.Builder(getBaseContext()).setTicker(ticker).setContentText(ticker).setSubText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent(clickToOpenAppPendingIntentInner)).setOnlyAlertOnce(true);
+  Parcelable itemBean=notificationItems.get(currentIndex);
+  Notification.Builder builder=new Notification.Builder(getBaseContext()).setTicker(ticker).setContentText(ticker).setSubText(accountBean.getUsernick()).setSmallIcon(R.drawable.ic_notification).setAutoCancel(true).setContentIntent(getPendingIntent(clickToOpenAppPendingIntentInner,itemBean,accountBean)).setOnlyAlertOnce(true);
   builder.setContentTitle(getString(R.string.app_name));
   if (count > 1) {
     builder.setNumber(count);
@@ -71,7 +72,6 @@
   Intent broadcastIntent=new Intent(RESET_UNREAD_MENTIONS_WEIBO_ACTION);
   PendingIntent deletedPendingIntent=PendingIntent.getBroadcast(GlobalContext.getInstance(),accountBean.getUid().hashCode(),broadcastIntent,PendingIntent.FLAG_UPDATE_CURRENT);
   builder.setDeleteIntent(deletedPendingIntent);
-  Parcelable itemBean=notificationItems.get(currentIndex);
   if (itemBean instanceof MessageBean) {
     MessageBean msg=(MessageBean)itemBean;
     Intent intent=WriteCommentActivity.newIntentFromNotification(getApplicationContext(),accountBean,msg);
