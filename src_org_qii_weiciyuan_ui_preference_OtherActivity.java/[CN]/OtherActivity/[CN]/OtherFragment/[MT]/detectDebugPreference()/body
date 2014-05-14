@@ -1,0 +1,7 @@
+{
+  Preference debugPreferenceCategory=(PreferenceCategory)findPreference(DEBUG_INFO);
+  if (!SettingUtility.isBlackMagicEnabled()) {
+    PreferenceScreen screen=getPreferenceScreen();
+    screen.removePreference(debugPreferenceCategory);
+  }
+}
