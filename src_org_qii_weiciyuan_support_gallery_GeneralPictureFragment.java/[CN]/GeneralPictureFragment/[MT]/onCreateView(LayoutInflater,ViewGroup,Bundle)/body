@@ -53,12 +53,6 @@
       if (startScale * startBounds.height() > finalBounds.height()) {
         startScale=(float)finalBounds.height() / startBounds.height();
       }
-      int oriBitmapScaledWidth=(int)(finalBounds.width() / startScale);
-      int oriBitmapScaledHeight=(int)(finalBounds.height() / startScale);
-      int thumbnailAndOriDeltaRightSize=Math.abs(rect.scaledBitmapRect.width() - oriBitmapScaledWidth);
-      int thumbnailAndOriDeltaBottomSize=Math.abs(rect.scaledBitmapRect.height() - oriBitmapScaledHeight);
-      float thumbnailAndOriDeltaWidth=(float)thumbnailAndOriDeltaRightSize / (float)oriBitmapScaledWidth;
-      float thumbnailAndOriDeltaHeight=(float)thumbnailAndOriDeltaBottomSize / (float)oriBitmapScaledHeight;
       int deltaTop=startBounds.top - finalBounds.top;
       int deltaLeft=startBounds.left - finalBounds.left;
       photoView.setPivotY((photoView.getHeight() - finalBounds.height()) / 2);
@@ -68,25 +62,14 @@
       photoView.setTranslationX(deltaLeft);
       photoView.setTranslationY(deltaTop);
       photoView.animate().translationY(0).translationX(0).scaleY(1).scaleX(1).setDuration(ANIMATION_DURATION).setInterpolator(new AccelerateDecelerateInterpolator()).withEndAction(endAction);
-      if (rect.type == AnimationRect.TYPE_EXTEND_V || rect.type == AnimationRect.TYPE_EXTEND_H) {
-        AnimatorSet animationSet=new AnimatorSet();
-        animationSet.setDuration(ANIMATION_DURATION);
-        animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
-        animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipBottom",thumbnailAndOriDeltaHeight,0));
-        animationSet.start();
-      }
- else {
-        AnimatorSet animationSet=new AnimatorSet();
-        animationSet.setDuration(ANIMATION_DURATION);
-        animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
-        float clipRectH=((float)(oriBitmapScaledWidth - oriBitmapScaledWidth * thumbnailAndOriDeltaWidth - rect.widgetWidth) / 2) / (float)oriBitmapScaledWidth;
-        float clipRectV=((float)(oriBitmapScaledHeight - oriBitmapScaledHeight * thumbnailAndOriDeltaHeight - rect.widgetHeight) / 2) / (float)oriBitmapScaledHeight;
-        animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipHorizontal",clipRectH,0));
-        animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipVertical",clipRectV,0));
-        animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipBottom",thumbnailAndOriDeltaHeight,0));
-        animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipRight",thumbnailAndOriDeltaWidth,0));
-        animationSet.start();
-      }
+      AnimatorSet animationSet=new AnimatorSet();
+      animationSet.setDuration(ANIMATION_DURATION);
+      animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
+      animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipBottom",AnimationRect.getClipBottom(rect,finalBounds),0));
+      animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipRight",AnimationRect.getClipRight(rect,finalBounds),0));
+      animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipTop",AnimationRect.getClipTop(rect,finalBounds),0));
+      animationSet.playTogether(ObjectAnimator.ofFloat(photoView,"clipLeft",AnimationRect.getClipLeft(rect,finalBounds),0));
+      animationSet.start();
       photoView.getViewTreeObserver().removeOnPreDrawListener(this);
       return true;
     }

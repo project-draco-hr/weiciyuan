@@ -1,14 +1,18 @@
 {
   dest.writeParcelable(scaledBitmapRect,flags);
-  dest.writeFloat(clipRectH);
-  dest.writeFloat(clipRectV);
-  dest.writeParcelable(imageViewRect,flags);
+  dest.writeParcelable(imageViewEntireRect,flags);
+  dest.writeParcelable(imageViewVisibleRect,flags);
   dest.writeInt(type);
-  dest.writeBooleanArray(new boolean[]{clipped});
+  dest.writeBooleanArray(new boolean[]{isTotalVisible});
+  dest.writeBooleanArray(new boolean[]{isTotalInvisible});
   dest.writeBooleanArray(new boolean[]{isScreenPortrait});
   dest.writeFloat(thumbnailWidthHeightRatio);
   dest.writeInt(thumbnailWidth);
   dest.writeInt(thumbnailHeight);
   dest.writeInt(widgetWidth);
   dest.writeInt(widgetHeight);
+  dest.writeFloat(clipByParentRectTop);
+  dest.writeFloat(clipByParentRectBottom);
+  dest.writeFloat(clipByParentRectLeft);
+  dest.writeFloat(clipByParentRectRight);
 }

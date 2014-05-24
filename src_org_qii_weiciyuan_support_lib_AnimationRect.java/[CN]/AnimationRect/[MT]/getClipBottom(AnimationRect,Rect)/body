@@ -1,0 +1,21 @@
+{
+  final Rect startBounds=animationRect.scaledBitmapRect;
+  float startScale;
+  if ((float)finalBounds.width() / finalBounds.height() > (float)startBounds.width() / startBounds.height()) {
+    startScale=(float)startBounds.height() / finalBounds.height();
+  }
+ else {
+    startScale=(float)startBounds.width() / finalBounds.width();
+  }
+  int oriBitmapScaledHeight=(int)(finalBounds.height() * startScale);
+  int thumbnailAndOriDeltaBottomSize=Math.abs(animationRect.scaledBitmapRect.height() - oriBitmapScaledHeight);
+  float serverClipThumbnailBottomSizePercent=(float)thumbnailAndOriDeltaBottomSize / (float)oriBitmapScaledHeight;
+  float deltaV=(float)(oriBitmapScaledHeight - oriBitmapScaledHeight * serverClipThumbnailBottomSizePercent - animationRect.widgetHeight);
+  float deltaBottom=deltaV / 2;
+  if (!animationRect.isTotalVisible && !animationRect.isTotalInvisible) {
+    float deltaInvisibleBottom=Math.abs(animationRect.imageViewVisibleRect.bottom - animationRect.imageViewEntireRect.bottom);
+    deltaBottom+=deltaInvisibleBottom;
+  }
+  deltaBottom+=thumbnailAndOriDeltaBottomSize;
+  return (deltaBottom) / (float)oriBitmapScaledHeight;
+}

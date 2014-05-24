@@ -9,24 +9,26 @@
   if (bitmap == null) {
     return null;
   }
-  rect.imageViewRect=new Rect();
   rect.widgetWidth=imageView.getWidth();
   rect.widgetHeight=imageView.getHeight();
   rect.thumbnailWidthHeightRatio=(float)bitmap.getWidth() / (float)bitmap.getHeight();
   rect.thumbnailWidth=bitmap.getWidth();
   rect.thumbnailHeight=bitmap.getHeight();
-  boolean result=imageView.getGlobalVisibleRect(rect.imageViewRect);
+  rect.imageViewEntireRect=new Rect();
   int[] location=new int[2];
   imageView.getLocationOnScreen(location);
-  rect.imageViewRect.left=location[0];
-  rect.imageViewRect.top=location[1];
-  rect.imageViewRect.right=rect.imageViewRect.left + imageView.getWidth();
-  rect.imageViewRect.bottom=rect.imageViewRect.top + imageView.getHeight();
-  boolean checkWidth=rect.imageViewRect.width() < imageView.getWidth();
-  boolean checkHeight=rect.imageViewRect.height() < imageView.getHeight();
-  rect.clipped=!result || checkWidth || checkHeight;
+  rect.imageViewEntireRect.left=location[0];
+  rect.imageViewEntireRect.top=location[1];
+  rect.imageViewEntireRect.right=rect.imageViewEntireRect.left + imageView.getWidth();
+  rect.imageViewEntireRect.bottom=rect.imageViewEntireRect.top + imageView.getHeight();
+  rect.imageViewVisibleRect=new Rect();
+  boolean isVisible=imageView.getGlobalVisibleRect(rect.imageViewVisibleRect);
+  boolean checkWidth=rect.imageViewVisibleRect.width() < imageView.getWidth();
+  boolean checkHeight=rect.imageViewVisibleRect.height() < imageView.getHeight();
+  rect.isTotalVisible=isVisible && !checkWidth && !checkHeight;
+  rect.isTotalInvisible=!isVisible;
   ImageView.ScaleType scaledType=imageView.getScaleType();
-  Rect scaledBitmapRect=new Rect(rect.imageViewRect);
+  Rect scaledBitmapRect=new Rect(rect.imageViewEntireRect);
   int bitmapWidth=bitmap.getWidth();
   int bitmapHeight=bitmap.getHeight();
   int imageViewWidth=imageView.getWidth();
@@ -49,12 +51,6 @@ bitmapWidth=(int)(bitmapWidth * startScale);
 deltaX=(imageViewWidth - bitmapWidth) / 2;
 deltaY=(imageViewHeight - bitmapHeight) / 2;
 scaledBitmapRect.set(scaledBitmapRect.left + deltaX,scaledBitmapRect.top + deltaY,scaledBitmapRect.right - deltaX,scaledBitmapRect.bottom - deltaY);
-if (rect.type == TYPE_CLIP_H) {
-rect.clipRectH=Math.abs((float)deltaX / (float)bitmapWidth);
-}
- else if (rect.type == TYPE_CLIP_V) {
-rect.clipRectV=Math.abs((float)deltaY / (float)bitmapHeight);
-}
 break;
 case FIT_CENTER:
 if ((float)imageViewWidth / bitmapWidth > (float)imageViewHeight / bitmapHeight) {
