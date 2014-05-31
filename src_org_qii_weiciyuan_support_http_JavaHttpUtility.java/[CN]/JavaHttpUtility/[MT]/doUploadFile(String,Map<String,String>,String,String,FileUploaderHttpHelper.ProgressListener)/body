@@ -79,6 +79,7 @@
       String error=handleError(urlConnection);
       throw new WeiboException(error);
     }
+    targetFile.delete();
   }
  catch (  IOException e) {
     e.printStackTrace();

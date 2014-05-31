@@ -1,5 +1,5 @@
 {
-  ConvertKKUriToPathFragment fragment=new ConvertKKUriToPathFragment();
+  ConvertUriToCachePathAsyncTaskFragment fragment=new ConvertUriToCachePathAsyncTaskFragment();
   Bundle bundle=new Bundle();
   bundle.putParcelable("uri",uri);
   fragment.setArguments(bundle);

@@ -1,4 +1,10 @@
 {
+  if (picPath != null) {
+    new File(picPath).delete();
+  }
+  if (content.getText().toString().equals(getString(R.string.share_pic))) {
+    content.setText("");
+  }
   ((ImageButton)findViewById(R.id.menu_add_pic)).setImageDrawable(getResources().getDrawable(R.drawable.camera_light));
   preview.setVisibility(View.INVISIBLE);
   preview.setImageBitmap(null);

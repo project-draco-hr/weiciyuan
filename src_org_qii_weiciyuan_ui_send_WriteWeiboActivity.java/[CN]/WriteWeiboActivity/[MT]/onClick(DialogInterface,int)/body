@@ -1,14 +1,10 @@
 {
 switch (which) {
 case 0:
-    String path=Utility.getLatestCameraPicture(WriteWeiboActivity.this);
-  if (!TextUtils.isEmpty(path)) {
-    picPath=path;
-    enablePicture();
-    if (TextUtils.isEmpty(content.getText().toString())) {
-      content.setText(getString(R.string.share_pic));
-      content.setSelection(content.getText().toString().length());
-    }
+    Uri lastUri=Utility.getLatestCameraPicture(WriteWeiboActivity.this);
+  if (lastUri != null) {
+    imageFileUri=lastUri;
+    createTmpUploadFileFromUri();
     return;
   }
 Toast.makeText(WriteWeiboActivity.this,getString(R.string.dont_have_the_last_picture),Toast.LENGTH_SHORT).show();

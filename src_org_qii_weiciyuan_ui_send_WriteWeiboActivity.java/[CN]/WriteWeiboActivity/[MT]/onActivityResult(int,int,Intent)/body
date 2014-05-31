@@ -3,24 +3,12 @@
   if (resultCode == RESULT_OK) {
 switch (requestCode) {
 case CAMERA_RESULT:
-      if (TextUtils.isEmpty(content.getText().toString())) {
-        content.setText(getString(R.string.share_pic));
-        content.setSelection(content.getText().toString().length());
-      }
-    picPath=Utility.getPicPathFromUri(imageFileUri,this);
-  enablePicture();
-break;
+      createTmpUploadFileFromUri();
+    break;
 case PIC_RESULT:
-if (TextUtils.isEmpty(content.getText().toString())) {
-content.setText(getString(R.string.share_pic));
-content.setSelection(content.getText().toString().length());
-}
-picPath=Utility.getPicPathFromUri(intent.getData(),this);
-enablePicture();
-break;
 case PIC_RESULT_KK:
-ConvertKKUriToPathFragment fragment=ConvertKKUriToPathFragment.newInstance(intent.getData());
-getSupportFragmentManager().beginTransaction().add(fragment,"").commit();
+  imageFileUri=intent.getData();
+createTmpUploadFileFromUri();
 break;
 case AT_USER:
 String name=intent.getStringExtra("name");
@@ -30,12 +18,6 @@ StringBuilder stringBuilder=new StringBuilder(ori);
 stringBuilder.insert(index,name);
 content.setText(stringBuilder.toString());
 content.setSelection(index + name.length());
-break;
-case BROWSER_PIC:
-boolean deleted=intent.getBooleanExtra("deleted",false);
-if (deleted) {
-deletePicture();
-}
 break;
 }
 }

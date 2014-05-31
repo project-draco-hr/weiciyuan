@@ -1,0 +1,4 @@
+{
+  ConvertUriToCachePathAsyncTaskFragment fragment=ConvertUriToCachePathAsyncTaskFragment.newInstance(imageFileUri);
+  getSupportFragmentManager().beginTransaction().add(fragment,"").commit();
+}

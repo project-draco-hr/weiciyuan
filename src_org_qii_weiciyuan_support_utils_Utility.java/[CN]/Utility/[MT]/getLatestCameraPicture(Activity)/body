@@ -3,7 +3,7 @@
   final Cursor cursor=activity.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,projection,null,null,MediaStore.Images.ImageColumns.DATE_TAKEN + " DESC");
   if (cursor.moveToFirst()) {
     String path=cursor.getString(1);
-    return path;
+    return Uri.fromFile(new File(path));
   }
   return null;
 }

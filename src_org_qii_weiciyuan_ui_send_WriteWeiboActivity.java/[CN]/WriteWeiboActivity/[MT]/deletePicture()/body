@@ -1,4 +1,5 @@
 {
-  picPath="";
+  imageFileUri=null;
+  picPath=null;
   disablePicture();
 }

@@ -1,8 +1,8 @@
 {
   super.onPostExecute(s);
   if (!TextUtils.isEmpty(s)) {
+    imageFileUri=Uri.fromFile(new File(s));
     enablePicture();
-    picPath=s;
     Toast.makeText(WriteWeiboActivity.this,getString(R.string.convert_successfully),Toast.LENGTH_SHORT).show();
   }
  else {

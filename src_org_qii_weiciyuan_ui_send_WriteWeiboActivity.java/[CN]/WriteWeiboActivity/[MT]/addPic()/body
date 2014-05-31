@@ -1,3 +1,3 @@
 {
-  new SelectPictureDialog().show(getFragmentManager(),"");
+  SelectPictureDialog.newInstance().show(getFragmentManager(),"");
 }
