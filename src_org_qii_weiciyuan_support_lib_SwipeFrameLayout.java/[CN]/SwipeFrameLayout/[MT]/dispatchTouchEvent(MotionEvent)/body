@@ -1,4 +1,12 @@
 {
+  if (!translucent) {
+    postDelayed(new Runnable(){
+      @Override public void run(){
+        AnimationUtility.forceConvertActivityToTranslucent(activity);
+      }
+    }
+,0);
+  }
 switch (ev.getActionMasked()) {
 case MotionEvent.ACTION_DOWN:
     initPointLocation[0]=ev.getRawX();

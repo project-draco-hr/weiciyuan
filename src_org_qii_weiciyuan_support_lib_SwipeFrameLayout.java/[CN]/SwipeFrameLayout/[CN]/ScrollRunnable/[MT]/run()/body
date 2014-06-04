@@ -5,4 +5,7 @@
     topView.invalidate();
     post(this);
   }
+ else   if (translucent) {
+    AnimationUtility.forceConvertActivityFromTranslucent(activity);
+  }
 }

@@ -2,6 +2,7 @@
   if (getActivity() == null) {
     return;
   }
+  AnimationUtility.forceConvertActivityFromTranslucent(getActivity());
   displayCoverPicture();
   if (isMyself() && isOpenedFromMainPage()) {
     readDBCache();

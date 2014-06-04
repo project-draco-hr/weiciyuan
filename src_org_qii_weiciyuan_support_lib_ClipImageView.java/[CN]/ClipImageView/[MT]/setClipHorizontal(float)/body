@@ -1,4 +1,6 @@
 {
-  this.clipHorizontalPercent=value;
-  invalidate();
+  if (this.clipHorizontalPercent != value) {
+    this.clipHorizontalPercent=value;
+    invalidate();
+  }
 }

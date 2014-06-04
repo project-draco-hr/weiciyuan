@@ -1,4 +1,6 @@
 {
-  this.clipBottomPercent=value;
-  invalidate();
+  if (this.clipBottomPercent != value) {
+    this.clipBottomPercent=value;
+    invalidate();
+  }
 }

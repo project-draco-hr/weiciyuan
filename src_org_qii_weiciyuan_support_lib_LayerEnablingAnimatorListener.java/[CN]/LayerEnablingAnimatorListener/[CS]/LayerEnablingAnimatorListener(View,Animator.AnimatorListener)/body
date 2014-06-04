@@ -1,0 +1,9 @@
+{
+  if (Utility.isKK()) {
+    mTargetView=Objects.requireNonNull(targetView,"Target view cannot be null");
+  }
+ else {
+    mTargetView=targetView;
+  }
+  this.mAdapter=adapter;
+}

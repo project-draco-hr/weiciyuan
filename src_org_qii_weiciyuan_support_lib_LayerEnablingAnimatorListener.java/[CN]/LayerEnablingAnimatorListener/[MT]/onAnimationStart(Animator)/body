@@ -1,0 +1,9 @@
+{
+  super.onAnimationStart(animation);
+  if (mAdapter != null) {
+    mAdapter.onAnimationStart(animation);
+  }
+  mLayerType=mTargetView.getLayerType();
+  mTargetView.setLayerType(View.LAYER_TYPE_HARDWARE,null);
+  AppLogger.d("View animation is started, enable hardware accelerated");
+}
