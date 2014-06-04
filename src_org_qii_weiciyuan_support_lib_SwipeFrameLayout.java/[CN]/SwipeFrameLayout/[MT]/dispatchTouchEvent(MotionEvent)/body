@@ -1,11 +1,6 @@
 {
-  if (!translucent) {
-    postDelayed(new Runnable(){
-      @Override public void run(){
-        AnimationUtility.forceConvertActivityToTranslucent(activity);
-      }
-    }
-,0);
+  if (!translucent && isDownEventInsideSwipeRegion(ev)) {
+    AnimationUtility.forceConvertActivityToTranslucent(activity);
     translucent=true;
   }
 switch (ev.getActionMasked()) {

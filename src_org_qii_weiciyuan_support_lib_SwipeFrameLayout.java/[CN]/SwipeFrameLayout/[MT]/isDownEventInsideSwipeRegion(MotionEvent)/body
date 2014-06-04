@@ -1,0 +1,4 @@
+{
+  float x=ev.getRawX();
+  return x <= max_motion_event_down_x_position;
+}

@@ -4,11 +4,10 @@
   }
 switch (ev.getActionMasked()) {
 case MotionEvent.ACTION_MOVE:
-    float x=ev.getRawX();
-  if (x > initPointLocation[0] && initPointLocation[0] <= max_motion_event_down_x_position) {
-    return true;
-  }
-break;
+    if (canSwipe(ev)) {
+      return true;
+    }
+  break;
 }
 return super.onInterceptTouchEvent(ev);
 }
