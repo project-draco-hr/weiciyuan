@@ -5,8 +5,11 @@
     topView.invalidate();
     post(this);
   }
- else   if (translucent) {
-    AnimationUtility.forceConvertActivityFromTranslucent(activity);
+ else   if (translucent && !isDragging) {
+    forceConvertActivityFromTranslucent();
     translucent=false;
+    if (lastScrollRunnable == this) {
+      lastScrollRunnable=null;
+    }
   }
 }

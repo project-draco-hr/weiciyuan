@@ -1,4 +1,8 @@
 {
+  if (lastScrollRunnable != null) {
+    removeCallbacks(lastScrollRunnable);
+  }
   scroller.startScroll(topView.getScrollX(),0,-topView.getScrollX(),0);
-  post(new ScrollRunnable());
+  lastScrollRunnable=new ScrollRunnable();
+  post(lastScrollRunnable);
 }

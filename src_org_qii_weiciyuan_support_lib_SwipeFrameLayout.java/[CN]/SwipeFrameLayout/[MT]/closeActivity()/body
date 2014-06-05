@@ -1,6 +1,6 @@
 {
   if (translucent) {
-    AnimationUtility.forceConvertActivityFromTranslucent(activity);
+    forceConvertActivityFromTranslucent();
     translucent=false;
   }
   activity.finish();

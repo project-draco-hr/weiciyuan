@@ -1,6 +1,6 @@
 {
   if (!translucent && isDownEventInsideSwipeRegion(ev)) {
-    AnimationUtility.forceConvertActivityToTranslucent(activity);
+    forceConvertActivityToTranslucent();
     translucent=true;
   }
 switch (ev.getActionMasked()) {
@@ -12,7 +12,7 @@ break;
 case MotionEvent.ACTION_UP:
 case MotionEvent.ACTION_CANCEL:
 if (!isDragging && translucent) {
-AnimationUtility.forceConvertActivityFromTranslucent(activity);
+forceConvertActivityFromTranslucent();
 translucent=false;
 }
 break;

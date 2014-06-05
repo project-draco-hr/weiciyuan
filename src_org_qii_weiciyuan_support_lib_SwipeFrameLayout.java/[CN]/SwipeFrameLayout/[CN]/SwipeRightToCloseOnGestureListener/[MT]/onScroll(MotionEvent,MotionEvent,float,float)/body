@@ -1,6 +1,6 @@
 {
   if (e2.getRawX() < initPointLocation[0]) {
-    float y=topView.getScaleX();
+    float y=topView.getScrollX();
     if (y != 0f) {
       restoreActivity();
       return super.onScroll(e1,e2,distanceX,distanceY);

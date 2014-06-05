@@ -1,0 +1,8 @@
+{
+  if (forceConvertActivityFromTranslucentRunnable != null) {
+    uiHandler.removeCallbacks(forceConvertActivityFromTranslucentRunnable);
+  }
+ else {
+    AnimationUtility.forceConvertActivityToTranslucent(activity);
+  }
+}

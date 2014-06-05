@@ -1,0 +1,17 @@
+{
+  if (forceConvertActivityFromTranslucentRunnable != null) {
+    uiHandler.removeCallbacks(forceConvertActivityFromTranslucentRunnable);
+  }
+  Runnable runnable=new Runnable(){
+    @Override public void run(){
+      if (activity.isFinishing()) {
+        return;
+      }
+      AnimationUtility.forceConvertActivityFromTranslucent(activity);
+      forceConvertActivityFromTranslucentRunnable=null;
+    }
+  }
+;
+  forceConvertActivityFromTranslucentRunnable=runnable;
+  uiHandler.postDelayed(forceConvertActivityFromTranslucentRunnable,3000);
+}
