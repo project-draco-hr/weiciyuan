@@ -4,14 +4,18 @@
       return null;
     }
     String filePath=FileManager.getFilePathFromUrl(url,method);
-    if (!filePath.endsWith(".jpg") && !filePath.endsWith(".gif"))     filePath=filePath + ".jpg";
+    if (!filePath.endsWith(".jpg") && !filePath.endsWith(".gif")) {
+      filePath=filePath + ".jpg";
+    }
     boolean fileExist=new File(filePath).exists();
     if (!fileExist && !SettingUtility.isEnablePic()) {
       return null;
     }
     if (!fileExist) {
       boolean result=getBitmapFromNetWork(url,filePath,downloadListener);
-      if (!result)       return null;
+      if (!result) {
+        return null;
+      }
     }
     BitmapFactory.Options options=new BitmapFactory.Options();
     options.inJustDecodeBounds=true;

@@ -9,9 +9,17 @@ synchronized (TimeLineBitmapDownloader.pauseReadWorkLock) {
       }
     }
   }
-  if (isCancelled())   return null;
+  if (isCancelled()) {
+    return null;
+  }
   String path=FileManager.getFilePathFromUrl(data,method);
-  boolean downloaded=TaskCache.waitForPictureDownload(data,(SettingUtility.getEnableBigPic() ? downloadListener : null),path,method);
+  boolean downloaded=false;
+  for (int i=0; i < 3; i++) {
+    if (TaskCache.waitForPictureDownload(data,(SettingUtility.getEnableBigPic() ? downloadListener : null),path,method)) {
+      downloaded=true;
+      break;
+    }
+  }
   if (!downloaded) {
     failedResult=FailedResult.downloadFailed;
     return null;
@@ -51,7 +59,9 @@ Thread.currentThread().interrupt();
 }
 }
 }
-if (isCancelled()) return null;
+if (isCancelled()) {
+return null;
+}
 Bitmap bitmap;
 switch (method) {
 case avatar_small:

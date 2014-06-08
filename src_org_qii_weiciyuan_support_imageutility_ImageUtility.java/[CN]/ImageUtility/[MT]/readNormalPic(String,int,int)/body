@@ -3,7 +3,9 @@
     if (!FileManager.isExternalStorageMounted()) {
       return null;
     }
-    if (!filePath.endsWith(".jpg") && !filePath.endsWith(".gif") && !filePath.endsWith(".png"))     filePath=filePath + ".jpg";
+    if (!filePath.endsWith(".jpg") && !filePath.endsWith(".gif") && !filePath.endsWith(".png")) {
+      filePath=filePath + ".jpg";
+    }
     boolean fileExist=new File(filePath).exists();
     if (!fileExist && !SettingUtility.isEnablePic()) {
       return null;
@@ -11,7 +13,9 @@
     BitmapFactory.Options options=new BitmapFactory.Options();
     options.inJustDecodeBounds=true;
     BitmapFactory.decodeFile(filePath,options);
-    if (reqHeight > 0 && reqWidth > 0)     options.inSampleSize=calculateInSampleSize(options,reqWidth,reqHeight);
+    if (reqHeight > 0 && reqWidth > 0) {
+      options.inSampleSize=calculateInSampleSize(options,reqWidth,reqHeight);
+    }
     options.inJustDecodeBounds=false;
     options.inPurgeable=true;
     options.inInputShareable=true;
