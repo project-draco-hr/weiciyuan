@@ -25,7 +25,7 @@
         photoView.setImageBitmap(bitmap);
       }
     }
-.executeOnExecutor(MyAsyncTask.IO_THREAD_POOL_EXECUTOR);
+.executeOnIO();
     return view;
   }
   final Bitmap bitmap=ImageUtility.decodeBitmapFromSDCard(path,IMAGEVIEW_SOFT_LAYER_MAX_WIDTH,IMAGEVIEW_SOFT_LAYER_MAX_HEIGHT);

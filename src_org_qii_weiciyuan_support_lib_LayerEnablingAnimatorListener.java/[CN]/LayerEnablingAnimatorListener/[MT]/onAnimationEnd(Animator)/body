@@ -4,5 +4,4 @@
     mAdapter.onAnimationEnd(animation);
   }
   mTargetView.setLayerType(mLayerType,null);
-  AppLogger.d("View animation is finished, disable hardware accelerated");
 }

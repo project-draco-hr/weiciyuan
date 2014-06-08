@@ -10,7 +10,7 @@ synchronized (backgroundWifiDownloadPicturesWorkLock) {
         }
         if (downloadWorker == null) {
           downloadWorker=newWorker;
-          downloadWorker.executeOnExecutor(MyAsyncTask.DOWNLOAD_THREAD_POOL_EXECUTOR);
+          downloadWorker.executeOnNetwork();
         }
       }
  else {
@@ -19,7 +19,7 @@ synchronized (backgroundWifiDownloadPicturesWorkLock) {
     }
     downloadWorker.addDownloadListener(downloadListener);
     try {
-      return downloadWorker.get(TIME_OUT,TimeUnit.SECONDS);
+      return downloadWorker.get();
     }
  catch (    InterruptedException e) {
       Utility.printStackTrace(e);
@@ -27,10 +27,6 @@ synchronized (backgroundWifiDownloadPicturesWorkLock) {
       return false;
     }
 catch (    ExecutionException e) {
-      Utility.printStackTrace(e);
-      return false;
-    }
-catch (    TimeoutException e) {
       Utility.printStackTrace(e);
       return false;
     }
