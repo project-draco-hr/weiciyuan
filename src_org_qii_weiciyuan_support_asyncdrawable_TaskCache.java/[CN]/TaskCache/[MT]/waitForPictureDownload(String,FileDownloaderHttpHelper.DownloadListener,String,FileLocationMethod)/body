@@ -23,6 +23,7 @@ synchronized (backgroundWifiDownloadPicturesWorkLock) {
     }
  catch (    InterruptedException e) {
       Utility.printStackTrace(e);
+      downloadWorker.cancel(true);
       Thread.currentThread().interrupt();
       return false;
     }

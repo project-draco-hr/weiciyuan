@@ -1,0 +1,9 @@
+{
+  Drawable drawable=view.getImageView().getDrawable();
+  if (drawable instanceof PictureBitmapDrawable) {
+    PictureBitmapDrawable downloadedDrawable=(PictureBitmapDrawable)drawable;
+    IPictureWorker worker=downloadedDrawable.getBitmapDownloaderTask();
+    ((MyAsyncTask)worker).cancel(true);
+  }
+  view.getImageView().setImageDrawable(null);
+}

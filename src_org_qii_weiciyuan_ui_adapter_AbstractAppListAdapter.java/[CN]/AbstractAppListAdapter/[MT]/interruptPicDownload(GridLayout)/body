@@ -1,0 +1,14 @@
+{
+  for (int i=0; i < gridLayout.getChildCount(); i++) {
+    ImageView iv=(ImageView)gridLayout.getChildAt(i);
+    if (iv != null) {
+      Drawable drawable=iv.getDrawable();
+      if (drawable instanceof PictureBitmapDrawable) {
+        PictureBitmapDrawable downloadedDrawable=(PictureBitmapDrawable)drawable;
+        IPictureWorker worker=downloadedDrawable.getBitmapDownloaderTask();
+        ((MyAsyncTask)worker).cancel(true);
+      }
+      iv.setImageDrawable(null);
+    }
+  }
+}
