@@ -10,8 +10,12 @@
     URL url=new URL(urlStr);
     AppLogger.d("download request=" + urlStr);
     Proxy proxy=getProxy();
-    if (proxy != null)     urlConnection=(HttpURLConnection)url.openConnection(proxy);
- else     urlConnection=(HttpURLConnection)url.openConnection();
+    if (proxy != null) {
+      urlConnection=(HttpURLConnection)url.openConnection(proxy);
+    }
+ else {
+      urlConnection=(HttpURLConnection)url.openConnection();
+    }
     urlConnection.setRequestMethod("GET");
     urlConnection.setDoOutput(false);
     urlConnection.setConnectTimeout(DOWNLOAD_CONNECT_TIMEOUT);
@@ -38,8 +42,10 @@
     byte[] buffer=new byte[1444];
     while ((byteread=in.read(buffer)) != -1) {
       if (thread.isInterrupted()) {
-        file.delete();
-        throw new InterruptedIOException();
+        if (((float)bytesum / (float)bytetotal) < 0.8f) {
+          file.delete();
+          throw new InterruptedIOException();
+        }
       }
       bytesum+=byteread;
       out.write(buffer,0,byteread);
@@ -58,7 +64,9 @@
  finally {
     Utility.closeSilently(in);
     Utility.closeSilently(out);
-    if (urlConnection != null)     urlConnection.disconnect();
+    if (urlConnection != null) {
+      urlConnection.disconnect();
+    }
   }
   return false;
 }

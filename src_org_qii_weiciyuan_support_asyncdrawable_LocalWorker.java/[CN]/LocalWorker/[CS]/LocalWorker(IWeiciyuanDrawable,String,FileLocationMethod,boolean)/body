@@ -1,0 +1,11 @@
+{
+  this(view.getImageView(),url,method,false);
+  this.IWeiciyuanDrawable=view;
+  this.pbWeakReference=new WeakReference<ProgressBar>(view.getProgressBar());
+  view.setGifFlag(false);
+  if (view.getProgressBar() != null) {
+    view.getProgressBar().setVisibility(View.INVISIBLE);
+    view.getProgressBar().setProgress(0);
+  }
+  this.isMultiPictures=isMultiPictures;
+}

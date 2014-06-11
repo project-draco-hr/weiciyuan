@@ -28,13 +28,13 @@
     if (!cancelPotentialDownload(urlKey,view.getImageView())) {
       return;
     }
-    final ReadWorker newTask=new ReadWorker(view,urlKey,method,isMultiPictures);
+    final LocalOrNetworkChooseWorker newTask=new LocalOrNetworkChooseWorker(view,urlKey,method,isMultiPictures);
     PictureBitmapDrawable downloadedDrawable=new PictureBitmapDrawable(newTask);
     view.setImageDrawable(downloadedDrawable);
     handler.postDelayed(new Runnable(){
       @Override public void run(){
         if (getBitmapDownloaderTask(view.getImageView()) == newTask) {
-          newTask.executeOnExecutor(MyAsyncTask.THREAD_POOL_EXECUTOR);
+          newTask.executeOnNormal();
         }
         return;
       }

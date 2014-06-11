@@ -1,0 +1,39 @@
+{
+synchronized (TimeLineBitmapDownloader.pauseDownloadWorkLock) {
+    while (TimeLineBitmapDownloader.pauseDownloadWork && !Thread.currentThread().isInterrupted()) {
+      try {
+        TimeLineBitmapDownloader.pauseDownloadWorkLock.wait();
+      }
+ catch (      InterruptedException e) {
+        Thread.currentThread().interrupt();
+      }
+    }
+  }
+  String filePath=FileManager.getFilePathFromUrl(url,method);
+  String actualDownloadUrl=url;
+switch (method) {
+case picture_thumbnail:
+    actualDownloadUrl=url.replace("thumbnail","webp180");
+  break;
+case picture_bmiddle:
+actualDownloadUrl=url.replace("bmiddle","webp720");
+break;
+case picture_large:
+actualDownloadUrl=url.replace("large","woriginal");
+break;
+}
+boolean result=ImageUtility.getBitmapFromNetWork(actualDownloadUrl,filePath,new FileDownloaderHttpHelper.DownloadListener(){
+@Override public void pushProgress(int progress,int max){
+JobCallable.this.progress=progress;
+JobCallable.this.max=max;
+for (FileDownloaderHttpHelper.DownloadListener downloadListener : downloadListenerList) {
+if (downloadListener != null) {
+downloadListener.pushProgress(progress,max);
+}
+}
+}
+}
+);
+TaskCache.removeDownloadTask(url,futureTask);
+return result;
+}

@@ -1,0 +1,4 @@
+IWeiciyuanDrawable view
+String url
+FileLocationMethod method
+boolean isMultiPictures

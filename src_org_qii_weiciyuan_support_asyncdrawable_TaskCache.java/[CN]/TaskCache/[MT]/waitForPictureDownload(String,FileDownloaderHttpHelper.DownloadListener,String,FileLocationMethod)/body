@@ -1,29 +1,23 @@
 {
   while (true) {
-    DownloadWorker downloadWorker=TaskCache.downloadTasks.get(url);
-    boolean localFileExist=new File(savedPath).exists();
-    if (downloadWorker == null) {
-      if (!localFileExist) {
-        DownloadWorker newWorker=new DownloadWorker(url,method);
+    DownloadFutureTask downloadFutureTask=TaskCache.downloadTasks.get(url);
+    if (downloadFutureTask == null) {
+      DownloadFutureTask newDownloadFutureTask=DownloadFutureTask.newInstance(url,method);
 synchronized (backgroundWifiDownloadPicturesWorkLock) {
-          downloadWorker=TaskCache.downloadTasks.putIfAbsent(url,newWorker);
-        }
-        if (downloadWorker == null) {
-          downloadWorker=newWorker;
-          downloadWorker.executeOnNetwork();
-        }
+        downloadFutureTask=TaskCache.downloadTasks.putIfAbsent(url,newDownloadFutureTask);
       }
- else {
-        return true;
+      if (downloadFutureTask == null) {
+        downloadFutureTask=newDownloadFutureTask;
+        DOWNLOAD_THREAD_POOL_EXECUTOR.execute(downloadFutureTask);
       }
     }
-    downloadWorker.addDownloadListener(downloadListener);
+    downloadFutureTask.addDownloadListener(downloadListener);
     try {
-      return downloadWorker.get();
+      return downloadFutureTask.get();
     }
  catch (    InterruptedException e) {
       Utility.printStackTrace(e);
-      downloadWorker.cancel(true);
+      downloadFutureTask.cancel(true);
       Thread.currentThread().interrupt();
       return false;
     }
@@ -32,7 +26,7 @@ catch (    ExecutionException e) {
       return false;
     }
 catch (    CancellationException e) {
-      removeDownloadTask(url,downloadWorker);
+      removeDownloadTask(url,downloadFutureTask);
     }
   }
 }

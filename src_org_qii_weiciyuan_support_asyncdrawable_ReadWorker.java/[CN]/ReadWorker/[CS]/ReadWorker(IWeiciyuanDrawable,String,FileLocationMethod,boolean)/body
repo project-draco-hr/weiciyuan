@@ -1,5 +1,5 @@
 {
-  this(view.getImageView(),url,method);
+  this(view.getImageView(),url,method,false);
   this.IWeiciyuanDrawable=view;
   this.pbWeakReference=new WeakReference<ProgressBar>(view.getProgressBar());
   view.setGifFlag(false);

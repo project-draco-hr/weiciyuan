@@ -1,5 +1,0 @@
-{
-  super.onCancelled(bitmap);
-  this.failedResult=FailedResult.taskCanceled;
-  displayBitmap(bitmap);
-}

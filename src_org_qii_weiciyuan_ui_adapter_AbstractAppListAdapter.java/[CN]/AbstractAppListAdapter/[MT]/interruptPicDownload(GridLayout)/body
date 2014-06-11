@@ -6,9 +6,11 @@
       if (drawable instanceof PictureBitmapDrawable) {
         PictureBitmapDrawable downloadedDrawable=(PictureBitmapDrawable)drawable;
         IPictureWorker worker=downloadedDrawable.getBitmapDownloaderTask();
-        ((MyAsyncTask)worker).cancel(true);
+        if (worker != null) {
+          ((MyAsyncTask)worker).cancel(true);
+        }
+        iv.setImageDrawable(null);
       }
-      iv.setImageDrawable(null);
     }
   }
 }

@@ -9,7 +9,9 @@ synchronized (TimeLineBitmapDownloader.pauseDownloadWorkLock) {
       }
     }
   }
-  if (isCancelled())   return false;
+  if (isCancelled()) {
+    return false;
+  }
   String filePath=FileManager.getFilePathFromUrl(url,method);
   String actualDownloadUrl=url;
 switch (method) {
@@ -25,10 +27,13 @@ break;
 }
 boolean result=ImageUtility.getBitmapFromNetWork(actualDownloadUrl,filePath,new FileDownloaderHttpHelper.DownloadListener(){
 @Override public void pushProgress(int progress,int max){
-publishProgress(progress,max);
+for (FileDownloaderHttpHelper.DownloadListener downloadListener : downloadListenerList) {
+if (downloadListener != null) {
+downloadListener.pushProgress(progress,max);
+}
+}
 }
 }
 );
-TaskCache.removeDownloadTask(url,DownloadWorker.this);
 return result;
 }

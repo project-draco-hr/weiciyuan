@@ -10,8 +10,12 @@
     AppLogger.d("get request" + url);
     Proxy proxy=getProxy();
     HttpURLConnection urlConnection;
-    if (proxy != null)     urlConnection=(HttpURLConnection)url.openConnection(proxy);
- else     urlConnection=(HttpURLConnection)url.openConnection();
+    if (proxy != null) {
+      urlConnection=(HttpURLConnection)url.openConnection(proxy);
+    }
+ else {
+      urlConnection=(HttpURLConnection)url.openConnection();
+    }
     urlConnection.setRequestMethod("GET");
     urlConnection.setDoOutput(false);
     urlConnection.setConnectTimeout(CONNECT_TIMEOUT);

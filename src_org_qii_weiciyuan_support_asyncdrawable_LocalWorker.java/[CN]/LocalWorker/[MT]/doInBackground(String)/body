@@ -1,0 +1,39 @@
+{
+  String path=FileManager.getFilePathFromUrl(data,method);
+  int height=0;
+  int width=0;
+switch (method) {
+case avatar_small:
+case avatar_large:
+    width=GlobalContext.getInstance().getResources().getDimensionPixelSize(R.dimen.timeline_avatar_width) - Utility.dip2px(5) * 2;
+  height=GlobalContext.getInstance().getResources().getDimensionPixelSize(R.dimen.timeline_avatar_height) - Utility.dip2px(5) * 2;
+break;
+case picture_thumbnail:
+width=GlobalContext.getInstance().getResources().getDimensionPixelSize(R.dimen.timeline_pic_thumbnail_width);
+height=GlobalContext.getInstance().getResources().getDimensionPixelSize(R.dimen.timeline_pic_thumbnail_height);
+break;
+case picture_large:
+case picture_bmiddle:
+if (!isMultiPictures) {
+DisplayMetrics metrics=GlobalContext.getInstance().getDisplayMetrics();
+float reSize=GlobalContext.getInstance().getResources().getDisplayMetrics().density;
+height=GlobalContext.getInstance().getResources().getDimensionPixelSize(R.dimen.timeline_pic_high_thumbnail_height);
+width=(int)(metrics.widthPixels - (8 + 8) * reSize);
+}
+ else {
+height=width=Utility.dip2px(120);
+}
+break;
+}
+Bitmap bitmap;
+switch (method) {
+case avatar_small:
+case avatar_large:
+bitmap=ImageUtility.getRoundedCornerPic(path,width,height,Utility.dip2px(2));
+break;
+default :
+bitmap=ImageUtility.getRoundedCornerPic(path,width,height,0);
+break;
+}
+return bitmap;
+}

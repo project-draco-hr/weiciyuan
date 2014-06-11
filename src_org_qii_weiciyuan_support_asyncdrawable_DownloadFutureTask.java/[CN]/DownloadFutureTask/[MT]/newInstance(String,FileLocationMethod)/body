@@ -1,0 +1,6 @@
+{
+  JobCallable jobCallable=new JobCallable(url,method);
+  DownloadFutureTask downloadFutureTask=new DownloadFutureTask(jobCallable);
+  jobCallable.futureTask=downloadFutureTask;
+  return downloadFutureTask;
+}

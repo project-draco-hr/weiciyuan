@@ -23,8 +23,12 @@
     URL url=null;
     url=new URL(urlStr);
     Proxy proxy=getProxy();
-    if (proxy != null)     urlConnection=(HttpURLConnection)url.openConnection(proxy);
- else     urlConnection=(HttpURLConnection)url.openConnection();
+    if (proxy != null) {
+      urlConnection=(HttpURLConnection)url.openConnection(proxy);
+    }
+ else {
+      urlConnection=(HttpURLConnection)url.openConnection();
+    }
     urlConnection.setConnectTimeout(UPLOAD_CONNECT_TIMEOUT);
     urlConnection.setReadTimeout(UPLOAD_READ_TIMEOUT);
     urlConnection.setDoInput(true);
@@ -62,8 +66,12 @@
       bufferSize=Math.min(bytesAvailable,maxBufferSize);
       bytesRead=fis.read(buffer,0,bufferSize);
       transferred+=bytesRead;
-      if (transferred % 50 == 0)       out.flush();
-      if (listener != null)       listener.transferred(transferred);
+      if (transferred % 50 == 0) {
+        out.flush();
+      }
+      if (listener != null) {
+        listener.transferred(transferred);
+      }
     }
     out.write(barry);
     totalSent+=barry.length;
@@ -88,7 +96,9 @@
  finally {
     Utility.closeSilently(fis);
     Utility.closeSilently(out);
-    if (urlConnection != null)     urlConnection.disconnect();
+    if (urlConnection != null) {
+      urlConnection.disconnect();
+    }
   }
   return true;
 }

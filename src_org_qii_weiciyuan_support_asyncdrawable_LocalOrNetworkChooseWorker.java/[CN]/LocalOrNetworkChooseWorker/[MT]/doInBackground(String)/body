@@ -1,0 +1,4 @@
+{
+  String path=FileManager.getFilePathFromUrl(data,method);
+  return ImageUtility.isThisBitmapCanRead(path) && TaskCache.isThisUrlTaskFinished(data);
+}

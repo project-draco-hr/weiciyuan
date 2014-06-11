@@ -1,0 +1,9 @@
+{
+  if (listener == null) {
+    return;
+  }
+  downloadListenerList.addIfAbsent(listener);
+  if (progress > 0 && max > 0) {
+    listener.pushProgress(progress,max);
+  }
+}

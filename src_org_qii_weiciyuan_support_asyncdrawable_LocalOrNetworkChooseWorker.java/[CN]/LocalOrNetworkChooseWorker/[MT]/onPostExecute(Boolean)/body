@@ -1,0 +1,35 @@
+{
+  super.onPostExecute(result);
+  ImageView imageView=viewWeakReference.get();
+  if (!isMySelf(imageView)) {
+    return;
+  }
+  if (result) {
+    LocalWorker newTask=null;
+    if (IWeiciyuanDrawable != null) {
+      newTask=new LocalWorker(IWeiciyuanDrawable,getUrl(),method,isMultiPictures);
+      PictureBitmapDrawable downloadedDrawable=new PictureBitmapDrawable(newTask);
+      IWeiciyuanDrawable.setImageDrawable(downloadedDrawable);
+    }
+ else {
+      newTask=new LocalWorker(imageView,getUrl(),method,isMultiPictures);
+      PictureBitmapDrawable downloadedDrawable=new PictureBitmapDrawable(newTask);
+      imageView.setImageDrawable(downloadedDrawable);
+    }
+    newTask.executeOnIO();
+  }
+ else {
+    ReadWorker newTask=null;
+    if (IWeiciyuanDrawable != null) {
+      newTask=new ReadWorker(IWeiciyuanDrawable,getUrl(),method,isMultiPictures);
+      PictureBitmapDrawable downloadedDrawable=new PictureBitmapDrawable(newTask);
+      IWeiciyuanDrawable.setImageDrawable(downloadedDrawable);
+    }
+ else {
+      newTask=new ReadWorker(imageView,getUrl(),method,isMultiPictures);
+      PictureBitmapDrawable downloadedDrawable=new PictureBitmapDrawable(newTask);
+      imageView.setImageDrawable(downloadedDrawable);
+    }
+    newTask.executeOnWaitNetwork();
+  }
+}

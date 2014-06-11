@@ -1,0 +1,5 @@
+{
+  this(view.getImageView(),url,method,false);
+  this.IWeiciyuanDrawable=view;
+  this.isMultiPictures=isMultiPictures;
+}

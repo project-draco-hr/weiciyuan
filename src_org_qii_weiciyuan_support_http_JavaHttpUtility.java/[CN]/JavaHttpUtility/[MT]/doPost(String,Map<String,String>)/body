@@ -6,8 +6,12 @@
     URL url=new URL(urlAddress);
     Proxy proxy=getProxy();
     HttpsURLConnection uRLConnection;
-    if (proxy != null)     uRLConnection=(HttpsURLConnection)url.openConnection(proxy);
- else     uRLConnection=(HttpsURLConnection)url.openConnection();
+    if (proxy != null) {
+      uRLConnection=(HttpsURLConnection)url.openConnection(proxy);
+    }
+ else {
+      uRLConnection=(HttpsURLConnection)url.openConnection();
+    }
     uRLConnection.setDoInput(true);
     uRLConnection.setDoOutput(true);
     uRLConnection.setRequestMethod("POST");

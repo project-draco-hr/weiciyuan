@@ -1,3 +1,0 @@
-{
-  executeOnExecutor(DOWNLOAD_THREAD_POOL_EXECUTOR,params);
-}

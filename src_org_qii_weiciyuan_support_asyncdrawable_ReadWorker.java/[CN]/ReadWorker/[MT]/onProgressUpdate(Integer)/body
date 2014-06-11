@@ -4,19 +4,16 @@
     return;
   }
   ImageView imageView=viewWeakReference.get();
-  if (imageView != null) {
-    if (canDisplay(imageView) && pbWeakReference != null) {
-      ProgressBar pb=pbWeakReference.get();
-      if (pb != null) {
-        Integer progress=values[0];
-        Integer max=values[1];
-        pb.setMax(max);
-        pb.setProgress(progress);
-      }
-    }
- else     if (isImageViewDrawableBitmap(imageView)) {
-      resetProgressBarStatues();
-      pbWeakReference=null;
+  if (!isMySelf(imageView)) {
+    return;
+  }
+  if (pbWeakReference != null) {
+    ProgressBar pb=pbWeakReference.get();
+    if (pb != null) {
+      Integer progress=values[0];
+      Integer max=values[1];
+      pb.setMax(max);
+      pb.setProgress(progress);
     }
   }
 }

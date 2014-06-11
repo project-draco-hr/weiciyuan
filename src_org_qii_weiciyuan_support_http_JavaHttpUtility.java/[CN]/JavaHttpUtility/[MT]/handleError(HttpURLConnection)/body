@@ -6,7 +6,9 @@
     AppLogger.e("error=" + result);
     JSONObject json=new JSONObject(result);
     err=json.optString("error_description","");
-    if (TextUtils.isEmpty(err))     err=json.getString("error");
+    if (TextUtils.isEmpty(err)) {
+      err=json.getString("error");
+    }
     errCode=json.getInt("error_code");
     WeiboException exception=new WeiboException();
     exception.setError_code(errCode);

@@ -17,8 +17,13 @@
     }
     @Override protected String doInBackground(    Void... params){
       boolean downloaded=TaskCache.waitForPictureDownload(url,new FileDownloaderHttpHelper.DownloadListener(){
-        @Override public void pushProgress(        int progress,        int max){
-          onProgressUpdate(progress,max);
+        @Override public void pushProgress(        final int progress,        final int max){
+          handler.post(new Runnable(){
+            @Override public void run(){
+              onProgressUpdate(progress,max);
+            }
+          }
+);
         }
         @Override public void completed(){
         }

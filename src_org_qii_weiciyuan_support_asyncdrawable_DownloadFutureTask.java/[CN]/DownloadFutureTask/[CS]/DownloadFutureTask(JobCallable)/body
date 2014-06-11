@@ -1,0 +1,4 @@
+{
+  super(callable);
+  this.callable=callable;
+}
