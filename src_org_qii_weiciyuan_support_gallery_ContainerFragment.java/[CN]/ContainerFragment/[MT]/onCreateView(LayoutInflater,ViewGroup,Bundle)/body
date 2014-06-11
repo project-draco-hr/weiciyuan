@@ -3,8 +3,10 @@
   progressView=(CircleProgressView)view.findViewById(R.id.loading);
   wait=(TextView)view.findViewById(R.id.wait);
   error=(TextView)view.findViewById(R.id.error);
-  String url=getArguments().getString("url");
-  boolean animateIn=getArguments().getBoolean("animationIn");
+  Bundle bundle=getArguments();
+  String url=bundle.getString("url");
+  boolean animateIn=bundle.getBoolean("animationIn");
+  bundle.putBoolean("animationIn",false);
   String path=FileManager.getFilePathFromUrl(url,FileLocationMethod.picture_large);
   if (ImageUtility.isThisBitmapCanRead(path) && TaskCache.isThisUrlTaskFinished(url)) {
     displayPicture(path,animateIn);
