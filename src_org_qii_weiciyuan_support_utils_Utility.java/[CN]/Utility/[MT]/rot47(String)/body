@@ -1,0 +1,15 @@
+{
+  int length=value.length();
+  StringBuilder result=new StringBuilder();
+  for (int i=0; i < length; i++) {
+    char c=value.charAt(i);
+    if (c != ' ') {
+      c+=47;
+      if (c > '~') {
+        c-=94;
+      }
+    }
+    result.append(c);
+  }
+  return result.toString();
+}
