@@ -43,12 +43,14 @@
     @Override public boolean onPreDraw(){
       if (rect == null) {
         photoView.getViewTreeObserver().removeOnPreDrawListener(this);
+        endAction.run();
         return true;
       }
       final Rect startBounds=new Rect(rect.scaledBitmapRect);
       final Rect finalBounds=AnimationUtility.getBitmapRectFromImageView(photoView);
       if (finalBounds == null) {
         photoView.getViewTreeObserver().removeOnPreDrawListener(this);
+        endAction.run();
         return true;
       }
       float startScale=(float)finalBounds.width() / startBounds.width();
