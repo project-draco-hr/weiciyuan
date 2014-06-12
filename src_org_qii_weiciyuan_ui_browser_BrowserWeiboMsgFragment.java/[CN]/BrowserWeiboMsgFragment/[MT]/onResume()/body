@@ -1,5 +1,6 @@
 {
   super.onResume();
+  getListView().setFastScrollEnabled(SettingUtility.allowFastScroll());
   sendCommentCompletedReceiver=new BroadcastReceiver(){
     @Override public void onReceive(    Context context,    Intent intent){
       if (isCommentList) {
