@@ -1,0 +1,14 @@
+{
+  if (valueAnimator != null && valueAnimator.isRunning()) {
+    valueAnimator.addListener(new AnimatorListenerAdapter(){
+      @Override public void onAnimationEnd(      Animator animation){
+        super.onAnimationEnd(animation);
+        runnable.run();
+      }
+    }
+);
+  }
+ else {
+    runnable.run();
+  }
+}

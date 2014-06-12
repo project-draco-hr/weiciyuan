@@ -1,4 +1,32 @@
 {
-  this.progress=progress;
-  invalidate();
+  if (progress == 0) {
+    invalidate();
+    return;
+  }
+  if (progress <= this.progress) {
+    this.progress=progress;
+    invalidate();
+    return;
+  }
+  if (isInitValue) {
+    isInitValue=false;
+    this.progress=progress;
+    invalidate();
+    return;
+  }
+  int start=this.progress;
+  if (valueAnimator != null && valueAnimator.isRunning()) {
+    start=(Integer)valueAnimator.getAnimatedValue();
+    valueAnimator.cancel();
+  }
+  valueAnimator=ValueAnimator.ofInt(start,progress);
+  valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
+    @Override public void onAnimationUpdate(    ValueAnimator animation){
+      int value=(Integer)animation.getAnimatedValue();
+      CircleProgressView.this.progress=value;
+      postInvalidateOnAnimation();
+    }
+  }
+);
+  valueAnimator.start();
 }
