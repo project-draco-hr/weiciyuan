@@ -2,6 +2,7 @@
   LargePictureFragment fragment=new LargePictureFragment();
   Bundle bundle=new Bundle();
   bundle.putString("path",path);
+  bundle.putBoolean("animationIn",animationIn);
   fragment.setArguments(bundle);
   return fragment;
 }
