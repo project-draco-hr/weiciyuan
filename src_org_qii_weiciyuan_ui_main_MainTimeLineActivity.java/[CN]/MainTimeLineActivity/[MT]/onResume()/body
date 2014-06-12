@@ -7,5 +7,5 @@
   musicReceiver=new MusicReceiver();
   Utility.registerReceiverIgnoredReceiverHasRegisteredHereException(this,musicReceiver,AppEventAction.getSystemMusicBroadcastFilterAction());
   readClipboard();
-  ConnectionChangeReceiver.judgeNetworkStatus(this);
+  ConnectionChangeReceiver.judgeNetworkStatus(this,false);
 }

@@ -1,0 +1,17 @@
+{
+  if (Utility.isConnected(context)) {
+    if (forceStartFetchNewUnreadBackgroundService) {
+      if (SettingUtility.getEnableFetchMSG()) {
+        AppNewMsgAlarm.startAlarm(context,true);
+      }
+ else {
+        AppNewMsgAlarm.stopAlarm(context,false);
+      }
+    }
+    decideTimeLineBigPic(context);
+    decideCommentRepostAvatar(context);
+  }
+ else {
+    AppNewMsgAlarm.stopAlarm(context,false);
+  }
+}
