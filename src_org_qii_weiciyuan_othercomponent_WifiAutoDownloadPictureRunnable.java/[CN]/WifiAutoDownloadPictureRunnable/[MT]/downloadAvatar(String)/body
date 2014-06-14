@@ -3,5 +3,8 @@
     return;
   }
   String path=FileManager.getFilePathFromUrl(url,FileLocationMethod.avatar_large);
+  if (ImageUtility.isThisBitmapCanRead(path) && TaskCache.isThisUrlTaskFinished(url)) {
+    return;
+  }
   TaskCache.waitForPictureDownload(url,null,path,FileLocationMethod.avatar_large);
 }
