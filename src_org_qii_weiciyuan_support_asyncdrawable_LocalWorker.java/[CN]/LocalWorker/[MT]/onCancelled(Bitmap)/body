@@ -1,0 +1,8 @@
+{
+  super.onCancelled(bitmap);
+  ImageView imageView=viewWeakReference.get();
+  if (!isMySelf(imageView)) {
+    return;
+  }
+  imageView.setImageDrawable(new ColorDrawable(DebugColor.READ_CANCEL));
+}

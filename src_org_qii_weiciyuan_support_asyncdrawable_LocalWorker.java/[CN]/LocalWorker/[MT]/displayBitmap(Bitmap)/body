@@ -17,6 +17,6 @@
     GlobalContext.getInstance().getBitmapCache().put(data,bitmap);
   }
  else {
-    imageView.setImageDrawable(new ColorDrawable(DebugColor.PICTURE_ERROR));
+    imageView.setImageDrawable(new ColorDrawable(DebugColor.READ_FAILED));
   }
 }
