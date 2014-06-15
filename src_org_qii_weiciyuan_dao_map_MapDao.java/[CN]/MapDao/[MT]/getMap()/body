@@ -16,10 +16,14 @@
   }
  catch (  JSONException e) {
   }
-  if (TextUtils.isEmpty(mapUrl))   return null;
+  if (TextUtils.isEmpty(mapUrl)) {
+    return null;
+  }
   String filePath=FileManager.getFilePathFromUrl(mapUrl,FileLocationMethod.map);
   boolean downloaded=TaskCache.waitForPictureDownload(mapUrl,null,filePath,FileLocationMethod.map);
-  if (!downloaded)   return null;
-  Bitmap bitmap=ImageUtility.readNormalPic(filePath,-1,-1);
+  if (!downloaded) {
+    return null;
+  }
+  Bitmap bitmap=ImageUtility.readNormalPic(FileManager.getFilePathFromUrl(mapUrl,FileLocationMethod.map),-1,-1);
   return bitmap;
 }

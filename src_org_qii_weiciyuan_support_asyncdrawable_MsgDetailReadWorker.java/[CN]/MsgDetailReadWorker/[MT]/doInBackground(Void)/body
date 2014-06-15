@@ -2,7 +2,7 @@
   if (isCancelled()) {
     return null;
   }
-  if (Utility.isWifi(GlobalContext.getInstance())) {
+  if (SettingUtility.getEnableBigPic()) {
     boolean result=TaskCache.waitForPictureDownload(msg.getOriginal_pic(),downloadListener,FileManager.generateDownloadFileName(msg.getOriginal_pic()),FileLocationMethod.picture_large);
     return result ? FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large) : null;
   }
