@@ -9,7 +9,7 @@ synchronized (TimeLineBitmapDownloader.pauseDownloadWorkLock) {
       }
     }
   }
-  String filePath=FileManager.getFilePathFromUrl(url,method);
+  String filePath=FileManager.generateDownloadFileName(url);
   String actualDownloadUrl=url;
 switch (method) {
 case picture_thumbnail:
@@ -34,6 +34,9 @@ downloadListener.pushProgress(progress,max);
 }
 }
 );
+if (result) {
+DownloadPicturesDBTask.add(this.url,FileManager.generateDownloadFileName(this.url),this.method);
+}
 TaskCache.removeDownloadTask(url,futureTask);
 return result;
 }

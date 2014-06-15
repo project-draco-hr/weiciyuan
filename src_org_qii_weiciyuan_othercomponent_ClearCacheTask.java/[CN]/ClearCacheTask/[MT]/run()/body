@@ -4,7 +4,9 @@
   if (Utility.isWifi(GlobalContext.getInstance())) {
     List<String> pathList=FileManager.getCachePath();
     for (    String path : pathList) {
-      if (!TextUtils.isEmpty(path))       handleDir(new File(path));
+      if (!TextUtils.isEmpty(path)) {
+        handleDir(new File(path));
+      }
     }
     AppLogger.d("clear cache task stop");
   }

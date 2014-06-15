@@ -16,22 +16,28 @@
       callback.onBegin();
     }
     @Override protected String doInBackground(    Void... params){
-      boolean downloaded=TaskCache.waitForPictureDownload(url,new FileDownloaderHttpHelper.DownloadListener(){
-        @Override public void pushProgress(        final int progress,        final int max){
-          handler.post(new Runnable(){
-            @Override public void run(){
-              onProgressUpdate(progress,max);
+      String path=FileManager.getFilePathFromUrl(url,method);
+      if (!(ImageUtility.isThisBitmapCanRead(path) && TaskCache.isThisUrlTaskFinished(url))) {
+        boolean downloaded=TaskCache.waitForPictureDownload(url,new FileDownloaderHttpHelper.DownloadListener(){
+          @Override public void pushProgress(          final int progress,          final int max){
+            handler.post(new Runnable(){
+              @Override public void run(){
+                onProgressUpdate(progress,max);
+              }
             }
-          }
 );
+          }
+          @Override public void completed(){
+          }
+          @Override public void cancel(){
+          }
         }
-        @Override public void completed(){
-        }
-        @Override public void cancel(){
+,FileManager.getFilePathFromUrl(url,method),method);
+        if (downloaded) {
+          path=FileManager.getFilePathFromUrl(url,method);
         }
       }
-,FileManager.getFilePathFromUrl(url,method),method);
-      return downloaded ? FileManager.getFilePathFromUrl(url,method) : null;
+      return path;
     }
     @Override protected void onProgressUpdate(    Integer... values){
       super.onProgressUpdate(values);

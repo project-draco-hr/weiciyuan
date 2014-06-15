@@ -23,4 +23,5 @@
   db.execSQL("DROP TABLE IF EXISTS " + AtUsersTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + TopicTable.TABLE_NAME);
   db.execSQL("DROP TABLE IF EXISTS " + NotificationTable.TABLE_NAME);
+  db.execSQL("DROP TABLE IF EXISTS " + DownloadPicturesTable.TABLE_NAME);
 }

@@ -1,0 +1,15 @@
+{
+  db.execSQL(DatabaseHelper.CREATE_DOWNLOAD_PICTURES_TABLE_SQL);
+  String thumbnailPath=FileManager.getSdCardPath() + File.separator + PICTURE_THUMBNAIL;
+  String middlePath=FileManager.getSdCardPath() + File.separator + PICTURE_BMIDDLE;
+  String oriPath=FileManager.getSdCardPath() + File.separator + PICTURE_LARGE;
+  String largeAvatarPath=FileManager.getSdCardPath() + File.separator + AVATAR_LARGE;
+  String smallAvatarPath=FileManager.getSdCardPath() + File.separator + AVATAR_SMAll;
+  String coverPath=FileManager.getSdCardPath() + File.separator + COVER;
+  FileManager.deleteDirectory(new File(thumbnailPath));
+  FileManager.deleteDirectory(new File(middlePath));
+  FileManager.deleteDirectory(new File(oriPath));
+  FileManager.deleteDirectory(new File(largeAvatarPath));
+  FileManager.deleteDirectory(new File(smallAvatarPath));
+  FileManager.deleteDirectory(new File(coverPath));
+}

@@ -1,0 +1,4 @@
+{
+  String sql="delete from " + DownloadPicturesTable.TABLE_NAME + " where "+ DownloadPicturesTable.URL+ " = "+ url;
+  getWsd().execSQL(sql);
+}

@@ -5,40 +5,5 @@
   if (TextUtils.isEmpty(url)) {
     return "";
   }
-  int index=url.indexOf("//");
-  String s=url.substring(index + 2);
-  String oldRelativePath=s.substring(s.indexOf("/"));
-  String newRelativePath="";
-switch (method) {
-case avatar_small:
-    newRelativePath=AVATAR_SMAll + oldRelativePath;
-  break;
-case avatar_large:
-newRelativePath=AVATAR_LARGE + oldRelativePath;
-break;
-case picture_thumbnail:
-newRelativePath=PICTURE_THUMBNAIL + oldRelativePath;
-break;
-case picture_bmiddle:
-newRelativePath=PICTURE_BMIDDLE + oldRelativePath;
-break;
-case picture_large:
-newRelativePath=PICTURE_LARGE + oldRelativePath;
-break;
-case emotion:
-String name=new File(oldRelativePath).getName();
-newRelativePath=EMOTION + File.separator + name;
-break;
-case cover:
-newRelativePath=COVER + oldRelativePath;
-break;
-case map:
-newRelativePath=MAP + oldRelativePath;
-break;
-}
-String result=getSdCardPath() + File.separator + newRelativePath;
-if (!result.endsWith(".jpg") && !result.endsWith(".gif") && !result.endsWith(".png")) {
-result=result + ".jpg";
-}
-return result;
+  return DownloadPicturesDBTask.get(url);
 }

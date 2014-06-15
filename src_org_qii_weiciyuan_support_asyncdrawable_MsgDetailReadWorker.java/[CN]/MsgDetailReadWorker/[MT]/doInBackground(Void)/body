@@ -3,11 +3,11 @@
     return null;
   }
   if (Utility.isWifi(GlobalContext.getInstance())) {
-    boolean result=TaskCache.waitForPictureDownload(msg.getOriginal_pic(),downloadListener,oriPath,FileLocationMethod.picture_large);
-    return result ? oriPath : null;
+    boolean result=TaskCache.waitForPictureDownload(msg.getOriginal_pic(),downloadListener,FileManager.generateDownloadFileName(msg.getOriginal_pic()),FileLocationMethod.picture_large);
+    return result ? FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large) : null;
   }
  else {
-    boolean result=TaskCache.waitForPictureDownload(msg.getBmiddle_pic(),downloadListener,middlePath,FileLocationMethod.picture_bmiddle);
-    return result ? middlePath : null;
+    boolean result=TaskCache.waitForPictureDownload(msg.getBmiddle_pic(),downloadListener,FileManager.generateDownloadFileName(msg.getBmiddle_pic()),FileLocationMethod.picture_bmiddle);
+    return result ? FileManager.getFilePathFromUrl(msg.getBmiddle_pic(),FileLocationMethod.picture_bmiddle) : null;
   }
 }

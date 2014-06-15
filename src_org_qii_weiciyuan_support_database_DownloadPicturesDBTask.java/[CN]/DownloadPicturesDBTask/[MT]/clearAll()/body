@@ -1,0 +1,3 @@
+{
+  getWsd().delete(DownloadPicturesTable.TABLE_NAME,null,null);
+}

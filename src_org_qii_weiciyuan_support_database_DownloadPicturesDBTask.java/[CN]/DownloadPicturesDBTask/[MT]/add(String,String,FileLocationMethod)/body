@@ -1,0 +1,20 @@
+{
+  ContentValues cv=new ContentValues();
+  cv.put(DownloadPicturesTable.URL,url);
+  cv.put(DownloadPicturesTable.PATH,path);
+  cv.put(DownloadPicturesTable.TIME,System.currentTimeMillis());
+  int type=DownloadPicturesTable.TYPE_OTHER;
+switch (method) {
+case avatar_small:
+case avatar_large:
+    type=DownloadPicturesTable.TYPE_AVATAR;
+  break;
+}
+cv.put(DownloadPicturesTable.TYPE,type);
+long size=new File(path).length();
+cv.put(DownloadPicturesTable.SIZE,size);
+getWsd().replace(DownloadPicturesTable.TABLE_NAME,DownloadPicturesTable.URL,cv);
+synchronized (DownloadPicturesDBTask.class) {
+trimToSize();
+}
+}

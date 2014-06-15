@@ -12,6 +12,7 @@ synchronized (TimeLineBitmapDownloader.pauseReadWorkLock) {
   if (isCancelled()) {
     return null;
   }
-  String path=FileManager.getFilePathFromUrl(data,method);
-  return TaskCache.waitForPictureDownload(data,(SettingUtility.getEnableBigPic() ? downloadListener : null),path,method);
+  String path=FileManager.generateDownloadFileName(data);
+  boolean result=TaskCache.waitForPictureDownload(data,(SettingUtility.getEnableBigPic() ? downloadListener : null),path,method);
+  return result;
 }

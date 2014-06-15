@@ -1,16 +1,15 @@
 {
-  if (oldVersion == 35) {
+  if (oldVersion <= 36) {
+    Upgrade36to37.upgrade(db);
+  }
+  if (oldVersion <= 35) {
     Upgrade35to36.upgrade(db);
   }
- else   if (oldVersion < 34) {
-    deleteAllTable(db);
-    onCreate(db);
-  }
- else   if (oldVersion == 34) {
+  if (oldVersion <= 34) {
     upgrade34To35(db);
   }
- else {
-    deleteAllTableExceptAccount(db);
-    createOtherTable(db);
+  if (oldVersion <= 33) {
+    deleteAllTable(db);
+    onCreate(db);
   }
 }

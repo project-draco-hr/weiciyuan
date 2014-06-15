@@ -1,0 +1,15 @@
+{
+  Cursor c=getRsd().query(DownloadPicturesTable.TABLE_NAME,null,DownloadPicturesTable.URL + "=?",new String[]{url},null,null,null);
+  String path=null;
+  while (c.moveToNext()) {
+    path=c.getString(c.getColumnIndex(DownloadPicturesTable.PATH));
+    break;
+  }
+  c.close();
+  if (!TextUtils.isEmpty(path)) {
+    ContentValues cv=new ContentValues();
+    cv.put(DownloadPicturesTable.TIME,System.currentTimeMillis());
+    getWsd().update(DownloadPicturesTable.TABLE_NAME,cv,DownloadPicturesTable.PATH + "=?",new String[]{path});
+  }
+  return path;
+}
