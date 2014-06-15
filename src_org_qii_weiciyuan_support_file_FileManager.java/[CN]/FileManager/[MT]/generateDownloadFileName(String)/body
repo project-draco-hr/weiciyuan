@@ -1,4 +1,10 @@
 {
+  if (!isExternalStorageMounted()) {
+    return "";
+  }
+  if (TextUtils.isEmpty(url)) {
+    return "";
+  }
   String path=String.valueOf(url.hashCode());
   String result=getSdCardPath() + File.separator + PICTURE_CACHE+ File.separator+ path;
   if (url.endsWith(".jpg")) {

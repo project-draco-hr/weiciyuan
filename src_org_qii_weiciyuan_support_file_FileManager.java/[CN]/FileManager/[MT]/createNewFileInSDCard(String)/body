@@ -3,6 +3,9 @@
     AppLogger.e("sdcard unavailiable");
     return null;
   }
+  if (TextUtils.isEmpty(absolutePath)) {
+    return null;
+  }
   File file=new File(absolutePath);
   if (file.exists()) {
     return file;
