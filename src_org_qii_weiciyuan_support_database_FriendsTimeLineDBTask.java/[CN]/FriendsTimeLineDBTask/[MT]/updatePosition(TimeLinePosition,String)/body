@@ -2,7 +2,7 @@
   String sql="select * from " + HomeTable.TABLE_NAME + " where "+ HomeTable.ACCOUNTID+ "  = "+ accountId;
   Cursor c=getRsd().rawQuery(sql,null);
   Gson gson=new Gson();
-  if (c.moveToNext()) {
+  if (c.getCount() > 0) {
     try {
       String[] args={accountId};
       ContentValues cv=new ContentValues();
@@ -10,6 +10,7 @@
       getWsd().update(HomeTable.TABLE_NAME,cv,HomeTable.ACCOUNTID + "=?",args);
     }
  catch (    JsonSyntaxException e) {
+      e.printStackTrace();
     }
   }
  else {

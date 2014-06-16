@@ -1,9 +1,11 @@
 {
   List<MessageTimeLineData> data=new ArrayList<MessageTimeLineData>();
-  TimeLinePosition position=getPosition(accountId);
-  MessageListBean msgList=getHomeLineMsgList(accountId,position.position + AppConfig.DB_CACHE_COUNT_OFFSET);
-  MessageTimeLineData home=new MessageTimeLineData("0",msgList,position);
-  data.add(home);
+  if (!"0".equals(exceptGroupId)) {
+    TimeLinePosition position=getPosition(accountId);
+    MessageListBean msgList=getHomeLineMsgList(accountId,position.position + AppConfig.DB_CACHE_COUNT_OFFSET);
+    MessageTimeLineData home=new MessageTimeLineData("0",msgList,position);
+    data.add(home);
+  }
   MessageTimeLineData biGroup=HomeOtherGroupTimeLineDBTask.getTimeLineData(accountId,"1");
   data.add(biGroup);
   GroupListBean groupListBean=GroupDBTask.get(accountId);
