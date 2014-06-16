@@ -1,13 +1,17 @@
 {
-  if (middleUrls.size() > 0)   return middleUrls;
-  for (  PicUrls url : pic_urls) {
-    middleUrls.add(url.thumbnail_pic.replace("thumbnail","bmiddle"));
+  if (middleUrls.size() > 0) {
+    return middleUrls;
   }
-  if (middleUrls.size() == 0) {
+  ArrayList<String> value=new ArrayList<String>();
+  for (  PicUrls url : pic_urls) {
+    value.add(url.thumbnail_pic.replace("thumbnail","bmiddle"));
+  }
+  if (value.size() == 0) {
     String prefStr="http://ww4.sinaimg.cn/bmiddle/";
     for (    String url : pic_ids) {
-      middleUrls.add(prefStr + url + ".jpg");
+      value.add(prefStr + url + ".jpg");
     }
   }
-  return middleUrls;
+  this.middleUrls=value;
+  return value;
 }

@@ -1,13 +1,17 @@
 {
-  if (thumbnaiUrls.size() > 0)   return thumbnaiUrls;
-  for (  PicUrls url : pic_urls) {
-    thumbnaiUrls.add(url.thumbnail_pic);
+  if (thumbnaiUrls.size() > 0) {
+    return thumbnaiUrls;
   }
-  if (thumbnaiUrls.size() == 0) {
+  ArrayList<String> value=new ArrayList<String>();
+  for (  PicUrls url : pic_urls) {
+    value.add(url.thumbnail_pic);
+  }
+  if (value.size() == 0) {
     String prefStr="http://ww4.sinaimg.cn/thumbnail/";
     for (    String url : pic_ids) {
-      thumbnaiUrls.add(prefStr + url + ".jpg");
+      value.add(prefStr + url + ".jpg");
     }
   }
-  return thumbnaiUrls;
+  this.thumbnaiUrls=value;
+  return value;
 }

@@ -8,7 +8,9 @@
     String json=c.getString(c.getColumnIndex(FavouriteTable.FavouriteDataTable.JSONDATA));
     try {
       FavBean value=gson.fromJson(json,FavBean.class);
-      if (value != null)       value.getStatus().getListViewSpannableString();
+      if (value != null) {
+        value.getStatus().getListViewSpannableString();
+      }
       msgList.add(value);
     }
  catch (    JsonSyntaxException e) {
