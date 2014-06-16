@@ -8,13 +8,13 @@
       String smallPath=FileManager.getFilePathFromUrl(msg.getThumbnail_pic(),FileLocationMethod.picture_thumbnail);
       String middlePath=FileManager.getFilePathFromUrl(msg.getBmiddle_pic(),FileLocationMethod.picture_bmiddle);
       String largePath=FileManager.getFilePathFromUrl(msg.getOriginal_pic(),FileLocationMethod.picture_large);
-      if (new File(largePath).exists()) {
+      if (ImageUtility.isThisBitmapCanRead(largePath)) {
         picUrl=Uri.fromFile(new File(largePath));
       }
- else       if (new File(middlePath).exists()) {
+ else       if (ImageUtility.isThisBitmapCanRead(middlePath)) {
         picUrl=Uri.fromFile(new File(middlePath));
       }
- else       if (new File(smallPath).exists()) {
+ else       if (ImageUtility.isThisBitmapCanRead(smallPath)) {
         picUrl=Uri.fromFile(new File(smallPath));
       }
       if (picUrl != null) {

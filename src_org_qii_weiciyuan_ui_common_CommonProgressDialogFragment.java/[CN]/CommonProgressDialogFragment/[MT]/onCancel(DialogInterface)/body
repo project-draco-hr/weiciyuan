@@ -1,4 +1,7 @@
 {
   super.onCancel(dialog);
-  getActivity().finish();
+  Activity activity=getActivity();
+  if (activity != null) {
+    activity.finish();
+  }
 }
