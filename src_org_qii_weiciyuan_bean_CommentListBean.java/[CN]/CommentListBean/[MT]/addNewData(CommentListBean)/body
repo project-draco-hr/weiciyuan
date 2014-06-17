@@ -9,4 +9,19 @@
   }
   this.getItemList().addAll(0,newValue.getItemList());
   this.setTotal_number(newValue.getTotal_number());
+  List<CommentBean> msgList=getItemList();
+  ListIterator<CommentBean> listIterator=msgList.listIterator();
+  boolean isLastItemNull=false;
+  while (listIterator.hasNext()) {
+    CommentBean msg=listIterator.next();
+    if (msg == null) {
+      if (isLastItemNull) {
+        listIterator.remove();
+      }
+      isLastItemNull=true;
+    }
+ else {
+      isLastItemNull=false;
+    }
+  }
 }
