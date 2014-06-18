@@ -1,0 +1,3 @@
+ListView listView
+int positionAfterRefresh
+int top

@@ -5,10 +5,10 @@
     int index=getListView().getFirstVisiblePosition();
     newMsgTipBar.setValue(newValue,false);
     newMsgTipBar.setType(TopTipBar.Type.ALWAYS);
-    View v=getListView().getChildAt(1);
-    int top=(v == null) ? 0 : v.getTop();
+    View v=getListView().getChildAt(0);
+    final int top=(v == null) ? 0 : v.getTop();
     getAdapter().notifyDataSetChanged();
-    int ss=index + size;
-    getListView().setSelectionFromTop(ss + 1,top);
+    final int positionAfterRefresh=index + size;
+    Utility.setListViewSelectionFromTop(getListView(),positionAfterRefresh,top);
   }
 }

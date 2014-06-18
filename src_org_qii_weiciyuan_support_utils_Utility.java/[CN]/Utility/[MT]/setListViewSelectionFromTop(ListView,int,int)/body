@@ -1,0 +1,10 @@
+{
+  listView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(){
+    @Override public boolean onPreDraw(){
+      listView.getViewTreeObserver().removeOnPreDrawListener(this);
+      listView.setSelectionFromTop(positionAfterRefresh,top);
+      return false;
+    }
+  }
+);
+}

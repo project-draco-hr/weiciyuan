@@ -9,11 +9,12 @@
       getAdapter().notifyDataSetChanged();
     }
  else {
-      View v=Utility.getListViewItemViewFromPosition(getListView(),position + 1 + 1);
-      int top=(v == null) ? 0 : v.getTop();
+      int index=getListView().getFirstVisiblePosition();
+      View v=getListView().getChildAt(0);
+      final int top=(v == null) ? 0 : v.getTop();
       getAdapter().notifyDataSetChanged();
-      int ss=position + 1 + size - 1;
-      getListView().setSelectionFromTop(ss,top);
+      final int positionAfterRefresh=index + size;
+      Utility.setListViewSelectionFromTop(getListView(),positionAfterRefresh,top);
     }
   }
 }

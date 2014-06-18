@@ -1,5 +1,5 @@
 {
-  View view=listView.getChildAt(1);
+  View view=listView.getChildAt(0);
   int top=(view != null ? view.getTop() : 0);
   return new TimeLinePosition(listView.getFirstVisiblePosition(),top);
 }
