@@ -1,5 +1,8 @@
 {
   if (p != null && p.newMsgIds != null) {
+    if (SettingUtility.getEnableAutoRefresh()) {
+      newMsgTipBar.setType(TopTipBar.Type.ALWAYS);
+    }
     newMsgTipBar.setValue(p.newMsgIds);
   }
 }
