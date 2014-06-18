@@ -1,0 +1,5 @@
+{
+  boolean result=super.removeHeaderView(v);
+  headerList.remove(v);
+  return result;
+}

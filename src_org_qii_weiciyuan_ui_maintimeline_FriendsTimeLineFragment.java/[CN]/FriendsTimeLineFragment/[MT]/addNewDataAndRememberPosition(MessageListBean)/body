@@ -1,14 +1,16 @@
 {
-  newMsgTipBar.setValue(newValue,false);
-  newMsgTipBar.setType(TopTipBar.Type.AUTO);
   int size=newValue.getSize();
   if (getActivity() != null && newValue.getSize() > 0) {
     getList().addNewData(newValue);
     int index=getListView().getFirstVisiblePosition();
-    View v=getListView().getChildAt(0);
-    final int top=(v == null) ? 0 : v.getTop();
     getAdapter().notifyDataSetChanged();
-    final int positionAfterRefresh=index + size;
-    Utility.setListViewSelectionFromTop(getListView(),positionAfterRefresh,top);
+    final int positionAfterRefresh=index + size + getListView().getHeaderViewsCount();
+    Utility.setListViewSelectionFromTop(getListView(),positionAfterRefresh,1,new Runnable(){
+      @Override public void run(){
+        newMsgTipBar.setValue(newValue,false);
+        newMsgTipBar.setType(TopTipBar.Type.AUTO);
+      }
+    }
+);
   }
 }

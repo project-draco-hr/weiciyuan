@@ -1,0 +1,4 @@
+ListView listView
+int positionAfterRefresh
+int top
+Runnable runnable

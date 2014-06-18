@@ -1,0 +1,15 @@
+{
+  if (listView instanceof HeaderListView) {
+    HeaderListView headerListView=(HeaderListView)listView;
+    int childCount=headerListView.getChildCount();
+    for (int i=0; i < childCount; i++) {
+      View childView=headerListView.getChildAt(i);
+      if (!headerListView.isThisViewHeader(childView)) {
+        return childView;
+      }
+    }
+    AppLogger.v("all listview children are header view");
+    return headerListView.getChildAt(0);
+  }
+  return listView.getChildAt(0);
+}

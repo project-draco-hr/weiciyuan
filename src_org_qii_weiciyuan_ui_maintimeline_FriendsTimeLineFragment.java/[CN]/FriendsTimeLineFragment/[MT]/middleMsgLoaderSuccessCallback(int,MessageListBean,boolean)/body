@@ -10,7 +10,7 @@
     }
  else {
       int index=getListView().getFirstVisiblePosition();
-      View v=getListView().getChildAt(0);
+      View v=Utility.getListViewFirstAdapterItemView(getListView());
       final int top=(v == null) ? 0 : v.getTop();
       getAdapter().notifyDataSetChanged();
       final int positionAfterRefresh=index + size;
