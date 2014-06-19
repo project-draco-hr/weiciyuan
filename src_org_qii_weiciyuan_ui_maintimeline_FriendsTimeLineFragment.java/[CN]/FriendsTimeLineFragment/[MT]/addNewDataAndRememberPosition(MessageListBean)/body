@@ -1,10 +1,11 @@
 {
-  int size=newValue.getSize();
+  int initSize=getList().getSize();
   if (getActivity() != null && newValue.getSize() > 0) {
     getList().addNewData(newValue);
     int index=getListView().getFirstVisiblePosition();
     getAdapter().notifyDataSetChanged();
-    final int positionAfterRefresh=index + size + getListView().getHeaderViewsCount();
+    int finalSize=getList().getSize();
+    final int positionAfterRefresh=index + finalSize - initSize + getListView().getHeaderViewsCount();
     Utility.setListViewSelectionFromTop(getListView(),positionAfterRefresh,1,new Runnable(){
       @Override public void run(){
         newMsgTipBar.setValue(newValue,false);
