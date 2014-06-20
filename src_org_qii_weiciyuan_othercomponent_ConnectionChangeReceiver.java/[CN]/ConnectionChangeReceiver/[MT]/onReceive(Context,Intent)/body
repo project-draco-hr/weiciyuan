@@ -1,3 +1,13 @@
 {
-  judgeNetworkStatus(context,true);
+  if (task != null) {
+    handler.removeCallbacks(task);
+  }
+  task=new Runnable(){
+    @Override public void run(){
+      judgeNetworkStatus(context,true);
+      task=null;
+    }
+  }
+;
+  handler.postDelayed(task,2000);
 }
