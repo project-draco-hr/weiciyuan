@@ -1,0 +1,4 @@
+{
+  AppLogger.e("" + inTouch);
+  return inTouch;
+}
