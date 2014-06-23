@@ -1,6 +1,10 @@
 {
   this.ids.clear();
-  this.ids.addAll(values);
+  Iterator iterator=values.iterator();
+  while (iterator.hasNext()) {
+    Object object=iterator.next();
+    this.ids.add((Long)object);
+  }
   this.disappear=false;
   setCount();
 }

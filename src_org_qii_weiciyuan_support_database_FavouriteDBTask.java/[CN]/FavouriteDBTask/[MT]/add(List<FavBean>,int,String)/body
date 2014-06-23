@@ -1,6 +1,5 @@
 {
   Gson gson=new Gson();
-  List<FavBean> msgList=list.getFavorites();
   DatabaseUtils.InsertHelper ih=new DatabaseUtils.InsertHelper(getWsd(),FavouriteTable.FavouriteDataTable.TABLE_NAME);
   final int mblogidColumn=ih.getColumnIndex(FavouriteTable.FavouriteDataTable.MBLOGID);
   final int accountidColumn=ih.getColumnIndex(FavouriteTable.FavouriteDataTable.ACCOUNTID);

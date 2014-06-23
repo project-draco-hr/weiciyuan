@@ -1,4 +1,6 @@
 {
-  if (sInstance == null)   sInstance=new LongClickableLinkMovementMethod();
+  if (sInstance == null) {
+    sInstance=new LongClickableLinkMovementMethod();
+  }
   return sInstance;
 }

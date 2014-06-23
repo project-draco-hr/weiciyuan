@@ -17,15 +17,21 @@
       selStart=selEnd=buffer.length();
     }
   }
-  if (selStart > last)   selStart=selEnd=Integer.MAX_VALUE;
-  if (selEnd < first)   selStart=selEnd=-1;
+  if (selStart > last) {
+    selStart=selEnd=Integer.MAX_VALUE;
+  }
+  if (selEnd < first) {
+    selStart=selEnd=-1;
+  }
 switch (what) {
 case CLICK:
     if (selStart == selEnd) {
       return false;
     }
   MyURLSpan[] link=buffer.getSpans(selStart,selEnd,MyURLSpan.class);
-if (link.length != 1) return false;
+if (link.length != 1) {
+  return false;
+}
 link[0].onClick(widget);
 break;
 case UP:
