@@ -1,21 +1,32 @@
 {
-  if (!SettingUtility.getEnableAutoRefresh()) {
-    return;
+  handler.post(new Runnable(){
+    @Override public void run(){
+      if (getActivity() == null) {
+        return;
+      }
+      if (hasActionMode()) {
+        return;
+      }
+      if (!SettingUtility.getEnableAutoRefresh()) {
+        return;
+      }
+      if (!Utility.isTaskStopped(dbTask)) {
+        return;
+      }
+      if (!allowRefresh()) {
+        return;
+      }
+      if (!Utility.isWifi(getActivity())) {
+        return;
+      }
+      if (isListViewFling() || !isVisible() || ((MainTimeLineActivity)getActivity()).getSlidingMenu().isMenuShowing()) {
+        return;
+      }
+      Bundle bundle=new Bundle();
+      bundle.putBoolean(BundleArgsConstants.SCROLL_TO_TOP,false);
+      bundle.putBoolean(BundleArgsConstants.AUTO_REFRESH,true);
+      getLoaderManager().restartLoader(NEW_MSG_LOADER_ID,bundle,msgAsyncTaskLoaderCallback);
+    }
   }
-  if (!Utility.isTaskStopped(dbTask)) {
-    return;
-  }
-  if (!allowRefresh()) {
-    return;
-  }
-  if (!Utility.isWifi(getActivity())) {
-    return;
-  }
-  if (isListViewFling() || !isVisible() || ((MainTimeLineActivity)getActivity()).getSlidingMenu().isMenuShowing()) {
-    return;
-  }
-  Bundle bundle=new Bundle();
-  bundle.putBoolean(BundleArgsConstants.SCROLL_TO_TOP,false);
-  bundle.putBoolean(BundleArgsConstants.AUTO_REFRESH,true);
-  getLoaderManager().restartLoader(NEW_MSG_LOADER_ID,bundle,msgAsyncTaskLoaderCallback);
+);
 }

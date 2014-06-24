@@ -1,10 +1,20 @@
 {
   int initSize=getList().getSize();
   if (getActivity() != null && newValue.getSize() > 0) {
+    if (hasActionMode()) {
+      AppLogger.v("ListView have ActionMode, skip notifyDataSetChanged");
+      return;
+    }
     final HeaderListView headerListView=(HeaderListView)getListView();
     View firstChildView=getListView().getChildAt(0);
     boolean isFirstViewHeader=headerListView.isThisViewHeader(firstChildView);
     if (isFirstViewHeader && !headerListView.isInTouchByUser()) {
+      if (!Utility.isJB2()) {
+        getList().addNewData(newValue);
+        getAdapter().notifyDataSetChanged();
+        Utility.setListViewSelectionFromTop(getListView(),0,0);
+        return;
+      }
       final ListView listView=getListView();
       final ArrayList<Pair<Long,Bitmap>> previousViewsBitmap=new ArrayList<Pair<Long,Bitmap>>();
       final HashMap<Long,Integer> previousViewsTop=new HashMap<Long,Integer>();
