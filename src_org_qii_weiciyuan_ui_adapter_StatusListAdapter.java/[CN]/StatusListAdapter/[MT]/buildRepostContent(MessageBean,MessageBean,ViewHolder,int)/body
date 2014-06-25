@@ -27,18 +27,12 @@
     holder.repost_content.setText(repost_msg.getListViewSpannableString());
     holder.repost_content.setTag(repost_msg.getId());
   }
-  if (!TextUtils.isEmpty(repost_msg.getBmiddle_pic())) {
+  if (repost_msg.havePicture()) {
     if (repost_msg.isMultiPics()) {
       buildMultiPic(repost_msg,holder.repost_content_pic_multi);
-      interruptPicDownload(holder.repost_content_pic);
     }
  else {
       buildPic(repost_msg,holder.repost_content_pic,position);
-      interruptPicDownload(holder.repost_content_pic_multi);
     }
-  }
- else {
-    interruptPicDownload(holder.repost_content_pic_multi);
-    interruptPicDownload(holder.repost_content_pic);
   }
 }

@@ -1,22 +1,16 @@
 {
   holder.repost_content.setVisibility(View.VISIBLE);
-  boolean isSameTag=repost_msg.getId().equals((String)holder.repost_content.getTag());
-  if (!isSameTag) {
-    holder.repost_content.setText(repost_msg.getListViewSpannableString());
-    holder.repost_content.setTag(repost_msg.getId());
-  }
-  if (!TextUtils.isEmpty(repost_msg.getBmiddle_pic())) {
-    if (repost_msg.isMultiPics()) {
-      buildMultiPic(repost_msg,holder.repost_content_pic_multi);
-      interruptPicDownload(holder.repost_content_pic);
+  holder.repost_content_pic.setVisibility(View.GONE);
+  holder.repost_content_pic_multi.setVisibility(View.GONE);
+  holder.content_pic.setVisibility(View.GONE);
+  holder.content_pic_multi.setVisibility(View.GONE);
+  holder.repost_content.setText(oriWeibo.getListViewSpannableString());
+  if (oriWeibo.havePicture()) {
+    if (oriWeibo.isMultiPics()) {
+      buildMultiPic(oriWeibo,holder.repost_content_pic_multi);
     }
  else {
-      buildPic(repost_msg,holder.repost_content_pic,position);
-      interruptPicDownload(holder.repost_content_pic_multi);
+      buildPic(oriWeibo,holder.repost_content_pic,position);
     }
-  }
- else {
-    interruptPicDownload(holder.repost_content_pic_multi);
-    interruptPicDownload(holder.repost_content_pic);
   }
 }

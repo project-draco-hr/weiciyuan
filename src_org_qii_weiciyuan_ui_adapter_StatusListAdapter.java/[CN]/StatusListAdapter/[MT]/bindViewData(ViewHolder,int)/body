@@ -67,7 +67,7 @@
   if (showOriStatus) {
     boolean checkRepostsCount=(msg.getReposts_count() != 0);
     boolean checkCommentsCount=(msg.getComments_count() != 0);
-    boolean checkPic=(!TextUtils.isEmpty(msg.getThumbnail_pic()) || (msg.getRetweeted_status() != null && !TextUtils.isEmpty(msg.getRetweeted_status().getThumbnail_pic())));
+    boolean checkPic=msg.havePicture() || (msg.getRetweeted_status() != null && msg.getRetweeted_status().havePicture());
     checkPic=(checkPic && !SettingUtility.isEnablePic());
     boolean checkGps=(msg.getGeo() != null);
     if (!checkRepostsCount && !checkCommentsCount && !checkPic&& !checkGps) {
@@ -108,7 +108,7 @@
   holder.repost_content_pic_multi.setVisibility(View.GONE);
   holder.content_pic.setVisibility(View.GONE);
   holder.content_pic_multi.setVisibility(View.GONE);
-  if (!TextUtils.isEmpty(msg.getThumbnail_pic())) {
+  if (msg.havePicture()) {
     if (msg.isMultiPics()) {
       buildMultiPic(msg,holder.content_pic_multi);
     }
@@ -149,7 +149,7 @@
   boolean interruptMultiPic=false;
   boolean interruptRepostPic=false;
   boolean interruptRepostMultiPic=false;
-  if (!TextUtils.isEmpty(msg.getThumbnail_pic())) {
+  if (msg.havePicture()) {
     if (msg.isMultiPics()) {
       interruptPic=true;
     }
@@ -158,7 +158,7 @@
     }
   }
   if (repost_msg != null && showOriStatus) {
-    if (!TextUtils.isEmpty(repost_msg.getBmiddle_pic())) {
+    if (repost_msg.havePicture()) {
       if (repost_msg.isMultiPics()) {
         interruptRepostPic=true;
       }

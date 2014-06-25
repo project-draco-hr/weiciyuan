@@ -1,4 +1,0 @@
-Fragment fragment
-List<CommentBean> bean
-ListView listView
-boolean showOriStatus
