@@ -7,7 +7,9 @@
     drawable=holder.listview_root.getBackground();
     bg.put(holder,drawable);
   }
-  if (listView.getCheckedItemPosition() == position + 1)   holder.listview_root.setBackgroundColor(checkedBG);
+  if (listView.getCheckedItemPosition() == position + 1) {
+    holder.listview_root.setBackgroundColor(checkedBG);
+  }
   final CommentBean comment=getList().get(position);
   UserBean user=comment.getUser();
   if (user != null) {
@@ -31,13 +33,19 @@
   }
   holder.content.setText(comment.getListViewSpannableString());
   holder.time.setTime(comment.getMills());
-  if (holder.source != null)   holder.source.setText(comment.getSourceString());
+  if (holder.source != null) {
+    holder.source.setText(comment.getSourceString());
+  }
   holder.repost_content.setVisibility(View.GONE);
   holder.repost_content_pic.setVisibility(View.GONE);
   CommentBean reply=comment.getReply_comment();
-  if (holder.replyIV != null)   holder.replyIV.setVisibility(View.GONE);
+  if (holder.replyIV != null) {
+    holder.replyIV.setVisibility(View.GONE);
+  }
   if (reply != null && showOriStatus) {
-    if (holder.repost_layout != null)     holder.repost_layout.setVisibility(View.VISIBLE);
+    if (holder.repost_layout != null) {
+      holder.repost_layout.setVisibility(View.VISIBLE);
+    }
     holder.repost_flag.setVisibility(View.VISIBLE);
     holder.repost_content.setVisibility(View.VISIBLE);
     holder.repost_content.setText(reply.getListViewSpannableString());
@@ -46,10 +54,12 @@
  else {
     MessageBean repost_msg=comment.getStatus();
     if (repost_msg != null && showOriStatus) {
-      buildRepostContent(repost_msg,holder,position);
+      buildOriWeiboContent(repost_msg,holder,position);
     }
  else {
-      if (holder.repost_layout != null)       holder.repost_layout.setVisibility(View.GONE);
+      if (holder.repost_layout != null) {
+        holder.repost_layout.setVisibility(View.GONE);
+      }
       holder.repost_flag.setVisibility(View.GONE);
       if (holder.replyIV != null) {
         holder.replyIV.setVisibility(View.VISIBLE);
