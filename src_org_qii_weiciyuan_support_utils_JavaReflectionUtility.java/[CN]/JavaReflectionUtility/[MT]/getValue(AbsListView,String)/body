@@ -1,0 +1,15 @@
+{
+  final Field field;
+  try {
+    field=AbsListView.class.getDeclaredField(name);
+    field.setAccessible(true);
+    return (T)field.get(view);
+  }
+ catch (  NoSuchFieldException e) {
+    e.printStackTrace();
+  }
+catch (  IllegalAccessException e) {
+    e.printStackTrace();
+  }
+  return null;
+}

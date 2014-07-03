@@ -1,8 +1,6 @@
 {
-  if (listView instanceof AutoScrollListView) {
-    ((AutoScrollListView)listView).requestPositionToScreen(0,true);
-  }
- else {
-    listView.smoothScrollToPosition(0,0);
-  }
+  Runnable runnable=JavaReflectionUtility.getValue(listView,"mFlingRunnable");
+  listView.removeCallbacks(runnable);
+  listView.setSelection(Math.min(listView.getFirstVisiblePosition(),5));
+  listView.smoothScrollToPosition(0);
 }
