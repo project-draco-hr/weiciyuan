@@ -1,4 +1,7 @@
 {
+  if (ori == null) {
+    return;
+  }
   int[] avatarLocation=new int[2];
   avatar.getLocationOnScreen(avatarLocation);
   final int transX=ori.left - avatarLocation[0];

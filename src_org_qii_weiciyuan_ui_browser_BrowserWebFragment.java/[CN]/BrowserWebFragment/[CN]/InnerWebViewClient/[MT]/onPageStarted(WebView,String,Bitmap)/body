@@ -1,4 +1,7 @@
 {
   super.onPageStarted(view,url,favicon);
+  if (getActivity() == null) {
+    return;
+  }
   startRefreshAnimation();
 }
