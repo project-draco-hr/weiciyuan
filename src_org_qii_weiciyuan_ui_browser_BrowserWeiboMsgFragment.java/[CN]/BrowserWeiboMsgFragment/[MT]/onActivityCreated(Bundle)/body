@@ -20,8 +20,14 @@ case SCREEN_ROTATE:
 buildViewData(true);
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-msg=(MessageBean)savedInstanceState.getParcelable("msg");
+msg=savedInstanceState.getParcelable("msg");
+commentList.replaceAll((CommentListBean)savedInstanceState.getParcelable("commentList"));
+repostList.replaceAll((RepostListBean)savedInstanceState.getParcelable("repostList"));
 buildViewData(true);
+adapter.notifyDataSetChanged();
+if (commentList.getSize() > 0) {
+emptyHeader.setVisibility(View.GONE);
+}
 break;
 }
 Loader loader=getLoaderManager().getLoader(NEW_COMMENT_LOADER_ID);

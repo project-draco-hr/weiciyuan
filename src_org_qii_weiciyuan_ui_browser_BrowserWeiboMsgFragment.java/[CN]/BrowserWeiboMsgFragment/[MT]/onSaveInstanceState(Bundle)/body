@@ -1,4 +1,6 @@
 {
   super.onSaveInstanceState(outState);
   outState.putParcelable("msg",msg);
+  outState.putParcelable("commentList",commentList);
+  outState.putParcelable("repostList",repostList);
 }
