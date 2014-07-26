@@ -43,4 +43,7 @@
   TextView sum=(TextView)findViewById(R.id.sum);
   sum.setText(String.valueOf(urls.size()));
   background=AnimationUtility.getAppContentView(this);
+  if (savedInstanceState != null) {
+    showBackgroundImmediately();
+  }
 }

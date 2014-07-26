@@ -1,0 +1,6 @@
+{
+  super.setPrimaryItem(container,position,object);
+  if (object instanceof Fragment) {
+    fragmentMap.put(position,(ContainerFragment)object);
+  }
+}
