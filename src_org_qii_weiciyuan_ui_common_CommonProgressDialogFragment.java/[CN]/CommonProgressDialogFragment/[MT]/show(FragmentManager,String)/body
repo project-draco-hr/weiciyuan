@@ -1,0 +1,8 @@
+{
+  try {
+    super.show(manager,tag);
+  }
+ catch (  IllegalStateException ignored) {
+    ignored.printStackTrace();
+  }
+}
