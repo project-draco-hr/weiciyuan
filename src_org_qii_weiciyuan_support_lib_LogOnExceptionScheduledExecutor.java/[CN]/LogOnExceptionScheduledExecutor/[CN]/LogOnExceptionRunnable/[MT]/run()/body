@@ -1,0 +1,10 @@
+{
+  try {
+    runnable.run();
+  }
+ catch (  Exception e) {
+    AppLogger.e("error in executing: " + runnable + ". It will no longer be run!");
+    e.printStackTrace();
+    throw new RuntimeException(e);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return super.scheduleAtFixedRate(wrapRunnable(command),initialDelay,period,unit);
+}

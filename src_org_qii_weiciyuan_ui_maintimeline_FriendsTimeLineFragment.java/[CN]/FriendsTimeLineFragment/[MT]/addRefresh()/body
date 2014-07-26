@@ -1,4 +1,4 @@
 {
-  autoRefreshExecutor=Executors.newSingleThreadScheduledExecutor();
+  autoRefreshExecutor=new LogOnExceptionScheduledExecutor(1);
   autoRefreshExecutor.scheduleAtFixedRate(new AutoTask(),AppConfig.AUTO_REFRESH_INITIALDELAY,AppConfig.AUTO_REFRESH_PERIOD,TimeUnit.SECONDS);
 }

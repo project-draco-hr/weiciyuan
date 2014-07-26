@@ -1,0 +1,3 @@
+{
+  return super.scheduleWithFixedDelay(wrapRunnable(command),initialDelay,delay,unit);
+}
