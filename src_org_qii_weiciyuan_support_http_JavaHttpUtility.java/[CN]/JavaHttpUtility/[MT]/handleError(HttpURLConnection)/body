@@ -13,7 +13,7 @@
     WeiboException exception=new WeiboException();
     exception.setError_code(errCode);
     exception.setOriError(err);
-    if (errCode == ErrorCode.EXPIRED_TOKEN) {
+    if (errCode == ErrorCode.EXPIRED_TOKEN || errCode == ErrorCode.INVALID_TOKEN) {
       Utility.showExpiredTokenDialogOrNotification();
     }
     throw exception;

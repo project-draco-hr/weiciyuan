@@ -7,7 +7,7 @@
   try {
     is=urlConnection.getInputStream();
     String content_encode=urlConnection.getContentEncoding();
-    if (null != content_encode && !"".equals(content_encode) && content_encode.equals("gzip")) {
+    if (!TextUtils.isEmpty(content_encode) && content_encode.equals("gzip")) {
       is=new GZIPInputStream(is);
     }
     buffer=new BufferedReader(new InputStreamReader(is));

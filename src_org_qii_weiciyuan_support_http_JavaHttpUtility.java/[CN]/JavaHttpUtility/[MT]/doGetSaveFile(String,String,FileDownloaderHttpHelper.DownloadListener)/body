@@ -3,6 +3,7 @@
   if (file == null) {
     return false;
   }
+  boolean result=false;
   BufferedOutputStream out=null;
   InputStream in=null;
   HttpURLConnection urlConnection=null;
@@ -34,7 +35,7 @@
     out=new BufferedOutputStream(new FileOutputStream(file));
     InputStream is=urlConnection.getInputStream();
     String content_encode=urlConnection.getContentEncoding();
-    if (null != content_encode && !"".equals(content_encode) && content_encode.equals("gzip")) {
+    if (!TextUtils.isEmpty(content_encode) && content_encode.equals("gzip")) {
       is=new GZIPInputStream(is);
     }
     in=new BufferedInputStream(is);
@@ -57,7 +58,7 @@
       downloadListener.completed();
     }
     AppLogger.v("download request= " + urlStr + " download finished");
-    return true;
+    result=true;
   }
  catch (  IOException e) {
     e.printStackTrace();
@@ -70,5 +71,5 @@
       urlConnection.disconnect();
     }
   }
-  return false;
+  return result && ImageUtility.isThisBitmapCanRead(path);
 }
