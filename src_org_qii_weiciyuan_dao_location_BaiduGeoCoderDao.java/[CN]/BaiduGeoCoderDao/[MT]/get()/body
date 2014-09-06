@@ -1,0 +1,13 @@
+{
+  final String url=String.format(URLHelper.BAIDU_GEO_CODER_MAP,lat,long_fix);
+  String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Get,url,null);
+  try {
+    final JSONObject json=new JSONObject(jsonData);
+    final JSONObject result=json.getJSONObject("result");
+    final String formatAddress=result.optString("formatted_address",null);
+    return formatAddress;
+  }
+ catch (  JSONException exception) {
+    return null;
+  }
+}

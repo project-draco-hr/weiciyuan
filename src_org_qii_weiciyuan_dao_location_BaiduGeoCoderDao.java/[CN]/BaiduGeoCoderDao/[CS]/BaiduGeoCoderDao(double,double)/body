@@ -1,0 +1,4 @@
+{
+  this.lat=(float)lat;
+  this.long_fix=(float)long_fix;
+}
