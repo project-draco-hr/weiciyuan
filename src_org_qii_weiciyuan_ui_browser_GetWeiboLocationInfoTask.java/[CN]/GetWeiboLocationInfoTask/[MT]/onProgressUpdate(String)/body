@@ -1,7 +1,6 @@
 {
   super.onProgressUpdate(values);
-  if (!TextUtils.isEmpty(values[0]) && !gpsToLocationSuccess) {
-    gpsToLocationSuccess=true;
+  if (!TextUtils.isEmpty(values[0])) {
     location.setVisibility(View.VISIBLE);
     location.setText(values[0]);
   }

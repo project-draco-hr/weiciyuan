@@ -1,8 +1,10 @@
 {
   if (Utility.isGPSLocationCorrect(geoBean)) {
-    publishProgress(new GoogleGeoCoderDao(activity,geoBean).get());
+    String gpsLocationString=new GoogleGeoCoderDao(activity,geoBean).get();
     try {
-      publishProgress(new BaiduGeoCoderDao(geoBean.getLat(),geoBean.getLon()).get());
+      if (TextUtils.isEmpty(gpsLocationString)) {
+        publishProgress(new BaiduGeoCoderDao(geoBean.getLat(),geoBean.getLon()).get());
+      }
     }
  catch (    WeiboException e) {
       e.printStackTrace();
