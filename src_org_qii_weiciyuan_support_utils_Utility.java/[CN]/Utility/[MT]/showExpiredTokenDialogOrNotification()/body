@@ -18,11 +18,12 @@
     if (activity.getClass() == SSOActivity.class) {
       return;
     }
+    final AccountBean needRefreshTokenAccount=currentAccount;
     activity.runOnUiThread(new Runnable(){
       @Override public void run(){
         new AlertDialog.Builder(activity).setTitle(R.string.dialog_title_error).setMessage(R.string.your_token_is_expired).setPositiveButton(R.string.logout_to_login_again,new DialogInterface.OnClickListener(){
           @Override public void onClick(          DialogInterface dialog,          int which){
-            activity.startActivity(AccountActivity.newIntent());
+            activity.startActivity(AccountActivity.newIntent(needRefreshTokenAccount));
             activity.finish();
             GlobalContext.getInstance().tokenExpiredDialogIsShowing=false;
           }

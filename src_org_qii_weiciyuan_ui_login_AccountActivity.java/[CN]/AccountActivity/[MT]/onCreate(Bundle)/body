@@ -1,5 +1,10 @@
 {
-  if (getIntent() != null && !ACTION_OPEN_FROM_APP_INNER.equals(getIntent().getAction())) {
+  String action=getIntent() != null ? getIntent().getAction() : null;
+  if (ACTION_OPEN_FROM_APP_INNER.equals(action)) {
+  }
+ else   if (ACTION_OPEN_FROM_APP_INNER_REFRESH_TOKEN.equals(action)) {
+  }
+ else {
     jumpToMainTimeLineActivity();
   }
   super.onCreate(savedInstanceState);
@@ -14,5 +19,10 @@
   getLoaderManager().initLoader(LOADER_ID,null,this);
   if (SettingUtility.firstStart()) {
     showChangeLogDialog();
+  }
+  if (ACTION_OPEN_FROM_APP_INNER_REFRESH_TOKEN.equals(action)) {
+    showAddAccountDialog();
+    AccountBean accountBean=getIntent().getParcelableExtra(REFRESH_ACTION_EXTRA);
+    Toast.makeText(this,String.format(getString(R.string.account_token_has_expired),accountBean.getUsernick()),Toast.LENGTH_SHORT).show();
   }
 }

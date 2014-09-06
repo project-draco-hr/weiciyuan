@@ -1,26 +1,8 @@
 {
 switch (item.getItemId()) {
 case R.id.menu_add_account:
-    final ArrayList<Class> activityList=new ArrayList<Class>();
-  ArrayList<String> itemValueList=new ArrayList<String>();
-activityList.add(OAuthActivity.class);
-itemValueList.add(getString(R.string.oauth_login));
-if (Utility.isCertificateFingerprintCorrect(AccountActivity.this) && Utility.isSinaWeiboSafe(this)) {
-activityList.add(SSOActivity.class);
-itemValueList.add(getString(R.string.official_app_login));
-}
-if (SettingUtility.isBlackMagicEnabled()) {
-activityList.add(BlackMagicActivity.class);
-itemValueList.add(getString(R.string.hack_login));
-}
-new AlertDialog.Builder(this).setItems(itemValueList.toArray(new String[0]),new DialogInterface.OnClickListener(){
-@Override public void onClick(DialogInterface dialog,int which){
-Intent intent=new Intent(AccountActivity.this,activityList.get(which));
-startActivityForResult(intent,ADD_ACCOUNT_REQUEST_CODE);
-}
-}
-).show();
-break;
+    showAddAccountDialog();
+  break;
 }
 return true;
 }

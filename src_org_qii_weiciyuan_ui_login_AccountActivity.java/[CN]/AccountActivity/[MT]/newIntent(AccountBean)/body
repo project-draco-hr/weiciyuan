@@ -1,0 +1,6 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),AccountActivity.class);
+  intent.setAction(ACTION_OPEN_FROM_APP_INNER_REFRESH_TOKEN);
+  intent.putExtra(REFRESH_ACTION_EXTRA,refreshAccount);
+  return intent;
+}
