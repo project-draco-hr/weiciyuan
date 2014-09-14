@@ -1,5 +1,14 @@
 {
   super.onActivityCreated(savedInstanceState);
+  SimpleTwoTabsListener tabListener=new SimpleTwoTabsListener(viewPager);
+  ActionBar.Tab commentsToMeTab=getCommentsToMeTab();
+  if (commentsToMeTab == null) {
+    buildCommentsToMeTab(tabListener);
+  }
+  ActionBar.Tab commentsByMeTab=getCommentsByMeTab();
+  if (commentsByMeTab == null) {
+    buildCommentsByMeTab(tabListener);
+  }
   if ((((MainTimeLineActivity)getActivity()).getMenuFragment()).getCurrentIndex() == LeftMenuFragment.COMMENTS_INDEX) {
     buildActionBarAndViewPagerTitles(((MainTimeLineActivity)getActivity()).getMenuFragment().commentsTabIndex);
   }
