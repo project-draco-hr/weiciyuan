@@ -1,9 +1,0 @@
-{
-  try {
-    return new NearbyTimeLineDao(GlobalContext.getInstance().getSpecialToken(),lat,lon).get();
-  }
- catch (  WeiboException e) {
-    e.printStackTrace();
-  }
-  return null;
-}

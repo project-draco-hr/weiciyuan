@@ -1,5 +1,0 @@
-{
-  getMenuInflater().inflate(R.menu.actionbar_menu_nearbytimelineactivity,menu);
-  refresh=menu.findItem(R.id.refresh);
-  return super.onCreateOptionsMenu(menu);
-}
