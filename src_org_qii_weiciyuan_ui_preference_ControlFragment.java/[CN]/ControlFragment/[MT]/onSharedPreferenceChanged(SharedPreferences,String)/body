@@ -14,5 +14,4 @@ SettingUtility.setEnableCommentRepostAvatar(Utility.isWifi(getActivity()));
 break;
 }
 }
-buildSummary();
 }
