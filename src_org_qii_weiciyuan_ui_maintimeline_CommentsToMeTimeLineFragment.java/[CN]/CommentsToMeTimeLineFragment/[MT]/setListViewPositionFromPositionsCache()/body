@@ -1,5 +1,9 @@
 {
-  Utility.setListViewSelectionFromTop(getListView(),timeLinePosition != null ? timeLinePosition.position : 0,timeLinePosition != null ? timeLinePosition.top : 0,new Runnable(){
+  AppLogger.i("Memory cached position first visible item id " + (timeLinePosition != null ? timeLinePosition.firstItemId : 0));
+  int position=timeLinePosition != null ? timeLinePosition.getPosition(bean) : 0;
+  int top=timeLinePosition != null ? timeLinePosition.top : 0;
+  AppLogger.i("Set ListView position from memory cached position position " + position + " top "+ top);
+  Utility.setListViewAdapterPosition(getListView(),position,top,new Runnable(){
     @Override public void run(){
       setListViewUnreadTipBar(timeLinePosition);
     }

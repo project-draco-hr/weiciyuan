@@ -1,11 +1,17 @@
 {
-  Intent intent=new Intent(AppEventAction.NEW_MSG_PRIORITY_BROADCAST);
-  intent.putExtra(BundleArgsConstants.ACCOUNT_EXTRA,accountBean);
-  intent.putExtra(BundleArgsConstants.COMMENTS_TO_ME_EXTRA,commentResult);
-  intent.putExtra(BundleArgsConstants.MENTIONS_WEIBO_EXTRA,mentionStatusesResult);
-  intent.putExtra(BundleArgsConstants.MENTIONS_COMMENT_EXTRA,mentionCommentsResult);
-  intent.putExtra(BundleArgsConstants.UNREAD_EXTRA,unreadBean);
-  sendOrderedBroadcast(intent,null);
-  intent.setAction(AppEventAction.NEW_MSG_BROADCAST);
-  LocalBroadcastManager.getInstance(getBaseContext()).sendBroadcast(intent);
+  AppLogger.i("Send unread data to ");
+  if (unreadBean != null) {
+    AppNotificationCenter.getInstance().addUnreadBean(accountBean,unreadBean);
+  }
+  if (mentionStatusesResult != null) {
+    AppNotificationCenter.getInstance().addUnreadMentions(accountBean,mentionStatusesResult);
+  }
+  if (mentionCommentsResult != null) {
+    AppNotificationCenter.getInstance().addUnreadMentionsComment(accountBean,mentionCommentsResult);
+  }
+  if (commentResult != null) {
+    AppNotificationCenter.getInstance().addUnreadComments(accountBean,commentResult);
+  }
+  AppNotificationCenter.getInstance().refreshToUI(accountBean);
+  AppNotificationCenter.getInstance().showAndroidNotification(accountBean);
 }

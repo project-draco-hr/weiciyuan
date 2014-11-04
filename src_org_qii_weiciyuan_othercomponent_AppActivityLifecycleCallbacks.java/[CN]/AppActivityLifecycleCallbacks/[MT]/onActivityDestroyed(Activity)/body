@@ -1,0 +1,3 @@
+{
+  AppLogger.i("Activity is destroyed, class name : " + activity.getClass().getSimpleName());
+}

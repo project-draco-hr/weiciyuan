@@ -1,0 +1,7 @@
+{
+  AppLogger.i("Activity is stopped, class name : " + activity.getClass().getSimpleName());
+  visibleActivityCount--;
+  if (visibleActivityCount == 0) {
+    stopFetchUnread();
+  }
+}

@@ -1,0 +1,4 @@
+{
+  setActionBarTabCount(count);
+  setLeftMenuUnreadCount(count);
+}

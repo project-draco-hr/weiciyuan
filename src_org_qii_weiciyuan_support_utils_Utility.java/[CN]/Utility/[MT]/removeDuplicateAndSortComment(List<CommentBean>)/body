@@ -1,0 +1,7 @@
+{
+  HashSet<CommentBean> hashSet=new HashSet<>();
+  hashSet.addAll(data);
+  data.clear();
+  data.addAll(hashSet);
+  sortData(data);
+}

@@ -1,5 +1,10 @@
 {
-  timeLinePosition=Utility.getCurrentPositionFromListView(getListView());
-  timeLinePosition.newMsgIds=newMsgTipBar.getValues();
-  MentionWeiboTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
+  TimeLinePosition current=Utility.getCurrentPositionFromListView(getListView());
+  if (!current.isEmpty()) {
+    timeLinePosition=current;
+    timeLinePosition.newMsgIds=newMsgTipBar.getValues();
+  }
+  if (timeLinePosition != null) {
+    MentionWeiboTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
+  }
 }

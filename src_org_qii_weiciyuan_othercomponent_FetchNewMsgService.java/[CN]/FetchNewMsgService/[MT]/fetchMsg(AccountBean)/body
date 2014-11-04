@@ -56,7 +56,5 @@
     sendTwoKindsOfBroadcast(accountBean,commentResult,mentionStatusesResult,mentionCommentsResult,unreadBean);
   }
  else {
-    NotificationManager notificationManager=(NotificationManager)getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
-    notificationManager.cancel(NotificationServiceHelper.getMentionsWeiboNotificationId(accountBean));
   }
 }

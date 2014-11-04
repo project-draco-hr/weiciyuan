@@ -1,0 +1,7 @@
+{
+  AppLogger.i("Activity is started, class name : " + activity.getClass().getSimpleName());
+  if (visibleActivityCount == 0) {
+    startFetchUnread();
+  }
+  visibleActivityCount++;
+}

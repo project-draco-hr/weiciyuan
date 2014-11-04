@@ -1,4 +1,4 @@
 {
   super.onSaveInstanceState(outState);
-  outState.putParcelable("account",accountBean);
+  outState.putParcelable(BundleArgsConstants.ACCOUNT_EXTRA,accountBean);
 }

@@ -1,8 +1,5 @@
 {
   if (newValue != null && newValue.getItemList() != null && newValue.getItemList().size() > 0) {
-    addNewDataAndRememberPosition(newValue);
+    addNewDataAndRememberPosition(newValue,false);
   }
-  unreadBean=null;
-  NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-  notificationManager.cancel(NotificationServiceHelper.getCommentsToMeNotificationId(GlobalContext.getInstance().getAccountBean()));
 }

@@ -1,5 +1,14 @@
 {
-  timeLinePosition=Utility.getCurrentPositionFromListView(getListView());
-  timeLinePosition.newMsgIds=newMsgTipBar.getValues();
-  CommentToMeTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
+  TimeLinePosition current=Utility.getCurrentPositionFromListView(getListView());
+  if (!current.isEmpty()) {
+    timeLinePosition=current;
+    timeLinePosition.newMsgIds=newMsgTipBar.getValues();
+    AppLogger.i("Current ListView position first visible item id " + current.firstItemId + " , save to memory cache");
+  }
+ else {
+    AppLogger.i("Cant get correct current ListView position, so use previous database data");
+  }
+  if (timeLinePosition != null) {
+    CommentToMeTimeLineDBTask.asyncUpdatePosition(timeLinePosition,accountBean.getUid());
+  }
 }

@@ -7,4 +7,5 @@
   if (Utility.isCertificateFingerprintCorrect(this)) {
     Crashlytics.start(this);
   }
+  registerActivityLifecycleCallbacks(new AppActivityLifecycleCallbacks());
 }

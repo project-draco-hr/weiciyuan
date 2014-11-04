@@ -11,7 +11,10 @@
       retryCount++;
     }
     if (tmp.getReceivedCount() >= Integer.valueOf(SettingUtility.getMsgCount())) {
-      result.getItemList().add(null);
+      MessageBean middleUnreadItem=new MessageBean();
+      middleUnreadItem.setId(String.valueOf(System.currentTimeMillis()));
+      middleUnreadItem.setMiddleUnreadItem(true);
+      result.getItemList().add(middleUnreadItem);
     }
   }
  else {

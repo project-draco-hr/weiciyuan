@@ -1,7 +1,6 @@
 {
   if (p != null && p.newMsgIds != null) {
     newMsgTipBar.setValue(p.newMsgIds);
-    setActionBarTabCount(newMsgTipBar.getValues().size());
-    ((MainTimeLineActivity)getActivity()).setMentionsCommentCount(newMsgTipBar.getValues().size());
+    showUIUnreadCount(newMsgTipBar.getValues().size());
   }
 }

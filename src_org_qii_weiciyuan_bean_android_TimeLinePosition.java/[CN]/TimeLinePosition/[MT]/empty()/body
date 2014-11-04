@@ -1,0 +1,5 @@
+{
+  TimeLinePosition position=new TimeLinePosition(0,0,0);
+  position.empty=true;
+  return position;
+}

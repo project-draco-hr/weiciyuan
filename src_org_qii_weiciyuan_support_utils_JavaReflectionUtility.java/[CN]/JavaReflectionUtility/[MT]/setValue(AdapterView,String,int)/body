@@ -1,0 +1,14 @@
+{
+  final Field field;
+  try {
+    field=AdapterView.class.getDeclaredField(name);
+    field.setAccessible(true);
+    field.setInt(view,value);
+  }
+ catch (  NoSuchFieldException e) {
+    e.printStackTrace();
+  }
+catch (  IllegalAccessException e) {
+    e.printStackTrace();
+  }
+}

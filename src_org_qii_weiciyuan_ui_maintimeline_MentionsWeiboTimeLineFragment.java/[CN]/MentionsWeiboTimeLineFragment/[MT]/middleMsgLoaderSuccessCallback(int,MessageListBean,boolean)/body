@@ -1,18 +1,7 @@
 {
-  if (newValue != null) {
-    int size=newValue.getSize();
-    if (getActivity() != null && newValue.getSize() > 0) {
-      getList().addMiddleData(position,newValue,towardsBottom);
-      if (towardsBottom) {
-        getAdapter().notifyDataSetChanged();
-      }
- else {
-        View v=Utility.getListViewItemViewFromPosition(getListView(),position + 1 + 1);
-        int top=(v == null) ? 0 : v.getTop();
-        getAdapter().notifyDataSetChanged();
-        int ss=position + 1 + size - 1;
-        getListView().setSelectionFromTop(ss,top);
-      }
-    }
+  if (getActivity() != null && newValue != null && newValue.getSize() > 0) {
+    getList().addMiddleData(position,newValue,towardsBottom);
+    getAdapter().notifyDataSetChanged();
+    MentionWeiboTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
   }
 }

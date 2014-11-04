@@ -1,0 +1,7 @@
+{
+  listView.setSelectionFromTop(adapterItemPosition + listView.getHeaderViewsCount(),top);
+  AppLogger.i("ListView scrollTo " + (adapterItemPosition + listView.getHeaderViewsCount()) + " offset "+ top);
+  if (runnable != null) {
+    runnable.run();
+  }
+}

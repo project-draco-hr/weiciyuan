@@ -1,0 +1,6 @@
+{
+  listView.setSelectionFromTop(itemPosition,top);
+  if (runnable != null) {
+    runnable.run();
+  }
+}

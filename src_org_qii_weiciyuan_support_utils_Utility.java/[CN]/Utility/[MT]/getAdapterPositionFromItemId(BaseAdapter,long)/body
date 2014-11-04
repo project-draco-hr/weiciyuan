@@ -1,0 +1,13 @@
+{
+  if (itemId == -1) {
+    return -1;
+  }
+  for (int i=0; i < adapter.getCount(); i++) {
+    long id=adapter.getItemId(i);
+    AppLogger.i("Position " + i + " item id "+ id);
+    if (id == itemId) {
+      return i;
+    }
+  }
+  return -1;
+}

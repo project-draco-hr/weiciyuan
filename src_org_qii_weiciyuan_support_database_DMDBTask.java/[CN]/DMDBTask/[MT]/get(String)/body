@@ -8,8 +8,10 @@
     try {
       DMUserListBean value=gson.fromJson(json,DMUserListBean.class);
       for (      DMUserBean b : value.getItemList()) {
-        b.getListViewSpannableString();
-        b.getListviewItemShowTime();
+        if (!b.isMiddleUnreadItem()) {
+          b.getListViewSpannableString();
+          b.getListviewItemShowTime();
+        }
       }
       return value;
     }

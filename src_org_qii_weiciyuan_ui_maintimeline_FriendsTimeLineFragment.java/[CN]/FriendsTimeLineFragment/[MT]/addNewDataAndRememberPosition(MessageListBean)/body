@@ -6,7 +6,7 @@
     getAdapter().notifyDataSetChanged();
     int finalSize=getList().getSize();
     final int positionAfterRefresh=index + finalSize - initSize + getListView().getHeaderViewsCount();
-    Utility.setListViewSelectionFromTop(getListView(),positionAfterRefresh,1,new Runnable(){
+    Utility.setListViewItemPosition(getListView(),positionAfterRefresh,1,new Runnable(){
       @Override public void run(){
         newMsgTipBar.setValue(newValue,false);
         newMsgTipBar.setType(TopTipBar.Type.AUTO);

@@ -10,7 +10,9 @@
     if (!TextUtils.isEmpty(json)) {
       try {
         MessageBean value=gson.fromJson(json,MessageBean.class);
-        value.getListViewSpannableString();
+        if (!value.isMiddleUnreadItem() && !TextUtils.isEmpty(value.getText())) {
+          value.getListViewSpannableString();
+        }
         msgList.add(value);
       }
  catch (      JsonSyntaxException e) {

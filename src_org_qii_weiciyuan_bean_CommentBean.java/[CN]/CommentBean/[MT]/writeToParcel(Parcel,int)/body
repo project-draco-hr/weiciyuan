@@ -10,4 +10,5 @@
   dest.writeParcelable(status,flags);
   dest.writeParcelable(reply_comment,flags);
   dest.writeString(sourceString);
+  dest.writeBooleanArray(new boolean[]{this.isMiddleUnreadItem});
 }

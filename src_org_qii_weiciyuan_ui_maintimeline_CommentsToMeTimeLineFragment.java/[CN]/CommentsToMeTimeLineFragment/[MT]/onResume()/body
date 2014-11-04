@@ -1,14 +1,11 @@
 {
   super.onResume();
   setListViewPositionFromPositionsCache();
-  LocalBroadcastManager.getInstance(getActivity()).registerReceiver(newBroadcastReceiver,new IntentFilter(AppEventAction.NEW_MSG_BROADCAST));
-  setActionBarTabCount(newMsgTipBar.getValues().size());
+  showUIUnreadCount(newMsgTipBar.getValues().size());
   newMsgTipBar.setOnChangeListener(new TopTipBar.OnChangeListener(){
     @Override public void onChange(    int count){
-      ((MainTimeLineActivity)getActivity()).setCommentsToMeCount(count);
-      setActionBarTabCount(count);
+      showUIUnreadCount(newMsgTipBar.getValues().size());
     }
   }
 );
-  checkUnreadInfo();
 }

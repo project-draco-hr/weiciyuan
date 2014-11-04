@@ -1,0 +1,7 @@
+{
+  MainTimeLineActivity mainTimeLineActivity=(MainTimeLineActivity)getActivity();
+  if (mainTimeLineActivity == null) {
+    return;
+  }
+  mainTimeLineActivity.setCommentsToMeCount(count);
+}

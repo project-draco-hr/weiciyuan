@@ -1,3 +1,6 @@
 {
   this.idstr=id;
+  if (this.id == 0) {
+    this.id=Long.valueOf(id);
+  }
 }

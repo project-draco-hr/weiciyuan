@@ -22,4 +22,5 @@
   dest.writeParcelable(geo,flags);
   dest.writeTypedList(pic_urls);
   dest.writeStringList(pic_ids);
+  dest.writeBooleanArray(new boolean[]{this.isMiddleUnreadItem});
 }

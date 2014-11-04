@@ -1,0 +1,3 @@
+{
+  AppLogger.i("Activity saved instance state, class name : " + activity.getClass().getSimpleName());
+}

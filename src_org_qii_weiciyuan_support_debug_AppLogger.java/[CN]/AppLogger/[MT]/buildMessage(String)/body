@@ -1,4 +1,4 @@
 {
   StackTraceElement caller=new Throwable().fillInStackTrace().getStackTrace()[2];
-  return new StringBuilder().append(caller.getClassName()).append(".").append(caller.getMethodName()).append("(): ").append(msg).toString();
+  return new StringBuilder().append(caller.getFileName()).append(".").append(caller.getMethodName()).append("(): ").append(msg).toString();
 }

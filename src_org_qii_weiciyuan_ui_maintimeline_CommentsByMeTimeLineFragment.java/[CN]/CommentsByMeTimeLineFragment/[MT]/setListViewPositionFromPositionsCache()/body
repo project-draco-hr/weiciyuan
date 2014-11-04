@@ -1,3 +1,3 @@
 {
-  Utility.setListViewSelectionFromTop(getListView(),timeLinePosition != null ? timeLinePosition.position : 0,timeLinePosition != null ? timeLinePosition.top : 0);
+  Utility.setListViewAdapterPosition(getListView(),timeLinePosition != null ? timeLinePosition.getPosition(bean) : 0,timeLinePosition != null ? timeLinePosition.top : 0,null);
 }

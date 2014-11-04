@@ -1,0 +1,24 @@
+{
+  MentionTimeLineData dbData=MentionWeiboTimeLineDBTask.getRepostLineMsgList(accountId);
+  List<MessageBean> itemList=dbData.msgList.getItemList();
+  TimeLinePosition position=dbData.position;
+  TreeSet<Long> newMsgIds=position.newMsgIds;
+  HashMap<Long,MessageBean> map=new HashMap<>();
+  for (  MessageBean msg : itemList) {
+    map.put(msg.getIdLong(),msg);
+  }
+  for (  Object object : newMsgIds) {
+    long id;
+    if (object instanceof Double) {
+      Double value=(Double)object;
+      id=value.longValue();
+    }
+ else {
+      id=(Long)object;
+    }
+    MessageBean msg=map.get(id);
+    if (msg != null) {
+      mentions.getItemList().add(msg);
+    }
+  }
+}

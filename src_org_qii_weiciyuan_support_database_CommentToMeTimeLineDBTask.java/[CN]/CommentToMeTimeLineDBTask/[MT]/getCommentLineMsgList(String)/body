@@ -11,7 +11,9 @@
     if (!TextUtils.isEmpty(json)) {
       try {
         CommentBean value=gson.fromJson(json,CommentBean.class);
-        value.getListViewSpannableString();
+        if (!value.isMiddleUnreadItem()) {
+          value.getListViewSpannableString();
+        }
         msgList.add(value);
       }
  catch (      JsonSyntaxException e) {

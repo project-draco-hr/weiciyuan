@@ -1,0 +1,25 @@
+{
+  final MessageListBean mentions=unreadMentions.get(account);
+  final CommentListBean comments=unreadComments.get(account);
+  final CommentListBean mentionsComment=unreadMentionsComment.get(account);
+  this.uiHandler.post(new Runnable(){
+    @Override public void run(){
+      AppLogger.i("Post unread data to ui");
+      for (      Callback callback : callbackList) {
+        if (mentions != null) {
+          AppLogger.i("Post unread mention weibo data to ui: " + callback.getClass().getSimpleName());
+          callback.unreadMentionsChanged(account,mentions);
+        }
+        if (comments != null) {
+          AppLogger.i("Post unread comment to me data to ui: " + callback.getClass().getSimpleName());
+          callback.unreadCommentsChanged(account,comments);
+        }
+        if (mentionsComment != null) {
+          AppLogger.i("Post unread mention comments data to ui: " + callback.getClass().getSimpleName());
+          callback.unreadMentionsCommentChanged(account,mentionsComment);
+        }
+      }
+    }
+  }
+);
+}

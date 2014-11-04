@@ -1,0 +1,5 @@
+{
+  this.firstItemId=firstItemId;
+  this.top=top;
+  this.position=position;
+}

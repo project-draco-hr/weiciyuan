@@ -3,7 +3,7 @@
     CommentBean last=data.getItem(data.getSize() - 1);
     boolean dup=getList().getItemList().contains(last);
     if (!dup) {
-      addNewDataAndRememberPosition(data);
+      addNewDataAndRememberPosition(data,true);
     }
   }
 }

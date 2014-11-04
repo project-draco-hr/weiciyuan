@@ -9,8 +9,10 @@
   try {
     value=new Gson().fromJson(jsonData,DMUserListBean.class);
     for (    DMUserBean b : value.getItemList()) {
-      b.getListViewSpannableString();
-      b.getListviewItemShowTime();
+      if (!b.isMiddleUnreadItem()) {
+        b.getListViewSpannableString();
+        b.getListviewItemShowTime();
+      }
     }
   }
  catch (  JsonSyntaxException e) {

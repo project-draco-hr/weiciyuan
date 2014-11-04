@@ -2,7 +2,4 @@
   if (getActivity() != null && newValue.getSize() > 0) {
     addNewDataAndRememberPosition(newValue);
   }
-  unreadBean=null;
-  NotificationManager notificationManager=(NotificationManager)getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-  notificationManager.cancel(NotificationServiceHelper.getMentionsWeiboNotificationId(GlobalContext.getInstance().getAccountBean()));
 }

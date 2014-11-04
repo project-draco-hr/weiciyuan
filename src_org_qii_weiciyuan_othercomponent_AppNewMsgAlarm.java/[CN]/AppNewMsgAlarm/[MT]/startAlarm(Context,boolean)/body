@@ -11,7 +11,7 @@
     time=(AlarmManager.INTERVAL_HALF_HOUR);
   }
   AlarmManager alarm=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-  Intent intent=new Intent(context,FetchNewMsgService.class);
+  Intent intent=FetchNewMsgService.newIntentFromAlarmManager();
   PendingIntent sender=PendingIntent.getService(context,REQUEST_CODE,intent,PendingIntent.FLAG_CANCEL_CURRENT);
   alarm.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,0,time,sender);
   if (!silent) {

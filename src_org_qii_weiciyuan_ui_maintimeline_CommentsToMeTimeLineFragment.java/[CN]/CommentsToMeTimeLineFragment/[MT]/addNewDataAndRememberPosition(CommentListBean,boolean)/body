@@ -1,0 +1,45 @@
+{
+  AppLogger.i("Add new unread data to memory cache");
+  if (getActivity() == null || newValue.getSize() == 0) {
+    AppLogger.i("Activity is destroyed or new data count is zero, give up");
+    return;
+  }
+  final boolean isDataSourceEmpty=getList().getSize() == 0;
+  TimeLinePosition previousPosition=Utility.getCurrentPositionFromListView(getListView());
+  getList().addNewData(newValue);
+  if (isDataSourceEmpty) {
+    newMsgTipBar.setValue(newValue,true);
+    newMsgTipBar.clearAndReset();
+    getAdapter().notifyDataSetChanged();
+    AppLogger.i("Init data source is empty, ListView jump to zero position after refresh, first time open app? ");
+    getListView().setSelection(0);
+    saveTimeLinePositionToDB();
+  }
+ else {
+    if (previousPosition.isEmpty() && timeLinePosition != null) {
+      previousPosition=timeLinePosition;
+    }
+    AppLogger.i("Previous first visible item id " + previousPosition.firstItemId);
+    getAdapter().notifyDataSetChanged();
+    List<CommentBean> unreadData=newValue.getItemList();
+    for (    CommentBean comment : unreadData) {
+      if (comment != null) {
+        CommentsToMeTimeLineFragment.this.timeLinePosition.newMsgIds.add(comment.getIdLong());
+      }
+    }
+    newMsgTipBar.setValue(CommentsToMeTimeLineFragment.this.timeLinePosition.newMsgIds);
+    int positionInAdapter=Utility.getAdapterPositionFromItemId(getAdapter(),previousPosition.firstItemId);
+    AppLogger.i("ListView restore to previous position " + positionInAdapter);
+    getListView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+      @Override public void onGlobalLayout(){
+        getListView().getViewTreeObserver().removeOnGlobalLayoutListener(this);
+        AppLogger.i("Save ListView position to database");
+        saveTimeLinePositionToDB();
+      }
+    }
+);
+    Utility.setListViewAdapterPosition(getListView(),positionInAdapter,previousPosition.top - 1,null);
+  }
+  showUIUnreadCount(CommentsToMeTimeLineFragment.this.timeLinePosition.newMsgIds.size());
+  CommentToMeTimeLineDBTask.asyncReplace(getList(),accountBean.getUid());
+}

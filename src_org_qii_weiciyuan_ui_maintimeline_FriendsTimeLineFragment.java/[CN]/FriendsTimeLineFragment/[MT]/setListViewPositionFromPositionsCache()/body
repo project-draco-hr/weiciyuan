@@ -1,6 +1,6 @@
 {
   final TimeLinePosition p=positionCache.get(currentGroupId);
-  Utility.setListViewSelectionFromTop(getListView(),p != null ? p.position : 0,p != null ? p.top : 0,new Runnable(){
+  Utility.setListViewItemPosition(getListView(),p != null ? p.getPosition(bean) : 0,p != null ? p.top : 0,new Runnable(){
     @Override public void run(){
       setListViewUnreadTipBar(p);
     }

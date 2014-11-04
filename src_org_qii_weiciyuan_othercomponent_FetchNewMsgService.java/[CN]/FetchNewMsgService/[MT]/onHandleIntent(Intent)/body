@@ -1,6 +1,20 @@
 {
-  if (SettingUtility.disableFetchAtNight() && isNowNight()) {
+  if (intent == null) {
     return;
+  }
+  String action=intent.getAction();
+  if (ACTION_ALARM_MANAGER.equals(action)) {
+    AppLogger.i("FetchNewMsgService is started by " + ACTION_ALARM_MANAGER);
+    if (SettingUtility.disableFetchAtNight() && isNowNight()) {
+      AppLogger.i("FetchNewMsgService is disabled at night, so give up");
+      return;
+    }
+  }
+ else   if (ACTION_OPEN_APP.equals(action)) {
+    AppLogger.i("FetchNewMsgService is started by " + ACTION_OPEN_APP);
+  }
+ else {
+    throw new IllegalArgumentException("Intent action is empty");
   }
   List<AccountBean> accountBeanList=AccountDBTask.getAccountList();
   if (accountBeanList.size() == 0) {
@@ -8,10 +22,12 @@
   }
   for (  AccountBean account : accountBeanList) {
     try {
+      AppLogger.i("FetchNewMsgService start fetch " + account.getUsernick() + "'s unread data");
       fetchMsg(account);
     }
  catch (    WeiboException e) {
       e.printStackTrace();
     }
   }
+  AppLogger.i("FetchNewMsgService finished");
 }

@@ -1,0 +1,5 @@
+{
+  Intent intent=new Intent(GlobalContext.getInstance(),FetchNewMsgService.class);
+  intent.setAction(ACTION_OPEN_APP);
+  return intent;
+}

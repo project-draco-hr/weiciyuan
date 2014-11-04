@@ -1,0 +1,3 @@
+{
+  logOnExceptionScheduledExecutor=new LogOnExceptionScheduledExecutor(1);
+}

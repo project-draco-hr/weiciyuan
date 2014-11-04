@@ -1,0 +1,4 @@
+{
+  uiHandler.postDelayed(scheduleFetchUnreadRunnable,SCHEDULE_DELAY_MILLS);
+  uiHandler.removeCallbacks(unScheduleFetchUnreadRunnable);
+}

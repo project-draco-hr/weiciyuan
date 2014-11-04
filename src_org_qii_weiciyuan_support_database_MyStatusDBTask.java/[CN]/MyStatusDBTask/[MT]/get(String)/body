@@ -8,7 +8,9 @@
     String json=c.getString(c.getColumnIndex(MyStatusTable.StatusDataTable.JSONDATA));
     try {
       MessageBean value=gson.fromJson(json,MessageBean.class);
-      value.getListViewSpannableString();
+      if (!value.isMiddleUnreadItem()) {
+        value.getListViewSpannableString();
+      }
       msgList.add(value);
     }
  catch (    JsonSyntaxException ignored) {

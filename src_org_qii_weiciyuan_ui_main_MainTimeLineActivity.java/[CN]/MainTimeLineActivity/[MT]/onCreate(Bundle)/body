@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   if (savedInstanceState != null) {
-    accountBean=savedInstanceState.getParcelable("account");
+    accountBean=savedInstanceState.getParcelable(BundleArgsConstants.ACCOUNT_EXTRA);
   }
  else {
     Intent intent=getIntent();

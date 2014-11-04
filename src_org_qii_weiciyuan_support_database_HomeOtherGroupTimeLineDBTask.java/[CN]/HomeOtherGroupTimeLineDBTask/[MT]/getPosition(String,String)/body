@@ -16,5 +16,5 @@
     }
   }
   c.close();
-  return new TimeLinePosition(0,0);
+  return TimeLinePosition.empty();
 }

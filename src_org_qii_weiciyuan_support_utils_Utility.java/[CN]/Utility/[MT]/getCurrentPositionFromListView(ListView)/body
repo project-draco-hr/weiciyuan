@@ -1,5 +1,18 @@
 {
+  if (listView.getChildCount() == 0) {
+    AppLogger.i("ListView child count is empty, maybe this ListView have not be visible to user");
+    return TimeLinePosition.empty();
+  }
+  AppLogger.i("ListView child count " + listView.getChildCount());
   View view=listView.getChildAt(0);
   int top=(view != null ? view.getTop() : 0);
-  return new TimeLinePosition(listView.getFirstVisiblePosition(),top);
+  int firstVisiblePosition=listView.getFirstVisiblePosition();
+  if (firstVisiblePosition < listView.getHeaderViewsCount()) {
+    AppLogger.i("ListView first visible position is " + firstVisiblePosition + " it  below header view count "+ listView.getHeaderViewsCount()+ " so set header view count to it");
+    firstVisiblePosition=listView.getHeaderViewsCount();
+  }
+  AppLogger.i("ListView first visible position " + firstVisiblePosition);
+  long firstVisibleId=listView.getItemIdAtPosition(firstVisiblePosition);
+  AppLogger.i("ListView first visible id " + firstVisibleId);
+  return new TimeLinePosition(firstVisibleId,top,listView.getFirstVisiblePosition());
 }

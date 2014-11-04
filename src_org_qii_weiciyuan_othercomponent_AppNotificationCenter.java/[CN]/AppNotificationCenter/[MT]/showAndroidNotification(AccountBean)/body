@@ -1,0 +1,23 @@
+{
+  UnreadBean unreadBean=unreadBeans.get(account);
+  MessageListBean mentions=unreadMentions.get(account);
+  CommentListBean comments=unreadComments.get(account);
+  CommentListBean mentionsComment=unreadMentionsComment.get(account);
+  String accountId=account.getUid();
+  if (mentions == null) {
+    mentions=new MessageListBean();
+  }
+  addDatabaseUnreadMentionsWeibo(accountId,mentions);
+  Utility.removeDuplicateAndSortStatus(mentions.getItemList());
+  if (comments == null) {
+    comments=new CommentListBean();
+  }
+  addDatabaseUnreadCommentsToMe(accountId,comments);
+  Utility.removeDuplicateAndSortComment(comments.getItemList());
+  if (mentionsComment == null) {
+    mentionsComment=new CommentListBean();
+  }
+  addDatabaseUnreadMentionsComment(accountId,mentionsComment);
+  Utility.removeDuplicateAndSortComment(mentionsComment.getItemList());
+  showNotification(GlobalContext.getInstance(),account,mentions,comments,mentionsComment,unreadBean);
+}
