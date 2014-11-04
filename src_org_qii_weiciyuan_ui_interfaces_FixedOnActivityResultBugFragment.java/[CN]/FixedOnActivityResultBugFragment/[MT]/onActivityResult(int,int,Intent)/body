@@ -1,3 +1,5 @@
 {
-  if (!checkNestedFragmentsForResult(requestCode,resultCode,data))   super.onActivityResult(requestCode,resultCode,data);
+  if (!checkNestedFragmentsForResult(requestCode,resultCode,data)) {
+    super.onActivityResult(requestCode,resultCode,data);
+  }
 }

@@ -4,8 +4,12 @@
   fragmentList.append(0,fragment.getSearchWeiboFragment());
   fragmentList.append(1,fragment.getSearchUserFragment());
   FragmentTransaction transaction=fragment.getChildFragmentManager().beginTransaction();
-  if (!fragmentList.get(0).isAdded())   transaction.add(viewPager.getId(),fragmentList.get(0),SearchStatusFragment.class.getName());
-  if (!fragmentList.get(1).isAdded())   transaction.add(viewPager.getId(),fragmentList.get(1),SearchUserFragment.class.getName());
+  if (!fragmentList.get(0).isAdded()) {
+    transaction.add(viewPager.getId(),fragmentList.get(0),SearchStatusFragment.class.getName());
+  }
+  if (!fragmentList.get(1).isAdded()) {
+    transaction.add(viewPager.getId(),fragmentList.get(1),SearchUserFragment.class.getName());
+  }
   if (!transaction.isEmpty()) {
     transaction.commit();
     fragment.getChildFragmentManager().executePendingTransactions();

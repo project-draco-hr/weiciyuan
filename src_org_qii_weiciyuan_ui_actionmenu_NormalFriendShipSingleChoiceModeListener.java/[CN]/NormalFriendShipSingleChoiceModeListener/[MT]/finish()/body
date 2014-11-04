@@ -1,4 +1,8 @@
 {
-  if (mode != null)   mode.finish();
-  if (followOrUnfollowTask != null)   followOrUnfollowTask.cancel(true);
+  if (mode != null) {
+    mode.finish();
+  }
+  if (followOrUnfollowTask != null) {
+    followOrUnfollowTask.cancel(true);
+  }
 }

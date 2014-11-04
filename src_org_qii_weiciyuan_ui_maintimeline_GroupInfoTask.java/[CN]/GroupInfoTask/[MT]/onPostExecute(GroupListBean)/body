@@ -1,5 +1,7 @@
 {
   super.onPostExecute(groupListBean);
   GroupDBTask.update(groupListBean,accountId);
-  if (accountId.equalsIgnoreCase(GlobalContext.getInstance().getCurrentAccountId()))   GlobalContext.getInstance().setGroup(groupListBean);
+  if (accountId.equalsIgnoreCase(GlobalContext.getInstance().getCurrentAccountId())) {
+    GlobalContext.getInstance().setGroup(groupListBean);
+  }
 }

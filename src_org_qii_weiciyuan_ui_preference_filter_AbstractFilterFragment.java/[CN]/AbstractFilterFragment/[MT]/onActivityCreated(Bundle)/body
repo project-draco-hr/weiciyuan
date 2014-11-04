@@ -11,7 +11,7 @@
   getListView().setMultiChoiceModeListener(new FilterMultiChoiceModeListener());
   getListView().setOnItemClickListener(new AdapterView.OnItemClickListener(){
     @Override public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
-      ModifyFilterDialog dialog=new ModifyFilterDialog(list.get(position));
+      ModifyFilterDialog dialog=ModifyFilterDialog.newInstance(list.get(position));
       dialog.setTargetFragment(AbstractFilterFragment.this,1);
       dialog.show(getFragmentManager(),"");
     }

@@ -4,8 +4,12 @@
   fragmentList.append(CommentsTimeLine.COMMENTS_TO_ME_CHILD_POSITION,fragment.getCommentsToMeTimeLineFragment());
   fragmentList.append(CommentsTimeLine.COMMENTS_BY_ME_CHILD_POSITION,fragment.getCommentsByMeTimeLineFragment());
   FragmentTransaction transaction=fragment.getChildFragmentManager().beginTransaction();
-  if (!fragmentList.get(CommentsTimeLine.COMMENTS_TO_ME_CHILD_POSITION).isAdded())   transaction.add(viewPager.getId(),fragmentList.get(CommentsTimeLine.COMMENTS_TO_ME_CHILD_POSITION),CommentsToMeTimeLineFragment.class.getName());
-  if (!fragmentList.get(CommentsTimeLine.COMMENTS_BY_ME_CHILD_POSITION).isAdded())   transaction.add(viewPager.getId(),fragmentList.get(CommentsTimeLine.COMMENTS_BY_ME_CHILD_POSITION),CommentsByMeTimeLineFragment.class.getName());
+  if (!fragmentList.get(CommentsTimeLine.COMMENTS_TO_ME_CHILD_POSITION).isAdded()) {
+    transaction.add(viewPager.getId(),fragmentList.get(CommentsTimeLine.COMMENTS_TO_ME_CHILD_POSITION),CommentsToMeTimeLineFragment.class.getName());
+  }
+  if (!fragmentList.get(CommentsTimeLine.COMMENTS_BY_ME_CHILD_POSITION).isAdded()) {
+    transaction.add(viewPager.getId(),fragmentList.get(CommentsTimeLine.COMMENTS_BY_ME_CHILD_POSITION),CommentsByMeTimeLineFragment.class.getName());
+  }
   if (!transaction.isEmpty()) {
     transaction.commit();
     fragment.getChildFragmentManager().executePendingTransactions();

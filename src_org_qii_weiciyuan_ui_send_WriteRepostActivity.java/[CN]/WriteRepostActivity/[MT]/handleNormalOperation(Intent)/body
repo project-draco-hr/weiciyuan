@@ -1,6 +1,8 @@
 {
   token=intent.getStringExtra("token");
-  if (TextUtils.isEmpty(token))   token=GlobalContext.getInstance().getSpecialToken();
+  if (TextUtils.isEmpty(token)) {
+    token=GlobalContext.getInstance().getSpecialToken();
+  }
   msg=(MessageBean)intent.getParcelableExtra("msg");
   if (msg.getRetweeted_status() != null) {
     getEditTextView().setText("//@" + msg.getUser().getScreen_name() + ": "+ msg.getText());

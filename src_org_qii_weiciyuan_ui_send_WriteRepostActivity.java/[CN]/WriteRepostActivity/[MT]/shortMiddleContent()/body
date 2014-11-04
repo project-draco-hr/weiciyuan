@@ -9,7 +9,9 @@
       String startPart=content.substring(0,b);
       String endPart=content.substring(a);
       getEditTextView().setText(startPart + endPart);
-      if (index <= result.length())       getEditTextView().setSelection(index);
+      if (index <= result.length()) {
+        getEditTextView().setSelection(index);
+      }
     }
   }
 }

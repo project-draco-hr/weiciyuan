@@ -1,5 +1,7 @@
 {
-  if (fragment.getActivity() == null)   return;
+  if (fragment.getActivity() == null) {
+    return;
+  }
   if (newValue != null && e == null) {
     if (isStatusDeleted(newValue)) {
       setTextViewDeleted(content);

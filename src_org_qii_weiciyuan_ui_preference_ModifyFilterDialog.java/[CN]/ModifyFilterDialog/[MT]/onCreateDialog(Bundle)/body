@@ -1,4 +1,5 @@
 {
+  final String word=getArguments().getString("word");
   AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
   final EditText et=new EditText(getActivity());
   et.setText(word);

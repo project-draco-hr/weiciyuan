@@ -1,4 +1,6 @@
 {
-  if (this.mode == null)   this.mode=mode;
+  if (this.mode == null) {
+    this.mode=mode;
+  }
   return true;
 }

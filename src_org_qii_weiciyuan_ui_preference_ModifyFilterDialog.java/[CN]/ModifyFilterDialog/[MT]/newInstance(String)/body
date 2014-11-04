@@ -1,0 +1,7 @@
+{
+  ModifyFilterDialog modifyFilterDialog=new ModifyFilterDialog();
+  Bundle bundle=new Bundle();
+  bundle.putString("word",word);
+  modifyFilterDialog.setArguments(bundle);
+  return modifyFilterDialog;
+}

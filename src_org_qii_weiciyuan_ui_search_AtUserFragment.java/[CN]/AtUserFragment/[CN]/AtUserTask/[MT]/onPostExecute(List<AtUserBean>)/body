@@ -1,6 +1,8 @@
 {
   super.onPostExecute(atUserBeans);
-  if (isCancelled())   return;
+  if (isCancelled()) {
+    return;
+  }
   if (atUserBeans == null || atUserBeans.size() == 0) {
     result.clear();
     atList.clear();

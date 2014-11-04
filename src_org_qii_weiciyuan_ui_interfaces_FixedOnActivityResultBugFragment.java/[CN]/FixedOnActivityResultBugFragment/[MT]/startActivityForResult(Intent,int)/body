@@ -3,5 +3,7 @@
     ((FixedOnActivityResultBugFragment)getParentFragment()).registerRequestCode(requestCode,hashCode());
     getParentFragment().startActivityForResult(intent,requestCode);
   }
- else   super.startActivityForResult(intent,requestCode);
+ else {
+    super.startActivityForResult(intent,requestCode);
+  }
 }
