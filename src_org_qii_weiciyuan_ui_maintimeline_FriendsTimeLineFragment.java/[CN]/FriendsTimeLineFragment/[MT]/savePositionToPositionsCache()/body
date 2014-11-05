@@ -1,3 +1,10 @@
 {
-  positionCache.put(currentGroupId,Utility.getCurrentPositionFromListView(getListView()));
+  TimeLinePosition current=Utility.getCurrentPositionFromListView(getListView());
+  if (!current.isEmpty()) {
+    positionCache.put(currentGroupId,current);
+    AppLogger.i("Current ListView position first visible item id " + current.firstItemId + " , save to memory cache");
+  }
+ else {
+    AppLogger.i("Cant get correct current ListView position, so use previous database data");
+  }
 }

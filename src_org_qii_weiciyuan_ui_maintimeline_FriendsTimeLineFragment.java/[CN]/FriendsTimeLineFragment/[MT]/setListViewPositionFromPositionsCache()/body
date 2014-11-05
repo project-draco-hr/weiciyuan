@@ -1,8 +1,12 @@
 {
-  final TimeLinePosition p=positionCache.get(currentGroupId);
-  Utility.setListViewItemPosition(getListView(),p != null ? p.getPosition(bean) : 0,p != null ? p.top : 0,new Runnable(){
+  final TimeLinePosition timeLinePosition=positionCache.get(currentGroupId);
+  AppLogger.i("Memory cached position first visible item id " + (timeLinePosition != null ? timeLinePosition.firstItemId : 0));
+  int position=timeLinePosition != null ? timeLinePosition.getPosition(bean) : 0;
+  int top=timeLinePosition != null ? timeLinePosition.top : 0;
+  AppLogger.i("Set ListView position from memory cached position position " + position + " top "+ top);
+  Utility.setListViewAdapterPosition(getListView(),position,top,new Runnable(){
     @Override public void run(){
-      setListViewUnreadTipBar(p);
+      setListViewUnreadTipBar(timeLinePosition);
     }
   }
 );

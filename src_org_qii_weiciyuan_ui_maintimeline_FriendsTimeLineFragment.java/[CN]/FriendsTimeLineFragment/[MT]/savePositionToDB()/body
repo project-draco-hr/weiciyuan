@@ -1,7 +1,10 @@
 {
   savePositionToPositionsCache();
   TimeLinePosition position=positionCache.get(currentGroupId);
-  position.newMsgIds=newMsgTipBar.getValues();
-  final String groupId=currentGroupId;
-  FriendsTimeLineDBTask.asyncUpdatePosition(position,GlobalContext.getInstance().getCurrentAccountId(),groupId);
+  if (position != null) {
+    position.newMsgIds=newMsgTipBar.getValues();
+    final String groupId=currentGroupId;
+    FriendsTimeLineDBTask.asyncUpdatePosition(position,GlobalContext.getInstance().getCurrentAccountId(),groupId);
+    AppLogger.i("Save FriendsTimeLineFragment position to database current first visible item id " + position.firstItemId);
+  }
 }
