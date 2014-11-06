@@ -6,7 +6,7 @@
   Iterator<MessageBean> iterator=msgList.iterator();
   final List<AdBean> adBeanList=value.getAd();
   if (adBeanList.size() > 0) {
-    AppLogger.d("filter " + adBeanList.size() + " sina weibo ads");
+    AppLogger.i("filter " + adBeanList.size() + " sina weibo ads");
     List<String> adIdList=new ArrayList<String>();
     for (    AdBean adBean : adBeanList) {
       adIdList.add(adBean.getId());
