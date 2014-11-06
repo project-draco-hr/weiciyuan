@@ -1,4 +1,6 @@
 {
   String time=TimeUtility.getListTime(mills);
-  if (!getText().toString().equals(time))   setText(time);
+  if (!getText().toString().equals(time)) {
+    setText(time);
+  }
 }

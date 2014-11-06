@@ -3,7 +3,9 @@
   int widthMode=MeasureSpec.getMode(widthMeasureSpec);
   int heightSize=MeasureSpec.getSize(heightMeasureSpec);
   int heightMode=MeasureSpec.getMode(heightMeasureSpec);
-  if (widthMode != MeasureSpec.EXACTLY || heightMode != MeasureSpec.UNSPECIFIED)   throw new IllegalArgumentException("this viewgroup only can be used in ListView and its layout_width must be match_parent");
+  if (widthMode != MeasureSpec.EXACTLY || heightMode != MeasureSpec.UNSPECIFIED) {
+    throw new IllegalArgumentException("this viewgroup only can be used in ListView and its layout_width must be match_parent");
+  }
   int paddingLeft=getPaddingLeft();
   int paddingTop=getPaddingTop();
   int paddingBottom=getPaddingBottom();
@@ -23,7 +25,9 @@
   int contentHeight=0;
   for (int i=0; i < childCount; i++) {
     View child=getChildAt(i);
-    if (child.getVisibility() == View.GONE)     continue;
+    if (child.getVisibility() == View.GONE) {
+      continue;
+    }
     final QuickRelativeLayout.LayoutParams lp=(QuickRelativeLayout.LayoutParams)child.getLayoutParams();
     int defaultWidth=lp.width;
     int defaultHeight=lp.height;

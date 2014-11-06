@@ -1,4 +1,8 @@
 {
-  if (enable)   this.comment_ori="1";
- else   this.comment_ori="0";
+  if (enable) {
+    this.comment_ori="1";
+  }
+ else {
+    this.comment_ori="0";
+  }
 }

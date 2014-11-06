@@ -1,5 +1,7 @@
 {
-  if (middleValue == null)   return;
+  if (middleValue == null) {
+    return;
+  }
   if (middleValue.getSize() == 0 || middleValue.getSize() == 1) {
     getItemList().remove(position);
     return;

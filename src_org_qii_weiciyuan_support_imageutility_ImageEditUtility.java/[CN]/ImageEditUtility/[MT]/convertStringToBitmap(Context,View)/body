@@ -13,7 +13,9 @@
     FileManager.createNewFileInSDCard(path);
     FileOutputStream out=new FileOutputStream(path);
     output.compress(Bitmap.CompressFormat.PNG,90,out);
-    if (new File(path).exists())     return path;
+    if (new File(path).exists()) {
+      return path;
+    }
   }
  catch (  Exception e) {
     AppLogger.e(e.getMessage());

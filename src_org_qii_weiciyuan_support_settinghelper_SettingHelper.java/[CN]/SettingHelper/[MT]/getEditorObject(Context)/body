@@ -1,4 +1,6 @@
 {
-  if (editor == null)   editor=PreferenceManager.getDefaultSharedPreferences(paramContext).edit();
+  if (editor == null) {
+    editor=PreferenceManager.getDefaultSharedPreferences(paramContext).edit();
+  }
   return editor;
 }

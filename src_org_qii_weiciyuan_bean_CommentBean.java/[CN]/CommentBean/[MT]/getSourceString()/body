@@ -3,7 +3,9 @@
     return sourceString;
   }
  else {
-    if (!TextUtils.isEmpty(source))     sourceString=Html.fromHtml(this.source).toString();
+    if (!TextUtils.isEmpty(source)) {
+      sourceString=Html.fromHtml(this.source).toString();
+    }
     return sourceString;
   }
 }

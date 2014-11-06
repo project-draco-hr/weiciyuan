@@ -1,5 +1,7 @@
 {
-  if (index > 1)   return;
+  if (index > 1) {
+    return;
+  }
   for (int i=0; i < viewGroup.getChildCount(); i++) {
     View child=viewGroup.getChildAt(i);
     if (child instanceof ViewGroup) {

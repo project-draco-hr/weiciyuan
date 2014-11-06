@@ -5,7 +5,9 @@
   String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
   try {
     FavBean value=new Gson().fromJson(jsonData,FavBean.class);
-    if (value != null)     return value;
+    if (value != null) {
+      return value;
+    }
   }
  catch (  JsonSyntaxException e) {
     AppLogger.e(e.getMessage());

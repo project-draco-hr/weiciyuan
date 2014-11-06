@@ -5,7 +5,9 @@
   if (this.gestureDetector == null) {
     return super.onTouchEvent(ev);
   }
-  if (this.gestureDetector != null)   this.gestureDetector.onTouchEvent(ev);
+  if (this.gestureDetector != null) {
+    this.gestureDetector.onTouchEvent(ev);
+  }
   if ((ev.getActionMasked() == MotionEvent.ACTION_UP || ev.getActionMasked() == MotionEvent.ACTION_CANCEL) && firstPosition[0] <= max_motion_event_down_x_position) {
     int x=(int)(ev.getRawX() - firstPosition[0]);
     firstPosition[0]=0f;

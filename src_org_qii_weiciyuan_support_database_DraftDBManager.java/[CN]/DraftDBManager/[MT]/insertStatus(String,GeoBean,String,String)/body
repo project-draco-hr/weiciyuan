@@ -2,8 +2,12 @@
   ContentValues cv=new ContentValues();
   cv.put(DraftTable.CONTENT,content);
   cv.put(DraftTable.ACCOUNTID,accountId);
-  if (gps != null)   cv.put(DraftTable.GPS,new Gson().toJson(gps));
-  if (!TextUtils.isEmpty(pic))   cv.put(DraftTable.PIC,pic);
+  if (gps != null) {
+    cv.put(DraftTable.GPS,new Gson().toJson(gps));
+  }
+  if (!TextUtils.isEmpty(pic)) {
+    cv.put(DraftTable.PIC,pic);
+  }
   cv.put(DraftTable.TYPE,DraftTable.TYPE_WEIBO);
   wsd.insert(DraftTable.TABLE_NAME,DraftTable.ID,cv);
 }

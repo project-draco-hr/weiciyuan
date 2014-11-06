@@ -1,6 +1,8 @@
 {
   webView.setVisibility(View.VISIBLE);
-  if (webView.getTag() != null)   return;
+  if (webView.getTag() != null) {
+    return;
+  }
   webView.setBackgroundColor(getResources().getColor(R.color.transparent));
   webView.getSettings().setJavaScriptEnabled(true);
   webView.getSettings().setUseWideViewPort(true);

@@ -14,7 +14,9 @@
   String jsonData=HttpUtility.getInstance().executeNormalTask(HttpMethod.Post,url,map);
   try {
     UserBean value=new Gson().fromJson(jsonData,UserBean.class);
-    if (value != null)     return value;
+    if (value != null) {
+      return value;
+    }
   }
  catch (  JsonSyntaxException e) {
     AppLogger.e(e.getMessage());
