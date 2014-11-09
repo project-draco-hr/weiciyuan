@@ -1,7 +1,7 @@
 {
   MentionsCommentTimeLineFragment fragment=((MentionsCommentTimeLineFragment)getChildFragmentManager().findFragmentByTag(MentionsCommentTimeLineFragment.class.getName()));
   if (fragment == null) {
-    fragment=new MentionsCommentTimeLineFragment(GlobalContext.getInstance().getAccountBean(),GlobalContext.getInstance().getAccountBean().getInfo(),GlobalContext.getInstance().getSpecialToken());
+    fragment=MentionsCommentTimeLineFragment.newInstance(GlobalContext.getInstance().getAccountBean(),GlobalContext.getInstance().getAccountBean().getInfo(),GlobalContext.getInstance().getSpecialToken());
   }
   return fragment;
 }

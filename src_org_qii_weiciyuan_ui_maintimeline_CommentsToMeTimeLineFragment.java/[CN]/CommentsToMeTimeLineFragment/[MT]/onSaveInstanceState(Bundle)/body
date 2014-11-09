@@ -1,10 +1,7 @@
 {
   super.onSaveInstanceState(outState);
-  outState.putParcelable("account",accountBean);
-  outState.putParcelable("userBean",userBean);
-  outState.putString("token",token);
   if (getActivity().isChangingConfigurations()) {
-    outState.putParcelable("bean",bean);
-    outState.putSerializable("timeLinePosition",timeLinePosition);
+    outState.putParcelable(ARGUMENTS_DATA_EXTRA,bean);
+    outState.putSerializable(ARGUMENTS_TIMELINE_POSITION_EXTRA,timeLinePosition);
   }
 }

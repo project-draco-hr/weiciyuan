@@ -1,5 +1,0 @@
-{
-  this.accountBean=accountBean;
-  this.userBean=userBean;
-  this.token=token;
-}

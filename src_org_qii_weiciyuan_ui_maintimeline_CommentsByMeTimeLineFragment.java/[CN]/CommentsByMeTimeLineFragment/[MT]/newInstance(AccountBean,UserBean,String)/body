@@ -1,0 +1,9 @@
+{
+  CommentsByMeTimeLineFragment fragment=new CommentsByMeTimeLineFragment();
+  Bundle bundle=new Bundle();
+  bundle.putParcelable(ARGUMENTS_ACCOUNT_EXTRA,accountBean);
+  bundle.putParcelable(ARGUMENTS_USER_EXTRA,userBean);
+  bundle.putString(ARGUMENTS_TOKEN_EXTRA,token);
+  fragment.setArguments(bundle);
+  return fragment;
+}
