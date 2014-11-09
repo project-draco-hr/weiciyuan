@@ -1,11 +1,18 @@
 {
   int initSize=getList().getSize();
   if (getActivity() != null && newValue.getSize() > 0) {
-    getList().addNewData(newValue);
+    MessageBean previousFirstItem=getList().getSize() > 0 ? getList().getItem(0) : null;
     int index=getListView().getFirstVisiblePosition();
+    getList().addNewData(newValue);
     getAdapter().notifyDataSetChanged();
     int finalSize=getList().getSize();
-    final int positionAfterRefresh=index + finalSize - initSize + getListView().getHeaderViewsCount();
+    int positionAfterRefresh=index + finalSize - initSize + getListView().getHeaderViewsCount();
+    if (previousFirstItem != null) {
+      int itemPositionAfterRefresh=getList().getItemList().indexOf(previousFirstItem);
+      if (getList().getItem(itemPositionAfterRefresh - 1).isMiddleUnreadItem()) {
+        positionAfterRefresh-=1;
+      }
+    }
     Utility.setListViewItemPosition(getListView(),positionAfterRefresh,1,new Runnable(){
       @Override public void run(){
         newMsgTipBar.setValue(newValue,false);

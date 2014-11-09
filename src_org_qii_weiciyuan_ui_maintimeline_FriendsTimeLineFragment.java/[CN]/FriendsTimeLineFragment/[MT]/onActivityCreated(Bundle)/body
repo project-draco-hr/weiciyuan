@@ -1,4 +1,7 @@
 {
+  userBean=getArguments().getParcelable(ARGUMENTS_USER_EXTRA);
+  accountBean=getArguments().getParcelable(ARGUMENTS_ACCOUNT_EXTRA);
+  token=getArguments().getString(ARGUMENTS_TOKEN_EXTRA);
 switch (getCurrentState(savedInstanceState)) {
 case FIRST_TIME_START:
     if (Utility.isTaskStopped(dbTask) && getList().getSize() == 0) {
@@ -24,9 +27,6 @@ buildActionBarNav();
 setListViewPositionFromPositionsCache();
 break;
 case ACTIVITY_DESTROY_AND_CREATE:
-userBean=savedInstanceState.getParcelable("userBean");
-accountBean=savedInstanceState.getParcelable("account");
-token=savedInstanceState.getString("token");
 if (Utility.isTaskStopped(dbTask) && getList().getSize() == 0) {
 dbTask=new DBCacheTask(this,accountBean.getUid());
 dbTask.executeOnIO();
