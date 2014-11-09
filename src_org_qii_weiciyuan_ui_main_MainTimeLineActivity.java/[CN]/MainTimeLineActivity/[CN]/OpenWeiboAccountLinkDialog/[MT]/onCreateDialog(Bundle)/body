@@ -1,7 +1,5 @@
 {
-  if (savedInstanceState != null) {
-    this.url=savedInstanceState.getString("url");
-  }
+  final String url=getArguments().getString("url");
   AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
   builder.setTitle(R.string.find_weibo_account_link).setMessage(url).setPositiveButton(R.string.open,new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialog,    int which){

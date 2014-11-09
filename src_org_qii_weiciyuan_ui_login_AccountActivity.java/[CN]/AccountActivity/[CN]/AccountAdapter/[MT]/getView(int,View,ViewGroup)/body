@@ -1,27 +1,31 @@
 {
-  LayoutInflater layoutInflater=getLayoutInflater();
-  View mView=layoutInflater.inflate(R.layout.accountactivity_listview_item_layout,viewGroup,false);
-  mView.findViewById(R.id.listview_root).setBackgroundColor(defaultBG);
+  ViewHolder holder;
+  if (view == null || view.getTag() == null) {
+    LayoutInflater layoutInflater=getLayoutInflater();
+    View mView=layoutInflater.inflate(R.layout.accountactivity_listview_item_layout,viewGroup,false);
+    holder=new ViewHolder();
+    holder.root=mView.findViewById(R.id.listview_root);
+    holder.name=(TextView)mView.findViewById(R.id.account_name);
+    holder.avatar=(ImageView)mView.findViewById(R.id.imageView_avatar);
+    holder.tokenInvalid=(TextView)mView.findViewById(R.id.token_expired);
+    view=mView;
+  }
+ else {
+    holder=(ViewHolder)view.getTag();
+  }
+  holder.root.setBackgroundColor(defaultBG);
   if (listView.getCheckedItemPositions().get(i)) {
-    mView.findViewById(R.id.listview_root).setBackgroundColor(checkedBG);
+    holder.root.setBackgroundColor(checkedBG);
   }
-  TextView textView=(TextView)mView.findViewById(R.id.account_name);
   if (accountList.get(i).getInfo() != null) {
-    textView.setText(accountList.get(i).getInfo().getScreen_name());
+    holder.name.setText(accountList.get(i).getInfo().getScreen_name());
   }
  else {
-    textView.setText(accountList.get(i).getUsernick());
+    holder.name.setText(accountList.get(i).getUsernick());
   }
-  ImageView imageView=(ImageView)mView.findViewById(R.id.imageView_avatar);
   if (!TextUtils.isEmpty(accountList.get(i).getAvatar_url())) {
-    getBitmapDownloader().downloadAvatar(imageView,accountList.get(i).getInfo(),false);
+    getBitmapDownloader().downloadAvatar(holder.avatar,accountList.get(i).getInfo(),false);
   }
-  TextView token=(TextView)mView.findViewById(R.id.token_expired);
-  if (!Utility.isTokenValid(accountList.get(i))) {
-    token.setVisibility(View.VISIBLE);
-  }
- else {
-    token.setVisibility(View.GONE);
-  }
-  return mView;
+  holder.tokenInvalid.setVisibility(!Utility.isTokenValid(accountList.get(i)) ? View.VISIBLE : View.GONE);
+  return view;
 }

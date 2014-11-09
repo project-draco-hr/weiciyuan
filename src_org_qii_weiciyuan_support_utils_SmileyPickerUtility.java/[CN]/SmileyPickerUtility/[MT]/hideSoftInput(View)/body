@@ -1,3 +1,3 @@
 {
-  ((InputMethodManager)GlobalContext.getInstance().getSystemService("input_method")).hideSoftInputFromWindow(paramEditText.getWindowToken(),0);
+  ((InputMethodManager)GlobalContext.getInstance().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(paramEditText.getWindowToken(),0);
 }

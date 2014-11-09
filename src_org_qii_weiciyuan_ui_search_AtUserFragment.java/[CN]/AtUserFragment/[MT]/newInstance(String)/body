@@ -1,0 +1,7 @@
+{
+  AtUserFragment fragment=new AtUserFragment();
+  Bundle bundle=new Bundle();
+  bundle.putString("token",token);
+  fragment.setArguments(bundle);
+  return fragment;
+}

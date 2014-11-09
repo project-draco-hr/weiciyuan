@@ -2,7 +2,7 @@
   paramEditText.requestFocus();
   paramEditText.post(new Runnable(){
     @Override public void run(){
-      ((InputMethodManager)GlobalContext.getInstance().getSystemService("input_method")).showSoftInput(paramEditText,0);
+      ((InputMethodManager)GlobalContext.getInstance().getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(paramEditText,0);
     }
   }
 );

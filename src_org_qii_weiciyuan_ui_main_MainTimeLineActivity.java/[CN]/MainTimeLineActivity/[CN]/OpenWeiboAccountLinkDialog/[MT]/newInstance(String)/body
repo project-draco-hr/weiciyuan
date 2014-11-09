@@ -1,0 +1,7 @@
+{
+  OpenWeiboAccountLinkDialog dialog=new OpenWeiboAccountLinkDialog();
+  Bundle bundle=new Bundle();
+  bundle.putString("url",url);
+  dialog.setArguments(bundle);
+  return dialog;
+}

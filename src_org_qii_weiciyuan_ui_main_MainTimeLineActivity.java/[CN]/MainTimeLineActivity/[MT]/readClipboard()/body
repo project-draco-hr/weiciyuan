@@ -10,7 +10,7 @@
     boolean a=!TextUtils.isEmpty(url) && !url.equals(SettingUtility.getLastFoundWeiboAccountLink());
     boolean b=Utility.isWeiboAccountIdLink(url) || Utility.isWeiboAccountDomainLink(url);
     if (a && b) {
-      OpenWeiboAccountLinkDialog dialog=new OpenWeiboAccountLinkDialog(url);
+      OpenWeiboAccountLinkDialog dialog=OpenWeiboAccountLinkDialog.newInstance(url);
       dialog.show(getSupportFragmentManager(),"");
       SettingUtility.setLastFoundWeiboAccountLink(url);
     }
