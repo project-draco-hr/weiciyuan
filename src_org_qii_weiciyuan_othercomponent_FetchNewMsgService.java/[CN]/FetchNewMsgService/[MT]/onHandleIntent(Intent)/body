@@ -14,7 +14,7 @@
     AppLogger.i("FetchNewMsgService is started by " + ACTION_OPEN_APP);
   }
  else {
-    throw new IllegalArgumentException("Intent action is empty");
+    return;
   }
   List<AccountBean> accountBeanList=AccountDBTask.getAccountList();
   if (accountBeanList.size() == 0) {
