@@ -4,8 +4,8 @@
   }
  else {
     url=convertWeiboCnToWeiboCom(url);
-    boolean urlValide=url.startsWith("http://weibo.com/") || url.startsWith("http://e.weibo.com/");
-    if (!urlValide) {
+    boolean isUrlValidate=url.startsWith("http://weibo.com/") || url.startsWith("http://e.weibo.com/");
+    if (!isUrlValidate) {
       return false;
     }
     if (url.endsWith("/")) {
