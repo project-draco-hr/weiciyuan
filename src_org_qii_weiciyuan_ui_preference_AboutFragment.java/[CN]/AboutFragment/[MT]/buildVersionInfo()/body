@@ -9,7 +9,7 @@
     AppLogger.e(e.getMessage());
   }
   if (packInfo != null) {
-    version=packInfo.versionName;
+    version=packInfo.versionName + "(" + packInfo.versionCode+ ")";
   }
   if (!TextUtils.isEmpty(version)) {
     return version;
