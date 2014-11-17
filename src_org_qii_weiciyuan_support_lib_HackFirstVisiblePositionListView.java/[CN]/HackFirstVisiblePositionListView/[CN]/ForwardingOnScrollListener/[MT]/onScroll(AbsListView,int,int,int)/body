@@ -1,0 +1,8 @@
+{
+  if (selfListener != null) {
+    selfListener.onScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
+  }
+  for (  OnScrollListener l : clientListener) {
+    l.onScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
+  }
+}
