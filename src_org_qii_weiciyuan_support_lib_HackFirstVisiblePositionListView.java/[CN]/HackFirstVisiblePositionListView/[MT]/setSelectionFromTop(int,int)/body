@@ -1,0 +1,4 @@
+{
+  super.setSelectionFromTop(position,y);
+  mCorrectFirstVisiblePosition=position;
+}

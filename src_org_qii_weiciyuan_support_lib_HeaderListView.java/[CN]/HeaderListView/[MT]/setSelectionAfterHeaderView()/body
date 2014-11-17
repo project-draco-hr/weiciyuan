@@ -1,4 +1,0 @@
-{
-  super.setSelectionAfterHeaderView();
-  JavaReflectionUtility.setValue(this,"mFirstPosition",0);
-}

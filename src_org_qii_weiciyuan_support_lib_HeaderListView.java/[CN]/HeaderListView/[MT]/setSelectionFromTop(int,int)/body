@@ -1,4 +1,0 @@
-{
-  super.setSelectionFromTop(position,y);
-  JavaReflectionUtility.setValue(this,"mFirstPosition",position);
-}

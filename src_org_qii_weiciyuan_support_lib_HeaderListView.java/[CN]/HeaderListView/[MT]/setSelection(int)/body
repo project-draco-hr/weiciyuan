@@ -1,4 +1,0 @@
-{
-  super.setSelection(position);
-  JavaReflectionUtility.setValue(this,"mFirstPosition",position);
-}

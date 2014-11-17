@@ -1,0 +1,4 @@
+{
+  super.setSelectionAfterHeaderView();
+  mCorrectFirstVisiblePosition=0;
+}
