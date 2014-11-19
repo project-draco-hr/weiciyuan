@@ -1,8 +1,8 @@
 {
   ViewHolder holder=null;
   PrefView prefView=null;
-  if (convertView == null || convertView.getTag(R.drawable.ic_launcher + getItemViewType(position)) == null) {
-    int itemViewType=getItemViewType(position);
+  int itemViewType=getItemViewType(position);
+  if (convertView == null || convertView.getTag(R.drawable.ic_launcher + itemViewType) == null) {
     View view=null;
 switch (itemViewType) {
 case TYPE_SIMPLE:
@@ -49,7 +49,7 @@ tagIndexList.add(R.drawable.ic_launcher + getItemViewType(position));
  else {
 holder=(ViewHolder)convertView.getTag(R.drawable.ic_launcher + getItemViewType(position));
 }
-if (getItemViewType(position) != TYPE_MIDDLE) {
+if (itemViewType != TYPE_MIDDLE) {
 configLayerType(holder);
 configViewFont(holder);
 bindViewData(holder,position);
