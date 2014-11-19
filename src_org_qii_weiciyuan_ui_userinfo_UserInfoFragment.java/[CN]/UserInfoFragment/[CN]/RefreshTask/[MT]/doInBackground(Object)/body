@@ -21,10 +21,7 @@
       this.e=e;
       cancel(true);
     }
-    if (user != null) {
-      userBean=user;
-    }
- else {
+    if (user == null) {
       cancel(true);
     }
     return user;
