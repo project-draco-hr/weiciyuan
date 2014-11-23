@@ -1,0 +1,3 @@
+{
+  return userInfoFromServer.getStatuses_count().equals("0") && userInfoFromServer.getFollowers_count().equals("0") && userInfoFromServer.getFriends_count().equals("0");
+}

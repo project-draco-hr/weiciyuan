@@ -10,5 +10,15 @@
     if (isMyself()) {
       MyStatusDBTask.asyncReplace(getList(),userBean.getId());
     }
+    UserBean userInfoFromServer=newValue.getItem(0).getUser();
+    if (userInfoFromServer != null && !isSinaWeiboBlockWeiciyuanFetchUserInfo(userInfoFromServer)) {
+      UserInfoFragment.this.userBean=userInfoFromServer;
+      displayBasicInfo();
+      displayCoverPicture();
+      if (getActivity() instanceof UserInfoActivity) {
+        ((UserInfoActivity)getActivity()).setUser(userInfoFromServer);
+        getActivity().invalidateOptionsMenu();
+      }
+    }
   }
 }
