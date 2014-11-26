@@ -1,13 +1,16 @@
 {
+  AppLogger.i("Network status changed");
   if (task != null) {
+    AppLogger.i("Remove previous receiver task");
     handler.removeCallbacks(task);
   }
   task=new Runnable(){
     @Override public void run(){
+      AppLogger.i("Execute current receiver task");
       judgeNetworkStatus(context,true);
       task=null;
     }
   }
 ;
-  handler.postDelayed(task,2000);
+  handler.postDelayed(task,4000);
 }
